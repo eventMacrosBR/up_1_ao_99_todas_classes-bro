@@ -1,78 +1,3 @@
-automacro definirVariaveis {
-	run-once 1
-	exclusive 1
-	ConfigKeyNot classe none
-	call {
-		switch (&config(classe)) {
-			case (=~ /espadachi[mn]/i) {
-				do conf classe espadachim
-				$IDClasse1 = 1
-				$IDClasses2 = 7, 14
-				$mapaPraVirarClasse1 = izlude_in
-				$coordenadaNpcClasse1 =
-				$virarClasse1SequenciaDeConversa = r1 r0
-				#$virarClasse1Mover = # nao precisa mover
-				$IDequipIniciante = 13415 # alfange de iniciante
-			} 
-			case (=~ /gatuno/i) {
-				do conf classe gatuno
-				$IDClasse1 = 6
-				$IDClasses2 = 12, 17
-				$mapaPraVirarClasse1 = moc_prydb1
-				$coordenadaNpcClasse1 = 42 133
-				$virarClasse1Mover = &rand(44,46) &rand(127,129)
-				$virarClasse1SequenciaDeConversa = r1 r1
-				$IDequipIniciante = 13041
-			} 
-			case (=~ /mercador/i) {
-				do conf classe mercador
-				$IDClasse1 = 5
-				$IDClasses2 = 10, 18
-				$mapaPraVirarClasse1 = alberta_in
-				$coordenadaNpcClasse1 =
-				#$virarClasse1Mover = # nao precisa mover
-				#$virarClasse1SequenciaDeConversa = não tem
-				$IDequipIniciante = 1381
-			}
-			case (=~ /mago/i) {
-				do conf classe mago
-				$IDClasse1 = 2
-				$IDClasses2 = 9, 16
-				$mapaPraVirarClasse1 = geffen_in
-				$coordenadaNpcClasse1 =
-				$virarClasse1Mover = &rand(162,165) &rand(123,126)
-				$virarClasse1SequenciaDeConversa = r0 r0
-				$IDequipIniciante = 1639
-			}
-			case (=~ /novi[cç]o/i) {
-				do conf classe novico
-				$IDClasse1 = 4
-				$IDClasses2 = 8, 15
-				$mapaPraVirarClasse1 = prt_church
-				$coordenadaNpcClasse1 =
-				$virarClasse1Mover = &rand(182,184) &rand(36,38)
-				$virarClasse1SequenciaDeConversa = r0
-				$IDequipIniciante = 1545
-			}
-			case (=~ /arqueiro/i) {
-				do conf classe arqueiro
-				$IDClasse1 = 3
-				$IDClasses2 = 11, 19, 20
-				$mapaPraVirarClasse1 = payon_in02
-				$coordenadaNpcClasse1 =
-				#$virarClasse1Mover = # nao precisa mover
-				$virarClasse1SequenciaDeConversa = r0
-				$IDequipIniciante = 1742
-			}
-		}
-		$classeDesejada = &config(classe)
-	}
-}
-
-
-
-
-
 #campo dos aprendizes by HenryBK and Nipodemos
 
 automacro moveToSprakkiOutside {
@@ -1107,12 +1032,12 @@ automacro EndLeveling Bugged {
 	call {
 		[
 		log TEM UM PEQUENO ERRO
-		log VOCE ESQUECEU DE COLOCAR NO CONFIG.TXT QUAL CLASSE QUER SER
+		log VOCE ESQUECEU DE COLOCAR NO CONFIG.TXT QUAL CLASSE 2 QUER SER
 		log PRA FAZER ISSO VC DIGITA AQUI NO CONSOLE
 		log conf classe CLASSEDESEJADA
-		log VALORES POSSIVEIS: espadachim, mercador, mago, arqueiro, noviço, gatuno
-		log EXEMPLO: conf classe espadachim
-		log OUTRO EXEMPLO: conf classe mago
+		log ALGUNS VALORES: tempario, sacerdote, ferreiro, bruxo
+		log EXEMPLO: conf classe caçador
+		log OUTRO EXEMPLO: conf classe bardo
 		log ATE ISSO SER RESOLVIDO A MACRO NAO VAI PROSSEGUIR
 		]
 	}
@@ -1123,16 +1048,16 @@ automacro endleveling {
 	JobLevel 10
 	BaseLevel > 11
 	ConfigKey quest_atual todas_completadas
-	ConfigKey classe espadachim, classe gatuno, classe mercador, classe noviço, classe mago, classe arqueiro
+	ConfigKeyNot classe none
 	InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
 	priority 1
 	call {
 	    call pararDeAtacar
 		do move &rand(103,105) &rand(36,38)
-		do talk &npc(/$classeDesejada/i)
+		do talk &npc(/$classe1Desejada/i)
 		do talk resp 1
 		do talk resp 1
-		log ======== Agora vou virar um $classeDesejada!!!
+		log ======== Agora vou virar um $classe1Desejada!!!
 		do conf quest_atual none
 	}
 }
@@ -1143,17 +1068,16 @@ automacro virandoClasse1Bugged {
 	JobLevel = 10
 	InMapRegex /^(?!new_\d-\d)$/
 	SkillLevel NV_BASIC != 9
-	run-once 1
 	exclusive 1
 	call {
 		$pontos = $.SkillLevelLastLevel
 		log As Habilidades básicas nao foram distribuídas!!!
 		log A skill ta lvl $.SkillLevelLastLevel
 		log Mudando isso
-		while ($pontos < 9 ) as loop
-		do skills add NV_BASIC
-		$pontos++
-		end loop
+		while ($pontos < 9 ) {
+			do skills add NV_BASIC
+			$pontos++
+		}
 	}
 }
 
@@ -1162,39 +1086,46 @@ automacro virandoClasse1 {
 	JobID 0 #Aprendiz
 	JobLevel 10
 	SkillLevel NV_BASIC = 10
-	priority 1
 	exclusive 1
 	call {
+		if (&defined($virarClasse1Mover) = 1) do move $virarClasse1Mover
 		do talknpc $coordenadaNpcClasse1 $virarClasse1SequenciaDeConversa
 		$check = GetIndexAndEquipped("rightHand", "$IDequipIniciante")
 		if ($check != -1) do eq $check
-		do iconf $IDequipIniciante 0 0 0
-		call deixeiDeSerAprendiz
 	}
 }
 
-macro deixeiDeSerAprendiz {
-	do pconf 1243 0 #1243#Adaga_do_Aprendiz#
-	do pconf 2112 0 #2112#Vembrassa_do_Aprendiz#
-	do pconf 2414 0 #2414#Sandálias_do_Aprendiz#
-	do pconf 2510 0 #2510#Capuz_do_Aprendiz#
-	do pconf 2532 0 #2352#Traje_do_Aprendiz#
-	do pconf 5055 0 #5055#Chapéu_de_Ovo_do_Aprendiz#
-	do iconf 2393 0 0 0 #Tunica de Iniciante
-	$check = GetIndexAndEquipped("rightHand", 1243) #Adaga_do_Aprendiz#
-	if ($check != -1) do drop $check
-	$check = GetIndexAndEquipped("leftHand", 2112)#Vembrassa_do_Aprendiz#
-	if ($check != -1) do drop $check
-	$check = GetIndexAndEquipped("shoes", 2414) #Sandálias_do_Aprendiz#
-	if ($check != -1) do drop $check
-	$check = GetIndexAndEquipped("robe", 2510) #Capuz_do_Aprendiz#
-	if ($check != -1) do drop $check
-	$check = GetIndexAndEquipped("armor", 2352) #Chapéu_de_Ovo_do_Aprendiz#
-	if ($check != -1) do drop $check
-	$check = GetIndexAndEquipped("topHead", 5055) #Chapéu_de_Ovo_do_Aprendiz#
-	if ($check != -1) do drop $check
-	$check = GetIndexAndEquipped("armor", 2393) #Tunica de Iniciante
-	if ($check != -1) do eq $check
+automacro jaSouClasse1 {
+	JobIDNot 0 #aprendiz
+	InInventoryID 2414 = 1 #sandalias de aprendiz
+	InInventoryID 5055 = 1 #chapeu de ovo de aprendiz
+	exclusive 1
+	call {
+		do pconf 1243 0 #1243#Adaga_do_Aprendiz#
+		do pconf 2112 0 #2112#Vembrassa_do_Aprendiz#
+		do pconf 2414 0 #2414#Sandálias_do_Aprendiz#
+		do pconf 2510 0 #2510#Capuz_do_Aprendiz#
+		do pconf 2532 0 #2352#Traje_do_Aprendiz#
+		do pconf 5055 0 #5055#Chapéu_de_Ovo_do_Aprendiz#
+		do iconf 2393 0 0 0 #Tunica de Iniciante
+		do iconf $IDequipIniciante 0 0 0
+		$check = GetIndexAndEquipped("rightHand", 1243) #Adaga_do_Aprendiz#
+		if ($check != -1) do drop $check
+		$check = GetIndexAndEquipped("leftHand", 2112)#Vembrassa_do_Aprendiz#
+		if ($check != -1) do drop $check
+		$check = GetIndexAndEquipped("shoes", 2414) #Sandálias_do_Aprendiz#
+		if ($check != -1) do drop $check
+		$check = GetIndexAndEquipped("robe", 2510) #Capuz_do_Aprendiz#
+		if ($check != -1) do drop $check
+		$check = GetIndexAndEquipped("armor", 2352) #Chapéu_de_Ovo_do_Aprendiz#
+		if ($check != -1) do drop $check
+		$check = GetIndexAndEquipped("topHead", 5055) #Chapéu_de_Ovo_do_Aprendiz#
+		if ($check != -1) do drop $check
+		$check = GetIndexAndEquipped("armor", 2393) #Tunica de Iniciante
+		if ($check != -1) do eq $check
+		$check = GetIndexAndEquipped("rightHand", "$IDequipIniciante")
+		if ($check != -1) do eq $check
+	}
 }
 
 automacro todobugadão {
@@ -1206,10 +1137,10 @@ automacro todobugadão {
 	call {
 		[
 		log WTF?
-		log Deveria ser gatuno agora, mas nem isso eu sou
+		log Deveria ser $classe1Desejada agora, mas nem isso eu sou
 		log tô todo bugado
-		log vamo virar gatuno, tá na hora
+		log vamo virar $classe1Desejada, tá na hora
 		]
-		do move moc_prydb1 &rand(44,46) &rand(127,129)
+		do move $mapaPraVirarClasse1
 	}
 }
