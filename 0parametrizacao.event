@@ -11,6 +11,7 @@ automacro definirVariaveis{
 		switch (&config(classe)) {
 			case (=~ /alquimista/i) {
 				do conf classe alquimista #deixar por padrão tudo lowercase (caso o usuario colocar letra maiuscula)
+				call definirVariaveisClasse1 "mercador"
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
@@ -25,7 +26,8 @@ automacro definirVariaveis{
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /arruaceiro/i) {
-				do conf classe arruaceiro		
+				do conf classe arruaceiro
+				call definirVariaveisClasse1 "gatuno"	
 				$skillsClasse1 = TF_DOUBLE 10, TF_MISS 10, TF_STEAL 10, TF_HIDING 8, TF_POISON 10, TF_DETOXIFY 1
 				$skillsClasse2 =  RG_SNATCHER 10, RG_STEALCOIN 10, RG_BACKSTAP 4, RG_TUNNELDRIVE 5, RG_RAID 5, RG_INTIMIDATE 5, RG_PLAGIARISM 10
 				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 30 str, 40 dex, 20 vit, 80 agi, 25 luk ,60 dex, 50 str, 40 luk, 90 agi, 60 str, 29 vit
@@ -39,7 +41,8 @@ automacro definirVariaveis{
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /bardo/i) {
-				do conf classe bardo		
+				do conf classe bardo
+				call definirVariaveisClasse1 "arqueiro"		
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
@@ -52,7 +55,8 @@ automacro definirVariaveis{
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /bruxo/i) {
-				do conf classe bruxo		
+				do conf classe bruxo
+				call definirVariaveisClasse1 "mago"		
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
@@ -63,7 +67,8 @@ automacro definirVariaveis{
 			}
 			case (=~ /ca[cç]ador/i) {
 				#pior quest de classe possível, altas chances de bugs
-				do conf classe cacador		
+				do conf classe cacador	
+				call definirVariaveisClasse1 "arqueiro"	
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
@@ -108,7 +113,8 @@ automacro definirVariaveis{
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /cavaleiro/i) {
-				do conf classe cavaleiro		
+				do conf classe cavaleiro
+				call definirVariaveisClasse1 "espadachim"	
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
@@ -132,7 +138,8 @@ automacro definirVariaveis{
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /ferreiro/i) {
-				do conf classe ferreiro		
+				do conf classe ferreiro
+				call definirVariaveisClasse1 "mercador"	
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
@@ -172,16 +179,21 @@ automacro definirVariaveis{
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /mercenario/i) {
-				do conf classe mercenario		
+				do conf classe mercenario
+				call definirVariaveisClasse1 "gatuno"		
 				$skillsClasse1 = TF_DOUBLE 10, TF_MISS 10, TF_STEAL 10, TF_HIDING 8, TF_POISON 10, TF_DETOXIFY 1
 				$skillsClasse2 =  #TODO
 				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 30 str, 40 dex, 20 vit, 80 agi, 25 luk ,60 dex, 50 str, 40 luk, 90 agi, 60 str, 29 vit
 				$IDClasse1 = 6
 				$IDClasse2 = 12
+
+				#não é necessario items para a quest 2
+
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /monge/i) {
-				do conf classe monge		
+				do conf classe monge	
+				call definirVariaveisClasse1 "noviço"	
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
@@ -226,7 +238,8 @@ automacro definirVariaveis{
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /odalisca/i) {
-				do conf classe odalisca		
+				do conf classe odalisca
+				call definirVariaveisClasse1 "arqueiro"	
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
@@ -250,7 +263,8 @@ automacro definirVariaveis{
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /s[áa]bio/i) {
-				do conf classe sabio		
+				do conf classe sabio
+				call definirVariaveisClasse1 "mago"	
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
@@ -265,7 +279,8 @@ automacro definirVariaveis{
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /sacerdote|sacer/i) {
-				do conf classe sacerdote		
+				do conf classe sacerdote
+				call definirVariaveisClasse1 "noviço"		
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
@@ -274,7 +289,8 @@ automacro definirVariaveis{
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /templ[áa]rio/i) {
-				do conf classe templario		
+				do conf classe templario
+				call definirVariaveisClasse1 "espadachim"
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
@@ -295,8 +311,6 @@ macro definirVariaveisClasse1 {
 	# $.param[0] tem como valor a classe 1
 	switch ($.param[0]) {
 		case (=~ /espadachi[mn]/i) {
-			do conf classe espadachim
-
 			$mapaPraVirarClasse1 = izlude_in
 			$coordenadaNpcClasse1 =
 			$virarClasse1SequenciaDeConversa = r1 r0
@@ -304,9 +318,6 @@ macro definirVariaveisClasse1 {
 			$IDequipIniciante = 13415 # alfange de iniciante
 		} 
 		case (=~ /gatuno/i) {
-			do conf classe gatuno
-			$IDClasse1 = 6
-			$IDClasse2 = 12, 17
 			$mapaPraVirarClasse1 = moc_prydb1
 			$coordenadaNpcClasse1 = 42 133
 			$virarClasse1Mover = &rand(44,46) &rand(127,129)
@@ -314,9 +325,6 @@ macro definirVariaveisClasse1 {
 			$IDequipIniciante = 13041
 		} 
 		case (=~ /mercador/i) {
-			do conf classe mercador
-			$IDClasse1 = 5
-			$IDClasse2 = 10, 18
 			$mapaPraVirarClasse1 = alberta_in
 			$coordenadaNpcClasse1 =
 			#$virarClasse1Mover = # nao precisa mover
@@ -324,9 +332,6 @@ macro definirVariaveisClasse1 {
 			$IDequipIniciante = 1381
 		}
 		case (=~ /mago/i) {
-			do conf classe mago
-			$IDClasse1 = 2
-			$IDClasse2 = 9, 16
 			$mapaPraVirarClasse1 = geffen_in
 			$coordenadaNpcClasse1 =
 			$virarClasse1Mover = &rand(162,165) &rand(123,126)
@@ -334,9 +339,6 @@ macro definirVariaveisClasse1 {
 			$IDequipIniciante = 1639
 		}
 		case (=~ /novi[cç]o/i) {
-			do conf classe novico
-			$IDClasse1 = 4
-			$IDClasse2 = 8, 15
 			$mapaPraVirarClasse1 = prt_church
 			$coordenadaNpcClasse1 =
 			$virarClasse1Mover = &rand(182,184) &rand(36,38)
@@ -344,9 +346,6 @@ macro definirVariaveisClasse1 {
 			$IDequipIniciante = 1545
 		}
 		case (=~ /arqueiro/i) {
-			do conf classe arqueiro
-			$IDClasse1 = 3
-			$IDClasse2 = 11, 19, 20
 			$mapaPraVirarClasse1 = payon_in02
 			$coordenadaNpcClasse1 =
 			#$virarClasse1Mover = # nao precisa mover
