@@ -303,6 +303,16 @@ automacro definirVariaveis{
 				do iconf 2608 1 1 0 #Rosário 
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
+			else {
+				log ============================================
+				log Erro ao tentar definir classe 2 desejada
+				log Provavelmente há um erro de digitação
+				log valor que foi passado : &config(classe)
+				log Até ser corrigido a macro não irá prosseguir
+				log ============================================
+				do eval Misc::offlineMode();
+				stop
+			}
 		}
 	}
 }
@@ -352,8 +362,18 @@ macro definirVariaveisClasse1 {
 			$virarClasse1SequenciaDeConversa = r0
 			$IDequipIniciante = 1742
 		}
+		else {
+			log ============================================
+			log Erro ao tentar definir classe 1 desejada
+			log Provavelmente há um erro de digitação
+			log valor que foi passado : $.param[0]
+			log Até ser corrigido a macro não irá prosseguir
+			log ============================================
+			do eval Misc::offlineMode();
+			stop
+		}
 	}
-	$classeDesejada = &config(classe)
+	$classe1Desejada = $.param[0]
 }
 
 #Macro Generica para subir as skills e status dependendo das variaveis
