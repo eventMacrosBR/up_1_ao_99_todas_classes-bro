@@ -7,24 +7,21 @@ automacro definirVariaveis{
 	exclusive 1
 	ConfigKeyNot classe none
 	call{
-		$skillsAprendiz = NV_BASIC 9 #Essa é padrão idenpendete da classe
+		$skillsAprendiz = NV_BASIC 9 #Essa é padrão independete da classe
 		switch (&config(classe)) {
 			case (=~ /alquimista/i) {
-				do conf classe alquimista		
+				do conf classe alquimista #deixar por padrão tudo lowercase (caso o usuario colocar letra maiuscula)
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
-				$IDClasse1 = #TODO
-				$IDClasses2 = #TODO	
+				$IDClasse1 = 5
+				$IDClasse2 = 18	
 				#Itens da quest de classe
 				do iconf 657 7 1 0 #Poção da Fúria Selvagem
 				do iconf 612 100 1 0 #Mini Fornalha
 				do iconf 1752 7500 1 0 #Flecha de Fogo
-				do iconf 713 3 1 0 #Garrafas Vazias
-				do iconf 7134 3 1 0 #Vasilhas de Mistura
-				do iconf 507 1 1 0 #Erva Vermelha
-				do iconf 508 1 1 0 #Erva Amarela
-				do iconf 509 1 1 0 #Erva Branca
+				do iconf 710 0 0 0 #Flor das ilusoes (vai ser feita a quest mais rapida)
+
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /arruaceiro/i) {
@@ -33,7 +30,7 @@ automacro definirVariaveis{
 				$skillsClasse2 =  RG_SNATCHER 10, RG_STEALCOIN 10, RG_BACKSTAP 4, RG_TUNNELDRIVE 5, RG_RAID 5, RG_INTIMIDATE 5, RG_PLAGIARISM 10
 				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 30 str, 40 dex, 20 vit, 80 agi, 25 luk ,60 dex, 50 str, 40 luk, 90 agi, 60 str, 29 vit
 				$IDClasse1 = 6
-				$IDClasses2 = 17
+				$IDClasse2 = 17
 				#Itens da quest de classe
 				do iconf 510 7 1 0 #ervaAzul
 				do iconf 957 10 1 0 #unhaApodrecida
@@ -46,8 +43,8 @@ automacro definirVariaveis{
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
-				$IDClasse1 = #TODO
-				$IDClasses2 = #TODO
+				$IDClasse1 = 3
+				$IDClasse2 = 19
 				#Itens da quest de classe
 				do iconf x 1 1 0 #Flor qualquer. Pode ser: Aloés(704), Hinalle(703), Flor das Ilusões(710), Izidor(709), Menta(708), Flor Cantante(629), Rosa de Gelo(749), Rosa Eterna(748)
 				do iconf 938 1 1 0 #Muco Pegajoso
@@ -59,8 +56,8 @@ automacro definirVariaveis{
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
-				$IDClasse1 = #TODO
-				$IDClasses2 = #TODO
+				$IDClasse1 = 2
+				$IDClasse2 = 9
 				#Não necessita Itens paraa quest de classe
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
@@ -70,37 +67,44 @@ automacro definirVariaveis{
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
-				$IDClasse1 = #TODO
-				$IDClasses2 = #TODO
+				$IDClasse1 = 3
+				$IDClasse2 = 11
 				#Itens da quest de classe
 				#Possibilidade 1	
 				do iconf 920 5 1 0 #Garras de Lobo
 				do iconf 1019 5 1 0 #Troncos
 				do iconf 509 3 1 0 #Ervas Brancas
+
 				#Possibilidade 2
 				do iconf 955 9 1 0 #Peles de Verme
 				do iconf 935 9 1 0 #Cascas
 				do iconf 508 9 1 0 #Ervas Amarelas
+
 				#Possibilidade 3
 				do iconf 1021 3 1 0 #Chifres de Dokebi
 				do iconf 7032 3 1 0 #Pedaços de Casca de Ovo
 				do iconf 914 10 1 0 #Felpas
+
 				#Possibilidade 4
 				do iconf 937 3 1 0 #Caninos Venenosos
 				do iconf 507 5 1 0 #Ervas Vermelhas
 				do iconf 919 3 1 0 #Couros de Animal
+
 				#Possibilidade 5
 				do iconf 925 3 1 0 #Bicos de Ave
 				do iconf 932 5 1 0 #Ossos
 				do iconf 511 3 1 0 #Ervas Verdes
+
 				#Possibilidade 6
 				do iconf 913 3 1 0 #Dentes de Morcego
 				do iconf 938 1 1 0 #Mucos Pegajosos
 				do iconf 948 1 1 0 #Patas de Urso
+
 				#Possibilidade 7 	
 				do iconf 1027 2 1 0 #Espinhos de Porco-Espinho
 				do iconf 942 1 1 0 #Caudas de Yoyo
 				do iconf 1026 1 1 0 #Avelãs
+
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /cavaleiro/i) {
@@ -108,8 +112,8 @@ automacro definirVariaveis{
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
-				$IDClasse1 = #TODO
-				$IDClasses2 = #TODO
+				$IDClasse1 = 1
+				$IDClasse2 = 7,13
 				#Itens da quest de classe
 				#Possibilidade 1:
 				do iconf 1040 5 1 0 #Bigode de Anão Ancião
@@ -132,34 +136,39 @@ automacro definirVariaveis{
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
-				$IDClasse1 = #TODO
-				$IDClasses2 = #TODO
+				$IDClasse1 = 5
+				$IDClasse2 = 10
 				#Itens da quest de classe
 				#Possibilidade 1:
 				do iconf 998 8 1 0 #Ferros
 				do iconf 511 20 1 0 #Ervas Verdes
 				do iconf 919 2 1 0 #Couros de Animal
 				do iconf 1122 1 1 0 #Sabre de Impacto
+
 				#Possibilidade 2:
 				do iconf 1002 8 1 0 #Minérios de Ferro
 				do iconf 2212 1 1 0 #Tapa-Olho
 				do iconf 717 2 1 0 #Gemas Azuis
 				do iconf 1713 1 1 0 #Arbaleste
+
 				#Possibilidade 3:
 				do iconf 999 2 1 0 #Aços
 				do iconf 930 1 1 0 #Bandagem Estragada
 				do iconf 717 2 1 0 #Gemas Azuis
 				do iconf 1610 1 1 0 #Cetro
+
 				#Possibilidade 4:
 				do iconf 1001 2 1 0 #Poeiras Estelares
 				do iconf 932 1 1 0 #Osso
 				do iconf 912 1 1 0 #Zargônio
 				do iconf 1220 1 1 0 #Gladius
+
 				#Possibilidade 5:
 				do iconf 1003 2 1 0 #Carvões
 				do iconf 961 2 1 0 #Conchas
 				do iconf 990 2 1 0 #Sangues Escarlates
 				do iconf 1119 1 1 0 #Tsurugi
+
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /mercenario/i) {
@@ -168,7 +177,7 @@ automacro definirVariaveis{
 				$skillsClasse2 =  #TODO
 				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 30 str, 40 dex, 20 vit, 80 agi, 25 luk ,60 dex, 50 str, 40 luk, 90 agi, 60 str, 29 vit
 				$IDClasse1 = 6
-				$IDClasses2 = #TODO
+				$IDClasse2 = 12
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /monge/i) {
@@ -176,37 +185,44 @@ automacro definirVariaveis{
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
-				$IDClasse1 = #TODO
-				$IDClasses2 = #TODO
+				$IDClasse1 = 4
+				$IDClasse2 = 15
 				#Itens da quest de classe
 				#Possibilidade 1:
 				do iconf 7053 5 1 0 #Cyfar
 				do iconf 508 10 1 0 #Erva Amarela
 				do iconf 509 10 1 0 #Erva Branca
+
 				#Possibilidade 2:
 				do iconf 943 5 1 0 #Casca Rija
 				do iconf 935 20 1 0 #Casca
 				do iconf 912 5 1 0 #Zargônio
+
 				#Possibilidade 3:
 				do iconf 1027 5 1 0 #Espinho de Porco-Espinho
 				do iconf 1042 10 1 0 #Pata de Inseto
 				do iconf 1025 20 1 0 #Teia de Aranha
+
 				#Possibilidade 4:
 				do iconf 938 5 1 0 #Muco Pegajoso
 				do iconf 1055 10 1 0 #Pele de Minhoca
 				do iconf 511 20 1 0 #Erva Verde
+
 				#Possibilidade 5:
 				do iconf 913 10 1 0 #Dente de Morcego
 				do iconf 948 5 1 0 #Pata de Urso
 				do iconf 7033 20 1 0 #Esporo Venenoso
+
 				#Possibilidade 6:
 				do iconf 905 30 1 0 #Caule
 				do iconf 909 5 1 0 #Jellopy
 				do iconf 955 10 1 0 #Pele de Verme
+
 				#Possibilidade 7:
 				do iconf 942 20 1 0 #Cauda de Yoyo
 				do iconf 1002 5 1 0 #Minério de Ferro
 				do iconf 510 3 1 0 #Erva Azul
+
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /odalisca/i) {
@@ -214,8 +230,8 @@ automacro definirVariaveis{
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
-				$IDClasse1 = #TODO
-				$IDClasses2 = #TODO
+				$IDClasse1 = 3
+				$IDClasse2 = 20
 				#Itens da quest de classe
 				#Possibilidade 1
 				do iconf 938 20 1 0 #Muco Pegajoso
@@ -233,13 +249,13 @@ automacro definirVariaveis{
 				do iconf 2401 1 1 0 #	Sandálias [0]
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
-			case (=~ /sabio/i) {
+			case (=~ /s[áa]bio/i) {
 				do conf classe sabio		
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
-				$IDClasse1 = #TODO
-				$IDClasses2 = #TODO
+				$IDClasse1 = 2
+				$IDClasse2 = 16
 				#Itens da quest de classe
 				do iconf 916 1 1 0 #Plumas de Ave
 				do iconf 919 1 1 0 #Couro de Animal
@@ -248,22 +264,22 @@ automacro definirVariaveis{
 				do iconf 713 1 1 0 #Garrafa Vazia 
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
-			case (=~ /sacerdote/i) {
+			case (=~ /sacerdote|sacer/i) {
 				do conf classe sacerdote		
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
-				$IDClasse1 = #TODO
-				$IDClasses2 = #TODO
+				$IDClasse1 = 4
+				$IDClasse2 = 8
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
-			case (=~ /templario/i) {
+			case (=~ /templ[áa]rio/i) {
 				do conf classe templario		
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
-				$IDClasse1 = #TODO
-				$IDClasses2 = #TODO
+				$IDClasse1 = 1
+				$IDClasse2 = 14,21
 				#Itens da quest de classe
 				do iconf 523 1 1 0 #Água Benta
 				do iconf 1041 10 1 0 #Lampiões
@@ -273,6 +289,72 @@ automacro definirVariaveis{
 			}
 		}
 	}
+}
+
+macro definirVariaveisClasse1 {
+	# $.param[0] tem como valor a classe 1
+	switch ($.param[0]) {
+		case (=~ /espadachi[mn]/i) {
+			do conf classe espadachim
+
+			$mapaPraVirarClasse1 = izlude_in
+			$coordenadaNpcClasse1 =
+			$virarClasse1SequenciaDeConversa = r1 r0
+			#$virarClasse1Mover = # nao precisa mover
+			$IDequipIniciante = 13415 # alfange de iniciante
+		} 
+		case (=~ /gatuno/i) {
+			do conf classe gatuno
+			$IDClasse1 = 6
+			$IDClasse2 = 12, 17
+			$mapaPraVirarClasse1 = moc_prydb1
+			$coordenadaNpcClasse1 = 42 133
+			$virarClasse1Mover = &rand(44,46) &rand(127,129)
+			$virarClasse1SequenciaDeConversa = r1 r1
+			$IDequipIniciante = 13041
+		} 
+		case (=~ /mercador/i) {
+			do conf classe mercador
+			$IDClasse1 = 5
+			$IDClasse2 = 10, 18
+			$mapaPraVirarClasse1 = alberta_in
+			$coordenadaNpcClasse1 =
+			#$virarClasse1Mover = # nao precisa mover
+			#$virarClasse1SequenciaDeConversa = não tem
+			$IDequipIniciante = 1381
+		}
+		case (=~ /mago/i) {
+			do conf classe mago
+			$IDClasse1 = 2
+			$IDClasse2 = 9, 16
+			$mapaPraVirarClasse1 = geffen_in
+			$coordenadaNpcClasse1 =
+			$virarClasse1Mover = &rand(162,165) &rand(123,126)
+			$virarClasse1SequenciaDeConversa = r0 r0
+			$IDequipIniciante = 1639
+		}
+		case (=~ /novi[cç]o/i) {
+			do conf classe novico
+			$IDClasse1 = 4
+			$IDClasse2 = 8, 15
+			$mapaPraVirarClasse1 = prt_church
+			$coordenadaNpcClasse1 =
+			$virarClasse1Mover = &rand(182,184) &rand(36,38)
+			$virarClasse1SequenciaDeConversa = r0
+			$IDequipIniciante = 1545
+		}
+		case (=~ /arqueiro/i) {
+			do conf classe arqueiro
+			$IDClasse1 = 3
+			$IDClasse2 = 11, 19, 20
+			$mapaPraVirarClasse1 = payon_in02
+			$coordenadaNpcClasse1 =
+			#$virarClasse1Mover = # nao precisa mover
+			$virarClasse1SequenciaDeConversa = r0
+			$IDequipIniciante = 1742
+		}
+	}
+	$classeDesejada = &config(classe)
 }
 
 #Macro Generica para subir as skills e status dependendo das variaveis
