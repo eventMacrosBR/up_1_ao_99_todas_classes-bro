@@ -60,19 +60,19 @@ automacro configurandoblocos {
 sub cofigurarskills {
 	open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
 	#FOGO
-	print $fh "attackSkillSlot Lanças de Fogo {\n";
+	print $fh "attackSkillSlot {\n";
 	print $fh "	monsters \n";  
 	print $fh "	sp \n";
 	print $fh "	whenStatusInactive \n";
 	print $fh "}\n";
 	#AGUA
-	print $fh "attackSkillSlot Lanças de Gelo {\n";
+	print $fh "attackSkillSlot {\n";
 	print $fh "	monsters \n";
 	print $fh "	sp \n";
 	print $fh "	whenStatusInactive \n";
 	print $fh "}\n";
 	#VENTO
-	print $fh "attackSkillSlot Relampago {\n";
+	print $fh "attackSkillSlot {\n";
 	print $fh "	monsters \n";
 	print $fh "	sp \n";
 	print $fh "	whenStatusInactive \n";
