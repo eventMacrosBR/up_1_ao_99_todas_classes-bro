@@ -1,0 +1,135 @@
+automacro parandoDePegarPotDeAprendiz {
+	InInventoryID 569 < 1
+	InStorageID 569 < 1
+	ConfigKey getAuto_0 Poção de Aprendiz
+	exclusive 1
+	call {
+		log as poções de aprendiz acabaram, removendo o getAuto
+		do conf getAuto_0 none
+		do conf sitAuto_hp_upper 95
+	}
+}
+
+automacro ConfigEstáErrada {
+	exclusive 1
+	overrideAI 1
+	priority -5
+	ConfigKeyNot autoTalkCont 1
+	call {
+		log Tem uma config que está errada
+		log A config é $.ConfigKeyNotLastKey
+		log O valor que quero é $.ConfigKeyNotLastWantedValue
+		log Mas o valor atual é $.ConfigKeyNotLastKeyValue
+		log Mudando valor da config $.ConfigKeyNotLastKey de $.ConfigKeyNotLastKeyValue para $.ConfigKeyNotLastWantedValue
+		do conf $.ConfigKeyNotLastKey $.ConfigKeyNotLastWantedValue
+	}
+}
+
+macro pararDeAtacar {
+	[
+	do conf route_randomWalk 0
+	do conf attackAuto 1
+	]
+}
+
+macro voltarAtacar {
+	[
+	do conf route_randomWalk 1
+	do conf attackAuto 2
+	]
+}
+
+automacro checarNoInicio {
+	BaseLevel > 0
+	priority -50 #muito alta
+	run-once 1
+	exclusive 1
+	call {
+		#do iconf 502 100 0 0
+		$desiredLockMap = &config(desired_lockMap)
+		xConfConfiguratedOrNot()
+	}
+}
+
+sub xConfConfiguratedOrNot {
+	use File::Copy;
+	$path = "plugins/xconf.pl";
+	my $estaNaPasta = 0;
+	my $estaNoSys = 0;
+	if (-e $path ) {
+		$estaNaPasta = 1;
+	}
+	else {
+		message "plugin xconf não foi encontrado, iniciando cópia.\n";
+		copy("plugins/needs-review/xconf/trunk/xconf.pl","plugins") or die "Copy failed: $!";
+		message "xconf.pl foi copiado para a pasta plugins.\n";
+		$estaNaPasta = 0;
+	}
+	my $controlfile = Settings::getControlFilename('sys.txt');
+	open(FILE, '<:encoding(UTF-8)', $controlfile);
+	my @lines = <FILE>;
+	close(FILE);
+	chomp @lines;
+	foreach my $line (@lines) {
+		next if $line =~ /^$/ || $line =~ /^#/;
+		if ($line =~ /xconf/ ) {
+			$estaNoSys = 1 ;
+		}
+	}
+	if ( $estaNoSys == 0) {
+		foreach my $line (@lines) {
+			next if $line =~ /^$/ || $line =~ /^#/;
+			if ($line =~ /loadPlugins_list\s(.*)/ ) {
+				$line = 'loadPlugins_list '.join (',',$1,"xconf");
+			}
+		}
+		open(WRITE, '>:encoding(UTF-8)', $controlfile);
+		print WRITE join ("\n", @lines);
+		close(WRITE);
+		$estaNoSys = 0;
+	}
+	unless ($estaNaPasta == 1 && $estaNoSys == 1) {
+		message "
+		Ativando xConf\n";
+		Commands::run("plugin load plugins/xconf.pl");
+	}
+	else {
+		message "Checando algumas coisas...\nTudo certo.\n";
+	}
+}
+
+sub GetIndexAndEquipped {
+	my ($type, $id) = @_;
+	my $Item = $char->inventory->getByNameID($id);
+	if ($Item eq "" ) {
+	message "Erro: ou a ID do item está incorreta, ou você não possui esse equipamento.\n";
+	return -1;
+	}
+	my $EquipIndex = $Item->{binID};
+	if (exists $char->{equipment}{$type}) {
+		my $equipItem = $char->{equipment}{$type};
+		if ($equipItem->{nameID} == $id) {
+			message "Erro: Esse equip já está equipado.\n";
+			return -1;
+		} else {
+			return $EquipIndex;
+		}
+	} else {
+		return $EquipIndex;
+	}
+}
+
+
+sub GetNamenyNameID {
+	my $name = $items_lut{$_[0]};
+	return $name;
+}
+
+sub nextMap {
+	my $map = $_[0];
+	if ($map =~ /^new_(\d)-(\d)$/) {
+	return "new_".$1."-".($2+1);
+	} else {
+		return 0;
+	}
+}
