@@ -383,7 +383,8 @@ automacro configurarSkillsEStats{
 	BaseLevel > 0
 	exclusive 1
 	call{
-		switch($.JobIDLast){
+		$idClasseAtual = pegarID()
+		switch($idClasseAtual){
 			case(== 0){ #Aprendiz
 				if(&config(skillsAddAuto_list) != $skillsAprendiz) do conf skillsAddAuto_list $skillsAprendiz
 				stop
@@ -403,4 +404,8 @@ automacro configurarSkillsEStats{
 		do conf statsAddAuto_dontUseBonus 1
 	}	
 
+}
+
+sub pegarID {
+    return $char->{jobID};
 }
