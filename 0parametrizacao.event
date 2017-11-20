@@ -1,0 +1,305 @@
+#Parametrização by vitorsilverio
+
+#Macro responsavel por definir as skills/stats padroes dependendo da classe
+#Planejada para extender outras classes no futuro
+automacro definirVariaveis{
+	run-once 1
+	exclusive 1
+	ConfigKeyNot classe none
+	call{
+		$skillsAprendiz = NV_BASIC 9 #Essa é padrão idenpendete da classe
+		switch (&config(classe)) {
+			case (=~ /alquimista/i) {
+				do conf classe alquimista		
+				$skillsClasse1 = #TODO
+				$skillsClasse2 = #TODO 
+				$statsPadrao = #TODO
+				$IDClasse1 = #TODO
+				$IDClasses2 = #TODO	
+				#Itens da quest de classe
+				do iconf 657 7 1 0 #Poção da Fúria Selvagem
+				do iconf 612 100 1 0 #Mini Fornalha
+				do iconf 1752 7500 1 0 #Flecha de Fogo
+				do iconf 713 3 1 0 #Garrafas Vazias
+				do iconf 7134 3 1 0 #Vasilhas de Mistura
+				do iconf 507 1 1 0 #Erva Vermelha
+				do iconf 508 1 1 0 #Erva Amarela
+				do iconf 509 1 1 0 #Erva Branca
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+			}
+			case (=~ /arruaceiro/i) {
+				do conf classe arruaceiro		
+				$skillsClasse1 = TF_DOUBLE 10, TF_MISS 10, TF_STEAL 10, TF_HIDING 8, TF_POISON 10, TF_DETOXIFY 1
+				$skillsClasse2 =  RG_SNATCHER 10, RG_STEALCOIN 10, RG_BACKSTAP 4, RG_TUNNELDRIVE 5, RG_RAID 5, RG_INTIMIDATE 5, RG_PLAGIARISM 10
+				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 30 str, 40 dex, 20 vit, 80 agi, 25 luk ,60 dex, 50 str, 40 luk, 90 agi, 60 str, 29 vit
+				$IDClasse1 = 6
+				$IDClasses2 = 17
+				#Itens da quest de classe
+				do iconf 510 7 1 0 #ervaAzul
+				do iconf 957 10 1 0 #unhaApodrecida
+				do iconf 932 10 1 0 #osso
+				do iconf 958 10 1 0 #mandibula
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+			}
+			case (=~ /bardo/i) {
+				do conf classe bardo		
+				$skillsClasse1 = #TODO
+				$skillsClasse2 = #TODO 
+				$statsPadrao = #TODO
+				$IDClasse1 = #TODO
+				$IDClasses2 = #TODO
+				#Itens da quest de classe
+				do iconf x 1 1 0 #Flor qualquer. Pode ser: Aloés(704), Hinalle(703), Flor das Ilusões(710), Izidor(709), Menta(708), Flor Cantante(629), Rosa de Gelo(749), Rosa Eterna(748)
+				do iconf 938 1 1 0 #Muco Pegajoso
+				do iconf 1024 1 1 0 #Tinta de Polvo
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+			}
+			case (=~ /bruxo/i) {
+				do conf classe bruxo		
+				$skillsClasse1 = #TODO
+				$skillsClasse2 = #TODO 
+				$statsPadrao = #TODO
+				$IDClasse1 = #TODO
+				$IDClasses2 = #TODO
+				#Não necessita Itens paraa quest de classe
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+			}
+			case (=~ /ca[cç]ador/i) {
+				#pior quest de classe possível, altas chances de bugs
+				do conf classe cacador		
+				$skillsClasse1 = #TODO
+				$skillsClasse2 = #TODO 
+				$statsPadrao = #TODO
+				$IDClasse1 = #TODO
+				$IDClasses2 = #TODO
+				#Itens da quest de classe
+				#Possibilidade 1	
+				do iconf 920 5 1 0 #Garras de Lobo
+				do iconf 1019 5 1 0 #Troncos
+				do iconf 509 3 1 0 #Ervas Brancas
+				#Possibilidade 2
+				do iconf 955 9 1 0 #Peles de Verme
+				do iconf 935 9 1 0 #Cascas
+				do iconf 508 9 1 0 #Ervas Amarelas
+				#Possibilidade 3
+				do iconf 1021 3 1 0 #Chifres de Dokebi
+				do iconf 7032 3 1 0 #Pedaços de Casca de Ovo
+				do iconf 914 10 1 0 #Felpas
+				#Possibilidade 4
+				do iconf 937 3 1 0 #Caninos Venenosos
+				do iconf 507 5 1 0 #Ervas Vermelhas
+				do iconf 919 3 1 0 #Couros de Animal
+				#Possibilidade 5
+				do iconf 925 3 1 0 #Bicos de Ave
+				do iconf 932 5 1 0 #Ossos
+				do iconf 511 3 1 0 #Ervas Verdes
+				#Possibilidade 6
+				do iconf 913 3 1 0 #Dentes de Morcego
+				do iconf 938 1 1 0 #Mucos Pegajosos
+				do iconf 948 1 1 0 #Patas de Urso
+				#Possibilidade 7 	
+				do iconf 1027 2 1 0 #Espinhos de Porco-Espinho
+				do iconf 942 1 1 0 #Caudas de Yoyo
+				do iconf 1026 1 1 0 #Avelãs
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+			}
+			case (=~ /cavaleiro/i) {
+				do conf classe cavaleiro		
+				$skillsClasse1 = #TODO
+				$skillsClasse2 = #TODO 
+				$statsPadrao = #TODO
+				$IDClasse1 = #TODO
+				$IDClasses2 = #TODO
+				#Itens da quest de classe
+				#Possibilidade 1:
+				do iconf 1040 5 1 0 #Bigode de Anão Ancião
+				do iconf 7006 5 1 0 #Asa de Morcego Vermelha
+				do iconf 931 5 1 0 #Amuleto dos Orcs
+				do iconf 1057 5 1 0 #Pó de Traça
+				do iconf 903 5 1 0 #Língua de Réptil
+				do iconf 1028 5 1 0 #Crina
+				#Possibilidade 2:
+				do iconf 1042 5 1 0 #Pata de Inseto
+				do iconf 950 5 1 0 #Coração de Sereia
+				do iconf 1032 5 1 0 #Flor de Planta Carnívora
+				do iconf 966 5 1 0 #Carne de Ostra
+				do iconf 7031 5 1 0 #Frigideira Velha
+				do iconf 946 5 1 0 #Casco de Caramujo
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+			}
+			case (=~ /ferreiro/i) {
+				do conf classe ferreiro		
+				$skillsClasse1 = #TODO
+				$skillsClasse2 = #TODO 
+				$statsPadrao = #TODO
+				$IDClasse1 = #TODO
+				$IDClasses2 = #TODO
+				#Itens da quest de classe
+				#Possibilidade 1:
+				do iconf 998 8 1 0 #Ferros
+				do iconf 511 20 1 0 #Ervas Verdes
+				do iconf 919 2 1 0 #Couros de Animal
+				do iconf 1122 1 1 0 #Sabre de Impacto
+				#Possibilidade 2:
+				do iconf 1002 8 1 0 #Minérios de Ferro
+				do iconf 2212 1 1 0 #Tapa-Olho
+				do iconf 717 2 1 0 #Gemas Azuis
+				do iconf 1713 1 1 0 #Arbaleste
+				#Possibilidade 3:
+				do iconf 999 2 1 0 #Aços
+				do iconf 930 1 1 0 #Bandagem Estragada
+				do iconf 717 2 1 0 #Gemas Azuis
+				do iconf 1610 1 1 0 #Cetro
+				#Possibilidade 4:
+				do iconf 1001 2 1 0 #Poeiras Estelares
+				do iconf 932 1 1 0 #Osso
+				do iconf 912 1 1 0 #Zargônio
+				do iconf 1220 1 1 0 #Gladius
+				#Possibilidade 5:
+				do iconf 1003 2 1 0 #Carvões
+				do iconf 961 2 1 0 #Conchas
+				do iconf 990 2 1 0 #Sangues Escarlates
+				do iconf 1119 1 1 0 #Tsurugi
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+			}
+			case (=~ /mercenario/i) {
+				do conf classe mercenario		
+				$skillsClasse1 = TF_DOUBLE 10, TF_MISS 10, TF_STEAL 10, TF_HIDING 8, TF_POISON 10, TF_DETOXIFY 1
+				$skillsClasse2 =  #TODO
+				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 30 str, 40 dex, 20 vit, 80 agi, 25 luk ,60 dex, 50 str, 40 luk, 90 agi, 60 str, 29 vit
+				$IDClasse1 = 6
+				$IDClasses2 = #TODO
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+			}
+			case (=~ /monge/i) {
+				do conf classe monge		
+				$skillsClasse1 = #TODO
+				$skillsClasse2 = #TODO 
+				$statsPadrao = #TODO
+				$IDClasse1 = #TODO
+				$IDClasses2 = #TODO
+				#Itens da quest de classe
+				#Possibilidade 1:
+				do iconf 7053 5 1 0 #Cyfar
+				do iconf 508 10 1 0 #Erva Amarela
+				do iconf 509 10 1 0 #Erva Branca
+				#Possibilidade 2:
+				do iconf 943 5 1 0 #Casca Rija
+				do iconf 935 20 1 0 #Casca
+				do iconf 912 5 1 0 #Zargônio
+				#Possibilidade 3:
+				do iconf 1027 5 1 0 #Espinho de Porco-Espinho
+				do iconf 1042 10 1 0 #Pata de Inseto
+				do iconf 1025 20 1 0 #Teia de Aranha
+				#Possibilidade 4:
+				do iconf 938 5 1 0 #Muco Pegajoso
+				do iconf 1055 10 1 0 #Pele de Minhoca
+				do iconf 511 20 1 0 #Erva Verde
+				#Possibilidade 5:
+				do iconf 913 10 1 0 #Dente de Morcego
+				do iconf 948 5 1 0 #Pata de Urso
+				do iconf 7033 20 1 0 #Esporo Venenoso
+				#Possibilidade 6:
+				do iconf 905 30 1 0 #Caule
+				do iconf 909 5 1 0 #Jellopy
+				do iconf 955 10 1 0 #Pele de Verme
+				#Possibilidade 7:
+				do iconf 942 20 1 0 #Cauda de Yoyo
+				do iconf 1002 5 1 0 #Minério de Ferro
+				do iconf 510 3 1 0 #Erva Azul
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+			}
+			case (=~ /odalisca/i) {
+				do conf classe odalisca		
+				$skillsClasse1 = #TODO
+				$skillsClasse2 = #TODO 
+				$statsPadrao = #TODO
+				$IDClasse1 = #TODO
+				$IDClasses2 = #TODO
+				#Itens da quest de classe
+				#Possibilidade 1
+				do iconf 938 20 1 0 #Muco Pegajoso
+				do iconf 501 5 1 0 #Poção Vermelha
+				do iconf 909 3 1 0 #Jellopy
+				do iconf 2403 1 1 0 #Sapatos [0]
+				#Possibilidade 2
+				do iconf 1055 5 1 0 #Pele de Minhoca
+				do iconf 2405 1 1 0 #Botas [0]
+				#Possibilidade 3
+				do iconf 965 2 1 0 #Casco de Ostra
+				do iconf 503 5 1 0 #Poção Amarela
+				do iconf 909 20 1 0 #Jellopy
+				do iconf 1020 10 1 0 #Cabelos Morenos
+				do iconf 2401 1 1 0 #	Sandálias [0]
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+			}
+			case (=~ /sabio/i) {
+				do conf classe sabio		
+				$skillsClasse1 = #TODO
+				$skillsClasse2 = #TODO 
+				$statsPadrao = #TODO
+				$IDClasse1 = #TODO
+				$IDClasses2 = #TODO
+				#Itens da quest de classe
+				do iconf 916 1 1 0 #Plumas de Ave
+				do iconf 919 1 1 0 #Couro de Animal
+				do iconf 1019 1 1 0 #Tronco
+				do iconf 1024 1 1 0 #Tinta de Polvo
+				do iconf 713 1 1 0 #Garrafa Vazia 
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+			}
+			case (=~ /sacerdote/i) {
+				do conf classe sacerdote		
+				$skillsClasse1 = #TODO
+				$skillsClasse2 = #TODO 
+				$statsPadrao = #TODO
+				$IDClasse1 = #TODO
+				$IDClasses2 = #TODO
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+			}
+			case (=~ /templario/i) {
+				do conf classe templario		
+				$skillsClasse1 = #TODO
+				$skillsClasse2 = #TODO 
+				$statsPadrao = #TODO
+				$IDClasse1 = #TODO
+				$IDClasses2 = #TODO
+				#Itens da quest de classe
+				do iconf 523 1 1 0 #Água Benta
+				do iconf 1041 10 1 0 #Lampiões
+				do iconf 930 10 1 0 #Bandagens Estragadas
+				do iconf 2608 1 1 0 #Rosário 
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+			}
+		}
+	}
+}
+
+#Macro Generica para subir as skills e status dependendo das variaveis
+#Essa macro mantem configurações feitas diretamente no config.txt
+automacro configurarSkillsEStats{
+	timeout 300 #vai rodar de 5 em 5 minutos
+	BaseLevel > 0
+	exclusive 1
+	call{
+		switch($.JobIDLast){
+			case(== 0){ #Aprendiz
+				if(&config(skillsAddAuto_list) != $skillsAprendiz) do conf skillsAddAuto_list $skillsAprendiz
+				stop
+			}
+			case(= 1..7){ #Classes 1
+				if(&config(skillsAddAuto_list) != $skillsClasse1) do conf skillsAddAuto_list $skillsClasse1
+				stop
+			}
+			case(= 8..20){ #Classes 2
+				if(&config(skillsAddAuto_list) =! $skillsClasse2) do conf skillsAddAuto_list $skillsClasse2
+				stop
+			}
+		}
+		do conf skillsAddAuto 1
+		if(&config(statsAddAuto_list) != $statsPadrao) do conf statsAddAuto_list $statsPadrao
+		do conf statsAddAuto 1
+		do conf statsAddAuto_dontUseBonus 1
+	}	
+
+}
