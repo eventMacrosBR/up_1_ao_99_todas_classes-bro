@@ -50,7 +50,7 @@ macro upar {
 		#1 - Nivel Máximo
 		#2 - lockMap
 		#3 - saveMap
-		@configuracoesUp = split(/:/, $mapaDeUp)
+		@configuracoesUp = split(/;/, $mapaDeUp)
 		if($.lvl >= $configuracoesUp[0] && $.lvl <= $configuracoesUp[1]){
 			$mapa{lockMap} = $configuracoesUp[2]
 			$mapa{city} = $configuracoesUp[3]
