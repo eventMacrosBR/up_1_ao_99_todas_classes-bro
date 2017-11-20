@@ -16,7 +16,7 @@ automacro criandoblocos {
 	}
 	
 automacro configurandoblocos {
-	ConfigKey Classe none #nunca sei se isso funciona por favor confirmem
+	ConfigKeyNot Classe none #nunca sei se isso funciona por favor confirmem
 	run-once 1
 	exclusive 1
 	call {
