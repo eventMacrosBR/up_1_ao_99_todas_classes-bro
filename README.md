@@ -2,9 +2,9 @@
 Está macro pretende upar do nível 1 de base até o 99 de todas as classes do ragnarok no servidor Brasileiro
 
 ### Agradecimentos
-- Nipodemos: Criação do script [up1-99_completo_para_arruaceiros](https://github.com/Nipodemos/up1-99_completo_para_arrauceiros) no qual este script é baseado (Créditos dos scripts que ele utilizou como base em seu próprio repositório)
-- VTR002: Parametrização do script que permite a adaptação para todas as classes
-- gabx257: Parâmetros para as classes de Magos
+- @nipodemos: Criação do script [up1-99_completo_para_arruaceiros](https://github.com/Nipodemos/up1-99_completo_para_arrauceiros) no qual este script é baseado (Créditos dos scripts que ele utilizou como base em seu próprio repositório)
+- @vitorsilverio: Parametrização do script que permite a adaptação para todas as classes
+- @gabx257: Parâmetros para as classes de Magos
   
 
 ### Funcionalidades:
