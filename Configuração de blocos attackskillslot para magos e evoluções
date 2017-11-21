@@ -2,7 +2,7 @@ automacro criandoblocos {
 	BaseLevel > 0
 	exclusive 1
 	run-once 1
-	priority -25
+	priority -2
 	call {
 			if (&config(attackSkillSlot_1_sp) > 0) { #significa que ja existe a configuração
 				log skills de mago configuradas
