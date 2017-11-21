@@ -23,7 +23,7 @@ automacro configurandoblocos {
 		switch(&config(classe)) {
 		
 		#classe1
-			case(Templario) {
+			case(templario) {
 			do conf attackSkillSlot_0 
 				do conf attackSkillSlot_0_monsters 
 				do conf attackSkillSlot_0_sp > 50
@@ -37,7 +37,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
 			}
-			case(Cavaleiro) {
+			case(cavaleiro) {
 			do conf attackSkillSlot_0 
 				do conf attackSkillSlot_0_monsters 
 				do conf attackSkillSlot_0_sp > 50
@@ -51,7 +51,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
 			}
-			case(Sacerdote)#Luz Divina?????{
+			case(sacerdote)#Luz Divina?????{
 			do conf attackSkillSlot_0 
 				do conf attackSkillSlot_0_monsters 
 				do conf attackSkillSlot_0_sp > 50
@@ -65,7 +65,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
 			}
-			case(Monge) {
+			case(monge) {
 			do conf attackSkillSlot_0 
 				do conf attackSkillSlot_0_monsters 
 				do conf attackSkillSlot_0_sp > 50
@@ -79,7 +79,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
 			}		
-			case(Bruxo) {
+			case(bruxo) {
 			#Mapas de base -> ein_fild09 | pay_fild02 | mjolnir_11 | mjolnir_01 | mjolnir_02 | cmd_fild01
 			#Só Skills de Mago por enquanto
 			do conf attackSkillSlot_0 Lanças de Fogo #Monstros de Terra/Sem dano elemental
@@ -95,7 +95,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
 			}
-			case(Sabio) {
+			case(sabio) {
 			#Mapas de base -> ein_fild09 | pay_fild02 | mjolnir_11 | mjolnir_01 | mjolnir_02 | cmd_fild01
 			#Só Skills de Mago por enquanto
 			do conf attackSkillSlot_0 Lanças de Fogo #Monstros de Terra/Sem dano elemental
@@ -111,7 +111,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
 			}
-			case(Ca[cç]ador) {
+			case(ca[cç]ador) {
 				do conf attackSkillSlot_0 
 				do conf attackSkillSlot_0_monsters 
 				do conf attackSkillSlot_0_sp > 50
@@ -125,7 +125,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
 			}
-			case(Bardo) {
+			case(bardo) {
 				do conf attackSkillSlot_0 
 				do conf attackSkillSlot_0_monsters 
 				do conf attackSkillSlot_0_sp > 50
@@ -139,7 +139,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
 			}
-			case(Mercenario) {
+			case(mercenario) {
 				do conf attackSkillSlot_0 
 				do conf attackSkillSlot_0_monsters 
 				do conf attackSkillSlot_0_sp > 50
