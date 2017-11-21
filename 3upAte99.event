@@ -7,101 +7,45 @@ automacro upAteLv12Aprendiz {
 	timeout 30
 	InMapRegex /^(?!new_\d-\d|moc_prydb1)$/
 	call {
-		[
 		log pelo visto, ainda to no lvl de Classe $JobLevelLast ainda...
 		log o que aconteceu?
 		log a que ponto chegamos?
 		log nuss
 		log Tentando resolver isso...
-		]
-		call configurarMapa "payon" "pay_fild01"
+		
+		call upar
 	}
 }
 
 automacro UpClasse1 {
-	JobID $IDClasse1  #todas as classes 1
+	JobID 1,2,3,4,5,6,24,25  #todas as classes 1 + justiceiro + ninja
 	BaseLevel != 99
 	ConfigKeyNot quest_eden em_curso
 	ConfigKeyNot quest_eden terminando
 	ConfigKeyNot In_saveMap_sequence true
+	ConfigKeyNot lockMap $mapa{lockMap}
 	JobLevel != 50
 	exclusive 1
-	priority 5 #baixa prioridade
-	timeout 600
+	priority 20 #baixa prioridade
+	timeout 30
     call upar
 }
 
 automacro upClasse2 {
-    JobID $IDClasses2 #todas as classes 2
+    JobID 7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 #todas as classes 2
 	BaseLevel != 99
 	ConfigKeyNot quest_eden em_curso
 	ConfigKeyNot quest_eden terminando
 	ConfigKeyNot In_saveMap_sequence true
+	ConfigKeyNot lockMap $mapa{lockMap}
 	exclusive 1
-	priority 5 #baixa prioridade
-	timeout 600
+	priority 20 #baixa prioridade
+	timeout 30
     call upar
 }
 
-macro upar {
-	switch ($.lvl) {
-	    case (= 12..25) {
-			do iconf Erva Azul 7 1 0
-			$mapa{lockMap} = pay_fild08
-			$mapa{city} = payon
-	    }
-	    case (= 26..40) {
-			do iconf Unha Apodrecida 10 1 0
-			do iconf Osso 10 1 0
-			do iconf Mandíbula Horrenda 10 1 0
-			do mconf 1084 0 0 0 #cogumelo negro, troço inútil
-			$mapa{lockMap} = pay_dun00
-			$mapa{city} = payon
-	    }
-	    case (= 41..45) {
-			$mapa{lockMap} = pay_fild09
-			$mapa{city} = payon
-	    }
-		case (= 46..53) {
-			do iconf Erva Azul 7 1 0
-			if (&invamount(Erva Azul) >= 7) {
-				#ja tem erva suficiente, não precisa ir nas lontras
-				$mapa{lockMap} = iz_dun00
-				$mapa{city} = izlude
-			} else {
-				#upar nas lontras pra pegar mais erva azul
-				$mapa{lockMap} = cmd_fild02
-				$mapa{city} = comodo
-			}
-		}
-		case (= 54..59) {
-			do mconf Hidra -1 0 0
-			$mapa{lockMap} = iz_dun02
-			$mapa{city} = izlude
-		}
-		case (= 60..70) {
-			$mapa{lockMap} = moc_fild17
-			$mapa{city} = morocc
-		}
-		case (= 71..79) {
-			$mapa{lockMap} = mjolnir_11
-			$mapa{city} = prontera
-		}
-		case (= 80..98) {
-			$mapa{lockMap} = gef_fild06
-			$mapa{city} = geffen
-		}
-		else {
-			[
-			log ==========================================
-			log =Erro tentando definir qual mapa upar
-			log =Contate o criador dessa macro (Nipodemos)
-			log ==========================================
-			]
-			stop
-		}
-	}
 
+macro upar {
 	if (&config(lockMap) = $mapa{lockMap}) {
 		[
 		log ================================
@@ -109,10 +53,13 @@ macro upar {
 		log =Continuarei upando
 		log ================================
 		]
+		call voltarAtacar
 		stop
 	}
+
 	if (&config(saveMap) = $mapa{city}) {
 		do conf lockMap $mapa{lockMap}
+		call voltarAtacar
 	} else {
 		call SetSaveIn "$mapa{city}"
 	}
@@ -121,21 +68,11 @@ macro upar {
 automacro estouLv99 {
 	BaseLevel = 99
 	exclusive 1
-	timeout 15
-	JobID $IDClasses2 #arruaceiro
+	timeout 120
+	JobID 17 #arruaceiro
 	call {
 		log CHEGUEI NO LVL 99 FINALMENTE !!!!!!!
 		log CARA ISSO LEVOU TEMPO PARA CAR**HO
-	}
-}
-
-macro configurarMapa {
-	if ( &config(saveMap) = $.param[0] ) {
-		do conf lockMap $.param[1]
-		call voltarAtacar
-	} else {
-		$cidade = $.param[0]
-		call SetSaveIn $cidade
 	}
 }
 
