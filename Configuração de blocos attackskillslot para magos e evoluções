@@ -1,13 +1,11 @@
 automacro criandoblocos {
 	BaseLevel > 0
+	ConfigKeyNotExist attackSkillSlot_2 #caso não tenha pelo menos 3 blocos criar 3 blocos novos(Somando 4 blocos limpos)
 	exclusive 1
 	run-once 1
 	priority -2
 	call {
-			if (&config(attackSkillSlot_1_sp) > 0) { #significa que ja existe a configuração
-				log skills de mago configuradas
-			} else {
-				log configurando skills
+				log criando blocos attackSkillSlot
 				configurarSkills()
 				pause 2
 				do reload config
@@ -16,13 +14,14 @@ automacro criandoblocos {
 	}
 	
 automacro configurandoblocos {
-	ConfigKeyNot classe none #nunca sei se isso funciona por favor confirmem
+	ConfigKeyNot classe none
+	ConfigKey attackskillSlot_0 none
 	run-once 1
 	exclusive 1
 	call {
+		
 		switch(&config(classe)) {
 		
-			#classe1
 			case(templario) {
 				do conf attackSkillSlot_0 
 				do conf attackSkillSlot_0_monsters 
@@ -186,6 +185,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_monsters 
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
+				}
 			}
 		}
 	}
