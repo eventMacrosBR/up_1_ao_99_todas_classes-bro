@@ -1,8 +1,8 @@
 automacro criandoblocos {
 	BaseLevel > 0
-	JobID 2, 9 ,16
 	exclusive 1
 	run-once 1
+	priority -25
 	call {
 			if (&config(attackSkillSlot_1_sp) > 0) { #significa que ja existe a configuração
 				log skills de mago configuradas
@@ -16,7 +16,7 @@ automacro criandoblocos {
 	}
 	
 automacro configurandoblocos {
-	ConfigKeyNot Classe none #nunca sei se isso funciona por favor confirmem
+	ConfigKeyNot classe none #nunca sei se isso funciona por favor confirmem
 	run-once 1
 	exclusive 1
 	call {
