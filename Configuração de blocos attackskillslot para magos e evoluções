@@ -1,17 +1,16 @@
 automacro criandoblocos {
-	BaseLevel > 0
-	ConfigKeyNotExist attackSkillSlot_2 #caso não tenha pelo menos 3 blocos criar 3 blocos novos(Somando 4 blocos limpos)
+	ConfigKeyNotExist attackSkillSlot_2 #caso não tenha pelo menos 3 blocos criar até 3 blocos novos
 	exclusive 1
-	run-once 1
 	priority -2
 	call {
-				log criando blocos attackSkillSlot
-				configurarSkills()
-				pause 2
-				do reload config
-			}
+		log criando blocos attackSkillSlot
+		configurarSkills()
+		if (&config(attackSkillSlot_2) == none) {
+			pause 2
+			do reload config
 		}
 	}
+}
 	
 automacro configurandoblocos {
 	ConfigKeyNot classe none
@@ -197,23 +196,9 @@ automacro configurandoblocos {
 ##################################
 sub cofigurarskills {
 	open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
-	#FOGO
 	print $fh "attackSkillSlot {\n";
 	print $fh "	monsters \n";  
 	print $fh "	sp \n";
 	print $fh "	whenStatusInactive \n";
 	print $fh "}\n";
-	#AGUA
-	print $fh "attackSkillSlot {\n";
-	print $fh "	monsters \n";
-	print $fh "	sp \n";
-	print $fh "	whenStatusInactive \n";
-	print $fh "}\n";
-	#VENTO
-	print $fh "attackSkillSlot {\n";
-	print $fh "	monsters \n";
-	print $fh "	sp \n";
-	print $fh "	whenStatusInactive \n";
-	print $fh "}\n";
-	close($fh);
 }
