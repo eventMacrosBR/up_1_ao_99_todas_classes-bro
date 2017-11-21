@@ -57,13 +57,13 @@ automacro definirVariaveis{
 			case (=~ /bruxo/i) {
 				do conf classe bruxo
 				call definirVariaveisClasse1 "mago"		
-				$skillsClasse1 = #TODO
+				$skillsClasse1 = MG_LIGHTNINGBOLT 5, MG_FIREBOLT 7, MG_COLDBOLT 7,MG_SRECOVERY 10, MG_FIREBOLT 10, MG_COLDBOLT 10, MG_STONECURSE 1, MG_FROSTDIVER 10,MG_SOULSTRIKE 3
 				$skillsClasse2 = #TODO 
-				$statsPadrao = #TODO
+				$statsPadrao = 20 int, 20 dex, 30 int, 30 dex, 50 int, 20 agi, 60 int, 40 dex, 20 vit, 70 int, 70 dex, 45 agi, 90 int, 90 dex, 2 luk 
 				$IDClasse1 = 2
 				$IDClasse2 = 9
 				#Não necessita Itens paraa quest de classe
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+        @mapasDeUp = ("1;11;pay_fild02;alberta", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;moc_fild03;payon", "46;60;cmd_fild01;comodo", "61;70;moc_fild17;morocc", "71;79;yuno_fild09;aldebaran", "80;98;ein_fild09;einbroch")#minhas recomendaçoes de mapa/level,evitando bichos agressivos/detectores
 			}
 			case (=~ /ca[cç]ador/i) {
 				#pior quest de classe possível, altas chances de bugs
@@ -265,18 +265,16 @@ automacro definirVariaveis{
 			case (=~ /s[áa]bio/i) {
 				do conf classe sabio
 				call definirVariaveisClasse1 "mago"	
-				$skillsClasse1 = #TODO
-				$skillsClasse2 = #TODO 
-				$statsPadrao = #TODO
 				$IDClasse1 = 2
 				$IDClasse2 = 16
+				$statsPadrao = #TODO
 				#Itens da quest de classe
 				do iconf 916 1 1 0 #Plumas de Ave
 				do iconf 919 1 1 0 #Couro de Animal
 				do iconf 1019 1 1 0 #Tronco
 				do iconf 1024 1 1 0 #Tinta de Polvo
 				do iconf 713 1 1 0 #Garrafa Vazia 
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+				@mapasDeUp = ("1;11;pay_fild02;alberta", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;moc_fild03;payon", "46;60;cmd_fild01;comodo", "61;70;moc_fild17;morocc", "71;79;yuno_fild09;aldebaran", "80;98;ein_fild09;einbroch")#minhas recomendaçoes de mapa/level,evitando bichos agressivos/detectores
 			}
 			case (=~ /sacerdote|sacer/i) {
 				do conf classe sacerdote
