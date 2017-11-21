@@ -45,25 +45,19 @@ automacro checarNoInicio {
 	run-once 1
 	exclusive 1
 	call {
-		#do iconf 502 100 0 0
-		$desiredLockMap = &config(desired_lockMap)
 		xConfConfiguratedOrNot()
 	}
 }
 
 sub xConfConfiguratedOrNot {
-	use File::Copy;
-	$path = "plugins/xconf.pl";
-	my $estaNaPasta = 0;
-	my $estaNoSys = 0;
+	my $path = "plugins/xconf.pl";
+	my $estaNoSys;
+	my $obsoletoRemovido;
+
 	if (-e $path ) {
-		$estaNaPasta = 1;
-	}
-	else {
-		message "plugin xconf não foi encontrado, iniciando cópia.\n";
-		copy("plugins/needs-review/xconf/trunk/xconf.pl","plugins") or die "Copy failed: $!";
-		message "xconf.pl foi copiado para a pasta plugins.\n";
-		$estaNaPasta = 0;
+		unlink $path; #deletando arquivo xconf, que está obsoleto
+		message "Removendo xconf obsoleto.\n";
+		$obsoletoRemovido = 1;
 	}
 	my $controlfile = Settings::getControlFilename('sys.txt');
 	open(FILE, '<:encoding(UTF-8)', $controlfile);
@@ -74,13 +68,15 @@ sub xConfConfiguratedOrNot {
 		next if $line =~ /^$/ || $line =~ /^#/;
 		if ($line =~ /xconf/ ) {
 			$estaNoSys = 1 ;
+			last;
 		}
 	}
-	if ( $estaNoSys == 0) {
+	if ( !$estaNoSys ) {
 		foreach my $line (@lines) {
 			next if $line =~ /^$/ || $line =~ /^#/;
 			if ($line =~ /loadPlugins_list\s(.*)/ ) {
 				$line = 'loadPlugins_list '.join (',',$1,"xconf");
+				last;
 			}
 		}
 		open(WRITE, '>:encoding(UTF-8)', $controlfile);
@@ -88,13 +84,23 @@ sub xConfConfiguratedOrNot {
 		close(WRITE);
 		$estaNoSys = 0;
 	}
-	unless ($estaNaPasta == 1 && $estaNoSys == 1) {
-		message "
-		Ativando xConf\n";
-		Commands::run("plugin load plugins/xconf.pl");
+	if ($obsoletoRemovido && $estaNoSys) {
+		#precisamos recarregar o plugin, pra ele perceber que o arquivo nao existe mais
+		Commands::run("plugin reload xconf");
+		message "Atualizando plugin xConf...\n";
+		Commands::run("plugin load plugins/needs-review/xconf/trunk/xconf.pl");
+		message "plugin atualizado.\n"
+	} elsif ($obsoletoRemovido && !$estaNoSys) {
+		message "Ativando plugin xConf...\n";
+		Commands::run("plugin load plugins/needs-review/xconf/trunk/xconf.pl");
+		message "xConf ativado.\n"
 	}
-	else {
-		message "Checando algumas coisas...\nTudo certo.\n";
+	if ($estaNoSys) {
+	 	message "Checando algumas coisas...\nTudo certo.\n";
+	} else {
+	 	message "Ativando xConf...\n";
+		Commands::run("plugin load plugins/needs-review/xconf/trunk/xconf.pl");
+		message "xConf ativado.\n;"
 	}
 }
 
