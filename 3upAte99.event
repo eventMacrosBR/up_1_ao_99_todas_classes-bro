@@ -46,15 +46,16 @@ automacro upClasse2 {
 
 
 macro upar {
+	#código feito por vitorsilverio
 	$i = 0
 	while ($i < @mapasDeUp) { #vamos checar todos os mapas de up
+		@configuracoesUp = &split(';', $mapasDeUp[$i])
+
 		#ConfiguracoesUp array
 		#0 - Nivel Mínimo
 		#1 - Nivel Máximo
 		#2 - lockMap
 		#3 - saveMap
-		@configuracoesUp = &split(';', $mapasDeUp[$i])
-
 		if($.lvl >= $configuracoesUp[0] && $.lvl <= $configuracoesUp[1]){
 			$mapa{lockMap} = $configuracoesUp[2]
 			$mapa{city} = $configuracoesUp[3]
@@ -62,6 +63,7 @@ macro upar {
 	  	}
 	  	$i++
   	}
+  	
 	if (&config(lockMap) = $mapa{lockMap}) {
 		[
 		log ================================
