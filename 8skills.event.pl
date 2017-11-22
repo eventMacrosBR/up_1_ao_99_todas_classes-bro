@@ -196,9 +196,13 @@ automacro configurandoblocos {
 ##################################
 sub cofigurarskills {
 	open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
-	print $fh "attackSkillSlot {\n";
-	print $fh "	monsters \n";  
-	print $fh "	sp \n";
-	print $fh "	whenStatusInactive \n";
-	print $fh "}\n";
+	$i = 0;
+	while($i < 3 ){
+		print $fh "attackSkillSlot {\n";
+		print $fh "	monsters \n";  
+		print $fh "	sp \n";
+		print $fh "	whenStatusInactive \n";
+		print $fh "}\n";
+		$i++;
+	}
 }
