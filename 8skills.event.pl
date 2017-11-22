@@ -1,27 +1,33 @@
 automacro criandoblocos {
-	ConfigKeyNotExist attackSkillSlot_2 #caso não tenha pelo menos 3 blocos criar até 3 blocos novos
+	ConfigKeyNotExist attackSkillSlot_3 #caso não tenha pelo menos 3 blocos criar até 3 blocos novos, somando quatro no total
 	exclusive 1
 	priority -2
 	call {
 		log criando blocos attackSkillSlot
-		configurarSkills()
-		if (&config(attackSkillSlot_2) == none) {
-			pause 2
-			do reload config
+		configurarSkills() #chamando o sub que coloca os blocos no config.txt
+		pause 2
+		do reload config
+		if (&config(attackSkillSlot_2_sp) =~ /sp/) { #se for verdadeiro significa que o bloco existe
+			log configurado com sucesso
+		} else {
+			erro ao configurar os blocos de skills
+			contate os criadores dessa macro
 		}
 	}
 }
 	
 automacro configurandoblocos {
 	ConfigKeyNot classe none
-	ConfigKey attackskillSlot_0 none
+	ConfigKeyNotExist attackskillSlot_3
+	JobID $IDClasse1, $IDClasse2  #dessa forma isso não irá triggar enquanto ele for aprendiz
+	BaseLevel < 99 #se ele chegar no lvl máximo não precisa mais disso né? :D
 	run-once 1
 	exclusive 1
 	call {
 		
 		switch(&config(classe)) {
 		
-			case(templario) {
+			case(=~ /templ[áa]rio/i ) {
 				do conf attackSkillSlot_0 
 				do conf attackSkillSlot_0_monsters 
 				do conf attackSkillSlot_0_sp > 50
@@ -37,7 +43,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
 			}
-			case(cavaleiro) {
+			case(=~ /cavaleiro/i ) {
 				do conf attackSkillSlot_0 
 				do conf attackSkillSlot_0_monsters 
 				do conf attackSkillSlot_0_sp > 50
@@ -53,7 +59,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
 			}
-			case(sacerdote) #Luz Divina?????{
+			case(=~ /sacerdote|sacer/i)
 				do conf attackSkillSlot_0 
 				do conf attackSkillSlot_0_monsters 
 				do conf attackSkillSlot_0_sp > 50
@@ -69,7 +75,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
 			}
-			case(monge) {
+			case(=~ /monge/i) {
 				do conf attackSkillSlot_0 
 				do conf attackSkillSlot_0_monsters 
 				do conf attackSkillSlot_0_sp > 50
@@ -85,7 +91,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
 			}		
-			case(bruxo) {
+			case(=~ /bruxo/) {
 				#Mapas de base -> ein_fild09 | pay_fild02 | mjolnir_11 | mjolnir_01 | mjolnir_02 | cmd_fild01
 				#Só Skills de Mago por enquanto
 				do conf attackSkillSlot_0 Lanças de Fogo #Monstros de Terra/Sem dano elemental
@@ -103,7 +109,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
 			}
-			case(sabio) {
+			case(=~ /s[áa]bio/i) {
 				#Mapas de base -> ein_fild09 | pay_fild02 | mjolnir_11 | mjolnir_01 | mjolnir_02 | cmd_fild01
 				#Só Skills de Mago por enquanto
 				do conf attackSkillSlot_0 Lanças de Fogo #Monstros de Terra/Sem dano elemental
@@ -121,7 +127,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
 			}
-			case(ca[cç]ador) {
+			case(=~ /ca[cç]ador/i) {
 				do conf attackSkillSlot_0 
 				do conf attackSkillSlot_0_monsters 
 				do conf attackSkillSlot_0_sp > 50
@@ -137,7 +143,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
 			}
-			case(bardo) {
+			case(=~ /bardo/i ) {
 				do conf attackSkillSlot_0 
 				do conf attackSkillSlot_0_monsters 
 				do conf attackSkillSlot_0_sp > 50
@@ -153,7 +159,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
 			}
-			case(mercenario) {
+			case(=~ /mercenario/i) {
 				do conf attackSkillSlot_0 
 				do conf attackSkillSlot_0_monsters 
 				do conf attackSkillSlot_0_sp > 50
@@ -169,7 +175,7 @@ automacro configurandoblocos {
 				do conf attackSkillSlot_2_sp > 50
 				do conf attackSkillSlot_2_WhenStatusInactive EFST_POSTDELAY
 			}
-			case(arruaceiro) {
+			case(=~ /arruaceiro/i) {
 				do conf attackSkillSlot_0 
 				do conf attackSkillSlot_0_monsters 
 				do conf attackSkillSlot_0_sp > 50
@@ -196,7 +202,7 @@ automacro configurandoblocos {
 ##################################
 sub cofigurarskills {
 	open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
-	$i = 0;
+	my $i = 0;
 	while($i < 3 ){
 		print $fh "attackSkillSlot {\n";
 		print $fh "	monsters \n";  
@@ -205,4 +211,5 @@ sub cofigurarskills {
 		print $fh "}\n";
 		$i++;
 	}
+	close ($fh);
 }
