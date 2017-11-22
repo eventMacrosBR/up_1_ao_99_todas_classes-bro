@@ -1,0 +1,145 @@
+#COMEÇANDO SÓ PELO GUIA DA BROWIKI MAIS PARA BOTAR OS DADOS
+#VOU FAZER UM BRUXO HOJE PARA CONFIRMAR TODOS OS PASSOS E MELHORAR UM POUCO
+#MAS TEM UMA BASE AI
+
+automacro InicioVirarBruxo {
+JobLevel = 50
+InMapNot gef_tower
+exclusive 1
+call {
+
+  log JÁ TENHO LEVEL PARA VIRAR BRUXO
+  log INICIANDO A QUEST
+  
+  do conf lockMap none #para ele não fujir hehe
+  do move gef_tower 108 35
+  }
+}
+
+automacro ChefedaguildBruxo {
+InMap gef_tower
+QuestInactive #Checar ID da quest
+exclusive 1
+  call {
+  do talk &npc(111 37)
+  do talk resp 0
+  do talk resp 0
+    if (&questStatus(ID da quest) == inactive) log Algo deu errado #Subistituir ID,caso de problema na hora de iniciar o que fazer?
+  }
+}
+
+automacro QuestionarioBruxo {
+InMap gef_tower
+QuestActive #Checar ID da quest
+exclusive 1
+  call {
+    do move 100 22
+    do talk &npc(102 24)
+    do talk resp 1
+    
+    switch() {#deixo com vocês tem que ver qual das 3 sequencias o npc vai seguir,da para adaptar a sub da de alquimista,mas como falei não sou bom com sub
+    
+      case() {
+      #Qual dos atributos a seguir é o mais importante para um Mago?
+      do talk resp 0
+      do talk resp 1
+      do talk resp 2
+      do talk resp 1
+      do talk resp 3
+      do talk resp 3
+      do talk resp 1
+      do talk resp 0
+      do talk resp 1
+      }
+      case() {
+      #De que monstro você pode obter uma Vembrassa com Slot?
+      do talk resp 2
+      do talk resp 0
+      do talk resp 1
+      do talk resp 3
+      do talk resp 0
+      do talk resp 1
+      do talk resp 3
+      do talk resp 3
+      do talk resp 2
+      }
+      case() {
+      #Qual das habilidades a seguir não é necessária para aprender Barreira de Fogo? Não achei a ordem dos dialogos infelizmente
+      }
+    }
+  }  
+}
+
+automacro TestePraticoBruxoIniciar {
+InMap gef_tower
+questActive #ID da Quest
+exclusive 1
+  call {
+  if (&Invamount(503) >= 50) { 
+    do talk &npc(102 24)
+    do talk resp 1
+    do talk resp 0
+  }else{
+    log Indo Comprar poções
+    log Não consigo sem elas
+    do autobuy #?????
+    }
+  }
+  
+automacro TestePraticoBruxoSaladeEspera {#Nome grande '-'
+npcNear Sala de Espera
+exclusive 1
+InMap #Nome do mapa, confirmar depois
+  call {
+  
+  #editar priority.txt para atacar os mais perigosos primeiro?
+    do conf -f testepraticobruxo emprogresso
+    do conf attackSkillSlot_0_monsters Guerreiro Orc, Mandrágora, Pé-Grande, Caramelo, Giearth, Vitata, Deniro #lanças de fogo
+    do conf attackSkillSlot_1_monsters Goblin, Salgueiro Ancião, Frilldora, Escorpião, General da Floresta, Pecopeco, Metaller # lanças de gelo
+    do conf attackSkillSlot_1_monsters Hidras, Cornutus, Fens, Moluscos, Vadons, Magnólias,Marins, Marinas, Esferas Marinhas #Relampago
+    
+  #apos isso tem que entrar no chat do npc, não sei fazer :P
+  }
+}
+
+automacro DentrodaSala1Bruxo {
+InMap #Sala1 do teste pratico,bichos detectores mas não agressivos
+exclusive 1
+  call {
+    #andar pela sala evitando o centro.vai spawnar esferas marinhas e hidras lá
+  }
+}
+    
+automacro DentrodaSala2Bruxo {
+InMap #Sala2 do teste pratico,bichos detectores somente Orc agressivos
+exclusive 1
+  call {
+    #priorizar atacar o orc primeiro.pode ser um problema ele quebrando o cast.
+    #andar pela sala evitando o centro.vai spawnar mandragoras
+    }
+}
+
+automacro DentrodaSala3Bruxo {
+InMap #Sala3 do teste pratico,bichos detectores somente Salgueiro Ancião, Escorpião e Goblin
+exclusive 1
+  call {
+    #priorizar atacar Salgueiro Ancião, Escorpião e Goblin.pode ser um problema eles quebrando o cast.tentar pegar 1 de cada vez
+    #andar pela sala evitando o centro.vai spawnar Guardião da Floresta
+    do conf -f testepraticobruxo concluido
+    }
+}
+    
+automacro FinalizandoVirarBruxo {
+InMap gef_tower
+questActive #ID
+configKey testepraticobruxo concluido
+exclusive 1
+  call {
+    do talk &npc(111 37)
+    log AGORA SOU UM BRUXO
+  }
+}
+
+
+
+
