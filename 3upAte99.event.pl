@@ -18,11 +18,12 @@ automacro upAteLv12Aprendiz {
 }
 
 automacro UpClasse1 {
-	JobID 1,2,3,4,5,6,24,25  #todas as classes 1 + justiceiro + ninja
+	JobID $IDClasse1 
 	BaseLevel != 99
 	ConfigKeyNot quest_eden em_curso
 	ConfigKeyNot quest_eden terminando
 	ConfigKeyNot In_saveMap_sequence true
+	ConfikKeyNot virarClasse2 true
 	ConfigKeyNot lockMap $mapa{lockMap}
 	JobLevel != 50
 	exclusive 1
@@ -32,11 +33,12 @@ automacro UpClasse1 {
 }
 
 automacro upClasse2 {
-    JobID 7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 #todas as classes 2
+	JobID $IDClasse2 #todas as classes 2
 	BaseLevel != 99
 	ConfigKeyNot quest_eden em_curso
 	ConfigKeyNot quest_eden terminando
 	ConfigKeyNot In_saveMap_sequence true
+	ConfikKeyNot virarClasse2 true
 	ConfigKeyNot lockMap $mapa{lockMap}
 	exclusive 1
 	priority 20 #baixa prioridade
@@ -59,26 +61,29 @@ macro upar {
 		if($.lvl >= $configuracoesUp[0] && $.lvl <= $configuracoesUp[1]){
 			$mapa{lockMap} = $configuracoesUp[2]
 			$mapa{city} = $configuracoesUp[3]
-			$i = @mapasDeUp #gambiarra pra parar a checagem imediatamente
+			$i = @mapasDeUp #gambiarra pra parar o loop assim que encontrar
 	  	}
 	  	$i++
   	}
+	$i = undef
   	
 	if (&config(lockMap) = $mapa{lockMap}) {
 		[
 		log ================================
 		log =Tudo Configurado
-		log =Continuarei upando
+		log =Continuarei upando em $mapa{lockMap}
 		log ================================
 		]
 		call voltarAtacar
 		stop
 	}
-
+	
+	#se chegar aqui significa que tem que ser mudado o lockmap e/ou o saveMap
 	if (&config(saveMap) = $mapa{city}) {
 		do conf lockMap $mapa{lockMap}
 		call voltarAtacar
 	} else {
+		call pararDeAtacar
 		call SetSaveIn "$mapa{city}"
 	}
 }
@@ -100,16 +105,14 @@ automacro nivelDeClasse50 {
 	exclusive 1
 	timeout 20
 	NotInMap izlude
+	ConfigKeyNot virandoClasse2 true
 	call {
-		lock upComeço
 		log SEU CHAR JÁ ESTÁ NO NIVEL 50 DE CLASSE
 		log FAÇA A QUEST PARA VIRAR CLASSE 2 MANUALMENTE POR FAVOR
 		log DEPOIS ABRA O BOT NOVAMENTE
 		log ASSIM QUE ELE SE TORNAR UM CLASSE 2, A MACRO VOLTA A UPAR NORMALMENTE
 		do conf lockMap none
-		do conf attackAuto 1
-		do conf route_randomWalk 0
-		do move izlude
+		call pararDeAtacar
 	}
 }
 
