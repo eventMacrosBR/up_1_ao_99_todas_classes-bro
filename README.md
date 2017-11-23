@@ -12,7 +12,7 @@ Está macro pretende upar do nível 1 de base até o 99 de todas as classes do r
 |----------------|--------|
 |Campo de treinamento|Funcionando|
 |Upar do 1 ao 99|Funcionando|
-|Quest Eden|Removida Temporáriamente|
+|Quest Eden|Removida Temporariamente|
 |Quest Espadachim|Funcionando|
 |Quest Gatuno|Funcionando|
 |Quest Mercador|Funcionando|
