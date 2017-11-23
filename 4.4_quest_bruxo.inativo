@@ -24,7 +24,7 @@ exclusive 1
   do talk &npc(111 37)
   do talk resp 0
   do talk resp 0
-    if (&questStatus(ID da quest) == inactive) log Algo deu errado #Subistituir ID,caso de problema na hora de iniciar o que fazer?
+    if (&questStatus(ID da quest) == inactive) log Algo deu errado #Substituir ID,caso de problema na hora de iniciar o que fazer?
   }
 }
 
