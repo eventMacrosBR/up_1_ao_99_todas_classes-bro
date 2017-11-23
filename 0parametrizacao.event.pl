@@ -11,7 +11,7 @@ automacro definirVariaveis{
 		switch (&config(classe)) {
 			case (=~ /alquimista/i) {
 				do conf classe alquimista #deixar por padrão tudo lowercase (caso o usuario colocar letra maiuscula)
-				call definirVariaveisClasse1 "mercador"
+				call definirVariaveisClasse1 "mercador" #define as variaveis de classe 1
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
 				$statsPadrao = #TODO
@@ -23,7 +23,7 @@ automacro definirVariaveis{
 				do iconf 1752 7500 1 0 #Flecha de Fogo
 				do iconf 710 0 0 0 #Flor das ilusoes (vai ser feita a quest mais rapida)
 
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /arruaceiro/i) {
 				do conf classe arruaceiro
@@ -38,7 +38,7 @@ automacro definirVariaveis{
 				do iconf 957 10 1 0 #unhaApodrecida
 				do iconf 932 10 1 0 #osso
 				do iconf 958 10 1 0 #mandibula
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /bardo/i) {
 				do conf classe bardo
@@ -52,7 +52,7 @@ automacro definirVariaveis{
 				do iconf x 1 1 0 #Flor qualquer. Pode ser: Aloés(704), Hinalle(703), Flor das Ilusões(710), Izidor(709), Menta(708), Flor Cantante(629), Rosa de Gelo(749), Rosa Eterna(748)
 				do iconf 938 1 1 0 #Muco Pegajoso
 				do iconf 1024 1 1 0 #Tinta de Polvo
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /bruxo/i) {
 				do conf classe bruxo
@@ -110,7 +110,7 @@ automacro definirVariaveis{
 				do iconf 942 1 1 0 #Caudas de Yoyo
 				do iconf 1026 1 1 0 #Avelãs
 
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /cavaleiro/i) {
 				do conf classe cavaleiro
@@ -135,7 +135,7 @@ automacro definirVariaveis{
 				do iconf 966 5 1 0 #Carne de Ostra
 				do iconf 7031 5 1 0 #Frigideira Velha
 				do iconf 946 5 1 0 #Casco de Caramujo
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /ferreiro/i) {
 				do conf classe ferreiro
@@ -176,7 +176,7 @@ automacro definirVariaveis{
 				do iconf 990 2 1 0 #Sangues Escarlates
 				do iconf 1119 1 1 0 #Tsurugi
 
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /mercenario/i) {
 				do conf classe mercenario
@@ -189,7 +189,7 @@ automacro definirVariaveis{
 
 				#não é necessario items para a quest 2
 
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /monge/i) {
 				do conf classe monge	
@@ -235,7 +235,7 @@ automacro definirVariaveis{
 				do iconf 1002 5 1 0 #Minério de Ferro
 				do iconf 510 3 1 0 #Erva Azul
 
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /odalisca/i) {
 				do conf classe odalisca
@@ -260,7 +260,7 @@ automacro definirVariaveis{
 				do iconf 909 20 1 0 #Jellopy
 				do iconf 1020 10 1 0 #Cabelos Morenos
 				do iconf 2401 1 1 0 #	Sandálias [0]
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /s[áa]bio/i) {
 				do conf classe sabio
@@ -284,7 +284,7 @@ automacro definirVariaveis{
 				$statsPadrao = #TODO
 				$IDClasse1 = 4
 				$IDClasse2 = 8
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /templ[áa]rio/i) {
 				do conf classe templario
@@ -299,7 +299,7 @@ automacro definirVariaveis{
 				do iconf 1041 10 1 0 #Lampiões
 				do iconf 930 10 1 0 #Bandagens Estragadas
 				do iconf 2608 1 1 0 #Rosário 
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon"; "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude"; "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
+				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			else {
 				log ============================================
@@ -320,7 +320,7 @@ macro definirVariaveisClasse1 {
 	switch ($.param[0]) {
 		case (=~ /espadachi[mn]/i) {
 			$mapaPraVirarClasse1 = izlude_in
-			$coordenadaNpcClasse1 =
+			$coordenadaNpcClasse1 = #TODO
 			$virarClasse1SequenciaDeConversa = r1 r0
 			#$virarClasse1Mover = # nao precisa mover
 			$IDequipIniciante = 13415 # alfange de iniciante
@@ -334,28 +334,28 @@ macro definirVariaveisClasse1 {
 		} 
 		case (=~ /mercador/i) {
 			$mapaPraVirarClasse1 = alberta_in
-			$coordenadaNpcClasse1 =
+			$coordenadaNpcClasse1 = #TODO
 			#$virarClasse1Mover = # nao precisa mover
 			#$virarClasse1SequenciaDeConversa = não tem
 			$IDequipIniciante = 1381
 		}
 		case (=~ /mago/i) {
 			$mapaPraVirarClasse1 = geffen_in
-			$coordenadaNpcClasse1 =
+			$coordenadaNpcClasse1 = #TODO
 			$virarClasse1Mover = &rand(162,165) &rand(123,126)
 			$virarClasse1SequenciaDeConversa = r0 r0
 			$IDequipIniciante = 1639
 		}
 		case (=~ /novi[cç]o/i) {
 			$mapaPraVirarClasse1 = prt_church
-			$coordenadaNpcClasse1 =
+			$coordenadaNpcClasse1 = #TODO
 			$virarClasse1Mover = &rand(182,184) &rand(36,38)
 			$virarClasse1SequenciaDeConversa = r0
 			$IDequipIniciante = 1545
 		}
 		case (=~ /arqueiro/i) {
 			$mapaPraVirarClasse1 = payon_in02
-			$coordenadaNpcClasse1 =
+			$coordenadaNpcClasse1 = #TODO
 			#$virarClasse1Mover = # nao precisa mover
 			$virarClasse1SequenciaDeConversa = r0
 			$IDequipIniciante = 1742
