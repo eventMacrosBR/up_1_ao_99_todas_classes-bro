@@ -7,7 +7,7 @@ automacro definirVariaveis{
 	priority -999 #pioridade altíssmia, sempre vai ser a primeira a executar
 	exclusive 1
 	ConfigKeyNot classe none
-	call{
+	call {
 		$skillsAprendiz = NV_BASIC 9 #Essa é padrão independente da classe
 		switch (&config(classe)) {
 			case (=~ /alquimista/i) {
