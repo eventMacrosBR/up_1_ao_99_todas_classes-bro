@@ -64,7 +64,7 @@ automacro definirVariaveis{
 				$IDClasse1 = 2
 				$IDClasse2 = 9
 				#Não necessita Itens paraa quest de classe
-        			@mapasDeUp = ("1;11;pay_fild02;alberta", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;moc_fild03;payon", "46;60;cmd_fild01;comodo", "61;70;moc_fild17;morocc", "71;79;yuno_fild09;aldebaran", "80;98;ein_fild09;einbroch")#minhas recomendaçoes de mapa/level,evitando bichos agressivos/detectores
+        		@mapasDeUp = ("1;11;pay_fild02;alberta", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;moc_fild03;payon", "46;60;cmd_fild01;comodo", "61;70;moc_fild17;morocc", "71;79;yuno_fild09;aldebaran", "80;98;ein_fild09;einbroch")#minhas recomendaçoes de mapa/level,evitando bichos agressivos/detectores
 			}
 			case (=~ /ca[cç]ador/i) {
 				#pior quest de classe possível, altas chances de bugs
@@ -320,44 +320,44 @@ macro definirVariaveisClasse1 {
 	# $.param[0] tem como valor a classe 1
 	switch ($.param[0]) {
 		case (=~ /espadachi[mn]/i) {
-			$mapaPraVirarClasse1 = izlude_in
-			$coordenadaNpcClasse1 = #TODO
+			$virarClasse1Mapa = izlude_in
+			$virarClasse1CoodenadaNPC = 74 172
 			$virarClasse1SequenciaDeConversa = r1 r0
-			#$virarClasse1Mover = # nao precisa mover
-			$IDequipIniciante = 13415 # alfange de iniciante
+			$virarClasse1PrecisaMover = nao
+			$IDequipIniciante = 13415
 		} 
 		case (=~ /gatuno/i) {
-			$mapaPraVirarClasse1 = moc_prydb1
-			$coordenadaNpcClasse1 = 42 133
-			$virarClasse1Mover = &rand(44,46) &rand(127,129)
+			$virarClasse1Mapa = moc_prydb1
+			$virarClasse1CoodenadaNPC = 42 133
+			$virarClasse1PrecisaMover = sim
 			$virarClasse1SequenciaDeConversa = r1 r1
 			$IDequipIniciante = 13041
 		} 
 		case (=~ /mercador/i) {
-			$mapaPraVirarClasse1 = alberta_in
-			$coordenadaNpcClasse1 = #TODO
-			#$virarClasse1Mover = # nao precisa mover
-			#$virarClasse1SequenciaDeConversa = não tem
+			$virarClasse1Mapa = alberta_in
+			$virarClasse1CoodenadaNPC = 53 43
+			$virarClasse1PrecisaMover = nao
+			#$virarClasse1SequenciaDeConversa = não tem sequencia, é só next next next
 			$IDequipIniciante = 1381
 		}
 		case (=~ /mago/i) {
-			$mapaPraVirarClasse1 = geffen_in
-			$coordenadaNpcClasse1 = #TODO
-			$virarClasse1Mover = &rand(162,165) &rand(123,126)
+			$virarClasse1Mapa = geffen_in
+			$virarClasse1CoodenadaNPC = 164 124
+			$virarClasse1PrecisaMover = sim
 			$virarClasse1SequenciaDeConversa = r0 r0
 			$IDequipIniciante = 1639
 		}
 		case (=~ /novi[cç]o/i) {
-			$mapaPraVirarClasse1 = prt_church
-			$coordenadaNpcClasse1 = #TODO
-			$virarClasse1Mover = &rand(182,184) &rand(36,38)
+			$virarClasse1Mapa = prt_church
+			$virarClasse1CoodenadaNPC = 184 41
+			$virarClasse1PrecisaMover = sim
 			$virarClasse1SequenciaDeConversa = r0
 			$IDequipIniciante = 1545
 		}
 		case (=~ /arqueiro/i) {
-			$mapaPraVirarClasse1 = payon_in02
-			$coordenadaNpcClasse1 = #TODO
-			#$virarClasse1Mover = # nao precisa mover
+			$virarClasse1Mapa = payon_in02
+			$virarClasse1CoodenadaNPC = 64 71
+			$virarClasse1PrecisaMover = nao
 			$virarClasse1SequenciaDeConversa = r0
 			$IDequipIniciante = 1742
 		}

@@ -1085,11 +1085,19 @@ automacro virandoClasse1 {
 	InMap $mapaPraVirarClasse1
 	JobID 0 #Aprendiz
 	JobLevel 10
-	SkillLevel NV_BASIC = 10
+	SkillLevel NV_BASIC = 9
 	exclusive 1
 	call {
-		if (&defined($virarClasse1Mover) = 1) do move $virarClasse1Mover
-		do talknpc $coordenadaNpcClasse1 $virarClasse1SequenciaDeConversa
+		# $virarclasse1precisamover tem como valor sim ou nao
+		# $virarclasse1mapa tem como valor o mapa em vc vira classe 1
+		# $virarclasse1coordenadanpc contem as coordenadas do npc
+		# $virarclasse1sequenciadeconversa tem como valor a sequencia de conversação correta
+		# $idequipiniciante tem como valor a id da arma que vc recebe quando vira classe 1
+		
+		if ($virarClasse1PrecisaMover = sim) {
+			do move $virarClasse1Mapa $virarClasse1CoodenadaNPC &rand(1,5)
+		}
+		do talknpc $virarClasse1CoodenadaNPC $virarClasse1SequenciaDeConversa
 		$check = GetIndexAndEquipped("rightHand", "$IDequipIniciante")
 		if ($check != -1) do eq $check
 	}
