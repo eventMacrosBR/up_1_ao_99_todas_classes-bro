@@ -312,9 +312,9 @@ automacro definirVariaveis{
 				do eval Misc::offlineMode();
 				stop
 			}
-		}
-	}
-}
+		} #fim do switch
+	} #fim do call
+} #fim do automacro definirVariaveis
 
 macro definirVariaveisClasse1 {
 	# $.param[0] tem como valor a classe 1
@@ -375,36 +375,3 @@ macro definirVariaveisClasse1 {
 	$classe1Desejada = $.param[0]
 }
 
-#Macro Generica para subir as skills e status dependendo das variaveis
-#Essa macro mantem configurações feitas diretamente no config.txt
-automacro configurarSkillsEStats{
-	timeout 300 #vai rodar de 5 em 5 minutos
-	BaseLevel > 0
-	exclusive 1
-	call{
-		$idClasseAtual = pegarID()
-		switch($idClasseAtual){
-			case(== 0){ #Aprendiz
-				if(&config(skillsAddAuto_list) != $skillsAprendiz) do conf skillsAddAuto_list $skillsAprendiz
-				stop
-			}
-			case(= 1..7){ #Classes 1
-				if(&config(skillsAddAuto_list) != $skillsClasse1) do conf skillsAddAuto_list $skillsClasse1
-				stop
-			}
-			case(= 8..20){ #Classes 2
-				if(&config(skillsAddAuto_list) =! $skillsClasse2) do conf skillsAddAuto_list $skillsClasse2
-				stop
-			}
-		}
-		do conf skillsAddAuto 1
-		if(&config(statsAddAuto_list) != $statsPadrao) do conf statsAddAuto_list $statsPadrao
-		do conf statsAddAuto 1
-		do conf statsAddAuto_dontUseBonus 1
-	}	
-
-}
-
-sub pegarID {
-    return $char->{jobID};
-}
