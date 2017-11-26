@@ -237,8 +237,8 @@ automacro definirVariaveis{
 				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 30 str, 40 dex, 20 vit, 80 agi, 25 luk ,60 dex, 50 str, 40 luk, 90 agi, 60 str, 29 vit
 				$IDClasse1 = 6
 				$IDClasse2 = 17
-				$eden26e40Arma =
-				$eden60Arma    = 
+				$eden26e40Arma = adaga
+				$eden60Arma    = adaga
 				#Itens da quest de classe
 				do iconf 510 7 1 0 #ervaAzul
 				do iconf 957 10 1 0 #unhaApodrecida
@@ -253,8 +253,8 @@ automacro definirVariaveis{
 				$statsPadrao = #TODO
 				$IDClasse1 = 3
 				$IDClasse2 = 19
-				$eden26e40Arma =
-				$eden60Arma    = 
+				$eden26e40Arma = arco
+				$eden60Arma    = guitarra
 				#Itens da quest de classe
 				do iconf x 1 1 0 #Flor qualquer. Pode ser: Aloés(704), Hinalle(703), Flor das Ilusões(710), Izidor(709), Menta(708), Flor Cantante(629), Rosa de Gelo(749), Rosa Eterna(748)
 				do iconf 938 1 1 0 #Muco Pegajoso
@@ -268,8 +268,8 @@ automacro definirVariaveis{
 				$statsPadrao = 20 int, 20 dex, 30 int, 30 dex, 50 int, 20 agi, 60 int, 40 dex, 20 vit, 70 int, 70 dex, 45 agi, 90 int, 90 dex, 2 luk 
 				$IDClasse1 = 2
 				$IDClasse2 = 9
-				$eden26e40Arma =
-				$eden60Arma    = 
+				$eden26e40Arma = cajado
+				$eden60Arma    = cajado
 				#Não necessita Itens paraa quest de classe
         	}
 			case (=~ /ca[cç]ador/i) {
@@ -281,8 +281,8 @@ automacro definirVariaveis{
 				$statsPadrao = #TODO
 				$IDClasse1 = 3
 				$IDClasse2 = 11
-				$eden26e40Arma =
-				$eden60Arma    = 
+				$eden26e40Arma = arco
+				$eden60Arma    = arco
 				#Itens da quest de classe
 				#Possibilidade 1	
 				do iconf 920 5 1 0 #Garras de Lobo
@@ -328,8 +328,8 @@ automacro definirVariaveis{
 				$statsPadrao = #TODO
 				$IDClasse1 = 1
 				$IDClasse2 = 7,13
-				$eden26e40Arma =
-				$eden60Arma    = 
+				$eden26e40Arma = espada
+				$eden60Arma    = espada
 				#Itens da quest de classe
 				#Possibilidade 1:
 				do iconf 1040 5 1 0 #Bigode de Anão Ancião
@@ -354,8 +354,8 @@ automacro definirVariaveis{
 				$statsPadrao = #TODO
 				$IDClasse1 = 5
 				$IDClasse2 = 10
-				$eden26e40Arma =
-				$eden60Arma    = 
+				$eden26e40Arma = maça
+				$eden60Arma    = machado
 				#Itens da quest de classe
 				#Possibilidade 1:
 				do iconf 998 8 1 0 #Ferros
@@ -396,8 +396,8 @@ automacro definirVariaveis{
 				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 30 str, 40 dex, 20 vit, 80 agi, 25 luk ,60 dex, 50 str, 40 luk, 90 agi, 60 str, 29 vit
 				$IDClasse1 = 6
 				$IDClasse2 = 12
-				$eden26e40Arma =
-				$eden60Arma    = 
+				$eden26e40Arma = adaga
+				$eden60Arma    = katar
 
 				#não é necessario items para a quest 2
 
@@ -410,8 +410,8 @@ automacro definirVariaveis{
 				$statsPadrao = #TODO
 				$IDClasse1 = 4
 				$IDClasse2 = 15
-				$eden26e40Arma =
-				$eden60Arma    = 
+				$eden26e40Arma = maça
+				$eden60Arma    = garra
 				#Itens da quest de classe
 				#Possibilidade 1:
 				do iconf 7053 5 1 0 #Cyfar
@@ -457,8 +457,8 @@ automacro definirVariaveis{
 				$statsPadrao = #TODO
 				$IDClasse1 = 3
 				$IDClasse2 = 20
-				$eden26e40Arma =
-				$eden60Arma    = 
+				$eden26e40Arma = arco
+				$eden60Arma    = chicote
 				#Itens da quest de classe
 				#Possibilidade 1
 				do iconf 938 20 1 0 #Muco Pegajoso
@@ -480,8 +480,8 @@ automacro definirVariaveis{
 				call definirVariaveisClasse1 "mago"	
 				$IDClasse1 = 2
 				$IDClasse2 = 16
-				$eden26e40Arma =
-				$eden60Arma    = 
+				$eden26e40Arma = cajado
+				$eden60Arma    = cajado
 				$statsPadrao = #TODO
 				#Itens da quest de classe
 				do iconf 916 1 1 0 #Plumas de Ave
@@ -498,8 +498,8 @@ automacro definirVariaveis{
 				$statsPadrao = #TODO
 				$IDClasse1 = 4
 				$IDClasse2 = 8
-				$eden26e40Arma =
-				$eden60Arma    = 
+				$eden26e40Arma = cajado
+				$eden60Arma    = cajado
 			}
 			case (=~ /templ[áa]rio/i) {
 				do conf classe templario
@@ -509,8 +509,8 @@ automacro definirVariaveis{
 				$statsPadrao = #TODO
 				$IDClasse1 = 1
 				$IDClasse2 = 14,21
-				$eden26e40Arma =
-				$eden60Arma    = 
+				$eden26e40Arma = espada
+				$eden60Arma    = lança
 				#Itens da quest de classe
 				do iconf 523 1 1 0 #Água Benta
 				do iconf 1041 10 1 0 #Lampiões
