@@ -2,6 +2,208 @@
 
 #Macro responsavel por definir as skills/stats padroes dependendo da classe
 #Planejada para extender outras classes no futuro
+
+sub extrairMapasDeUp {
+	my ($lvl, $classe) = @_;
+	my $variaveisDeUp;
+	
+	#########################################################################
+	#AQUI É DEFINIDO OS MAPAS QUE CADA CLASSE IRÁ UPAR, DE MODO 
+	#QUE SEJA EXTREMAMENTE FÁCIL DE ALTERAR A SEU GOSTO
+	#A ÚNICA REGRA QUE VC DEVE OBEDECER, É QUE O LVL MAX DE
+	#UMA LINHA NAO PODE SER
+	#IGUAL AO LVL MIN DE OUTRA LINHA (EM CADA CLASSE)
+	#EXEMPLO: 
+	#lvlMin => 11 , lvlMax => 22
+	#lvlMin => 22 , lvlMax => 30
+	#NÃO PODE 
+	########################################################################
+	
+	if ($classe eq 'arruaceiro') { 
+
+		$variaveisDeUp = 
+		[
+			{lvlMin => 1 , lvlMax => 11, lockMap => pay_fild01, saveMap => payon},
+			{lvlMin => 12, lvlMax => 25, lockMap => pay_fild08, saveMap => payon},
+			{lvlMin => 26, lvlMax => 40, lockMap => pay_dun00,  saveMap => payon},
+			{lvlMin => 41, lvlMax => 45, lockMap => pay_fild09, saveMap => payon},
+			{lvlMin => 46, lvlMax => 53, lockMap => iz_dun00,   saveMap => izlude},
+			{lvlMin => 54, lvlMax => 59, lockMap => iz_dun02,   saveMap => izlude},
+			{lvlMin => 60, lvlMax => 70, lockMap => moc_fild17, saveMap => morocc},
+			{lvlMin => 71, lvlMax => 79, lockMap => mjolnir_11, saveMap => prontera},
+			{lvlMin => 80, lvlMax => 98, lockMap => gef_fild06, saveMap => geffen},
+		]
+	} elsif ($classe eq 'mercenario') { 
+		$variaveisDeUp = 
+		[
+			{lvlMin => 1 , lvlMax => 11, lockMap => pay_fild01, saveMap => payon},
+			{lvlMin => 12, lvlMax => 25, lockMap => pay_fild08, saveMap => payon},
+			{lvlMin => 26, lvlMax => 40, lockMap => pay_dun00,  saveMap => payon},
+			{lvlMin => 41, lvlMax => 45, lockMap => pay_fild09, saveMap => payon},
+			{lvlMin => 46, lvlMax => 53, lockMap => iz_dun00,   saveMap => izlude},
+			{lvlMin => 54, lvlMax => 59, lockMap => iz_dun02,   saveMap => izlude},
+			{lvlMin => 60, lvlMax => 70, lockMap => moc_fild17, saveMap => morocc},
+			{lvlMin => 71, lvlMax => 79, lockMap => mjolnir_11, saveMap => prontera},
+			{lvlMin => 80, lvlMax => 98, lockMap => gef_fild06, saveMap => geffen},
+		]
+	} elsif ($classe eq 'cavaleiro') { 
+		$variaveisDeUp = 
+		[
+			{lvlMin => 1 , lvlMax => 11, lockMap => pay_fild01, saveMap => payon},
+			{lvlMin => 12, lvlMax => 25, lockMap => pay_fild08, saveMap => payon},
+			{lvlMin => 26, lvlMax => 40, lockMap => pay_dun00,  saveMap => payon},
+			{lvlMin => 41, lvlMax => 45, lockMap => pay_fild09, saveMap => payon},
+			{lvlMin => 46, lvlMax => 53, lockMap => iz_dun00,   saveMap => izlude},
+			{lvlMin => 54, lvlMax => 59, lockMap => iz_dun02,   saveMap => izlude},
+			{lvlMin => 60, lvlMax => 70, lockMap => moc_fild17, saveMap => morocc},
+			{lvlMin => 71, lvlMax => 79, lockMap => mjolnir_11, saveMap => prontera},
+			{lvlMin => 80, lvlMax => 98, lockMap => gef_fild06, saveMap => geffen},
+		]
+	} elsif ($classe eq 'templario') { 
+		$variaveisDeUp = 
+		[
+			{lvlMin => 1 , lvlMax => 11, lockMap => pay_fild01, saveMap => payon},
+			{lvlMin => 12, lvlMax => 25, lockMap => pay_fild08, saveMap => payon},
+			{lvlMin => 26, lvlMax => 40, lockMap => pay_dun00,  saveMap => payon},
+			{lvlMin => 41, lvlMax => 45, lockMap => pay_fild09, saveMap => payon},
+			{lvlMin => 46, lvlMax => 53, lockMap => iz_dun00,   saveMap => izlude},
+			{lvlMin => 54, lvlMax => 59, lockMap => iz_dun02,   saveMap => izlude},
+			{lvlMin => 60, lvlMax => 70, lockMap => moc_fild17, saveMap => morocc},
+			{lvlMin => 71, lvlMax => 79, lockMap => mjolnir_11, saveMap => prontera},
+			{lvlMin => 80, lvlMax => 98, lockMap => gef_fild06, saveMap => geffen},
+		]
+	} elsif ($classe eq 'ferreiro') { 
+		$variaveisDeUp = 
+		[
+			{lvlMin => 1 , lvlMax => 11, lockMap => pay_fild01, saveMap => payon},
+			{lvlMin => 12, lvlMax => 25, lockMap => pay_fild08, saveMap => payon},
+			{lvlMin => 26, lvlMax => 40, lockMap => pay_dun00,  saveMap => payon},
+			{lvlMin => 41, lvlMax => 45, lockMap => pay_fild09, saveMap => payon},
+			{lvlMin => 46, lvlMax => 53, lockMap => iz_dun00,   saveMap => izlude},
+			{lvlMin => 54, lvlMax => 59, lockMap => iz_dun02,   saveMap => izlude},
+			{lvlMin => 60, lvlMax => 70, lockMap => moc_fild17, saveMap => morocc},
+			{lvlMin => 71, lvlMax => 79, lockMap => mjolnir_11, saveMap => prontera},
+			{lvlMin => 80, lvlMax => 98, lockMap => gef_fild06, saveMap => geffen},
+		]
+	} elsif ($classe eq 'alquimista') { 
+		$variaveisDeUp = 
+		[
+			{lvlMin => 1 , lvlMax => 11, lockMap => pay_fild01, saveMap => payon},
+			{lvlMin => 12, lvlMax => 25, lockMap => pay_fild08, saveMap => payon},
+			{lvlMin => 26, lvlMax => 40, lockMap => pay_dun00,  saveMap => payon},
+			{lvlMin => 41, lvlMax => 45, lockMap => pay_fild09, saveMap => payon},
+			{lvlMin => 46, lvlMax => 53, lockMap => iz_dun00,   saveMap => izlude},
+			{lvlMin => 54, lvlMax => 59, lockMap => iz_dun02,   saveMap => izlude},
+			{lvlMin => 60, lvlMax => 70, lockMap => moc_fild17, saveMap => morocc},
+			{lvlMin => 71, lvlMax => 79, lockMap => mjolnir_11, saveMap => prontera},
+			{lvlMin => 80, lvlMax => 98, lockMap => gef_fild06, saveMap => geffen},
+		]
+	} elsif ($classe eq 'cacador') { 
+		$variaveisDeUp = 
+		[
+			{lvlMin => 1 , lvlMax => 11, lockMap => pay_fild01, saveMap => payon},
+			{lvlMin => 12, lvlMax => 25, lockMap => pay_fild08, saveMap => payon},
+			{lvlMin => 26, lvlMax => 40, lockMap => pay_dun00,  saveMap => payon},
+			{lvlMin => 41, lvlMax => 45, lockMap => pay_fild09, saveMap => payon},
+			{lvlMin => 46, lvlMax => 53, lockMap => iz_dun00,   saveMap => izlude},
+			{lvlMin => 54, lvlMax => 59, lockMap => iz_dun02,   saveMap => izlude},
+			{lvlMin => 60, lvlMax => 70, lockMap => moc_fild17, saveMap => morocc},
+			{lvlMin => 71, lvlMax => 79, lockMap => mjolnir_11, saveMap => prontera},
+			{lvlMin => 80, lvlMax => 98, lockMap => gef_fild06, saveMap => geffen},
+		]
+	} elsif ($classe eq 'bardo') { 
+		$variaveisDeUp = 
+		[
+			{lvlMin => 1 , lvlMax => 11, lockMap => pay_fild01, saveMap => payon},
+			{lvlMin => 12, lvlMax => 25, lockMap => pay_fild08, saveMap => payon},
+			{lvlMin => 26, lvlMax => 40, lockMap => pay_dun00,  saveMap => payon},
+			{lvlMin => 41, lvlMax => 45, lockMap => pay_fild09, saveMap => payon},
+			{lvlMin => 46, lvlMax => 53, lockMap => iz_dun00,   saveMap => izlude},
+			{lvlMin => 54, lvlMax => 59, lockMap => iz_dun02,   saveMap => izlude},
+			{lvlMin => 60, lvlMax => 70, lockMap => moc_fild17, saveMap => morocc},
+			{lvlMin => 71, lvlMax => 79, lockMap => mjolnir_11, saveMap => prontera},
+			{lvlMin => 80, lvlMax => 98, lockMap => gef_fild06, saveMap => geffen},
+		]
+	} elsif ($classe eq 'odalisca') { 
+		$variaveisDeUp = 
+		[
+			{lvlMin => 1 , lvlMax => 11, lockMap => pay_fild01, saveMap => payon},
+			{lvlMin => 12, lvlMax => 25, lockMap => pay_fild08, saveMap => payon},
+			{lvlMin => 26, lvlMax => 40, lockMap => pay_dun00,  saveMap => payon},
+			{lvlMin => 41, lvlMax => 45, lockMap => pay_fild09, saveMap => payon},
+			{lvlMin => 46, lvlMax => 53, lockMap => iz_dun00,   saveMap => izlude},
+			{lvlMin => 54, lvlMax => 59, lockMap => iz_dun02,   saveMap => izlude},
+			{lvlMin => 60, lvlMax => 70, lockMap => moc_fild17, saveMap => morocc},
+			{lvlMin => 71, lvlMax => 79, lockMap => mjolnir_11, saveMap => prontera},
+			{lvlMin => 80, lvlMax => 98, lockMap => gef_fild06, saveMap => geffen},
+		]
+	} elsif ($classe eq 'sacerdote') { 
+		$variaveisDeUp = 
+		[
+			{lvlMin => 1 , lvlMax => 11, lockMap => pay_fild01, saveMap => payon},
+			{lvlMin => 12, lvlMax => 25, lockMap => pay_fild08, saveMap => payon},
+			{lvlMin => 26, lvlMax => 40, lockMap => pay_dun00,  saveMap => payon},
+			{lvlMin => 41, lvlMax => 45, lockMap => pay_fild09, saveMap => payon},
+			{lvlMin => 46, lvlMax => 53, lockMap => iz_dun00,   saveMap => izlude},
+			{lvlMin => 54, lvlMax => 59, lockMap => iz_dun02,   saveMap => izlude},
+			{lvlMin => 60, lvlMax => 70, lockMap => moc_fild17, saveMap => morocc},
+			{lvlMin => 71, lvlMax => 79, lockMap => mjolnir_11, saveMap => prontera},
+			{lvlMin => 80, lvlMax => 98, lockMap => gef_fild06, saveMap => geffen},
+		]
+	} elsif ($classe eq 'monge') { 
+		$variaveisDeUp = 
+		[
+			{lvlMin => 1 , lvlMax => 11, lockMap => pay_fild01, saveMap => payon},
+			{lvlMin => 12, lvlMax => 25, lockMap => pay_fild08, saveMap => payon},
+			{lvlMin => 26, lvlMax => 40, lockMap => pay_dun00,  saveMap => payon},
+			{lvlMin => 41, lvlMax => 45, lockMap => pay_fild09, saveMap => payon},
+			{lvlMin => 46, lvlMax => 53, lockMap => iz_dun00,   saveMap => izlude},
+			{lvlMin => 54, lvlMax => 59, lockMap => iz_dun02,   saveMap => izlude},
+			{lvlMin => 60, lvlMax => 70, lockMap => moc_fild17, saveMap => morocc},
+			{lvlMin => 71, lvlMax => 79, lockMap => mjolnir_11, saveMap => prontera},
+			{lvlMin => 80, lvlMax => 98, lockMap => gef_fild06, saveMap => geffen},
+		]	
+	} elsif ($classe eq 'bruxo') { 
+		$variaveisDeUp = 
+		[
+			{lvlMin => 1 , lvlMax => 11, lockMap => pay_fild02,  saveMap => alberta},
+			{lvlMin => 12, lvlMax => 25, lockMap => pay_fild08,  saveMap => payon},
+			{lvlMin => 26, lvlMax => 40, lockMap => pay_dun00,   saveMap => payon},
+			{lvlMin => 41, lvlMax => 45, lockMap => moc_fild03,  saveMap => payon},
+			{lvlMin => 46, lvlMax => 60, lockMap => cmd_fild01,  saveMap => comodo},
+			{lvlMin => 60, lvlMax => 70, lockMap => moc_fild17,  saveMap => morocc},
+			{lvlMin => 71, lvlMax => 79, lockMap => yuno_fild09, saveMap => aldebaran},
+			{lvlMin => 80, lvlMax => 98, lockMap => ein_fild09,  saveMap => einbroch},
+		]
+	} elsif ($classe eq 'sabio') { 
+		$variaveisDeUp = 
+		[
+			{lvlMin => 1 , lvlMax => 11, lockMap => pay_fild02,  saveMap => alberta},
+			{lvlMin => 12, lvlMax => 25, lockMap => pay_fild08,  saveMap => payon},
+			{lvlMin => 26, lvlMax => 40, lockMap => pay_dun00,   saveMap => payon},
+			{lvlMin => 41, lvlMax => 45, lockMap => moc_fild03,  saveMap => payon},
+			{lvlMin => 46, lvlMax => 60, lockMap => cmd_fild01,  saveMap => comodo},
+			{lvlMin => 60, lvlMax => 70, lockMap => moc_fild17,  saveMap => morocc},
+			{lvlMin => 71, lvlMax => 79, lockMap => yuno_fild09, saveMap => aldebaran},
+			{lvlMin => 80, lvlMax => 98, lockMap => ein_fild09,  saveMap => einbroch},
+		]
+	} else {
+		die "Nao foi possivel definir mapas de up, contate os criadores da macro\n";
+		return;
+	}
+	
+	
+	foreach my $configs (@{$variaveisDeUp}) {
+		#mensagem para debug
+		#warning "lvl min: " . $configs->{lvlMin}.' '. "lvl max: " . $configs->{lvlMax}."\n";
+		if ($lvl ~~ [$configs->{lvlMin}..$configs->{lvlMax}]) {  #checa em qual "grupo" (de lvlMin e lvlMax) seu nivel se encaixa
+			return $configs->{lockMap} . ':' . $configs->{saveMap};
+		}	
+	}
+	
+	return -1;
+}
+
 automacro definirVariaveis{
 	timeout 300 #che e atualiza as variáveis a cada 5 minutos
 	priority -999 #pioridade altíssmia, sempre vai ser a primeira a executar
@@ -26,7 +228,6 @@ automacro definirVariaveis{
 				do iconf 1752 7500 1 0 #Flecha de Fogo
 				do iconf 710 0 0 0 #Flor das ilusoes (vai ser feita a quest mais rapida)
 
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /arruaceiro/i) {
 				do conf classe arruaceiro
@@ -43,7 +244,6 @@ automacro definirVariaveis{
 				do iconf 957 10 1 0 #unhaApodrecida
 				do iconf 932 10 1 0 #osso
 				do iconf 958 10 1 0 #mandibula
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /bardo/i) {
 				do conf classe bardo
@@ -59,7 +259,6 @@ automacro definirVariaveis{
 				do iconf x 1 1 0 #Flor qualquer. Pode ser: Aloés(704), Hinalle(703), Flor das Ilusões(710), Izidor(709), Menta(708), Flor Cantante(629), Rosa de Gelo(749), Rosa Eterna(748)
 				do iconf 938 1 1 0 #Muco Pegajoso
 				do iconf 1024 1 1 0 #Tinta de Polvo
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /bruxo/i) {
 				do conf classe bruxo
@@ -72,8 +271,7 @@ automacro definirVariaveis{
 				$eden26e40Arma =
 				$eden60Arma    = 
 				#Não necessita Itens paraa quest de classe
-        		@mapasDeUp = ("1;11;pay_fild02;alberta", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;moc_fild03;payon", "46;60;cmd_fild01;comodo", "61;70;moc_fild17;morocc", "71;79;yuno_fild09;aldebaran", "80;98;ein_fild09;einbroch")#minhas recomendaçoes de mapa/level,evitando bichos agressivos/detectores
-			}
+        	}
 			case (=~ /ca[cç]ador/i) {
 				#pior quest de classe possível, altas chances de bugs
 				do conf classe cacador	
@@ -121,7 +319,6 @@ automacro definirVariaveis{
 				do iconf 942 1 1 0 #Caudas de Yoyo
 				do iconf 1026 1 1 0 #Avelãs
 
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /cavaleiro/i) {
 				do conf classe cavaleiro
@@ -148,7 +345,6 @@ automacro definirVariaveis{
 				do iconf 966 5 1 0 #Carne de Ostra
 				do iconf 7031 5 1 0 #Frigideira Velha
 				do iconf 946 5 1 0 #Casco de Caramujo
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /ferreiro/i) {
 				do conf classe ferreiro
@@ -191,7 +387,6 @@ automacro definirVariaveis{
 				do iconf 990 2 1 0 #Sangues Escarlates
 				do iconf 1119 1 1 0 #Tsurugi
 
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /mercenario/i) {
 				do conf classe mercenario
@@ -206,7 +401,6 @@ automacro definirVariaveis{
 
 				#não é necessario items para a quest 2
 
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /monge/i) {
 				do conf classe monge	
@@ -254,7 +448,6 @@ automacro definirVariaveis{
 				do iconf 1002 5 1 0 #Minério de Ferro
 				do iconf 510 3 1 0 #Erva Azul
 
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /odalisca/i) {
 				do conf classe odalisca
@@ -281,7 +474,6 @@ automacro definirVariaveis{
 				do iconf 909 20 1 0 #Jellopy
 				do iconf 1020 10 1 0 #Cabelos Morenos
 				do iconf 2401 1 1 0 #	Sandálias [0]
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /s[áa]bio/i) {
 				do conf classe sabio
@@ -297,7 +489,6 @@ automacro definirVariaveis{
 				do iconf 1019 1 1 0 #Tronco
 				do iconf 1024 1 1 0 #Tinta de Polvo
 				do iconf 713 1 1 0 #Garrafa Vazia 
-				@mapasDeUp = ("1;11;pay_fild02;alberta", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;moc_fild03;payon", "46;60;cmd_fild01;comodo", "61;70;moc_fild17;morocc", "71;79;yuno_fild09;aldebaran", "80;98;ein_fild09;einbroch")#minhas recomendaçoes de mapa/level,evitando bichos agressivos/detectores
 			}
 			case (=~ /sacerdote|sacer/i) {
 				do conf classe sacerdote
@@ -309,7 +500,6 @@ automacro definirVariaveis{
 				$IDClasse2 = 8
 				$eden26e40Arma =
 				$eden60Arma    = 
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /templ[áa]rio/i) {
 				do conf classe templario
@@ -326,7 +516,6 @@ automacro definirVariaveis{
 				do iconf 1041 10 1 0 #Lampiões
 				do iconf 930 10 1 0 #Bandagens Estragadas
 				do iconf 2608 1 1 0 #Rosário 
-				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			else {
 				log ============================================

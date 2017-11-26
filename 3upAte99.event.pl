@@ -25,6 +25,7 @@ automacro UpClasse1 {
 	ConfigKeyNot In_saveMap_sequence true
 	ConfikKeyNot virarClasse2 true
 	ConfigKeyNot lockMap $mapa{lockMap}
+	ConfigKeyNot classe none
 	JobLevel != 50
 	exclusive 1
 	priority 20 #baixa prioridade
@@ -40,6 +41,7 @@ automacro upClasse2 {
 	ConfigKeyNot In_saveMap_sequence true
 	ConfikKeyNot virarClasse2 true
 	ConfigKeyNot lockMap $mapa{lockMap}
+	ConfigKeyNot classe none
 	exclusive 1
 	priority 20 #baixa prioridade
 	timeout 30
@@ -48,25 +50,19 @@ automacro upClasse2 {
 
 
 macro upar {
-	#código feito por vitorsilverio
-	$i = 0
-	while ($i < @mapasDeUp) { #vamos checar todos os mapas de up
-		@configuracoesUp = &split(';', $mapasDeUp[$i])
-
-		#ConfiguracoesUp array
-		#0 - Nivel Mínimo
-		#1 - Nivel Máximo
-		#2 - lockMap
-		#3 - saveMap
-		if($.lvl >= $configuracoesUp[0] && $.lvl <= $configuracoesUp[1]){
-			$mapa{lockMap} = $configuracoesUp[2]
-			$mapa{city} = $configuracoesUp[3]
-			$i = @mapasDeUp #gambiarra pra parar o loop assim que encontrar
-	  	}
-	  	$i++
-  	}
-	$i = undef
-  	
+	$classe2 = &config(classe)
+	
+	#sub 'extrairMapasDeUp' se encontra bem no começo da macro
+	#e é lá que vc pode alterar quais mapas ele vai upar
+	$configCerta = extrairMapasDeUp("$.lvl", "$classe2")
+	@configuracoesUp = &split(':',$configCerta)
+	
+	$mapa{lockMap} = $configuracoesUp[0]
+	$mapa{saveMap} = $configuracoesUp[1]
+	
+	log \$mapa{lockMap} : $mapa{lockMap}
+	log \$mapa{saveMap} : $mapa{saveMap}
+	
 	if (&config(lockMap) = $mapa{lockMap}) {
 		[
 		log ================================
