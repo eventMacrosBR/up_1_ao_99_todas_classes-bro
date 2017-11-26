@@ -45,6 +45,7 @@ macro SetSaveIn {
 			do conf -f saveMap_wanted geffen
 			do conf -f saveMap_kafra_position 120 62
 			do conf -f saveMap_sellNpc_position geffen_in 74 144
+			do conf buyAuto_0_npc geffen_in 77 167
 		}
 		case (=~ /morocc|morroc|morooc/i ) {
 			do conf -f saveMap_wanted morocc
