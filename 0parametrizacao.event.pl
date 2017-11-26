@@ -17,7 +17,9 @@ automacro definirVariaveis{
 				$skillsClasse2 = AM_REST 1, AM_CALLHOMUN 1, AM_RESURRECTHOMUN 5, AM_AXEMASTERY 10, AM_LEARNINGPOTION 10, AM_PHARMACY 10, AM_POTIONPITCHER 5, MC_DISCOUNT 10, AM_CANNIBALIZE 5
 				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 30 str, 40 dex, 20 vit, 80 agi ,60 dex, 50 str, 90 agi, 70 str, 40 vit
 				$IDClasse1 = 5
-				$IDClasse2 = 18	
+				$IDClasse2 = 18
+				$eden26e40Arma = maça
+				$eden60Arma    = machado
 				#Itens da quest de classe
 				do iconf 657 7 1 0 #Poção da Fúria Selvagem
 				do iconf 612 100 1 0 #Mini Fornalha
@@ -34,6 +36,8 @@ automacro definirVariaveis{
 				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 30 str, 40 dex, 20 vit, 80 agi, 25 luk ,60 dex, 50 str, 40 luk, 90 agi, 60 str, 29 vit
 				$IDClasse1 = 6
 				$IDClasse2 = 17
+				$eden26e40Arma =
+				$eden60Arma    = 
 				#Itens da quest de classe
 				do iconf 510 7 1 0 #ervaAzul
 				do iconf 957 10 1 0 #unhaApodrecida
@@ -49,6 +53,8 @@ automacro definirVariaveis{
 				$statsPadrao = #TODO
 				$IDClasse1 = 3
 				$IDClasse2 = 19
+				$eden26e40Arma =
+				$eden60Arma    = 
 				#Itens da quest de classe
 				do iconf x 1 1 0 #Flor qualquer. Pode ser: Aloés(704), Hinalle(703), Flor das Ilusões(710), Izidor(709), Menta(708), Flor Cantante(629), Rosa de Gelo(749), Rosa Eterna(748)
 				do iconf 938 1 1 0 #Muco Pegajoso
@@ -63,6 +69,8 @@ automacro definirVariaveis{
 				$statsPadrao = 20 int, 20 dex, 30 int, 30 dex, 50 int, 20 agi, 60 int, 40 dex, 20 vit, 70 int, 70 dex, 45 agi, 90 int, 90 dex, 2 luk 
 				$IDClasse1 = 2
 				$IDClasse2 = 9
+				$eden26e40Arma =
+				$eden60Arma    = 
 				#Não necessita Itens paraa quest de classe
         		@mapasDeUp = ("1;11;pay_fild02;alberta", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;moc_fild03;payon", "46;60;cmd_fild01;comodo", "61;70;moc_fild17;morocc", "71;79;yuno_fild09;aldebaran", "80;98;ein_fild09;einbroch")#minhas recomendaçoes de mapa/level,evitando bichos agressivos/detectores
 			}
@@ -75,6 +83,8 @@ automacro definirVariaveis{
 				$statsPadrao = #TODO
 				$IDClasse1 = 3
 				$IDClasse2 = 11
+				$eden26e40Arma =
+				$eden60Arma    = 
 				#Itens da quest de classe
 				#Possibilidade 1	
 				do iconf 920 5 1 0 #Garras de Lobo
@@ -121,6 +131,8 @@ automacro definirVariaveis{
 				$statsPadrao = #TODO
 				$IDClasse1 = 1
 				$IDClasse2 = 7,13
+				$eden26e40Arma =
+				$eden60Arma    = 
 				#Itens da quest de classe
 				#Possibilidade 1:
 				do iconf 1040 5 1 0 #Bigode de Anão Ancião
@@ -146,6 +158,8 @@ automacro definirVariaveis{
 				$statsPadrao = #TODO
 				$IDClasse1 = 5
 				$IDClasse2 = 10
+				$eden26e40Arma =
+				$eden60Arma    = 
 				#Itens da quest de classe
 				#Possibilidade 1:
 				do iconf 998 8 1 0 #Ferros
@@ -187,6 +201,8 @@ automacro definirVariaveis{
 				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 30 str, 40 dex, 20 vit, 80 agi, 25 luk ,60 dex, 50 str, 40 luk, 90 agi, 60 str, 29 vit
 				$IDClasse1 = 6
 				$IDClasse2 = 12
+				$eden26e40Arma =
+				$eden60Arma    = 
 
 				#não é necessario items para a quest 2
 
@@ -200,6 +216,8 @@ automacro definirVariaveis{
 				$statsPadrao = #TODO
 				$IDClasse1 = 4
 				$IDClasse2 = 15
+				$eden26e40Arma =
+				$eden60Arma    = 
 				#Itens da quest de classe
 				#Possibilidade 1:
 				do iconf 7053 5 1 0 #Cyfar
@@ -246,6 +264,8 @@ automacro definirVariaveis{
 				$statsPadrao = #TODO
 				$IDClasse1 = 3
 				$IDClasse2 = 20
+				$eden26e40Arma =
+				$eden60Arma    = 
 				#Itens da quest de classe
 				#Possibilidade 1
 				do iconf 938 20 1 0 #Muco Pegajoso
@@ -268,6 +288,8 @@ automacro definirVariaveis{
 				call definirVariaveisClasse1 "mago"	
 				$IDClasse1 = 2
 				$IDClasse2 = 16
+				$eden26e40Arma =
+				$eden60Arma    = 
 				$statsPadrao = #TODO
 				#Itens da quest de classe
 				do iconf 916 1 1 0 #Plumas de Ave
@@ -285,6 +307,8 @@ automacro definirVariaveis{
 				$statsPadrao = #TODO
 				$IDClasse1 = 4
 				$IDClasse2 = 8
+				$eden26e40Arma =
+				$eden60Arma    = 
 				@mapasDeUp = ("1;11;pay_fild01;payon", "12;25;pay_fild08;payon", "26;40;pay_dun00;payon", "41;45;pay_fild09;payon", "46;53;iz_dun00;izlude", "54;59;iz_dun02;izlude", "60;70;moc_fild17;morocc", "71;79;mjolnir_11;prontera", "80;98;gef_fild06;geffen")
 			}
 			case (=~ /templ[áa]rio/i) {
@@ -295,6 +319,8 @@ automacro definirVariaveis{
 				$statsPadrao = #TODO
 				$IDClasse1 = 1
 				$IDClasse2 = 14,21
+				$eden26e40Arma =
+				$eden60Arma    = 
 				#Itens da quest de classe
 				do iconf 523 1 1 0 #Água Benta
 				do iconf 1041 10 1 0 #Lampiões
