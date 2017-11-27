@@ -7,6 +7,19 @@ Está macro pretende upar do nível 1 de base até o 99 de todas as classes do r
 - [BRoWiki](http://browiki.org/wiki/P%C3%A1gina_principal)
 - [Grupo de discussão no Gitter](https://gitter.im/eventMacro-up-todas-as-classes/Lobby)
 
+## Instruções
+1. Execute o script (criarMacroTodaNumArquivoSo_plataroma, onde plataforma = seu sistema operacional) para gerar o arquivo eventMacros.txt
+2. Cole esse arquivo em sua pasta control do openkore
+3. Em sua pasta control no final do arquivo config.txt adicione a linha:
+```
+classe <classe-2-escolhida>
+```
+Ex: Caso eu queira Arruaceiro
+```
+classe arruaceiro
+```
+4. Inicie o openkore & fun!
+
 ### Agradecimentos
 - @nipodemos: Criação do script [up1-99_completo_para_arruaceiros](https://github.com/Nipodemos/up1-99_completo_para_arrauceiros) no qual este script é baseado (Créditos dos scripts que ele utilizou como base em seu próprio repositório)
 - @vitorsilverio: Parametrização do script que permite a adaptação para todas as classes
