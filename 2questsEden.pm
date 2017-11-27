@@ -455,7 +455,7 @@ automacro Eden60_JaJunteiOsItens {
 		log ===================================
 		]
 		call pararDeAtacar
-		conf attackAuto -1
+		do conf attackAuto -1
 		do move um_fild01 &rand(36,38) &rand(277,279)
 		do talknpc 34 280 c #Romeo#2nd02
 		do iconf 7196 0 0 1 #ombreira
