@@ -1,3 +1,3 @@
 @echo off
 DEL eventMacros.txt
-for %%f in (*.event.pl) do type "%%f" >> "eventMacros.txt"
+for %%f in (*.event.pm) do type "%%f" >> "eventMacros.txt"
