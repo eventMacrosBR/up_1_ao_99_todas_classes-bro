@@ -5,7 +5,7 @@ Está macro pretende upar do nível 1 de base até o 99 de todas as classes do r
 - [Openkore](http://openkore.com/index.php/Main_Page)
 - [EventMacro](http://openkore.com/index.php/EventMacro)
 - [BRoWiki](http://browiki.org/wiki/P%C3%A1gina_principal)
-- [Grupo de discução no Gitter](https://gitter.im/eventMacro-up-todas-as-classes/Lobby)
+- [Grupo de discussão no Gitter](https://gitter.im/eventMacro-up-todas-as-classes/Lobby)
 
 ### Agradecimentos
 - @nipodemos: Criação do script [up1-99_completo_para_arruaceiros](https://github.com/Nipodemos/up1-99_completo_para_arrauceiros) no qual este script é baseado (Créditos dos scripts que ele utilizou como base em seu próprio repositório)
