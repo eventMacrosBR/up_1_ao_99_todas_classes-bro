@@ -1,6 +1,12 @@
 # up_1_ao_99_todas_classes-bro
 Está macro pretende upar do nível 1 de base até o 99 de todas as classes do ragnarok no servidor Brasileiro
 
+## Referências
+- [Openkore](http://openkore.com/index.php/Main_Page)
+- [EventMacro](http://openkore.com/index.php/EventMacro)
+- [BRoWiki](http://browiki.org/wiki/P%C3%A1gina_principal)
+- [Grupo de discução no Gitter](https://gitter.im/eventMacro-up-todas-as-classes/Lobby)
+
 ### Agradecimentos
 - @nipodemos: Criação do script [up1-99_completo_para_arruaceiros](https://github.com/Nipodemos/up1-99_completo_para_arrauceiros) no qual este script é baseado (Créditos dos scripts que ele utilizou como base em seu próprio repositório)
 - @vitorsilverio: Parametrização do script que permite a adaptação para todas as classes
@@ -12,7 +18,7 @@ Está macro pretende upar do nível 1 de base até o 99 de todas as classes do r
 |----------------|--------|
 |Campo de treinamento|Funcionando|
 |Upar do 1 ao 99|Funcionando|
-|Quest Eden|Removida Temporariamente|
+|Quest Eden|Funcionando|
 |Quest Espadachim|Funcionando|
 |Quest Gatuno|Funcionando|
 |Quest Mercador|Funcionando|
