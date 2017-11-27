@@ -213,7 +213,7 @@ automacro inciandoQuestEden60 {
 	NpcNear /Ur/
 	BaseLevel 60..69
 	exclusive 1
-	InInventoryID 6219 = 1
+	InInventoryID 22508 = 1
 	JobID 17 #arruaceiro
 	QuestInactive 7214
 	ConfigKeyNot In_saveMap_sequence true
