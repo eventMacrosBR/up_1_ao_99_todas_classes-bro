@@ -18,7 +18,7 @@ automacro upAteLv12Aprendiz {
 }
 
 automacro UpClasse1 {
-	JobID $IDClasse1 
+	JobID $paramsClasses{idC1} 
 	BaseLevel != 99
 	ConfigKeyNot quest_eden em_curso
 	ConfigKeyNot quest_eden terminando
@@ -34,7 +34,7 @@ automacro UpClasse1 {
 }
 
 automacro upClasse2 {
-	JobID $IDClasse2 #todas as classes 2
+	JobID $paramsClasses{idC2} 
 	BaseLevel != 99
 	ConfigKeyNot quest_eden em_curso
 	ConfigKeyNot quest_eden terminando
@@ -96,7 +96,7 @@ automacro estouLv99 {
 
 automacro nivelDeClasse50 {
 	JobLevel = 50
-	JobID $IDClasse1 #todas as classes 1
+	JobID $paramsClasses{idC1} 
 	exclusive 1
 	timeout 20
 	NotInMap izlude

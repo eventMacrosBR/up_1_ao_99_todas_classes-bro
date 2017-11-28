@@ -1,7 +1,8 @@
-sub getIdArmaEden26e40{
-    return adaga
-}
-
-sub getIdArmaEden60{
-    return adaga
+sub initParamsQuestEden{
+    my %paramsQuestEden = (
+        armaLevel26e40 => adaga,
+        armaLevel60 => adaga
+    )
+    my $eventMacro = $eventMacro::Data::eventMacro;
+    $eventMacro->set_full_hash('paramsQuestEden', \%paramsQuestEden);
 }

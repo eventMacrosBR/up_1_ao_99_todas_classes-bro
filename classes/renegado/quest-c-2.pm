@@ -1,4 +1,4 @@
-sub configurarItensQuestClasse2{
+sub initParamsQuestClasse2{
 	do iconf 510 7 1 0 #ervaAzul
 	do iconf 957 10 1 0 #unhaApodrecida
 	do iconf 932 10 1 0 #osso

@@ -1023,10 +1023,10 @@ automacro endleveling {
 	call {
 	    call pararDeAtacar
 		do move &rand(103,105) &rand(36,38)
-		do talk &npc(/$classe1Desejada/i)
+		do talk &npc(/$paramsQuestClasse1{nomeClasse}/i)
 		do talk resp 1
 		do talk resp 1
-		log ======== Agora vou virar um $classe1Desejada!!!
+		log ======== Agora vou virar um $paramsQuestClasse1{nomeClasse}!!!
 		do conf quest_atual none
 	}
 }
@@ -1051,7 +1051,7 @@ automacro virandoClasse1Bugged {
 }
 
 automacro virandoClasse1 {
-	InMap $mapaPraVirarClasse1
+	InMap $paramsQuestClasse1{mapa}
 	JobID 0 #Aprendiz
 	JobLevel 10
 	SkillLevel NV_BASIC = 9
@@ -1063,11 +1063,11 @@ automacro virandoClasse1 {
 		# $virarclasse1sequenciadeconversa tem como valor a sequencia de conversação correta
 		# $idequipiniciante tem como valor a id da arma que vc recebe quando vira classe 1
 		
-		if ($virarClasse1PrecisaMover = sim) {
-			do move $virarClasse1Mapa $virarClasse1CoodenadaNPC &rand(1,5)
+		if ($paramsQuestClasse1{precisaMover} = sim) {
+			do move $paramsQuestClasse1{mapa} $paramsQuestClasse1{npc} &rand(1,5)
 		}
-		do talknpc $virarClasse1CoodenadaNPC $virarClasse1SequenciaDeConversa
-		$check = GetIndexAndEquipped("rightHand", "$IDequipIniciante")
+		do talknpc $paramsQuestClasse1{npc}$paramsQuestClasse1{sequenciaConversa}
+		$check = GetIndexAndEquipped("rightHand", "$paramsQuestClasse1{equipeIniciante}")
 		if ($check != -1) do eq $check
 	}
 }
@@ -1085,7 +1085,7 @@ automacro jaSouClasse1 {
 		do pconf 2532 0 #2352#Traje_do_Aprendiz#
 		do pconf 5055 0 #5055#Chapéu_de_Ovo_do_Aprendiz#
 		do iconf 2393 0 0 0 #Tunica de Iniciante
-		do iconf $IDequipIniciante 0 0 0
+		do iconf $paramsQuestClasse1{equipeIniciante} 0 0 0
 		$check = GetIndexAndEquipped("rightHand", 1243) #Adaga_do_Aprendiz#
 		if ($check != -1) do drop $check
 		$check = GetIndexAndEquipped("leftHand", 2112)#Vembrassa_do_Aprendiz#
@@ -1100,7 +1100,7 @@ automacro jaSouClasse1 {
 		if ($check != -1) do drop $check
 		$check = GetIndexAndEquipped("armor", 2393) #Tunica de Iniciante
 		if ($check != -1) do eq $check
-		$check = GetIndexAndEquipped("rightHand", "$IDequipIniciante")
+		$check = GetIndexAndEquipped("rightHand", "$paramsQuestClasse1{equipeIniciante}")
 		if ($check != -1) do eq $check
 	}
 }
@@ -1114,10 +1114,10 @@ automacro todobugadão {
 	call {
 		[
 		log WTF?
-		log Deveria ser $classe1Desejada agora, mas nem isso eu sou
+		log Deveria ser $paramsQuestClasse1{nomeClasse} agora, mas nem isso eu sou
 		log tô todo bugado
-		log vamo virar $classe1Desejada, tá na hora
+		log vamo virar $paramsQuestClasse1{nomeClasse}, tá na hora
 		]
-		do move $mapaPraVirarClasse1
+		do move $paramsQuestClasse1{mapa}
 	}
 }
