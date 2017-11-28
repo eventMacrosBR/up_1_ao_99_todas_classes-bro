@@ -250,7 +250,7 @@ automacro definirVariaveis{
 				call definirVariaveisClasse1 "arqueiro"		
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
-				$statsPadrao = #TODO
+				$statsPadrao = 30 dex, 50 agi, 40 dex, 60 agi, 20 vit, 80 agi , 80 dex, 99 agi, 20str , 88 dex, 30 vit
 				$IDClasse1 = 3
 				$IDClasse2 = 19
 				$eden26e40Arma = arco
@@ -265,7 +265,7 @@ automacro definirVariaveis{
 				call definirVariaveisClasse1 "mago"		
 				$skillsClasse1 = MG_LIGHTNINGBOLT 5, MG_FIREBOLT 7, MG_COLDBOLT 7,MG_SRECOVERY 10, MG_FIREBOLT 10, MG_COLDBOLT 10, MG_STONECURSE 1, MG_FROSTDIVER 10,MG_SOULSTRIKE 3
 				$skillsClasse2 = #TODO 
-				$statsPadrao = 20 int, 20 dex, 30 int, 30 dex, 50 int, 20 agi, 60 int, 40 dex, 20 vit, 70 int, 70 dex, 45 agi, 90 int, 90 dex, 2 luk 
+				$statsPadrao = 70 int, 50 dex, 20 vit, 90 int, 65 vit, 99 int, 70 dex 
 				$IDClasse1 = 2
 				$IDClasse2 = 9
 				$eden26e40Arma = cajado
@@ -278,7 +278,7 @@ automacro definirVariaveis{
 				call definirVariaveisClasse1 "arqueiro"	
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
-				$statsPadrao = #TODO
+				$statsPadrao = 30 dex, 50 agi, 40 dex, 60 agi, 20 vit, 80 agi , 80 dex, 99 agi, 49 vit, 92 dex
 				$IDClasse1 = 3
 				$IDClasse2 = 11
 				$eden26e40Arma = arco
@@ -325,7 +325,7 @@ automacro definirVariaveis{
 				call definirVariaveisClasse1 "espadachim"	
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
-				$statsPadrao = #TODO
+				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 15 str, 40 dex, 60 agi, 30 str, 45 dex, 20 vit, 80 agi ,60 dex, 50 str, 99 agi, 49 vit
 				$IDClasse1 = 1
 				$IDClasse2 = 7,13
 				$eden26e40Arma = espada
@@ -351,7 +351,7 @@ automacro definirVariaveis{
 				call definirVariaveisClasse1 "mercador"	
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
-				$statsPadrao = #TODO
+				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 15 str, 40 dex, 60 agi, 30 str, 45 dex, 20 vit, 80 agi ,70 dex, 50 str, 99 agi, 34 vit
 				$IDClasse1 = 5
 				$IDClasse2 = 10
 				$eden26e40Arma = maça
@@ -393,7 +393,7 @@ automacro definirVariaveis{
 				call definirVariaveisClasse1 "gatuno"		
 				$skillsClasse1 = TF_DOUBLE 10, TF_MISS 10, TF_STEAL 10, TF_HIDING 8, TF_POISON 10, TF_DETOXIFY 1
 				$skillsClasse2 =  #TODO
-				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 30 str, 40 dex, 20 vit, 80 agi, 25 luk ,60 dex, 50 str, 40 luk, 90 agi, 60 str, 29 vit
+				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 15 str, 40 dex, 60 agi, 30 str, 45 dex, 20 vit, 80 agi ,60 dex, 50 str, 99 agi, 49 vit
 				$IDClasse1 = 6
 				$IDClasse2 = 12
 				$eden26e40Arma = adaga
@@ -407,7 +407,7 @@ automacro definirVariaveis{
 				call definirVariaveisClasse1 "noviço"	
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
-				$statsPadrao = #TODO
+				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 15 str, 40 dex, 60 agi, 30 str, 45 dex, 20 vit, 80 agi ,70 dex, 50 str, 99 agi, 34 vit
 				$IDClasse1 = 4
 				$IDClasse2 = 15
 				$eden26e40Arma = maça
@@ -477,12 +477,14 @@ automacro definirVariaveis{
 			}
 			case (=~ /s[áa]bio/i) {
 				do conf classe sabio
-				call definirVariaveisClasse1 "mago"	
+				call definirVariaveisClasse1 "mago"
+				$skillsClasse1 = #TODO
+				$skillsClasse2 = #TODO 
+				$statsPadrao = 70 int, 50 dex, 20 vit, 90 int, 65 vit, 99 int, 70 dex
 				$IDClasse1 = 2
 				$IDClasse2 = 16
 				$eden26e40Arma = cajado
 				$eden60Arma    = cajado
-				$statsPadrao = #TODO
 				#Itens da quest de classe
 				do iconf 916 1 1 0 #Plumas de Ave
 				do iconf 919 1 1 0 #Couro de Animal
@@ -506,7 +508,7 @@ automacro definirVariaveis{
 				call definirVariaveisClasse1 "espadachim"
 				$skillsClasse1 = #TODO
 				$skillsClasse2 = #TODO 
-				$statsPadrao = #TODO
+				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 15 str, 40 dex, 60 agi, 30 str, 45 dex, 20 vit, 80 agi ,70 dex, 50 str, 99 agi, 34 vit
 				$IDClasse1 = 1
 				$IDClasse2 = 14,21
 				$eden26e40Arma = espada
