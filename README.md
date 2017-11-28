@@ -18,7 +18,7 @@ Ex: Caso eu queira Arruaceiro
 ```
 classe arruaceiro
 ```
-4. Inicie o openkore & fun!
+4. Inicie o openkore & have fun!
 
 ### Agradecimentos
 - @nipodemos: Criação do script [up1-99_completo_para_arruaceiros](https://github.com/Nipodemos/up1-99_completo_para_arrauceiros) no qual este script é baseado (Créditos dos scripts que ele utilizou como base em seu próprio repositório)
