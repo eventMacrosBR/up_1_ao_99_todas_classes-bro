@@ -323,8 +323,8 @@ automacro definirVariaveis{
 			case (=~ /cavaleiro/i) {
 				do conf classe cavaleiro
 				call definirVariaveisClasse1 "espadachim"	
-				$skillsClasse1 = #TODO
-				$skillsClasse2 = #TODO 
+				$skillsClasse1 = Aumentar Recuperação de HP 10, Perícia com Espada 1, Perícia com Espada de Duas Mãos 10, Provocar 5, Vigor 8, Golpe Fulminante 10, Impacto Explosivo 5
+				$skillsClasse2 = Rapidez com Duas Mãos 10, Montaria 1, Perícia em Montaria 5, Contra-Ataque 5, Impacto de Tyr 10, Perícia com Lança 10, Perfurar 8
 				$statsPadrao = 10 dex, 15 agi, 20 dex, 25 agi, 15 str, 40 dex, 60 agi, 30 str, 45 dex, 20 vit, 80 agi ,60 dex, 50 str, 99 agi, 49 vit
 				$IDClasse1 = 1
 				$IDClasse2 = 7,13
