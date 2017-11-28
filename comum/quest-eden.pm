@@ -58,7 +58,7 @@ automacro entrouNoGrupoEden {
 	call {
 		do conf -f membroDoEden sim
 	}
-}﻿
+}
 
 automacro TrocarEmblema_IndoProNpc {
 	InInventoryID 6219 = 1

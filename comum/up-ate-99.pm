@@ -50,11 +50,10 @@ automacro upClasse2 {
 
 
 macro upar {
-	$classe2 = &config(classe)
-	
+
 	#sub 'extrairMapasDeUp' se encontra bem no começo da macro
 	#e é lá que vc pode alterar quais mapas ele vai upar
-	$configCerta = extrairMapasDeUp("$.lvl", "$classe2")
+	$configCerta = extrairMapasDeUp("$.lvl")
 	@configuracoesUp = &split(':',$configCerta)
 	
 	$mapa{lockMap} = $configuracoesUp[0]

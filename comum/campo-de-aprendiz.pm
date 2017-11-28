@@ -1011,37 +1011,6 @@ macro changeMap {
 	call voltarAtacar
 }
 
-automacro seClasseNaoExistir {
-	ConfigKeyNotExist classe
-	exclusive 1
-	priority -3
-	call {
-		log A config de classe ainda nao existe no config.txt
-		log Vamos mudar isso
-		do conf -f classe none
-		log Prontinho
-	}
-}
-
-automacro EndLeveling Bugged {
-	JobLevel 10
-	ConfigKey quest_atual todas_completadas
-	ConfigKey classe none
-	timeout 20
-	exclusive 1
-	call {
-		[
-		log TEM UM PEQUENO ERRO
-		log VOCE ESQUECEU DE COLOCAR NO CONFIG.TXT QUAL CLASSE 2 QUER SER
-		log PRA FAZER ISSO VC DIGITA AQUI NO CONSOLE
-		log conf classe CLASSEDESEJADA
-		log ALGUNS VALORES: tempario, sacerdote, ferreiro, bruxo
-		log EXEMPLO: conf classe caçador
-		log OUTRO EXEMPLO: conf classe bardo
-		log ATE ISSO SER RESOLVIDO A MACRO NAO VAI PROSSEGUIR
-		]
-	}
-}
 
 automacro endleveling {
 	exclusive 1
