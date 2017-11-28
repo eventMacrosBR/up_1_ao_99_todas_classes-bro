@@ -2,8 +2,8 @@
 sub configurarBuild{
     my %configsBuild = (
         skillsAprendiz = NV_BASIC 9,
-        skillsClasse1 => 'TF_DOUBLE 10, TF_MISS 10, TF_STEAL 10, TF_HIDING 8, TF_POISON 10, TF_DETOXIFY 1',
-        skillsClasse2 => 'RG_SNATCHER 10, RG_STEALCOIN 10, RG_BACKSTAP 4, RG_TUNNELDRIVE 5, RG_RAID 5, RG_INTIMIDATE 5, RG_PLAGIARISM 10',
+        skillsClasse1 => 'MC_INCCARRY 10, MC_DISCOUNT 8, MC_OVERCHARGE 10, MC_PUSHCART 10, MC_VENDING 10, MC_IDENTIFY 1',
+        skillsClasse2 => 'AM_REST 1, AM_CALLHOMUN 1, AM_RESURRECTHOMUN 5, AM_AXEMASTERY 10, AM_LEARNINGPOTION 10, AM_PHARMACY 10, AM_POTIONPITCHER 5, MC_DISCOUNT 10, AM_CANNIBALIZE 5',
         skillsClasse1T => '',
         skillsClasse2T => '',
         skillsClasse3 => '',
