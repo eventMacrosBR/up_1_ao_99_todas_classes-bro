@@ -21,13 +21,6 @@ sub extrairMapasDeUp {
 	#########################################################################
 	#AQUI É DEFINIDO OS MAPAS QUE CADA CLASSE IRÁ UPAR, DE MODO 
 	#QUE SEJA EXTREMAMENTE FÁCIL DE ALTERAR A SEU GOSTO
-	#A ÚNICA REGRA QUE VC DEVE OBEDECER, É QUE O LVL MAX DE
-	#UMA LINHA NAO PODE SER
-	#IGUAL AO LVL MIN DE OUTRA LINHA (EM CADA CLASSE)
-	#EXEMPLO: 
-	#lvlMin => 11 , lvlMax => 22
-	#lvlMin => 22 , lvlMax => 30
-	#NÃO PODE 
 	########################################################################
 
     $variaveisDeUp = 
