@@ -307,3 +307,4 @@ automacro chegueiEmJuno {
 #
 # FIM DA MACRO DE SALVAR NO AEROPLANO
 #
+

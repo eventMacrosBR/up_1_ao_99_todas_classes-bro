@@ -117,3 +117,4 @@ automacro nivelDeClasse50EmIzlude {
 		log ASSIM QUE ELE SE TORNAR UM CLASSE 2, A MACRO VOLTA A UPAR NORMALMENTE
 	}
 }
+

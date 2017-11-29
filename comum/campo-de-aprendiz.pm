@@ -1121,3 +1121,4 @@ automacro todobugadão {
 		do move $paramsQuestClasse1{mapa}
 	}
 }
+

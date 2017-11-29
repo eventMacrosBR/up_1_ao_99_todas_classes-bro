@@ -196,3 +196,4 @@ automacro SalvoNaKafra {
 #
 # FIM DA MACRO DE SALVAR NA KAFRA
 #
+

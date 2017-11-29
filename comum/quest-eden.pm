@@ -703,3 +703,4 @@ automacro EdenPegueiEquips60 {
 #
 # FIM DAS QUESTS EDEN
 #
+
