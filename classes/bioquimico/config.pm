@@ -43,14 +43,13 @@ sub extrairMapasDeUp {
         {lvlMin => 80, lvlMax => 98, lockMap => gef_fild06, saveMap => geffen}
     ]
 	
-	
 	foreach my $configs (@{$variaveisDeUp}) {
 		#mensagem para debug
 		#warning "lvl min: " . $configs->{lvlMin}.' '. "lvl max: " . $configs->{lvlMax}."\n";
 		if ($lvl ~~ [$configs->{lvlMin}..$configs->{lvlMax}]) {  #checa em qual "grupo" (de lvlMin e lvlMax) seu nivel se encaixa
-			return $configs->{lockMap} . ':' . $configs->{saveMap};
+			my %hash = (lockMap => $configs->{lockMap}, saveMap => $configs->{saveMap})
+			my $eventMacro = $eventMacro::Data::eventMacro;
+    		$eventMacro->set_full_hash('mapa', \%hash);
 		}	
 	}
-	
-	return -1;
 }
