@@ -44,15 +44,44 @@ sub pegarID {
 }
 
 sub xConfConfiguratedOrNot {
-	my $path = "plugins/xconf.pl";
-	my $estaNoSys;
-	my $obsoletoRemovido;
-
-	if (-e $path ) {
-		unlink $path; #deletando arquivo xconf, que está obsoleto
-		message "Removendo xconf obsoleto.\n";
-		$obsoletoRemovido = 1;
+	use File::Copy;
+	
+	my ($estaAtualizado, $estaNaPasta, $estaNoSys);
+	my $path_xconf_na_pasta_plugins = "plugins/xconf.pl";
+	my $path_xconf_na_pasta_needsreview = "plugins/needs-review/xconf/trunk/xconf.pl";
+	
+	if (-e $path_xconf_na_pasta_plugins) {
+		$estaNaPasta = 1;
+		open (my $xconf_na_pasta_plugins, "<:utf8", $path_xconf_na_pasta_plugins);
+		
+		my @linhas = <$xconf_na_pasta_plugins>;
+		close ($xconf_na_pasta_plugins);
+		chomp @linhas;
+		
+		foreach my $linha (@linhas) {
+			if ($linha =~ /^use utf8;/) {
+				$estaAtualizado = 1;
+				last;
+			}
+		}
+	} 
+	else {
+		#plugin não está na pasta plugins, então é a primeira vez
+		message "plugin xconf não foi encontrado, iniciando cópia.\n";
+		copy("$path_xconf_na_pasta_needsreview", "plugins") or die "Copia falhou: $!";
+		message "xconf.pl foi copiado para a pasta plugins.\n";
+		$estaNaPasta = 0;
 	}
+
+	if ($estaNaPasta && not $estaAtualizado) {
+		message "Plugin xConf foi encontrado, porém está desatualizado.\n";
+		message "Removendo xconf obsoleto e Iniciando atualização...\n";
+		unlink $path_xconf_na_pasta_plugins;
+		copy("$path_xconf_na_pasta_needsreview", "plugins") or die "Copia falhou: $!";
+		message "xconf.pl foi copiado para a pasta plugins.\n";
+		$estaNaPasta = 0;
+	}
+	
 	my $controlfile = Settings::getControlFilename('sys.txt');
 	open(FILE, '<:encoding(UTF-8)', $controlfile);
 	my @lines = <FILE>;
@@ -62,15 +91,13 @@ sub xConfConfiguratedOrNot {
 		next if $line =~ /^$/ || $line =~ /^#/;
 		if ($line =~ /xconf/ ) {
 			$estaNoSys = 1 ;
-			last;
 		}
 	}
-	if ( !$estaNoSys ) {
+	if ( $estaNoSys == 0) {
 		foreach my $line (@lines) {
 			next if $line =~ /^$/ || $line =~ /^#/;
 			if ($line =~ /loadPlugins_list\s(.*)/ ) {
 				$line = 'loadPlugins_list '.join (',',$1,"xconf");
-				last;
 			}
 		}
 		open(WRITE, '>:encoding(UTF-8)', $controlfile);
@@ -78,23 +105,15 @@ sub xConfConfiguratedOrNot {
 		close(WRITE);
 		$estaNoSys = 0;
 	}
-	if ($obsoletoRemovido && $estaNoSys) {
-		#precisamos recarregar o plugin, pra ele perceber que o arquivo nao existe mais
-		Commands::run("plugin reload xconf");
-		message "Atualizando plugin xConf...\n";
-		Commands::run("plugin load plugins/needs-review/xconf/trunk/xconf.pl");
-		message "plugin atualizado.\n"
-	} elsif ($obsoletoRemovido && !$estaNoSys) {
-		message "Ativando plugin xConf...\n";
-		Commands::run("plugin load plugins/needs-review/xconf/trunk/xconf.pl");
-		message "xConf ativado.\n"
+	debug ("esta na pasta: ". ($estaNaPasta ? "sim\n" : "nao\n"));
+	debug ("esta atualizado: ". ($estaAtualizado ? "sim\n" : "nao\n"));
+	debug ("esta no sys: ". ($estaNoSys ? "sim\n" : "nao\n"));
+	if ($estaNaPasta && $estaNoSys && $estaAtualizado) {
+		message "Checando algumas coisas...\nTudo certo.\n";
 	}
-	if ($estaNoSys) {
-	 	message "Checando algumas coisas...\nTudo certo.\n";
-	} else {
-	 	message "Ativando xConf...\n";
-		Commands::run("plugin load plugins/needs-review/xconf/trunk/xconf.pl");
-		message "xConf ativado.\n;"
+	else {
+		message "Ativando xConf\n";
+		Commands::run("plugin load plugins/xconf.pl");
 	}
 }
 
@@ -133,3 +152,4 @@ sub nextMap {
 		return 0;
 	}
 }
+
