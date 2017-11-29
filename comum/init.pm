@@ -22,7 +22,7 @@ automacro init{
 
 automacro atualizadorBuild {
 	BaseLevel > 0
-	priority -50 #muito alta
+	priority -998 #sempre a segunda a executar
 	run-once 1
 	exclusive 1
 	call {
@@ -32,7 +32,7 @@ automacro atualizadorBuild {
 		if (&config(statsAddAuto_list) != $configsBuild{statsPadrao}) do conf statsAddAuto_list $configsBuild{statsPadrao}
 		if (&config(statsAddAuto) != 1) do conf statsAddAuto 1
 		if (&config(statsAddAuto_dontUseBonus) != 1) do conf statsAddAuto_dontUseBonus 1
-		xConfConfiguratedOrNot()
+		xConfConfiguratedOrNot()  #instala o plugin xconf
 		
 		switch ($idClasseAtual){
 			case (== 0) { #Aprendiz
@@ -50,3 +50,4 @@ automacro atualizadorBuild {
 		}
 	}
 }
+
