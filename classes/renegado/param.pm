@@ -9,3 +9,4 @@ sub initParamsQuestEden{
     my $eventMacro = $eventMacro::Data::eventMacro;
     $eventMacro->set_full_hash('paramsClasses', \%paramsClasses);
 }
+

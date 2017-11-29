@@ -10,3 +10,4 @@ sub initParamsQuestClasse1{
     my $eventMacro = $eventMacro::Data::eventMacro;
     $eventMacro->set_full_hash('paramsQuestClasse1', \%paramsQuestClasse1);
 }
+

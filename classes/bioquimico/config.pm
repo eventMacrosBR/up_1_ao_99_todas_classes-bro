@@ -1,4 +1,3 @@
-
 sub configurarBuild{
     my %configsBuild = (
         skillsAprendiz = 'NV_BASIC 9',
@@ -46,3 +45,4 @@ sub extrairMapasDeUp {
 		}	
 	}
 }
+

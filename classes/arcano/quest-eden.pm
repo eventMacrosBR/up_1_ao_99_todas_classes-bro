@@ -6,3 +6,4 @@ sub initParamsQuestEden{
     my $eventMacro = $eventMacro::Data::eventMacro;
     $eventMacro->set_full_hash('paramsQuestEden', \%paramsQuestEden);
 }
+

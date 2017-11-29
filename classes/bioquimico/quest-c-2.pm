@@ -553,3 +553,4 @@ automacro jaSouAlquimista {
 		do conf questAlquimista none
 	}
 }
+

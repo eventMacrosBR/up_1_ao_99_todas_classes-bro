@@ -478,3 +478,4 @@ automacro jaSouArruaceiro {
 #
 # FIM DA QUEST PRA VIRAR ARRUACEIRO
 #
+

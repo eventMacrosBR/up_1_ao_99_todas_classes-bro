@@ -144,3 +144,4 @@ automacro FinalizandoVirarBruxo {
 		log AGORA SOU UM BRUXO
 	}
 }
+

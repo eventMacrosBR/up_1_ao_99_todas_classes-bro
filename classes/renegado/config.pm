@@ -47,3 +47,4 @@ sub extrairMapasDeUp {
 		}	
 	}
 }
+
