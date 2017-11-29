@@ -1,0 +1,3 @@
+sub initParamsQuestClasse1T{
+
+}

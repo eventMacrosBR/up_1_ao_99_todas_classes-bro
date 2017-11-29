@@ -58,7 +58,7 @@ automacro entrouNoGrupoEden {
 	call {
 		do conf -f membroDoEden sim
 	}
-}﻿
+}
 
 automacro TrocarEmblema_IndoProNpc {
 	InInventoryID 6219 = 1
@@ -642,7 +642,7 @@ automacro EdenPegandoEquips12e26e40 {
 		do talk resp 1
 		
 		if ( $.lvl >= 40 ) {
-			do talk resp /$eden26e40Arma/
+			do talk resp /$paramsQuestEden{armaLevel26e40}/
 			
 
 			do talk $.NpcNearLastBinId
@@ -651,7 +651,7 @@ automacro EdenPegandoEquips12e26e40 {
 			do talk resp 0
 			
 		} elsif ( $.lvl >= 26) {
-			do talk resp /$eden26e40Arma/
+			do talk resp /$paramsQuestEden{armaLevel26e40}/
 		}
 	}
 }
@@ -682,7 +682,7 @@ automacro EdenPegandoEquips60 {
 		#do talknpc 111 83 c r2 c c r1 #Ferreiro Torhen#2nd10
 		do talk $.NpcNearLastBinId
 		do talk resp 2
-		do talk resp /$eden60Arma/
+		do talk resp /$paramsQuestEden{armaLevel60}/
 	}
 }
 
