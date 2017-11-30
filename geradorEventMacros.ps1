@@ -1,7 +1,7 @@
 ﻿Add-Type -AssemblyName System.Windows.Forms
 
 $Form = New-Object system.Windows.Forms.Form
-$Form.Text = "Form"
+$Form.Text = "Gerador eventMacros.txt"
 $Form.TopMost = $true
 $Form.Width = 400
 $Form.Height = 100
