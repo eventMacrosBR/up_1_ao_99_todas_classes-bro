@@ -58,20 +58,3 @@ hbox.add(botao)
 Form.add(hbox)
 Form.show_all()
 gtk.main()
-
-
-
-
-
-#$btn.Add_click({
-#    $job = $cbxJobs.SelectedItem
-#    if($job){
-#        del eventMacros.txt
-#        $jobSimples = $job.ToString().ToLower().Replace(" ","-").Replace("í","i").Replace("ú","u").Replace("â","a").Replace("ã","a").Replace("á","a")
-#        Get-Content -Encoding UTF8 classes\$jobSimples\*.pm | Out-File eventMacros.txt -Encoding UTF8 -append
-#        Get-Content -Encoding UTF8 comum\*.pm | Out-File eventMacros.txt -Encoding UTF8 -append
-#        [System.Windows.Forms.MessageBox]::Show("eventMacros.txt para "+$job+" gerado com sucesso!" , "Ok")
-#        $Form.Dispose()
-#    } else{
-#        [System.Windows.Forms.MessageBox]::Show("Erro, nenhum item selecionado", "Selecione uma classe")
-#    }
