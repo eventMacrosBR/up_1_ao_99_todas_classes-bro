@@ -1,4 +1,12 @@
-sub initParamsQuestClasse1T{
-
+sub initParamsQuestClasse1T {
+	my %paramsQuestClasse1t = (
+		nomeClasse => "mago",
+		npc => '164 124',
+		mapa => geffen_in,
+		sequenciaConversa => '',
+		equipeIniciante => 1639
+	);
+	my $eventMacro = $eventMacro::Data::eventMacro;
+	$eventMacro->set_full_hash('paramsQuestClasse1t', \%paramsQuestClasse1);
 }
 
