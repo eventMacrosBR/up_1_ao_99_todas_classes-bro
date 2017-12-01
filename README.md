@@ -52,4 +52,4 @@ OBS: Colocamos a classe 3 para definir a linha de evolução a seguir pela macro
 |Quest Mago T.|Aguardando desenvolvimento|
 |Quest Noviço T.|Aguardando desenvolvimento|
 |Quest Arqueiro T.|Aguardando desenvolvimento|
-|Quest 2 T.|Aguardando desenvolvimento|
+|Quest 2 T.|Funcionando|
