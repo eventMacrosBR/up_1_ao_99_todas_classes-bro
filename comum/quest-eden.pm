@@ -244,12 +244,12 @@ macro iniciandoQuestEden {
 		case (<= 69) $lvlQueVaiIr = 70
 	}
 	[
-	log ================================
-	log comecei a quest, porém só vou
+	log ======================================
+	log comecei a quest eden, porém só vou
 	log fazer ela no lvl $lvlQueVaiIr ou acima!
 	log se eu nao tiver no lvl , eu vou upar.
 	log lvl que eu estou: $.lvl
-	log ================================
+	log ======================================
 	]
 }
 
