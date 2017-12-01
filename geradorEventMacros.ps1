@@ -21,7 +21,7 @@ $cbxJobs.Items.Add("Renegado")
 $cbxJobs.Items.Add("Sentinela")
 $cbxJobs.Items.Add("Sicário")
 $cbxJobs.Items.Add("Shura")
-$cbxJobs.Items.Add("Trovadore")
+$cbxJobs.Items.Add("Trovador")
 $Form.controls.Add($cbxJobs)
 
 $btn = New-Object system.windows.Forms.Button
