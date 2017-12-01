@@ -48,6 +48,37 @@ automacro upClasse2 {
     call upar
 }
 
+automacro UpClasse1T {
+	JobID $paramsClasses{idC1T} 
+	BaseLevel != 99
+	ConfigKeyNot quest_eden em_curso
+	ConfigKeyNot quest_eden terminando
+	ConfigKeyNot In_saveMap_sequence true
+	ConfikKeyNot virarClasse2T true
+	ConfigKeyNot lockMap $mapa{lockMap}
+	ConfigKeyNot classe none
+	JobLevel != 50
+	exclusive 1
+	priority 20 #baixa prioridade
+	timeout 30
+    call upar
+}
+
+automacro upClasse2T {
+	JobID $paramsClasses{idC2T} 
+	BaseLevel != 99
+	ConfigKeyNot quest_eden em_curso
+	ConfigKeyNot quest_eden terminando
+	ConfigKeyNot In_saveMap_sequence true
+	ConfikKeyNot virarClasse2T true
+	ConfigKeyNot lockMap $mapa{lockMap}
+	ConfigKeyNot classe none
+	exclusive 1
+	priority 20 #baixa prioridade
+	timeout 30
+    call upar
+}
+
 
 macro upar {
 
@@ -91,7 +122,24 @@ automacro estouLv99 {
 
 automacro nivelDeClasse50 {
 	JobLevel = 50
-	JobID $paramsClasses{idC1} 
+	JobID $paramsClasses{idC1}
+	exclusive 1
+	timeout 20
+	NotInMap izlude
+	ConfigKeyNot virandoClasse2 true
+	call {
+		log SEU CHAR JÁ ESTÁ NO NIVEL 50 DE CLASSE
+		log FAÇA A QUEST PARA VIRAR CLASSE 2 MANUALMENTE POR FAVOR
+		log DEPOIS ABRA O BOT NOVAMENTE
+		log ASSIM QUE ELE SE TORNAR UM CLASSE 2, A MACRO VOLTA A UPAR NORMALMENTE
+		do conf lockMap none
+		call pararDeAtacar
+	}
+}
+
+automacro nivelDeClasse50 {
+	JobLevel = 50
+	JobID $paramsClasses{idC1T}
 	exclusive 1
 	timeout 20
 	NotInMap izlude
