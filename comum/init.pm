@@ -2,6 +2,7 @@ automacro init{
 	timeout 300 #che e atualiza as variáveis a cada 5 minutos
 	priority -999 #pioridade altíssmia, sempre vai ser a primeira a executar
 	exclusive 1
+	BaseLevel > 0
 	call {
         # Configurações de Ids de classe
         initParamsClasses()
