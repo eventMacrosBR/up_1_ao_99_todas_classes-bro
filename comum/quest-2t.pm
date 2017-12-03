@@ -1,3 +1,22 @@
+automacro iniciarQuestClasse2T_Bugged {
+	JobLevel = 50
+	exclusive 1
+	JobID $paramsClasses{idC1T}
+	FreeSkillPoints != 0
+	timeout 60
+	call {
+		[
+		log ==================================
+		log pontos de skills não distribuidos!
+		log tentando resolver isso
+		log ==================================
+		]
+		do conf skillsAddAuto 1
+		do conf skillsAddAuto_list $configsBuild{skillsClasse2T}
+	}
+}
+
+
 automacro iniciarQuestClasse2T{
     exclusive 1
     JobID $paramsClasses{idC1T} 
