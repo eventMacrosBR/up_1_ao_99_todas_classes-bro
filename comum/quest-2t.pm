@@ -12,7 +12,7 @@ automacro iniciarQuestClasse2T_Bugged {
 		log ==================================
 		]
 		do conf skillsAddAuto 1
-		do conf skillsAddAuto_list $configsBuild{skillsClasse2T}
+		do conf skillsAddAuto_list $configsBuild{skillsClasse1T}
 	}
 }
 
