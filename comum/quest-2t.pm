@@ -17,7 +17,7 @@ automacro iniciarQuestClasse2T_Bugged {
 }
 
 
-automacro iniciarQuestClasse2T{
+automacro iniciarQuestClasse2T {
     exclusive 1
     JobID $paramsClasses{idC1T} 
     JobLevel = 50
@@ -30,7 +30,7 @@ automacro iniciarQuestClasse2T{
 	}
 }
 
-automacro falarComMetheus{
+automacro falarComMetheus {
     exclusive 1
     JobID $paramsClasses{idC1T} 
     JobLevel = 50
@@ -43,7 +43,7 @@ automacro falarComMetheus{
 	}
 }
 
-automacro falarComLivro{
+automacro falarComLivro {
     exclusive 1
     JobID $paramsClasses{idC1T} 
     JobLevel = 50
@@ -55,7 +55,7 @@ automacro falarComLivro{
 	}
 }
 
-automacro falarComNpcDaClasse{
+automacro falarComNpcDaClasse {
     exclusive 1
     JobID $paramsClasses{idC1T} 
     JobLevel = 50
@@ -67,7 +67,7 @@ automacro falarComNpcDaClasse{
 	}
 }
 
-automacro jaSouClasse2T{
+automacro jaSouClasse2T {
     exclusive 1
     JobID $paramsClasses{idC2T}
     ConfigKey virarClasse2T true
