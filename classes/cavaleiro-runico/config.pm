@@ -1,5 +1,5 @@
 
-sub configurarBuild{
+sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz = 'NV_BASIC 9',
         #skills providas por makkusushirobi

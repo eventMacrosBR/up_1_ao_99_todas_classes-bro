@@ -1,4 +1,4 @@
-sub initParamsQuestClasse2{
+sub initParamsQuestClasse2 {
 	Commands::run("iconf 510 7 1 0" ); #ervaAzul
 	Commands::run("iconf 957 10 1 0"); #unhaApodrecida
 	Commands::run("iconf 932 10 1 0"); #osso

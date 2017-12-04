@@ -1,4 +1,4 @@
-sub initParamsQuestClasse2{
+sub initParamsQuestClasse2 {
 	Commands::run("iconf 657 7 1 0");     #Poção da Fúria Selvagem
 	Commands::run("iconf 612 100 1 0");   #Mini Fornalha
 	Commands::run("iconf 1752 7500 1 0"); #Flecha de Fogo

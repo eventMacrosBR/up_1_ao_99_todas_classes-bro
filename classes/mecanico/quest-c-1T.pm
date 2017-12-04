@@ -1,8 +1,8 @@
-sub initParamsQuestClasse1T{
+sub initParamsQuestClasse1T {
 		my %paramsQuestClasse1T = (
 		nomeClasse => "mercador",
 		npc => '53 43',
-		mapa => alberta_in,
+		mapa => 'alberta_in',
 		sequenciaConversa => '', #não sabemos ainda
 		equipeIniciante => 1381
 	);

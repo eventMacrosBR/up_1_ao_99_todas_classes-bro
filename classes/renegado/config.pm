@@ -1,5 +1,5 @@
 
-sub configurarBuild{
+sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz = 'NV_BASIC 9',
         skillsClasse1 => 'TF_DOUBLE 10, TF_MISS 10, TF_STEAL 10, TF_HIDING 8, TF_POISON 10, TF_DETOXIFY 1',
