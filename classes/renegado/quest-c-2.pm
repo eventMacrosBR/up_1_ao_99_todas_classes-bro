@@ -30,6 +30,17 @@ automacro virarArruaceiroInicio_salvarEmMorocc {
 	call SetSaveIn "morocc"
 }
 
+automacro comeceiQuestArruaceiro_bugged {
+	QuestActive 2017,2018,2022,2023,2024,2026
+	ConfigKeyNot virarArruaceiro true
+	exclusive 1
+	call {
+		do conf -f virarArruaceiro true
+		#se por algum motivo vc tiver fazendo a quest de arrauceiro, e essa variavel nao tiver no valor dela
+		#essa automacro se ativa pra deixar no valor correto
+	}
+}
+
 automacro virarArruaceiroInicio_IrNoNpc {
 	JobID 6 #gatuno
 	JobLevel = 50
@@ -104,92 +115,89 @@ automacro virarArruaceiro_etapa3_coletarItens {
 		do iconf 957 10 1 0 #unhaApodrecida
 		do iconf 932 10 1 0 #osso
 		do iconf 958 10 1 0 #mandibula
-		$ervaAzul       = &invamount (Erva Azul)
-		$unhaApodrecida = &invamount (Unha Apodrecida)
-		$osso           = &invamount (Osso)
-		$mandibula      = &invamount (Mandíbula Horrenda)
-		if ( $ervaAzul < 6 ) goto Erva
-		if ( $ervaAzul >= 6 && $unhaApodrecida < 10 ) goto Unha
-		if ( $ervaAzul >= 6 && $unhaApodrecida >= 10 && $osso < 10 ) goto Osso
-		if ( $ervaAzul >= 6 && $unhaApodrecida >= 10 && $osso >= 10 && $mandibula < 10 ) goto Mandibula
+		$qtdErvaAzul       = &invamount (Erva Azul)
+		$qtdUnha = &invamount (Unha Apodrecida)
+		$qtdOsso           = &invamount (Osso)
+		$qtdMandibula      = &invamount (Mandíbula Horrenda)
 
+		if ( $qtdErvaAzul < 6 ) { #primeiro a coletar: Erva Azul
+			[
+			do conf lockMap cmd_fild02
+			do mconf 1266 0 0 0
+			do mconf 1073 0 0 0
+			do mconf 1254 0 0 0
+			do mconf Cornutus 0 0 0
+			do mconf 1074 0 0 0
+			do mconf 1391 0 0 0
+			do conf attackAuto_inLockOnly 1
+			call voltarAtacar
+			log =================================
+			log Estou coletando ERVA AZUL pra
+			log quest de arruaceiro
+			log =================================
+			]
 
-		:Erva
-		log Pegar Erva
-		[
-		do conf lockMap cmd_fild02
-		do mconf 1266 0 0 0
-		do mconf 1073 0 0 0
-		do mconf 1254 0 0 0
-		do mconf Cornutus 0 0 0
-		do mconf 1074 0 0 0
-		do mconf 1391 0 0 0
-		do conf attackAuto_inLockOnly 1
-		call voltarAtacar
-		log =================================
-		log Estou coletando ERVA AZUL pra
-		log quest de arruaceiro
-		log =================================
-		]
-		stop
+		} elsif ( $qtdErvaAzul >= 6 && $qtdUnha < 10 ) { 
+			#se ja tiver Erva Azul, vai coletar: Unha Apodrecida
+			[
+			do conf lockMap pay_dun00
+			do mconf 1005 0 0 0
+			do mconf 1031 0 0 0
+			do mconf 1078 0 0 0
+			do mconf 1084 0 0 0
+			do conf attackAuto_inLockOnly 1
+			call voltarAtacar
+			log ================================
+			log Estou coletando UNHA APODRECIDA
+			log pra quest de arruaceiro
+			log ================================
+			]
 
+		} elsif ( $qtdErvaAzul >= 6 && $qtdUnha >= 10 && $qtdOsso < 10 ) { 
+			#se ja tiver Erva Azul e Unha Apodrecida, vai coletar: Osso
+			[
+			do conf lockMap pay_dun01
+			do mconf Drainliar 0 0 0
+			do mconf Eggyra 0 0 0
+			do mconf 1084 0 0 0
+			do mconf 1078 0 0 0
+			do conf attackAuto_inLockOnly 1
+			do conf route_randomWalk 1
+			call voltarAtacar
+			log ==============================
+			log Estou coletando OSSO para
+			log a quest de arruaceiro
+			log ==============================
+			]
 
-		:Unha
-		log Pegar Unha
-		[
-		do conf lockMap pay_dun00
-		do mconf 1005 0 0 0
-		do mconf 1031 0 0 0
-		do mconf 1078 0 0 0
-		do mconf 1084 0 0 0
-		do conf attackAuto_inLockOnly 1
-		call voltarAtacar
-		log ================================
-		log Estou coletando UNHA APODRECIDA
-		log pra quest de arruaceiro
-		log ================================
-		]
-		stop
+		} elsif ( $qtdErvaAzul >= 6 && $qtdUnha >= 10 && $qtdOsso >= 10 && $qtdMandibula < 10 ) {
+			#se tiver Erva Azul, Unha Apodrecida e Osso, vai coletar: Mandíbula Horrenda
+			[
+			do conf lockMap pay_dun00
+			do mconf 1005 0 0 0
+			do mconf 1031 1 0 0
+			do mconf 1078 0 0 0
+			do mconf 1084 0 0 0
+			do mconf 1076 0 0 0
+			do conf attackAuto_inLockOnly 1
+			do conf route_randomWalk 1
+			call voltarAtacar
+			log ==============================================
+			log Estou coletando MANDIBULA pra quest de arruaceiro
+			log Recomendado comprar esse item em vez de dropar
+			log Tempo pra dropar todas as mandíbulas: 12 horas
+			log ==============================================
+			]
 
-
-		:Osso
-		log Pegar Osso
-		[
-		do conf lockMap pay_dun01
-		do mconf Drainliar 0 0 0
-		do mconf Eggyra 0 0 0
-		do mconf 1084 0 0 0
-		do mconf 1078 0 0 0
-		do conf attackAuto_inLockOnly 1
-		do conf route_randomWalk 1
-		call voltarAtacar
-		log ==============================
-		log Estou coletando OSSO para
-		log a quest de arruaceiro
-		log ==============================
-		]
-		stop
-
-
-		:Mandibula
-		log Pegar mandibula
-		[
-		do conf lockMap pay_dun00
-		do mconf 1005 0 0 0
-		do mconf 1031 1 0 0
-		do mconf 1078 0 0 0
-		do mconf 1084 0 0 0
-		do mconf 1076 0 0 0
-		do conf attackAuto_inLockOnly 1
-		do conf route_randomWalk 1
-		call voltarAtacar
-		log ==============================================
-		log Estou coletando MANDIBULA pra quest de arruaceiro
-		log Recomendado comprar esse item em vez de dropar
-		log Tempo pra dropar todas as mandíbulas: 12 horas
-		log ==============================================
-		]
-		stop
+		} elsif ( $qtdErvaAzul >= 6 && $qtdUnha >= 10 && $qtdOsso >= 10 && $qtdMandibula >= 10 ) {
+			# se tiver todos os itens, ele vai ir pro npc entregar
+			do conf -f questArruaceiro peguei
+			[
+			log ==============================
+			log PEGUEI TODOS OS ITENS!!!
+			log ==============================
+			]
+		}
 	}
 }
 
@@ -203,7 +211,6 @@ automacro virarArruaceiro_etapa3_tenhoOsItensIrProNpc {
 	NpcNotNear /Smith/
 	exclusive 1
 	call {
-		lock virarArruaceiro3
 		do conf -f questArruaceiro peguei
 		log Vamos No NPC já temos os Itens...
 		call pararDeAtacar
@@ -220,7 +227,6 @@ automacro virarArruaceiro_etapa3_tenhoOsItensIrProNpc {
 		do mconf 1078 1 0 0
 		do mconf 1084 1 0 0
 		do mconf 1076 1 0 0
-		lock virarArruaceiro3
 		do move in_rogue &rand(370,373) &rand(20,24)
 	}
 }
@@ -234,8 +240,14 @@ automacro virarArruaceiro_etapa3_tenhoOsItensbugged {
 	Zeny < 10000
 	exclusive 1
 	call {
+		do conf -f questArruaceiro peguei
+		[
 		log por algum motivo, o bot não tem nem os 10k de zeny pra fazer a quest
 		log tentando resolver isso
+		log Se essa mensagem aparecer repetidas vezes, seu bot nao tem 
+		log zeny suficiente pra fazer a quest, logue manualmente nele
+		log e passa pelo menos 20k de zeny 
+		]
 		do autosell
 	}
 }
@@ -251,14 +263,13 @@ automacro virarArruaceiro_etapa3_tenhoOsItens {
 	QuestActive 2018
 	exclusive 1
 	call {
-		lock virarArruaceiro3
+		do conf -f questArruaceiro peguei
 		do conf lockMap none
         do conf sitAuto_hp_upper 80
 		call pararDeAtacar
 		do talk $.NpcNearLastBinId #Smith
 		do talk $.NpcNearLastBinId #Smith
 		do talk $.NpcNearLastBinId #Smith
-		lock virarArruaceiro3
 	}
 }
 
@@ -387,7 +398,8 @@ automacro virarArruaceiro_etapa6_morreuNoLabirinto_hpAlto {
 			else {
 				[
 				log ================================
-				log =a macro deveria ter escolhido um caminho, mas não conseguiu, isso é um bug
+				log =a macro deveria ter escolhido um caminho,
+				log =mas não conseguiu, isso é um bug
 				log ================================
 				]
 				stop
@@ -403,13 +415,13 @@ automacro virarArruaceiro_etapa6_morreuNoLabirinto_hpBaixo {
 	NotInMap in_rogue
 	CurrentHP < 80%
 	exclusive 1
-	timeout 120
+	timeout 60
 	call {
 		[
 		log ====================================
 		log MORRI TENTANDO PASSAR PELO LABIRINTO
-		log HP ATUAL: $.CurrentHPLastPercent%
 		log ESPERANDO HP FICAR ACIMA DE 80%
+		log HP ATUAL: $.CurrentHPLastPercent%
 		log ====================================
 		]
 		do sit
@@ -428,9 +440,11 @@ automacro virarArruaceiro_etapaFinal {
 	QuestActive 2026
 	exclusive 1
 	call {
+		[
 		log ===========================
 		log PASSEI PELO LABIRINTO!!!!
 		log ===========================
+		]
 		do move in_rogue 369 119
 		do talknpc 363 122 c c c
 		do conf itemsTakeAuto 1
@@ -445,9 +459,11 @@ automacro virarArruaceiro_etapaFinal_Alternativo {
 	QuestActive 2026
 	exclusive 1
 	call {
+		[
 		log ===========================
 		log PASSEI PELO LABIRINTO!!!!
 		log ===========================
+		]
 		do move in_rogue 369 119
 		do talknpc 363 122 c c c
 		do conf itemsTakeAuto 1
