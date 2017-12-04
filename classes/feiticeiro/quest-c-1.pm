@@ -1,7 +1,7 @@
 sub initParamsQuestClasse1 {
     my %paramsQuestClasse1 = (
         nomeClasse => 'mago',
-        npc => '164 124'
+        npc => '164 124',
         mapa => 'geffen_in',
         precisaMover => 'sim',
         sequenciaConversa => 'r0 r0',
