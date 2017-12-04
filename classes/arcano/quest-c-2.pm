@@ -1,4 +1,4 @@
-sub initParamsQuestClasse2{
+sub initParamsQuestClasse2 {
 	#nao necessita itens para quest
 }
 

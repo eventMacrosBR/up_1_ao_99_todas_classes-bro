@@ -1,4 +1,4 @@
-sub initParamsQuestEden{
+sub initParamsQuestEden {
     my %paramsQuestEden = (
         armaLevel26e40 => 'cajado',
         armaLevel60 => 'cajado'
