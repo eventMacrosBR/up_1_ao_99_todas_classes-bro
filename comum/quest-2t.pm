@@ -71,7 +71,7 @@ automacro jaSouClasse2T {
     exclusive 1
     JobID $paramsClasses{idC2T}
     ConfigKey virarClasse2T true
-    call{
+    call {
         do conf virarClasse2T none
     }
 }
