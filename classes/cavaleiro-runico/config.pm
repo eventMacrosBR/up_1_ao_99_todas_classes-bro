@@ -1,7 +1,7 @@
 
 sub configurarBuild {
     my %configsBuild = (
-        skillsAprendiz = 'NV_BASIC 9',
+        skillsAprendiz => 'NV_BASIC 9',
         #skills providas por makkusushirobi
         skillsClasse1 => 'Aumentar Recuperação de HP 10, Perícia com Espada 1, Perícia com Espada de Duas Mãos 10, Provocar 5, Vigor 8, Golpe Fulminante 10, Impacto Explosivo 5',
         skillsClasse2 => 'Rapidez com Duas Mãos 10, Montaria 1, Perícia em Montaria 5, Contra-Ataque 5, Impacto de Tyr 10, Perícia com Lança 10, Perfurar 8',

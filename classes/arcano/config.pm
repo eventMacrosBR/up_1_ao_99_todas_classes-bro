@@ -1,7 +1,7 @@
 
 sub configurarBuild {
     my %configsBuild = (
-        skillsAprendiz = 'NV_BASIC 9',
+        skillsAprendiz => 'NV_BASIC 9',
         skillsClasse1 => 'MG_LIGHTNINGBOLT 5, MG_FIREBOLT 7, MG_COLDBOLT 7,MG_SRECOVERY 10, MG_FIREBOLT 10, MG_COLDBOLT 10, MG_STONECURSE 1, MG_FROSTDIVER 10,MG_SOULSTRIKE 3',
         skillsClasse2 => '',
         skillsClasse1T => '',
