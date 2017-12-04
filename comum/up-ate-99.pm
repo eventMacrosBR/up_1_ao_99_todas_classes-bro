@@ -23,7 +23,7 @@ automacro UpClasse1 {
 	ConfigKeyNot quest_eden em_curso
 	ConfigKeyNot quest_eden terminando
 	ConfigKeyNot In_saveMap_sequence true
-	ConfikKeyNot virarClasse2 true
+	ConfigKeyNot virarClasse2 true
 	ConfigKeyNot lockMap $mapa{lockMap}
 	ConfigKeyNot classe none
 	JobLevel != 50
@@ -39,7 +39,7 @@ automacro upClasse2 {
 	ConfigKeyNot quest_eden em_curso
 	ConfigKeyNot quest_eden terminando
 	ConfigKeyNot In_saveMap_sequence true
-	ConfikKeyNot virarClasse2 true
+	ConfigKeyNot virarClasse2 true
 	ConfigKeyNot lockMap $mapa{lockMap}
 	ConfigKeyNot classe none
 	exclusive 1
@@ -54,7 +54,7 @@ automacro UpClasse1T {
 	ConfigKeyNot quest_eden em_curso
 	ConfigKeyNot quest_eden terminando
 	ConfigKeyNot In_saveMap_sequence true
-	ConfikKeyNot virarClasse2T true
+	ConfigKeyNot virarClasse2T true
 	ConfigKeyNot lockMap $mapa{lockMap}
 	ConfigKeyNot classe none
 	JobLevel != 50
@@ -70,7 +70,7 @@ automacro upClasse2T {
 	ConfigKeyNot quest_eden em_curso
 	ConfigKeyNot quest_eden terminando
 	ConfigKeyNot In_saveMap_sequence true
-	ConfikKeyNot virarClasse2T true
+	ConfigKeyNot virarClasse2T true
 	ConfigKeyNot lockMap $mapa{lockMap}
 	ConfigKeyNot classe none
 	exclusive 1
