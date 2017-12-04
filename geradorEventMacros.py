@@ -35,9 +35,9 @@ def gerar(widget):
     if(job):
         jobSimples = job.lower().replace(" ","-").replace("í","i").replace("ú","u").replace("â","a").replace("ã","a").replace("á","a")
         outfile = open("eventMacros.txt", 'w')
-        for line in fileinput.input(glob.glob("comum/*.pm")):
-            outfile.write(line)
         for line in fileinput.input(glob.glob("classes/"+jobSimples+"/*.pm")):
+            outfile.write(line)
+        for line in fileinput.input(glob.glob("comum/*.pm")):
             outfile.write(line)
         outfile.close()
         md = gtk.MessageDialog(Form, 
