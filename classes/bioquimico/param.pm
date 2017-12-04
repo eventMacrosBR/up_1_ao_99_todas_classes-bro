@@ -1,4 +1,4 @@
-sub initParamsQuestEden {
+sub initParamsClasses {
     my %paramsClasses = (
         idC1 => 5,
         idC2 => 18,
