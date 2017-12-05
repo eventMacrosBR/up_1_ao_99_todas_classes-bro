@@ -98,7 +98,7 @@ macro upar {
 		call voltarAtacar
 	} else {
 		call pararDeAtacar
-		call SetSaveIn "$mapa{city}"
+		call SetSaveIn "$mapa{saveMap}"
 	}
 }
 
