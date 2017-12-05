@@ -31,7 +31,7 @@ automacro virandoClasse1 {
 		if ($paramsQuestClasse1{precisaMover} = sim) {
 			do move $paramsQuestClasse1{mapa} $paramsQuestClasse1{npc} &rand(1,5)
 		}
-		do talknpc $paramsQuestClasse1{npc}$paramsQuestClasse1{sequenciaConversa}
+		do talknpc $paramsQuestClasse1{npc} $paramsQuestClasse1{sequenciaConversa}
 		$check = GetIndexAndEquipped("rightHand", "$paramsQuestClasse1{equipeIniciante}")
 		if ($check != -1) do eq $check
 	}
