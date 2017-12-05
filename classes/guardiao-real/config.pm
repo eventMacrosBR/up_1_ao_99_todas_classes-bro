@@ -40,7 +40,7 @@ sub extrairMapasDeUp {
 	foreach my $configs (@{$variaveisDeUp}) {
 		#mensagem para debug
 		#warning "lvl min: " . $configs->{lvlMin}.' '. "lvl max: " . $configs->{lvlMax}."\n";
-		if ($lvl ~~ [$configs->{lvlMin}..$configs->{lvlMax}]) {  #checa em qual "grupo" (de lvlMin e lvlMax) seu nivel se encaixa
+        if ($configs->{lvlMin} <= $lvl && $lvl <= $configs->{lvlMax}) {  #checa em qual "grupo" (de lvlMin e lvlMax) seu nivel se encaixa
 			my %hash = (lockMap => $configs->{lockMap}, saveMap => $configs->{saveMap});
 			my $eventMacro = $eventMacro::Data::eventMacro;
     		$eventMacro->set_full_hash('mapa', \%hash);
