@@ -24,9 +24,12 @@ automacro init {
 		# $configsBuild{skillsClasse2T}
 		# $configsBuild{skillsClasse3}
 		# $configsBuild{statsPadrao}
+		configurarBuild()
+		
+		#sub 'extrairMapasDeUp' pega o mapa de up e o saveMap correto dependendo do lvl atual
 		# $mapa{lockMap}
 		# $mapa{saveMap}
-		configurarBuild()
+		extrairMapasDeUp("$.lvl")
 
 		# Configurações Quests
 		

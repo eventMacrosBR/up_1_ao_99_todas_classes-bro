@@ -77,9 +77,6 @@ automacro upClasse2T {
 
 
 macro upar {
-
-	#sub 'extrairMapasDeUp' pega o mapa de up e o saveMap correto dependendo do lvl atual
-	extrairMapasDeUp("$.lvl")
 	
 	log \$mapa{lockMap} : $mapa{lockMap}
 	log \$mapa{saveMap} : $mapa{saveMap}
