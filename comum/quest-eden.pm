@@ -693,6 +693,105 @@ automacro EdenPegueiEquips60 {
 	}
 }
 
+automacro Eden12Equipando {
+	IsNotEquippedID armor 15009
+	InInventoryID 15009 = 1
+	BaseLevel 12..25
+	exclusive 1
+	run-once 1
+	call {
+		[
+		log ===========================================
+		log =equipando os itens de eden lvl 12
+		log ===========================================
+		]
+		$check = GetIndexAndEquipped("robe", 2560) #Capa Valhalla
+		if ($check != -1) do eq $check
+		$check = GetIndexAndEquipped("topHead", 5583) #Chapeu valhalla
+		if ($check != -1) do eq $check
+		$check = GetIndexAndEquipped("shoes", 2456) #Botas Valhalla Iniciante
+		if ($check != -1) do eq $check
+		$check = GetIndexAndEquipped("armor", 15009) #Uniforme Valhalla Iniciante
+		if ($check != -1) do eq $check
+	}
+}
+
+automacro Eden26Equipando {
+	IsNotEquippedID armor 15010
+	InInventoryID 15010 = 1
+	BaseLevel 26..49
+	exclusive 1
+	run-once 1
+	call {
+		[
+		log ===========================================
+		log =equipando os itens de eden lvl 26
+		log ===========================================
+		]
+		$check = GetIndexAndEquipped("shoes", 2457) #Botas Valhalla Intermediárias
+		if ($check != -1) do eq $check
+		$check = GetIndexAndEquipped("rightHand", 13050) #Adaga Valhalla Iniciante
+		if ($check != -1) do eq $check
+		$check = GetIndexAndEquipped("armor", 15010) #Uniforme Valhalla Intermediário
+		if ($check != -1) do eq $check
+	}
+}
+
+automacro Eden40Equipando {
+	IsNotEquippedID armor 15011
+	InInventoryID 15011 = 1
+	BaseLevel 40..69
+	exclusive 1
+	run-once 1
+	call {
+		[
+		log ===========================================
+		log =equipando os itens de eden lvl 40
+		log ===========================================
+		]
+		$check = GetIndexAndEquipped("shoes", 2458) #Botas Valhalla Avançadas
+		if ($check != -1) do eq $check
+		$check = GetIndexAndEquipped("rightHand", 13051) #Adaga Valhalla Intermediária
+		if ($check != -1) do eq $check
+		$check = GetIndexAndEquipped("armor", 15011) #Uniforme Valhalla Avançado
+		if ($check != -1) do eq $check
+	}
+}
+
+automacro Eden60Equipando {
+	IsNotEquippedID robe 2571
+	IsNotEquippedID topHead 18514
+	IsNotEquippedID shoes 2473
+	IsNotEquippedID rightHand 13066
+	IsNotEquippedID armor 15031
+	InInventoryID 2571  = 1
+	InInventoryID 18514 = 1
+	InInventoryID 2473  = 1
+	InInventoryID 13066 = 1
+	InInventoryID 15031 = 1
+	run-once 1
+	BaseLevel 60..98
+	exclusive 1
+	call {
+		[
+		log ===========================================
+		log =equipando os itens de eden level 60
+		log ===========================================
+		]
+		$check = GetIndexAndEquipped("robe", 2571) #Capa II do Grupo Eden
+		if ($check != -1) do eq $check
+		$check = GetIndexAndEquipped("topHead", 18514) #Chapéu_II_do_Grupo_Éden#
+		if ($check != -1) do eq $check
+		$check = GetIndexAndEquipped("shoes", 2473) ##Botas_IV_do_Grupo_Éden#
+		if ($check != -1) do eq $check
+		$check = GetIndexAndEquipped("rightHand",13066) #Adaga_III_do_Grupo_Éden#
+		if ($check != -1) do eq $check
+		$check = GetIndexAndEquipped("armor", 15031) #Armadura_do_Grupo_Éden#
+		if ($check != -1) do eq $check
+	}
+}
+
+
 #
 #
 #
