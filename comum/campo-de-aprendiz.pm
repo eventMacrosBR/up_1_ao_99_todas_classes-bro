@@ -1017,7 +1017,6 @@ automacro endleveling {
 	JobLevel 10
 	BaseLevel > 11
 	ConfigKey quest_atual todas_completadas
-	ConfigKeyNot classe none
 	InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
 	priority 1
 	call {
