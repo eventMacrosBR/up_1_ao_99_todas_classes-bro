@@ -122,7 +122,6 @@ automacro IniciandoQuestEden40MoverPerto {
 	JobLevel != 50
 	NpcNotNear /Boya/
 	BaseLevel 40..49
-	JobID 6, 17 #gatuno
 	exclusive 1
 	ConfigKeyNot In_saveMap_sequence true
 	ConfigKeyNot quest_eden em_curso
@@ -138,7 +137,7 @@ automacro inciandoQuestEden60MoverPerto {
 	BaseLevel 60..69
 	exclusive 1
 	InInventoryID 22508 =1 #Emblema do Éden#
-	JobID 6,17 #arruaceiro
+	JobID $paramsClasses{idC2}
 	QuestInactive 7214
 	ConfigKeyNot In_saveMap_sequence true
 	ConfigKeyNot quest_eden em_curso
