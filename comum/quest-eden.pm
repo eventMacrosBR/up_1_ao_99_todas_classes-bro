@@ -88,7 +88,6 @@ automacro iniciandoQuestEden12MoverPerto {
 	InInventoryID 22508 =1 #Emblema do Éden#
 	BaseLevel 12..18
 	exclusive 1
-	JobID 6 #gatuno
 	QuestInactive 7128
 	ConfigKeyNot In_saveMap_sequence true
 	ConfigKeyNot quest_eden em_curso
@@ -102,7 +101,6 @@ automacro iniciandoQuestEden26MoverPerto {
 	NpcNotNear /Boya/
 	BaseLevel 26..32
 	InInventoryID 22508 =1 #Emblema do Éden#
-	JobID 6 #gatuno
 	exclusive 1
 	QuestInactive 7138
 	QuestInactive 7139
@@ -166,7 +164,6 @@ automacro iniciandoQuestEden12 {
 	InInventoryID 22508 =1 #Emblema do Éden#
 	BaseLevel 12..17
 	exclusive 1
-	JobID 6 #gatuno
 	QuestInactive 7128
 	ConfigKeyNot In_saveMap_sequence true
 	ConfigKeyNot quest_eden em_curso
@@ -181,7 +178,6 @@ automacro iniciandoQuestEden26 {
 	NpcNear /Boya/
 	BaseLevel 26..32
 	InInventoryID 22508 =1 #Emblema do Éden#
-	JobID 6 #gatuno
 	exclusive 1
 	QuestInactive 7138
 	QuestInactive 7139
@@ -198,7 +194,6 @@ automacro IniciandoQuestEden40 {
 	NpcNear /Boya/
 	BaseLevel 40..49
 	InInventoryID 22508 = 1
-	JobID 6 #gatuno
 	exclusive 1
 	QuestInactive 7147
 	ConfigKeyNot In_saveMap_sequence true
@@ -214,7 +209,7 @@ automacro inciandoQuestEden60 {
 	BaseLevel 60..69
 	exclusive 1
 	InInventoryID 22508 = 1
-	JobID 17 #arruaceiro
+	JobID $paramsClasses{idC2} 
 	QuestInactive 7214
 	ConfigKeyNot In_saveMap_sequence true
 	ConfigKeyNot quest_eden em_curso
