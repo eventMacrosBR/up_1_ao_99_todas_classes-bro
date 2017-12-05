@@ -25,7 +25,6 @@ automacro UpClasse1 {
 	ConfigKeyNot In_saveMap_sequence true
 	ConfigKeyNot virarClasse2 true
 	ConfigKeyNot lockMap $mapa{lockMap}
-	ConfigKeyNot classe none
 	JobLevel != 50
 	exclusive 1
 	priority 20 #baixa prioridade
@@ -41,7 +40,6 @@ automacro upClasse2 {
 	ConfigKeyNot In_saveMap_sequence true
 	ConfigKeyNot virarClasse2 true
 	ConfigKeyNot lockMap $mapa{lockMap}
-	ConfigKeyNot classe none
 	exclusive 1
 	priority 20 #baixa prioridade
 	timeout 30
@@ -56,7 +54,6 @@ automacro UpClasse1T {
 	ConfigKeyNot In_saveMap_sequence true
 	ConfigKeyNot virarClasse2T true
 	ConfigKeyNot lockMap $mapa{lockMap}
-	ConfigKeyNot classe none
 	JobLevel != 50
 	exclusive 1
 	priority 20 #baixa prioridade
@@ -72,7 +69,6 @@ automacro upClasse2T {
 	ConfigKeyNot In_saveMap_sequence true
 	ConfigKeyNot virarClasse2T true
 	ConfigKeyNot lockMap $mapa{lockMap}
-	ConfigKeyNot classe none
 	exclusive 1
 	priority 20 #baixa prioridade
 	timeout 30
