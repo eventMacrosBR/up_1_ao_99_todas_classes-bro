@@ -1,5 +1,5 @@
 automacro init {
-	timeout 300 #atualiza as variáveis a cada 5 minutos
+	run-once 1
 	priority -999 #pioridade altíssmia, sempre vai ser a primeira a executar
 	exclusive 1
 	BaseLevel > 0
@@ -25,11 +25,6 @@ automacro init {
 		# $configsBuild{skillsClasse3}
 		# $configsBuild{statsPadrao}
 		configurarBuild()
-		
-		#sub 'extrairMapasDeUp' pega o mapa de up e o saveMap correto dependendo do lvl atual
-		# $mapa{lockMap}
-		# $mapa{saveMap}
-		extrairMapasDeUp("$.lvl")
 
 		# Configurações Quests
 		
@@ -64,6 +59,8 @@ automacro init {
 		
 		# Esse sub por enquanto nao gera nada, porque ainda não foi implementado
 		initParamsQuestClasse3()
+		
+		xConfConfiguratedOrNot()  #sub se encontra no arquivo utilidades.pm
 	}
 }
 
@@ -80,7 +77,10 @@ automacro atualizadorBuild {
 		if (&config(statsAddAuto) != 1) do conf statsAddAuto 1
 		if (&config(statsAddAuto_dontUseBonus) != 1) do conf statsAddAuto_dontUseBonus 1
 		
-		xConfConfiguratedOrNot()  #sub se encontra no arquivo utilidades.pm
+		#sub 'extrairMapasDeUp' pega o mapa de up e o saveMap correto dependendo do lvl atual
+		# $mapa{lockMap}
+		# $mapa{saveMap}
+		extrairMapasDeUp("$.lvl")
 		
 		switch ($idClasseAtual){
 			case (~ 0, 4001) { #Aprendiz / Aprendiz T.
