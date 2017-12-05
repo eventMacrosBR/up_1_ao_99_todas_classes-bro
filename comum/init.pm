@@ -67,7 +67,7 @@ automacro init {
 automacro atualizadorBuild {
 	BaseLevel > 0
 	priority -998 #sempre a segunda a executar
-	run-once 1
+	timeout 300 #atualiza as variáveis a cada 5 minutos
 	exclusive 1
 	call {
 		#parte feita por vitorsilveiro
