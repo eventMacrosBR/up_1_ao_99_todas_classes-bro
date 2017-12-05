@@ -81,22 +81,22 @@ automacro atualizadorBuild {
 		
 		switch ($idClasseAtual){
 			case (~ 0, 4001) { #Aprendiz / Aprendiz T.
-				if(&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz}) do conf skillsAddAuto_list $configsBuild{skillsAprendiz}
+				if (&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz}) do conf skillsAddAuto_list $configsBuild{skillsAprendiz}
 			}
 			case (== $paramsClasses{idC1}) { #Classes 1
-				if(&config(skillsAddAuto_list) != $configsBuild{skillsClasse1})  do conf skillsAddAuto_list $configsBuild{skillsClasse1}
+				if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1})  do conf skillsAddAuto_list $configsBuild{skillsClasse1}
 			}
 			case (== $paramsClasses{idC2}) { #Classes 2
-				if(&config(skillsAddAuto_list) =! $configsBuild{skillsClasse2})  do conf skillsAddAuto_list $configsBuild{skillsClasse2}
+				if (&config(skillsAddAuto_list) =! $configsBuild{skillsClasse2})  do conf skillsAddAuto_list $configsBuild{skillsClasse2}
 			}
 			case (== $paramsClasses{idC1T}) { #Classes 1T
-				if(&config(skillsAddAuto_list) =! $configsBuild{skillsClasse1T}) do conf skillsAddAuto_list $configsBuild{skillsClasse1T}
+				if (&config(skillsAddAuto_list) =! $configsBuild{skillsClasse1T}) do conf skillsAddAuto_list $configsBuild{skillsClasse1T}
 			}
 			case (== $paramsClasses{idC2T}) { #Classes 2T
-				if(&config(skillsAddAuto_list) =! $configsBuild{skillsClasse2T}) do conf skillsAddAuto_list $configsBuild{skillsClasse2T}
+				if (&config(skillsAddAuto_list) =! $configsBuild{skillsClasse2T}) do conf skillsAddAuto_list $configsBuild{skillsClasse2T}
 			}
 			case (== $paramsClasses{idC3}) { #Classes 3
-				if(&config(skillsAddAuto_list) =! $configsBuild{skillsClasse3})  do conf skillsAddAuto_list $configsBuild{skillsClasse3}
+				if (&config(skillsAddAuto_list) =! $configsBuild{skillsClasse3})  do conf skillsAddAuto_list $configsBuild{skillsClasse3}
 			}
 			else {
 				do eval Log::error "Nao foi possivel definir qual a sua classe.\n";
