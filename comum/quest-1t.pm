@@ -30,7 +30,7 @@ automacro virandoClasse1t {
 		do conf -f virandoClasse1T true
 		
 		do move $paramsQuestClasse1t{mapa} $paramsQuestClasse1t{npc} &rand(1,5)
-		do talknpc $paramsQuestClasse1t{npc}$paramsQuestClasse1t{sequenciaConversa}
+		do talknpc $paramsQuestClasse1t{npc} $paramsQuestClasse1t{sequenciaConversa}
 		$check = GetIndexAndEquipped("rightHand", "$paramsQuestClasse1t{equipeIniciante}")
 		if ($check != -1) do eq $check
 	}
