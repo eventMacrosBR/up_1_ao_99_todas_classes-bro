@@ -3,7 +3,7 @@ sub initParamsQuestClasse1 {
         nomeClasse => 'espadachim',
         npc => '74 172',
         mapa => 'izlude_in',
-        precisaMover => 'Nao',
+        precisaMover => 'nao',
         sequenciaConversa => 'r1 r0',
         equipeIniciante => 13041
     );
