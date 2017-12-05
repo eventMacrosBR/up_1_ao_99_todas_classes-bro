@@ -133,7 +133,7 @@ automacro nivelDeClasse50 {
 	}
 }
 
-automacro nivelDeClasse50 {
+automacro nivelDeClasse50Transclasse {
 	JobLevel = 50
 	JobID $paramsClasses{idC1T}
 	exclusive 1
