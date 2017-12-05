@@ -4,6 +4,8 @@ automacro init {
 	exclusive 1
 	BaseLevel > 0
 	call {
+		xConfConfiguratedOrNot()  #sub se encontra no arquivo utilidades.pm
+		
 		# Configurações de Ids de classe
 		
 		# Esse sub gera a hash %paramsClasses com as seguintes keys:
@@ -60,7 +62,6 @@ automacro init {
 		# Esse sub por enquanto nao gera nada, porque ainda não foi implementado
 		initParamsQuestClasse3()
 		
-		xConfConfiguratedOrNot()  #sub se encontra no arquivo utilidades.pm
 	}
 }
 
