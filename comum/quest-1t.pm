@@ -1,4 +1,4 @@
-automacro virandoClasse1Bugged {
+automacro virandoClasse1tBugged {
 	JobLevel = 10
 	JobID 161 #aprendiz T.
 	InMapRegex /^(?!new_\d-\d)$/
@@ -16,7 +16,7 @@ automacro virandoClasse1Bugged {
 	}
 }
 
-automacro virandoClasse1 {
+automacro virandoClasse1t {
 	InMap $paramsQuestClasse1{mapa}
 	JobID 161 #Aprendiz
 	JobLevel 10
