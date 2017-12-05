@@ -93,7 +93,7 @@ macro upar {
 	}
 	
 	#se chegar aqui significa que tem que ser mudado o lockmap e/ou o saveMap
-	if (&config(saveMap) = $mapa{city}) {
+	if (&config(saveMap) = $mapa{saveMap}) {
 		do conf lockMap $mapa{lockMap}
 		call voltarAtacar
 	} else {
