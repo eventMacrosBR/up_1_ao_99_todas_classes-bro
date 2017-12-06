@@ -86,7 +86,7 @@ automacro set_savemap_variables {
 	run-once 1
 	ConfigKey In_saveMap_sequence true
 	priority -4
-	ChechOnAI auto, manual
+	CheckOnAI auto, manual
 	call {
 		$saveMap = &config(saveMap_wanted)
 		do ai manual
@@ -97,7 +97,7 @@ automacro jaToSalvoNessaCidade {
 	exclusive 1
 	ConfigKey In_saveMap_sequence true
 	ConfigKey saveMap $saveMap
-	ChechOnAI manual
+	CheckOnAI manual
 	ConfigKeyNot saveMap_wanted none
 	call {
 		[
@@ -128,7 +128,7 @@ automacro jaToSalvoNessaCidade {
 
 automacro movendoPraKafraForaDaCidade {
 	exclusive 1
-	ChechOnAI manual
+	CheckOnAI manual
 	ConfigKey In_saveMap_sequence true
 	ConfigKeyNot saveMap_wanted none
 	ConfigKeyNot saveMap $saveMap
@@ -138,7 +138,7 @@ automacro movendoPraKafraForaDaCidade {
 
 automacro movendoPraKafraDentroDaCidade {
 	exclusive 1
-	ChechOnAI manual
+	CheckOnAI manual
 	ConfigKeyNot saveMap $saveMap
 	ConfigKeyNot saveMap_wanted none
 	NpcNotNear /(Kafra Employee|Funcionária Kafra|Corp. Ev. Incríveis)/
@@ -152,7 +152,7 @@ macro move_to_near_Kafra {
 }
 
 automacro FalarComKafra {
-	ChechOnAI manual
+	CheckOnAI manual
 	ConfigKey In_saveMap_sequence true
 	ConfigKeyNot saveMap $saveMap
 	ConfigKeyNot saveMap_wanted none
@@ -170,7 +170,7 @@ automacro FalarComKafra {
 
 automacro SalvoNaKafra {
 	exclusive 1
-	ChechOnAI manual
+	CheckOnAI manual
 	priority -5
 	NpcMsgName /O seu Ponto (de Retorno )?foi salvo|saved here|foi salvo aqui na cidade/ /(Kafra Employee|Funcionária Kafra|Corp)/
 	ConfigKeyNot saveMap $saveMap
