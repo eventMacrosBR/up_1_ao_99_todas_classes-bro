@@ -84,7 +84,7 @@ automacro atualizadorBuild {
 		extrairMapasDeUp("$.lvl")
 		
 		switch ($idClasseAtual){
-			case (~ 0, 4001) { #Aprendiz / Aprendiz T.
+			case (~ 0, 161, 4001) { #Aprendiz / Aprendiz T.
 				if (&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz}) do conf skillsAddAuto_list $configsBuild{skillsAprendiz}
 			}
 			case (== $paramsClasses{idC1}) { #Classes 1
