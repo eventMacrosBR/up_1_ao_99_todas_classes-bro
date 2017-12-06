@@ -119,7 +119,7 @@ automacro nivelDeClasse50 {
 	exclusive 1
 	timeout 20
 	NotInMap izlude
-	ConfigKeyNot virandoClasse2 true
+	ConfigKeyNot virarClasse2 true
 	call {
 		log SEU CHAR JÁ ESTÁ NO NIVEL 50 DE CLASSE
 		log FAÇA A QUEST PARA VIRAR CLASSE 2 MANUALMENTE POR FAVOR
@@ -136,7 +136,7 @@ automacro nivelDeClasse50Transclasse {
 	exclusive 1
 	timeout 20
 	NotInMap izlude
-	ConfigKeyNot virandoClasse2 true
+	ConfigKeyNot virarClasse2T true
 	call {
 		log SEU CHAR JÁ ESTÁ NO NIVEL 50 DE CLASSE
 		log FAÇA A QUEST PARA VIRAR CLASSE 2 MANUALMENTE POR FAVOR

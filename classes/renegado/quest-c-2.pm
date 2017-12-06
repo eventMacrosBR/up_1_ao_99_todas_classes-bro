@@ -32,10 +32,10 @@ automacro virarArruaceiroInicio_salvarEmMorocc {
 
 automacro comeceiQuestArruaceiro_bugged {
 	QuestActive 2017,2018,2022,2023,2024,2026
-	ConfigKeyNot virarArruaceiro true
+	ConfigKeyNot virarClasse2 true
 	exclusive 1
 	call {
-		do conf -f virarArruaceiro true
+		do conf -f virarClasse2 true
 		#se por algum motivo vc tiver fazendo a quest de arrauceiro, e essa variavel nao tiver no valor dela
 		#essa automacro se ativa pra deixar no valor correto
 	}

@@ -18,7 +18,7 @@ automacro virandoClasse1tBugged {
 
 automacro virandoClasse1t {
 	InMap $paramsQuestClasse1{mapa}
-	JobID 161 #Aprendiz
+	JobID 161,4001 #Aprendiz
 	JobLevel 10
 	SkillLevel NV_BASIC = 9
 	exclusive 1
@@ -37,7 +37,7 @@ automacro virandoClasse1t {
 }
 
 automacro jaSouClasse1t {
-	JobIDNot 161 #aprendiz
+	JobIDNot 161,4001 #aprendiz
 	ConfigKey virandoClasse1T true
 	exclusive 1
 	call {
