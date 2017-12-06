@@ -76,6 +76,7 @@ macro SetSaveIn {
 	log =Iniciando seguência de salvamento em &config(saveMap_wanted)
 	log =============================================
 	]
+	do ai manual
 	do conf -f In_saveMap_sequence true
 
 }
@@ -85,8 +86,10 @@ automacro set_savemap_variables {
 	run-once 1
 	ConfigKey In_saveMap_sequence true
 	priority -4
+	ChechOnAI auto, manual
 	call {
 		$saveMap = &config(saveMap_wanted)
+		do ai manual
 	}
 }
 
@@ -94,6 +97,7 @@ automacro jaToSalvoNessaCidade {
 	exclusive 1
 	ConfigKey In_saveMap_sequence true
 	ConfigKey saveMap $saveMap
+	ChechOnAI manual
 	ConfigKeyNot saveMap_wanted none
 	call {
 		[
@@ -117,12 +121,14 @@ automacro jaToSalvoNessaCidade {
 		do conf saveMap_kafra_position none
 		do conf saveMap_sellNpc_position none
 		do conf In_saveMap_sequence false
+		do ai on
 		release set_savemap_variables
 	}
 }
 
 automacro movendoPraKafraForaDaCidade {
 	exclusive 1
+	ChechOnAI manual
 	ConfigKey In_saveMap_sequence true
 	ConfigKeyNot saveMap_wanted none
 	ConfigKeyNot saveMap $saveMap
@@ -132,6 +138,7 @@ automacro movendoPraKafraForaDaCidade {
 
 automacro movendoPraKafraDentroDaCidade {
 	exclusive 1
+	ChechOnAI manual
 	ConfigKeyNot saveMap $saveMap
 	ConfigKeyNot saveMap_wanted none
 	NpcNotNear /(Kafra Employee|Funcionária Kafra|Corp. Ev. Incríveis)/
@@ -145,6 +152,7 @@ macro move_to_near_Kafra {
 }
 
 automacro FalarComKafra {
+	ChechOnAI manual
 	ConfigKey In_saveMap_sequence true
 	ConfigKeyNot saveMap $saveMap
 	ConfigKeyNot saveMap_wanted none
@@ -162,6 +170,7 @@ automacro FalarComKafra {
 
 automacro SalvoNaKafra {
 	exclusive 1
+	ChechOnAI manual
 	priority -5
 	NpcMsgName /O seu Ponto (de Retorno )?foi salvo|saved here|foi salvo aqui na cidade/ /(Kafra Employee|Funcionária Kafra|Corp)/
 	ConfigKeyNot saveMap $saveMap
@@ -184,6 +193,7 @@ automacro SalvoNaKafra {
 		do conf saveMap_sellNpc_position none
 		do conf In_saveMap_sequence false
 		release set_savemap_variables
+		do ai on
 
 		log ===========================================
 		log =Salvo em &config(saveMap)
