@@ -1,4 +1,6 @@
-
+sub initParamsQuestClasse2 {
+	Commands::run("conf -f questc2_implementada true");
+}
 #Creditos lucasbradok/punky
 #Virar Monge
 #novico nescessario job 50
@@ -31,8 +33,9 @@ automacro configurar Monge 1 {
 		do pconf Orange Net Mushroom 2
 		do pconf Orange Gooey Mushroom 2
 		do move prt_monk
+	}
 }
-}
+
 automacro virar Monge 1 {
 	InMap prt_monk
 	QuestInactive 3016 
@@ -42,7 +45,7 @@ automacro virar Monge 1 {
 		do move prt_monk 57 245
 		pause 2
 		do talknpc 59 247 c r1 c r1 c 	#Primeira parte Guarding Monk 
-}
+	}
 }
 
 automacro virar Monge 2 {
@@ -52,7 +55,7 @@ automacro virar Monge 2 {
 	call {
 		do move monk_in 99 56
 		do talknpc 99 58 c r0 c
-}
+	}
 }
 
 automacro virar Monge 3 {
@@ -127,7 +130,7 @@ automacro virar Monge 3 {
 		log ==============================
 		]
 		stop
-}
+	}
 }
 
 
@@ -147,35 +150,18 @@ automacro virar Monk 4  {
 		do talknpc 99 58 c
 
 	}
-	}
+}
 
-	#NpcMsg /an Assassin, aren't you?/
 
 automacro vireiMonk {
-exclusive 1
-JobLevel = 1
-run-once 1
+	exclusive 1
+	JobLevel = 1
+	run-once 1
 	call {
 		do conf follow 1
 		call pararDeAtacar
 		do conf teleportAuto_hp 20
 		do conf teleportAuto_minAggressives 0
 		do conf teleportAuto_minAggressivesInLock 0
-}
-}
-
-
-macro pararDeAtacar {
-	[
-	do conf route_randomWalk 0
-	do conf attackAuto 1
-	]
-}
-
-
-macro voltarAtacar {
-	[
-	do conf route_randomWalk 1
-	do conf attackAuto 2
-	]
 	}
+}

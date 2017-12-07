@@ -3,7 +3,7 @@ sub initParamsQuestClasse2 {
 	Commands::run("iconf 612 100 1 0");   #Mini Fornalha
 	Commands::run("iconf 1752 7500 1 0"); #Flecha de Fogo
 	Commands::run("iconf 710 0 0 0");     #Flor das ilusoes (vai ser feita a quest mais rapida)
-    	Commands::run("conf -f questc2_implementada true");
+    Commands::run("conf -f questc2_implementada true");
 }
 
 #################################################################
@@ -19,12 +19,11 @@ sub initParamsQuestClasse2 {
 #################################################################
 
 automacro virarAlquimistaInicio_IrNoNpc {
-    JobID 5 #Mercador
+    JobID $paramsClasses{idC1}
 	JobLevel = 50
 	FreeSkillPoints = 0
 	priority 2
 	exclusive 1
-    ConfigKeyNot virarAlquimista true
 	NpcNotNear /Alquimista sênior/
 	call {
 		call pararDeAtacar
@@ -41,11 +40,10 @@ automacro virarAlquimistaInicio_IrNoNpc {
 #################################################################
 
 automacro virarAlquimistaInicio {
-	JobID 5 #Mercador
+	JobID $paramsClasses{idC1}
 	JobLevel = 50
 	priority 2
     timeout 30
-    ConfigKeyNot virarAlquimista true
 	NpcNear /Alquimista sênior/
 	call {
 		do conf autoTalkCont 1
@@ -68,7 +66,6 @@ automacro virarAlquimista_descobrindoQualItem {
 	NpcMsg /Como eu te disse, você precisa trazer/
     exclusive 1
     call {
-    	do conf -f virarAlquimista true
     	[
         log =*=*=*=*=*=*=*=*=*=*=*=*=*=*==*=*=*=
     	log a mensagem é: $.NpcMsgLastMsg
@@ -82,7 +79,7 @@ automacro virarAlquimista_descobrindoQualItem {
         } elsif ( $mensagemExtraida =~ /Fornalha/ ) {
         	do conf -f questAlquimista comprarFornalha
         } else {
-        	log erro configurado proximo passo, chequee a macro
+        	log erro configurado proximo passo, cheque a macro
         }
     }
 }
@@ -100,7 +97,7 @@ sub extrairMensagem {
 
 automacro virarAlquimista_comprarFornalha {
 	exclusive 1
-	JobID 5 #Mercador
+	JobID $paramsClasses{idC1}
 	JobLevel = 50
 	ConfigKey questAlquimista comprarFornalha
     InInventoryID 612 < 100 #Mini-Fornalha
@@ -116,7 +113,7 @@ automacro virarAlquimista_comprarFornalha {
 
 automacro virarAlquimista_comprarFuria {
 	exclusive 1
-	JobID 5 #Mercador
+	JobID $paramsClasses{idC1}
 	JobLevel = 50
 	InInventoryID 657 < 7 #Poção da Fúria Selvagem
     ConfigKey questAlquimista comprarPocao
@@ -125,7 +122,7 @@ automacro virarAlquimista_comprarFuria {
 
 automacro virarAlquimista_comprarFlechaDeFogo {
 	exclusive 1
-	JobID 5 #Mercador
+	JobID $paramsClasses{idC1}
 	JobLevel = 50
 	ConfigKey questAlquimista comprarFlecha
     InInventoryID 1752 <= 500 #Flecha de Fogo
@@ -490,7 +487,7 @@ automacro virarAlquimista_FimDaQuest_FalarComAlquimistaChefe {
 }
 
 automacro jaSouAlquimista {
-	JobID 18 #Alquimista
+	JobID $paramsClasses{idC2}
 	ConfigKey questAlquimista fimDaQuest
     priority -5
 	exclusive 1

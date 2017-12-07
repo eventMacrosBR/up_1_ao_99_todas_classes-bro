@@ -1,6 +1,4 @@
 #Parte comum em todas quests de classes
-
-
 automacro virarClasse2Inicio_Bugged {
 	FreeSkillPoints > 0
 	timeout 30

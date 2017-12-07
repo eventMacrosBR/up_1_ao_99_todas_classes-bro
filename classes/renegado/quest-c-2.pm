@@ -12,7 +12,7 @@ sub initParamsQuestClasse2 {
 #Edited- by CALF
 #convertido e reescrito pra eventMacro por Nipodemos
 automacro virarArruaceiroInicio_salvarEmMorocc {
-	JobID 6 #gatuno
+	JobID $paramsClasses{idC1}
 	JobLevel = 50
 	FreeSkillPoints = 0
 	priority 2
@@ -32,7 +32,7 @@ automacro virarArruaceiroInicio_salvarEmMorocc {
 }
 
 automacro virarArruaceiroInicio_IrNoNpc {
-	JobID 6 #gatuno
+	JobID $paramsClasses{idC1}
 	JobLevel = 50
 	FreeSkillPoints = 0
 	priority 2
@@ -54,7 +54,7 @@ automacro virarArruaceiroInicio_IrNoNpc {
 }
 
 automacro virarArruaceiroInicio {
-	JobID 6 #gatuno
+	JobID $paramsClasses{idC1}
 	JobLevel = 50
 	priority 2
 	exclusive 1
@@ -83,7 +83,7 @@ automacro virarArruaceiroInicio {
 }
 
 automacro virarArruaceiro_etapa2_FalarComSmith {
-	JobID 6 #gatuno
+	JobID $paramsClasses{idC1}
 	QuestActive 2017
 	exclusive 1
 	run-once 1
@@ -95,7 +95,7 @@ automacro virarArruaceiro_etapa2_FalarComSmith {
 
 
 automacro virarArruaceiro_etapa3_coletarItens {
-	JobID 6 #gatuno
+	JobID $paramsClasses{idC1}
 	QuestActive 2018
 	exclusive 1
 	ConfigKeyNot questArruaceiro peguei
@@ -264,7 +264,7 @@ automacro virarArruaceiro_etapa3_tenhoOsItens {
 }
 
 automacro virarArruaceiro_etapa4 {
-	JobID 6 #gatuno
+	JobID $paramsClasses{idC1}
 	exclusive 1
 	JobLevel = 50
     CurrentHP >= 80%
@@ -461,7 +461,7 @@ automacro virarArruaceiro_etapaFinal_Alternativo {
 }
 
 automacro jaSouArruaceiro {
-	JobID 17 #arruaceiro
+	JobID $paramsClasses{idC2}
 	ConfigKeyNot questArruaceiro none
 	exclusive 1
 	call {
