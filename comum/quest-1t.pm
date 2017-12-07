@@ -37,7 +37,7 @@ automacro virandoClasse1t {
 }
 
 automacro jaSouClasse1t {
-	JobIDNot 161,4001 #aprendiz
+	JobID $paramsClasse{idC2T}
 	ConfigKey virandoClasse1T true
 	exclusive 1
 	call {

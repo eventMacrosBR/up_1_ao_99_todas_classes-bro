@@ -12,7 +12,7 @@ automacro virarClasse2Inicio_Bugged {
 		log =============================================
 		log = Estou pronto para virar claase2, porém    =
 		log =     os pontos não estão distribuídos...   =
-		log =            Vamos resolver isso!			=
+		log =            Vamos resolver isso!		=
 		log =============================================
 		]
 		do conf skillsAddAuto 1
@@ -28,9 +28,9 @@ automacro virarClasse2Inicio_Bugged {
 automacro virarClasse2Inicio {
 	JobLevel = 50
 	JobID $paramsClasses{idC1}
-    ConfigNotKey virarClasse2 true
+    	ConfigKeyNot virarClasse2 true
 	exclusive 1
-    ConfigKey questc2_implementada true
+    	ConfigKey questc2_implementada true
 	call {
 		do conf virarClasse2 none
 	}
