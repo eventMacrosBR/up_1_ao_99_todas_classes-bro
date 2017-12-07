@@ -3,6 +3,7 @@ sub initParamsQuestClasse2 {
 	Commands::run("iconf 957 10 1 0"); #unhaApodrecida
 	Commands::run("iconf 932 10 1 0"); #osso
 	Commands::run("iconf 958 10 1 0"); #mandibula
+	Commands::run("conf -f questc2_implementada true");
 }
 
 #From- Macro Quest Arruaceiro 2.0
@@ -30,17 +31,6 @@ automacro virarArruaceiroInicio_salvarEmMorocc {
 	call SetSaveIn "morocc"
 }
 
-automacro comeceiQuestArruaceiro_bugged {
-	QuestActive 2017,2018,2022,2023,2024,2026
-	ConfigKeyNot virarClasse2 true
-	exclusive 1
-	call {
-		do conf -f virarClasse2 true
-		#se por algum motivo vc tiver fazendo a quest de arrauceiro, e essa variavel nao tiver no valor dela
-		#essa automacro se ativa pra deixar no valor correto
-	}
-}
-
 automacro virarArruaceiroInicio_IrNoNpc {
 	JobID 6 #gatuno
 	JobLevel = 50
@@ -58,7 +48,7 @@ automacro virarArruaceiroInicio_IrNoNpc {
 	call {
 		call pararDeAtacar
 		do conf lockMap none
-		do conf -f virarArruaceiro true
+		do conf -f virarClasse2 true
 		do move in_rogue &rand(361,366) &rand(112,117)
 	}
 }
@@ -472,7 +462,7 @@ automacro virarArruaceiro_etapaFinal_Alternativo {
 
 automacro jaSouArruaceiro {
 	JobID 17 #arruaceiro
-	ConfigKey virarArruaceiro true
+	ConfigKeyNot questArruaceiro none
 	exclusive 1
 	call {
 		do conf teleportAuto_MaxDmg 1000
@@ -485,7 +475,6 @@ automacro jaSouArruaceiro {
 		$check = GetIndexAndEquipped("topHead", 5583) #Chapeu valhalla
 		if ($check != -1) do eq $check
 		call pararDeAtacar
-		do conf virarClasse2 none
 		do conf questArruaceiro none
 	}
 }

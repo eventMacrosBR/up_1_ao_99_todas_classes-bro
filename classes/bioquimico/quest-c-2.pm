@@ -3,6 +3,7 @@ sub initParamsQuestClasse2 {
 	Commands::run("iconf 612 100 1 0");   #Mini Fornalha
 	Commands::run("iconf 1752 7500 1 0"); #Flecha de Fogo
 	Commands::run("iconf 710 0 0 0");     #Flor das ilusoes (vai ser feita a quest mais rapida)
+    Commands::run("conf -f questc2_implementada true");
 }
 
 #################################################################
@@ -11,51 +12,6 @@ sub initParamsQuestClasse2 {
 #																#
 #################################################################
 
-#################################################################
-#																#
-# 		Distribuindo os Pontos de Habilidade caso não			#
-#					tenham sido distribuídos					#
-#																#
-#################################################################
-
-automacro virarAlquimistaInicio_Bugged {
-	FreeSkillPoints > 0
-	timeout 30
-	JobLevel = 50
-	JobID 5 #Mercador
-	exclusive 1
-	call {
-		[
-		log =============================================
-		log = Estou pronto para virar Alquimista, porém =
-		log =     os pontos não estão distribuídos...   =
-		log =            Vamos resolver isso!			=
-		log =============================================
-		]
-		do conf skillsAddAuto 1
-		do conf skillsAddAuto_list NV_BASIC 9, MC_INCCARRY 10, MC_DISCOUNT 9, MC_OVERCHARGE 10, MC_PUSHCART 10, MC_VENDING 10, MC_IDENTIFY 1, AM_BIOETHICS 1, AM_REST 1, AM_CALLHOMUN 1, AM_RESURRECTHOMUN 5, AM_AXEMASTERY 10, AM_LEARNINGPOTION 10, AM_PHARMACY 10, AM_POTIONPITCHER 5, AM_CANNIBALIZE 5, AM_SPHEREMINE 3
-		[
-		log ================================================================
-		log = Se isso estiver aparecendo repetidamente, a macro tem um bug =
-		log ================================================================
-		]
-	}
-}
-
-automacro virarAlquimista_noMeioDaQuest_bugged {
-	ConfigKeyNot questAlquimista none
-	JobLevel = 50
-    JobID 5 #Mercador
-    ConfigKeyNot virarAlquimista true
-    exclusive 1
-    call {
- 		#essa automacro só se ativará, se a gente ta tiver fazendo a quest
-        #mas a config virarAlquimista nao tiver true
-        #é essencial que ela esteja true nesse momento, senão
-        #a macro de up vai passar por cima e bugar a treta
- 		do conf -f virarAlquimista true
-    }
-}
 #################################################################
 #																#
 # 				Indo para a Guilda dos Alquimistas				#
@@ -535,12 +491,10 @@ automacro virarAlquimista_FimDaQuest_FalarComAlquimistaChefe {
 
 automacro jaSouAlquimista {
 	JobID 18 #Alquimista
-	ConfigKey virarAlquimista true
+	ConfigKey questAlquimista fimDaQuest
     priority -5
 	exclusive 1
 	call {
-		do conf skillsAddAuto 1
-		do conf skillsAddAuto_list AM_AXEMASTERY 10, AM_BIOETHICS 1, AM_REST 1, AM_CALLHOMUN 1, AM_RESURRECTHOMUN 5, AM_LEARNINGPOTION 10, AM_PHARMACY 10, AM_POTIONPITCHER 5, AM_CANNIBALIZE 5, AM_SPHEREMINE 3
 		do conf teleportAuto_MaxDmg 1000
 		$check = GetIndexAndEquipped("robe", 2560) #Capa Valhalla
 		if ($check != -1) do eq $check
@@ -549,7 +503,6 @@ automacro jaSouAlquimista {
 		call pararDeAtacar
         do conf BetterShopper_on 0
         do conf route_randomWalk_inTown 0
-		do conf virarAlquimista none
 		do conf questAlquimista none
 	}
 }
