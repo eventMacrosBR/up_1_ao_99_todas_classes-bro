@@ -8,7 +8,7 @@ Está macro pretende upar do nível 1 de base até o 99 de todas as classes do r
 - [Grupo de discussão no Gitter](https://gitter.im/eventMacro-up-todas-as-classes/Lobby)
 
 ## Instruções
-1. Execute o script (criarMacroTodaNumArquivoSo_plataforma, onde plataforma = seu sistema operacional) para gerar o arquivo eventMacros.txt informando a classe desejada*
+1. Execute o script (geradorEventMacros-plataforma, onde plataforma = seu sistema operacional) para gerar o arquivo eventMacros.txt informando a classe desejada*
 2. Cole esse arquivo em sua pasta control do openkore
 3. Inicie o openkore & have fun!
 OBS: Colocamos a classe 3 para definir a linha de evolução a seguir pela macro
