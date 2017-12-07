@@ -485,7 +485,7 @@ automacro jaSouArruaceiro {
 		$check = GetIndexAndEquipped("topHead", 5583) #Chapeu valhalla
 		if ($check != -1) do eq $check
 		call pararDeAtacar
-		do conf virarArruaceiro none
+		do conf virarClasse2 none
 		do conf questArruaceiro none
 	}
 }
