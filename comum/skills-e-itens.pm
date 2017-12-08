@@ -6,7 +6,7 @@
 sub configurarAttackSkill {
     my ($skill, $lvl, $sp, $monstros, $condicao) = @_;
 
-    if ( attackSkillEstaConfigurada() == 'nao') {
+    if ( attackSkillEstaConfigurada($skill) == 'nao') {
         open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
         print $fh "attackSkillSlot $skill {\n";
 		print $fh "\tlvl $lvl\n";
@@ -26,7 +26,7 @@ sub configurarAttackSkill {
 sub configurarSelfSkill {
     my ($skill, $lvl, $sp, $condicao, $hp) = @_;
 
-    if ( selfSkillEstaConfigurado() == 'nao') {
+    if ( selfSkillEstaConfigurado($skill) == 'nao') {
         open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
         print $fh "useSelf_skill $skills {\n";
         print $fh "\tlvl $lvl\n";
@@ -45,7 +45,7 @@ sub configurarSelfSkill {
 sub configurarSelfItem {
     my ($item, $condicao, $hp, $sp) = @_;
 
-    if ( usarItemEstaConfigurado() == 'nao') {
+    if ( usarItemEstaConfigurado($item) == 'nao') {
         open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
         print $fh "useSelf_item $item {\n";
         print $fh "\t$condicao\n";
@@ -58,10 +58,11 @@ sub configurarSelfItem {
 
 # $.param[0] : nome da skill
 sub attackSkillEstaConfigurada {
+    my ($skill) = @_;
 
     my $i = 0;
     while ( &config("attackSkillSlot_$i") != none ){
-        if ( &config("attackSkillSlot_$i") == $.param[0]) return 'sim';
+        if ( &config("attackSkillSlot_$i") == $skill) return 'sim';
         $i++;
     }
     return 'nao';
@@ -69,6 +70,7 @@ sub attackSkillEstaConfigurada {
 
 # $.param[0] : nome da skill
 sub selfSkillEstaConfigurado {
+    my ($skill) = @_;
 
     my $i = 0;
     while ( &config("useSelf_skill_$i") != none ){
@@ -80,9 +82,11 @@ sub selfSkillEstaConfigurado {
 
 # $.param[0] : nome do item
 sub usarItemEstaConfiguradao {
+    my ($item) = @_;
+
     my $i = 0;
     while ( &config("useSelf_item_$i") != none ){
-        if ( &config("useSelf_item_$i") == $.param[0]) return 'sim';
+        if ( &config("useSelf_item_$i") == $item) return 'sim';
         $i++;
     }
     return 'nao';
