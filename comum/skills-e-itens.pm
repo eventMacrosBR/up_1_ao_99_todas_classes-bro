@@ -6,7 +6,7 @@
 sub configurarAttackSkill {
     my ($skill, $lvl, $sp, $monstros, $condicao) = @_;
 
-    if ( attackSkillEstaConfigurada($skill) == 'nao') {
+    if ( attackSkillEstaConfigurada($skill) == 'nao' ) {
         open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
         print $fh "attackSkillSlot $skill {\n";
 		print $fh "\tlvl $lvl\n";
@@ -26,7 +26,7 @@ sub configurarAttackSkill {
 sub configurarSelfSkill {
     my ($skill, $lvl, $sp, $condicao, $hp) = @_;
 
-    if ( selfSkillEstaConfigurado($skill) == 'nao') {
+    if ( selfSkillEstaConfigurado($skill) == 'nao' ) {
         open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
         print $fh "useSelf_skill $skills {\n";
         print $fh "\tlvl $lvl\n";
@@ -45,7 +45,7 @@ sub configurarSelfSkill {
 sub configurarSelfItem {
     my ($item, $condicao, $hp, $sp) = @_;
 
-    if ( usarItemEstaConfigurado($item) == 'nao') {
+    if ( usarItemEstaConfigurado($item) == 'nao' ) {
         open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
         print $fh "useSelf_item $item {\n";
         print $fh "\t$condicao\n";
@@ -62,7 +62,9 @@ sub attackSkillEstaConfigurada {
 
     my $i = 0;
     while ( &config("attackSkillSlot_$i") != none ) {
-        if ( &config("attackSkillSlot_$i") == $skill ) return 'sim';
+        if ( &config("attackSkillSlot_$i") == $skill ) {
+            return 'sim';
+        }
         $i++;
     }
     return 'nao';
@@ -74,14 +76,16 @@ sub selfSkillEstaConfigurado {
 
     my $i = 0;
     while ( &config("useSelf_skill_$i") != none ) {
-        if ( &config("useSelf_skill_$i") == $skill ) return 'sim';
+        if ( &config("useSelf_skill_$i") == $skill ) {
+            return 'sim';
+        }
         $i++;
     }
     return 'nao';
 }
 
 # $.param[0] : nome do item
-sub usarItemEstaConfiguradao {
+sub usarItemEstaConfigurado {
     my ($item) = @_;
 
     my $i = 0;
