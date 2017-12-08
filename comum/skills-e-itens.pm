@@ -1,101 +1,96 @@
-# $.param[0] : nome ou id da skill
-# $.param[1] : level
-# $.param[2] : sp
-# $.param[3] : montros
-# $.param[4] : condicao
-sub configurarAttackSkill {
-	my ($skill, $lvl, $sp, $monstros, $condicao) = @_;
+macro configurarAttackSkill {
+    $skill = $.param[0];
+    $lvl = $.param[1];
+    $sp = $.param[2];
+    $monstros = $.param[3];
+    $condicao = $.param[4];
 
-	if ( attackSkillEstaConfigurada($skill) == 'nao' ) {
-		open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
-		print $fh "attackSkillSlot $skill {\n";
-		print $fh "\tlvl $lvl\n";
-		print $fh "\tsp $sp\n";
-		print $fh "\tmonsters $monstros\n"; 
-		print $fh "\t$condicao\n";
-		print $fh "}\n";
-		close ($fh);
-	}
+    $attackSkillEstaConfigurada = 'nao';
+    $i = 0
+    while ( &config("attackSkillSlot_$i") ) {
+        if ( &config("attackSkillSlot_$i") == Skill ) {
+            $attackSkillEstaConfigurada = 'sim';
+        }
+        $i++
+    }
+    if ( $attackSkillEstaConfigurada == 'nao' ) {
+        adicionaAttackSkillSlot($skill, $lvl, $sp, $monstros, $condicao);
+    }
 }
 
-# $.param[0] : nome ou id da skill
-# $.param[1] : level
-# $.param[2] : sp
-# $.param[3] : condicao
-# $.param[4] : hp
-sub configurarSelfSkill {
-	my ($skill, $lvl, $sp, $condicao, $hp) = @_;
+macro configurarSelfSkill {
+    $skill = $.param[0];
+    $lvl = $.param[1];
+    $sp = $.param[2];
+    $condicao = $.param[3];
+    $hp = $.param[4];
 
-	if ( selfSkillEstaConfigurado($skill) == 'nao' ) {
-		open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
-		print $fh "useSelf_skill $skills {\n";
-		print $fh "\tlvl $lvl\n";
-		print $fh "\tsp $sp\n";
-		print $fh "\t$condicao\n";
-		print $fh "\thp $hp\n"; 
-		print $fh "}\n";
-		close ($fh);
-	}
+    $selfSkillEstaConfigurado = 'nao';
+    $i = 0;
+    while ( &config("useSelf_skill_$i") ) {
+        if ( &config("useSelf_skill_$i") == $skill ) {
+            $selfSkillEstaConfigurado = 'sim';
+        }
+        $i++;
+    }
+    if ( $selfSkillEstaConfigurado == 'nao' ) {
+        adicionarSelfSkill($skill, $lvl, $sp, $condicao, $hp);
+    }
 }
 
-# $.param[0] : nome ou id do item
-# $.param[1] : condicao
-# $.param[2] : hp
-# $.param[3] : sp
-sub configurarSelfItem {
-	my ($item, $condicao, $hp, $sp) = @_;
+macro configurarSelfItem {
+    $item = $.param[0];
+    $condicao = $.param[1];
+    $hp = $.param[2];
+    $sp = $.param[3];
 
-	if ( usarItemEstaConfigurado($item) == 'nao' ) {
-		open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
-		print $fh "useSelf_item $item {\n";
-		print $fh "\t$condicao\n";
-		print $fh "\thp $hp\n";
-		print $fh "\tsp $sp\n"; 
-		print $fh "}\n";
-		close ($fh);
-	}
+    $usarItemEstaConfigurado = 'nao'
+    $i = 0;
+    while ( &config("useSelf_item_$i") ) {
+        if ( &config("useSelf_item_$i") == $item ) {
+            $usarItemEstaConfigurado = 'sim';
+        }
+        $i++;
+    }
+
+    if ( $usarItemEstaConfigurado == 'nao' ) {
+        adicionarSelfItem($item, $condicao, $hp, $sp);
+    }
 }
 
-# $.param[0] : nome da skill
-macro attackSkillEstaConfigurada {
-
-	$i = 0
-	while ( &config("attackSkillSlot_$i") ) {
-		if ( &config("attackSkillSlot_$i") == $.param[0] ) {
-			# esse return tem que ser mudado... return 'sim';
-		}
-		$i++
-	}
-	# esse return tem que ser mudado... return 'nao';
+sub adicionaAttackSkillSlot {
+    my ($skill, $lvl, $sp, $monstros, $condicao) = @_;
+    open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
+    print $fh "attackSkillSlot $skill {\n";
+    print $fh "\tlvl $lvl\n";
+    print $fh "\tsp $sp\n";
+    print $fh "\tmonsters $monstros\n"; 
+    print $fh "\t$condicao\n";
+    print $fh "}\n";
+    close ($fh);
 }
 
-# $.param[0] : nome da skill
-sub selfSkillEstaConfigurado {
-	my ($skill) = @_;
-
-	my $i = 0;
-	while ( &config("useSelf_skill_$i") ) {
-		if ( &config("useSelf_skill_$i") == $skill ) {
-			return 'sim';
-		}
-		$i++;
-	}
-	return 'nao';
+sub adicionarSelfSkill {
+    my ($skill, $lvl, $sp, $condicao, $hp) = @_;
+    open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
+    print $fh "useSelf_skill $skills {\n";
+    print $fh "\tlvl $lvl\n";
+    print $fh "\tsp $sp\n";
+    print $fh "\t$condicao\n";
+    print $fh "\thp $hp\n"; 
+    print $fh "}\n";
+    close ($fh);
 }
 
-# $.param[0] : nome do item
-sub usarItemEstaConfigurado {
-	my ($item) = @_;
-
-	my $i = 0;
-	while ( &config("useSelf_item_$i") ) {
-		if ( &config("useSelf_item_$i") == $item ) {
-			return 'sim';
-		}
-		$i++;
-	}
-	return 'nao';
-
+sub adicionarSelfItem {
+    my ($item, $condicao, $hp, $sp) = @_;
+    open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
+    print $fh "useSelf_item $item {\n";
+    print $fh "\t$condicao\n";
+    print $fh "\thp $hp\n";
+    print $fh "\tsp $sp\n"; 
+    print $fh "}\n";
+    close ($fh);
 }
 
 #TODO implementar getAuto e autoBuy
