@@ -56,7 +56,7 @@ sub configurarSelfItem {
 # $.param[0] : nome da skill
 sub attackSkillEstaConfigurada {
 
-    my i = 0;
+    my $i = 0;
     while ( &config("attackSkillSlot_$i") != none ){
         if ( &config("attackSkillSlot_$i") == $.param[0]) return 'sim';
         $i++;
@@ -67,7 +67,7 @@ sub attackSkillEstaConfigurada {
 # $.param[0] : nome da skill
 sub selfSkillEstaConfigurado {
 
-    my i = 0;
+    my $i = 0;
     while ( &config("useSelf_skill_$i") != none ){
         if ( &config("useSelf_skill_$i") == $.param[0]) return 'sim';
         $i++;
@@ -77,7 +77,7 @@ sub selfSkillEstaConfigurado {
 
 # $.param[0] : nome do item
 sub usarItemEstaConfiguradao {
-    my i = 0;
+    my $i = 0;
     while ( &config("useSelf_item_$i") != none ){
         if ( &config("useSelf_item_$i") == $.param[0]) return 'sim';
         $i++;
