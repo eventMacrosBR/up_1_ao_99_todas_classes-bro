@@ -4,33 +4,35 @@
 # $.param[3] : montros
 # $.param[4] : condicao
 sub configurarAttackSkill {
+    my ($skill, $lvl, $sp, $monstros, $condicao) = @_;
 
     if ( attackSkillEstaConfigurada() == 'nao') {
         open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
-        print $fh "attackSkillSlot $.param[0] {\n";
-		print $fh "\tlvl $.param[1]\n";
-        print $fh "\tsp $.param[2]\n";
-        print $fh "\tmonsters $.param[3]\n"; 
-		print $fh "\t$.param[4]\n";
+        print $fh "attackSkillSlot $skill {\n";
+		print $fh "\tlvl $lvl\n";
+        print $fh "\tsp $sp\n";
+        print $fh "\tmonsters $monstros\n"; 
+		print $fh "\t$condicao\n";
 		print $fh "}\n";
         close ($fh);
     }
 }
 
 # $.param[0] : nome ou id da skill
-# $.param[1] : sp
+# $.param[1] : level
 # $.param[2] : sp
 # $.param[3] : condicao
 # $.param[4] : hp
 sub configurarSelfSkill {
+    my ($skill, $lvl, $sp, $condicao, $hp) = @_;
 
     if ( selfSkillEstaConfigurado() == 'nao') {
         open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
-        print $fh "useSelf_skill $.param[0] {\n";
-        print $fh "\tlvl $.param[1]\n";
-		print $fh "\tsp $.param[2]\n";
-        print $fh "\t$.param[3]\n";
-        print $fh "\thp $.param[4]\n"; 
+        print $fh "useSelf_skill $skills {\n";
+        print $fh "\tlvl $lvl\n";
+		print $fh "\tsp $sp\n";
+        print $fh "\t$condicao\n";
+        print $fh "\thp $hp\n"; 
 		print $fh "}\n";
         close ($fh);
     }
@@ -41,13 +43,14 @@ sub configurarSelfSkill {
 # $.param[2] : hp
 # $.param[3] : sp
 sub configurarSelfItem {
+    my ($item, $condicao, $hp, $sp) = @_;
 
     if ( usarItemEstaConfigurado() == 'nao') {
         open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
-        print $fh "useSelf_item $.param[0] {\n";
-        print $fh "\t$.param[1]\n";
-		print $fh "\thp $.param[2]\n";
-        print $fh "\tsp $.param[3]\n"; 
+        print $fh "useSelf_item $item {\n";
+        print $fh "\t$condicao\n";
+		print $fh "\thp $hp\n";
+        print $fh "\tsp $sp\n"; 
 		print $fh "}\n";
         close ($fh);
     }
