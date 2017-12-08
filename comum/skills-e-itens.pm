@@ -57,17 +57,16 @@ sub configurarSelfItem {
 }
 
 # $.param[0] : nome da skill
-sub attackSkillEstaConfigurada {
-    my ($skill) = @_;
+macro attackSkillEstaConfigurada {
 
-    my $i = 0;
+    $i = 0
     while ( &config("attackSkillSlot_$i") ) {
-        if ( &config("attackSkillSlot_$i") == $skill ) {
-            return 'sim';
+        if ( &config("attackSkillSlot_$i") == $.param[0] ) {
+            # esse return tem que ser mudado... return 'sim';
         }
-        $i++;
+        $i++
     }
-    return 'nao';
+    # esse return tem que ser mudado... return 'nao';
 }
 
 # $.param[0] : nome da skill
