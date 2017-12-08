@@ -61,8 +61,8 @@ sub attackSkillEstaConfigurada {
     my ($skill) = @_;
 
     my $i = 0;
-    while ( &config("attackSkillSlot_$i") != none ){
-        if ( &config("attackSkillSlot_$i") == $skill) return 'sim';
+    while ( &config("attackSkillSlot_$i") != none ) {
+        if ( &config("attackSkillSlot_$i") == $skill ) return 'sim';
         $i++;
     }
     return 'nao';
@@ -73,8 +73,8 @@ sub selfSkillEstaConfigurado {
     my ($skill) = @_;
 
     my $i = 0;
-    while ( &config("useSelf_skill_$i") != none ){
-        if ( &config("useSelf_skill_$i") == $.param[0]) return 'sim';
+    while ( &config("useSelf_skill_$i") != none ) {
+        if ( &config("useSelf_skill_$i") == $skill ) return 'sim';
         $i++;
     }
     return 'nao';
@@ -85,8 +85,8 @@ sub usarItemEstaConfiguradao {
     my ($item) = @_;
 
     my $i = 0;
-    while ( &config("useSelf_item_$i") != none ){
-        if ( &config("useSelf_item_$i") == $item) return 'sim';
+    while ( &config("useSelf_item_$i") != none ) {
+        if ( &config("useSelf_item_$i") == $item ) return 'sim';
         $i++;
     }
     return 'nao';
