@@ -636,16 +636,19 @@ automacro EdenPegandoEquips12e26e40 {
 		do talk resp 1
 		
 		if ( $.lvl >= 40 ) {
-			do talk resp /$paramsQuestEden{armaLevel26e40}/
+			do talk resp /$paramsQuestEden{armaLevel26e40}/i
 			
+		} elsif ( $.lvl >= 26) {
+			do talk resp /$paramsQuestEden{armaLevel26e40}/i
+			
+		}
 
+		if ( $.lvl >= 40 ) {
+			#pegar encantamento do chapeu valhalla
 			do talk $.NpcNearLastBinId
 			do talk resp 2
 			do talk resp 4
 			do talk resp 0
-			
-		} elsif ( $.lvl >= 26) {
-			do talk resp /$paramsQuestEden{armaLevel26e40}/i
 		}
 	}
 }
@@ -752,7 +755,7 @@ automacro Eden40Equipando {
 		]
 		$check = GetIndexAndEquipped("shoes", 2458) #Botas Valhalla Avançadas
 		if ($check != -1) do eq $check
-		$check = GetIndexAndEquipped("rightHand", "$paramsQuestEden{IDarmaIntermediario}") #Adaga Valhalla Intermediária
+		$check = GetIndexAndEquipped("rightHand", "$paramsQuestEden{IDarmaIntermediario}") #Arma Valhalla Intermediária
 		if ($check != -1) do eq $check
 		$check = GetIndexAndEquipped("armor", 15011) #Uniforme Valhalla Avançado
 		if ($check != -1) do eq $check
@@ -785,7 +788,7 @@ automacro Eden60Equipando {
 		if ($check != -1) do eq $check
 		$check = GetIndexAndEquipped("shoes", 2473) ##Botas_IV_do_Grupo_Éden#
 		if ($check != -1) do eq $check
-		$check = GetIndexAndEquipped("rightHand","$paramsQuestEden{IDarmaEden}") #Adaga_III_do_Grupo_Éden#
+		$check = GetIndexAndEquipped("rightHand","$paramsQuestEden{IDarmaEden}") #Arma do Grupo Eden#
 		if ($check != -1) do eq $check
 		$check = GetIndexAndEquipped("armor", 15031) #Armadura_do_Grupo_Éden#
 		if ($check != -1) do eq $check
