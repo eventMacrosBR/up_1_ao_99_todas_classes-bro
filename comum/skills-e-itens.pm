@@ -90,7 +90,9 @@ sub usarItemEstaConfigurado {
 
     my $i = 0;
     while ( &config("useSelf_item_$i") != none ) {
-        if ( &config("useSelf_item_$i") == $item ) return 'sim';
+        if ( &config("useSelf_item_$i") == $item ) {
+            return 'sim';
+        }
         $i++;
     }
     return 'nao';
