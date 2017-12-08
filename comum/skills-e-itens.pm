@@ -5,7 +5,7 @@
 # $.param[4] : condicao
 sub configurarAttackSkill {
 
-    if ( attackSkillEstaConfigurada == 'nao') {
+    if ( attackSkillEstaConfigurada() == 'nao') {
         open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
         print $fh "attackSkillSlot $.param[0] {\n";
 		print $fh "\tlvl $.param[1]\n";
@@ -24,7 +24,7 @@ sub configurarAttackSkill {
 # $.param[4] : hp
 sub configurarSelfSkill {
 
-    if ( selfSkillEstaConfigurado == 'nao') {
+    if ( selfSkillEstaConfigurado() == 'nao') {
         open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
         print $fh "useSelf_skill $.param[0] {\n";
         print $fh "\tlvl $.param[1]\n";
@@ -42,7 +42,7 @@ sub configurarSelfSkill {
 # $.param[3] : sp
 sub configurarSelfItem {
 
-    if ( usarItemEstaConfigurado == 'nao') {
+    if ( usarItemEstaConfigurado() == 'nao') {
         open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
         print $fh "useSelf_item $.param[0] {\n";
         print $fh "\t$.param[1]\n";
