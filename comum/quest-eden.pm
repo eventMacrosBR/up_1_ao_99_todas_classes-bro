@@ -645,7 +645,7 @@ automacro EdenPegandoEquips12e26e40 {
 			do talk resp 0
 			
 		} elsif ( $.lvl >= 26) {
-			do talk resp /$paramsQuestEden{armaLevel26e40}/
+			do talk resp /$paramsQuestEden{armaLevel26e40}/i
 		}
 	}
 }
@@ -677,7 +677,7 @@ automacro EdenPegandoEquips60 {
 		do talk $.NpcNearLastBinId
 		do talk resp 2
 		do talk resp 1
-		do talk resp /$paramsQuestEden{armaLevel60}/
+		do talk resp /$paramsQuestEden{armaLevel60}/i
 	}
 }
 
