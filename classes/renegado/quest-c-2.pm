@@ -3,6 +3,7 @@ sub initParamsQuestClasse2 {
 	Commands::run("iconf 957 10 1 0"); #unhaApodrecida
 	Commands::run("iconf 932 10 1 0"); #osso
 	Commands::run("iconf 958 10 1 0"); #mandibula
+	Commands::run("conf -f questc2_implementada true");
 }
 
 #From- Macro Quest Arruaceiro 2.0
@@ -11,7 +12,7 @@ sub initParamsQuestClasse2 {
 #Edited- by CALF
 #convertido e reescrito pra eventMacro por Nipodemos
 automacro virarArruaceiroInicio_salvarEmMorocc {
-	JobID 6 #gatuno
+	JobID $paramsClasses{idC1}
 	JobLevel = 50
 	FreeSkillPoints = 0
 	priority 2
@@ -30,19 +31,8 @@ automacro virarArruaceiroInicio_salvarEmMorocc {
 	call SetSaveIn "morocc"
 }
 
-automacro comeceiQuestArruaceiro_bugged {
-	QuestActive 2017,2018,2022,2023,2024,2026
-	ConfigKeyNot virarClasse2 true
-	exclusive 1
-	call {
-		do conf -f virarClasse2 true
-		#se por algum motivo vc tiver fazendo a quest de arrauceiro, e essa variavel nao tiver no valor dela
-		#essa automacro se ativa pra deixar no valor correto
-	}
-}
-
 automacro virarArruaceiroInicio_IrNoNpc {
-	JobID 6 #gatuno
+	JobID $paramsClasses{idC1}
 	JobLevel = 50
 	FreeSkillPoints = 0
 	priority 2
@@ -58,13 +48,13 @@ automacro virarArruaceiroInicio_IrNoNpc {
 	call {
 		call pararDeAtacar
 		do conf lockMap none
-		do conf -f virarArruaceiro true
+		do conf -f virarClasse2 true
 		do move in_rogue &rand(361,366) &rand(112,117)
 	}
 }
 
 automacro virarArruaceiroInicio {
-	JobID 6 #gatuno
+	JobID $paramsClasses{idC1}
 	JobLevel = 50
 	priority 2
 	exclusive 1
@@ -93,7 +83,7 @@ automacro virarArruaceiroInicio {
 }
 
 automacro virarArruaceiro_etapa2_FalarComSmith {
-	JobID 6 #gatuno
+	JobID $paramsClasses{idC1}
 	QuestActive 2017
 	exclusive 1
 	run-once 1
@@ -105,7 +95,7 @@ automacro virarArruaceiro_etapa2_FalarComSmith {
 
 
 automacro virarArruaceiro_etapa3_coletarItens {
-	JobID 6 #gatuno
+	JobID $paramsClasses{idC1}
 	QuestActive 2018
 	exclusive 1
 	ConfigKeyNot questArruaceiro peguei
@@ -274,7 +264,7 @@ automacro virarArruaceiro_etapa3_tenhoOsItens {
 }
 
 automacro virarArruaceiro_etapa4 {
-	JobID 6 #gatuno
+	JobID $paramsClasses{idC1}
 	exclusive 1
 	JobLevel = 50
     CurrentHP >= 80%
@@ -471,8 +461,8 @@ automacro virarArruaceiro_etapaFinal_Alternativo {
 }
 
 automacro jaSouArruaceiro {
-	JobID 17 #arruaceiro
-	ConfigKey virarArruaceiro true
+	JobID $paramsClasses{idC2}
+	ConfigKeyNot questArruaceiro none
 	exclusive 1
 	call {
 		do conf teleportAuto_MaxDmg 1000
@@ -485,7 +475,6 @@ automacro jaSouArruaceiro {
 		$check = GetIndexAndEquipped("topHead", 5583) #Chapeu valhalla
 		if ($check != -1) do eq $check
 		call pararDeAtacar
-		do conf virarArruaceiro none
 		do conf questArruaceiro none
 	}
 }

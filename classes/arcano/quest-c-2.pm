@@ -1,5 +1,5 @@
 sub initParamsQuestClasse2 {
-	#nao necessita itens para quest
+	Commands::run("conf -f questc2_implementada true");
 }
 
 #COMEÇANDO SÓ PELO GUIA DA BROWIKI MAIS PARA BOTAR OS DADOS

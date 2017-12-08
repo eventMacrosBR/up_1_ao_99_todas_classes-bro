@@ -676,6 +676,7 @@ automacro EdenPegandoEquips60 {
 		#do talknpc 111 83 c r2 c c r1 #Ferreiro Torhen#2nd10
 		do talk $.NpcNearLastBinId
 		do talk resp 2
+		do talk resp 1
 		do talk resp /$paramsQuestEden{armaLevel60}/
 	}
 }
