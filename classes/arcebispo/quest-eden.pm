@@ -1,10 +1,10 @@
 sub initParamsQuestEden {
     my %paramsQuestEden = (
-        armaLevel26e40 => 'espada',
-        armaLevel60 => 'lança',
-        IDarmaIniciante => 1192,
-        IDarmaIntermediario => 1193,
-        IDarmaEden => 1434
+        armaLevel26e40 => 'maça',
+        armaLevel60 => 'cajado'
+        IDarmaIniciante => 16004
+		IDarmaIntermediario => 16005
+		IDarmaEden => 1658
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
     $eventMacro->set_full_hash('paramsQuestEden', \%paramsQuestEden);
