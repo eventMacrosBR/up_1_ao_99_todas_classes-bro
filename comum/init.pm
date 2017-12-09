@@ -61,6 +61,11 @@ automacro init {
 		
 		# Esse sub por enquanto nao gera nada, porque ainda não foi implementado
 		initParamsQuestClasse3()
+
+		# Esse sub gera a hash %paramsQuestClasseRenascer com a seguinte key:
+		# $paramsQuestClasseRenascer{renascer}
+		# $paramsQuestClasseRenascer{amigo}
+		initParamsQuestClasseRenascer()
 		
 	}
 }
