@@ -61,9 +61,6 @@ automacro init {
 		
 		# Esse sub por enquanto nao gera nada, porque ainda não foi implementado
 		initParamsQuestClasse3()
-
-		# Essa macro configura as skills e itens que o bot vai utilizar
-		call configurarSkillsEItens
 		
 	}
 }

@@ -1,96 +1,140 @@
-macro configurarAttackSkill {
-    $skill = $.param[0];
-    $lvl = $.param[1];
-    $sp = $.param[2];
-    $monstros = $.param[3];
-    $condicao = $.param[4];
-
-    $attackSkillEstaConfigurada = 'nao';
-    $i = 0
-    while ( &config("attackSkillSlot_$i") ) {
-        if ( &config("attackSkillSlot_$i") == Skill ) {
-            $attackSkillEstaConfigurada = 'sim';
-        }
-        $i++
-    }
-    if ( $attackSkillEstaConfigurada == 'nao' ) {
-        adicionaAttackSkillSlot($skill, $lvl, $sp, $monstros, $condicao);
-    }
-}
-
-macro configurarSelfSkill {
-    $skill = $.param[0];
-    $lvl = $.param[1];
-    $sp = $.param[2];
-    $condicao = $.param[3];
-    $hp = $.param[4];
-
-    $selfSkillEstaConfigurado = 'nao';
-    $i = 0;
-    while ( &config("useSelf_skill_$i") ) {
-        if ( &config("useSelf_skill_$i") == $skill ) {
-            $selfSkillEstaConfigurado = 'sim';
-        }
-        $i++;
-    }
-    if ( $selfSkillEstaConfigurado == 'nao' ) {
-        adicionarSelfSkill($skill, $lvl, $sp, $condicao, $hp);
-    }
-}
-
-macro configurarSelfItem {
-    $item = $.param[0];
-    $condicao = $.param[1];
-    $hp = $.param[2];
-    $sp = $.param[3];
-
-    $usarItemEstaConfigurado = 'nao'
-    $i = 0;
-    while ( &config("useSelf_item_$i") ) {
-        if ( &config("useSelf_item_$i") == $item ) {
-            $usarItemEstaConfigurado = 'sim';
-        }
-        $i++;
-    }
-
-    if ( $usarItemEstaConfigurado == 'nao' ) {
-        adicionarSelfItem($item, $condicao, $hp, $sp);
-    }
-}
-
 sub adicionaAttackSkillSlot {
-    my ($skill, $lvl, $sp, $monstros, $condicao) = @_;
     open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
-    print $fh "attackSkillSlot $skill {\n";
-    print $fh "\tlvl $lvl\n";
-    print $fh "\tsp $sp\n";
-    print $fh "\tmonsters $monstros\n"; 
-    print $fh "\t$condicao\n";
-    print $fh "}\n";
+    print $fh "attackSkillSlot {\n";
+    print $fh "\tlvl 10\n";
+    print $fh "\tdist 1.5\n";
+    print $fh "\tmaxCastTime 0\n";
+    print $fh "\tminCastTime 0\n";
+    print $fh "\thp\n";
+    print $fh "\tsp > 10\n";
+    print $fh "\thomunculus_hp\n";
+    print $fh "\thomunculus_sp\n";
+    print $fh "\thomunculus_dead\n";
+    print $fh "\tonAction\n";
+    print $fh "\twhenStatusActive\n";
+    print $fh "\twhenStatusInactive\n";
+    print $fh "\twhenFollowing\n";
+    print $fh "\tspirit\n";
+    print $fh "\tamuletType\n";
+    print $fh "\taggressives\n";
+    print $fh "\tpreviousDamage\n";
+    print $fh "\tstopWhenHit 0\n";
+    print $fh "\tinLockOnly 0\n";
+    print $fh "\tnotInTown 0\n";
+    print $fh "\ttimeout 0\n";
+    print $fh "\tdisabled 0\n";
+    print $fh "\tmonsters\n";
+    print $fh "\tnotMonsters\n";
+    print $fh "\tmonstersCount\n";
+    print $fh "\tmaxAttempts 0\n";
+    print $fh "\tmaxUses 0\n";
+    print $fh "\ttarget_hp\n";
+    print $fh "\ttarget_whenStatusActive\n";
+    print $fh "\ttarget_whenStatusInactive\n";
+    print $fh "\ttarget_deltaHp\n";
+    print $fh "\tinInventory\n";
+    print $fh "\tisSelfSkill 0\n";
+    print $fh "\tequip_topHead\n";
+    print $fh "\tequip_midHead\n";
+    print $fh "\tequip_lowHead\n";
+    print $fh "\tequip_leftHand\n";
+    print $fh "\tequip_rightHand\n";
+    print $fh "\tequip_leftAccessory\n";
+    print $fh "\tequip_rightAccessory\n";
+    print $fh "\tequip_robe\n";
+    print $fh "\tequip_armor\n";
+    print $fh "\tequip_shoes\n";
+    print $fh "\tequip_arrow\n";
+    print $fh "\tmanualAI 0\n";
+    print $fh "\t}\n";
     close ($fh);
 }
 
-sub adicionarSelfSkill {
-    my ($skill, $lvl, $sp, $condicao, $hp) = @_;
+sub adicionaUseSelfSkill {
     open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
-    print $fh "useSelf_skill $skills {\n";
-    print $fh "\tlvl $lvl\n";
-    print $fh "\tsp $sp\n";
-    print $fh "\t$condicao\n";
-    print $fh "\thp $hp\n"; 
-    print $fh "}\n";
+    print $fh "useSelf_skill {\n";
+	print $fh "\tlvl 10\n";
+	print $fh "\tmaxCastTime 0\n";
+	print $fh "\tminCastTime 0\n";
+	print $fh "\thp\n";
+	print $fh "\tsp\n";
+	print $fh "\thomunculus_hp\n";
+	print $fh "\thomunculus_sp\n";
+	print $fh "\thomunculus_dead\n";
+	print $fh "\tonAction\n";
+	print $fh "\twhenStatusActive\n";
+	print $fh "\twhenStatusInactive\n";
+	print $fh "\twhenFollowing\n";
+	print $fh "\tspirit\n";
+	print $fh "\tamuletType\n";
+	print $fh "\taggressives\n";
+	print $fh "\tmonsters\n";
+	print $fh "\tnotMonsters\n";
+	print $fh "\tmonstersCount\n";
+	print $fh "\tstopWhenHit 0\n";
+	print $fh "\tinLockOnly 0\n";
+	print $fh "\tnotWhileSitting 0\n";
+	print $fh "\tnotInTown 0\n";
+	print $fh "\ttimeout 0\n";
+	print $fh "\tdisabled 0\n";
+	print $fh "\tinInventory\n";
+	print $fh "\tmanualAI 0\n";
+    print $fh "\t}\n";
     close ($fh);
 }
 
-sub adicionarSelfItem {
-    my ($item, $condicao, $hp, $sp) = @_;
+sub adicionaUseSelfItem {
     open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
-    print $fh "useSelf_item $item {\n";
-    print $fh "\t$condicao\n";
-    print $fh "\thp $hp\n";
-    print $fh "\tsp $sp\n"; 
-    print $fh "}\n";
+    print $fh "useSelf_item {\n";
+	print $fh "\thp\n";
+	print $fh "\tsp\n";
+	print $fh "\thomunculus_hp\n";
+	print $fh "\thomunculus_sp\n";
+	print $fh "\thomunculus_dead\n";
+	print $fh "\tonAction\n";
+	print $fh "\twhenStatusActive\n";
+	print $fh "\twhenStatusInactive\n";
+	print $fh "\twhenFollowing\n";
+	print $fh "\tspirit\n";
+	print $fh "\tamuletType\n";
+	print $fh "\taggressives\n";
+	print $fh "\tmonsters\n";
+	print $fh "\tnotMonsters\n";
+	print $fh "\tmonstersCount\n";
+	print $fh "\tstopWhenHit 0\n";
+	print $fh "\tinLockOnly 0\n";
+	print $fh "\tnotWhileSitting 0\n";
+	print $fh "\tnotInTown 0\n";
+	print $fh "\ttimeout\n";
+	print $fh "\tdisabled 0\n";
+	print $fh "\tinInventory\n";
+	print $fh "\tmanualAI 0\n";
+    print $fh "\t}\n";
     close ($fh);
 }
 
-#TODO implementar getAuto e autoBuy
+sub adicionaBuyAuto {
+    open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
+    print $fh "\tbuyAuto {\n";
+	print $fh "\tnpc\n";
+	print $fh "\tstandpoint\n";
+	print $fh "\tdistance 5\n";
+	print $fh "\tprice\n";
+	print $fh "\tminAmount 2\n";
+	print $fh "\tmaxAmount 3\n";
+	print $fh "\tbatchSize\n";
+	print $fh "\tdisabled 0\n";
+    print $fh "\t}\n";
+    close ($fh);
+}
+
+sub adicionaGetAuto {
+    open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
+    print $fh "\tgetAuto {\n";
+	print $fh "\tminAmount\n";
+	print $fh "\tmaxAmount\n";
+	print $fh "\tpassive\n";
+    print $fh "\t}\n";
+    close ($fh);
+}
+
