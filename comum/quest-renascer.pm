@@ -161,7 +161,6 @@ automacro Rebornar_primeiroEstagioBugged {
 	}
 }
 
-
 automacro Rebornar_pagarTaxa {
 	ConfigKey estagio_Reborn 2
 	Zeny = 1285000

@@ -4,7 +4,9 @@ automacro init {
 	exclusive 1
 	BaseLevel > 0
 	call {
-		xConfConfiguratedOrNot()  #sub se encontra no arquivo utilidades.pm
+		# Carregando Plugins necessários
+		xConfConfiguratedOrNot() 
+		BetterShopperConfiguratedOrNot()
 		
 		# Configurações de Ids de classe
 		
