@@ -14,9 +14,6 @@ automacro UpClasse {
 
 macro upar {
 	
-	log \$mapa{lockMap} : $mapa{lockMap}
-	log \$mapa{saveMap} : $mapa{saveMap}
-	
 	if (&config(lockMap) = $mapa{lockMap}) {
 		[
 		log ================================
@@ -28,12 +25,23 @@ macro upar {
 		stop
 	}
 	
+	#se chegar ate aqui é porque tem algo a ser configurado
+	log vou salvar em: $mapa{saveMap}
+	log vou upar em: $mapa{lockMap}
+	
 	#se chegar aqui significa que tem que ser mudado o lockmap e/ou o saveMap
 	if (&config(saveMap) = $mapa{saveMap}) {
+		[
+		log =====================================
+		log =Já estou salvo em $mapa{saveMap}
+		log =Configurando lockmap ($mapa{lockmap})
+		log =====================================
+		]
 		do conf lockMap $mapa{lockMap}
 		call voltarAtacar
 	} else {
 		call pararDeAtacar
+		do conf lockmap none
 		call SetSaveIn "$mapa{saveMap}"
 	}
 }
@@ -42,7 +50,6 @@ automacro estouLv99 {
 	BaseLevel = 99
 	exclusive 1
 	timeout 120
-	run-once 1
 	JobID $paramsClasses{idC2}, $paramsClasses{idC2T}
 	call {
 		log CHEGUEI NO LVL 99 FINALMENTE !!!!!!!
@@ -57,6 +64,7 @@ automacro nivelDeClasse50 {
 	timeout 20
 	NotInMap izlude
 	ConfigKeyNot virarClasse2 true
+	ConfigKeyNot questc2_implementada true
 	ConfigKeyNot virarClasse2T true
 	call {
 		log SEU CHAR JÁ ESTÁ NO NIVEL 50 DE CLASSE
