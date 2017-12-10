@@ -8,7 +8,17 @@ automacro chamarAmigo {
 	JobLevel = 50
 	priority -5 #prioridade alta
 	call {
-		do pm "$paramsQuestClasseRenascer{amigo}" ajudaRebornar
+		if ($paramsQuestClasseRenascer{renascer} = nao) {
+			[
+			log ESTOU LVL 99 MAS FUI CONFIGURADO PRA NAO REBORNAR
+			log É BOM CASO VC QUEIRA FARMAR ZENY COM CLASSE 2
+			log SE QUISER REBORNAR, PROCURE POR :
+			log renascer => nao 
+			log E TROQUE POR sim
+			]
+		} else {
+			do pm "$paramsQuestClasseRenascer{amigo}" ajudaRebornar	
+		}
 	}
 }
 
