@@ -245,3 +245,4 @@ sub desequipar {
 	my $type = shift;
 	$char->{equipment}{$type}->unequip();
 }
+
