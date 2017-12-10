@@ -34,7 +34,7 @@ automacro virarClasse2Inicio {
 	}
 }
 
-automacro jsSouClasse2{
+automacro jsSouClasse2 {
 	JobID $paramsClasses{idC2}
 	ConfigKey virarClasse2 true
 	call {
@@ -47,3 +47,19 @@ automacro jsSouClasse2{
 		call atualizarBuild
 	}
 }
+
+automacro jsSouClasse2NaoAutomatico {
+	JobID $paramsClasses{idC2}
+	ConfigKey esperarFazerQuest true
+	call {
+		[
+		log =================================================
+		log = Já sou classe 2, pois fiz a quest manualmente =
+		log =================================================
+		]
+		do conf esperarFazerQuest none
+		call atualizarBuild
+	}
+}
+
+ 
