@@ -3,11 +3,11 @@ automacro configurarPotLaranja {
 	InStorageID 569 < 1 #Poção de Aprendiz (não pode ter essa poção)
 	Zeny > 30000
 	ConfigKeyNot useSelf_item_0 Poção de Aprendiz #só se ativa quando nao ta usando mais pot aprendiz
-	ConfigKeyNot useSelf_item_0 Poção Laranja
+	ConfigKeyNot useSelf_item_0 502
 	exclusive 1
 	call {
 		do iconf 502 100 0 0 #pot laranja
-		if (&config(buyAuto_1) =~ /Laranja/ ) {
+		if (&config(buyAuto_1) = 502 ) {
 			log pot Laranja já está configurada, essa mensagem não deveria aparecer
 			log caso apareça repetidamente, relate aos criadores da macro
 		} else {
@@ -15,14 +15,14 @@ automacro configurarPotLaranja {
 			#de buyauto padrão não tem o "zeny" como chave, apesar que deveria
 			do reload config 
 
-			do conf buyAuto_1 Poção Laranja
+			do conf buyAuto_1 502
 			do conf buyAuto_1_maxAmount 100
 			do conf buyAuto_1_zeny 30000
 			do conf buyAuto_1_npc payon_in01 5 49
 			do conf buyAuto_1_disabled 0
 		}
 
-		do conf useSelf_item_0 Poção Laranja
+		do conf useSelf_item_0 502
 		do conf useSelf_item_0_hp < 50%
 		do conf useSelf_item_0_disabled 0
 
