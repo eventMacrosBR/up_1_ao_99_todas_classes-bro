@@ -67,7 +67,9 @@ automacro TrocarEmblema_IndoProNpc {
 	priority -2 # um pouco alta
 	call  {
 		call moverPertoDosNpcEden
-		do reload event
+		do reload event #estranhamente qando ele chega perto do npc do eden, ele nao checa alguma 
+		#das condições (arrisco dizer a di inventory) por isso tive que colocar essa linha
+		#que recarrega o eventMacros, aí a proxima automacro trigga de boas
 	}
 }
 
