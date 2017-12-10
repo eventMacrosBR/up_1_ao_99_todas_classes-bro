@@ -73,6 +73,7 @@ automacro jaSouClasse2T {
     ConfigKey virarClasse2T true
     call {
         do conf virarClasse2T none
+        call atualizarBuild
     }
 }
 

@@ -39,10 +39,11 @@ automacro jsSouClasse2{
     ConfigKey virarClasse2 true
     call {
         [
-	log ===================
-	log = Já sou classe 2 =
-	log ===================
-	]
+		log ===================
+		log = Já sou classe 2 =
+		log ===================
+		]
         do conf virarClasse2 none
+        call atualizarBuild
     }
 }

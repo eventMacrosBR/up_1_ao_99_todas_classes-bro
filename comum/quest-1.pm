@@ -67,5 +67,6 @@ automacro jaSouClasse1 {
 		if ($check != -1) do eq $check
 		$check = GetIndexAndEquipped("rightHand", "$paramsQuestClasse1{equipeIniciante}")
 		if ($check != -1) do eq $check
+		call atualizarBuild
 	}
 }
