@@ -46,7 +46,7 @@ sub adicionaAttackSkillSlot {
     print $fh "\tequip_shoes\n";
     print $fh "\tequip_arrow\n";
     print $fh "\tmanualAI 0\n";
-    print $fh "\t}\n";
+    print $fh "}\n";
     close ($fh);
 }
 
@@ -79,7 +79,7 @@ sub adicionaUseSelfSkill {
 	print $fh "\tdisabled 0\n";
 	print $fh "\tinInventory\n";
 	print $fh "\tmanualAI 0\n";
-    print $fh "\t}\n";
+    print $fh "}\n";
     close ($fh);
 }
 
@@ -109,13 +109,13 @@ sub adicionaUseSelfItem {
 	print $fh "\tdisabled 0\n";
 	print $fh "\tinInventory\n";
 	print $fh "\tmanualAI 0\n";
-    print $fh "\t}\n";
+    print $fh "}\n";
     close ($fh);
 }
 
 sub adicionaBuyAuto {
     open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
-    print $fh "\tbuyAuto {\n";
+    print $fh "buyAuto {\n";
 	print $fh "\tnpc\n";
 	print $fh "\tstandpoint\n";
 	print $fh "\tdistance 5\n";
@@ -124,17 +124,17 @@ sub adicionaBuyAuto {
 	print $fh "\tmaxAmount 3\n";
 	print $fh "\tbatchSize\n";
 	print $fh "\tdisabled 0\n";
-    print $fh "\t}\n";
+    print $fh "}\n";
     close ($fh);
 }
 
 sub adicionaGetAuto {
     open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
-    print $fh "\tgetAuto {\n";
+    print $fh "getAuto {\n";
 	print $fh "\tminAmount\n";
 	print $fh "\tmaxAmount\n";
 	print $fh "\tpassive\n";
-    print $fh "\t}\n";
+    print $fh "}\n";
     close ($fh);
 }
 
