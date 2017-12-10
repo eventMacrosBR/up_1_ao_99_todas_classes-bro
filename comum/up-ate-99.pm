@@ -5,6 +5,7 @@ automacro UpClasse {
 	ConfigKeyNot In_saveMap_sequence true
 	ConfigKeyNot virarClasse2 true
 	ConfigKeyNot virarClasse2T true
+	ConfigKeyNot esperarFazerQuest true
 	ConfigKeyNot lockMap $mapa{lockMap}
 	exclusive 1
 	priority 20 #baixa prioridade
@@ -73,6 +74,7 @@ automacro nivelDeClasse50 {
 		log ASSIM QUE ELE SE TORNAR UM CLASSE 2, A MACRO VOLTA A UPAR NORMALMENTE
 		do conf lockMap none
 		call pararDeAtacar
+		do conf -f esperarFazerQuest true
 	}
 }
 
