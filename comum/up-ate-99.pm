@@ -34,7 +34,7 @@ macro upar {
 		[
 		log =====================================
 		log =Já estou salvo em $mapa{saveMap}
-		log =Configurando lockmap ($mapa{lockmap})
+		log =Configurando lockmap 
 		log =====================================
 		]
 		do conf lockMap $mapa{lockMap}
