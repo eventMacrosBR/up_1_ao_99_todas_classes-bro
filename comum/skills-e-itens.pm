@@ -46,6 +46,7 @@ sub adicionaAttackSkillSlot {
     print $fh "\tequip_shoes\n";
     print $fh "\tequip_arrow\n";
     print $fh "\tmanualAI 0\n";
+    print $fh "\tzeny\n";
     print $fh "}\n";
     close ($fh);
 }
