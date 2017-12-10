@@ -8,7 +8,7 @@ automacro configurarGolpeFulminante {
 		do conf attackSkillSlot_0_lvl 10
 		do conf attackSkillSlot_0_sp >= 15
 		do conf attackSkillSlot_0_maxUses 1
-		do conf attackSkillSlot_0_tmaxAttempts 3
+		do conf attackSkillSlot_0_maxAttempts 3
 	}
 }
 
@@ -21,7 +21,7 @@ automacro configurarHolyCross {
 		do conf attackSkillSlot_0_lvl 10
 		do conf attackSkillSlot_0_sp >= 20
 		do conf attackSkillSlot_0_maxUses 1
-		do conf attackSkillSlot_0_tmaxAttempts 3
+		do conf attackSkillSlot_0_maxAttempts 3
 	}
 }
 
