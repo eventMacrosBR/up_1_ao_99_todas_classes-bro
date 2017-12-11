@@ -6,7 +6,7 @@ automacro init {
 	call {
 		# Carregando Plugins necessários
 		xConfConfiguratedOrNot() 
-		#BetterShopperConfiguratedOrNot() descontinuado temporariamente
+		BetterShopperConfiguratedOrNot()
 		
 		# Configurações de Ids de classe
 		

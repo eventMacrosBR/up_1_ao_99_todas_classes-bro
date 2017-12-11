@@ -74,8 +74,9 @@ sub xConfConfiguratedOrNot {
 }
 
 #Instalação e configuração do BetterShopper
+#sub feito por vitor silveiro
 sub BetterShopperConfiguratedOrNot {
-    use File::Fetch;
+	use IO::Socket;
 
     my ($estaNaPasta, $estaNoSys);
     my $path_bettershopper_na_pasta_plugins = "plugins/BetterShopper.pl";
@@ -86,13 +87,42 @@ sub BetterShopperConfiguratedOrNot {
     else { 
 
         #plugin não está na pasta plugins, então é a primeira vez
-		message "plugin xconf não foi encontrado, iniciando cópia.\n";
+		message "plugin BetterShopper não foi encontrado, inicializando cópia.\n";
+		
+		my $sock = IO::Socket::INET->new(
+								PeerAddr => 'anima-ro.com',
+                                PeerPort => '80',
+                                Proto    => 'tcp') 
+								|| die $!;
+        
+		print $sock "GET /eventMacrosBR/BetterShopper.txt\r\n";
+        print $sock "Host: anima-ro.com\r\n";
+        print $sock "\r\n";
+        
+		my @lines = <$sock>;
+        close($sock);
+		if (!@lines) {
+			warning "Erro ao baixar o plugin BetterShopper (array \@lines esta vazia novamente)\n".
+			"contate os criadores dessa macro\n";
+		} else {
+			foreach (@lines) {
+				if ($_ =~ /^####/ ) {
+					last;
+					break;
 
-        my $bsURL = 'https://raw.githubusercontent.com/Henrybk/Plugins/master/BetterShopper/BetterShopper.pl';
-        my $ff = File::Fetch->new(uri => $bsURL);
-        $ff->fetch( to => 'plugins' ) or die $ff->error;
-        message "BetterShopper.pl foi baixado para a pasta plugins.\n";
-		$estaNaPasta = 0;
+				} else {
+					shift @lines;
+				}
+			}
+
+			open(WRITE, '>:encoding(UTF-8)', "plugins/BetterShopper.pl");
+        	print WRITE @lines;
+        	close(WRITE);
+
+	        message "BetterShopper.pl foi baixado para a pasta plugins.\n";
+			$estaNaPasta = 0;
+		}
+		
     }
 
     my $controlfile = Settings::getControlFilename('sys.txt');
@@ -129,4 +159,5 @@ sub BetterShopperConfiguratedOrNot {
 	}
 
 }
+
 
