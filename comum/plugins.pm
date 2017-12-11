@@ -108,7 +108,6 @@ sub BetterShopperConfiguratedOrNot {
 			foreach (@lines) {
 				if ($_ =~ /^####/ ) {
 					last;
-					break;
 
 				} else {
 					shift @lines;
