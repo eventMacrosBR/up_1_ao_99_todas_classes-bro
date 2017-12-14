@@ -3,13 +3,47 @@ sub initParamsQuestClasse2 {
 	Commands::run("iconf 930 10 1 0" ); #Bandagem Estragada
 	Commands::run("iconf 1041 10 1 0"); #Lampião
 	Commands::run("iconf 2608 1 1 0" ); #Rosário 
+	Commands::run("conf -f questc2_implementada true");
 }
 
-automacro virarTemplario_PegarItensDoComeço {
+automacro virarTemplario_Começo_irAoNpc {
+	JobLevel = 50
+	JobID $paramsClasses{idC1}
+	exclusive 1
+	QuestInactive 3008
+	ConfigKeyNot virarClasse2 true
+	NpcNotNear /Templário Sênior/
+	call {
+		do move prt_castle 45 169 &rand(2,5)
+	}
+}
+
+automacro virarTemplario_Começo {
+	JobLevel = 50
+	JobID $paramsClasses{idC1}
+	exclusive 1
+	QuestInactive 3008
+	ConfigKeyNot virarClasse2 true
+	NpcNear /Templário Sênior/
+	call {
+		do talk $.NpcNearLastBinId
+		do talk resp 0
+		do talk resp 0
+		[
+		log ==============================
+		log Falei com o Templario, agora 
+		log vou coletar os itens!
+		log ==============================
+		]
+	}
+}
+
+automacro virarTemplario_PegarItens {
 	QuestActive 3008
 	exclusive 1
 	timeout 100
 	call {
+		do conf -f virarClasse2 true
 		$bandagem = 930
 		$lampiao = 1041
 
