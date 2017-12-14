@@ -10,8 +10,9 @@ automacro virarTemplario_Começo_irAoNpc {
 	JobLevel = 50
 	JobID $paramsClasses{idC1}
 	exclusive 1
-	QuestInactive 3008
 	QuestInactive 3006
+	QuestInactive 3007
+	QuestInactive 3008
 	ConfigKeyNot virarClasse2 true
 	NpcNotNear /Senior Crusader/
 	call {
@@ -23,8 +24,10 @@ automacro virarTemplario_Começo {
 	JobLevel = 50
 	JobID $paramsClasses{idC1}
 	exclusive 1
-	QuestInactive 3008
 	QuestInactive 3006
+	QuestInactive 3007
+	QuestInactive 3008
+	run-once 1 #não gosto de fazer isso mas é a melhor opção
 	NpcNear /Senior Crusader/
 	call {
 		do talk $.NpcNearLastBinId
@@ -40,7 +43,7 @@ automacro virarTemplario_Começo {
 }
 
 automacro virarTemplario_PegarItens {
-	QuestActive 3008
+	QuestActive 3006, 3007, 3008
 	exclusive 1
 	timeout 100
 	call {
@@ -75,7 +78,7 @@ automacro virarTemplario_ColeteiTodosOsItens {
 	InInventoryID 930 >= 10 #Bandagem Estragada
 	InInventoryID 1041 >= 10 #Lampião
 	exclusive 1
-	QuestActive 3008
+	QuestActive 3006, 3007, 3008
 	NpcNotNear /Senior Crusader/
 	call {
 		do move prt_castle 45 169 &rand(2,5)
