@@ -44,12 +44,12 @@ OBS: Colocamos a classe 3 para definir a linha de evolução a seguir pela macro
 |![alt sabio](http://browiki.org/images/4/46/S%C3%A1biospartyicn.png)|Quest Sábio|Aguardando desenvolvimento|
 |![alt sacerdote](http://browiki.org/images/1/1f/Sacerdotespartyicn.png)|Quest Sacerdote|Em desenvolvimento|
 |![alt templario](http://browiki.org/images/8/8e/Templ%C3%A1riospartyicn.png)|Quest Templário|Em desenvolvimento|
-|![alt renascimento](http://browiki.org/images/c/c7/Bt_quest.png)|Quest Renascimento|Aguardando desenvolvimento|
-|![alt espadachim t](http://browiki.org/images/7/77/Espadachinspartyicn.png)|Quest Espadachim T.|Aguardando desenvolvimento|
-|![alt gatuno t](http://browiki.org/images/0/01/Gatunospartyicn.png)|Quest Gatuno T.|Aguardando desenvolvimento|
-|![alt mercador t](http://browiki.org/images/c/c0/Mercadorespartyicn.png)|Quest Mercador T.|Aguardando desenvolvimento|
-|![alt mago t](http://browiki.org/images/0/09/Magospartyicn.png)|Quest Mago T.|Aguardando desenvolvimento|
-|![alt novico t](http://browiki.org/images/e/e3/Novi%C3%A7ospartyicn.png)|Quest Noviço T.|Aguardando desenvolvimento|
-|![alt arqueiro t](http://browiki.org/images/5/53/Arqueirospartyicn.png)|Quest Arqueiro T.|Aguardando desenvolvimento|
-|![alt classe 2](http://browiki.org/images/8/8f/Lordespartyicn.png)|Quest Classe 2 T.|Funcionando|
+|![alt renascimento](http://browiki.org/images/c/c7/Bt_quest.png)|Quest Renascimento|Testando|
+|![alt espadachim t](http://browiki.org/images/7/77/Espadachinspartyicn.png)|Quest Espadachim T.|Testando|
+|![alt gatuno t](http://browiki.org/images/0/01/Gatunospartyicn.png)|Quest Gatuno T.|Testando|
+|![alt mercador t](http://browiki.org/images/c/c0/Mercadorespartyicn.png)|Quest Mercador T.|Testando|
+|![alt mago t](http://browiki.org/images/0/09/Magospartyicn.png)|Quest Mago T.|Testando|
+|![alt novico t](http://browiki.org/images/e/e3/Novi%C3%A7ospartyicn.png)|Quest Noviço T.|Testando|
+|![alt arqueiro t](http://browiki.org/images/5/53/Arqueirospartyicn.png)|Quest Arqueiro T.|Testando|
+|![alt classe 2](http://browiki.org/images/8/8f/Lordespartyicn.png)|Quest Classe 2 T.|Testando|
 |![alt classe 3](http://browiki.org/images/7/7c/Cavaleiros_R%C3%BAnicospartyicn.png)|Quest Classe 3|Aguardando desenvolvimento|
