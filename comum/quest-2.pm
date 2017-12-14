@@ -30,7 +30,7 @@ automacro virarClasse2Inicio {
 	exclusive 1
 	ConfigKey questc2_implementada true
 	call {
-		do conf -f virarClasse2 none
+		do conf -f virarClasse2 true
 	}
 }
 

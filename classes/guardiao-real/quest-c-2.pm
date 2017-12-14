@@ -11,6 +11,7 @@ automacro virarTemplario_Começo_irAoNpc {
 	JobID $paramsClasses{idC1}
 	exclusive 1
 	QuestInactive 3008
+	QuestInactive 3006
 	ConfigKeyNot virarClasse2 true
 	NpcNotNear /Senior Crusader/
 	call {
@@ -23,6 +24,7 @@ automacro virarTemplario_Começo {
 	JobID $paramsClasses{idC1}
 	exclusive 1
 	QuestInactive 3008
+	QuestInactive 3006
 	NpcNear /Senior Crusader/
 	call {
 		do talk $.NpcNearLastBinId
@@ -46,7 +48,7 @@ automacro virarTemplario_PegarItens {
 		$bandagem = Bandagem Estragada
 		$lampiao = Lampião
 
-		if (&invamount($bandagem) <= 10) {
+		if (&invamount($bandagem) < 10) {
 			#primeiro item a pegar, depois pega o outro
 			$mapaDesejado = moc_pryd03
 			$nomeDoItem = $bandagem
