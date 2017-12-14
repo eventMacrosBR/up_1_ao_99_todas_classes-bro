@@ -17,6 +17,7 @@ OBS: Colocamos a classe 3 para definir a linha de evolução a seguir pela macro
 - @nipodemos: Criação do script [up1-99_completo_para_arruaceiros](https://github.com/Nipodemos/up1-99_completo_para_arrauceiros) no qual este script é baseado (Créditos dos scripts que ele utilizou como base em seu próprio repositório)
 - @vitorsilverio: Parametrização do script que permite a adaptação para todas as classes
 - @gabx257: Parâmetros para as classes de Magos
+- @lucasbradok: base quests de sacer e monge
   
 
 ### Funcionalidades:
