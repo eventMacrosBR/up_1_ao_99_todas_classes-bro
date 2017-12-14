@@ -60,3 +60,42 @@ Você pode gerar o script com algumas configurações customizadas modificando o
 |![alt arqueiro t](http://browiki.org/images/5/53/Arqueirospartyicn.png)|Quest Arqueiro T.|Testando|
 |![alt classe 2](http://browiki.org/images/8/8f/Lordespartyicn.png)|Quest Classe 2 T.|Testando|
 |![alt classe 3](http://browiki.org/images/7/7c/Cavaleiros_R%C3%BAnicospartyicn.png)|Quest Classe 3|Aguardando desenvolvimento|
+
+Estrutura de Arquivos
+---------------------
+```
+up_1_ao_99_todas_classes
+├── README.md                             * Este arquivo
+├── LICENSE                               * Licença de distribuição do projeto
+├── auxiliarGui.ps1                       * Programa com interface gráfica para windows
+├── auxiliarGui.py                        * Programa com interface gráfica para linux ou osx
+├── geradorEventMacros-LIN-MAC.sh         * Programa para gerar o script em linux ou osx
+├── geradorEventMacros-WIN.bat            * Programa para gerar o script em windows
+├── comum                                 * Pasta com os scripts comuns do projeto ( o core do projeto )
+│   ├── init.pm                           * Inicializador do projeto, reponsável por subir as variáveis
+│   └── up-ate-99.pm                      * Automacro responsável por fazer o personagem upar enquanto não estiver em quests
+│   └── campo-de-aprendiz.pm              * Automacros que realizam o campo de treinamento
+│   └── quest-1.pm                        * Automacros que realizam a quest da classe 1
+│   └── quest-2.pm                        * Automacros que realizam a quest da classe 2
+│   └── quest-renascer.pm                 * Automacros que realizam a quest para renascer
+│   └── quest-1t.pm                       * Automacros que realizam a quest da classe 1 Transclasse
+│   └── quest-2t.pm                       * Automacros que realizam a quest da classe 2 Transclasse
+│   └── quest-eden.pm                     * Automacros que realizam as quests de equipamentos do eden
+│   └── plugins.pm                        * Subs para instalação e configurações de plugins necessários
+│   └── skills-e-itens.pm                 * Subs para adicionar blocos de skills e itens, itens padrões
+│   └── setSaveIn.pm                      * Responsável pela função de mudar os mapas de save, hunt, autosell, etc
+│   └── usarAeroplano.pm                  * Macros uteis para usar o aeroplano
+│   └── utilidades.pm                     * Sub utilitárias
+├── classes                               * Pasta com as configurações e parametros únicos de cada classe
+│   ├── <classe3>                         * Pasta com todas as configurações da <classe3> e sub classes         
+│   │   ├── config.pm                     * Configurações da build e mapas de up ( personalize aqui )
+│   │   └── param.pm                      * Parametros de classes necessários para as macros funcionárem
+│   │   └── quest-c-1.pm                  * Parametros para quest da classe 1
+│   │   └── quest-c-2.pm                  * Parametros para quest da classe 2
+│   │   └── quest-c-1T.pm                 * Parametros para quest da classe 1 Transclasse
+│   │   └── quest-c-2T.pm                 * Parametros para quest da classe 2 Transclasse
+│   │   └── quest-c-3.pm                  * Parametros para quest da classe 3 (Ainda não é utilizado)
+│   │   └── quest-eden.pm                 * Parametros para quests do eden
+│   │   └── quest-renascer.pm             * Parametros para quest de renascer
+│   │   └── skills-e-itens.pm             * Configurações de itens e skills que serão utilizados durante o up
+```
