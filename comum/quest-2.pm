@@ -26,11 +26,11 @@ automacro virarClasse2Inicio_Bugged {
 automacro virarClasse2Inicio {
 	JobLevel = 50
 	JobID $paramsClasses{idC1}
-		ConfigKeyNot virarClasse2 true
+	ConfigKeyNot virarClasse2 true
 	exclusive 1
-		ConfigKey questc2_implementada true
+	ConfigKey questc2_implementada true
 	call {
-		do conf virarClasse2 none
+		do conf -f virarClasse2 none
 	}
 }
 
