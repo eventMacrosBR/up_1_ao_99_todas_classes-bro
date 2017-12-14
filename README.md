@@ -39,11 +39,11 @@ OBS: Colocamos a classe 3 para definir a linha de evolução a seguir pela macro
 |![alt cavaleiro](http://browiki.org/images/3/35/Cavaleirospartyicn.png)|Quest Cavaleiro|Aguardando desenvolvimento|
 |![alt ferreiro](http://browiki.org/images/8/8d/Ferreirospartyicn.png)|Quest Ferreiro|Aguardando desenvolvimento|
 |![alt mercenario](http://browiki.org/images/3/3f/Mercen%C3%A1riospartyicn.png)|Quest Mercenário|Aguardando desenvolvimento|
-|![alt monge](http://browiki.org/images/0/02/Mongespartyicn.png)|Quest Monge|Aguardando desenvolvimento|
+|![alt monge](http://browiki.org/images/0/02/Mongespartyicn.png)|Quest Monge|Em desenvolvimento|
 |![alt odalisca](http://browiki.org/images/0/06/Odaliscaspartyicn.png)|Quest Odalisca|Aguardando desenvolvimento|
 |![alt sabio](http://browiki.org/images/4/46/S%C3%A1biospartyicn.png)|Quest Sábio|Aguardando desenvolvimento|
-|![alt sacerdote](http://browiki.org/images/1/1f/Sacerdotespartyicn.png)|Quest Sacerdote|Aguardando desenvolvimento|
-|![alt templario](http://browiki.org/images/8/8e/Templ%C3%A1riospartyicn.png)|Quest Templário|Aguardando desenvolvimento|
+|![alt sacerdote](http://browiki.org/images/1/1f/Sacerdotespartyicn.png)|Quest Sacerdote|Em desenvolvimento|
+|![alt templario](http://browiki.org/images/8/8e/Templ%C3%A1riospartyicn.png)|Quest Templário|Em desenvolvimento|
 |![alt renascimento](http://browiki.org/images/c/c7/Bt_quest.png)|Quest Renascimento|Aguardando desenvolvimento|
 |![alt espadachim t](http://browiki.org/images/7/77/Espadachinspartyicn.png)|Quest Espadachim T.|Aguardando desenvolvimento|
 |![alt gatuno t](http://browiki.org/images/0/01/Gatunospartyicn.png)|Quest Gatuno T.|Aguardando desenvolvimento|
