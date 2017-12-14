@@ -46,6 +46,7 @@ automacro virarTemplario_PegarItens {
 	QuestActive 3006, 3007, 3008
 	exclusive 1
 	timeout 100
+	ConfigKeyNot questTemplario jaColeteiOsItens
 	call {
 		do conf -f virarClasse2 true
 		$bandagem = Bandagem Estragada
@@ -62,6 +63,12 @@ automacro virarTemplario_PegarItens {
 			$nomeDoItem = $lampiao
 			do mconf 1145 0 0 0 #Martin
 			do mconf 1121 0 0 0 #Giearth
+		} elsif (&invamount($bandagem) >= 10 && &invamount($lampiao) >= 10) {
+			log ====================================
+			log Já coletei todos os itens, 
+			log Indo falar com o NPC
+			log ====================================
+			do conf -f questTemplario jaColeteiOsItens
 		}
 
 		if (&config(lockMap) != $mapaDesejado) do conf lockMap $mapaDesejado
@@ -74,24 +81,82 @@ automacro virarTemplario_PegarItens {
 	}
 }
 
-automacro virarTemplario_ColeteiTodosOsItens {
+automacro virarTemplario_ColeteiTodosOsItens_IndoProNpc {
 	InInventoryID 930 >= 10 #Bandagem Estragada
 	InInventoryID 1041 >= 10 #Lampião
+	ConfigKey questTemplario jaColeteiOsItens
 	exclusive 1
 	QuestActive 3006, 3007, 3008
 	NpcNotNear /Senior Crusader/
 	call {
 		do move prt_castle 45 169 &rand(2,5)
+	}
+}
+
+automacro virarTemplario_ColeteiTodosOsItens {
+	InInventoryID 930 >= 10 #Bandagem Estragada
+	InInventoryID 1041 >= 10 #Lampião
+	ConfigKey questTemplario jaColeteiOsItens
+	exclusive 1
+	QuestActive 3006, 3007, 3008
+	NpcNot /Senior Crusader/
+	call {
 		do talk $.NpcNearLastBinId
 	}
 }
+
+automacro virarTemplario_comprarRosário {
+	InInventoryID 2608 < 1 #Rosário
+	IsNotEquippedID rightAccessory 2608 #Rosário
+	QuestActive 3009
+	Zeny > 16000  #tem q ter pelo menos 1k a mais pra não dar treta
+	exclusive 1
+	call {
+		do move prt_church 108 124
+		do talk &npc(/Madre/)
+    	do store
+    	do buy &store(Rosário) 1
+	}
+}
+
+automacro virarTemplario_comprarRosário_jaComprado {
+	InInventoryID 2608 = 1 #Rosário
+	IsNotEquippedID rightAccessory 2608 #Rosário
+	QuestActive 3009
+	exclusive 1
+	call {
+		do eq rightAccessory &inventory(Rosário)
+	}
+}
+
+automacro virarTemplario_FalarComCaraNaPrisão_IndoAteEle {
+	QuestActive 3009
+	exclusive 1
+	NpcNotNear /Man in Anguish/
+	IsEquippedID rightAccessory 2608 #Rosário
+	call {
+		do move prt_castle 164 32 &rand(4,7)
+	}
+}
+
+automacro virarTemplario_FalarComCaraNaPrisão {
+	QuestActive 3009
+	exclusive 1
+	NpcNear /Man in Anguish/
+	IsEquippedID rightAccessory 2608 #Rosário
+	call {
+		do talk $.NpcNearLastBinId
+		do talk resp 0
+	}
+}
+
 
 #Referencias pra quest de classe 2
 
 #Templario
 #NPC'S
-#Templário Sênior prt_castle 45 169
-#Homem Angustiado prt_castle 164 32
+#Senior Crusader prt_castle 45 169
+#Man in Anguish prt_castle 164 32
 #Templária prt_church 95 127
 #Bliant Piyord prt_castle 35 151
 
