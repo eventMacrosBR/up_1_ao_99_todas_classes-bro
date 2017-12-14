@@ -12,7 +12,7 @@ automacro virarTemplario_Começo_irAoNpc {
 	exclusive 1
 	QuestInactive 3008
 	ConfigKeyNot virarClasse2 true
-	NpcNotNear /Templário Sênior/
+	NpcNotNear /Senior Crusader/
 	call {
 		do move prt_castle 45 169 &rand(2,5)
 	}
@@ -23,8 +23,7 @@ automacro virarTemplario_Começo {
 	JobID $paramsClasses{idC1}
 	exclusive 1
 	QuestInactive 3008
-	ConfigKeyNot virarClasse2 true
-	NpcNear /Templário Sênior/
+	NpcNear /Senior Crusader/
 	call {
 		do talk $.NpcNearLastBinId
 		do talk resp 0
@@ -44,18 +43,18 @@ automacro virarTemplario_PegarItens {
 	timeout 100
 	call {
 		do conf -f virarClasse2 true
-		$bandagem = 930
-		$lampiao = 1041
+		$bandagem = Bandagem Estragada
+		$lampiao = Lampião
 
 		if (&invamount($bandagem) <= 10) {
 			#primeiro item a pegar, depois pega o outro
 			$mapaDesejado = moc_pryd03
-			$nomeDoItem = Bandagem Estragada
+			$nomeDoItem = $bandagem
 			do mconf 1191 1 0 0 #mimico
 		} elsif (&invamount($bandagem) >= 10 && &invamount($lampiao) <= 10) {
 			#quando já tiver 10 bandagens, ele vai pegar os lampiao
 			$mapaDesejado = mjo_dun02
-			$nomeDoItem = Lampião
+			$nomeDoItem = $lampiao
 			do mconf 1145 0 0 0 #Martin
 			do mconf 1121 0 0 0 #Giearth
 		}
@@ -63,9 +62,9 @@ automacro virarTemplario_PegarItens {
 		if (&config(lockMap) != $mapaDesejado) do conf lockMap $mapaDesejado
 		if (&config(attackAuto) != 2) call voltarAtacar
 		[
-		log ===================================
-		log Estou coletando $nomeDoItem
-		log ===================================
+		log ==============================================
+		log Estou coletando $nomeDoItem, já tenho &invamount($nomeDoItem)
+		log ==============================================
 		]
 	}
 }
@@ -75,7 +74,7 @@ automacro virarTemplario_ColeteiTodosOsItens {
 	InInventoryID 1041 >= 10 #Lampião
 	exclusive 1
 	QuestActive 3008
-	NpcNotNear /Templário Sênior/
+	NpcNotNear /Senior Crusader/
 	call {
 		do move prt_castle 45 169 &rand(2,5)
 		do talk $.NpcNearLastBinId

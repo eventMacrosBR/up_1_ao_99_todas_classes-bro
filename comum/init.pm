@@ -94,7 +94,7 @@ macro atualizarBuild {
 	# $mapa{saveMap}
 	extrairMapasDeUp("$.lvl")
 	
-	switch ($idClasseAtual){
+	switch ($idClasseAtual) {
 		case (~ 0, 161, 4001) { #Aprendiz / Aprendiz T.
 			if (&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz}) do conf skillsAddAuto_list $configsBuild{skillsAprendiz}
 		}
