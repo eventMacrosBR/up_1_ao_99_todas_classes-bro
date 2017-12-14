@@ -75,6 +75,7 @@ automacro nivelDeClasse50 {
 		do conf lockMap none
 		call pararDeAtacar
 		do conf -f esperarFazerQuest true
+		if ($.map != izlude) do move izlude
 	}
 }
 
