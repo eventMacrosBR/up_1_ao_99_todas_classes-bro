@@ -1,8 +1,51 @@
 sub initParamsQuestClasse2 {
 	Commands::run("iconf 523 1 1 0"  ); #Água Benta
-	Commands::run("iconf 930 10 1 0" ); #Bandagens Estragadas
-	Commands::run("iconf 1041 10 1 0"); #Lampiões
+	Commands::run("iconf 930 10 1 0" ); #Bandagem Estragada
+	Commands::run("iconf 1041 10 1 0"); #Lampião
 	Commands::run("iconf 2608 1 1 0" ); #Rosário 
+}
+
+automacro virarTemplario_PegarItensDoComeço {
+	QuestActive 3008
+	exclusive 1
+	timeout 100
+	call {
+		$bandagem = 930
+		$lampiao = 1041
+
+		if (&invamount($bandagem) <= 10) {
+			#primeiro item a pegar, depois pega o outro
+			$mapaDesejado = moc_pryd03
+			$nomeDoItem = Bandagem Estragada
+			do mconf 1191 1 0 0 #mimico
+		} elsif (&invamount($bandagem) >= 10 && &invamount($lampiao) <= 10) {
+			#quando já tiver 10 bandagens, ele vai pegar os lampiao
+			$mapaDesejado = mjo_dun02
+			$nomeDoItem = Lampião
+			do mconf 1145 0 0 0 #Martin
+			do mconf 1121 0 0 0 #Giearth
+		}
+
+		if (&config(lockMap) != $mapaDesejado) do conf lockMap $mapaDesejado
+		if (&config(attackAuto) != 2) call voltarAtacar
+		[
+		log ===================================
+		log Estou coletando $nomeDoItem
+		log ===================================
+		]
+	}
+}
+
+automacro virarTemplario_ColeteiTodosOsItens {
+	InInventoryID 930 >= 10 #Bandagem Estragada
+	InInventoryID 1041 >= 10 #Lampião
+	exclusive 1
+	QuestActive 3008
+	NpcNotNear /Templário Sênior/
+	call {
+		do move prt_castle 45 169 &rand(2,5)
+		do talk $.NpcNearLastBinId
+	}
 }
 
 #Referencias pra quest de classe 2
@@ -14,11 +57,11 @@ sub initParamsQuestClasse2 {
 #Templária prt_church 95 127
 #Bliant Piyord prt_castle 35 151
 
-#lugar pra pegar os 10 lampiões: 
+#lugar pra pegar os 10 Lampião: 
 #mjo_dun02 (lento mas morre menos na teoria)
 #mjo_dun03 (rápido mas morre mais teoricamente)
 #
-#lugar pra pegar as 10 Bandagens Estragadas
+#lugar pra pegar as 10 Bandagem Estragada
 #moc_pryd03 (melhor, mas mesmo assim é bem dificil , o ideral seria ter pots)
 
 #Agua Benta só é obtivel por meio de lojinha de players, então é necessario o uso do plugin better shopper
