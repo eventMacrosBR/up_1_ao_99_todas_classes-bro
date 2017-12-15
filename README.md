@@ -3,9 +3,9 @@ Está macro pretende upar do nível 1 de base até o 99 de todas as classes do r
 
 Índice
 -----------------
-- [Referências](#referencias)
-- [Instruções](#instrucoes)
-- [Configurações Customizadas](#configuracoes-personalizadas)
+- [Referências](#referências)
+- [Instruções](#instruções)
+- [Configurações Customizadas](#configurações-personalizadas)
 - [Plugins](#plugins)
 - [Agradecimentos](#agradecimentos)
 - [Funcionalidades](#funcionalidades)
