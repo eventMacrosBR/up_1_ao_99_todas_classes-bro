@@ -4,7 +4,7 @@ sub initParamsQuestClasse1 {
         npc => '53 43',
         mapa => alberta_in,
         precisaMover => nao,
-        sequenciaConversa => none,
+        sequenciaConversa => '',
         equipeIniciante => 1381
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
