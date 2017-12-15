@@ -1,10 +1,21 @@
 # Up do nível 1 ao 99 para todas as classes bRO
 Está macro pretende upar do nível 1 de base até o 99 de todas as classes do ragnarok no servidor Brasileiro
 
+Índice
+-----------------
+- [Referências](#referencias)
+- [Instruções](#instrucoes)
+- [Configurações Customizadas](#configuracoes-personalizadas)
+- [Plugins](#plugins)
+- [Agradecimentos](#agradecimentos)
+- [Funcionalidades](#funcionalidades)
+- [Estrutura de Arquivos](#estrutura-de-arquivos)
+
+
 ## Referências
 - [Openkore](http://openkore.com/index.php/Main_Page)
 - [EventMacro](http://openkore.com/index.php/EventMacro)
-- [BRoWiki](http://browiki.org/wiki/P%C3%A1gina_principal)
+- [bROWiki](http://browiki.org/wiki/P%C3%A1gina_principal)
 - [Grupo de discussão no Gitter](https://gitter.im/eventMacro-up-todas-as-classes/Lobby)
 
 ## Instruções
@@ -13,20 +24,25 @@ Está macro pretende upar do nível 1 de base até o 99 de todas as classes do r
 3. Inicie o openkore & have fun!
 OBS: Colocamos a classe 3 para definir a linha de evolução a seguir pela macro
 
-## Configurações Customizadas
+## Configurações Personalizadas
 Você pode gerar o script com algumas configurações customizadas modificando os seguintes arquivos:
 - Customizando a build e mapas de up: modifique o arquivo `classes/<classe-3>/config.pm`. Ex: Quero modificar a ordem das skills aprendidas por meu arruaceiro devo modificar o arquivo `classes/renegado/config.pm`
 - Quest de Renascimento: por padrão a quest de renascimento vem desativada, você pode ativá-la no arquivo `classes/<classe-3>/quest-renascer.pm`. Obs: É necessário informar o nome de um personagem para que o bot consiga passar os zennys extras para conseguir renascer.
 - Customizando skills e itens utilizaveis: Você pode modificar os itens e skills que seu bot vai utilizar para caçar criando blocos de automacro em `classes/<classe-3>/skills-e-itens.pm`
 
-### Agradecimentos
+## Plugins
+Para a macro funcionar corretamente é necessária a instalação dos seguintes plugins: (A macro também instala eles automáticamente caso não queira fazer a instalação manual)
+- [xConf](https://github.com/OpenKore/openkore/tree/master/plugins/needs-review/xconf)
+- [BetterShopper](https://github.com/Henrybk/Plugins/tree/master/BetterShopper)
+
+## Agradecimentos
 - @nipodemos: Criação do script [up1-99_completo_para_arruaceiros](https://github.com/Nipodemos/up1-99_completo_para_arrauceiros) no qual este script é baseado (Créditos dos scripts que ele utilizou como base em seu próprio repositório)
 - @vitorsilverio: Parametrização do script que permite a adaptação para todas as classes
 - @gabx257: Parâmetros para as classes de Magos
 - @lucasbradok: base quests de sacer e monge
   
 
-### Funcionalidades:
+## Funcionalidades:
 || Funcionalidade | Estado |
 |-|----------------|--------|
 |![alt treinamento](http://browiki.org/images/9/97/Aprendizespartyicn.png)|Campo de treinamento|Funcionando|
@@ -61,8 +77,8 @@ Você pode gerar o script com algumas configurações customizadas modificando o
 |![alt classe 2](http://browiki.org/images/8/8f/Lordespartyicn.png)|Quest Classe 2 T.|Testando|
 |![alt classe 3](http://browiki.org/images/7/7c/Cavaleiros_R%C3%BAnicospartyicn.png)|Quest Classe 3|Aguardando desenvolvimento|
 
-Estrutura de Arquivos
----------------------
+# Estrutura de Arquivos
+-----------------------
 ```
 up_1_ao_99_todas_classes
 ├── README.md                             * Este arquivo
