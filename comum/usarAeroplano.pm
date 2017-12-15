@@ -6,6 +6,7 @@
 #eventMacro rachelpra --cidade
 #se o nome estiver certo, ele vai mover pra cidade desejada
 macro junopra {
+	set exclusive 1
 	log Vamos ir de Juno para $.param[0]
 	#Se a cidade for izlude ou rachel , ele pega o aeroplano respectivo
 	switch ( $.param[0] ) {
@@ -57,6 +58,7 @@ macro junopra {
 }
 
 macro einbrochpra {
+	set exclusive 1
 	log Vamos ir de Eibroch para $.param[0]
 	#se a cidade for juno hugel ou lighthalzen ele só pega 1 aeroplano
 	# se for outra cidade, ele pega os dois aeroplanos
@@ -109,6 +111,7 @@ macro einbrochpra {
 }
 
 macro rachelpra {
+	set exclusive 1
 	log Vamos ir de Rachel para $.param[0]
 	#se a cidade for izlude ou juno ele só pega 1 aeroplano
 	# se for outra cidade, ele pega os dois aeroplanos
@@ -230,6 +233,13 @@ automacro dentroDoAeroplanoDomestico {
 }
 
 macro sairDoAeroplano {
+	# é preciso ser feito isso para que a Condição InMap funcione
+	# já que o nome original da cidade é yuno
+	# mas não pode ser mudado antes, porque dentro do aeroplano
+	# o valor precisa ser juno
+	if ( $varAeroplano1 = juno ) $varAeroplano1 = yuno
+	if ( $varAeroplano2 = juno ) $varAeroplano2 = yuno
+
 	do move 243 74
 }
 
@@ -250,7 +260,7 @@ automacro chegueiEmCidade1 {
 	InMap $varAeroplano1
 	NotInMap yuno
 	CheckOnAI manual
-	ConfigKey aeroplano1 $aeroplano 1
+	ConfigKey aeroplano1 $varAeroplano1
 	exclusive 1
 	call objetivoCompleto
 }
