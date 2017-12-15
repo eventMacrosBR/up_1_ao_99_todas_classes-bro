@@ -57,18 +57,21 @@ automacro virarTemplario_PegarItens {
 			$mapaDesejado = moc_pryd03
 			$nomeDoItem = $bandagem
 			do mconf 1191 1 0 0 #mimico
-		} elsif (&invamount($bandagem) >= 10 && &invamount($lampiao) <= 10) {
+		} elsif (&invamount($bandagem) >= 10 && &invamount($lampiao) < 10) {
 			#quando já tiver 10 bandagens, ele vai pegar os lampiao
 			$mapaDesejado = mjo_dun02
 			$nomeDoItem = $lampiao
 			do mconf 1145 0 0 0 #Martin
 			do mconf 1121 0 0 0 #Giearth
 		} elsif (&invamount($bandagem) >= 10 && &invamount($lampiao) >= 10) {
+			#se já tiver todos os itens, tá na hora!
 			log ====================================
 			log Já coletei todos os itens, 
 			log Indo falar com o NPC
 			log ====================================
 			do conf -f questTemplario jaColeteiOsItens
+			do conf lockMap none
+			stop
 		}
 
 		if (&config(lockMap) != $mapaDesejado) do conf lockMap $mapaDesejado
@@ -99,7 +102,7 @@ automacro virarTemplario_ColeteiTodosOsItens {
 	ConfigKey questTemplario jaColeteiOsItens
 	exclusive 1
 	QuestActive 3006, 3007, 3008
-	NpcNot /Senior Crusader/
+	NpcNear /Senior Crusader/
 	call {
 		do talk $.NpcNearLastBinId
 	}
@@ -126,6 +129,7 @@ automacro virarTemplario_comprarRosário_jaComprado {
 	exclusive 1
 	call {
 		do eq rightAccessory &inventory(Rosário)
+		do reload eventMacros
 	}
 }
 
@@ -145,8 +149,12 @@ automacro virarTemplario_FalarComCaraNaPrisão {
 	NpcNear /Man in Anguish/
 	IsEquippedID rightAccessory 2608 #Rosário
 	call {
+		# essa é a parte dificil que ele tem que passar pelos bixos
+		# melhor comprar pot e guaraná
 		do talk $.NpcNearLastBinId
+		do conf attackAuto -1
 		do talk resp 0
+
 	}
 }
 
