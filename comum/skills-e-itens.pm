@@ -17,7 +17,7 @@ automacro configurarPotLaranja {
 
 			do conf buyAuto_1 502
 			do conf buyAuto_1_maxAmount 100
-			do conf buyAuto_1_zeny 30000
+			do conf buyAuto_1_zeny > 30000
 			do conf buyAuto_1_npc payon_in01 5 49
 			do conf buyAuto_1_disabled 0
 		}
