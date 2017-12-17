@@ -25,6 +25,7 @@ automacro virarAlquimistaInicio_IrNoNpc {
 	priority 2
 	exclusive 1
 	NpcNotNear /Alquimista sênior/
+	ConfigKeyNot questAlquimista
 	call {
 		call pararDeAtacar
 		do conf lockMap none
@@ -43,6 +44,7 @@ automacro virarAlquimistaInicio {
 	JobID $paramsClasses{idC1}
 	JobLevel = 50
 	priority 2
+	ConfigKeyNot questAlquimista
     timeout 30
 	NpcNear /Alquimista sênior/
 	call {
@@ -187,8 +189,10 @@ macro voltarProAlquimistaSenior {
 #																#
 #################################################################
 
-automacro virarAlquistia_npcDoQuestionário {
+automacro virarAlquistia_npcDoQuestionario {
+	QuestActive 2031
 	ConfigKey questAlquimista questionario
+	exclusive 1
     timeout 60
     call {
     	[
@@ -205,8 +209,7 @@ automacro virarAlquistia_npcDoQuestionário {
 }
 
 automacro virarAlquimista_npcQuestionario_bugged {
-	timeout 30
-    NpcMsgName /vez que falou comigo/ / Misterioso/
+    NpcMsgName /.*vez que falou comigo.*/ / Misterioso/
     ConfigKey questAlquimista questionario
     call {
     	do conf -f questAlquimista npcDaFlor
@@ -221,6 +224,15 @@ automacro virarAlquimista_jaFaleiComNpcQuestionario {
         do conf -f questAlquimista npcDaFlor
     }
 }
+
+automacro virarAlquimista_falarComNpcFlor {
+	QuestActive 2032
+	ConfigKey questAlquimista questionario
+	call {
+		do conf -f questAlquimista npcDaFlor
+	}
+}
+
     	
 #################################################################
 #																#
@@ -232,6 +244,7 @@ automacro virarAlquimista_jaFaleiComNpcQuestionario {
 automacro virarAlquimista_NpcDaFlor {
 	ConfigKey questAlquimista npcDaFlor
     timeout 30
+    	exclusive 1
 	call {
 		call pararDeAtacar
         do conf lockMap none
@@ -257,6 +270,15 @@ automacro virarAlquimista_faleiComNpcDaFlor {
     call {
         do conf -f questAlquimista pegarAFlor
     }
+}
+
+automacro virarAlquimista_naoTenhoAFlorVouPegar {
+	QuestActive 2033
+	InInventoryID 710 < 1
+	ConfigKey questAlquimista npcDaFlor
+	call {
+		do conf -f questAlquimista pegarAFlor
+	}
 }
 
 #################################################################
@@ -361,7 +383,8 @@ automacro virarAlquimista_naoTenhoAFlor_NemZeny {
         do iconf 2402 0 0 1 #Sandálias [1]
         
         call voltarAtacar
-        call configurarMapa "payon" "pay_fild09"
+        call SetSaveIn "payon" 
+	do conf lockMap pay_fild09
     }
 }
 
