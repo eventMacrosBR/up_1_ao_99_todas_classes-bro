@@ -1,14 +1,14 @@
 automacro chamarAmigo {
 	ConfigKey prepararProReborn sim
 	exclusive 1
-	run-once 1
+	timeout 30
 	ConfigKey estagio_Reborn none
 	Zeny != 1285000
 	BaseLevel = 99
 	JobLevel = 50
 	priority -5 #prioridade alta
 	call {
-
+		do pm "$paramsQuestClasseRenascer{amigo}" ajudaRebornar
 	}
 }
 
