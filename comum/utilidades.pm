@@ -28,15 +28,15 @@ macro voltarAtacar {
 }
 
 sub pegarID {
-    return $char->{jobID};
+	return $char->{jobID};
 }
 
 sub GetIndexAndEquipped {
 	my ($type, $id) = @_;
 	my $Item = $char->inventory->getByNameID($id);
 	if ($Item eq "" ) {
-	message "Erro: ou a ID do item está incorreta, ou você não possui esse equipamento.\n";
-	return -1;
+		message "Erro: ou a ID do item está incorreta, ou você não possui esse equipamento.\n";
+		return -1;
 	}
 	my $EquipIndex = $Item->{binID};
 	if (exists $char->{equipment}{$type}) {
