@@ -28,10 +28,30 @@ automacro chegueilvl99 {
 			do conf dealAuto_names $paramsQuestClasseRenascer{amigo}
 			do iconf Camisa de Algodão 0 1 0
 			do iconf "Faca [3]" 0 1 0
-			do conf getAuto_0 none
-			do conf getAuto_1 none
-			do conf buyAuto_0 none
-			do conf buyAuto_1 none
+
+			# é uma forma que eu pensei de desabilitar TODOS os getAuto
+			# independente de quantos hajam
+			$continuarLoop = sim
+			$i = 0
+			while ($continuarLoop = sim) {
+				if (checarSeExisteComando("getAuto_$i_disabled") = sim) {
+					do conf getAuto_$i_disabled 1
+				} else {
+					$continuarLoop = nao
+				}
+				$i++
+			}
+
+			$continuarLoop = sim
+			$i = 0
+			while ($continuarLoop = sim) {
+				if (checarSeExisteComando("buyAuto_$i_disabled") = sim) {
+					do conf buyAuto_$i_disabled 1
+				} else {
+					$continuarLoop = nao
+				}
+				$i++
+			}
 			do conf lockMap none
 			do conf attackAuto -1
 			do conf route_randomWalk 0
@@ -62,17 +82,36 @@ automacro chegueilvl99 {
 
 automacro chamarAmigo {
 	exclusive 1
-	timeout 120
+	timeout 180
 	JobID $paramsClasses{idC2}
 	ConfigKey estagio_Reborn preparando
 	Zeny != 1285000
 	Zeny != 0
 	CharCurrentWeight != 0
+	CheckOnAI auto,manual
 	BaseLevel = 99
 	JobLevel = 50
 	priority -5 #prioridade alta
 	call {
-		do pm "$paramsQuestClasseRenascer{amigo}" ajudaRebornar
+		$vezesQueTentouZerarPeso++
+
+		if ( $vezesQueTentouZerarPeso > 1 ) {
+			[
+			log já tentei ficar com peso zero,
+			log pra poder rebornar
+			log mas sem sucesso, esvazie seu bot manualmente
+			log (provavelmente algum item configurado pra não guardar
+			log tipo pots ou os itens da quest 2 ou sei lá)
+			log quando tiver terminado, feche e abra o openkore novamente
+			]
+			do ai manual
+			lock chamarAmigo
+			stop
+		}
+		do ai on
+		@falas = (da um help pra rebornar, ajudaRebornar, preciso de ajuda pra rebornar)
+		do pm "$paramsQuestClasseRenascer{amigo}" $falas[&rand(0,2)]
+		
 		#esvazia tudo pra ficar com 0 de peso
 		do autosell #se bem me lembro, ele ta autostorage logo depois, o que é bom
 	}
@@ -84,28 +123,47 @@ automacro irNoLocalPraNegociar {
 	overrideAI 1
 	PlayerNotNear /$paramsQuestClasseRenascer{amigo}/
 	CharCurrentWeight = 0
-	ConfigKey estagio_Reborn none
+	ConfigKey estagio_Reborn preparando
 	Zeny != 1285000  #vamos ficar com o zeny certo
+	Zeny != 0
 	exclusive 1
-	macro_delay 2
-	run-once 1
-	ConfigKey saveMap yuno
+	timeout 30
 	call {
-		#movendo pra local especifico
+		$vezesQuePediPraVir++
+		if ($vezesQuePediPraVir > 2) {
+			do pm "$paramsQuestClasseRenascer{amigo}" vou ficar spammando isso ate vc chegar perto de mim
+		}
+		
 		do pm "$paramsQuestClasseRenascer{amigo}" me ajuda a rebornar, vem aqui em juno 146 116
+		do pm "$paramsQuestClasseRenascer{amigo}" quando chegar, negocia comigo
+		#movendo pra local especifico
 		do move yuno &rand(145,147) &rand(115,117)
+	}
+}
+
+automacro amigoPerto_pedindoPraDarTrade {
+	CharCurrentWeight 0
+	Zeny != 1285000
+	ConfigKey estagio_Reborn preparando
+	IsInMapAndCoordinate yuno 145..147 115..117 #lugar pra negociar
+	PlayerNear /$paramsQuestClasseRenascer{amigo}/
+	timeout 30
+	call {
+		do pm "$paramsQuestClasseRenascer{amigo}" ow, negocia comigo aew, to esperando
 	}
 }
 
 automacro DandoOuReceBendoZeny {
 	CharCurrentWeight 0
 	Zeny != 1285000
-	ConfigKey estagio_Reborn none
+	ConfigKey estagio_Reborn preparando
 	IsInMapAndCoordinate yuno 145..147 115..117 #lugar pra negociar
 	PlayerNear /$paramsQuestClasseRenascer{amigo}/ 
 	SimpleHookEvent engaged_deal
 	exclusive 1
+	priority -5
 	call {
+		lock amigoPerto_pedindoPraDarTrade
 		pause 3
 		$zenyPraDar = &eval($.zeny - 1285000)
 		if ( $zenyPraDar > 0) {
@@ -116,8 +174,9 @@ automacro DandoOuReceBendoZeny {
 			pause 2
 			do deal
 		} else {
-			do pm "$paramsQuestClasseRenascer{amigo}" preciso de exatamente $.zeny zenys
 			#se o zeny atual for menor que 1285000, vc manda pro mercador via pm quanto mais precisa
+			$zenyQuePreciso = &eval(1285000 - $.zeny)
+			do pm "$paramsQuestClasseRenascer{amigo}" preciso da quantia de exatamente $zenyQuePreciso zenys
 		}
 	}
 }
@@ -180,6 +239,7 @@ automacro Rebornar_pagarTaxa {
 automacro rebornar_lerOLivroEDescer {
 	ConfigKey estagio_Reborn 2
 	InMap yuno_in02
+	#QuestActive 1000
 	exclusive 1
 	Zeny = 0
 	call {
@@ -209,6 +269,14 @@ automacro Rebornar_terceiroEstagio {
 	}
 }
 
+automacro Rebornar_terceiroEstagio_bugged {
+	ConfigKey estagio_Reborn 3
+	InMap yuno_in02
+	exclusive 1
+	call {
+		do move yuno_in05
+	}
+}
 automacro Rebornar_ultimoEstagio {
 	ConfigKey estagio_Reborn 4
 	exclusive 1
@@ -235,3 +303,12 @@ sub desequipar {
 	}
 }
 
+sub checarSeExisteComando {
+	my ($comando) = @_;
+	if ( exists $config{$comando} ) {
+		message "desativando $comando (isso e intencional)\n";
+		return "sim";
+	} else {
+		return "nao";
+	}
+}

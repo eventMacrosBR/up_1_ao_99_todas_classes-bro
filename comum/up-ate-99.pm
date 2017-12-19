@@ -7,6 +7,7 @@ automacro UpClasse {
 	ConfigKeyNot virarClasse2T true
 	ConfigKeyNot esperarFazerQuest true
 	ConfigKeyNot lockMap $mapa{lockMap}
+	ConfigKey estagio_Reborn none
 	exclusive 1
 	priority 20 #baixa prioridade
 	timeout 30
@@ -50,6 +51,7 @@ macro upar {
 
 automacro estouLv99 {
 	BaseLevel = 99
+	ConfigKey estagio_Reborn none
 	exclusive 1
 	timeout 120
 	JobID $paramsClasses{idC2}, $paramsClasses{idC2T}
