@@ -1,16 +1,3 @@
-automacro chamarAmigo {
-	ConfigKey prepararProReborn sim
-	exclusive 1
-	timeout 30
-	ConfigKey estagio_Reborn none
-	Zeny != 1285000
-	BaseLevel = 99
-	JobLevel = 50
-	priority -5 #prioridade alta
-	call {
-		do pm "$paramsQuestClasseRenascer{amigo}" ajudaRebornar
-	}
-}
 
 automacro chegueilvl99 {
 	BaseLevel = 99
@@ -18,10 +5,9 @@ automacro chegueilvl99 {
 	JobID $paramsClasses{idC2}
 	CharCurrentWeight != 0
 	Zeny != 1285000
+	Zeny != 0
 	exclusive 1
 	ConfigKey estagio_Reborn none
-	ConfigKey prepararProReborn none
-	run-once 1
 	macro_delay 2
 	call {
 		if ($paramsQuestClasseRenascer{renascer} = nao) {
@@ -31,8 +17,8 @@ automacro chegueilvl99 {
 			log SE QUISER REBORNAR, PROCURE POR :
 			log renascer => nao 
 			log E TROQUE POR sim
-			lock chamarAmigo
 			]
+			lock chamarAmigo
 		} else {
 			do pm "$paramsQuestClasseRenascer{amigo}" ajudaRebornar	
 			log peso atual: $.weight
@@ -56,38 +42,37 @@ automacro chegueilvl99 {
 			do conf sellAuto_npc yuno_in01 25 34
 			]
 			#desequipando tudo
-			#precisa desses pauses porque não existe delay entre execuções de subs
-			desequipar("topHead")
-			pause 0.5
-			desequipar("midHead")
-			pause 0.5
-			desequipar("lowHead")
-			pause 0.5
-			desequipar("rightHand")
-			pause 0.5
-			desequipar("leftHand")
-			pause 0.5
-			desequipar("armor")
-			pause 0.5
-			desequipar("robe")
-			pause 0.5
-			desequipar("shoes")
-			pause 0.5
-			desequipar("rightAccessory")
-			pause 0.5
-			desequipar("leftAccessory")
-			pause 0.5
-			desequipar("arrow")
-			pause 0.5
-			#esvazia tudo pra ficar com 0 de peso
-			do autosell #se bem me lembro, ele ta autostorage logo depois, o que é bom
+			@slots = (topHead, midHead, lowHead, rightHand, leftHand, armor, robe, shoes, rightAccessory, leftAccessory, arrow)
+			
+			$i = 0
+			while ($i < @slots) {
+				desequipar("$slots[$i]")
+				pause 0.5
+			}
 			[
 			log ============================
 			log TENTANDO FICAR COM 0 DE PESO
 			log ============================
 			]
-			do conf -f prepararProReborn sim
+			do conf -f estagio_Reborn preparando
 		}
+	}
+}
+
+automacro chamarAmigo {
+	exclusive 1
+	timeout 120
+	JobID $paramsClasses{idC2}
+	ConfigKey estagio_Reborn preparando
+	Zeny != 1285000
+	Zeny != 0
+	BaseLevel = 99
+	JobLevel = 50
+	priority -5 #prioridade alta
+	call {
+		do pm "$paramsQuestClasseRenascer{amigo}" ajudaRebornar
+		#esvazia tudo pra ficar com 0 de peso
+		do autosell #se bem me lembro, ele ta autostorage logo depois, o que é bom
 	}
 }
 
@@ -105,7 +90,7 @@ automacro irNoLocalPraNegociar {
 	ConfigKey saveMap yuno
 	call {
 		#movendo pra local especifico
-		do pm "$paramsQuestClasseRenascer{amigo}" ajudaRebornar
+		do pm "$paramsQuestClasseRenascer{amigo}" me ajuda a rebornar, vem aqui em juno 146 116
 		do move yuno &rand(145,147) &rand(115,117)
 	}
 }
@@ -125,11 +110,11 @@ automacro DandoOuReceBendoZeny {
 			pause 2
 			#se o zeny atual for maior que 1285000, vc dá o excedente pro mercador
 			do deal add z $zenyPraDar
-			do pm "$paramsQuestClasseRenascer{amigo}" coloqueiozeny
+			do pm "$paramsQuestClasseRenascer{amigo}" coloquei o zeny, finaliza ai
 			pause 2
 			do deal
 		} else {
-			do pm "$paramsQuestClasseRenascer{amigo}" $.zeny
+			do pm "$paramsQuestClasseRenascer{amigo}" preciso de exatamente $.zeny zenys
 			#se o zeny atual for menor que 1285000, vc manda pro mercador via pm quanto mais precisa
 		}
 	}
@@ -141,8 +126,7 @@ automacro TudoCerto_VamosRebornar {
 	CharCurrentWeight = 0
 	Zeny = 1285000
 	exclusive 1
-	ConfigKey estagio_Reborn none
-	macro_delay 2
+	ConfigKey estagio_Reborn preparando
 	call {
 		# se tiver tudo certinho pra começar o reborn ,essa automacro ativa
 		do conf -f estagio_Reborn 1
