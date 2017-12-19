@@ -20,6 +20,13 @@ macro pararDeAtacar {
 	]
 }
 
+macro pararDeAtacarApenasCorrer {
+	[
+	do conf route_randomWalk 0
+	do conf attackAuto -1
+	]
+}
+
 macro voltarAtacar {
 	[
 	do conf route_randomWalk 1
