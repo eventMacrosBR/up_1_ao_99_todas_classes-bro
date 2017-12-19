@@ -66,6 +66,7 @@ automacro chamarAmigo {
 	ConfigKey estagio_Reborn preparando
 	Zeny != 1285000
 	Zeny != 0
+	CharCurrentWeight != 0
 	BaseLevel = 99
 	JobLevel = 50
 	priority -5 #prioridade alta
@@ -221,23 +222,6 @@ automacro Rebornar_ultimoEstagio {
 		log =========================================
 		]
 		stop
-	}
-}
-
-automacro ConfigEstáErrada2 {
-	exclusive 1
-	overrideAI 1
-	priority -5
-	ConfigKeyNot autoTalkCont 1
-	call {
-		[
-		log Tem uma config que está errada
-		log A config é $.ConfigKeyNotLastKey
-		log O valor que quero é $.ConfigKeyNotLastWantedValue
-		log Mas o valor atual é $.ConfigKeyNotLastKeyValue
-		log Mudando valor da config $.ConfigKeyNotLastKey de $.ConfigKeyNotLastKeyValue para $.ConfigKeyNotLastWantedValue
-		do conf $.ConfigKeyNotLastKey $.ConfigKeyNotLastWantedValue
-		]
 	}
 }
 
