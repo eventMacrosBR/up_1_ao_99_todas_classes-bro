@@ -4,7 +4,7 @@ sub configurarBuild {
         skillsAprendiz => 'NV_BASIC 9',
         skillsClasse1 => 'SM_RECOVERY 10, SM_PROVOKE 9, SM_BASH 10, SM_ENDURE 10, SM_MAGNUM 10',
         skillsClasse2 => 'CR_TRUST 7, CR_HOLYCROSS 10, AL_CURE 1, KN_RIDING 1, KN_CAVALIERMASTERY 5, AL_DP 5, KN_SPEARMASTERY 10',
-        skillsClasse1T => '',
+        skillsClasse1T => 'SM_RECOVERY 10, SM_PROVOKE 9, SM_BASH 10, SM_ENDURE 10, SM_MAGNUM 10',
         skillsClasse2T => '',
         skillsClasse3 => '',
         statsPadrao => '10 dex, 15 agi, 20 dex, 20 agi, 20 str, 30 dex, 30 str, 40 dex, 20 vit, 40 str, 60 dex, 50 str, 20 int, 60 str, 70 str, 70 dex, 40 int, 40 vit, 50 int, 80 str, 75 dex, 90 str'

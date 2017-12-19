@@ -3,7 +3,7 @@ sub configurarBuild {
         skillsAprendiz => 'NV_BASIC 9',
         skillsClasse1 => 'MC_INCCARRY 10, MC_DISCOUNT 8, MC_OVERCHARGE 10, MC_PUSHCART 10, MC_VENDING 10, MC_IDENTIFY 1',
         skillsClasse2 => 'AM_REST 1, AM_CALLHOMUN 1, AM_RESURRECTHOMUN 5, AM_AXEMASTERY 10, AM_LEARNINGPOTION 10, AM_PHARMACY 10, AM_POTIONPITCHER 5, MC_DISCOUNT 10, AM_CANNIBALIZE 5',
-        skillsClasse1T => '',
+        skillsClasse1T => 'MC_INCCARRY 10, MC_DISCOUNT 8, MC_OVERCHARGE 10, MC_PUSHCART 10, MC_VENDING 10, MC_IDENTIFY 1',
         skillsClasse2T => '',
         skillsClasse3 => '',
         statsPadrao => '10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 30 str, 40 dex, 20 vit, 80 agi ,60 dex, 50 str, 90 agi, 70 str, 40 vit'
