@@ -48,6 +48,7 @@ automacro chegueilvl99 {
 			while ($i < @slots) {
 				desequipar("$slots[$i]")
 				pause 0.5
+				$i++
 			}
 			[
 			log ============================
