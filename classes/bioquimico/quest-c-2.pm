@@ -329,7 +329,7 @@ automacro virarAlquimista_naoTenhoAFlor_bugged {
 	ConfigKey questAlquimista pegarAFlor
 	ConfigKeyNot questAlquimista fimDaQuest
 	exclusive 1
-	Zeny >= 110000
+	Zeny >= 300000
 	InInventoryID 710 < 1 #Flor das Ilusões
 	ConfigKey BetterShopper_on 1
 	NotInMap prontera
@@ -354,7 +354,7 @@ automacro virarAlquimista_naoTenhoAFlor_NemZeny {
 	ConfigKey questAlquimista pegarAFlor
 	ConfigKeyNot questAlquimista fimDaQuest
     	exclusive 1
-    	Zeny < 110000
+    	Zeny < 300000
     	InInventoryID 710 < 1 #Flor das Ilusões
     	ConfigKeyNot lockMap pay_fild09
     	ConfigKeyNot In_saveMap_sequence true
