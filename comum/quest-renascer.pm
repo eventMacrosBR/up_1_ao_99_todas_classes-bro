@@ -1,12 +1,28 @@
 automacro chamarAmigo {
 	ConfigKey prepararProReborn sim
 	exclusive 1
-	run-once 1
+	timeout 30
 	ConfigKey estagio_Reborn none
 	Zeny != 1285000
 	BaseLevel = 99
 	JobLevel = 50
 	priority -5 #prioridade alta
+	call {
+		do pm "$paramsQuestClasseRenascer{amigo}" ajudaRebornar
+	}
+}
+
+automacro chegueilvl99 {
+	BaseLevel = 99
+	JobLevel = 50
+	JobID $paramsClasses{idC2}
+	CharCurrentWeight != 0
+	Zeny != 1285000
+	exclusive 1
+	ConfigKey estagio_Reborn none
+	ConfigKey prepararProReborn none
+	run-once 1
+	macro_delay 2
 	call {
 		if ($paramsQuestClasseRenascer{renascer} = nao) {
 			[
@@ -15,62 +31,63 @@ automacro chamarAmigo {
 			log SE QUISER REBORNAR, PROCURE POR :
 			log renascer => nao 
 			log E TROQUE POR sim
+			lock chamarAmigo
 			]
 		} else {
 			do pm "$paramsQuestClasseRenascer{amigo}" ajudaRebornar	
+			log peso atual: $.weight
+			log peso percentual: $.weightpercent
+			[
+			do conf dealAuto 3
+			do conf dealAuto_names $paramsQuestClasseRenascer{amigo}
+			do iconf Camisa de Algodão 0 1 0
+			do iconf "Faca [3]" 0 1 0
+			do conf getAuto_0 none
+			do conf getAuto_1 none
+			do conf buyAuto_0 none
+			do conf buyAuto_1 none
+			do conf lockMap none
+			do conf attackAuto -1
+			do conf route_randomWalk 0
+			do conf relogAfterStorage 0
+			do conf storageAuto 1
+			do conf storageAuto_npc yuno 152 187
+			do conf sellAuto 1
+			do conf sellAuto_npc yuno_in01 25 34
+			]
+			#desequipando tudo
+			#precisa desses pauses porque não existe delay entre execuções de subs
+			desequipar("topHead")
+			pause 0.5
+			desequipar("midHead")
+			pause 0.5
+			desequipar("lowHead")
+			pause 0.5
+			desequipar("rightHand")
+			pause 0.5
+			desequipar("leftHand")
+			pause 0.5
+			desequipar("armor")
+			pause 0.5
+			desequipar("robe")
+			pause 0.5
+			desequipar("shoes")
+			pause 0.5
+			desequipar("rightAccessory")
+			pause 0.5
+			desequipar("leftAccessory")
+			pause 0.5
+			desequipar("arrow")
+			pause 0.5
+			#esvazia tudo pra ficar com 0 de peso
+			do autosell #se bem me lembro, ele ta autostorage logo depois, o que é bom
+			[
+			log ============================
+			log TENTANDO FICAR COM 0 DE PESO
+			log ============================
+			]
+			do conf -f prepararProReborn sim
 		}
-	}
-}
-
-automacro chegueilvl99 {
-	BaseLevel = 99
-	JobLevel = 50
-	CharCurrentWeight != 0%
-	Zeny != 1285000
-	exclusive 1
-	ConfigKey estagio_Reborn none
-	ConfigKey prepararProReborn none
-	run-once 1
-	macro_delay 2
-	call {
-		log peso atual = $.CharCurrentWeightLast
-		log peso percentual = $.CharCurrentWeightLastPercent
-		[
-		do conf dealAuto 3
-		do conf dealAuto_names $paramsQuestClasseRenascer{amigo}
-		do iconf Camisa de Algodão 0 1 0
-		do iconf Faca [3] 0 1 0
-		do conf getAuto_0 none
-		do conf buyAuto_0 none
-		do conf lockMap none
-		do conf attackAuto -1
-		do conf route_randomWalk 0
-		do conf relogAfterStorage 0
-		do conf storageAuto 1
-		do conf storageAuto_npc yuno 152 187
-		do conf sellAuto 1
-		do conf sellAuto_npc yuno_in01 25 34
-		]
-		#desequipando tudo
-		desequipar("topHead")
-		desequipar("midHead")
-		desequipar("lowHead")
-		desequipar("rightHand")
-		desequipar("leftHand")
-		desequipar("armor")
-		desequipar("robe")
-		desequipar("shoes")
-		desequipar("rightAccessory")
-		desequipar("leftAccessory")
-		desequipar("arrow")
-		#esvazia tudo pra ficar com 0 de peso
-		do autosell #se bem me lembro, ele ta autostorage logo depois, o que é bom
-		[
-		log ============================
-		log TENTANDO FICAR COM 0 DE PESO
-		log ============================
-		]
-		do conf -f prepararProReborn sim
 	}
 }
 
@@ -242,6 +259,10 @@ automacro ConfigEstáErrada2 {
 
 sub desequipar {
 	my $type = shift;
-	$char->{equipment}{$type}->unequip();
+	if (exists $char->{equipment}{$type}) {
+		$char->{equipment}{$type}->unequip();
+	} else {
+		message "There is nothing equipped in $type\n";
+	}
 }
 
