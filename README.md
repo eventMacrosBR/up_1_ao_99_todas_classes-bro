@@ -67,7 +67,7 @@ Para a macro funcionar corretamente é necessária a instalação dos seguintes 
 |![alt sabio](http://browiki.org/images/4/46/S%C3%A1biospartyicn.png)|Quest Sábio|Aguardando desenvolvimento|
 |![alt sacerdote](http://browiki.org/images/1/1f/Sacerdotespartyicn.png)|Quest Sacerdote|Em desenvolvimento|
 |![alt templario](http://browiki.org/images/8/8e/Templ%C3%A1riospartyicn.png)|Quest Templário|Em desenvolvimento|
-|![alt renascimento](http://browiki.org/images/c/c7/Bt_quest.png)|Quest Renascimento|Testando|
+|![alt renascimento](http://browiki.org/images/c/c7/Bt_quest.png)|Quest Renascimento|Funcionando|
 |![alt espadachim t](http://browiki.org/images/7/77/Espadachinspartyicn.png)|Quest Espadachim T.|Testando|
 |![alt gatuno t](http://browiki.org/images/0/01/Gatunospartyicn.png)|Quest Gatuno T.|Testando|
 |![alt mercador t](http://browiki.org/images/c/c0/Mercadorespartyicn.png)|Quest Mercador T.|Testando|
