@@ -299,27 +299,27 @@ automacro virarAlquimista_naoTenhoAFlor {
 		do conf lockMap none
 		if ( recursoTecnicoPaliativo() = 1) { #Significa que o BetterShopper está ativado
 			do conf lockMap prontera
-				do conf route_randomWalk 1
-				do conf route_randomWalk_inTown 1
-				do conf itemsTakeAuto 1
-				do conf itemsGatherAuto 0
-				do conf itemsMaxWeight_sellOrStore 40
+			do conf route_randomWalk 1
+			do conf route_randomWalk_inTown 1
+			do conf itemsTakeAuto 1
+			do conf itemsGatherAuto 0
+			do conf itemsMaxWeight_sellOrStore 40
 		
-				if (&config(BetterShopper_0) != Flor das Ilusões) {
+			if (&config(BetterShopper_0) != Flor das Ilusões) {
 				configurarBetterShopper()
-					pause 3
-					do reload config
-				}
+				pause 2
+				do reload config
+			}
 		} else {
 			[
 			log =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-				log *  	É preciso baixar e ativa o plugin BetterShopper.		*
-				log =  	Até lá nem a macro nem o Openkore vão continuar!		=
-				log * Caso já tenha feito isso, feche e abra o Openkore novamente!	*
-				log =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-				]
-				do eval Misc::offlineMode();
-				stop
+			log *  	É preciso baixar e ativa o plugin BetterShopper.		*
+			log =  	Até lá nem a macro nem o Openkore vão continuar!		=
+			log * Caso já tenha feito isso, feche e abra o Openkore novamente!	*
+			log =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+			]
+			do eval Misc::offlineMode();
+			stop
 		}
 	}
 }
