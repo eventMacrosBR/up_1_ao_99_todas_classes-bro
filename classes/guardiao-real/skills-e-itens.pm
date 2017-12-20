@@ -36,3 +36,15 @@ automacro configurarMedicar {
 		do conf useSelf_skill_0_whenStatusActive EFST_HEALTHSTATE_BLIND
 	}
 }
+
+automacro configurarPotBranca {
+	ConfigKeyNot useSelf_item_1 Poção Branca
+	exclusive 1
+	call {
+		adicionaUseSelfItem()
+		reload config
+		do conf useSelf_item_1 Poção Branca
+		do conf useSelf_item_1_hp < 60%
+		do conf useSelf_item_1_disabled 0
+	}
+}

@@ -137,15 +137,52 @@ automacro virarTemplario_FalarComCaraNaPrisão_IndoAteEle {
 	QuestActive 3009
 	exclusive 1
 	NpcNotNear /Man in Anguish/
+	InInventoryID 14586 > 0 #Doce Hiper Açucarado
+	InInventoryID 504 > 10 #Poção Branca
 	IsEquippedID rightAccessory 2608 #Rosário
 	call {
 		do move prt_castle 164 32 &rand(4,7)
 	}
 }
 
+sub configurarBetterShopperProTemplario {
+	open (my $write, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
+    print $write "BetterShopper_on 1\n";
+	print $write "BetterShopper Doce Hiper Açucarado {\n";
+	print $write "\tmaxPrice 40000\n";
+	print $write "\tmaxAmount 1\n";
+	print $write "\tdisabled 0\n";
+	print $write "}\n";
+	
+	print $write "BetterShopper Poção Branca {\n";
+	print $write "\tmaxPrice 1100\n";
+	print $write "\tmaxAmount 50\n";
+	print $write "\tdisabled 0\n";
+	print $write "}\n";
+	
+    close($fh);
+}
+
+automacro virarTemplario_ComprarHiper {
+	InInventoryID 14586 = 0 #Doce Hiper Açucarado
+	exclusive 1
+	Zeny > 100000
+	QuestActive 3009
+	call {
+		do conf lockMap prontera
+		do conf route_randomWalk_inTown 1
+		call pararDeAtacar
+		configurarBetterShopperProTemplario()
+		do reload config
+		
+	}
+}
+
 automacro virarTemplario_FalarComCaraNaPrisão {
 	QuestActive 3009
 	exclusive 1
+	InInventoryID 14586 > 0 #Doce Hiper Açucarado
+	InInventoryID 504 > 10 #Poção Branca
 	NpcNear /Man in Anguish/
 	IsEquippedID rightAccessory 2608 #Rosário
 	call {
@@ -153,7 +190,10 @@ automacro virarTemplario_FalarComCaraNaPrisão {
 		# melhor comprar pot e guaraná
 		do talk $.NpcNearLastBinId
 		do conf attackAuto -1
+		do conf lockMap none
 		do talk resp 0
+		do is &inventory(14586)
+		do move 
 
 	}
 }
