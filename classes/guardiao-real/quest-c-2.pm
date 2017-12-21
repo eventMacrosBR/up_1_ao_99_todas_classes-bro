@@ -188,6 +188,7 @@ automacro virarTemplario_FalarComCaraNaPrisão {
 	call {
 		# essa é a parte dificil que ele tem que passar pelos bixos
 		# melhor comprar pot e guaraná
+		do conf BetterShopper_on 0
 		do talk $.NpcNearLastBinId
 		do conf attackAuto -1
 		do conf lockMap none
@@ -220,3 +221,42 @@ automacro virarTemplario_FalarComCaraNaPrisão {
 #e precisa habilitar vigor dentro daquele mapa
 #e precisa de Rosário, que pode ser comprado em: prt_church 108 124 (npc Madre) ,custo: 15k
 # o ideal é comprar pot branca que cura mais! assim tem menos chance de morrer porque vai ter que usar menos vezes a pot
+
+#npc matar tudo : Patron kinght 35 151 talk resp 0 (Tem um typo no nome dele, é intencional, a lug errou)
+#precisa de 10 pots no máximo (provavelmente bem menos)
+#job_cru Patron kinght
+
+#questinario
+#r1 = abençoado
+#r2 = 50%
+#r3 = chapeeeu de monge
+#r4 = zumbi prisioneiro
+#r5 = Drake
+#r6 = orc zumbi
+#r7 = meio-irmão e irmã
+#r8 = esqueleto
+#r9 = amuleto escudo
+#r10 = munak
+#
+#r1 = 3
+#r2 = 440
+#r3 = 21
+#r4 = Zéfiro
+#r5 = 2
+#r6 = 80% da velocidade
+#r7 = Somente Noviços podem aprender
+#r8 = 31
+#r9 = Maldição
+#r10 = Uma pessoa se preparando para a Guerra
+#
+#r1 = isis
+#r2 = Tsurugi Sagrada
+#r3 = Martelo Dourado
+#r4 = Marionete
+#r5 = Ghostring
+#r6 = Escudo do Inferno
+#r7 = Terra
+#r8 = Cochicho
+#r9 = fantasma
+#r10 = Jogar Água Benta
+#Deu certo, finalmente
