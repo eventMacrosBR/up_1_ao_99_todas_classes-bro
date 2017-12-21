@@ -312,3 +312,4 @@ sub checarSeExisteComando {
 		return "nao";
 	}
 }
+
