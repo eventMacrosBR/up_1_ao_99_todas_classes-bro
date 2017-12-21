@@ -48,3 +48,4 @@ automacro configurarPotBranca {
 		do conf useSelf_item_1_disabled 0
 	}
 }
+
