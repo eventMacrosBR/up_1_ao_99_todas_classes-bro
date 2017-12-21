@@ -191,3 +191,12 @@ sub adicionaGetAuto {
 	close ($fh);
 }
 
+sub adicionaBetterShopper {
+	open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
+	print $fh "BetterShopper {\n";
+	print $fh "\tmaxPrice\n";
+	print $fh "\tmaxAmount\n";
+	print $fh "\tdisabled 0\n";
+	print $fh "}\n";
+	close($fh);
+}
