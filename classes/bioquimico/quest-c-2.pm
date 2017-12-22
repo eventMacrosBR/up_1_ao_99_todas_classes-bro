@@ -41,7 +41,7 @@ automacro virarAlquimistaInicio_IrNoNpc {
 #################################################################
 
 automacro virarAlquimistaInicio {
-	JobID $paramsClasses{idC1}
+	JobID 5 #Mercador
 	JobLevel = 50
 	priority 2
     timeout 30
@@ -57,7 +57,7 @@ automacro virarAlquimistaInicio {
 }
 
 #################################################################################
-#										#							#
+#										#
 # 				 Continuando a Quest de Alquimista!		#
 #	Parte 2 - Identificando/Comprando/Levando os itens necessários 		#
 #					     para o Alquimista Sênior		#
