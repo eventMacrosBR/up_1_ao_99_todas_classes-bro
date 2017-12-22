@@ -145,26 +145,9 @@ automacro virarTemplario_FalarComCaraNaPrisão_IndoAteEle {
 	}
 }
 
-sub configurarBetterShopperProTemplario {
-	open (my $write, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
-    print $write "BetterShopper_on 1\n";
-	print $write "BetterShopper Doce Hiper Açucarado {\n";
-	print $write "\tmaxPrice 40000\n";
-	print $write "\tmaxAmount 1\n";
-	print $write "\tdisabled 0\n";
-	print $write "}\n";
-	
-	print $write "BetterShopper Poção Branca {\n";
-	print $write "\tmaxPrice 1100\n";
-	print $write "\tmaxAmount 50\n";
-	print $write "\tdisabled 0\n";
-	print $write "}\n";
-	
-    close($fh);
-}
-
 automacro virarTemplario_ComprarHiper {
 	InInventoryID 14586 = 0 #Doce Hiper Açucarado
+	ConfigKeyNot BetterShopper_0 Doce Hiper Açucarado
 	exclusive 1
 	Zeny > 100000
 	QuestActive 3009
@@ -172,9 +155,53 @@ automacro virarTemplario_ComprarHiper {
 		do conf lockMap prontera
 		do conf route_randomWalk_inTown 1
 		call pararDeAtacar
-		configurarBetterShopperProTemplario()
+		adicionaBetterShopper()
 		do reload config
-		
+		do conf BetterShopper_0 Doce Hiper Açucarado
+		do conf BetterShopper_0_maxPrice 60000
+		do conf BetterShopper_0_maxAmount 1
+		do conf BetterShopper_0_disabled 0
+		do conf -f BetterShopper_on 1
+	}
+}
+
+automacro virarTemplario_ComprarPotBranca {
+	InInventoryID 504 = 0 #Poção Branca
+	ConfigKeyNot BetterShopper_1 Poção Branca
+	exclusive 1
+	Zeny > 35000
+	QuestActive 3009
+	call {
+		do conf lockMap prontera
+		do conf route_randomWalk_inTown 1
+		call pararDeAtacar
+		adicionaBetterShopper()
+		do reload config
+		do conf BetterShopper_1 Poção Branca
+		do conf BetterShopper_1_maxPrice 1100
+		do conf BetterShopper_1_maxAmount 30
+		do conf BetterShopper_1_disabled 0
+		do conf -f BetterShopper_on 1
+	}
+}
+
+automacro virarTemplario_ComparBalaDeGuaraná {
+	InInventoryID 12414 = 0 #Bala de Guaraná
+	QuestActive 3009
+	exclusive 1
+	ConfigKeyNot BetterShopper_2 Bala de Guaraná
+	Zeny > 3000
+	call {
+		do conf lockMap prontera
+		do conf route_randomWalk_inTown 1
+		call pararDeAtacar
+		adicionaBetterShopper()
+		do reload config
+		do conf BetterShopper_2 Bala de Guaraná
+		do conf BetterShopper_2_maxPrice 1650
+		do conf BetterShopper_2_maxAmount 2
+		do conf BetterShopper_2_disabled 0
+		do conf -f BetterShopper_on 1
 	}
 }
 
@@ -183,19 +210,44 @@ automacro virarTemplario_FalarComCaraNaPrisão {
 	exclusive 1
 	InInventoryID 14586 > 0 #Doce Hiper Açucarado
 	InInventoryID 504 > 10 #Poção Branca
+	InInventoryID 12414 > 0 #Bala de Guaraná
 	NpcNear /Man in Anguish/
 	IsEquippedID rightAccessory 2608 #Rosário
 	call {
 		# essa é a parte dificil que ele tem que passar pelos bixos
 		# melhor comprar pot e guaraná
+		
 		do conf BetterShopper_on 0
+		do conf BetterShopper_0_disabled 1
+		do conf BetterShopper_1_disabled 1
+		do conf BetterShopper_2_disabled 1		
 		do talk $.NpcNearLastBinId
 		do conf attackAuto -1
 		do conf lockMap none
 		do talk resp 0
-		do is &inventory(14586)
-		do move 
+		
+	}
+}
 
+automacro virarTemplario_correrMuito {
+	QuestActive 3009
+	InMap job_cru
+	macro_delay .3
+	exclusive 1
+	call {
+		do is &inventory(12414) #Bala de Guaraná
+		do is &inventory(14586) #Doce Hiper Açucarado
+		$blocoJaExiste = checarSeExisteNoConfig("useSelf_item_1")
+		if (if $blocoJaExiste = sim) {
+			do conf useSelf_item_1 Poção Branca
+			do conf useSelf_item_1_hp < 60%
+		} else {
+			adicionaUseSelfItem()
+			do reload config
+			do conf useSelf_item_1 Poção Branca
+			do conf useSelf_item_1_hp < 60%
+		}
+		do move #TODO
 	}
 }
 
@@ -260,3 +312,4 @@ automacro virarTemplario_FalarComCaraNaPrisão {
 #r9 = fantasma
 #r10 = Jogar Água Benta
 #Deu certo, finalmente
+
