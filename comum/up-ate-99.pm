@@ -55,7 +55,7 @@ automacro estouLv99 {
 	ConfigKey estagio_Reborn none
 	exclusive 1
 	timeout 120
-	JobID $paramsClasses{idC2}, $paramsClasses{idC2T}, $paramsClasses{idC2Alt}
+	JobID $paramsClasses{idC2}, $paramsClasses{idC2Alt}, $paramsClasses{idC2T}, $paramsClasses{idC2TAlt}
 	call {
 		log CHEGUEI NO LVL 99 FINALMENTE !!!!!!!
 		log CARA ISSO LEVOU TEMPO PARA CAR**HO

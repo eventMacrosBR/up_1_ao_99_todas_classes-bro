@@ -69,7 +69,7 @@ automacro falarComNpcDaClasse {
 
 automacro jaSouClasse2T {
     exclusive 1
-    JobID $paramsClasses{idC2T}
+    JobID $paramsClasses{idC2T}, $paramsClasses{idC2TAlt}
     ConfigKey virarClasse2T true
     call {
         do conf virarClasse2T none
