@@ -2,7 +2,7 @@
 automacro chegueilvl99 {
 	BaseLevel = 99
 	JobLevel = 50
-	JobID $paramsClasses{idC2}
+	JobID $paramsClasses{idC2}, $paramsClasses{idC2Alt}
 	CharCurrentWeight != 0
 	Zeny != 1285000
 	Zeny != 0
@@ -83,7 +83,7 @@ automacro chegueilvl99 {
 automacro chamarAmigo {
 	exclusive 1
 	timeout 180
-	JobID $paramsClasses{idC2}
+	JobID $paramsClasses{idC2}, $paramsClasses{idC2Alt}
 	ConfigKey estagio_Reborn preparando
 	Zeny != 1285000
 	Zeny != 0

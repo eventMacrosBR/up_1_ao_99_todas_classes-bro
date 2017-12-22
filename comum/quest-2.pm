@@ -35,8 +35,9 @@ automacro virarClasse2Inicio {
 }
 
 automacro jsSouClasse2 {
-	JobID $paramsClasses{idC2}
+	JobID $paramsClasses{idC2}, $paramsClasses{idC2Alt}
 	ConfigKey virarClasse2 true
+	exclusive 1
 	call {
 		[
 		log ===================
@@ -49,8 +50,9 @@ automacro jsSouClasse2 {
 }
 
 automacro jsSouClasse2NaoAutomatico {
-	JobID $paramsClasses{idC2}
+	JobID $paramsClasses{idC2} , $paramsClasses{idC2Alt}
 	ConfigKey esperarFazerQuest true
+	exclusive 1
 	call {
 		[
 		log =================================================

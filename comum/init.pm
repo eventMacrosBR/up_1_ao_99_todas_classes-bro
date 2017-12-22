@@ -101,7 +101,10 @@ macro atualizarBuild {
 		case (== $paramsClasses{idC1}) { #Classes 1
 			if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1})  do conf skillsAddAuto_list $configsBuild{skillsClasse1}
 		}
-		case (~ $paramsClasses{idC2}) { #Classes 2
+		case (== $paramsClasses{idC2}) { #Classes 2
+			if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2})  do conf skillsAddAuto_list $configsBuild{skillsClasse2}
+		}
+		case (== $paramsClasses{idC2Alt}) { #Classe 2 alternativa (se houver)
 			if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2})  do conf skillsAddAuto_list $configsBuild{skillsClasse2}
 		}
 		case (== $paramsClasses{idC1T}) { #Classes 1T
