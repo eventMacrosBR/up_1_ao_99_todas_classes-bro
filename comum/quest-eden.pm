@@ -768,12 +768,11 @@ automacro Eden60Equipando {
 	IsNotEquippedID robe 2571
 	IsNotEquippedID topHead 18514
 	IsNotEquippedID shoes 2473
-	IsNotEquippedID rightHand 13066
+	IsNotEquippedID rightHand $paramsQuestEden{IDarmaEden}
 	IsNotEquippedID armor 15031
 	InInventoryID 2571  = 1
 	InInventoryID 18514 = 1
 	InInventoryID 2473  = 1
-	InInventoryID $paramsQuestEden{IDarmaEden} = 1
 	InInventoryID 15031 = 1
 	run-once 1
 	BaseLevel 60..98
