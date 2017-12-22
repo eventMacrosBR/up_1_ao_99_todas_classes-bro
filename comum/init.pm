@@ -101,19 +101,13 @@ macro atualizarBuild {
 		case (== $paramsClasses{idC1}) { #Classes 1
 			if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1})  do conf skillsAddAuto_list $configsBuild{skillsClasse1}
 		}
-		case (== $paramsClasses{idC2}) { #Classes 2
-			if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2})  do conf skillsAddAuto_list $configsBuild{skillsClasse2}
-		}
-		case (== $paramsClasses{idC2Alt}) { #Classes 2 alternativa (se houver)
+		case (~ $paramsClasses{idC2}, $paramsClasses{idC2Alt}) { #Classes 2
 			if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2})  do conf skillsAddAuto_list $configsBuild{skillsClasse2}
 		}
 		case (== $paramsClasses{idC1T}) { #Classes 1T
 			if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1T}) do conf skillsAddAuto_list $configsBuild{skillsClasse1T}
 		}
-		case (== $paramsClasses{idC2T}) { #Classes 2T
-			if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2T}) do conf skillsAddAuto_list $configsBuild{skillsClasse2T}
-		}
-		case (== $paramsClasses{idC2TAlt}) { #Classes 2T Alternativa (se houver)
+		case (~ $paramsClasses{idC2T}, $paramsClasses{idC2TAlt} ) { #Classes 2T
 			if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2T}) do conf skillsAddAuto_list $configsBuild{skillsClasse2T}
 		}
 		case (~ $paramsClasses{idC3}) { #Classes 3
