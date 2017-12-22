@@ -212,6 +212,7 @@ automacro virarTemplario_FalarComCaraNaPrisão {
 	InInventoryID 504 > 10 #Poção Branca
 	InInventoryID 12414 > 0 #Bala de Guaraná
 	NpcNear /Man in Anguish/
+	NotInMap job_cru
 	IsEquippedID rightAccessory 2608 #Rosário
 	call {
 		# essa é a parte dificil que ele tem que passar pelos bixos
@@ -221,22 +222,8 @@ automacro virarTemplario_FalarComCaraNaPrisão {
 		do conf BetterShopper_0_disabled 1
 		do conf BetterShopper_1_disabled 1
 		do conf BetterShopper_2_disabled 1		
-		do talk $.NpcNearLastBinId
-		do conf attackAuto -1
 		do conf lockMap none
-		do talk resp 0
-		
-	}
-}
-
-automacro virarTemplario_correrMuito {
-	QuestActive 3009
-	InMap job_cru
-	macro_delay .3
-	exclusive 1
-	call {
-		do is &inventory(12414) #Bala de Guaraná
-		do is &inventory(14586) #Doce Hiper Açucarado
+		call pararDeAtacarApenasCorrer
 		$blocoJaExiste = checarSeExisteNoConfig("useSelf_item_1")
 		if (if $blocoJaExiste = sim) {
 			do conf useSelf_item_1 Poção Branca
@@ -244,10 +231,33 @@ automacro virarTemplario_correrMuito {
 		} else {
 			adicionaUseSelfItem()
 			do reload config
+			pause 0.5
 			do conf useSelf_item_1 Poção Branca
 			do conf useSelf_item_1_hp < 60%
 		}
-		do move #TODO
+		do talk resp 0
+		do talk $.NpcNearLastBinId
+	}
+}
+
+automacro virarTemplario_correrMuito {
+	QuestActive 3009
+	InMap job_cru
+	exclusive 1
+	call {
+		[
+		do is &inventory(12414) #Bala de Guaraná
+		do is &inventory(14586) #Doce Hiper Açucarado
+		]
+		do move 98 102
+		if ($.map = prt_castle) {
+			do talk &npc(164 32)
+		} elsif ($.map = job_cru) {
+			do move 98 102
+		} else {
+			log acho que morri...
+			log muita treta vixi
+		}
 	}
 }
 
