@@ -114,7 +114,8 @@ macro atualizarBuild {
 			if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse3})  do conf skillsAddAuto_list $configsBuild{skillsClasse3}
 		}
 		else {
-			do eval Log::error "Nao foi possivel definir qual a sua classe.\n";
+			do eval Log::error "Nao foi possivel definir qual a sua classe.\n"
+			do eval Log::error "Valor encontrado: $idClasseAtual\n"
 		}
 	}
 }
