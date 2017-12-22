@@ -25,7 +25,6 @@ automacro virarAlquimistaInicio_IrNoNpc {
 	priority 2
 	exclusive 1
 	NpcNotNear /Alquimista sênior/
-	ConfigKeyNot questAlquimista
 	call {
 		call pararDeAtacar
 		do conf lockMap none
@@ -44,7 +43,6 @@ automacro virarAlquimistaInicio {
 	JobID $paramsClasses{idC1}
 	JobLevel = 50
 	priority 2
-	ConfigKeyNot questAlquimista
    	timeout 30
 	NpcNear /Alquimista sênior/
 	call {
@@ -57,7 +55,7 @@ automacro virarAlquimistaInicio {
 }
 
 #################################################################################
-#										#							#
+#										#
 # 				 Continuando a Quest de Alquimista!		#
 #	Parte 2 - Identificando/Comprando/Levando os itens necessários 		#
 #					     para o Alquimista Sênior		#
