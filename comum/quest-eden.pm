@@ -773,7 +773,7 @@ automacro Eden60Equipando {
 	InInventoryID 2571  = 1
 	InInventoryID 18514 = 1
 	InInventoryID 2473  = 1
-	InInventoryID 13066 = 1
+	InInventoryID $paramsQuestEden{IDarmaEden} = 1
 	InInventoryID 15031 = 1
 	run-once 1
 	BaseLevel 60..98
