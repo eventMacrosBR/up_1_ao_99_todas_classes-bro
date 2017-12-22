@@ -19,13 +19,13 @@ sub initParamsQuestClasse2 {
 #################################################################
 
 automacro virarAlquimistaInicio_IrNoNpc {
-	JobID $paramsClasses{idC1}
+    JobID $paramsClasses{idC1}
 	JobLevel = 50
 	FreeSkillPoints = 0
 	priority 2
 	exclusive 1
+    ConfigKeyNot virarAlquimista true
 	NpcNotNear /Alquimista sênior/
-	ConfigKeyNot questAlquimista
 	call {
 		call pararDeAtacar
 		do conf lockMap none
@@ -44,8 +44,8 @@ automacro virarAlquimistaInicio {
 	JobID $paramsClasses{idC1}
 	JobLevel = 50
 	priority 2
-	ConfigKeyNot questAlquimista
-   	timeout 30
+    timeout 30
+    ConfigKeyNot virarAlquimista true
 	NpcNear /Alquimista sênior/
 	call {
 		do conf autoTalkCont 1
