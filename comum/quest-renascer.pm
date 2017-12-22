@@ -282,6 +282,8 @@ automacro Rebornar_ultimoEstagio {
 	exclusive 1
 	call {
 		do move 49 86
+		do conf skillsAddAuto_list none
+		do conf statsAddAuto_list none
 		###do talknpc 48 86 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c
 		do talk &npc(48 86)
 		do conf estagio_Reborn none
@@ -290,6 +292,7 @@ automacro Rebornar_ultimoEstagio {
 		log REBORNEEEEEEEEEEEEEEEEEEEEEEEEEEEEEI 
 		log =========================================
 		]
+		call atualizarBuild
 		stop
 	}
 }
