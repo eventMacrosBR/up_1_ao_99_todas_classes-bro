@@ -38,6 +38,15 @@ sub pegarID {
 	return $char->{jobID};
 }
 
+sub checarSeExisteNoConfig {
+	my ($key) = @_;
+	if (exists $config{$key}) {
+		return "sim";
+	} else {
+		return "nao";
+	}
+}
+
 sub GetIndexAndEquipped {
 	my ($type, $id) = @_;
 	my $Item = $char->inventory->getByNameID($id);
