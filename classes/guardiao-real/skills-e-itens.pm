@@ -38,12 +38,12 @@ automacro configurarMedicar {
 }
 
 automacro configurarPotBranca {
-	ConfigKeyNot useSelf_item_1 Poção Branca
+	ConfigKeyNot useSelf_item_1 504 #Poção Branca
 	exclusive 1
 	call {
 		adicionaUseSelfItem()
 		do reload config
-		do conf useSelf_item_1 Poção Branca
+		do conf useSelf_item_1 504 #Poção Branca
 		do conf useSelf_item_1_hp < 60%
 		do conf useSelf_item_1_disabled 0
 	}
