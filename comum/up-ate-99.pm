@@ -5,6 +5,7 @@ automacro UpClasse {
 	ConfigKeyNot In_saveMap_sequence true
 	ConfigKeyNot virarClasse2 true
 	ConfigKeyNot virarClasse2T true
+	ConfigKeyNot quest_skill true
 	ConfigKeyNot esperarFazerQuest true
 	ConfigKeyNot lockMap $mapa{lockMap}
 	ConfigKey estagio_Reborn none
