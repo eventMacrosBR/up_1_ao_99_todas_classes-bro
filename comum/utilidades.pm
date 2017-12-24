@@ -20,6 +20,15 @@ macro pararDeAtacar {
 	]
 }
 
+automacro reloadPortals {
+	exclusive 1
+	timeout 300
+	JobIDNot 0
+	call {
+		do reload portals
+	}
+}
+
 macro pararDeAtacarApenasCorrer {
 	[
 	do conf route_randomWalk 0
