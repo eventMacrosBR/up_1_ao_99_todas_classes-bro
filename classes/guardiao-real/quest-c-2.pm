@@ -269,7 +269,7 @@ automacro virarTemplario_correrMuito {
 }
 
 
-virarTemplario_correrMuito_morri_indoTentarDenovo {
+automacro virarTemplario_correrMuito_morri_indoTentarDenovo {
 	QuestActive 3010
 	NotInMap job_cru
 	exclusive 1
