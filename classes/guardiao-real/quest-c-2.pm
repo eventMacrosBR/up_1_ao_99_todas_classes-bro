@@ -141,6 +141,7 @@ automacro virarTemplario_ComprarHiper {
 	QuestActive 3009
 	call {
 		do conf lockMap prontera
+		do conf route_randomWalk 1
 		do conf route_randomWalk_inTown 1
 		call pararDeAtacar
 		adicionaBetterShopper()
@@ -161,6 +162,7 @@ automacro virarTemplario_ComprarPotBranca {
 	QuestActive 3009
 	call {
 		do conf lockMap prontera
+		do conf route_randomWalk 1
 		do conf route_randomWalk_inTown 1
 		call pararDeAtacar
 		if (&config(BetterShopper_1) != Poção Branca) {
@@ -183,6 +185,7 @@ automacro virarTemplario_ComparBalaDeGuaraná {
 	Zeny > 3000
 	call {
 		do conf lockMap prontera
+		do conf route_randomWalk 1
 		do conf route_randomWalk_inTown 1
 		call pararDeAtacar
 		if (&config(BetterShopper_2) != Bala de Guaraná) {
