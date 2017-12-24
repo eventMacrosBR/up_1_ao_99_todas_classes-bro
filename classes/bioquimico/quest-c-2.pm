@@ -305,11 +305,16 @@ automacro virarAlquimista_naoTenhoAFlor {
 			do conf itemsGatherAuto 0
 			do conf itemsMaxWeight_sellOrStore 40
 		
-			if (&config(BetterShopper_0) != Flor das Ilusões) {
-				configurarBetterShopper()
-				pause 2
+			if (checarSeExisteComando(BetterShopper_0) = 0) {
+				#Se o bloco não existir, vamos criar ele!
+				adicionaBetterShopper()
+				pause 1
 				do reload config
 			}
+			do conf BetterShopper_0 Flor das Ilusões
+			do conf BetterShopper_0_maxPrice 350000
+			do conf BetterShopper_0_maxAmount 1
+			do conf -f BetterShopper_on 1
 		} else {
 			[
 			log =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
@@ -336,17 +341,6 @@ automacro virarAlquimista_naoTenhoAFlor_bugged {
 		do move prontera
 		do conf lockMap prontera
 	}
-}
-
-sub configurarBetterShopper {
-	open (my $write, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
-	print $write "BetterShopper_on 1\n";
-	print $write "BetterShopper Flor das Ilusões {\n";
-	print $write "maxPrice 350000\n";
-	print $write "maxAmount 1\n";
-	print $write "disabled 0\n";
-	print $write "}\n";
-	close($fh);
 }
 
 automacro virarAlquimista_naoTenhoAFlor_NemZeny {
