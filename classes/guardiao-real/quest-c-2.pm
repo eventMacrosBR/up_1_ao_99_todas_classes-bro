@@ -232,7 +232,7 @@ automacro virarTemplario_FalarComCaraNaPrisão {
 		do conf lockMap none
 		call pararDeAtacarApenasCorrer
 		$blocoJaExiste = checarSeExisteNoConfig("useSelf_item_1")
-		if (if $blocoJaExiste = sim) {
+		if ($blocoJaExiste = sim) {
 			do conf useSelf_item_1 Poção Branca
 			do conf useSelf_item_1_hp < 60%
 		} else {
@@ -248,7 +248,7 @@ automacro virarTemplario_FalarComCaraNaPrisão {
 }
 
 automacro virarTemplario_correrMuito {
-	QuestActive 3009
+	QuestActive 3009, 3010
 	InMap job_cru
 	exclusive 1
 	call {
@@ -268,20 +268,55 @@ automacro virarTemplario_correrMuito {
 	}
 }
 
+automacro virarTemplario_correrMuito_morri_indoTentarDenovo_npcLonge {
+	QuestActive 3010
+	NotInMap job_cru
+	exclusive 1
+	NpcNotNear /Man in Anguish/
+	InInventoryID 14586 > 0 #Doce Hiper Açucarado
+	InInventoryID 504 > 10 #Poção Branca
+	InInventoryID 12414 > 0 #Bala de Guaraná
+	call {
+		do move prt_castle 164 32 &rand(4,7)
+	}
+}
 
 automacro virarTemplario_correrMuito_morri_indoTentarDenovo {
 	QuestActive 3010
 	NotInMap job_cru
 	exclusive 1
+	NpcNear /Man in Anguish/
 	InInventoryID 14586 > 0 #Doce Hiper Açucarado
 	InInventoryID 504 > 10 #Poção Branca
 	InInventoryID 12414 > 0 #Bala de Guaraná
 	call {
 		log morri no labirinto
-		vamos tentar denovo!
+		log vamos tentar denovo!
+		# essa é a parte dificil que ele tem que passar pelos bixos
+		# melhor comprar pot e guaraná
 		
+		do conf BetterShopper_on 0
+		do conf BetterShopper_0_disabled 1
+		do conf BetterShopper_1_disabled 1
+		do conf BetterShopper_2_disabled 1		
+		do conf lockMap none
+		call pararDeAtacarApenasCorrer
+		$blocoJaExiste = checarSeExisteNoConfig("useSelf_item_1")
+		if ($blocoJaExiste = sim) {
+			do conf useSelf_item_1 Poção Branca
+			do conf useSelf_item_1_hp < 60%
+		} else {
+			adicionaUseSelfItem()
+			do reload config
+			pause 0.5
+			do conf useSelf_item_1 Poção Branca
+			do conf useSelf_item_1_hp < 60%
+		}
+		do talk $.NpcNearLastBinId
+		do talk resp 0
 	}
 }
+
 
 
 #Referencias pra quest de classe 2
