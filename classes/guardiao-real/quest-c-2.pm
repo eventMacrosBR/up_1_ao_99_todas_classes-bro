@@ -242,12 +242,12 @@ automacro virarTemplario_FalarComCaraNaPrisão {
 			do conf useSelf_item_1 Poção Branca
 			do conf useSelf_item_1_hp < 60%
 		}
-		do talk resp 0
 		do talk $.NpcNearLastBinId
+		do talk resp 0
 	}
 }
 
-automacro virarTemplario_correrMuito {
+automacro virarTemplario_correr {
 	QuestActive 3009, 3010
 	InMap job_cru
 	exclusive 1
@@ -268,7 +268,7 @@ automacro virarTemplario_correrMuito {
 	}
 }
 
-automacro virarTemplario_correrMuito_morri_indoTentarDenovo_npcLonge {
+automacro virarTemplario_correr_morri_indoTentarDenovo_npcLonge {
 	QuestActive 3010
 	NotInMap job_cru
 	exclusive 1
@@ -281,7 +281,7 @@ automacro virarTemplario_correrMuito_morri_indoTentarDenovo_npcLonge {
 	}
 }
 
-automacro virarTemplario_correrMuito_morri_indoTentarDenovo {
+automacro virarTemplario_correr_morri_indoTentarDenovo {
 	QuestActive 3010
 	NotInMap job_cru
 	exclusive 1
@@ -317,38 +317,37 @@ automacro virarTemplario_correrMuito_morri_indoTentarDenovo {
 	}
 }
 
+automacro virarTemplario_questionario_indoFalarComNpc {
+	QuestActive 3011
+	NpcNotNear /Crusader/
+	exclusive 1
+	call {
+		do move prt_church 95 127 &rand(2,6)
+	}
+}
 
-
-#Referencias pra quest de classe 2
-
-#Templario
-#NPC'S
-#Senior Crusader prt_castle 45 169
-#Man in Anguish prt_castle 164 32
-#Templária prt_church 95 127
-#Bliant Piyord prt_castle 35 151
-
-#lugar pra pegar os 10 Lampião: 
-#mjo_dun02 (lento mas morre menos na teoria)
-#mjo_dun03 (rápido mas morre mais teoricamente)
-#
-#lugar pra pegar as 10 Bandagem Estragada
-#moc_pryd03 (melhor, mas mesmo assim é bem dificil , o ideral seria ter pots)
-
-#Agua Benta só é obtivel por meio de lojinha de players, então é necessario o uso do plugin better shopper
-#Precisa tambem de bala de guraná com certeza
-#e precisa habilitar vigor dentro daquele mapa
-#e precisa de Rosário, que pode ser comprado em: prt_church 108 124 (npc Madre) ,custo: 15k
-# o ideal é comprar pot branca que cura mais! assim tem menos chance de morrer porque vai ter que usar menos vezes a pot
-
-#npc matar tudo : Patron kinght 35 151 talk resp 0 (Tem um typo no nome dele, é intencional, a lug errou)
-#precisa de 10 pots no máximo (provavelmente bem menos)
-#job_cru Patron kinght
-
+automacro virarTemplario_questionario {
+	QuestActive 3011
+	NpcNear /Crusader/
+	exclusive 1
+	call {
+		do talk $.NpcNearLastBinId
+		do talk resp /abençoado|3|isis/i
+		do talk resp /50%|440|tsurugi/i
+		do talk resp /monge|21|dourado/i
+		do talk resp /prisioneiro|zéfiro|Marionete/i
+		do talk resp /drake|2|Ghostring/i
+		do talk resp /orc zumbi|80%|Inferno/i
+		do talk resp /meio-irmão e irmã|Somente noviços|terra/i
+		do talk resp /esqueleto|31|cochicho/i
+		do talk resp /amuleto escudo|maldição|fantasma/i
+		do talk resp /munak|guerra|água benta/i
+	}
+}
 #questinario
 #r1 = abençoado
 #r2 = 50%
-#r3 = chapeeeu de monge
+#r3 = chapéu de monge
 #r4 = zumbi prisioneiro
 #r5 = Drake
 #r6 = orc zumbi
@@ -379,4 +378,30 @@ automacro virarTemplario_correrMuito_morri_indoTentarDenovo {
 #r9 = fantasma
 #r10 = Jogar Água Benta
 #Deu certo, finalmente
+
+#Referencias pra quest de classe 2
+
+#Templario
+#NPC'S
+#Senior Crusader prt_castle 45 169
+#Man in Anguish prt_castle 164 32
+#Crusader prt_church 95 127
+#Bliant Piyord prt_castle 35 151
+
+#lugar pra pegar os 10 Lampião: 
+#mjo_dun02 (lento mas morre menos na teoria)
+#mjo_dun03 (rápido mas morre mais teoricamente)
+#
+#lugar pra pegar as 10 Bandagem Estragada
+#moc_pryd03 (melhor, mas mesmo assim é bem dificil , o ideral seria ter pots)
+
+#Agua Benta só é obtivel por meio de lojinha de players, então é necessario o uso do plugin better shopper
+#Precisa tambem de bala de guraná com certeza
+#e precisa habilitar vigor dentro daquele mapa
+#e precisa de Rosário, que pode ser comprado em: prt_church 108 124 (npc Madre) ,custo: 15k
+# o ideal é comprar pot branca que cura mais! assim tem menos chance de morrer porque vai ter que usar menos vezes a pot
+
+#npc matar tudo : Patron kinght 35 151 talk resp 0 (Tem um typo no nome dele, é intencional, a lug errou)
+#precisa de 10 pots no máximo (provavelmente bem menos)
+#job_cru Patron kinght
 
