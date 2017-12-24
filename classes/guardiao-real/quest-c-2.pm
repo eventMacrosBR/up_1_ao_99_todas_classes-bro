@@ -133,18 +133,6 @@ automacro virarTemplario_comprarRosário_jaComprado {
 	}
 }
 
-automacro virarTemplario_FalarComCaraNaPrisão_IndoAteEle {
-	QuestActive 3009
-	exclusive 1
-	NpcNotNear /Man in Anguish/
-	InInventoryID 14586 > 0 #Doce Hiper Açucarado
-	InInventoryID 504 > 10 #Poção Branca
-	IsEquippedID rightAccessory 2608 #Rosário
-	call {
-		do move prt_castle 164 32 &rand(4,7)
-	}
-}
-
 automacro virarTemplario_ComprarHiper {
 	InInventoryID 14586 = 0 #Doce Hiper Açucarado
 	ConfigKeyNot BetterShopper_0 Doce Hiper Açucarado
@@ -175,8 +163,10 @@ automacro virarTemplario_ComprarPotBranca {
 		do conf lockMap prontera
 		do conf route_randomWalk_inTown 1
 		call pararDeAtacar
-		adicionaBetterShopper()
-		do reload config
+		if (&config(BetterShopper_1) != Poção Branca) {
+			adicionaBetterShopper()
+			do reload config	
+		}
 		do conf BetterShopper_1 Poção Branca
 		do conf BetterShopper_1_maxPrice 1100
 		do conf BetterShopper_1_maxAmount 30
@@ -195,8 +185,10 @@ automacro virarTemplario_ComparBalaDeGuaraná {
 		do conf lockMap prontera
 		do conf route_randomWalk_inTown 1
 		call pararDeAtacar
-		adicionaBetterShopper()
-		do reload config
+		if (&config(BetterShopper_2) != Bala de Guaraná) {
+			adicionaBetterShopper()
+			do reload config
+		}
 		do conf BetterShopper_2 Bala de Guaraná
 		do conf BetterShopper_2_maxPrice 1650
 		do conf BetterShopper_2_maxAmount 2
@@ -205,8 +197,20 @@ automacro virarTemplario_ComparBalaDeGuaraná {
 	}
 }
 
-automacro virarTemplario_FalarComCaraNaPrisão {
+automacro virarTemplario_FalarComCaraNaPrisão_IndoAteEle {
 	QuestActive 3009
+	exclusive 1
+	NpcNotNear /Man in Anguish/
+	InInventoryID 14586 > 0 #Doce Hiper Açucarado
+	InInventoryID 504 > 10 #Poção Branca
+	IsEquippedID rightAccessory 2608 #Rosário
+	call {
+		do move prt_castle 164 32 &rand(4,7)
+	}
+}
+
+automacro virarTemplario_FalarComCaraNaPrisão {
+	QuestActive 3009, 3010
 	exclusive 1
 	InInventoryID 14586 > 0 #Doce Hiper Açucarado
 	InInventoryID 504 > 10 #Poção Branca
@@ -258,6 +262,21 @@ automacro virarTemplario_correrMuito {
 			log acho que morri...
 			log muita treta vixi
 		}
+	}
+}
+
+
+virarTemplario_correrMuito_morri_indoTentarDenovo {
+	QuestActive 3010
+	NotInMap job_cru
+	exclusive 1
+	InInventoryID 14586 > 0 #Doce Hiper Açucarado
+	InInventoryID 504 > 10 #Poção Branca
+	InInventoryID 12414 > 0 #Bala de Guaraná
+	call {
+		log morri no labirinto
+		vamos tentar denovo!
+		
 	}
 }
 
