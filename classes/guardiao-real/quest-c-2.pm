@@ -300,6 +300,8 @@ automacro virarTemplario_correr_morri_indoTentarDenovo {
 		do conf BetterShopper_1_disabled 1
 		do conf BetterShopper_2_disabled 1		
 		do conf lockMap none
+		do conf route_randomWalk 0
+		do conf route_randomWalk_inTown 0
 		call pararDeAtacarApenasCorrer
 		$blocoJaExiste = checarSeExisteNoConfig("useSelf_item_1")
 		if ($blocoJaExiste = sim) {
@@ -327,24 +329,70 @@ automacro virarTemplario_questionario_indoFalarComNpc {
 }
 
 automacro virarTemplario_questionario {
-	QuestActive 3011
+	QuestActive 3011, 3012
 	NpcNear /Crusader/
 	exclusive 1
+	macro_delay 3
 	call {
+		[
+		log ===============================================================
+		log = pra vc q ta lendo isso
+		log = provavelmente vai dar uns erros bem loko aqui
+		log = se isso acontecer, só esperar, é porque as respostas não estão 100%
+		log = e sempre mudam
+		log = então só espere e observe
+		log ==================================================================
+		]
+		
+		do talk resp 4
 		do talk $.NpcNearLastBinId
-		do talk resp /abençoado|3|isis/i
-		do talk resp /50%|440|tsurugi/i
-		do talk resp /monge|21|dourado/i
-		do talk resp /prisioneiro|zéfiro|Marionete/i
-		do talk resp /drake|2|Ghostring/i
-		do talk resp /orc zumbi|80%|Inferno/i
-		do talk resp /meio-irmão e irmã|Somente noviços|terra/i
-		do talk resp /esqueleto|31|cochicho/i
-		do talk resp /amuleto escudo|maldição|fantasma/i
-		do talk resp /munak|guerra|água benta/i
+		do talk resp /abençoado|3|ísis|sagrado/i #1
+		do talk resp /50|440|tsurugi/i #2
+		do talk resp /monge|21|dourado/i #3
+		do talk resp /prisioneiro|zéfiro|Marionete/i #4
+		do talk resp /drake|2|Ghostring|marionete/i #5
+		do talk resp /zumbi|80|Inferno/i #6
+		do talk resp /meio|aprender|terra/i #7
+		do talk resp /esqueleto|31|cochicho/i #8
+		do talk resp /escudo|maldição|fantasma/i #9
+		do talk resp /munak|guerra|benta/i #10
 	}
 }
-#questinario
+
+automacro virarTemplario_FaseFinalMatarbixo_ComprarAgua {
+	QuestActive 3013
+	exclusive 1
+	InInventoryID 523 = 0 #água benta, quando não tiver
+	ConfigKeyNot BetterShopper_0 Água Benta
+	call {
+		$configExiste = checarSeExisteNoConfig("BetterShopper_0")
+		if ($configExiste = nao) {
+			adicionaBetterShopper()
+			do reload config
+		}
+		do conf lockMap prontera
+		do conf route_randomWalk 1
+		do conf route_randomWalk_inTown 1
+		do conf BetterShopper_0 Água Benta
+		do conf BetterShopper_0_maxAmount 2
+		do conf BetterShopper_0_maxPrice 1300
+		do conf BetterShopper_0_disabled 0
+		do conf BetterShopper_on 1
+	}
+}
+
+automacro virarTemplario_FaseFinalMatarbixo_irAteNpc {
+	QuestActive 3013
+	InInventoryID 523 >= 1 #água benta, quando tiver 1 ou mais
+	exclusive 1
+	NpcNotNear /Bliant/
+	call {
+		do move prt_castle 35 151 &rand(2,5)
+	}
+}
+
+
+#questionario
 #r1 = abençoado
 #r2 = 50%
 #r3 = chapéu de monge
@@ -367,7 +415,7 @@ automacro virarTemplario_questionario {
 #r9 = Maldição
 #r10 = Uma pessoa se preparando para a Guerra
 #
-#r1 = isis
+#r1 = ísis
 #r2 = Tsurugi Sagrada
 #r3 = Martelo Dourado
 #r4 = Marionete
