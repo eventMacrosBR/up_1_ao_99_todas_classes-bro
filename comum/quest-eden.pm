@@ -410,30 +410,28 @@ automacro Eden60_JuntarItens {
 	call {
 		do iconf 7196 5 1 0 #ombreira
 		do iconf 7100 7 1 0 #folha
-		$ombreira = &invamount (Ombreira)
-		$folha = &invamount (Folha Afiada)
-
-		if ( $ombreira < 5 ) goto Ombreira
-		if ( $ombreira >= 5 && $folha < 7 ) goto Folha
-		:Ombreira
-		[
-		log ===========================================
-		log =coletando Ombreiras pra quest eden
-		log ===========================================
-		]
-		do conf lockMap um_fild02
-		call voltarAtacar
-		stop
-
-		:Folha
-		[
-		log ===========================================
-		log =coletando Folha Afiada pra quest eden
-		log ===========================================
-		]
-		do conf lockMap um_fild01
-		call voltarAtacar
-		stop
+		$qtdOmbreira = &invamount (Ombreira)
+		$qtdFolha = &invamount (Folha Afiada)
+		
+		if ( $qtdOmbreira < 5 ) {
+			[
+			log ===========================================
+			log = coletando Ombreiras pra quest eden
+			log = tenho: $qtdOmbreira , Quero: 5 , Falta: &eval(7 - $qtdOmbreira)
+			log ===========================================
+			]
+			do conf lockMap um_fild02
+			call voltarAtacar
+		} elsif ( $qtdOmbreira >= 5 && $qtdFolha < 7 ) {
+			[
+			log ===========================================
+			log = coletando Folha Afiada pra quest eden
+			log = tenho: $qtdFolha , Quero: 7 , Falta: &eval(7 - $qtdFolha)
+			log ===========================================
+			]
+			do conf lockMap um_fild01
+			call voltarAtacar	
+		}
 	}
 }
 
@@ -447,11 +445,11 @@ automacro Eden60_JaJunteiOsItens {
 		lock Eden60_JuntarItens
 		[
 		log ===================================
-		log Vamos No NPC já tenho os Itens
+		log Ombreira e Folha Afiada coletada
+		log vou ao npc entregar
 		log ===================================
 		]
-		call pararDeAtacar
-		do conf attackAuto -1
+		call pararDeAtacarApenasCorrer
 		do move um_fild01 &rand(36,38) &rand(277,279)
 		do talknpc 34 280 c #Romeo#2nd02
 		do iconf 7196 0 0 1 #ombreira
@@ -467,11 +465,11 @@ automacro Eden12FinalizarCaças {
 		do mconf $.QuestHuntCompletedLastMobID 0 0 0
 		[
 		log ===========================================
-		log =completei a caça, indo falar com o cao falante
+		log =completei a caça, indo falar com o Cão falante
 		log ===========================================
 		]
 		do move moc_fild11 &rand(181,183) &rand(254,256)
-	  	do talk 0 #cao falante
+	  	do talk 0 #Cão falante
 		release Eden12Caçar
 	}
 }
