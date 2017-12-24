@@ -36,6 +36,7 @@ sub initParamsQuestClasse2 {
 
 	Commands::run("conf -f questc2_implementada false");
 }
+
 #Creditos lucasbradok/punky
 #Virar Monge
 #novico nescessario job 50
@@ -103,7 +104,7 @@ automacro virar Monge 3 {
 		do pconf 940 1
 		$cobWeb = &invamount (Cobweb)
 		$porcupineQuill  = &invamount (Porcupine Quill)
-		$gLeg = &invamount (Grasshopper's Leg)
+		$gLeg = &invamount (Grasshopper's Leg) # '
 		if ( $cobWeb < 20 ) goto Cobweb
 		if ( $cobWeb >= 20 && $porcupineQuill < 5 ) goto Porcupine
 		if ( $cobWeb >= 20 && $porcupineQuill >= 5 && $gLeg < 10 ) goto GLeg
