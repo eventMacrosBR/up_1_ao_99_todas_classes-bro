@@ -38,14 +38,14 @@ automacro configurarPotLaranja {
 automacro parandoDePegarPotDeAprendiz {
 	InInventoryID 569 < 1
 	InStorageID 569 < 1
-	ConfigKey getAuto_0 Poção de Aprendiz
+	ConfigKey useSelf_item_0 Poção de Aprendiz
 	exclusive 1
 	call {
 		log as poções de aprendiz acabaram, removendo o getAuto
 		#parar de tentar usar tambem
-		if (&config(useSelf_item_0) =~ /Aprendiz/) do conf useSelf_item_0 none
 		do conf sitAuto_hp_upper 80
 		do conf getAuto_0 none
+		if (&config(useSelf_item_0) =~ /Aprendiz/) do conf useSelf_item_0 none
 	}
 }
 
