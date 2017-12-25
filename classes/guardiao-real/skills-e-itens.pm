@@ -23,7 +23,8 @@ automacro configurarHolyCross {
 		do conf attackSkillSlot_0_sp >= 20
 		do conf attackSkillSlot_0_maxUses 1
 		do conf attackSkillSlot_0_maxAttempts 3
-		do conf attackSkillSlot_1_inLockOnly 1
+		do conf attackSkillSlot_0_inLockOnly 1
+		do conf attackSkillSlot_0_notMonsters Argos
 	}
 }
 
