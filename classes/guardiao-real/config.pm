@@ -7,7 +7,7 @@ sub configurarBuild {
         skillsClasse1T => 'SM_RECOVERY 10, SM_PROVOKE 9, SM_BASH 10, SM_ENDURE 10, SM_MAGNUM 10',
         skillsClasse2T => '',
         skillsClasse3 => '',
-        statsPadrao => '10 dex, 15 agi, 20 dex, 20 agi, 20 str, 30 dex, 30 str, 40 dex, 20 vit, 40 str, 60 dex, 50 str, 20 int, 60 str, 70 str, 70 dex, 40 int, 40 vit, 50 int, 80 str, 75 dex, 90 str'
+        statsPadrao => '10 dex, 15 agi, 20 dex, 20 agi, 20 str, 30 dex, 30 str, 40 dex, 20 vit, 40 str, 60 dex, 50 str, 20 int, 65 str, 40 int, 40 vit, 50 int, 80 str, 75 dex, 90 str'
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
     $eventMacro->set_full_hash('configsBuild', \%configsBuild);
@@ -32,8 +32,8 @@ sub extrairMapasDeUp {
         {lvlMin => 46, lvlMax => 53, lockMap => 'iz_dun00',   saveMap => 'izlude'},
         {lvlMin => 54, lvlMax => 59, lockMap => 'iz_dun02',   saveMap => 'izlude'},
         {lvlMin => 60, lvlMax => 70, lockMap => 'moc_fild17', saveMap => 'morocc'},
-        {lvlMin => 71, lvlMax => 79, lockMap => 'mjolnir_11', saveMap => 'prontera'},
-        {lvlMin => 80, lvlMax => 98, lockMap => 'gl_church',  saveMap => 'geffen'}
+        {lvlMin => 71, lvlMax => 74, lockMap => 'mjolnir_11', saveMap => 'prontera'},
+        {lvlMin => 75, lvlMax => 98, lockMap => 'gl_church',  saveMap => 'geffen'}
     ];
 	
 	
