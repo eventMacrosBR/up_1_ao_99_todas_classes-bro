@@ -24,10 +24,16 @@ automacro virarTemplario_Começo {
 	JobLevel = 50
 	JobID $paramsClasses{idC1}
 	exclusive 1
-	QuestInactive 3006
-	QuestInactive 3007
-	QuestInactive 3008
-	run-once 1 #não gosto de fazer isso mas é a melhor opção
+	QuestInactive 3006 #
+	QuestInactive 3007 #
+	QuestInactive 3008 #
+	QuestInactive 3009 #
+	QuestInactive 3010 # TODAS SÃO QUESTS DE TEMPLARIO
+	QuestInactive 3011 #
+	QuestInactive 3012 #
+	QuestInactive 3013 #
+	QuestInactive 3014 #
+	QuestInactive 3015 #
 	NpcNear /Senior Crusader/
 	call {
 		do talk $.NpcNearLastBinId
@@ -385,8 +391,10 @@ automacro virarTemplario_Matarbixo_irAteNpc {
 	QuestActive 3013, 3014
 	InInventoryID 523 >= 1 #água benta, quando tiver 1 ou mais
 	exclusive 1
+	NotInMap job_cru
 	NpcNotNear /Patron/
 	call {
+		do conf BetterShopper_on none
 		do move prt_castle 35 151 &rand(2,5)
 	}
 }
@@ -479,6 +487,8 @@ automacro virarTemplario_matarbixs_falhei {
 		log ===================================
 		]
 		do conf lockMap none
+		do conf lockMap_x none
+		do conf lockMap_y none
 		do conf questTemplario none
 	}
 }
@@ -490,6 +500,10 @@ automacro virarTemplario_final_irAteNpc {
 	JobID $paramsClasses{idC1}
 	NpcNotNear /Senior Crusader/
 	call {
+		do conf lockMap none
+		do conf lockMap_x none
+		do conf lockMap_y none
+		do conf questTemplario none
 		do move prt_castle 45 169 &rand(2,5)
 	}
 }
