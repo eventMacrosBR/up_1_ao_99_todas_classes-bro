@@ -55,21 +55,23 @@ automacro virarTemplario_PegarItens {
 	ConfigKeyNot questTemplario jaColeteiOsItens
 	call {
 		do conf -f virarClasse2 true
-		$bandagem = Bandagem Estragada
-		$lampiao = Lampião
+		$qtdBandagem = &invamount(Bandagem Estragada)
+		$qtdLampiao = &invamount(Lampião)
 
-		if (&invamount($bandagem) < 10) {
+		if ( $qtdBandagem < 10 ) {
 			#primeiro item a pegar, depois pega o outro
-			$mapaDesejado = moc_pryd03
-			$nomeDoItem = $bandagem
+			$nomeDoItem = Bandagem Estragada
+			if (&config(lockMap) != moc_pryd03) do conf lockMap moc_pryd03
+			if (&config(attackAuto) != 2) call voltarAtacar
 			do mconf 1191 1 0 0 #mimico
-		} elsif (&invamount($bandagem) >= 10 && &invamount($lampiao) < 10) {
+		} elsif ( $qtdBandagem >= 10 && $qtdLampiao < 10) {
 			#quando já tiver 10 bandagens, ele vai pegar os lampiao
-			$mapaDesejado = mjo_dun02
-			$nomeDoItem = $lampiao
+			$nomeDoItem = Lampião
+			if (&config(lockMap) != mjo_dun02) do conf lockMap mjo_dun02
+			if (&config(attackAuto) != 2) call voltarAtacar
 			do mconf 1145 0 0 0 #Martin
 			do mconf 1121 0 0 0 #Giearth
-		} elsif (&invamount($bandagem) >= 10 && &invamount($lampiao) >= 10) {
+		} elsif ( $qtdBandagem >= 10 && $qtdLampiao >= 10) {
 			#se já tiver todos os itens, tá na hora!
 			log ====================================
 			log Já coletei todos os itens, 
@@ -80,12 +82,11 @@ automacro virarTemplario_PegarItens {
 			stop
 		}
 
-		if (&config(lockMap) != $mapaDesejado) do conf lockMap $mapaDesejado
-		if (&config(attackAuto) != 2) call voltarAtacar
+
 		[
-		log ==============================================
-		log Estou coletando $nomeDoItem, já tenho &invamount($nomeDoItem)
-		log ==============================================
+		log ===================================================
+		log = Estou coletando $nomeDoItem, já tenho &invamount($nomeDoItem)
+		log ===================================================
 		]
 	}
 }
@@ -98,6 +99,7 @@ automacro virarTemplario_ColeteiTodosOsItens_IndoProNpc {
 	QuestActive 3006, 3007, 3008
 	NpcNotNear /Senior Crusader/
 	call {
+		do conf lockMap none
 		do move prt_castle 45 169 &rand(2,5)
 	}
 }
@@ -139,19 +141,41 @@ automacro virarTemplario_comprarRosário_jaComprado {
 	}
 }
 
+automacro virarTemplario_ComprarHiper_poucoZeny {
+	InInventoryID 14586 = 0 #Doce Hiper Açucarado
+	ConfigKeyNot BetterShopper_0 Doce Hiper Açucarado
+	exclusive 1
+	priority -3
+	Zeny < 40000
+	QuestActive 3009
+	timeout 30
+	call {
+		[
+		log ===================================
+		log = Não tenho zeny Suficiente Pra 
+		log = Comprar hiper, melhor me dar zeny
+		log ===================================
+		]
+		do conf BetterShopper_0 none
+	}
+}
+
 automacro virarTemplario_ComprarHiper {
 	InInventoryID 14586 = 0 #Doce Hiper Açucarado
 	ConfigKeyNot BetterShopper_0 Doce Hiper Açucarado
 	exclusive 1
-	Zeny > 100000
+	priority -3
+	Zeny >= 40000
 	QuestActive 3009
 	call {
 		do conf lockMap prontera
 		do conf route_randomWalk 1
 		do conf route_randomWalk_inTown 1
 		call pararDeAtacar
-		adicionaBetterShopper()
-		do reload config
+		if (checarSeExisteNoConfig("BetterShopper_0") = nao) {
+			adicionaBetterShopper()
+			do reload config
+		}
 		do conf BetterShopper_0 Doce Hiper Açucarado
 		do conf BetterShopper_0_maxPrice 60000
 		do conf BetterShopper_0_maxAmount 1
@@ -160,24 +184,26 @@ automacro virarTemplario_ComprarHiper {
 	}
 }
 
+
+
 automacro virarTemplario_ComprarPotBranca {
 	InInventoryID 504 = 0 #Poção Branca
 	ConfigKeyNot BetterShopper_1 Poção Branca
 	exclusive 1
-	Zeny > 35000
+	priority -2
 	QuestActive 3009
 	call {
 		do conf lockMap prontera
 		do conf route_randomWalk 1
 		do conf route_randomWalk_inTown 1
 		call pararDeAtacar
-		if (&config(BetterShopper_1) != Poção Branca) {
+		if (checarSeExisteNoConfig("BetterShopper_1") = nao) {
 			adicionaBetterShopper()
 			do reload config	
 		}
 		do conf BetterShopper_1 Poção Branca
 		do conf BetterShopper_1_maxPrice 1100
-		do conf BetterShopper_1_maxAmount 30
+		do conf BetterShopper_1_maxAmount 20
 		do conf BetterShopper_1_disabled 0
 		do conf -f BetterShopper_on 1
 	}
@@ -187,14 +213,14 @@ automacro virarTemplario_ComparBalaDeGuaraná {
 	InInventoryID 12414 = 0 #Bala de Guaraná
 	QuestActive 3009
 	exclusive 1
+	priority -1
 	ConfigKeyNot BetterShopper_2 Bala de Guaraná
-	Zeny > 3000
 	call {
 		do conf lockMap prontera
 		do conf route_randomWalk 1
 		do conf route_randomWalk_inTown 1
 		call pararDeAtacar
-		if (&config(BetterShopper_2) != Bala de Guaraná) {
+		if (checarSeExisteNoConfig("BetterShopper_2") = nao) {
 			adicionaBetterShopper()
 			do reload config
 		}
@@ -518,6 +544,7 @@ automacro virarTemplario_final {
 		do talk $.NpcNearLastBinId	
 	}
 }
+
 #questionario
 #r1 = abençoado
 #r2 = 50%
