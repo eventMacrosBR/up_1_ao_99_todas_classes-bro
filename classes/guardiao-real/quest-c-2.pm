@@ -454,6 +454,28 @@ automacro virarTemplario_matarBixos_dentroDoMapa_correr {
 		do move 167 178
 	}
 }
+
+automacro virarTemplario_final_irAteNpc {
+	QuestActive 3015
+	exclusive 1
+	NotInMap job_cru
+	JobID $paramsClasses{idC1}
+	NpcNotNear /Senior Crusader/
+	call {
+		do move prt_castle 45 169 &rand(2,5)
+	}
+}
+
+automacro virarTemplario_final {
+	QuestActive 3015
+	exclusive 1
+	NotInMap job_cru
+	JobID $paramsClasses{idC1}
+	NpcNear /Senior Crusader/
+	call {
+		do talk $.NpcNearLastBinId	
+	}
+}
 #questionario
 #r1 = abençoado
 #r2 = 50%
