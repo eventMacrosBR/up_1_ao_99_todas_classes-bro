@@ -240,6 +240,7 @@ automacro virarTemplario_FalarComCaraNaPrisão_IndoAteEle {
 	InInventoryID 504 > 10 #Poção Branca
 	IsEquippedID rightAccessory 2608 #Rosário
 	call {
+		do conf BetterShopper_on none
 		do move prt_castle 164 32 &rand(4,7)
 	}
 }
@@ -379,7 +380,7 @@ automacro virarTemplario_questionario {
 		do talk resp 4
 		do talk $.NpcNearLastBinId
 		do talk resp /abençoado|3|ísis|sagrado/i #1
-		do talk resp /50|440|tsurugi/i #2
+		do talk resp /50|440|cruzada/i #2
 		do talk resp /monge|21|dourado/i #3
 		do talk resp /prisioneiro|zéfiro|Marionete/i #4
 		do talk resp /drake|2|Ghostring|marionete/i #5
@@ -531,6 +532,16 @@ automacro virarTemplario_final_irAteNpc {
 		do conf lockMap_y none
 		do conf questTemplario none
 		do move prt_castle 45 169 &rand(2,5)
+	}
+}
+
+automacro virarTemplario_termineiDeMatar {
+	QuestActive 3015
+	exclusive 1
+	InMap job_cru
+	JobID $paramsClasses{idC1}
+	call {
+		do move job_cru 167 178
 	}
 }
 
