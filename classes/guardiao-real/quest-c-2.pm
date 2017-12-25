@@ -359,7 +359,7 @@ automacro virarTemplario_questionario {
 	}
 }
 
-automacro virarTemplario_FaseFinalMatarbixo_ComprarAgua {
+automacro virarTemplario_Matarbixo_ComprarAgua {
 	QuestActive 3013
 	exclusive 1
 	InInventoryID 523 = 0 #água benta, quando não tiver
@@ -381,17 +381,79 @@ automacro virarTemplario_FaseFinalMatarbixo_ComprarAgua {
 	}
 }
 
-automacro virarTemplario_FaseFinalMatarbixo_irAteNpc {
+automacro virarTemplario_Matarbixo_irAteNpc {
 	QuestActive 3013
 	InInventoryID 523 >= 1 #água benta, quando tiver 1 ou mais
 	exclusive 1
-	NpcNotNear /Bliant/
+	NpcNotNear /Patron/
 	call {
 		do move prt_castle 35 151 &rand(2,5)
 	}
 }
 
+automacro virarTemplario_Matarbixo {
+	QuestActive 3013
+	InInventoryID 523 >= 1 #água benta, quando tiver 1 ou mais
+	IsEquippedID rightAccessory 2608 #Rosário
+	exclusive 1
+	NpcNear /Patron/
+	call {
+		do talk $.NpcNearLastBinId
+		do talk resp 0
+	}
+}
 
+
+
+
+automacro virarTemplario_manterRosarioSempreEquipado {
+	JobID $paramsClasses{idC1}
+	JobLevel = 50
+	exclusive 1
+	timeout 120
+	InInventoryID 2608 >= 1 #Rosário
+	IsNotEquippedID rightAccessory 2608 #Rosário
+	call {
+		do eq rightAccessory &inventory(2608)
+	}
+}
+
+automacro virarTemplario_matarBixos_dentroDoMapa_irNoChat {
+	InMap job_cru
+	QuestActive 3014
+	exclusive 1
+	call {
+		log estou no lugar, pegar informações
+		do north
+		do north
+		do north
+	}
+}
+
+automacro virarTemplario_matarBixos_dentroDoMapa {
+	ChatRoomNear /Waiting|Espera/
+	exclusive 1
+	InMap job_cru
+	QuestActive 3014
+	priority -5
+	ConfigKeyNot questTemplario entreiNoChat
+	call {
+		do chat join 0
+		do conf -f questTemplario entreiNoChat
+	}
+}
+
+automacro virarTemplario_matarBixos_dentroDoMapa_correr {
+	IsInCoordinate 160..175 15..178
+	InMap job_cru
+	QuestActive 3014
+	exclusive 1
+	call {
+		do conf lockMap job_cru
+		call voltarAtacar
+		do move 167 178
+	}
+}
 #questionario
 #r1 = abençoado
 #r2 = 50%
