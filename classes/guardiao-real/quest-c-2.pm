@@ -375,14 +375,14 @@ automacro virarTemplario_Matarbixo_ComprarAgua {
 		do conf route_randomWalk_inTown 1
 		do conf BetterShopper_0 Água Benta
 		do conf BetterShopper_0_maxAmount 2
-		do conf BetterShopper_0_maxPrice 1300
+		do conf BetterShopper_0_maxPrice 2000
 		do conf BetterShopper_0_disabled 0
 		do conf BetterShopper_on 1
 	}
 }
 
 automacro virarTemplario_Matarbixo_irAteNpc {
-	QuestActive 3013
+	QuestActive 3013, 3014
 	InInventoryID 523 >= 1 #água benta, quando tiver 1 ou mais
 	exclusive 1
 	NpcNotNear /Patron/
@@ -392,7 +392,7 @@ automacro virarTemplario_Matarbixo_irAteNpc {
 }
 
 automacro virarTemplario_Matarbixo {
-	QuestActive 3013
+	QuestActive 3013, 3014
 	InInventoryID 523 >= 1 #água benta, quando tiver 1 ou mais
 	IsEquippedID rightAccessory 2608 #Rosário
 	exclusive 1
@@ -402,9 +402,6 @@ automacro virarTemplario_Matarbixo {
 		do talk resp 0
 	}
 }
-
-
-
 
 automacro virarTemplario_manterRosarioSempreEquipado {
 	JobID $paramsClasses{idC1}
@@ -422,8 +419,14 @@ automacro virarTemplario_matarBixos_dentroDoMapa_irNoChat {
 	InMap job_cru
 	QuestActive 3014
 	exclusive 1
+	ConfigKeyNot questTemplario entreiNoChat
 	call {
-		log estou no lugar, pegar informações
+		[
+		log ===================================
+		log = estou no mapa , tenho que falar com o npc
+		log = e entrar no chat
+		log ===================================
+		]
 		do north
 		do north
 		do north
@@ -439,19 +442,44 @@ automacro virarTemplario_matarBixos_dentroDoMapa {
 	ConfigKeyNot questTemplario entreiNoChat
 	call {
 		do chat join 0
+		[
+		log ===================================
+		log = entrei no chat, devo ir agora matar os bixos
+		log ===================================
+		]
 		do conf -f questTemplario entreiNoChat
 	}
 }
 
 automacro virarTemplario_matarBixos_dentroDoMapa_correr {
-	IsInCoordinate 160..175 15..178
+	IsInCoordinate 160..175 15..180
+	ConfigKey questTemplario entreiNoChat
 	InMap job_cru
 	QuestActive 3014
+	ConfigKeyNot lockMap job_cru
 	exclusive 1
 	call {
 		do conf lockMap job_cru
+		do conf lockMap_x 167
+		do conf lockMap_y 178
 		call voltarAtacar
-		do move 167 178
+	}
+}
+
+automacro virarTemplario_matarbixs_falhei {
+	NotInMap job_cru
+	QuestActive 3014
+	ConfigKey questTemplario entreiNoChat
+	exclusive 1
+	call {
+		[
+		log ===================================
+		log = falhei em matar os monstros...
+		log = vou comprar agua benta e começar denovo
+		log ===================================
+		]
+		do conf lockMap none
+		do conf questTemplario none
 	}
 }
 
