@@ -52,3 +52,25 @@ automacro configurarPotBranca {
 	}
 }
 
+automacro pegarPeco {
+	SkillLevel KN_CAVALIERMASTERY = 5
+	exclusive 1
+	StatusInactiveHandle EFST_RIDING
+	NpcNotNear /Peco Peco/
+	Zeny >= 3500
+	call {
+		do move prontera 232 318 &rand(3,7)
+	}
+}
+
+automacro pegarPeco {
+	SkillLevel KN_CAVALIERMASTERY = 5
+	exclusive 1
+	StatusInactiveHandle EFST_RIDING
+	NpcNear /Peco Peco/
+	Zeny >= 3500
+	call {
+		do talk $.NpcNearLastBinId
+		do talk resp 0
+	}
+}
