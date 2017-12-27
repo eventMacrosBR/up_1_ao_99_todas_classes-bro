@@ -41,7 +41,7 @@ automacro virarAlquimistaInicio_IrNoNpc {
 #################################################################
 
 automacro virarAlquimistaInicio {
-	JobID 5 #Mercador
+	JobID $paramsClasses{idC1}
 	JobLevel = 50
 	priority 2
     timeout 30
@@ -53,6 +53,7 @@ automacro virarAlquimistaInicio {
 		do talk resp 1
 		do talk resp 0
 		do talk resp 0
+		do conf virarAlquimista true
 	}
 }
 
