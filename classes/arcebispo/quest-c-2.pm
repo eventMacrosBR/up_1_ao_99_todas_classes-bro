@@ -27,7 +27,7 @@ automacro Virar Sacer 1 {
 
 automacro Virar Sacer 2 {
     JobID $paramsClasses{idC1}
-    location job_prist
+    InMap job_prist
     exclusive 1
     timeout 60
     call {
@@ -60,16 +60,5 @@ automacro Virar Sacer 2 {
         do talknpc 27 24 c r0 c r1 c r0 c r0 c r1 c r1 c r0 c r0 c
         pause 1
         do talknpc 16 41 c
-    }
-}
-
-automacro vireiSacer {
-    JobId $paramsClasses{idC1}
-    exclusive 1
-    map prt_church
-    JobLevel = 1
-    run-once 1
-    call {
-        do eq @inventory(Bible [2])
     }
 }
