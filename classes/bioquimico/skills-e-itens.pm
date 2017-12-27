@@ -22,3 +22,5 @@ automacro habilitarNovamentePotLaranja {
 		do conf buyAuto_0_disabled 0
 	}
 }
+
+

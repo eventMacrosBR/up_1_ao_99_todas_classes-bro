@@ -53,7 +53,7 @@ automacro virarAlquimistaInicio {
 		do talk resp 1
 		do talk resp 0
 		do talk resp 0
-		do conf virarAlquimista true
+		do conf -f virarAlquimista true
 	}
 }
 
@@ -298,7 +298,7 @@ automacro virarAlquimista_naoTenhoAFlor {
 	call {
 		call pararDeAtacar
 		do conf lockMap none
-		if ( recursoTecnicoPaliativo() = 1) { #Significa que o BetterShopper está ativado
+		if ( recursoTecnicoPaliativo() = 1 ) { #Significa que o BetterShopper está ativado
 			do conf lockMap prontera
 			do conf route_randomWalk 1
 			do conf route_randomWalk_inTown 1
@@ -306,7 +306,7 @@ automacro virarAlquimista_naoTenhoAFlor {
 			do conf itemsGatherAuto 0
 			do conf itemsMaxWeight_sellOrStore 40
 		
-			if (checarSeExisteComando(BetterShopper_0) = 0) {
+			if ( checarSeExisteComando(BetterShopper_0) = 'nao' ) {
 				#Se o bloco não existir, vamos criar ele!
 				adicionaBetterShopper()
 				pause 1
@@ -435,6 +435,7 @@ automacro virarAlquimista_euTenhoAFlor {
 		do conf -f questAlquimista jaPegueiAFlor
 	}
 }
+
 automacro virarAlquimista_indoEntregaAFlor {
 	ConfigKey questAlquimista jaPegueiAFlor
 	timeout 60
