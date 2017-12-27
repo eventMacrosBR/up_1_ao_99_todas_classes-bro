@@ -77,3 +77,27 @@ automacro pegarPeco {
 	}
 }
 
+automacro lockMap_foraDele {
+	ConfigKey lockMap gl_church
+	ConfigKeyNot attackAuto -1
+	InLockMap 0
+	exclusive 1
+	call {
+		do conf attackAuto -1
+		do conf itemsTakeAuto 0
+		do conf itemsGatherAuto 0
+	}
+}
+
+automacro lockMap_dentroDele {
+	ConfigKey lockMap gl_church
+	ConfigKeyNot attackAuto 2
+	InLockMap 1
+	exclusive 1
+	call {
+		do conf attackAuto 2
+		do conf itemsTakeAuto 2
+		do conf itemsGatherAuto 2
+	}
+}
+
