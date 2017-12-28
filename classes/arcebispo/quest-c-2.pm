@@ -10,7 +10,7 @@ sub initParamsQuestClasse2 {
 automacro VirarSacer1 {
     JobID $paramsClasses{idC1}
     JobLevel = 50
-    priority 2
+    priority -2
     run-once 1
     call {
         do conf route_maxWarpFee none
@@ -18,16 +18,17 @@ automacro VirarSacer1 {
         do conf route_teleport none
         do conf lockMap none
         do conf route_randomWalk 0
-        do move prt_church 16 39
-        do talknpc 16 41 c r0 c r0 c r0 c  #Bispo da Guilda
+        do move prt_church 16 41 &rand(3,6)
+        do talknpc 16 41 r0 r0 r0  #Bispo da Guilda
         pause 60
         lock VirarSacer1
     }
 }
 
-automacro Virar Sacer 2 {
+automacro VirarSacer2 {
     JobID $paramsClasses{idC1}
     InMap job_prist
+    JobLevel = 50
     exclusive 1
     timeout 60
     macro_delay 4
