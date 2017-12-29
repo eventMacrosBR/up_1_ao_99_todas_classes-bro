@@ -1,6 +1,5 @@
 sub initParamsQuestClasse1T {
 		my %paramsQuestClasse1T = (
-		nomeClasse => "mercador",
 		npc => '53 43',
 		mapa => 'alberta_in',
 		sequenciaConversa => '', #não sabemos ainda
