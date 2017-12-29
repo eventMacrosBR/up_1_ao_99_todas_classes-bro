@@ -55,7 +55,7 @@ automacro init {
 		initParamsQuestClasse1T()
 		
 		# Esse sub configura os itens da quest de classe 2 (para não vender nem guardar)
-		initParamsQuestClasse2()
+		call initParamsQuestClasse2
 		
 		# Esse sub gera a hash %paramsQuestClasse2T com a seguinte key:
 		# $paramsQuestClasse2T{npc}
