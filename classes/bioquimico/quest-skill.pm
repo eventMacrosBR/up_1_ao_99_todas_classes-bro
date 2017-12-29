@@ -43,7 +43,8 @@ automacro questBioetica_naotenhoZenyNemPraComecar {
 		do conf -f quest_skill true
 		do conf -f passoQuestBioetica começo
 		call voltarAtacar
-		call configurarMapa "payon" "pay_fild09"
+		call SetSaveIn payon
+		do conf LockMap pay_fild09
 	}
 }
 
