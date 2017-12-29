@@ -1,13 +1,12 @@
 sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz => 'NV_BASIC 9',
-        skillsClasse1 => 'AL_HEAL 10, AL_INCAGI 10, AL_DP 9, AL_BLESSING 10, AL_ANGELUS 10',
+        skillsClasse1 => 'AL_HEAL 10, AL_INCAGI 10, AL_DP 3, AL_BLESSING 10, AL_ANGELUS 10, AL_DP 3, AL_RUWACH 1, AL_HOLYWATER 1, AL_PNEUMA 1',
         skillsClasse2 => '',
         skillsClasse1T => '',
         skillsClasse2T => '',
         skillsClasse3 => '',
-        statsPadrao => '10 vit, 20 int, 15 dex, 20 vit, 30 int, 25 dex, 30 vit, 40 int, 35 dex, 40 vit, 50 int, 40 dex, 60 int'
-        #TODO
+        statsPadrao => '10 vit, 20 int, 15 dex, 20 vit, 25 dex, 30 int, 30 vit, 35 dex, 40 int, 40 vit, 50 int, 40 dex, 60 int'
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
     $eventMacro->set_full_hash('configsBuild', \%configsBuild);
