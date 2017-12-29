@@ -885,6 +885,7 @@ automacro mateiSalgueiros {
 automacro completeiTodasAsQuests {
 	JobLevel = 10
 	BaseLevel < 12
+	BaseLevel >= 9
 	ConfigKeyNot quest_atual todas_completadas
 	QuestInactive 7127
 	QuestInactive 7123
