@@ -14,7 +14,7 @@ automacro questBioetica_naotenhoZenyNemPraComecar {
 	NotInMap lhz_in02
 	NotInMap lhz_in03
 	Zeny < 25000
-	ConfigKey lockMap pay_fild09
+	ConfigKeyNot lockMap pay_fild09
 	SkillLevel AM_BIOETHICS != 1
 	exclusive 1
 	timeout 30
