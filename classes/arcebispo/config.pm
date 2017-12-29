@@ -1,12 +1,12 @@
 sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz => 'NV_BASIC 9',
-        skillsClasse1 => '',
+        skillsClasse1 => 'AL_HEAL 10, AL_INCAGI 10, AL_DP 9, AL_BLESSING 10, AL_ANGELUS 10',
         skillsClasse2 => '',
         skillsClasse1T => '',
         skillsClasse2T => '',
         skillsClasse3 => '',
-        statsPadrao => ''
+        statsPadrao => '10 vit, 20 int, 15 dex, 20 vit, 30 int, 25 dex, 30 vit, 40 int, 35 dex, 40 vit, 50 int, 40 dex, 60 int'
         #TODO
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
