@@ -1,12 +1,12 @@
 sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz => 'NV_BASIC 9',
-        skillsClasse1 => 'AL_HEAL 10, AL_INCAGI 10, AL_DP 3, AL_BLESSING 10, AL_ANGELUS 10, AL_DP 3, AL_RUWACH 1, AL_HOLYWATER 1, AL_PNEUMA 1',
+        skillsClasse1 => 'AL_HEAL 10, AL_INCAGI 10, AL_DP 3, AL_ANGELUS 5, AL_DP 6, AL_BLESSING 5, AL_ANGELUS 10, AL_BLESSING 10, AL_RUWACH 1, AL_HOLYWATER 1, AL_PNEUMA 1',
         skillsClasse2 => '',
         skillsClasse1T => '',
         skillsClasse2T => '',
         skillsClasse3 => '',
-        statsPadrao => '10 vit, 20 int, 15 dex, 20 vit, 25 dex, 30 int, 30 vit, 35 dex, 40 int, 40 vit, 50 int, 40 dex, 60 int'
+        statsPadrao => '10 vit, 20 int, 15 dex, 20 vit, 25 dex, 30 int, 30 vit, 35 dex, 40 int, 45 vit, 50 int, 40 dex, 60 int, 75 vit, 95 int, 56 dex'
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
     $eventMacro->set_full_hash('configsBuild', \%configsBuild);
@@ -26,7 +26,7 @@ sub extrairMapasDeUp {
     [
         {lvlMin => 1 , lvlMax => 11, lockMap => 'pay_fild01', saveMap => 'payon'},
         {lvlMin => 12, lvlMax => 25, lockMap => 'pay_fild08', saveMap => 'payon'},
-        {lvlMin => 26, lvlMax => 40, lockMap => 'pay_dun00',  saveMap => 'payon'},
+        {lvlMin => 26, lvlMax => 40, lockMap => 'pay_fild07',  saveMap => 'payon'},
         {lvlMin => 41, lvlMax => 45, lockMap => 'pay_fild09', saveMap => 'payon'},
         {lvlMin => 46, lvlMax => 53, lockMap => 'iz_dun00',   saveMap => 'izlude'},
         {lvlMin => 54, lvlMax => 59, lockMap => 'iz_dun02',   saveMap => 'izlude'},
