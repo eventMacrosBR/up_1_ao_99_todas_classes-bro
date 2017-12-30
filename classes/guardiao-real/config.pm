@@ -3,7 +3,7 @@ sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz => 'NV_BASIC 9',
         skillsClasse1 => 'SM_RECOVERY 10, SM_PROVOKE 9, SM_BASH 10, SM_ENDURE 10, SM_MAGNUM 10',
-        skillsClasse2 => 'CR_TRUST 7, CR_HOLYCROSS 10, AL_CURE 1, KN_RIDING 1, KN_CAVALIERMASTERY 5, KN_SPEARMASTERY 10, AL_DP 5',
+        skillsClasse2 => 'CR_TRUST 7, CR_HOLYCROSS 10, AL_CURE 1, KN_RIDING 1, KN_CAVALIERMASTERY 5, KN_SPEARMASTERY 10, AL_DP 3, AL_DEMONBANE 5, CR_TRUST 10, AL_HEAL 5',
         skillsClasse1T => 'SM_RECOVERY 10, SM_PROVOKE 9, SM_BASH 10, SM_ENDURE 10, SM_MAGNUM 10',
         skillsClasse2T => '',
         skillsClasse3 => '',
