@@ -86,7 +86,6 @@ automacro virarArruaceiro_etapa2_FalarComSmith {
 	JobID $paramsClasses{idC1}
 	QuestActive 2017
 	exclusive 1
-	run-once 1
 	call {
 		do move in_rogue &rand(370,373) &rand(20,24)
 		do talk &npc ( 376 23 ) #Smith
@@ -288,15 +287,15 @@ automacro virarArruaceiro_etapa4 {
 		switch ($.QuestActiveLastID) {
 			case (= 2022) { #opção 1
 				do conf -f questArruaceiro 1
-				call irAteLocal_questArruaceiro "cmd_fild09 107 195" "1" "2" "1" "0" #local e respostas apropriadas
+				call irAteLocal_questArruaceiro "cmd_fild09" "107 195" "1" "2" "1" "0" #local e respostas apropriadas
 			}
 			case (= 2023) { #opção 2
 				do conf -f questArruaceiro 2
-				call irAteLocal_questArruaceiro "cmd_fild04 304 180" "2" "1" "1" "2" #local e respostas apropriadas
+				call irAteLocal_questArruaceiro "cmd_fild04" "304 180" "2" "1" "1" "2" #local e respostas apropriadas
 			}
 			case (= 2024) { #opção 3
 				do conf -f questArruaceiro 3
-				call irAteLocal_questArruaceiro "cmd_fild09 335 143" "0" "2" "4" "0" #local e respostas apropriadas
+				call irAteLocal_questArruaceiro "cmd_fild09" "335 143" "0" "2" "4" "0" #local e respostas apropriadas
 			}
 		}
 	}
@@ -305,18 +304,24 @@ automacro virarArruaceiro_etapa4 {
 macro irAteLocal_questArruaceiro {
     [
     log ================================
-    log =Mapa pra qual está se movendo: '$.param[0]'
-    log =Sequência de conversação: '$.param[1] $.param[2] $.param[3] $.param[4]'
+    log =Mapa pra qual está se movendo: '$.param[0] $.param[1]'
+    log =Sequência de conversação: 'resp $.param[2], resp $.param[3], resp $.param[4], resp $.param[5]'
     log ================================
     ]
-    ## $.param[0] tem como valor cidade e coordenadas
-    ## $.param[1] até $.param[4] tem como valor as respostas corretas pra entrar na casa
+    ## $.param[0] tem como valor cidade
+    ## $.param[1] tem como valor as coordenadas
+    ## $.param[2] até $.param[5] tem como valor as respostas corretas pra entrar na casa
 
-	do move $.param[0]
-	do talk resp $.param[1]
+    if ($.pos = $.param[1]) {
+		do north
+		do west
+	}
+
+	do move $.param[0] $.param[1]
 	do talk resp $.param[2]
 	do talk resp $.param[3]
 	do talk resp $.param[4]
+	do talk resp $.param[5]
 	set exclusive 0
 	pause 5
 }
@@ -382,9 +387,9 @@ automacro virarArruaceiro_etapa6_morreuNoLabirinto_hpAlto {
 		# se vc tiver morrido no labirindo, essa macro que vai fazer voce ir la tentar denovo
 		# vai pegar qual o caminho certo e seguir ele
 		switch ( &config(questArruaceiro) ) {
-			case (= 1) call irAteLocal_questArruaceiro "cmd_fild09 107 195" "1" "2" "1" "0"  #local e respostas apropriadas
-			case (= 2) call irAteLocal_questArruaceiro "cmd_fild04 304 180" "2" "1" "1" "2"  #local e respostas apropriadas
-			case (= 3) call irAteLocal_questArruaceiro "cmd_fild09 335 143" "0" "2" "4" "0"  #local e respostas apropriadas
+			case (= 1) call irAteLocal_questArruaceiro "cmd_fild09" "107 195" "1" "2" "1" "0"  #local e respostas apropriadas
+			case (= 2) call irAteLocal_questArruaceiro "cmd_fild04" "304 180" "2" "1" "1" "2"  #local e respostas apropriadas
+			case (= 3) call irAteLocal_questArruaceiro "cmd_fild09" "335 143" "0" "2" "4" "0"  #local e respostas apropriadas
 			else {
 				[
 				log ================================
