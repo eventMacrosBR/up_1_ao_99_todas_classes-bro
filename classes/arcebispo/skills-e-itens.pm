@@ -88,27 +88,6 @@ automacro configurarAL_ANGELUS {
 	}
 }
 
-automacro configurarAL_DP {
-	SkillLevel AL_DP >= 5
-	ConfigKeyNot useSelf_skill_4 AL_DP
-	exclusive 1
-	call {
-		[
-		log ===========================================
-		log =Já tenho a skill Proteção Divina,
-		log =Configurando ela
-		log ===========================================
-		]
-		adicionaUseSelfSkill()
-		do reload config
-		do conf useSelf_skill_4 AL_DP
-		do conf useSelf_skill_4_lvl 6
-		do conf useSelf_skill_4_sp >= 60
-		do conf useSelf_skill_4_whenStatusInactive EFST_DP, EFST_POSTDELAY
-		do conf useSelf_skill_4_disabled 0
-	}
-}
-
 automacro desabilitarPotLaranja {
 	ConfigKey buyAuto_1 Poção Laranja
 	ConfigKeyNot buyAuto_1_disabled 1
