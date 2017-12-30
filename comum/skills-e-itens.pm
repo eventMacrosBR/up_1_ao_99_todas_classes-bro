@@ -35,6 +35,29 @@ automacro configurarPotLaranja {
 	}
 }
 
+automacro desabilitarPotLaranja {
+	ConfigKey buyAuto_1 Poção Laranja
+	ConfigKeyNot buyAuto_1_disabled 1
+	JobID $paramsClasses{idC1}
+	exclusive 1
+	call {
+		log DESABILITANDO COMPRA DE POÇÃO LARANJA
+		log PARA ECONOMIZAR DINHEIRO PRA QUEST 2
+		do conf buyAuto_1_disabled 1
+	}
+}
+
+automacro habilitarNovamentePotLaranja {
+	ConfigKey buyAuto_1 Poção Laranja
+	ConfigKeyNot buyAuto_1_disabled 1
+	JobID $paramsClasses{idC2}
+	exclusive 1
+	call {
+		log HABILITANDO COMPRA DE POÇÃO LARANJA
+		do conf buyAuto_1_disabled 0
+	}
+}
+
 automacro parandoDePegarPotDeAprendiz {
 	InInventoryID 569 < 1
 	InStorageID 569 < 1
