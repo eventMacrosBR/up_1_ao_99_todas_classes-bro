@@ -121,6 +121,7 @@ sub adicionaAttackSkillSlot {
 	print $fh "\tequip_arrow\n";
 	print $fh "\tmanualAI 0\n";
 	print $fh "\tzeny\n";
+	print $fh "\tnotOnAction\n";
 	print $fh "}\n";
 	close ($fh);
 }
@@ -154,6 +155,7 @@ sub adicionaUseSelfSkill {
 	print $fh "\tdisabled 0\n";
 	print $fh "\tinInventory\n";
 	print $fh "\tmanualAI 0\n";
+	print $fh "\tnotOnAction\n";
 	print $fh "}\n";
 	close ($fh);
 }
@@ -184,6 +186,7 @@ sub adicionaUseSelfItem {
 	print $fh "\tdisabled 0\n";
 	print $fh "\tinInventory\n";
 	print $fh "\tmanualAI 0\n";
+	print $fh "\tnotOnAction\n";
 	print $fh "}\n";
 	close ($fh);
 }
