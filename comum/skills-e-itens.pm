@@ -49,7 +49,7 @@ automacro desabilitarPotLaranja {
 
 automacro habilitarNovamentePotLaranja {
 	ConfigKey buyAuto_1 Poção Laranja
-	ConfigKeyNot buyAuto_1_disabled 1
+	ConfigKeyNot buyAuto_1_disabled 0
 	JobID $paramsClasses{idC2}
 	exclusive 1
 	call {
