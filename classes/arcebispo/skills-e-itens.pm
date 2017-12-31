@@ -1,3 +1,5 @@
+	#SKILL NOVIÇO PRA USAR EM SI "AJUDANDO A UPAR SOLO"#
+
 automacro configurarCurar {
     SkillLevel AL_HEAL >= 2
     ConfigKeyNot useSelf_skill_0 AL_HEAL
@@ -9,6 +11,9 @@ automacro configurarCurar {
         log =Configurando ela
         log ===========================================
         ]
+				adicionaUseSelfSkill()
+				pause 1
+                do reload config
         do conf useSelf_skill_0 AL_HEAL
         do conf useSelf_skill_0_lvl 10
         do conf useSelf_skill_0_hp < 70%
@@ -28,9 +33,9 @@ automacro configurarAL_INCAGI {
         log =Configurando ela
         log ===========================================
         ]
-        adicionaUseSelfSkill()
-        pause 1
-        do reload config
+                adicionaUseSelfSkill()
+				pause 1
+                do reload config
         do conf useSelf_skill_1 AL_INCAGI
         do conf useSelf_skill_1_lvl 10
         do conf useSelf_skill_1_sp >= 45
@@ -54,6 +59,7 @@ automacro configurarAL_BLESSING {
         log ===========================================
         ]
                 adicionaUseSelfSkill()
+				pause 1
                 do reload config
         do conf useSelf_skill_3 AL_BLESSING
         do conf useSelf_skill_3_lvl 10
@@ -77,6 +83,7 @@ automacro configurarAngelus {
         log ===========================================
         ]
                 adicionaUseSelfSkill()
+				pause 1
                 do reload config
         do conf useSelf_skill_2 AL_ANGELUS
         do conf useSelf_skill_2_sp >= 50
@@ -88,7 +95,58 @@ automacro configurarAngelus {
   }
 }
 
-	###SKILL PARA ATACAR MONSTROS###
+#SKILL SACERDOTE PRA USAR EM SI "AJUDANDO A UPAR SOLO"#
+
+automacro configurarKyrie Eleison {
+    SkillLevel PR_KYRIE >= 1
+    ConfigKeyNot useSelf_skill_4 PR_KYRIE
+	exclusive 1
+    call {
+        [
+        log ===========================================
+        log =Já tenho a skill Kyrie Eleison,
+        log =Configurando ela
+        log ===========================================
+        ]
+                adicionaUseSelfSkill()
+				pause 1
+                do reload config
+        do conf useSelf_skill_4 PR_KYRIE
+		do conf useSelf_skill_4_lvl 10
+        do conf useSelf_skill_4_sp >= 35
+        do conf useSelf_skill_4_whenStatusInactive EFST_KYRIE, EFST_ASSUMPTIO, EFST_POSTDELAY
+		do conf useSelf_skill_4_notWhileSitting 1
+		do conf useSelf_skill_4_notInTown 1
+		do conf useSelf_skill_4_stopWhenHit 1
+        do conf useSelf_skill_4_disabled 0
+  }
+}
+
+automacro configurarMagnificat {
+    SkillLevel PR_MAGNIFICAT >= 1
+    ConfigKeyNot useSelf_skill_5 PR_MAGNIFICAT
+	exclusive 1
+    call {
+        [
+        log ===========================================
+        log =Já tenho a skill Magnificat,
+        log =Configurando ela
+        log ===========================================
+        ]
+                adicionaUseSelfSkill()
+				pause 1
+                do reload config
+        do conf useSelf_skill_5 PR_MAGNIFICAT
+        do conf useSelf_skill_5_sp >= 40
+        do conf useSelf_skill_5_whenStatusInactive EFST_MAGNIFICAT, EFST_POSTDELAY
+		do conf useSelf_skill_5_notWhileSitting 1
+		do conf useSelf_skill_5_notInTown 1
+		do conf useSelf_skill_5_stopWhenHit 1
+        do conf useSelf_skill_5_disabled 0
+  }
+}
+
+	###SKILL PARA ATACAR MONSTROS SO COM CURA LVL 10###
 
 automacro configurarCurarMortoVivos {
 	SkillLevel AL_HEAL = 10
@@ -101,6 +159,9 @@ automacro configurarCurarMortoVivos {
 		log =Configurando pra usar ela
 		log ===========================================
 		]
+				adicionaUseSelfSkill()
+				pause 1
+                do reload config
 		do conf attackSkillSlot_0 AL_HEAL
 		do conf attackSkillSlot_0_lvl 10
 		do conf attackSkillSlot_0_sp >= 40
@@ -110,6 +171,8 @@ automacro configurarCurarMortoVivos {
 		do conf attackSkillSlot_0_disabled 0
 	}
 }
+
+	#DESABILITA COMPRA DE POÇÃO LARANJA#
 
 automacro desabilitarPotLaranja {
 	ConfigKey buyAuto_1 Poção Laranja
@@ -134,6 +197,9 @@ automacro habilitarNovamentePotLaranja {
 	}
 }
 
+	#MACRO PRA PARAR DE USAR POÇÃO DE APRENDIZ QUANDO JA TIVER CURA LVL 1#
+				#NÃO PARA TOTALMENTE, SO USA QUANDO NESSESSARIO#
+
 automacro diminuirPorcentagemHpAgoraQueTenhoCurar {
     SkillLevel AL_HEAL >= 5
     ConfigKey useSelf_item_0 Poção de Aprendiz
@@ -143,3 +209,4 @@ automacro diminuirPorcentagemHpAgoraQueTenhoCurar {
        do conf useSelf_item_0_hp <= 20%
     }
 }
+
