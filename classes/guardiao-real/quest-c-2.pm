@@ -10,9 +10,16 @@ automacro virarTemplario_Começo_irAoNpc {
 	JobLevel = 50
 	JobID $paramsClasses{idC1}
 	exclusive 1
-	QuestInactive 3006
-	QuestInactive 3007
-	QuestInactive 3008
+	QuestInactive 3006 #
+	QuestInactive 3007 #
+	QuestInactive 3008 #
+	QuestInactive 3009 #
+	QuestInactive 3010 # TODAS SÃO QUESTS DE TEMPLARIO
+	QuestInactive 3011 #
+	QuestInactive 3012 #
+	QuestInactive 3013 #
+	QuestInactive 3014 #
+	QuestInactive 3015 #
 	ConfigKeyNot virarClasse2 true
 	NpcNotNear /Senior Crusader/
 	call {
@@ -143,7 +150,7 @@ automacro virarTemplario_comprarRosário_jaComprado {
 
 automacro virarTemplario_ComprarHiper_poucoZeny {
 	InInventoryID 14586 = 0 #Doce Hiper Açucarado
-	ConfigKeyNot BetterShopper_0 Doce Hiper Açucarado
+	ConfigKey BetterShopper_0 Doce Hiper Açucarado
 	exclusive 1
 	priority -3
 	Zeny < 40000
@@ -156,7 +163,7 @@ automacro virarTemplario_ComprarHiper_poucoZeny {
 		log = Comprar hiper, melhor me dar zeny
 		log ===================================
 		]
-		do conf BetterShopper_0 none
+		do conf BetterShopper_on none
 	}
 }
 
@@ -265,16 +272,14 @@ automacro virarTemplario_FalarComCaraNaPrisão {
 		do conf lockMap none
 		call pararDeAtacarApenasCorrer
 		$blocoJaExiste = checarSeExisteNoConfig("useSelf_item_1")
-		if ($blocoJaExiste = sim) {
-			do conf useSelf_item_1 Poção Branca
-			do conf useSelf_item_1_hp < 60%
-		} else {
+		if ($blocoJaExiste = nao) {
 			adicionaUseSelfItem()
+			pause 1
 			do reload config
-			pause 0.5
-			do conf useSelf_item_1 Poção Branca
-			do conf useSelf_item_1_hp < 60%
 		}
+
+		do conf useSelf_item_1 Poção Branca
+		do conf useSelf_item_1_hp < 60%
 		do talk $.NpcNearLastBinId
 		do talk resp 0
 	}
@@ -333,20 +338,16 @@ automacro virarTemplario_correr_morri_indoTentarDenovo {
 		do conf BetterShopper_1_disabled 1
 		do conf BetterShopper_2_disabled 1		
 		do conf lockMap none
-		do conf route_randomWalk 0
-		do conf route_randomWalk_inTown 0
 		call pararDeAtacarApenasCorrer
 		$blocoJaExiste = checarSeExisteNoConfig("useSelf_item_1")
-		if ($blocoJaExiste = sim) {
-			do conf useSelf_item_1 Poção Branca
-			do conf useSelf_item_1_hp < 60%
-		} else {
+		if ($blocoJaExiste = nao) {
 			adicionaUseSelfItem()
+			pause 1
 			do reload config
-			pause 0.5
-			do conf useSelf_item_1 Poção Branca
-			do conf useSelf_item_1_hp < 60%
 		}
+
+		do conf useSelf_item_1 Poção Branca
+		do conf useSelf_item_1_hp < 60%
 		do talk $.NpcNearLastBinId
 		do talk resp 0
 	}
