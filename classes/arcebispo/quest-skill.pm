@@ -65,7 +65,7 @@ automacro questLuzDivina_comprarRosario {
   ConfigKey quest_skill true
   ConfigKey quest_luz_divina comprar_itens
   InInventoryID 2608 < 1
-  Zenny >= 16000
+  Zeny >= 16000
   exclusive 1
   call {
     do move prt_church 108 124
@@ -81,7 +81,7 @@ automacro questLuzDivina_comprarOpala {
   ConfigKey quest_luz_divina comprar_itens
   ConfigKeyNot BetterShopper_0 Opala
   InInventoryID 727 < 1
-  Zenny >= 10000
+  Zeny >= 10000
   exclusive 1
   call {
     do conf lockMap prontera
@@ -106,7 +106,7 @@ automacro questLuzDivina_comprarCristalAzul {
   ConfigKey quest_luz_divina comprar_itens
   ConfigKeyNot BetterShopper_0 Cristal Azul
   InInventoryID 991 < 1
-  Zenny >= 10000
+  Zeny >= 10000
   exclusive 1
   call {
     do conf lockMap prontera
@@ -153,7 +153,7 @@ automacro questLuzDivina_aprendiLuzDivina {
   ConfigKey quest_skill true
   ConfigKey quest_luz_divina falar_com_npc
   SkillLevel AL_HOLYLIGHT = 1
-  exlusive 1
+  exclusive 1
   call {
     [
 		log ===================================
