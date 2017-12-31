@@ -11,6 +11,7 @@ automacro VirarSacer1 {
     JobID $paramsClasses{idC1}
     JobLevel = 50
     priority -2
+    exclusive 1
     run-once 1
     call {
         do conf route_maxWarpFee none
