@@ -181,6 +181,7 @@ automacro virarTemplario_ComprarHiper {
 		call pararDeAtacar
 		if (checarSeExisteNoConfig("BetterShopper_0") = nao) {
 			adicionaBetterShopper()
+			pause 1
 			do reload config
 		}
 		do conf BetterShopper_0 Doce Hiper Açucarado
@@ -206,6 +207,7 @@ automacro virarTemplario_ComprarPotBranca {
 		call pararDeAtacar
 		if (checarSeExisteNoConfig("BetterShopper_1") = nao) {
 			adicionaBetterShopper()
+			pause 1
 			do reload config	
 		}
 		do conf BetterShopper_1 Poção Branca
@@ -229,6 +231,7 @@ automacro virarTemplario_ComparBalaDeGuaraná {
 		call pararDeAtacar
 		if (checarSeExisteNoConfig("BetterShopper_2") = nao) {
 			adicionaBetterShopper()
+			pause 1
 			do reload config
 		}
 		do conf BetterShopper_2 Bala de Guaraná
@@ -402,6 +405,7 @@ automacro virarTemplario_Matarbixo_ComprarAgua {
 		$configExiste = checarSeExisteNoConfig("BetterShopper_0")
 		if ($configExiste = nao) {
 			adicionaBetterShopper()
+			pause 1
 			do reload config
 		}
 		do conf lockMap prontera

@@ -43,8 +43,12 @@ automacro configurarAfanar {
   ConfigKeyNot attackSkillSlot_1 RG_STEALCOIN
   exclusive 1
 	call {
-        adicionaAttackSkillSlot()
-        do reload config
+		$blocoExiste = checarSeExisteNoConfig("attackSkillSlot_1")
+		if ($blocoExiste = nao ) {
+			adicionaAttackSkillSlot()
+			pause 1
+			do reload config
+		}
 		[
 		log ===========================================
 		log =Já tenho a skill Afanar no 10,
@@ -58,7 +62,7 @@ automacro configurarAfanar {
 		do conf attackSkillSlot_1_maxUses 1
 		do conf attackSkillSlot_1_maxAttempts 2
 		do conf attackSkillSlot_1_disabled 0
-        # Desativar Furto
-        do conf attackSkillSlot_0_disabled 1
+		# Desativar Furto
+		do conf attackSkillSlot_0_disabled 1
 	}
 }

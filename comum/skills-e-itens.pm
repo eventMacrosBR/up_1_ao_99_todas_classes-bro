@@ -13,6 +13,7 @@ automacro configurarPotLaranja {
 		} else {
 			adicionaBuyAuto() #preciso adicionar um bloco novo, porque o bloco
 			#de buyauto padrão não tem o "zeny" como chave, apesar que deveria
+			pause 1
 			do reload config 
 
 			do conf buyAuto_1 Poção Laranja

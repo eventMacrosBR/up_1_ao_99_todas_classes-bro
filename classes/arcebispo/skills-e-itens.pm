@@ -28,8 +28,9 @@ automacro configurarAL_INCAGI {
         log =Configurando ela
         log ===========================================
         ]
-                adicionaUseSelfSkill()
-                do reload config
+        adicionaUseSelfSkill()
+        pause 1
+        do reload config
         do conf useSelf_skill_1 AL_INCAGI
         do conf useSelf_skill_1_lvl 10
         do conf useSelf_skill_1_sp >= 45
