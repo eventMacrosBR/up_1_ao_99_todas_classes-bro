@@ -36,7 +36,7 @@ automacro questLuzDivina_inicioTenhoOsItens {
   }
 }
 
-automacro questLuzDivina_inicioTenhoOsItens {
+automacro questLuzDivina_inicioNaoTenhoOsItensMasTenhoZenys {
   JobID $paramsClasses{idC1}, $paramsClasses{idC2}
   SkillLevel AL_HOLYLIGHT != 1
   BaseLevel >= 30
