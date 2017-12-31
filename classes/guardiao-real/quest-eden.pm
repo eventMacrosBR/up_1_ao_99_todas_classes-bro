@@ -1,7 +1,7 @@
 sub initParamsQuestEden {
     my %paramsQuestEden = (
         armaLevel26e40 => 'espada',
-        armaLevel60 => 'lança',
+        armaLevel60 => 'adaga',
         IDarmaIniciante => 1192,
         IDarmaIntermediario => 1193,
         IDarmaEden => 1434

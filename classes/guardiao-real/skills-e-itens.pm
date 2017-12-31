@@ -25,6 +25,7 @@ automacro configurarHolyCross {
 		do conf attackSkillSlot_0_maxAttempts 3
 		do conf attackSkillSlot_0_inLockOnly 1
 		do conf attackSkillSlot_0_notMonsters Argos
+		do conf attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
 	}
 }
 
@@ -40,6 +41,24 @@ automacro configurarMedicar {
 	}
 }
 
+automacro configurarCura {
+	SkillLevel AL_HEAL >= 1
+	exclusive 1
+	ConfigKeyNot useSelf_skill_1 AL_HEAL
+	call {
+		$blocoExiste = checarSeExisteNoConfig("useSelf_skill_1")
+		if ($blocoExiste = nao) {
+			adicionaUseSelfSkill()
+			pause 1
+			do reload config
+		}
+		do conf useSelf_skill_1 AL_HEAL
+		do conf useSelf_skill_1_hp < 60%
+		do conf useSelf_skill_1_sp >= 40%
+		do conf useSelf_skill_1_whenStatusInactive EFST_POSTDELAY
+		do conf useSelf_skill_1_notOnAction attack
+	}
+}
 automacro configurarPotBranca {
 	ConfigKeyNot useSelf_item_1 504 #Poção Branca
 	exclusive 1
@@ -47,6 +66,7 @@ automacro configurarPotBranca {
 		$blocoExiste = checarSeExisteNoConfig("useSelf_item_1")
 		if ($blocoExiste = nao ) {
 			adicionaUseSelfItem()
+			pause 1
 			do reload config
 		}
 		do conf useSelf_item_1 504 #Poção Branca
