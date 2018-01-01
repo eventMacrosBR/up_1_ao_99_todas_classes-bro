@@ -293,272 +293,272 @@ automacro virarTemplario_correr {
     InMap job_cru
     exclusive 1
     call {
-		[
-		do is &inventory(12414) #Bala de Guaraná
-		do is &inventory(14586) #Doce Hiper Açucarado
-		]
-		do move 98 102
-		if ($.map = prt_castle) {
-			do talk &npc(164 32)
-		} elsif ($.map = job_cru) {
-			do move 98 102
-		} else {
-			log acho que morri...
-			log muita treta vixi
-		}
-	}
+        [
+        do is &inventory(12414) #Bala de Guaraná
+        do is &inventory(14586) #Doce Hiper Açucarado
+        ]
+        do move 98 102
+        if ($.map = prt_castle) {
+            do talk &npc(164 32)
+        } elsif ($.map = job_cru) {
+            do move 98 102
+        } else {
+            log acho que morri...
+            log muita treta vixi
+        }
+    }
 }
 
 automacro virarTemplario_correr_morri_indoTentarDenovo_npcLonge {
-	QuestActive 3010
-	NotInMap job_cru
-	exclusive 1
-	NpcNotNear /Man in Anguish/
-	InInventoryID 14586 > 0 #Doce Hiper Açucarado
-	InInventoryID 504 > 10 #Poção Branca
-	InInventoryID 12414 > 0 #Bala de Guaraná
-	call {
-		do move prt_castle 164 32 &rand(4,7)
-	}
+    QuestActive 3010
+    NotInMap job_cru
+    exclusive 1
+    NpcNotNear /Man in Anguish/
+    InInventoryID 14586 > 0 #Doce Hiper Açucarado
+    InInventoryID 504 > 10 #Poção Branca
+    InInventoryID 12414 > 0 #Bala de Guaraná
+    call {
+        do move prt_castle 164 32 &rand(4,7)
+    }
 }
 
 automacro virarTemplario_correr_morri_indoTentarDenovo {
-	QuestActive 3010
-	NotInMap job_cru
-	exclusive 1
-	NpcNear /Man in Anguish/
-	InInventoryID 14586 > 0 #Doce Hiper Açucarado
-	InInventoryID 504 > 10 #Poção Branca
-	InInventoryID 12414 > 0 #Bala de Guaraná
-	call {
-		log morri no labirinto
-		log vamos tentar denovo!
-		# essa é a parte dificil que ele tem que passar pelos bixos
-		# melhor comprar pot e guaraná
-		
-		do conf BetterShopper_on 0
-		do conf BetterShopper_0_disabled 1
-		do conf BetterShopper_1_disabled 1
-		do conf BetterShopper_2_disabled 1		
-		do conf lockMap none
-		call pararDeAtacarApenasCorrer
-		$blocoJaExiste = checarSeExisteNoConfig("useSelf_item_1")
-		if ($blocoJaExiste = nao) {
-			adicionaUseSelfItem()
-			pause 1
-			do reload config
-		}
+    QuestActive 3010
+    NotInMap job_cru
+    exclusive 1
+    NpcNear /Man in Anguish/
+    InInventoryID 14586 > 0 #Doce Hiper Açucarado
+    InInventoryID 504 > 10 #Poção Branca
+    InInventoryID 12414 > 0 #Bala de Guaraná
+    call {
+        log morri no labirinto
+        log vamos tentar denovo!
+        # essa é a parte dificil que ele tem que passar pelos bixos
+        # melhor comprar pot e guaraná
+        
+        do conf BetterShopper_on 0
+        do conf BetterShopper_0_disabled 1
+        do conf BetterShopper_1_disabled 1
+        do conf BetterShopper_2_disabled 1        
+        do conf lockMap none
+        call pararDeAtacarApenasCorrer
+        $blocoJaExiste = checarSeExisteNoConfig("useSelf_item_1")
+        if ($blocoJaExiste = nao) {
+            adicionaUseSelfItem()
+            pause 1
+            do reload config
+        }
 
-		do conf useSelf_item_1 Poção Branca
-		do conf useSelf_item_1_hp < 60%
-		do talk $.NpcNearLastBinId
-		do talk resp 0
-	}
+        do conf useSelf_item_1 Poção Branca
+        do conf useSelf_item_1_hp < 60%
+        do talk $.NpcNearLastBinId
+        do talk resp 0
+    }
 }
 
 automacro virarTemplario_questionario_indoFalarComNpc {
-	QuestActive 3011
-	NpcNotNear /Crusader/
-	exclusive 1
-	call {
-		do move prt_church 95 127 &rand(2,6)
-	}
+    QuestActive 3011
+    NpcNotNear /Crusader/
+    exclusive 1
+    call {
+        do move prt_church 95 127 &rand(2,6)
+    }
 }
 
 automacro virarTemplario_questionario {
-	QuestActive 3011, 3012
-	NpcNear /Crusader/
-	exclusive 1
-	macro_delay 3
-	call {
-		[
-		log ===============================================================
-		log = pra vc q ta lendo isso
-		log = provavelmente vai dar uns erros bem loko aqui
-		log = se isso acontecer, só esperar, é porque as respostas não estão 100%
-		log = e sempre mudam
-		log = então só espere e observe
-		log ==================================================================
-		]
-		
-		do talk resp 4
-		do talk $.NpcNearLastBinId
-		do talk resp /abençoado|3|ísis|sagrado/i #1
-		do talk resp /50|440|cruzada/i #2
-		do talk resp /monge|21|dourado/i #3
-		do talk resp /prisioneiro|zéfiro|Marionete/i #4
-		do talk resp /drake|2|Ghostring|marionete/i #5
-		do talk resp /zumbi|80|Inferno/i #6
-		do talk resp /meio|aprender|terra/i #7
-		do talk resp /esqueleto|31|cochicho/i #8
-		do talk resp /escudo|maldição|fantasma/i #9
-		do talk resp /munak|guerra|benta/i #10
-	}
+    QuestActive 3011, 3012
+    NpcNear /Crusader/
+    exclusive 1
+    macro_delay 3
+    call {
+        [
+        log ===============================================================
+        log = pra vc q ta lendo isso
+        log = provavelmente vai dar uns erros bem loko aqui
+        log = se isso acontecer, só esperar, é porque as respostas não estão 100%
+        log = e sempre mudam
+        log = então só espere e observe
+        log ==================================================================
+        ]
+        
+        do talk resp 4
+        do talk $.NpcNearLastBinId
+        do talk resp /abençoado|3|ísis|sagrado/i #1
+        do talk resp /50|440|cruzada/i #2
+        do talk resp /monge|21|dourado/i #3
+        do talk resp /prisioneiro|zéfiro|Marionete/i #4
+        do talk resp /drake|2|Ghostring|marionete/i #5
+        do talk resp /zumbi|80|Inferno/i #6
+        do talk resp /meio|aprender|terra/i #7
+        do talk resp /esqueleto|31|cochicho/i #8
+        do talk resp /escudo|maldição|fantasma/i #9
+        do talk resp /munak|guerra|benta/i #10
+    }
 }
 
 automacro virarTemplario_Matarbixo_ComprarAgua {
-	QuestActive 3013
-	exclusive 1
-	InInventoryID 523 = 0 #água benta, quando não tiver
-	ConfigKeyNot BetterShopper_0 Água Benta
-	call {
-		$configExiste = checarSeExisteNoConfig("BetterShopper_0")
-		if ($configExiste = nao) {
-			adicionaBetterShopper()
-			pause 1
-			do reload config
-		}
-		do conf lockMap prontera
-		do conf route_randomWalk 1
-		do conf route_randomWalk_inTown 1
-		do conf BetterShopper_0 Água Benta
-		do conf BetterShopper_0_maxAmount 2
-		do conf BetterShopper_0_maxPrice 2000
-		do conf BetterShopper_0_disabled 0
-		do conf BetterShopper_on 1
-	}
+    QuestActive 3013
+    exclusive 1
+    InInventoryID 523 = 0 #água benta, quando não tiver
+    ConfigKeyNot BetterShopper_0 Água Benta
+    call {
+        $configExiste = checarSeExisteNoConfig("BetterShopper_0")
+        if ($configExiste = nao) {
+            adicionaBetterShopper()
+            pause 1
+            do reload config
+        }
+        do conf lockMap prontera
+        do conf route_randomWalk 1
+        do conf route_randomWalk_inTown 1
+        do conf BetterShopper_0 Água Benta
+        do conf BetterShopper_0_maxAmount 2
+        do conf BetterShopper_0_maxPrice 2000
+        do conf BetterShopper_0_disabled 0
+        do conf BetterShopper_on 1
+    }
 }
 
 automacro virarTemplario_Matarbixo_irAteNpc {
-	QuestActive 3013, 3014
-	InInventoryID 523 >= 1 #água benta, quando tiver 1 ou mais
-	exclusive 1
-	NotInMap job_cru
-	NpcNotNear /Patron/
-	call {
-		do conf BetterShopper_on none
-		do move prt_castle 35 151 &rand(2,5)
-	}
+    QuestActive 3013, 3014
+    InInventoryID 523 >= 1 #água benta, quando tiver 1 ou mais
+    exclusive 1
+    NotInMap job_cru
+    NpcNotNear /Patron/
+    call {
+        do conf BetterShopper_on none
+        do move prt_castle 35 151 &rand(2,5)
+    }
 }
 
 automacro virarTemplario_Matarbixo {
-	QuestActive 3013, 3014
-	InInventoryID 523 >= 1 #água benta, quando tiver 1 ou mais
-	IsEquippedID rightAccessory 2608 #Rosário
-	exclusive 1
-	NpcNear /Patron/
-	call {
-		do talk $.NpcNearLastBinId
-		do talk resp 0
-	}
+    QuestActive 3013, 3014
+    InInventoryID 523 >= 1 #água benta, quando tiver 1 ou mais
+    IsEquippedID rightAccessory 2608 #Rosário
+    exclusive 1
+    NpcNear /Patron/
+    call {
+        do talk $.NpcNearLastBinId
+        do talk resp 0
+    }
 }
 
 automacro virarTemplario_manterRosarioSempreEquipado {
-	JobID $paramsClasses{idC1}
-	JobLevel = 50
-	exclusive 1
-	timeout 120
-	InInventoryID 2608 >= 1 #Rosário
-	IsNotEquippedID rightAccessory 2608 #Rosário
-	call {
-		do eq rightAccessory &inventory(2608)
-	}
+    JobID $paramsClasses{idC1}
+    JobLevel = 50
+    exclusive 1
+    timeout 120
+    InInventoryID 2608 >= 1 #Rosário
+    IsNotEquippedID rightAccessory 2608 #Rosário
+    call {
+        do eq rightAccessory &inventory(2608)
+    }
 }
 
 automacro virarTemplario_matarBixos_dentroDoMapa_irNoChat {
-	InMap job_cru
-	QuestActive 3014
-	exclusive 1
-	ConfigKeyNot questTemplario entreiNoChat
-	call {
-		[
-		log ===================================
-		log = estou no mapa , tenho que falar com o npc
-		log = e entrar no chat
-		log ===================================
-		]
-		do north
-		do north
-		do north
-	}
+    InMap job_cru
+    QuestActive 3014
+    exclusive 1
+    ConfigKeyNot questTemplario entreiNoChat
+    call {
+        [
+        log ===================================
+        log = estou no mapa , tenho que falar com o npc
+        log = e entrar no chat
+        log ===================================
+        ]
+        do north
+        do north
+        do north
+    }
 }
 
 automacro virarTemplario_matarBixos_dentroDoMapa {
-	ChatRoomNear /Waiting|Espera/
-	exclusive 1
-	InMap job_cru
-	QuestActive 3014
-	priority -5
-	ConfigKeyNot questTemplario entreiNoChat
-	call {
-		do chat join 0
-		[
-		log ===================================
-		log = entrei no chat, devo ir agora matar os bixos
-		log ===================================
-		]
-		do conf -f questTemplario entreiNoChat
-	}
+    ChatRoomNear /Waiting|Espera/
+    exclusive 1
+    InMap job_cru
+    QuestActive 3014
+    priority -5
+    ConfigKeyNot questTemplario entreiNoChat
+    call {
+        do chat join 0
+        [
+        log ===================================
+        log = entrei no chat, devo ir agora matar os bixos
+        log ===================================
+        ]
+        do conf -f questTemplario entreiNoChat
+    }
 }
 
 automacro virarTemplario_matarBixos_dentroDoMapa_correr {
-	IsInCoordinate 160..175 15..180
-	ConfigKey questTemplario entreiNoChat
-	InMap job_cru
-	QuestActive 3014
-	ConfigKeyNot lockMap job_cru
-	exclusive 1
-	call {
-		do conf lockMap job_cru
-		do conf lockMap_x 167
-		do conf lockMap_y 178
-		call voltarAtacar
-	}
+    IsInCoordinate 160..175 15..180
+    ConfigKey questTemplario entreiNoChat
+    InMap job_cru
+    QuestActive 3014
+    ConfigKeyNot lockMap job_cru
+    exclusive 1
+    call {
+        do conf lockMap job_cru
+        do conf lockMap_x 167
+        do conf lockMap_y 178
+        call voltarAtacar
+    }
 }
 
 automacro virarTemplario_matarbixs_falhei {
-	NotInMap job_cru
-	QuestActive 3014
-	ConfigKey questTemplario entreiNoChat
-	exclusive 1
-	call {
-		[
-		log ===================================
-		log = falhei em matar os monstros...
-		log = vou comprar agua benta e começar denovo
-		log ===================================
-		]
-		do conf lockMap none
-		do conf lockMap_x none
-		do conf lockMap_y none
-		do conf questTemplario none
-	}
+    NotInMap job_cru
+    QuestActive 3014
+    ConfigKey questTemplario entreiNoChat
+    exclusive 1
+    call {
+        [
+        log ===================================
+        log = falhei em matar os monstros...
+        log = vou comprar agua benta e começar denovo
+        log ===================================
+        ]
+        do conf lockMap none
+        do conf lockMap_x none
+        do conf lockMap_y none
+        do conf questTemplario none
+    }
 }
 
 automacro virarTemplario_final_irAteNpc {
-	QuestActive 3015
-	exclusive 1
-	NotInMap job_cru
-	JobID $paramsClasses{idC1}
-	NpcNotNear /Senior Crusader/
-	call {
-		do conf lockMap none
-		do conf lockMap_x none
-		do conf lockMap_y none
-		do conf questTemplario none
-		do move prt_castle 45 169 &rand(2,5)
-	}
+    QuestActive 3015
+    exclusive 1
+    NotInMap job_cru
+    JobID $paramsClasses{idC1}
+    NpcNotNear /Senior Crusader/
+    call {
+        do conf lockMap none
+        do conf lockMap_x none
+        do conf lockMap_y none
+        do conf questTemplario none
+        do move prt_castle 45 169 &rand(2,5)
+    }
 }
 
 automacro virarTemplario_termineiDeMatar {
-	QuestActive 3015
-	exclusive 1
-	InMap job_cru
-	JobID $paramsClasses{idC1}
-	call {
-		do move job_cru 167 178
-	}
+    QuestActive 3015
+    exclusive 1
+    InMap job_cru
+    JobID $paramsClasses{idC1}
+    call {
+        do move job_cru 167 178
+    }
 }
 
 automacro virarTemplario_final {
-	QuestActive 3015
-	exclusive 1
-	NotInMap job_cru
-	JobID $paramsClasses{idC1}
-	NpcNear /Senior Crusader/
-	call {
-		do talk $.NpcNearLastBinId	
-	}
+    QuestActive 3015
+    exclusive 1
+    NotInMap job_cru
+    JobID $paramsClasses{idC1}
+    NpcNear /Senior Crusader/
+    call {
+        do talk $.NpcNearLastBinId    
+    }
 }
 
 #questionario
