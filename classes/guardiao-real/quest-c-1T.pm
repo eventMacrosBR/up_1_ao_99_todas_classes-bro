@@ -1,5 +1,5 @@
 sub initParamsQuestClasse1T {
-	my %paramsQuestClasse1T = (
+    my %paramsQuestClasse1T = (
         npc => '74 172',
         mapa => 'izlude_in',
         precisaMover => 'nao',

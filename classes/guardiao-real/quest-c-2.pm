@@ -1,298 +1,298 @@
 sub initParamsQuestClasse2 {
-	Commands::run("iconf 523 1 1 0"  ); #Água Benta
-	Commands::run("iconf 930 10 1 0" ); #Bandagem Estragada
-	Commands::run("iconf 1041 10 1 0"); #Lampião
-	Commands::run("iconf 2608 1 1 0" ); #Rosário 
-	Commands::run("conf -f questc2_implementada true");
+    Commands::run("iconf 523 1 1 0"  ); #Água Benta
+    Commands::run("iconf 930 10 1 0" ); #Bandagem Estragada
+    Commands::run("iconf 1041 10 1 0"); #Lampião
+    Commands::run("iconf 2608 1 1 0" ); #Rosário 
+    Commands::run("conf -f questc2_implementada true");
 }
 
 automacro virarTemplario_Começo_irAoNpc {
-	JobLevel = 50
-	JobID $paramsClasses{idC1}
-	exclusive 1
-	QuestInactive 3006 #
-	QuestInactive 3007 #
-	QuestInactive 3008 #
-	QuestInactive 3009 #
-	QuestInactive 3010 # TODAS SÃO QUESTS DE TEMPLARIO
-	QuestInactive 3011 #
-	QuestInactive 3012 #
-	QuestInactive 3013 #
-	QuestInactive 3014 #
-	QuestInactive 3015 #
-	ConfigKeyNot virarClasse2 true
-	NpcNotNear /Senior Crusader/
-	call {
-		do move prt_castle 45 169 &rand(2,5)
-	}
+    JobLevel = 50
+    JobID $paramsClasses{idC1}
+    exclusive 1
+    QuestInactive 3006 #
+    QuestInactive 3007 #
+    QuestInactive 3008 #
+    QuestInactive 3009 #
+    QuestInactive 3010 # TODAS SÃO QUESTS DE TEMPLARIO
+    QuestInactive 3011 #
+    QuestInactive 3012 #
+    QuestInactive 3013 #
+    QuestInactive 3014 #
+    QuestInactive 3015 #
+    ConfigKeyNot virarClasse2 true
+    NpcNotNear /Senior Crusader/
+    call {
+        do move prt_castle 45 169 &rand(2,5)
+    }
 }
 
 automacro virarTemplario_Começo {
-	JobLevel = 50
-	JobID $paramsClasses{idC1}
-	exclusive 1
-	QuestInactive 3006 #
-	QuestInactive 3007 #
-	QuestInactive 3008 #
-	QuestInactive 3009 #
-	QuestInactive 3010 # TODAS SÃO QUESTS DE TEMPLARIO
-	QuestInactive 3011 #
-	QuestInactive 3012 #
-	QuestInactive 3013 #
-	QuestInactive 3014 #
-	QuestInactive 3015 #
-	NpcNear /Senior Crusader/
-	call {
-		do talk $.NpcNearLastBinId
-		do talk resp 0
-		do talk resp 0
-		[
-		log ==============================
-		log Falei com o Templario, agora 
-		log vou coletar os itens!
-		log ==============================
-		]
-	}
+    JobLevel = 50
+    JobID $paramsClasses{idC1}
+    exclusive 1
+    QuestInactive 3006 #
+    QuestInactive 3007 #
+    QuestInactive 3008 #
+    QuestInactive 3009 #
+    QuestInactive 3010 # TODAS SÃO QUESTS DE TEMPLARIO
+    QuestInactive 3011 #
+    QuestInactive 3012 #
+    QuestInactive 3013 #
+    QuestInactive 3014 #
+    QuestInactive 3015 #
+    NpcNear /Senior Crusader/
+    call {
+        do talk $.NpcNearLastBinId
+        do talk resp 0
+        do talk resp 0
+        [
+        log ==============================
+        log Falei com o Templario, agora 
+        log vou coletar os itens!
+        log ==============================
+        ]
+    }
 }
 
 automacro virarTemplario_PegarItens {
-	QuestActive 3006, 3007, 3008
-	exclusive 1
-	timeout 100
-	ConfigKeyNot questTemplario jaColeteiOsItens
-	call {
-		do conf -f virarClasse2 true
-		$qtdBandagem = &invamount(Bandagem Estragada)
-		$qtdLampiao = &invamount(Lampião)
+    QuestActive 3006, 3007, 3008
+    exclusive 1
+    timeout 100
+    ConfigKeyNot questTemplario jaColeteiOsItens
+    call {
+        do conf -f virarClasse2 true
+        $qtdBandagem = &invamount(Bandagem Estragada)
+        $qtdLampiao = &invamount(Lampião)
 
-		if ( $qtdBandagem < 10 ) {
-			#primeiro item a pegar, depois pega o outro
-			$nomeDoItem = Bandagem Estragada
-			if (&config(lockMap) != moc_pryd03) do conf lockMap moc_pryd03
-			if (&config(attackAuto) != 2) call voltarAtacar
-			do mconf 1191 1 0 0 #mimico
-		} elsif ( $qtdBandagem >= 10 && $qtdLampiao < 10) {
-			#quando já tiver 10 bandagens, ele vai pegar os lampiao
-			$nomeDoItem = Lampião
-			if (&config(lockMap) != mjo_dun02) do conf lockMap mjo_dun02
-			if (&config(attackAuto) != 2) call voltarAtacar
-			do mconf 1145 0 0 0 #Martin
-			do mconf 1121 0 0 0 #Giearth
-		} elsif ( $qtdBandagem >= 10 && $qtdLampiao >= 10) {
-			#se já tiver todos os itens, tá na hora!
-			log ====================================
-			log Já coletei todos os itens, 
-			log Indo falar com o NPC
-			log ====================================
-			do conf -f questTemplario jaColeteiOsItens
-			do conf lockMap none
-			stop
-		}
+        if ( $qtdBandagem < 10 ) {
+            #primeiro item a pegar, depois pega o outro
+            $nomeDoItem = Bandagem Estragada
+            if (&config(lockMap) != moc_pryd03) do conf lockMap moc_pryd03
+            if (&config(attackAuto) != 2) call voltarAtacar
+            do mconf 1191 1 0 0 #mimico
+        } elsif ( $qtdBandagem >= 10 && $qtdLampiao < 10) {
+            #quando já tiver 10 bandagens, ele vai pegar os lampiao
+            $nomeDoItem = Lampião
+            if (&config(lockMap) != mjo_dun02) do conf lockMap mjo_dun02
+            if (&config(attackAuto) != 2) call voltarAtacar
+            do mconf 1145 0 0 0 #Martin
+            do mconf 1121 0 0 0 #Giearth
+        } elsif ( $qtdBandagem >= 10 && $qtdLampiao >= 10) {
+            #se já tiver todos os itens, tá na hora!
+            log ====================================
+            log Já coletei todos os itens, 
+            log Indo falar com o NPC
+            log ====================================
+            do conf -f questTemplario jaColeteiOsItens
+            do conf lockMap none
+            stop
+        }
 
 
-		[
-		log ===================================================
-		log = Estou coletando $nomeDoItem, já tenho &invamount($nomeDoItem)
-		log ===================================================
-		]
-	}
+        [
+        log ===================================================
+        log = Estou coletando $nomeDoItem, já tenho &invamount($nomeDoItem)
+        log ===================================================
+        ]
+    }
 }
 
 automacro virarTemplario_ColeteiTodosOsItens_IndoProNpc {
-	InInventoryID 930 >= 10 #Bandagem Estragada
-	InInventoryID 1041 >= 10 #Lampião
-	ConfigKey questTemplario jaColeteiOsItens
-	exclusive 1
-	QuestActive 3006, 3007, 3008
-	NpcNotNear /Senior Crusader/
-	call {
-		do conf lockMap none
-		do move prt_castle 45 169 &rand(2,5)
-	}
+    InInventoryID 930 >= 10 #Bandagem Estragada
+    InInventoryID 1041 >= 10 #Lampião
+    ConfigKey questTemplario jaColeteiOsItens
+    exclusive 1
+    QuestActive 3006, 3007, 3008
+    NpcNotNear /Senior Crusader/
+    call {
+        do conf lockMap none
+        do move prt_castle 45 169 &rand(2,5)
+    }
 }
 
 automacro virarTemplario_ColeteiTodosOsItens {
-	InInventoryID 930 >= 10 #Bandagem Estragada
-	InInventoryID 1041 >= 10 #Lampião
-	ConfigKey questTemplario jaColeteiOsItens
-	exclusive 1
-	QuestActive 3006, 3007, 3008
-	NpcNear /Senior Crusader/
-	call {
-		do talk $.NpcNearLastBinId
-	}
+    InInventoryID 930 >= 10 #Bandagem Estragada
+    InInventoryID 1041 >= 10 #Lampião
+    ConfigKey questTemplario jaColeteiOsItens
+    exclusive 1
+    QuestActive 3006, 3007, 3008
+    NpcNear /Senior Crusader/
+    call {
+        do talk $.NpcNearLastBinId
+    }
 }
 
 automacro virarTemplario_comprarRosário {
-	InInventoryID 2608 < 1 #Rosário
-	IsNotEquippedID rightAccessory 2608 #Rosário
-	QuestActive 3009
-	Zeny > 16000  #tem q ter pelo menos 1k a mais pra não dar treta
-	exclusive 1
-	call {
-		do move prt_church 108 124
-		do talk &npc(/Madre/)
-    	do store
-    	do buy &store(Rosário) 1
-	}
+    InInventoryID 2608 < 1 #Rosário
+    IsNotEquippedID rightAccessory 2608 #Rosário
+    QuestActive 3009
+    Zeny > 16000  #tem q ter pelo menos 1k a mais pra não dar treta
+    exclusive 1
+    call {
+        do move prt_church 108 124
+        do talk &npc(/Madre/)
+        do store
+        do buy &store(Rosário) 1
+    }
 }
 
 automacro virarTemplario_comprarRosário_jaComprado {
-	InInventoryID 2608 = 1 #Rosário
-	IsNotEquippedID rightAccessory 2608 #Rosário
-	QuestActive 3009
-	exclusive 1
-	call {
-		do eq rightAccessory &inventory(Rosário)
-		do reload eventMacros
-	}
+    InInventoryID 2608 = 1 #Rosário
+    IsNotEquippedID rightAccessory 2608 #Rosário
+    QuestActive 3009
+    exclusive 1
+    call {
+        do eq rightAccessory &inventory(Rosário)
+        do reload eventMacros
+    }
 }
 
 automacro virarTemplario_ComprarHiper_poucoZeny {
-	InInventoryID 14586 = 0 #Doce Hiper Açucarado
-	ConfigKey BetterShopper_0 Doce Hiper Açucarado
-	exclusive 1
-	priority -3
-	Zeny < 40000
-	QuestActive 3009
-	timeout 30
-	call {
-		[
-		log ===================================
-		log = Não tenho zeny Suficiente Pra 
-		log = Comprar hiper, melhor me dar zeny
-		log ===================================
-		]
-		do conf BetterShopper_on none
-	}
+    InInventoryID 14586 = 0 #Doce Hiper Açucarado
+    ConfigKey BetterShopper_0 Doce Hiper Açucarado
+    exclusive 1
+    priority -3
+    Zeny < 40000
+    QuestActive 3009
+    timeout 30
+    call {
+        [
+        log ===================================
+        log = Não tenho zeny Suficiente Pra 
+        log = Comprar hiper, melhor me dar zeny
+        log ===================================
+        ]
+        do conf BetterShopper_on none
+    }
 }
 
 automacro virarTemplario_ComprarHiper {
-	InInventoryID 14586 = 0 #Doce Hiper Açucarado
-	ConfigKeyNot BetterShopper_0 Doce Hiper Açucarado
-	exclusive 1
-	priority -3
-	Zeny >= 40000
-	QuestActive 3009
-	call {
-		do conf lockMap prontera
-		do conf route_randomWalk 1
-		do conf route_randomWalk_inTown 1
-		call pararDeAtacar
-		if (checarSeExisteNoConfig("BetterShopper_0") = nao) {
-			adicionaBetterShopper()
-			pause 1
-			do reload config
-		}
-		do conf BetterShopper_0 Doce Hiper Açucarado
-		do conf BetterShopper_0_maxPrice 60000
-		do conf BetterShopper_0_maxAmount 1
-		do conf BetterShopper_0_disabled 0
-		do conf -f BetterShopper_on 1
-	}
+    InInventoryID 14586 = 0 #Doce Hiper Açucarado
+    ConfigKeyNot BetterShopper_0 Doce Hiper Açucarado
+    exclusive 1
+    priority -3
+    Zeny >= 40000
+    QuestActive 3009
+    call {
+        do conf lockMap prontera
+        do conf route_randomWalk 1
+        do conf route_randomWalk_inTown 1
+        call pararDeAtacar
+        if (checarSeExisteNoConfig("BetterShopper_0") = nao) {
+            adicionaBetterShopper()
+            pause 1
+            do reload config
+        }
+        do conf BetterShopper_0 Doce Hiper Açucarado
+        do conf BetterShopper_0_maxPrice 60000
+        do conf BetterShopper_0_maxAmount 1
+        do conf BetterShopper_0_disabled 0
+        do conf -f BetterShopper_on 1
+    }
 }
 
 
 
 automacro virarTemplario_ComprarPotBranca {
-	InInventoryID 504 = 0 #Poção Branca
-	ConfigKeyNot BetterShopper_1 Poção Branca
-	exclusive 1
-	priority -2
-	QuestActive 3009
-	call {
-		do conf lockMap prontera
-		do conf route_randomWalk 1
-		do conf route_randomWalk_inTown 1
-		call pararDeAtacar
-		if (checarSeExisteNoConfig("BetterShopper_1") = nao) {
-			adicionaBetterShopper()
-			pause 1
-			do reload config	
-		}
-		do conf BetterShopper_1 Poção Branca
-		do conf BetterShopper_1_maxPrice 1100
-		do conf BetterShopper_1_maxAmount 20
-		do conf BetterShopper_1_disabled 0
-		do conf -f BetterShopper_on 1
-	}
+    InInventoryID 504 = 0 #Poção Branca
+    ConfigKeyNot BetterShopper_1 Poção Branca
+    exclusive 1
+    priority -2
+    QuestActive 3009
+    call {
+        do conf lockMap prontera
+        do conf route_randomWalk 1
+        do conf route_randomWalk_inTown 1
+        call pararDeAtacar
+        if (checarSeExisteNoConfig("BetterShopper_1") = nao) {
+            adicionaBetterShopper()
+            pause 1
+            do reload config    
+        }
+        do conf BetterShopper_1 Poção Branca
+        do conf BetterShopper_1_maxPrice 1100
+        do conf BetterShopper_1_maxAmount 20
+        do conf BetterShopper_1_disabled 0
+        do conf -f BetterShopper_on 1
+    }
 }
 
 automacro virarTemplario_ComparBalaDeGuaraná {
-	InInventoryID 12414 = 0 #Bala de Guaraná
-	QuestActive 3009
-	exclusive 1
-	priority -1
-	ConfigKeyNot BetterShopper_2 Bala de Guaraná
-	call {
-		do conf lockMap prontera
-		do conf route_randomWalk 1
-		do conf route_randomWalk_inTown 1
-		call pararDeAtacar
-		if (checarSeExisteNoConfig("BetterShopper_2") = nao) {
-			adicionaBetterShopper()
-			pause 1
-			do reload config
-		}
-		do conf BetterShopper_2 Bala de Guaraná
-		do conf BetterShopper_2_maxPrice 1650
-		do conf BetterShopper_2_maxAmount 2
-		do conf BetterShopper_2_disabled 0
-		do conf -f BetterShopper_on 1
-	}
+    InInventoryID 12414 = 0 #Bala de Guaraná
+    QuestActive 3009
+    exclusive 1
+    priority -1
+    ConfigKeyNot BetterShopper_2 Bala de Guaraná
+    call {
+        do conf lockMap prontera
+        do conf route_randomWalk 1
+        do conf route_randomWalk_inTown 1
+        call pararDeAtacar
+        if (checarSeExisteNoConfig("BetterShopper_2") = nao) {
+            adicionaBetterShopper()
+            pause 1
+            do reload config
+        }
+        do conf BetterShopper_2 Bala de Guaraná
+        do conf BetterShopper_2_maxPrice 1650
+        do conf BetterShopper_2_maxAmount 2
+        do conf BetterShopper_2_disabled 0
+        do conf -f BetterShopper_on 1
+    }
 }
 
 automacro virarTemplario_FalarComCaraNaPrisão_IndoAteEle {
-	QuestActive 3009
-	exclusive 1
-	NpcNotNear /Man in Anguish/
-	InInventoryID 14586 > 0 #Doce Hiper Açucarado
-	InInventoryID 504 > 10 #Poção Branca
-	IsEquippedID rightAccessory 2608 #Rosário
-	call {
-		do conf BetterShopper_on none
-		do move prt_castle 164 32 &rand(4,7)
-	}
+    QuestActive 3009
+    exclusive 1
+    NpcNotNear /Man in Anguish/
+    InInventoryID 14586 > 0 #Doce Hiper Açucarado
+    InInventoryID 504 > 10 #Poção Branca
+    IsEquippedID rightAccessory 2608 #Rosário
+    call {
+        do conf BetterShopper_on none
+        do move prt_castle 164 32 &rand(4,7)
+    }
 }
 
 automacro virarTemplario_FalarComCaraNaPrisão {
-	QuestActive 3009, 3010
-	exclusive 1
-	InInventoryID 14586 > 0 #Doce Hiper Açucarado
-	InInventoryID 504 > 10 #Poção Branca
-	InInventoryID 12414 > 0 #Bala de Guaraná
-	NpcNear /Man in Anguish/
-	NotInMap job_cru
-	IsEquippedID rightAccessory 2608 #Rosário
-	call {
-		# essa é a parte dificil que ele tem que passar pelos bixos
-		# melhor comprar pot e guaraná
-		
-		do conf BetterShopper_on 0
-		do conf BetterShopper_0_disabled 1
-		do conf BetterShopper_1_disabled 1
-		do conf BetterShopper_2_disabled 1		
-		do conf lockMap none
-		call pararDeAtacarApenasCorrer
-		$blocoJaExiste = checarSeExisteNoConfig("useSelf_item_1")
-		if ($blocoJaExiste = nao) {
-			adicionaUseSelfItem()
-			pause 1
-			do reload config
-		}
+    QuestActive 3009, 3010
+    exclusive 1
+    InInventoryID 14586 > 0 #Doce Hiper Açucarado
+    InInventoryID 504 > 10 #Poção Branca
+    InInventoryID 12414 > 0 #Bala de Guaraná
+    NpcNear /Man in Anguish/
+    NotInMap job_cru
+    IsEquippedID rightAccessory 2608 #Rosário
+    call {
+        # essa é a parte dificil que ele tem que passar pelos bixos
+        # melhor comprar pot e guaraná
+        
+        do conf BetterShopper_on 0
+        do conf BetterShopper_0_disabled 1
+        do conf BetterShopper_1_disabled 1
+        do conf BetterShopper_2_disabled 1        
+        do conf lockMap none
+        call pararDeAtacarApenasCorrer
+        $blocoJaExiste = checarSeExisteNoConfig("useSelf_item_1")
+        if ($blocoJaExiste = nao) {
+            adicionaUseSelfItem()
+            pause 1
+            do reload config
+        }
 
-		do conf useSelf_item_1 Poção Branca
-		do conf useSelf_item_1_hp < 60%
-		do talk $.NpcNearLastBinId
-		do talk resp 0
-	}
+        do conf useSelf_item_1 Poção Branca
+        do conf useSelf_item_1_hp < 60%
+        do talk $.NpcNearLastBinId
+        do talk resp 0
+    }
 }
 
 automacro virarTemplario_correr {
-	QuestActive 3009, 3010
-	InMap job_cru
-	exclusive 1
-	call {
+    QuestActive 3009, 3010
+    InMap job_cru
+    exclusive 1
+    call {
 		[
 		do is &inventory(12414) #Bala de Guaraná
 		do is &inventory(14586) #Doce Hiper Açucarado

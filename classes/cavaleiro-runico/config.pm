@@ -16,13 +16,13 @@ sub configurarBuild {
 
 
 sub extrairMapasDeUp {
-	my ($lvl) = @_;
-	my $variaveisDeUp;
-	
-	#########################################################################
-	#AQUI É DEFINIDO OS MAPAS QUE CADA CLASSE IRÁ UPAR, DE MODO 
-	#QUE SEJA EXTREMAMENTE FÁCIL DE ALTERAR A SEU GOSTO
-	########################################################################
+    my ($lvl) = @_;
+    my $variaveisDeUp;
+    
+    #########################################################################
+    #AQUI É DEFINIDO OS MAPAS QUE CADA CLASSE IRÁ UPAR, DE MODO 
+    #QUE SEJA EXTREMAMENTE FÁCIL DE ALTERAR A SEU GOSTO
+    ########################################################################
 
     $variaveisDeUp = 
     [
@@ -36,16 +36,16 @@ sub extrairMapasDeUp {
         {lvlMin => 71, lvlMax => 79, lockMap => 'mjolnir_11', saveMap => 'prontera'},
         {lvlMin => 80, lvlMax => 98, lockMap => 'gef_fild06', saveMap => 'geffen'}
     ];
-	
-	
-	foreach my $configs (@{$variaveisDeUp}) {
-		#mensagem para debug
-		#warning "lvl min: " . $configs->{lvlMin}.' '. "lvl max: " . $configs->{lvlMax}."\n";
+    
+    
+    foreach my $configs (@{$variaveisDeUp}) {
+        #mensagem para debug
+        #warning "lvl min: " . $configs->{lvlMin}.' '. "lvl max: " . $configs->{lvlMax}."\n";
         if ($configs->{lvlMin} <= $lvl && $lvl <= $configs->{lvlMax}) {  #checa em qual "grupo" (de lvlMin e lvlMax) seu nivel se encaixa
-			my %hash = (lockMap => $configs->{lockMap}, saveMap => $configs->{saveMap});
-			my $eventMacro = $eventMacro::Data::eventMacro;
-    		$eventMacro->set_full_hash('mapa', \%hash);
-		}	
-	}
+            my %hash = (lockMap => $configs->{lockMap}, saveMap => $configs->{saveMap});
+            my $eventMacro = $eventMacro::Data::eventMacro;
+            $eventMacro->set_full_hash('mapa', \%hash);
+        }    
+    }
 }
 
