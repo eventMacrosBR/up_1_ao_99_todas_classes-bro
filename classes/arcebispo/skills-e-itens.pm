@@ -170,6 +170,75 @@ automacro configurarMagnificat {
     }
 }
 
+automacro configurarGlória {
+    SkillLevel PR_GLORIA >= 5
+    ConfigKeyNot useSelf_skill_6 PR_GLORIA
+	exclusive 1
+    call {
+        [
+        log ===========================================
+        log =Já tenho a skill Glória,
+        log =Configurando ela
+        log ===========================================
+        ]
+                adicionaUseSelfSkill()
+				pause 1
+                do reload config
+        do conf useSelf_skill_6 PR_GLORIA
+		do conf useSelf_skill_0_lvl 5
+        do conf useSelf_skill_6_sp >= 20
+        do conf useSelf_skill_6_whenStatusInactive EFST_GLORIA, EFST_POSTDELAY
+		do conf useSelf_skill_6_notWhileSitting 1
+		do conf useSelf_skill_6_notInTown 0
+        do conf useSelf_skill_6_disabled 0
+  }
+}
+
+automacro configurarGraça Divina {
+    SkillLevel PR_STRECOVERY >= 1
+    ConfigKeyNot useSelf_skill_7 PR_STRECOVERY
+	exclusive 1
+    call {
+        [
+        log ===========================================
+        log =Já tenho a skill Graça Divina,
+        log =Configurando ela
+        log ===========================================
+        ]
+                adicionaUseSelfSkill()
+				pause 1
+                do reload config
+        do conf useSelf_skill_7 PR_STRECOVERY
+        do conf useSelf_skill_7_sp >= 5
+        do conf useSelf_skill_7_whenStatusInactive EFST_POSTDELAY
+		do conf useSelf_skill_7_whenStatusActive BODYSTATE_FREEZING, BODYSTATE_STUN, BODYSTATE_STONECURSE, BODYSTATE_STONECURSE_ING
+        do conf useSelf_skill_7_disabled 0
+  }
+}
+
+automacro configurarImpositio Manus {
+    SkillLevel PR_IMPOSITIO >= 1
+    ConfigKeyNot useSelf_skill_8 PR_IMPOSITIO
+	exclusive 1
+    call {
+        [
+        log ===========================================
+        log =Já tenho a skill Impositio Manus,
+        log =Configurando ela
+        log ===========================================
+        ]
+                adicionaUseSelfSkill()
+				pause 1
+                do reload config
+        do conf useSelf_skill_8 PR_IMPOSITIO
+        do conf useSelf_skill_8_sp >= 25
+        do conf useSelf_skill_8_whenStatusInactive EFST_IMPOSITIO, EFST_POSTDELAY
+		do conf useSelf_skill_8_notWhileSitting 1
+		do conf useSelf_skill_8_notInTown 1
+		do conf useSelf_skill_8_disabled 0
+  }
+}
+
     ###SKILL PARA ATACAR MONSTROS SO COM CURA LVL 10###
 
 automacro configurarCurarMortoVivos {
