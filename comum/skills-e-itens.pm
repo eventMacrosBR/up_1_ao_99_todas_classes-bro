@@ -6,6 +6,11 @@ automacro configurarPotLaranja {
 	ConfigKeyNot useSelf_item_0 Poção Laranja
 	exclusive 1
 	call {
+		[
+		log ===================================
+		log = configurando poção laranja
+		log ===================================
+		]
 		do iconf 502 100 0 0 #pot laranja
 		if (&config(buyAuto_1) = Poção Laranja ) {
 			log pot Laranja já está configurada, essa mensagem não deveria aparecer
@@ -42,8 +47,13 @@ automacro desabilitarPotLaranja {
 	JobID $paramsClasses{idC1}
 	exclusive 1
 	call {
-		log DESABILITANDO COMPRA DE POÇÃO LARANJA
-		log PARA ECONOMIZAR DINHEIRO PRA QUEST 2
+		[
+		log ===================================
+		log = DESABILITANDO COMPRA DE POÇÃO LARANJA
+		log = PARA ECONOMIZAR DINHEIRO PRA QUEST 2
+		log ===================================
+		]
+		
 		do conf buyAuto_1_disabled 1
 	}
 }
@@ -54,7 +64,12 @@ automacro habilitarNovamentePotLaranja {
 	JobID $paramsClasses{idC2}
 	exclusive 1
 	call {
-		log HABILITANDO COMPRA DE POÇÃO LARANJA
+		[
+		log ===================================
+		log = HABILITANDO COMPRA DE POÇÃO LARANJA
+		log ===================================
+		]
+		
 		do conf buyAuto_1_disabled 0
 	}
 }
@@ -65,7 +80,13 @@ automacro parandoDePegarPotDeAprendiz {
 	ConfigKey useSelf_item_0 Poção de Aprendiz
 	exclusive 1
 	call {
-		log as poções de aprendiz acabaram, removendo o getAuto
+		[
+		log ===================================
+		log = as poções de aprendiz acabaram, 
+		log = removendo o getAuto
+		log ===================================
+		]
+		log 
 		#parar de tentar usar tambem
 		do conf sitAuto_hp_upper 80
 		do conf getAuto_0 none
