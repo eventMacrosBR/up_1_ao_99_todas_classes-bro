@@ -1,149 +1,173 @@
 	#SKILL NOVIÇO PRA USAR EM SI "AJUDANDO A UPAR SOLO"#
 
 automacro configurarCurar {
-    SkillLevel AL_HEAL >= 2
-    ConfigKeyNot useSelf_skill_0 AL_HEAL
+	SkillLevel AL_HEAL >= 2
+	ConfigKeyNot useSelf_skill_0 AL_HEAL
+	priority 0
 	exclusive 1
-    call {
-        [
-        log ===========================================
-        log =Já tenho a skill Curar,
-        log =Configurando ela
-        log ===========================================
-        ]
-				adicionaUseSelfSkill()
-				pause 1
-                do reload config
-        do conf useSelf_skill_0 AL_HEAL
-        do conf useSelf_skill_0_lvl 10
-        do conf useSelf_skill_0_hp < 70%
-        do conf useSelf_skill_0_whenStatusInactive EFST_POSTDELAY
-        do conf useSelf_skill_0_disabled 0
-  }
+	call {
+		[
+		log ===========================================
+		log =Já tenho a skill Curar,
+		log =Configurando ela
+		log ===========================================
+		]
+		$blocoExiste = checarSeExisteNoConfig("useSelf_skill_0")
+		if ($blocoExiste = nao ) {
+			adicionaUseSelfSkill()
+			pause 1
+			do reload config
+		}
+		do conf useSelf_skill_0 AL_HEAL
+		do conf useSelf_skill_0_lvl 10
+		do conf useSelf_skill_0_hp < 70%
+		do conf useSelf_skill_0_whenStatusInactive EFST_POSTDELAY
+		do conf useSelf_skill_0_disabled 0
+	}
 }
 
 automacro configurarAL_INCAGI {
-    SkillLevel AL_INCAGI >= 1
-    ConfigKeyNot useSelf_skill_1 AL_INCAGI
-    exclusive 1
-    call {
-        [
-        log ===========================================
-        log =Já tenho a skill Aumentar Agilidade,
-        log =Configurando ela
-        log ===========================================
-        ]
-                adicionaUseSelfSkill()
-				pause 1
-                do reload config
-        do conf useSelf_skill_1 AL_INCAGI
-        do conf useSelf_skill_1_lvl 10
-        do conf useSelf_skill_1_sp >= 45
-        do conf useSelf_skill_1_whenStatusInactive EFST_INC_AGI, EFST_POSTDELAY
+	SkillLevel AL_INCAGI >= 1
+	ConfigKeyNot useSelf_skill_1 AL_INCAGI
+	priority 1
+	exclusive 1
+	call {
+		[
+		log ===========================================
+		log =Já tenho a skill Aumentar Agilidade,
+		log =Configurando ela
+		log ===========================================
+		]
+		$blocoExiste = checarSeExisteNoConfig("useSelf_skill_1")
+		if ($blocoExiste = nao ) {
+			adicionaUseSelfSkill()
+			pause 1
+			do reload config
+		}
+		do conf useSelf_skill_1 AL_INCAGI
+		do conf useSelf_skill_1_lvl 10
+		do conf useSelf_skill_1_sp >= 45
+		do conf useSelf_skill_1_whenStatusInactive EFST_INC_AGI, EFST_POSTDELAY
 		do conf useSelf_skill_1_notWhileSitting 1
 		do conf useSelf_skill_1_notInTown 0
 		do conf useSelf_skill_1_stopWhenHit 1
-        do conf useSelf_skill_1_disabled 0
-  }
-}
-
-automacro configurarAL_BLESSING {
-    SkillLevel AL_BLESSING >= 1
-    ConfigKeyNot useSelf_skill_3 AL_BLESSING
-    exclusive 1
-    call {
-        [
-        log ===========================================
-        log =Já tenho a skill Bênção,
-        log =Configurando ela
-        log ===========================================
-        ]
-                adicionaUseSelfSkill()
-				pause 1
-                do reload config
-        do conf useSelf_skill_3 AL_BLESSING
-        do conf useSelf_skill_3_lvl 10
-        do conf useSelf_skill_3_sp >= 64
-        do conf useSelf_skill_3_whenStatusInactive EFST_BLESSING, EFST_POSTDELAY
-		do conf useSelf_skill_3_notWhileSitting 1
-		do conf useSelf_skill_3_notInTown 1
-        do conf useSelf_skill_3_disabled 0
-  }
+		do conf useSelf_skill_1_disabled 0
+	}
 }
 
 automacro configurarAngelus {
-    SkillLevel AL_ANGELUS >= 1
-    ConfigKeyNot useSelf_skill_2 AL_ANGELUS
-    exclusive 1
-    call {
-        [
-        log ===========================================
-        log =Já tenho a skill Angelus,
-        log =Configurando ela
-        log ===========================================
-        ]
-                adicionaUseSelfSkill()
-				pause 1
-                do reload config
-        do conf useSelf_skill_2 AL_ANGELUS
-        do conf useSelf_skill_2_sp >= 50
-        do conf useSelf_skill_2_whenStatusInactive EFST_ANGELUS, EFST_POSTDELAY
+	SkillLevel AL_ANGELUS >= 1
+	ConfigKeyNot useSelf_skill_2 AL_ANGELUS
+	priority 2
+	exclusive 1
+	call {
+		[
+		log ===========================================
+		log =Já tenho a skill Angelus,
+		log =Configurando ela
+		log ===========================================
+		]
+		$blocoExiste = checarSeExisteNoConfig("useSelf_skill_2")
+		if ($blocoExiste = nao ) {
+			adicionaUseSelfSkill()
+			pause 1
+			do reload config
+		}
+		do conf useSelf_skill_2 AL_ANGELUS
+		do conf useSelf_skill_2_sp >= 50
+		do conf useSelf_skill_2_whenStatusInactive EFST_ANGELUS, EFST_POSTDELAY
 		do conf useSelf_skill_2_notWhileSitting 1
 		do conf useSelf_skill_2_notInTown 1
 		do conf useSelf_skill_2_stopWhenHit 1
-        do conf useSelf_skill_2_disabled 0
-  }
+		do conf useSelf_skill_2_disabled 0
+	}
+}
+
+automacro configurarAL_BLESSING {
+	SkillLevel AL_BLESSING >= 1
+	ConfigKeyNot useSelf_skill_3 AL_BLESSING
+	priority 3
+	exclusive 1
+	call {
+		[
+		log ===========================================
+		log =Já tenho a skill Bênção,
+		log =Configurando ela
+		log ===========================================
+		]
+		$blocoExiste = checarSeExisteNoConfig("useSelf_skill_3")
+		if ($blocoExiste = nao ) {
+			adicionaUseSelfSkill()
+			pause 1
+			do reload config
+		}
+		do conf useSelf_skill_3 AL_BLESSING
+		do conf useSelf_skill_3_lvl 10
+		do conf useSelf_skill_3_sp >= 64
+		do conf useSelf_skill_3_whenStatusInactive EFST_BLESSING, EFST_POSTDELAY
+		do conf useSelf_skill_3_notWhileSitting 1
+		do conf useSelf_skill_3_notInTown 1
+		do conf useSelf_skill_3_disabled 0
+	}
 }
 
 #SKILL SACERDOTE PRA USAR EM SI "AJUDANDO A UPAR SOLO"#
 
 automacro configurarKyrie Eleison {
-    SkillLevel PR_KYRIE >= 1
-    ConfigKeyNot useSelf_skill_4 PR_KYRIE
+	SkillLevel PR_KYRIE >= 1
+	ConfigKeyNot useSelf_skill_4 PR_KYRIE
+	priority 4
 	exclusive 1
-    call {
-        [
-        log ===========================================
-        log =Já tenho a skill Kyrie Eleison,
-        log =Configurando ela
-        log ===========================================
-        ]
-                adicionaUseSelfSkill()
-				pause 1
-                do reload config
-        do conf useSelf_skill_4 PR_KYRIE
+	call {
+		[
+		log ===========================================
+		log =Já tenho a skill Kyrie Eleison,
+		log =Configurando ela
+		log ===========================================
+		]
+		$blocoExiste = checarSeExisteNoConfig("useSelf_skill_4")
+		if ($blocoExiste = nao ) {
+			adicionaUseSelfSkill()
+			pause 1
+			do reload config
+		}
+		do conf useSelf_skill_4 PR_KYRIE
 		do conf useSelf_skill_4_lvl 10
-        do conf useSelf_skill_4_sp >= 35
-        do conf useSelf_skill_4_whenStatusInactive EFST_KYRIE, EFST_ASSUMPTIO, EFST_POSTDELAY
+		do conf useSelf_skill_4_sp >= 35
+		do conf useSelf_skill_4_whenStatusInactive EFST_KYRIE, EFST_ASSUMPTIO, EFST_POSTDELAY
 		do conf useSelf_skill_4_notWhileSitting 1
 		do conf useSelf_skill_4_notInTown 1
 		do conf useSelf_skill_4_stopWhenHit 1
-        do conf useSelf_skill_4_disabled 0
-  }
+		do conf useSelf_skill_4_disabled 0
+	}
 }
 
 automacro configurarMagnificat {
-    SkillLevel PR_MAGNIFICAT >= 1
-    ConfigKeyNot useSelf_skill_5 PR_MAGNIFICAT
+	SkillLevel PR_MAGNIFICAT >= 1
+	ConfigKeyNot useSelf_skill_5 PR_MAGNIFICAT
+	priority 5
 	exclusive 1
-    call {
-        [
-        log ===========================================
-        log =Já tenho a skill Magnificat,
-        log =Configurando ela
-        log ===========================================
-        ]
-                adicionaUseSelfSkill()
-				pause 1
-                do reload config
-        do conf useSelf_skill_5 PR_MAGNIFICAT
-        do conf useSelf_skill_5_sp >= 40
-        do conf useSelf_skill_5_whenStatusInactive EFST_MAGNIFICAT, EFST_POSTDELAY
+	call {
+		[
+		log ===========================================
+		log =Já tenho a skill Magnificat,
+		log =Configurando ela
+		log ===========================================
+		]
+		$blocoExiste = checarSeExisteNoConfig("useSelf_skill_5")
+		if ($blocoExiste = nao ) {
+			adicionaUseSelfSkill()
+			pause 1
+			do reload config
+		}
+		do conf useSelf_skill_5 PR_MAGNIFICAT
+		do conf useSelf_skill_5_sp >= 40
+		do conf useSelf_skill_5_whenStatusInactive EFST_MAGNIFICAT, EFST_POSTDELAY
 		do conf useSelf_skill_5_notWhileSitting 1
 		do conf useSelf_skill_5_notInTown 1
 		do conf useSelf_skill_5_stopWhenHit 1
-        do conf useSelf_skill_5_disabled 0
-  }
+		do conf useSelf_skill_5_disabled 0
+	}
 }
 
 	###SKILL PARA ATACAR MONSTROS SO COM CURA LVL 10###
@@ -159,9 +183,12 @@ automacro configurarCurarMortoVivos {
 		log =Configurando pra usar ela
 		log ===========================================
 		]
-				adicionaUseSelfSkill()
-				pause 1
-                do reload config
+		$blocoExiste = checarSeExisteNoConfig("attackSkillSlot_0")
+		if ($blocoExiste = nao ) {
+			adicionaAttackSkillSlot()
+			pause 1
+			do reload config
+		}
 		do conf attackSkillSlot_0 AL_HEAL
 		do conf attackSkillSlot_0_lvl 10
 		do conf attackSkillSlot_0_sp >= 40
@@ -175,15 +202,15 @@ automacro configurarCurarMortoVivos {
 
 
 	#MACRO PRA PARAR DE USAR POÇÃO DE APRENDIZ QUANDO JA TIVER CURA LVL 1#
-				#NÃO PARA TOTALMENTE, SO USA QUANDO NESSESSARIO#
+	#NÃO PARA TOTALMENTE, SO USA QUANDO NESSESSARIO#
 
 automacro diminuirPorcentagemHpAgoraQueTenhoCurar {
-    SkillLevel AL_HEAL >= 5
-    ConfigKey useSelf_item_0 Poção de Aprendiz
-    ConfigKeyNot useSelf_item_0_hp <= 20%
-    exclusive 1
-    call {
-       do conf useSelf_item_0_hp <= 20%
-    }
+	SkillLevel AL_HEAL >= 5
+	ConfigKey useSelf_item_0 Poção de Aprendiz
+	ConfigKeyNot useSelf_item_0_hp <= 20%
+	exclusive 1
+	call {
+	   do conf useSelf_item_0_hp <= 20%
+	}
 }
 
