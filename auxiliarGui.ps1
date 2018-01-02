@@ -12,7 +12,7 @@ try {
     $hash = (git rev-parse HEAD) | Out-String
     $hash = $hash.substring(0,7)
     $commitCounter = (git rev-list --count master) | Out-String 
-    $commitCounter = $commitCounter -replace "\n" 
+    $commitCounter = $commitCounter -replace "\r\n" 
     $version = $commitCounter + "." + $hash 
     
 }catch{
