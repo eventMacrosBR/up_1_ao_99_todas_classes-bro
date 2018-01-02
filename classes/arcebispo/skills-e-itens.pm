@@ -173,7 +173,7 @@ automacro configurarMagnificat {
 automacro configurarGlória {
     SkillLevel PR_GLORIA >= 5
     ConfigKeyNot useSelf_skill_6 PR_GLORIA
-	exclusive 1
+    exclusive 1
     call {
         [
         log ===========================================
@@ -200,7 +200,7 @@ automacro configurarGlória {
 automacro configurarGraça Divina {
     SkillLevel PR_STRECOVERY >= 1
     ConfigKeyNot useSelf_skill_7 PR_STRECOVERY
-	exclusive 1
+    exclusive 1
     call {
         [
         log ===========================================
@@ -225,7 +225,7 @@ automacro configurarGraça Divina {
 automacro configurarImpositio Manus {
     SkillLevel PR_IMPOSITIO >= 1
     ConfigKeyNot useSelf_skill_8 PR_IMPOSITIO
-	exclusive 1
+    exclusive 1
     call {
         [
         log ===========================================
