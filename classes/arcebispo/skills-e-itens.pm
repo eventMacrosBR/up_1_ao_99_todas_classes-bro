@@ -181,9 +181,12 @@ automacro configurarGlória {
         log =Configurando ela
         log ===========================================
         ]
-        adicionaUseSelfSkill()
-        pause 1
-        do reload config
+        $blocoExiste = checarSeExisteNoConfig("useSelf_skill_6")
+        if ($blocoExiste = nao ) {
+            adicionaUseSelfSkill()
+            pause 1
+            do reload config
+        }
         do conf useSelf_skill_6 PR_GLORIA
 		do conf useSelf_skill_0_lvl 5
         do conf useSelf_skill_6_sp >= 20
@@ -205,9 +208,12 @@ automacro configurarGraça Divina {
         log =Configurando ela
         log ===========================================
         ]
-        adicionaUseSelfSkill()
-		pause 1
-        do reload config
+        $blocoExiste = checarSeExisteNoConfig("useSelf_skill_7")
+        if ($blocoExiste = nao ) {
+            adicionaUseSelfSkill()
+            pause 1
+            do reload config
+        }
         do conf useSelf_skill_7 PR_STRECOVERY
         do conf useSelf_skill_7_sp >= 5
         do conf useSelf_skill_7_whenStatusInactive EFST_POSTDELAY
@@ -227,9 +233,12 @@ automacro configurarImpositio Manus {
         log =Configurando ela
         log ===========================================
         ]
-                adicionaUseSelfSkill()
-				pause 1
-                do reload config
+        $blocoExiste = checarSeExisteNoConfig("useSelf_skill_8")
+        if ($blocoExiste = nao ) {
+            adicionaUseSelfSkill()
+            pause 1
+            do reload config
+        }
         do conf useSelf_skill_8 PR_IMPOSITIO
         do conf useSelf_skill_8_sp >= 25
         do conf useSelf_skill_8_whenStatusInactive EFST_IMPOSITIO, EFST_POSTDELAY
