@@ -55,9 +55,11 @@ $btn.Add_click({
         "    run-once 1 " | Out-File $eventMacros -Encoding UTF8 -append
         "    call { " | Out-File $eventMacros -Encoding UTF8 -append
         "        [ " | Out-File $eventMacros -Encoding UTF8 -append
-        "        log -------------------------- " | Out-File $eventMacros -Encoding UTF8 -append
-        "        log | Versão:  " + $version + "       |" | Out-File $eventMacros -Encoding UTF8 -append
-        "        log -------------------------- " | Out-File $eventMacros -Encoding UTF8 -append
+        "        log -------------------------------- " | Out-File $eventMacros -Encoding UTF8 -append
+        "        log | EventMacrosBR /              | " | Out-File $eventMacros -Encoding UTF8 -append
+        "        log | up_1_ao_99_todas_classes-bro | " | Out-File $eventMacros -Encoding UTF8 -append
+        "        log | Versão:  " + $version + "             |" | Out-File $eventMacros -Encoding UTF8 -append
+        "        log -------------------------------- " | Out-File $eventMacros -Encoding UTF8 -append
         "        ] " | Out-File $eventMacros -Encoding UTF8 -append
         "        do conf -f versao_eventmacro_up_todas_as_classes_bro " + $version | Out-File $eventMacros -Encoding UTF8 -append
         "    } " | Out-File $eventMacros -Encoding UTF8 -append
