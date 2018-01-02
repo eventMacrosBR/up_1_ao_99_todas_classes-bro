@@ -55,3 +55,4 @@ automacro VirarSacer2 {
         do talknpc 16 41 
     }
 }
+

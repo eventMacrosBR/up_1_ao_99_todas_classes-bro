@@ -51,3 +51,4 @@ automacro jaSouClasse1t {
         call atualizarBuild
     }
 }
+

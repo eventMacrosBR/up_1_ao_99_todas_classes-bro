@@ -54,6 +54,3 @@ automacro configurarLançasDeFogo {
     }
 }
 
-#MG_FIREBOLT 10, MG_COLDBOLT 10,   MG_SOULSTRIKE 10, MG_LIGHTNINGBOLT 4, MG_THUNDERSTORM 1',
-
-

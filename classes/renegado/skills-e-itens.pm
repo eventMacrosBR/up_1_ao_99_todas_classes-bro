@@ -66,3 +66,4 @@ automacro configurarAfanar {
         do conf attackSkillSlot_0_disabled 1
     }
 }
+

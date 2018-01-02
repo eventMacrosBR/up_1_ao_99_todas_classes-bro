@@ -248,3 +248,4 @@ sub adicionaBetterShopper {
     print $fh "}\n";
     close($fh);
 }
+

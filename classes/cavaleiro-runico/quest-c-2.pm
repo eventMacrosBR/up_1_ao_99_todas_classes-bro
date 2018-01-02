@@ -14,3 +14,4 @@ sub initParamsQuestClasse2 {
     Commands::run ("iconf 7031 5 1 0"); #Frigideira Velha
     Commands::run ("iconf 946 5 1 0" ); #Casco de Caramujo
 }
+

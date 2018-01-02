@@ -70,3 +70,4 @@ automacro jaSouClasse1 {
         call atualizarBuild
     }
 }
+
