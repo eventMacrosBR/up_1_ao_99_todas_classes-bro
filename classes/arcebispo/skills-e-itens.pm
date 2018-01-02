@@ -181,9 +181,9 @@ automacro configurarGlória {
         log =Configurando ela
         log ===========================================
         ]
-                adicionaUseSelfSkill()
-				pause 1
-                do reload config
+        adicionaUseSelfSkill()
+        pause 1
+        do reload config
         do conf useSelf_skill_6 PR_GLORIA
 		do conf useSelf_skill_0_lvl 5
         do conf useSelf_skill_6_sp >= 20
@@ -205,9 +205,9 @@ automacro configurarGraça Divina {
         log =Configurando ela
         log ===========================================
         ]
-                adicionaUseSelfSkill()
-				pause 1
-                do reload config
+        adicionaUseSelfSkill()
+		pause 1
+        do reload config
         do conf useSelf_skill_7 PR_STRECOVERY
         do conf useSelf_skill_7_sp >= 5
         do conf useSelf_skill_7_whenStatusInactive EFST_POSTDELAY
@@ -270,8 +270,8 @@ automacro configurarCurarMortoVivos {
 
 
 
-    #MACRO PRA PARAR DE USAR POÇÃO DE APRENDIZ QUANDO JA TIVER CURA LVL 1#
-    #NÃO PARA TOTALMENTE, SO USA QUANDO NESSESSARIO#
+#MACRO PRA PARAR DE USAR POÇÃO DE APRENDIZ QUANDO JA TIVER CURA LVL 1#
+#NÃO PARA TOTALMENTE, SO USA QUANDO NESSESSARIO#
 
 automacro diminuirPorcentagemHpAgoraQueTenhoCurar {
     SkillLevel AL_HEAL >= 5
