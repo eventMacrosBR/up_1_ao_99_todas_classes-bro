@@ -59,6 +59,7 @@ $btn.Add_click({
         "        log | Versão:  " + $version + "       |" | Out-File $eventMacros -Encoding UTF8 -append
         "        log -------------------------- " | Out-File $eventMacros -Encoding UTF8 -append
         "        ] " | Out-File $eventMacros -Encoding UTF8 -append
+        "        do conf -f versao_eventmacro_up_todas_as_classes_bro " + $version | Out-File $eventMacros -Encoding UTF8 -append
         "    } " | Out-File $eventMacros -Encoding UTF8 -append
         "} " | Out-File $eventMacros -Encoding UTF8 -append
         " " | Out-File $eventMacros -Encoding UTF8 -append
