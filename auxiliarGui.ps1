@@ -3,9 +3,20 @@
 $Form = New-Object system.Windows.Forms.Form
 $Form.Text = "Gerador eventMacros.txt"
 $Form.TopMost = $true
-$Form.Width = 400
+$Form.Width = 450
 $Form.Height = 100
 
+$version = "0000000"
+
+try {
+    $version = (git rev-parse HEAD) | Out-String
+    $version = $version.substring(0,7)
+    
+}catch{
+    Write-Out "Git não instalado, não vai ser exibida a versão"
+}
+
+$Form.Text = $Form.Text + " versão: " + $version
 $cbxJobs = New-Object system.windows.Forms.ComboBox
 $cbxJobs.Width = 300
 $cbxJobs.location = new-object system.drawing.point(10,20)
@@ -38,6 +49,19 @@ $btn.Add_click({
           Remove-Item $eventMacros
         }
         $jobSimples = $job.ToString().ToLower().Replace(" ","-").Replace("í","i").Replace("ú","u").Replace("â","a").Replace("ã","a").Replace("á","a")
+        "automacro versao { " | Out-File $eventMacros -Encoding UTF8 -append
+        "    BaseLevel > 0 " | Out-File $eventMacros -Encoding UTF8 -append
+        "    priority -999 " | Out-File $eventMacros -Encoding UTF8 -append
+        "    run-once 1 " | Out-File $eventMacros -Encoding UTF8 -append
+        "    call { " | Out-File $eventMacros -Encoding UTF8 -append
+        "        [ " | Out-File $eventMacros -Encoding UTF8 -append
+        "        log -------------------------- " | Out-File $eventMacros -Encoding UTF8 -append
+        "        log | Versão:  " + $version + "       |" | Out-File $eventMacros -Encoding UTF8 -append
+        "        log -------------------------- " | Out-File $eventMacros -Encoding UTF8 -append
+        "        ] " | Out-File $eventMacros -Encoding UTF8 -append
+        "    } " | Out-File $eventMacros -Encoding UTF8 -append
+        "} " | Out-File $eventMacros -Encoding UTF8 -append
+        " " | Out-File $eventMacros -Encoding UTF8 -append
         Get-Content -Encoding UTF8 classes\$jobSimples\*.pm | Out-File $eventMacros -Encoding UTF8 -append
         Get-Content -Encoding UTF8 comum\*.pm | Out-File $eventMacros -Encoding UTF8 -append
         [System.Windows.Forms.MessageBox]::Show("eventMacros.txt para "+$job+" gerado com sucesso!" , "Ok")
@@ -46,6 +70,8 @@ $btn.Add_click({
         [System.Windows.Forms.MessageBox]::Show("Erro, nenhum item selecionado", "Selecione uma classe")
     }
 })
+
+
 
 [void]$Form.ShowDialog()
 $Form.Dispose()
