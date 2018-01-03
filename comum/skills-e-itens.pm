@@ -86,7 +86,6 @@ automacro parandoDePegarPotDeAprendiz {
         log = removendo o getAuto
         log ===================================
         ]
-        log 
         #parar de tentar usar tambem
         do conf sitAuto_hp_upper 80
         do conf getAuto_0 none
