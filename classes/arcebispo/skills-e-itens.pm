@@ -113,7 +113,7 @@ automacro configurarAL_BLESSING {
 
 #SKILL SACERDOTE PRA USAR EM SI "AJUDANDO A UPAR SOLO"#
 
-automacro configurarKyrie Eleison {
+automacro configurarKyrieEleison {
     SkillLevel PR_KYRIE >= 1
     ConfigKeyNot useSelf_skill_4 PR_KYRIE
     priority 4
@@ -170,7 +170,7 @@ automacro configurarMagnificat {
     }
 }
 
-automacro configurarGlória {
+automacro configurarGloria {
     SkillLevel PR_GLORIA >= 5
     ConfigKeyNot useSelf_skill_6 PR_GLORIA
     priority 6
@@ -198,7 +198,7 @@ automacro configurarGlória {
   }
 }
 
-automacro configurarGraça Divina {
+automacro configurarGraçaDivina {
     SkillLevel PR_STRECOVERY >= 1
     ConfigKeyNot useSelf_skill_7 PR_STRECOVERY
     priority 7
@@ -224,7 +224,7 @@ automacro configurarGraça Divina {
   }
 }
 
-automacro configurarImpositio Manus {
+automacro configurarImpositioManus {
     SkillLevel PR_IMPOSITIO >= 1
     ConfigKeyNot useSelf_skill_8 PR_IMPOSITIO
     priority 8
