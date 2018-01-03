@@ -173,7 +173,7 @@ automacro configurarMagnificat {
 automacro configurarGlória {
     SkillLevel PR_GLORIA >= 5
     ConfigKeyNot useSelf_skill_6 PR_GLORIA
-	priority 6
+    priority 6
     exclusive 1
     call {
         [
@@ -201,7 +201,7 @@ automacro configurarGlória {
 automacro configurarGraça Divina {
     SkillLevel PR_STRECOVERY >= 1
     ConfigKeyNot useSelf_skill_7 PR_STRECOVERY
-	priority 7
+    priority 7
     exclusive 1
     call {
         [
@@ -227,7 +227,7 @@ automacro configurarGraça Divina {
 automacro configurarImpositio Manus {
     SkillLevel PR_IMPOSITIO >= 1
     ConfigKeyNot useSelf_skill_8 PR_IMPOSITIO
-	priority 8
+    priority 8
     exclusive 1
     call {
         [
@@ -256,7 +256,7 @@ automacro configurarImpositio Manus {
 automacro configurarCurarMortoVivos {
     SkillLevel AL_HEAL = 10
     ConfigKeyNot attackSkillSlot_0 AL_HEAL
-	priority 0
+    priority 0
     exclusive 1
     call {
         [
