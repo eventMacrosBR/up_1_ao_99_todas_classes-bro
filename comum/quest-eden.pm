@@ -378,7 +378,6 @@ automacro Eden40Caçar {
     QuestHuntOngoing 7148 1686, 7149 1023, 7150 1273
     exclusive 1
     timeout 180
-    ConfigKeyNot virarArruaceiro true
     JobLevel != 50
     call caçarMonstros "gef_fild10"
 }
