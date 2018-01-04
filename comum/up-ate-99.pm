@@ -26,6 +26,7 @@ macro upar {
         log ================================
         ]
         call voltarAtacar
+        do conf -f o_que_estou_fazendo upando
         stop
     }
     
@@ -43,6 +44,7 @@ macro upar {
         ]
         do conf lockMap $mapa{lockMap}
         call voltarAtacar
+        do conf -f o_que_estou_fazendo upando
     } else {
         call pararDeAtacar
         do conf lockmap none
@@ -79,6 +81,7 @@ automacro nivelDeClasse50 {
         do conf lockMap none
         call pararDeAtacar
         do conf -f esperarFazerQuest true
+        do conf -f o_que_estou_fazendo esperandoQuestSerFeitaManualmente
         if ($.map != izlude) do move izlude
     }
 }

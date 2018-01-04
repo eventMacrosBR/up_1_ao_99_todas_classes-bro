@@ -41,7 +41,7 @@ automacro chegueilvl99 {
                 }
                 $i++
             }
-
+            #desabilitar TODOS os buyAuto
             $continuarLoop = sim
             $i = 0
             while ($continuarLoop = sim) {
@@ -75,6 +75,7 @@ automacro chegueilvl99 {
             log TENTANDO FICAR COM 0 DE PESO
             log ============================
             ]
+            do conf -f o_que_estou_fazendo tentandoRebornar
             do conf -f estagio_Reborn preparando
         }
     }
@@ -106,6 +107,7 @@ automacro chamarAmigo {
             ]
             do ai manual
             lock chamarAmigo
+            do conf -f o_que_estou_fazendo tentandoRebornar_aindaEstouComPeso
             stop
         }
         do ai on
@@ -134,7 +136,8 @@ automacro irNoLocalPraNegociar {
             do pm "$paramsQuestClasseRenascer{amigo}" vou ficar spammando isso ate vc chegar perto de mim
         }
         
-        do pm "$paramsQuestClasseRenascer{amigo}" me ajuda a rebornar, vem aqui em juno 146 116
+        do pm "$paramsQuestClasseRenascer{amigo}" me ajuda a rebornar, vem aqui em
+        do pm "$paramsQuestClasseRenascer{amigo}" juno 146 116
         do pm "$paramsQuestClasseRenascer{amigo}" quando chegar, negocia comigo
         #movendo pra local especifico
         do move yuno &rand(145,147) &rand(115,117)
@@ -149,6 +152,7 @@ automacro amigoPerto_pedindoPraDarTrade {
     PlayerNear /$paramsQuestClasseRenascer{amigo}/
     timeout 30
     call {
+        do conf -f o_que_estou_fazendo tentandoRebornar_esperandoNegociação
         do pm "$paramsQuestClasseRenascer{amigo}" ow, negocia comigo aew, to esperando
     }
 }
@@ -177,6 +181,7 @@ automacro DandoOuReceBendoZeny {
             #se o zeny atual for menor que 1285000, vc manda pro mercador via pm quanto mais precisa
             $zenyQuePreciso = &eval(1285000 - $.zeny)
             do pm "$paramsQuestClasseRenascer{amigo}" preciso da quantia de exatamente $zenyQuePreciso zenys
+            do deal
         }
     }
 }
@@ -189,6 +194,7 @@ automacro TudoCerto_VamosRebornar {
     exclusive 1
     ConfigKey estagio_Reborn preparando
     call {
+        do conf -f o_que_estou_fazendo indoRebornar!!!
         # se tiver tudo certinho pra começar o reborn ,essa automacro ativa
         do conf -f estagio_Reborn 1
     }
@@ -287,12 +293,13 @@ automacro Rebornar_ultimoEstagio {
         ###do talknpc 48 86 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c
         do talk &npc(48 86)
         do conf estagio_Reborn none
+        call atualizarBuild
+        do conf -f o_que_estou_fazendo acabeiDeRebornar
         [
         log =========================================
         log REBORNEEEEEEEEEEEEEEEEEEEEEEEEEEEEEI 
         log =========================================
         ]
-        call atualizarBuild
         stop
     }
 }

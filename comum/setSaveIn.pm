@@ -77,6 +77,7 @@ macro SetSaveIn {
     log =============================================
     ]
     do ai manual
+    do conf -f o_que_estou_fazendo indoSalvarem $.param[0]
     do conf -f In_saveMap_sequence true
 
 }
@@ -162,7 +163,8 @@ automacro FalarComKafra {
     timeout 20
     call {
         log ==============================================================
-        log Falando com kafra na posição &config(saveMap_kafra_position) usando a sequência '&config(saveMap_save_sequence)'
+        log Falando com kafra na posição &config(saveMap_kafra_position) 
+        log Usando a sequência '&config(saveMap_save_sequence)'
         log ==============================================================
         do talknpc &config(saveMap_kafra_position) c r0
     }
@@ -186,7 +188,6 @@ automacro SalvoNaKafra {
         do conf storageAuto_npc_type 3
         do conf storageAuto_npc_steps &config(saveMap_storage_sequence)
 
-        do conf saveMap_save_sequence none
         do conf saveMap_storage_sequence none
         do conf saveMap_wanted none
         do conf saveMap_kafra_position none
@@ -199,6 +200,7 @@ automacro SalvoNaKafra {
         log =Salvo em &config(saveMap)
         log ===========================================
         ]
+        do conf -f o_que_estou_fazendo acabeiDeSalvarNaKafraDe $saveMap
     }
 }
 #
