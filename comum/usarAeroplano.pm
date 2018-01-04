@@ -47,6 +47,7 @@ macro junopra {
     }
     $varAeroplano1 = &config(aeroplano1)
     $varAeroplano2 = &config(aeroplano2)
+    do conf -f aeroplano_macroChamada junopra
     do conf lockMap none
     do ai manual
     if ($.map = airplane || $.map = airplane_01) {
@@ -100,6 +101,7 @@ macro einbrochpra {
     }
     $varAeroplano1 = &config(aeroplano1)
     $varAeroplano2 = &config(aeroplano2)
+    do conf -f aeroplano_macroChamada einbrochpra
     do conf lockMap none
     do ai manual
     if ($.map = airplane || $.map = airplane_01) {
@@ -154,6 +156,7 @@ macro rachelpra {
     }
     $varAeroplano1 = &config(aeroplano1)
     $varAeroplano2 = &config(aeroplano2)
+    do conf -f aeroplano_macroChamada rachelpra
     do conf lockMap none
     do ai manual
     if ( $.map = airplane || $.map = airplane_01) {
@@ -185,8 +188,8 @@ automacro usarAeroplanoBugged {
         #aconteceria se no meio do uso da macro (mover ate la ou dentro do aeroplano)
         #o openkore foss fechado
         do ai manual
-        $varAeroplano1 = &config(aeroplano1)
-        $varAeroplano2 = &config(aeroplano2)
+        $macro = &config(aeroplano_macroChamada)
+        call $macro
     }
 }
 
@@ -199,7 +202,11 @@ automacro dentroDoAeroplanoInternacional_checagem {
         if (&defined($varAeroplano1) = 0) {
             $varAeroplano1 = &config(aeroplano1)
         }
+        [
+        log ===================================
         log Estamos no aeroplano, aguardando chegada ao destino
+        log ===================================
+        ]
     }
 }
 
@@ -220,7 +227,11 @@ automacro dentroDoAeroplanoDomestico_checagem {
         if (&defined($varAeroplano2) = 0) {
             $varAeroplano2 = &config(aeroplano2)
         }
+        [
+        log ===================================
         log Estamos no aeroplano, aguardando chegada ao destino
+        log ===================================
+        ]
     }
 }
 
@@ -233,6 +244,7 @@ automacro dentroDoAeroplanoDomestico {
 }
 
 macro sairDoAeroplano {
+    
     # é preciso ser feito isso para que a Condição InMap funcione
     # já que o nome original da cidade é yuno
     # mas não pode ser mudado antes, porque dentro do aeroplano
@@ -284,6 +296,7 @@ macro objetivoCompleto {
     do conf aeroplano1 none
     do ai on
     call SetSaveIn "$.InMapLast"
+    do conf -f o_que_estou_fazendo acabeiDeChegarNaCidadeViaAeroplano
 }
 
 automacro chegueiEmJuno {
