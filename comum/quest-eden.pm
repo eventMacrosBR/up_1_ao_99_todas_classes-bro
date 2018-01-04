@@ -2,7 +2,7 @@
 
 
 automacro seJuntarAoGrupoEden_MoverPerto {
-    InInventoryID 22508 = 0 #Emblema do Éden# 
+    InInventoryID 22508 = 0  
     IsNotEquippedID armor 15009
     InInventoryID 15009 = 0
     IsNotEquippedID armor 15010
@@ -24,7 +24,7 @@ automacro seJuntarAoGrupoEden_MoverPerto {
 }
 
 automacro seJuntarAoGrupoEden {
-    InInventoryID 22508 = 0 #Emblema do Éden#
+    InInventoryID 22508 = 0
     IsNotEquippedID armor 15009
     InInventoryID 15009 = 0
     IsNotEquippedID armor 15010
@@ -52,7 +52,7 @@ automacro seJuntarAoGrupoEden {
 }
 
 automacro entrouNoGrupoEden {
-    InInventoryID 22508 = 1 #Emblema do eden
+    InInventoryID 22508 = 1
     ConfigKeyNot membroDoEden sim
     exclusive 1
     call {
@@ -87,7 +87,7 @@ automacro TrocarEmblema {
 
 automacro iniciandoQuestEden12MoverPerto {
     NpcNotNear /Boya/
-    InInventoryID 22508 =1 #Emblema do Éden#
+    InInventoryID 22508 = 1 
     BaseLevel 12..18
     exclusive 1
     QuestInactive 7128
@@ -102,7 +102,7 @@ automacro iniciandoQuestEden12MoverPerto {
 automacro iniciandoQuestEden26MoverPerto {
     NpcNotNear /Boya/
     BaseLevel 26..32
-    InInventoryID 22508 =1 #Emblema do Éden#
+    InInventoryID 22508 = 1 
     exclusive 1
     QuestInactive 7138
     QuestInactive 7139
@@ -129,7 +129,7 @@ automacro IniciandoQuestEden40MoverPerto {
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15011
-    InInventoryID 22508 =1 #Emblema do Éden#
+    InInventoryID 22508 = 1 
     InInventoryID 15011 = 0 #armadura que ganha com essa quest
     call moverPertoDosNpcEden
 }
@@ -138,7 +138,7 @@ automacro inciandoQuestEden60MoverPerto {
     NpcNotNear /Ur/
     BaseLevel 60..69
     exclusive 1
-    InInventoryID 22508 =1 #Emblema do Éden#
+    InInventoryID 22508 = 1 
     JobID $paramsClasses{idC2}, $paramsClasses{idC2Alt}
     QuestInactive 7214
     ConfigKeyNot In_saveMap_sequence true
@@ -162,7 +162,7 @@ macro moverPertoDosNpcEden {
 
 automacro iniciandoQuestEden12 {
     NpcNear /Boya/
-    InInventoryID 22508 =1 #Emblema do Éden#
+    InInventoryID 22508 = 1 
     BaseLevel 12..17
     exclusive 1
     QuestInactive 7128
@@ -178,7 +178,7 @@ automacro iniciandoQuestEden12 {
 automacro iniciandoQuestEden26 {
     NpcNear /Boya/
     BaseLevel 26..32
-    InInventoryID 22508 =1 #Emblema do Éden#
+    InInventoryID 22508 = 1 
     exclusive 1
     QuestInactive 7138
     QuestInactive 7139
