@@ -28,6 +28,7 @@ automacro virandoClasse1t {
         # $virarclasse1sequenciadeconversa tem como valor a sequencia de conversação correta
         # $idequipiniciante tem como valor a id da arma que vc recebe quando vira classe 1
         do conf -f virandoClasse1T true
+        do conf -f o_que_estou_fazendo virandoClasse1Trans
         
         do move $paramsQuestClasse1t{mapa} $paramsQuestClasse1t{npc} &rand(1,5)
         do talknpc $paramsQuestClasse1t{npc} $paramsQuestClasse1t{sequenciaConversa}
@@ -49,6 +50,8 @@ automacro jaSouClasse1t {
         if ($check != -1) do eq $check
         do conf virandoClasse1T none
         call atualizarBuild
+        
+        do conf -f o_que_estou_fazendo acabeiDeVirarClasse1T
     }
 }
 

@@ -500,7 +500,6 @@ automacro talkChocoAgain {
     call {
         do talk $.NpcNearLastBinId
         do conf current_npc kafra
-
     }
 }
 
@@ -601,7 +600,6 @@ automacro equipStuffForBradeGrounds {
 automacro LastBradeBug {
     NpcMsg /Você ainda está no processo de treinamento/
     exclusive 1
-    priority 0
     call {
         log Acabou de ocorrer um bug na sequencia do campo de treinamento
         log Resolvendo isso
@@ -642,6 +640,7 @@ automacro começarQuestLunaticos {
     InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
     run-once 1
     call {
+        do conf -f o_que_estou_fazendo campoAprendiz_matandoLunatico
         do talk $.NpcNearLastBinId
         do talk resp 2
     }
@@ -666,7 +665,7 @@ automacro caçandoLunaticos {
 automacro lockMap setado quando nao deveria {
     ConfigKeyNot lockMap none
     exclusive 1
-    InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
+    InMapRegex /new_\d-\d/
     call {
         do conf lockMap none
         do conf attackAuto_inLockOnly 0
@@ -725,7 +724,8 @@ automacro começarQuestPicky {
     InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
     call {
         log Indo pegar quest para  Picks
-        pause 2
+        pause 1
+        do conf -f o_que_estou_fazendo campoAprendiz_matandoPickyeSalgueiro
         do talk $.NpcNearLastBinId
         do talk resp 2
         do conf -f quest_atual salgueiros
@@ -757,37 +757,10 @@ automacro começarQuestSalgueiro {
     InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
     call {
         log Indo pegar quest para  Salgueiro
+        do conf -f o_que_estou_fazendo campoAprendiz_matandoPickyeSalgueiro
         do talk $.NpcNearLastBinId
         do talk resp 2
         do conf -f quest_atual none
-    }
-}
-
-automacro changeToHeavierTrainingMoveClose {
-    QuestActive 7123
-    QuestActive 7127
-    exclusive 1
-    NpcNotNear /Trainer/
-    InMap new_1-3, new_2-3, new_3-3
-    ConfigKey master RMS Renewal Test Server
-    call {
-        do move &rand(103,105) &rand(36,38)
-    }
-}
-
-
-automacro changeToHeavierTraining {
-    QuestActive 7123
-    QuestActive 7127
-    exclusive 1
-    NpcNear /Trainer/
-    InMap new_1-3, new_2-3, new_3-3
-    ConfigKey master RMS Renewal Test Server
-    call {
-        log mudando pra mapa onde tem pickys e salgueiros
-        do talk $.NpcNearLastBinId #Treinador
-        do talk resp 0
-        do talk resp /5/
     }
 }
 
@@ -837,7 +810,7 @@ macro sePreparandoPraMatar {
     do mconf 1004 0 0 0 #zangao
     do mconf 1049 1 0 0 #picky
     do mconf 1010 1 0 0 #Salgueiro
-    log ======== Indo matar pickys e salgueiros
+    log  Indo matar pickys e/ou salgueiros
 }
 
 automacro mateiPickysIndoAteNpc {
@@ -890,10 +863,12 @@ automacro completeiTodasAsQuests {
     QuestInactive 7127
     QuestInactive 7123
     QuestInactive 7124
+    InInventoryID 12323 > 50 #asa de mosca de iniciante
+    InInventoryID 12324 > 20 #asa de borboleta de iniciante
     exclusive 1
     InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
     call {
-        log ======== Completei todas as Quests
+        log Completei todas as Quests
         do conf -f quest_atual todas_completadas
     }
 }
@@ -907,7 +882,7 @@ automacro continuarUpandoAte12 {
     InInventoryID 12324 > 20 #asa de borboleta de iniciante
     BaseLevel < 12
     exclusive 1
-    timeout 180
+    timeout 100
     InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
     call {
         [
@@ -919,6 +894,7 @@ automacro continuarUpandoAte12 {
         do mconf 1002 1 0 0 #poring
         do mconf 1113 1 0 0 #drops
         call voltarAtacar
+        do conf -f o_que_estou_fazendo campoAprendiz_upandoAteLvl12
         log =================================
         log upando até o lvl 12
         log =================================
@@ -978,42 +954,13 @@ macro mudarDeMapa {
     do mconf 1063 0 0 0 #lunatico
     call pararDeAtacar
     do move &rand(103,105) &rand(36,38)
-    log ======== mudando pra mapa onde tem pickys e salgueiros
+    log mudando pra mapa onde tem pickys e salgueiros
     do talk &npc(/Treinador/) #Treinador
     do talk resp 1
     call voltarAtacar
 }
 
-automacro ifDieWhileKillPickyAndWillow {
-    QuestActive 7123, 7127
-    CurrentHP >= 50%
-    IsInCoordinate 95 21
-    InMap new_1-3, new_2-3, new_3-3
-    exclusive 1
-    call changeMap
-}
-
-automacro ifDieWhileLevelingto12 {
-    ConfigKey quest_atual todas_completadas
-    CurrentHP >= 50%
-    IsInCoordinate 95 21
-    InMap new_1-3, new_2-3, new_3-3
-    exclusive 1
-    call changeMap
-}
-
-macro changeMap {
-    call pararDeAtacar
-    do move &rand(103,105) &rand(36,38)
-    log ======== mudando pra mapa onde tem pickys e salgueiros
-    do talk &npc(/Trainer/) #Treinador
-    do talk resp 0
-    do talk resp /5/
-    call voltarAtacar
-}
-
-
-automacro endleveling {
+automacro terminouDeUpar {
     exclusive 1
     JobLevel 10
     BaseLevel > 11
@@ -1026,7 +973,7 @@ automacro endleveling {
         do talk &npc(/$paramsQuestClasse1{nomeClasse}/i)
         do talk resp 1
         do talk resp 1
-        log ======== Agora vou virar um $paramsQuestClasse1{nomeClasse}!!!
+        log Agora vou virar um/uma $paramsQuestClasse1{nomeClasse}!!!
         do conf quest_atual none
     }
 }
@@ -1044,6 +991,7 @@ automacro todobugadão {
         log tô todo bugado
         log vamo virar $paramsQuestClasse1{nomeClasse}, tá na hora
         ]
+        do conf -f o_que_estou_fazendo virandoClasse1
         do move $paramsQuestClasse1{mapa}
     }
 }

@@ -65,12 +65,7 @@ automacro TrocarEmblema_IndoProNpc {
     NpcNotNear /Lenore|Lime/
     exclusive 1
     priority -2 # um pouco alta
-    call  {
-        call moverPertoDosNpcEden
-        do reload event #estranhamente qando ele chega perto do npc do eden, ele nao checa alguma 
-        #das condições (arrisco dizer a di inventory) por isso tive que colocar essa linha
-        #que recarrega o eventMacros, aí a proxima automacro trigga de boas
-    }
+    call moverPertoDosNpcEden
 }
 
 automacro TrocarEmblema {
@@ -158,6 +153,10 @@ macro moverPertoDosNpcEden {
     log ===========================================
     ]
     do move moc_para01 &rand(33,35) &rand(25,27) #posição otima no Eden
+    do reload event 
+    #estranhamente qando ele chega perto do npc do eden, ele nao checa alguma 
+    #das condições (arrisco dizer a de inventory) por isso tive que colocar essa linha
+    #que recarrega o eventMacros, aí a proxima automacro trigga de boas
 }
 
 automacro iniciandoQuestEden12 {
@@ -171,7 +170,7 @@ automacro iniciandoQuestEden12 {
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15009
     InInventoryID 15009 = 0
-    call iniciandoQuestEden '1' '0' '0'
+    call iniciandoQuestEden '12' '1' '0' '0'
 }
 
 
@@ -188,7 +187,7 @@ automacro iniciandoQuestEden26 {
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15010
     InInventoryID 15010 = 0
-    call iniciandoQuestEden '1'
+    call iniciandoQuestEden '26' '1'
 }
 
 automacro IniciandoQuestEden40 {
@@ -202,7 +201,7 @@ automacro IniciandoQuestEden40 {
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15011
     InInventoryID 15011 = 0
-    call iniciandoQuestEden '0'
+    call iniciandoQuestEden '40' '0'
 }
 
 automacro inciandoQuestEden60 {
@@ -217,7 +216,7 @@ automacro inciandoQuestEden60 {
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15031
     InInventoryID 15031 = 0
-    call iniciandoQuestEden '0' '1'
+    call iniciandoQuestEden '60' '0' '1'
 }
 
 macro iniciandoQuestEden {
@@ -226,12 +225,12 @@ macro iniciandoQuestEden {
     log =Iniciando a quest eden
     log ==========================
     ]
-
+    do conf -f o_que_estou_fazendo iniciandoQuestEden$.param[0]
     #$.param[0] tem como valor a sequencia de conversação correta
     do talk $.NpcNearLastBinId
-    if (&defined($.param[0]) = 1) do talk resp $.param[0]
     if (&defined($.param[1]) = 1) do talk resp $.param[1]
     if (&defined($.param[2]) = 1) do talk resp $.param[2]
+    if (&defined($.param[3]) = 1) do talk resp $.param[3]
 
     switch ($.lvl) {
         case (<= 18) $lvlQueVaiIr = 15
@@ -258,6 +257,7 @@ automacro Eden12salvarNaKafra {
     call {
         do conf -f quest_eden em_curso
         call SetSaveIn "morocc"
+        do conf -f o_que_estou_fazendo quest_eden12
     }
 }
 
@@ -270,6 +270,7 @@ automacro Eden26SalvarNaKafra {
     call {
         do conf -f quest_eden em_curso
         call SetSaveIn "payon"
+        do conf -f o_que_estou_fazendo quest_eden26
     }
 }
 
@@ -283,6 +284,7 @@ automacro Eden40SalvarNaKafra {
     call {
         do conf -f quest_eden em_curso
         call SetSaveIn "prontera"
+        do conf -f o_que_estou_fazendo quest_eden40
     }
 }
 
@@ -295,6 +297,7 @@ automacro Eden60SalvarNaKafra {
     call {
         do conf -f quest_eden em_curso
         call SetSaveIn "comodo"
+        do conf -f o_que_estou_fazendo quest_eden60
     }
 }
 
@@ -364,14 +367,14 @@ automacro Eden12Caçar {
     QuestHuntOngoing 7129 1009, 7130 1107, 7131 1001
     exclusive 1
     timeout 120
-    call caçarMonstros "moc_fild11"
+    call caçarMonstros "moc_fild11" "12"
 }
 
 automacro Eden26Caçar {
     QuestHuntOngoing 7139 1076, 7140 1031
     exclusive 1
     timeout 180
-    call caçarMonstros "pay_dun00"
+    call caçarMonstros "pay_dun00" "26"
 }
 
 automacro Eden40Caçar {
@@ -379,14 +382,14 @@ automacro Eden40Caçar {
     exclusive 1
     timeout 180
     JobLevel != 50
-    call caçarMonstros "gef_fild10"
+    call caçarMonstros "gef_fild10" "40"
 }
 
 automacro Eden60Caçar {
     QuestHuntOngoing 7215 1278, 7216 1278
     exclusive 1
     timeout 60
-    call caçarMonstros "beach_dun2"
+    call caçarMonstros "beach_dun2" "60"
 }
 
 macro caçarMonstros {
@@ -397,7 +400,7 @@ macro caçarMonstros {
     if ( &config(lockMap) != $.param[0]) do conf lockMap $.param[0]
     do mconf $.QuestHuntOngoingLastMobID 2 0 0
     log ===========================================
-    log =caçando monstro da quest eden
+    log =caçando monstro da quest eden $.param[1]
     log ===========================================
     ]
 }
@@ -412,11 +415,13 @@ automacro Eden60_JuntarItens {
         $qtdOmbreira = &invamount (Ombreira)
         $qtdFolha = &invamount (Folha Afiada)
         
+        do conf -f o_que_estou_fazendo quest_eden60_coletandoItens
+        
         if ( $qtdOmbreira < 5 ) {
             [
             log ===========================================
             log = coletando Ombreiras pra quest eden
-            log = tenho: $qtdOmbreira , Quero: 5 , Falta: &eval(7 - $qtdOmbreira)
+            log = tenho: $qtdOmbreira , Quero: 5 , Falta: &eval(5 - $qtdOmbreira)
             log ===========================================
             ]
             do conf lockMap um_fild02
@@ -555,6 +560,8 @@ automacro voltarDoMapa {
         log vamo lá pegar meus equips de direito!
         log ===========================================
         ]
+        
+        do conf -f o_que_estou_fazendo quest_eden_completada_voltando_para_pegar_equips
         call moverPertoDosNpcEden
     }
 }
@@ -573,6 +580,7 @@ automacro voltarDoMapaDentroDoEden {
         log =terminando a quest eden, falando com o npc
         log ===========================================
         ]
+        
         switch ($.QuestActiveLastID) {
 
             case (= 7132) { #eden 12
@@ -630,6 +638,7 @@ automacro EdenPegandoEquips12e26e40 {
         log =falando com o Mihael pra ganhar meus equips
         log ===========================================
         ]
+        do conf -f o_que_estou_fazendo quest_eden pegandoMeusEquipsDeDireito
         do talk $.NpcNearLastBinId
         do talk resp 0
         do talk resp 1
@@ -660,6 +669,7 @@ automacro EdenPegueiEquips12e26e40 {
     SimpleHookEvent item_gathered
     call {
         do conf -f quest_eden none
+        do conf -f o_que_estou_fazendo acabeiDeTerminarQuestEden
     }
 }
 
@@ -692,6 +702,7 @@ automacro EdenPegueiEquips60 {
     SimpleHookEvent item_gathered
     call {
         do conf -f quest_eden none
+        do conf -f o_que_estou_fazendo acabeiDeTerminarQuestEden60
     }
 }
 

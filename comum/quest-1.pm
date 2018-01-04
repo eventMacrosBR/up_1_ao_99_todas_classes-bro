@@ -28,6 +28,7 @@ automacro virandoClasse1 {
         # $virarclasse1sequenciadeconversa tem como valor a sequencia de conversação correta
         # $idequipiniciante tem como valor a id da arma que vc recebe quando vira classe 1
         
+        do conf -f o_que_estou_fazendo virandoClasse1
         if ($paramsQuestClasse1{precisaMover} = sim) {
             do move $paramsQuestClasse1{mapa} $paramsQuestClasse1{npc} &rand(1,5)
         }
@@ -68,6 +69,7 @@ automacro jaSouClasse1 {
         $check = GetIndexAndEquipped("rightHand", "$paramsQuestClasse1{equipeIniciante}")
         if ($check != -1) do eq $check
         call atualizarBuild
+        do conf -f o_que_estou_fazendo acabeiDeVirarClasse1
     }
 }
 

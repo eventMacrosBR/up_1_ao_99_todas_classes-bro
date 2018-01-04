@@ -26,6 +26,7 @@ automacro iniciarQuestClasse2T {
         call pararDeAtacar
         do conf lockMap none
         do conf -f virarClasse2T true
+        do conf -f o_que_estou_fazendo virandoClasse2T
         do move yuno_in02 &rand(86,90) &rand(162,166)
     }
 }
@@ -73,6 +74,7 @@ automacro jaSouClasse2T {
     ConfigKey virarClasse2T true
     call {
         do conf virarClasse2T none
+        do conf -f o_que_estou_fazendo acabeiDeVirarClasse2T
         call atualizarBuild
     }
 }

@@ -17,7 +17,8 @@ automacro virarClasse2Inicio_Bugged {
         do conf skillsAddAuto_list $configsBuild{skillsClasse1}
         [
         log ================================================================
-        log = Se isso estiver aparecendo repetidamente, a macro tem um bug =
+        log = Se isso estiver aparecendo repetidamente, a macro tem um bug
+        log = Ou não foi definido skills para serem distribuídas nessa classe
         log ================================================================
         ]
     }
@@ -31,6 +32,7 @@ automacro virarClasse2Inicio {
     ConfigKey questc2_implementada true
     call {
         do conf -f virarClasse2 true
+        do conf -f o_que_estou_fazendo virandoClasse2
     }
 }
 
@@ -45,6 +47,7 @@ automacro jsSouClasse2 {
         log ===================
         ]
         do conf virarClasse2 none
+        do conf -f o_que_estou_fazendo acabeiDeVirarClasse2
         call atualizarBuild
     }
 }
@@ -60,6 +63,7 @@ automacro jsSouClasse2NaoAutomatico {
         log =================================================
         ]
         do conf esperarFazerQuest none
+        do conf -f o_que_estou_fazendo acabeiDeVirarClasse2
         call atualizarBuild
     }
 }
