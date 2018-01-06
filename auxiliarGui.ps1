@@ -14,7 +14,7 @@ function getVersao(){
         $version = $commitCounter + "." + $hash 
         
     }catch{
-        Write-Output "Git não instalado, não vai ser exibida a versão"
+        [System.Windows.Forms.MessageBox]::Show( "Git não instalado, não vai ser exibida a versão", "Erro" )
     }
     return $version
 }
