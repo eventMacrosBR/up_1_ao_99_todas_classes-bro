@@ -14,7 +14,7 @@ function getVersao(){
         $version = $commitCounter + "." + $hash 
         
     }catch{
-        Write-Out "Git não instalado, não vai ser exibida a versão"
+        Write-Output "Git não instalado, não vai ser exibida a versão"
     }
     return $version
 }
