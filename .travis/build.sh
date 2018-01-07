@@ -8,7 +8,8 @@ for i in "${jobs[@]}"; do
     pwsh -File auxiliarGui.ps1 -job "$i";
     mkdir dist/$i ;
     mv eventMacros.txt dist/$i/;
-    zip -r $i.zip dist/$i/; 
+    zip -r dist/$i.zip dist/$i/; 
+    rm -R dist/$i/;
 done
 
 
