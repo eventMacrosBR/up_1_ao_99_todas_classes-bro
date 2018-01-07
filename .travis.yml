@@ -1,5 +1,4 @@
-language: perl
-
+language: c
 
 matrix:
   include:
@@ -13,7 +12,6 @@ matrix:
           packages:
             - zip 
             - curl
-      #install: "./.travis/deps.sh"
       script: "./.travis/build.sh"
 
 before_script:
