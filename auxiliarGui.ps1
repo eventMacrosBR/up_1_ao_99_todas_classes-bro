@@ -15,7 +15,7 @@ function getVersao {
         $hash = (git rev-parse HEAD) | Out-String
         $hash = $hash.substring(0,7)
         $commitCounter = (git rev-list --count master) | Out-String 
-        $commitCounter = $commitCounter -replace "\r\n" 
+        $commitCounter = $commitCounter -replace "\s+" 
         $version = $commitCounter + "." + $hash 
         
     }catch{
