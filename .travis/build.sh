@@ -6,10 +6,8 @@ jobs=("arcano" "arcebispo" "bioquimico" "cavaleiro-runico" "feiticeiro" "guardia
 mkdir dist
 for i in "${jobs[@]}"; do
     pwsh -File auxiliarGui.ps1 -job "$i";
-    mkdir dist/$i ;
-    mv eventMacros.txt dist/$i/;
-    zip -r dist/$i.zip dist/$i/; 
-    rm -R dist/$i/;
+    zip $i.zip eventMacros.txt
+    mv $i.zip dist/ ;
 done
 
 
