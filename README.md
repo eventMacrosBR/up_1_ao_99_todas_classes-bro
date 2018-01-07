@@ -1,4 +1,5 @@
 # Up do nível 1 ao 99 para todas as classes bRO
+[![Travis CI Build Status](https://travis-ci.org/eventMacrosBR/up_1_ao_99_todas_classes-bro.svg?branch=master)](https://travis-ci.org/eventMacrosBR/up_1_ao_99_todas_classes-bro)
 Esta macro pretende upar do nível 1 de base até o 99 de todas as classes do ragnarok no servidor Brasileiro
 
 Índice

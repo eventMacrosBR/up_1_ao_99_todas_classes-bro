@@ -1,10 +1,12 @@
-﻿Add-Type -AssemblyName System.Windows.Forms
+﻿param ( [string]$job )
+Add-Type -AssemblyName System.Windows.Forms
+
 
 $Form = New-Object system.Windows.Forms.Form
 $cbxJobs = New-Object system.windows.Forms.ComboBox
 $btn = New-Object system.windows.Forms.Button
 
-function getVersao(){
+function getVersao {
     $version = "versao_indefinida"
     try {
         $hash = (git rev-parse HEAD) | Out-String
@@ -19,29 +21,34 @@ function getVersao(){
     return $version
 }
 
-function gerarMacro(){
-    $job = $cbxJobs.SelectedItem
-    if($job){
-        $eventMacros =  "eventMacros.txt"
-        #Remover o arquivo antigo
-        if (Test-Path $eventMacros) {
-          Remove-Item $eventMacros
-        }
-        $versao = getVersao
-        $jobSimples = $job.ToString().ToLower().Replace(" ","-").Replace("í","i").Replace("ú","u").Replace("â","a").Replace("ã","a").Replace("á","a")
-        $automacroVersao = Get-Content -Encoding UTF8 versao.pm 
-        $automacroVersao = $automacroVersao -replace "<versao>",$versao
-        $automacroVersao | Out-File $eventMacros -Encoding UTF8 -append 
-        Get-Content -Encoding UTF8 classes\$jobSimples\*.pm | Out-File $eventMacros -Encoding UTF8 -append
-        Get-Content -Encoding UTF8 comum\*.pm | Out-File $eventMacros -Encoding UTF8 -append
-        [System.Windows.Forms.MessageBox]::Show("eventMacros.txt para "+$job+" gerado com sucesso!" , "Ok")
+function gerarMacro {
+    param ($classe)
+    $eventMacros =  "eventMacros.txt"
+    #Remover o arquivo antigo
+    if (Test-Path $eventMacros) {
+      Remove-Item $eventMacros
+    }
+    $versao = getVersao
+    $jobSimples = $classe.ToString().ToLower().Replace(" ","-").Replace("í","i").Replace("ú","u").Replace("â","a").Replace("ã","a").Replace("á","a")
+    $automacroVersao = Get-Content -Encoding UTF8 versao.pm 
+    $automacroVersao = $automacroVersao -replace "<versao>",$versao
+    $automacroVersao | Out-File $eventMacros -Encoding UTF8 -append 
+    Get-Content -Encoding UTF8 classes\$jobSimples\*.pm | Out-File $eventMacros -Encoding UTF8 -append
+    Get-Content -Encoding UTF8 comum\*.pm | Out-File $eventMacros -Encoding UTF8 -append
+}
+
+function acaoBotaoGerar {
+    $classe = $cbxJobs.SelectedItem
+    if ($classe) {
+        gerarMacro($classe)
+        [System.Windows.Forms.MessageBox]::Show("eventMacros.txt para "+$classe+" gerado com sucesso!" , "Ok")
         $Form.Dispose()
     } else{
         [System.Windows.Forms.MessageBox]::Show("Erro, nenhum item selecionado", "Selecione uma classe")
     }
 }
 
-function desenharJanela(){
+function desenharJanela {
     $versao = getVersao
     $Form.Text = "Gerador eventMacros.txt versão: " + $versao
     $Form.TopMost = $true
@@ -58,10 +65,10 @@ function desenharJanela(){
     $Form.controls.Add($btn)
     $Form.AcceptButton = $btn
 
-    $btn.Add_click({ gerarMacro })
+    $btn.Add_click({ acaoBotaoGerar })
 }
 
-function carregarValores(){
+function carregarValores {
     $cbxJobs.Items.Add("Arcano")
     $cbxJobs.Items.Add("Arcebispo")
     $cbxJobs.Items.Add("Bioquímico")
@@ -77,15 +84,19 @@ function carregarValores(){
     $cbxJobs.Items.Add("Trovador")
 }
 
-function mostrarJanela() {
+function mostrarJanela {
     [void]$Form.ShowDialog()
 }
 
-function encerrarAplicacao(){
+function encerrarAplicacao {
     $Form.Dispose()
 }
 
-desenharJanela
-carregarValores
-mostrarJanela
-encerrarAplicacao
+if(! $job){
+    desenharJanela
+    carregarValores
+    mostrarJanela
+    encerrarAplicacao
+}else{
+    gerarMacro($job)
+}

@@ -1,0 +1,29 @@
+language: perl
+matrix:
+  include:
+    - os: linux
+      env: NAME="script build"
+      sudo: required
+      dist: trusty
+      services: docker
+      addons:
+        apt:
+          packages:
+            - zip 
+            - curl
+      install: "./.travis/deps.sh"
+      script: "./.travis/build.sh"
+
+before_deploy:
+      # Set up git user name and tag this commit
+      - git config --local user.name "EventMacrosBR"
+      - git config --local user.email "noreply@noreply.org"
+      - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+deploy:
+  provider: releases
+  api_key: 
+    secure: 
+  file: build.zip
+  skip_cleanup: true
+  on:
+    tags: true

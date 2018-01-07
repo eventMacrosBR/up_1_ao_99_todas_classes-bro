@@ -2,4 +2,6 @@
 eventMacros.txt
 #VSCODE CTags
 .vstags
+#distribution folder
+dist/
 
