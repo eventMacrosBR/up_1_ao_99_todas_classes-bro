@@ -22,7 +22,7 @@ Esta macro pretende upar do nível 1 de base até o 99 de todas as classes do ra
 
 ## Download para preguiçosos
 Caso não queira gerar através de script o repositório já disponibiliza o eventMacros.txt de todas as classes montados em: 
-[Releases ![](https://png.icons8.com/metro/26/000000/download.png)](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/releases)
+[Releases ![](https://png.icons8.com/metro/16/000000/download.png)](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/releases)
 
 ## Instruções
 1. Execute o script (geradorEventMacros-plataforma, onde plataforma = seu sistema operacional) para gerar o arquivo eventMacros.txt informando a classe desejada*
