@@ -11,7 +11,8 @@ matrix:
           packages:
             - zip 
             - curl
-      install: "./.travis/deps.sh"
+            - powershell
+      #install: "./.travis/deps.sh"
       script: "./.travis/build.sh"
 
 before_deploy:
