@@ -28,6 +28,6 @@ before_deploy:
       - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 deploy:
   provider: releases
-  api_key: 928ed171c365cb00e41317e46ca37816fd1d3130 
+  api_key: 633f7474b9b9bce9b7722ae88e9159c0541c13c4 
   file: build.zip
   skip_cleanup: true
