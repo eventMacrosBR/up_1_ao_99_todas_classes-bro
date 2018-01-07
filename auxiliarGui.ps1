@@ -1,10 +1,13 @@
 ﻿param ( [string]$job )
-Add-Type -AssemblyName System.Windows.Forms
+
+if (! $job) {
+    Add-Type -AssemblyName System.Windows.Forms
 
 
-$Form = New-Object system.Windows.Forms.Form
-$cbxJobs = New-Object system.windows.Forms.ComboBox
-$btn = New-Object system.windows.Forms.Button
+    $Form = New-Object system.Windows.Forms.Form
+    $cbxJobs = New-Object system.windows.Forms.ComboBox
+    $btn = New-Object system.windows.Forms.Button
+}
 
 function getVersao {
     $version = "versao_indefinida"
