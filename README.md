@@ -20,6 +20,10 @@ Esta macro pretende upar do nível 1 de base até o 99 de todas as classes do ra
 - [bROWiki](http://browiki.org/wiki/P%C3%A1gina_principal)
 - [Grupo de discussão no Gitter](https://gitter.im/eventMacro-up-todas-as-classes/Lobby)
 
+## Download para preguiçosos
+Caso não queira gerar através de script o repositório já disponibiliza o eventMacros.txt de todas as classes montados em: 
+[Releases ![](https://png.icons8.com/metro/50/000000/download.png)](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/releases)
+
 ## Instruções
 1. Execute o script (geradorEventMacros-plataforma, onde plataforma = seu sistema operacional) para gerar o arquivo eventMacros.txt informando a classe desejada*
 2. Cole esse arquivo em sua pasta control do openkore
