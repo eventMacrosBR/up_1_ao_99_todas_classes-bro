@@ -34,12 +34,12 @@ macro upar {
     log vou salvar em: $mapa{saveMap}
     log vou upar em: $mapa{lockMap}
     
-    #se chegar aqui significa que tem que ser mudado o lockmap e/ou o saveMap
+    #se chegar aqui significa que tem que ser mudado o lockMap e/ou o saveMap
     if (&config(saveMap) = $mapa{saveMap}) {
         [
         log =====================================
         log =Já estou salvo em $mapa{saveMap}
-        log =Configurando lockmap 
+        log =Configurando lockMap 
         log =====================================
         ]
         do conf lockMap $mapa{lockMap}
@@ -47,7 +47,7 @@ macro upar {
         do conf -f o_que_estou_fazendo upando
     } else {
         call pararDeAtacar
-        do conf lockmap none
+        do conf lockMap none
         call SetSaveIn "$mapa{saveMap}"
     }
 }
