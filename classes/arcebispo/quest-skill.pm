@@ -13,7 +13,7 @@ automacro questLuzDivina_configurandoItens {
 automacro questLuzDivina_inicioTenhoOsItens {
     JobID $paramsClasses{idC1}, $paramsClasses{idC2}
     SkillLevel AL_HOLYLIGHT != 1
-    BaseLevel >= 30
+    JobLevel >= 30
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
     ConfigKeyNot In_saveMap_sequence true
@@ -118,7 +118,7 @@ automacro questLuzDivina_comprarCristalAzul {
         do conf route_randomWalk 1
         do conf route_randomWalk_inTown 1
         call pararDeAtacar
-        if (checarSeExisteNoConfig("BetterShopper_0") = nao) {
+        if (checarSeExisteNoConfig("BetterShopper_1") = nao) {
             adicionaBetterShopper()
             pause 1
             do reload config
@@ -150,7 +150,7 @@ automacro questLuzDivina_falarComNpc {
     exclusive 1
     call {
         do move prt_church  &rand(171,175) &rand(21,25)
-        do talk 173 23 r1 r0
+        do talknpc 173 23 r1 r0
     }
 }
 
