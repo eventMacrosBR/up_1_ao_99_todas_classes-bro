@@ -175,6 +175,7 @@ automacro comprandoCristalAzulAdoidadoBug {
     ConfigKey quest_skill true
     ConfigKey quest_luz_divina comprar_itens
     ConfigKey BetterShopper_1 Cristal Azul
+    ConfigKeyNot BetterShopper_1_disabled 1
     InInventoryID 991 >= 1
     call {
         do conf BetterShopper_1_disabled 1
@@ -185,6 +186,7 @@ automacro comprandoOpalaAdoidadoBug {
     ConfigKey quest_skill true
     ConfigKey quest_luz_divina comprar_itens
     ConfigKey BetterShopper_0 Opala
+    ConfigKeyNot BetterShopper_0_disabled 1
     InInventoryID 727 >= 1
     call {
         do conf BetterShopper_0_disabled 1
