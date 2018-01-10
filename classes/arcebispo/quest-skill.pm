@@ -174,7 +174,7 @@ automacro questLuzDivina_aprendiLuzDivina {
 automacro comprandoCristalAzulAdoidadoBug {
     ConfigKey quest_skill true
     ConfigKey quest_luz_divina comprar_itens
-    ConfigKeyNot BetterShopper_1 Cristal Azul
+    ConfigKey BetterShopper_1 Cristal Azul
     InInventoryID 991 >= 1
     call {
         do conf BetterShopper_1_disabled 1
@@ -184,7 +184,7 @@ automacro comprandoCristalAzulAdoidadoBug {
 automacro comprandoOpalaAdoidadoBug {
     ConfigKey quest_skill true
     ConfigKey quest_luz_divina comprar_itens
-    ConfigKeyNot BetterShopper_0 Opala
+    ConfigKey BetterShopper_0 Opala
     InInventoryID 727 >= 1
     call {
         do conf BetterShopper_0_disabled 1
