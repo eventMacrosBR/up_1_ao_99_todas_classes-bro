@@ -5,6 +5,7 @@ automacro questLuzDivina_configurandoItens {
     exclusive 1
     call {
         do iconf 727 1 1 0 #Opala
+        do iconf Opala 1 1 0 #Opala
         do iconf 991 1 1 0 #Cristal Azul
         do iconf 2608 1 1 0 #Rosário
     }
@@ -167,6 +168,26 @@ automacro questLuzDivina_aprendiLuzDivina {
         ]
         do conf quest_skill none
         do conf quest_luz_divina none
+    }
+}
+
+automacro comprandoCristalAzulAdoidadoBug {
+    ConfigKey quest_skill true
+    ConfigKey quest_luz_divina comprar_itens
+    ConfigKeyNot BetterShopper_1 Cristal Azul
+    InInventoryID 991 >= 1
+    call {
+        do conf BetterShopper_1_disabled 1
+    }
+}
+
+automacro comprandoOpalaAdoidadoBug {
+    ConfigKey quest_skill true
+    ConfigKey quest_luz_divina comprar_itens
+    ConfigKeyNot BetterShopper_0 Opala
+    InInventoryID 727 >= 1
+    call {
+        do conf BetterShopper_0_disabled 1
     }
 }
 
