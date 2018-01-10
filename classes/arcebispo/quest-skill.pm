@@ -89,10 +89,10 @@ automacro questLuzDivina_comprarOpala {
     Zeny >= 10000
     exclusive 1
     call {
+        call pararDeAtacar
         do conf lockMap prontera
         do conf route_randomWalk 1
         do conf route_randomWalk_inTown 1
-        call pararDeAtacar
         if (checarSeExisteNoConfig("BetterShopper_0") = nao) {
             adicionaBetterShopper()
             pause 1
@@ -114,10 +114,10 @@ automacro questLuzDivina_comprarCristalAzul {
     Zeny >= 10000
     exclusive 1
     call {
+        call pararDeAtacar
         do conf lockMap prontera
         do conf route_randomWalk 1
         do conf route_randomWalk_inTown 1
-        call pararDeAtacar
         if (checarSeExisteNoConfig("BetterShopper_1") = nao) {
             adicionaBetterShopper()
             pause 1
