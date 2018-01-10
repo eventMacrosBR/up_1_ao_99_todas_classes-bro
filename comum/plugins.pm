@@ -3,7 +3,7 @@ sub xConfConfiguratedOrNot {
     use File::Copy;
     
     my ($estaAtualizado, $estaNaPasta, $estaNoSys);
-    my $path_xconf_na_pasta_plugins = "plugins/xConf/xconf.pl";
+    my $path_xconf_na_pasta_plugins = "plugins/xConf/xConf.pl";
     my $path_xconf_na_pasta_needsreview = "plugins/needs-review/xconf/trunk/xconf.pl";
     
     unlink "plugins/xConf.pl" if (-e "plugins/xconf.pl");
