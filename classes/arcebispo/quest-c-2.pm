@@ -10,9 +10,8 @@ sub initParamsQuestClasse2 {
 automacro VirarSacer1 {
     JobID $paramsClasses{idC1}
     JobLevel = 50
-    priority -2
     exclusive 1
-    run-once 1
+    QuestInactive 8012, 8013
     call {
         do conf route_maxWarpFee none
         do conf route_maxNpcTries none
@@ -51,8 +50,6 @@ automacro VirarSacer2 {
     timeout 60
     macro_delay 4
     call {
-        lock VirarSacer1
-        pause 60 #sera que isso é necessario?
         do talknpc 24 187 r0 r0 #Smith
         do conf attackAuto 2
         do conf attackUseWeapon 1
@@ -68,8 +65,27 @@ automacro VirarSacer2 {
         do talk resp 2
         do move job_prist 168 178
         do move job_prist 97 105
-        do talknpc 27 24 r0 r1 r0 r0 r1 r1 r0 r0
-        do talknpc 16 41 
     }
+}
+
+automacro VirarSacer_FalarComIrmaCelcilia {
+    JobID $paramsClasses{idC1}
+    JobLevel = 50
+    QuestActive 8013
+    InMap prt_church
+    call { 
+        do move prt_church 16 37 &rand(3,6)
+        do talknpc 27 24  r0 r1 r0 r0 r1 r1 r0 r0
+    } 
+}
+
+automacro VirarSacer_Final {
+    JobID $paramsClasses{idC1}
+    JobLevel = 50
+    QuestActive 8014
+    InMap prt_church
+    call { 
+        do talknpc 16 41
+    } 
 }
 
