@@ -307,7 +307,7 @@ automacro Eden12IrNoMapa {
     BaseLevel >= 15
     ConfigKeyNot In_saveMap_sequence true
     ConfigKey saveMap morocc
-    call irNoMapa 'moc_fild11' '180' '253' 'Filhote de Lobo' 'Escorpião' 'Condor'
+    call irNoMapa 'moc_fild11' '180' '253' '1107' '1001' '1009' #monstros: filhote de lobo, escopião, condor
 }
 
 automacro Eden26IrNoMapa {
@@ -316,7 +316,7 @@ automacro Eden26IrNoMapa {
     exclusive 1
     ConfigKeyNot In_saveMap_sequence true
     ConfigKey saveMap payon
-    call irNoMapa 'pay_arche' '41' '136' 'Esqueleto' 'Poporing' 'Zumbi'
+    call irNoMapa 'pay_arche' '41' '136' '1076' '1031' '1015' #monstros: esqueleto, poporing, zumbi
 }
 
 automacro Eden40IrNoMapa {
@@ -326,7 +326,7 @@ automacro Eden40IrNoMapa {
     ConfigKeyNot virarArrauceiro true
     ConfigKeyNot In_saveMap_sequence true
     ConfigKey saveMap prontera
-    call irNoMapa 'in_orcs01' '38' '175' 'Guerreiro Orc' 'Filhote de Orc' 'Senhora Orc'
+    call irNoMapa 'in_orcs01' '38' '175' '1023' '1686' '1273' #monstros: guerreiro orc, filhote de orc, senhora orc
 }
 
 automacro Eden60IrNoMapa {
