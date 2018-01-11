@@ -191,9 +191,10 @@ automacro questLuzDivina_falarComNpc {
     ConfigKey quest_skill true
     ConfigKey quest_luz_divina falar_com_npc
     exclusive 1
+    SkillLevel AL_HOLYLIGHT != 1
     call {
         do move prt_church  &rand(171,175) &rand(21,25)
-        do talknpc 173 23 r1 r0
+        do talknpc 173 23 r1
     }
 }
 
