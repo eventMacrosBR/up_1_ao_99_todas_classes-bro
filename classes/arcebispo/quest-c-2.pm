@@ -18,6 +18,8 @@ automacro VirarSacer_SalvarEmProntera {
     QuestInactive 8012
     QuestInactive 8013
     QuestInactive 8014
+    QuestInactive 8015
+    exclusive 1
     call SetSaveIn "prontera"
 }
 
@@ -29,6 +31,7 @@ automacro VirarSacer_IrNoNpc {
     QuestInactive 8012
     QuestInactive 8013
     QuestInactive 8014
+    QuestInactive 8015
     priority 2
     exclusive 1
     call {
@@ -44,6 +47,8 @@ automacro VirarSacer_FalarComBispo {
     InMap prt_church
     QuestInactive 8012
     QuestInactive 8013
+    QuestInactive 8014
+    QuestInactive 8015
     NpcNear /Bispo da Guilda/
     exclusive 1
     call {
@@ -97,7 +102,7 @@ automacro VirarSacer_TesteExorcismo {
 automacro VirarSacer_FalarComIrmaCecilia {
     JobID $paramsClasses{idC1}
     JobLevel = 50
-    QuestActive 8013
+    QuestActive 8013, 8014
     InMap prt_church
     exclusive 1
     call { 
@@ -109,7 +114,7 @@ automacro VirarSacer_FalarComIrmaCecilia {
 automacro VirarSacer_Final {
     JobID $paramsClasses{idC1}
     JobLevel = 50
-    QuestActive 8014
+    QuestActive 8015
     InMap prt_church
     exclusive 1
     call { 
