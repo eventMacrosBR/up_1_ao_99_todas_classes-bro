@@ -7,7 +7,9 @@ automacro questLuzDivina_configurandoItens {
         do iconf 727 1 1 0 #Opala
         do iconf Opala 1 1 0 #Opala
         do iconf 991 1 1 0 #Cristal Azul
+        do iconf Cristal Azul 1 1 0 #Cristal Azul
         do iconf 2608 1 1 0 #Rosário
+        do iconf Rosário 1 1 0 #Rosário
     }
 }
 
@@ -20,9 +22,36 @@ automacro questLuzDivina_inicioTenhoOsItens {
     ConfigKeyNot In_saveMap_sequence true
     ConfigKeyNot virarClasse2 true
     ConfigKeyNot quest_skill true
-    InInventoryID 727 >= 1
-    InInventoryID 991 >= 1
-    InInventoryID 2608 >= 1
+    InInventoryID 727 > 0
+    InInventoryID 991 > 0
+    InInventoryID 2608 > 0
+    exclusive 1
+    call { 
+        [
+        log ===================================
+        log = Iniciando a quest da Luz Divina =
+        log = Tenho os itens.                 =
+        log ===================================
+        ]
+        call pararDeAtacar
+        do move prontera
+        do conf -f quest_skill true
+        do conf -f quest_luz_divina falar_com_npc
+    }
+}
+
+automacro questLuzDivina_inicioTenhoOsItens_Buged {
+    JobID $paramsClasses{idC1}, $paramsClasses{idC2}
+    SkillLevel AL_HOLYLIGHT != 1
+    JobLevel >= 30
+    ConfigKeyNot quest_eden em_curso
+    ConfigKeyNot quest_eden terminando
+    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot virarClasse2 true
+    ConfigKeyNot quest_skill true
+    InInventory "Opala" > 0
+    InInventory "Cristal Azul" > 0
+    InInventory "Rosário" > 0
     exclusive 1
     call { 
         [
@@ -132,12 +161,25 @@ automacro questLuzDivina_comprarCristalAzul {
     }
 }
 
-automacro questLuzDivina_jaTenhosOsItens{
+automacro questLuzDivina_jaTenhosOsItens {
     ConfigKey quest_skill true
     ConfigKey quest_luz_divina comprar_itens
-    InInventoryID 727 >= 1
-    InInventoryID 991 >= 1
-    InInventoryID 2608 >= 1
+    InInventoryID 727 > 0
+    InInventoryID 991 > 0
+    InInventoryID 2608 > 0
+    exclusive 1
+    call {
+        do conf BetterShopper_on 0
+        do conf quest_luz_divina falar_com_npc
+    }
+}
+
+automacro questLuzDivina_jaTenhosOsItens_bugged {
+    ConfigKey quest_skill true
+    ConfigKey quest_luz_divina comprar_itens
+    InInventory "Opala" > 0
+    InInventory "Cristal Azul" > 0
+    InInventory "Rosário" > 0
     exclusive 1
     call {
         do conf BetterShopper_on 0
@@ -176,7 +218,8 @@ automacro comprandoCristalAzulAdoidadoBug {
     ConfigKey quest_luz_divina comprar_itens
     ConfigKey BetterShopper_1 Cristal Azul
     ConfigKeyNot BetterShopper_1_disabled 1
-    InInventoryID 991 >= 1
+    InInventoryID 991 > 0
+    priority -10
     call {
         do conf BetterShopper_1_disabled 1
     }
@@ -187,7 +230,32 @@ automacro comprandoOpalaAdoidadoBug {
     ConfigKey quest_luz_divina comprar_itens
     ConfigKey BetterShopper_0 Opala
     ConfigKeyNot BetterShopper_0_disabled 1
-    InInventoryID 727 >= 1
+    InInventoryID 727 > 0
+    priority -10
+    call {
+        do conf BetterShopper_0_disabled 1
+    }
+}
+
+automacro comprandoCristalAzulAdoidadoBug2 {
+    ConfigKey quest_skill true
+    ConfigKey quest_luz_divina comprar_itens
+    ConfigKey BetterShopper_1 Cristal Azul
+    ConfigKeyNot BetterShopper_1_disabled 1
+    InInventory "Cristal Azul" > 0
+    priority -10
+    call {
+        do conf BetterShopper_1_disabled 1
+    }
+}
+
+automacro comprandoOpalaAdoidadoBug2 {
+    ConfigKey quest_skill true
+    ConfigKey quest_luz_divina comprar_itens
+    ConfigKey BetterShopper_0 Opala
+    ConfigKeyNot BetterShopper_0_disabled 1
+    InInventory "Opala" > 0
+    priority -10
     call {
         do conf BetterShopper_0_disabled 1
     }
