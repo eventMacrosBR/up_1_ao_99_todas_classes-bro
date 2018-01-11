@@ -118,6 +118,7 @@ automacro VirarSacer_Final {
     InMap prt_church
     exclusive 1
     call { 
+        do move &rand(14,18) &rand(39,43)
         do talknpc 16 41
     } 
 }
