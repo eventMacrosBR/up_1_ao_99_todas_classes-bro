@@ -99,6 +99,7 @@ automacro VirarSacer_FalarComIrmaCecilia {
     JobLevel = 50
     QuestActive 8013
     InMap prt_church
+    exclusive 1
     call { 
         do move &rand(25,29) &rand(22,26)
         do talknpc 27 24  r0 r1 r0 r0 r1 r1 r0 r0
@@ -110,6 +111,7 @@ automacro VirarSacer_Final {
     JobLevel = 50
     QuestActive 8014
     InMap prt_church
+    exclusive 1
     call { 
         do talknpc 16 41
     } 
