@@ -7,21 +7,48 @@ sub initParamsQuestClasse2 {
 #ta em macro plugin é so reescrever algumas partes pra eventMacros
 #Alterei pro IRO RESTART
 #Possivel conflito com o BRO autoTalkCont 1 ainda funciona no IRO
-automacro VirarSacer1 {
+
+automacro VirarSacer_SalvarEmProntera {
     JobID $paramsClasses{idC1}
     JobLevel = 50
+    ConfigKeyNot saveMap prontera
+    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot quest_eden em_curso
+    ConfigKeyNot quest_eden terminando
+    QuestInactive 8012
+    QuestInactive 8013
+    QuestInactive 8014
+    call SetSaveIn "prontera"
+}
+
+automacro VirarSacer_IrNoNpc {
+    JobID $paramsClasses{idC1}
+    JobLevel = 50
+    FreeSkillPoints = 0
+    ConfigKey saveMap prontera
+    QuestInactive 8012
+    QuestInactive 8013
+    QuestInactive 8014
+    call SetSaveIn "prontera"
+    priority 2
     exclusive 1
-    QuestInactive 8012, 8013
     call {
-        do conf route_maxWarpFee none
-        do conf route_maxNpcTries none
-        do conf route_teleport none
+        call pararDeAtacar
         do conf lockMap none
-        do conf route_randomWalk 0
         do move prt_church 16 41 &rand(3,6)
+    }
+}
+
+automacro VirarSacer_FalarComBispo {
+    JobID $paramsClasses{idC1}
+    JobLevel = 50
+    InMap prt_church
+    QuestInactive 8012
+    QuestInactive 8013
+    NpcNear /Bispo da Guilda/
+    exclusive 1
+    call {
         do talknpc 16 41 r0 r0 r0  #Bispo da Guilda
-        pause 60
-        lock VirarSacer1
     }
 }
 
@@ -42,7 +69,7 @@ automacro VirarSacer_Morri {
     }
 }
 
-automacro VirarSacer2 {
+automacro VirarSacer_TesteExorcismo {
     JobID $paramsClasses{idC1}
     InMap job_prist
     JobLevel = 50
@@ -68,13 +95,13 @@ automacro VirarSacer2 {
     }
 }
 
-automacro VirarSacer_FalarComIrmaCelcilia {
+automacro VirarSacer_FalarComIrmaCecilia {
     JobID $paramsClasses{idC1}
     JobLevel = 50
     QuestActive 8013
     InMap prt_church
     call { 
-        do move prt_church 16 37 &rand(3,6)
+        do move prt_church 27 24 &rand(3,6)
         do talknpc 27 24  r0 r1 r0 r0 r1 r1 r0 r0
     } 
 }
