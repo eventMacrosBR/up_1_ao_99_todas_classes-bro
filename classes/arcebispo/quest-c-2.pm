@@ -29,13 +29,12 @@ automacro VirarSacer_IrNoNpc {
     QuestInactive 8012
     QuestInactive 8013
     QuestInactive 8014
-    call SetSaveIn "prontera"
     priority 2
     exclusive 1
     call {
         call pararDeAtacar
         do conf lockMap none
-        do move prt_church 16 41 &rand(3,6)
+        do move prt_church &rand(14,18) &rand(39,43)
     }
 }
 
@@ -64,7 +63,7 @@ automacro VirarSacer_Morri {
         log Morri no labirinto voltando para fazer
         log ---------------------------------------
         ]
-        do move prt_church 16 41 &rand(3,6)
+        do move prt_church &rand(14,18) &rand(39,43)
         do talknpc 16 41 r0 r0 r0
     }
 }
@@ -101,7 +100,7 @@ automacro VirarSacer_FalarComIrmaCecilia {
     QuestActive 8013
     InMap prt_church
     call { 
-        do move prt_church 27 24 &rand(3,6)
+        do move &rand(25,29) &rand(22,26)
         do talknpc 27 24  r0 r1 r0 r0 r1 r1 r0 r0
     } 
 }
