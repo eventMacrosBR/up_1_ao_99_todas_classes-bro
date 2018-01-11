@@ -29,7 +29,7 @@ automacro VirarSacer1 {
 automacro VirarSacer_Morri {
     NotInMap job_prist
     QuestActive 8012
-    sp > 90%
+    CurrentSP > 90%
     exclusive 1
     call {
         call pararDeAtacar
