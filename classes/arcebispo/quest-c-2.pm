@@ -26,6 +26,23 @@ automacro VirarSacer1 {
     }
 }
 
+automacro VirarSacer_Morri {
+    NotInMap job_prist
+    QuestActive 8012
+    sp > 90%
+    exclusive 1
+    call {
+        call pararDeAtacar
+        [
+        log ---------------------------------------
+        log Morri no labirinto voltando para fazer
+        log ---------------------------------------
+        ]
+        do move prt_church 16 41 &rand(3,6)
+        do talknpc 16 41 r0 r0 r0
+    }
+}
+
 automacro VirarSacer2 {
     JobID $paramsClasses{idC1}
     InMap job_prist
