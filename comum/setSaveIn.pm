@@ -2,6 +2,7 @@ macro SetSaveIn {
     call pararDeAtacar
     do conf lockMap none
     do conf -f saveMap_storage_sequence c r1
+	do conf -f saveMap_save_sequence c r0
     switch ($.param[0]) {
         case (=~ /einbroch/i ) {
             do conf -f saveMap_wanted einbroch
@@ -163,10 +164,10 @@ automacro FalarComKafra {
     timeout 20
     call {
         log ==============================================================
-        log Falando com kafra na posição &config(saveMap_kafra_position) 
-        log Usando a sequência '&config(saveMap_save_sequence)'
+        log Falando com kafra na posição: &config(saveMap_kafra_position)
+        log Usando a sequência: &config(saveMap_save_sequence)
         log ==============================================================
-        do talknpc &config(saveMap_kafra_position) c r0
+        do talknpc &config(saveMap_kafra_position) &config(saveMap_save_sequence)
     }
 }
 
