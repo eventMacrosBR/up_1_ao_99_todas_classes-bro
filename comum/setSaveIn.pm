@@ -2,7 +2,7 @@ macro SetSaveIn {
     call pararDeAtacar
     do conf lockMap none
     do conf -f saveMap_storage_sequence c r1
-	do conf -f saveMap_save_sequence c r0
+    do conf -f saveMap_save_sequence c r0
     switch ($.param[0]) {
         case (=~ /einbroch/i ) {
             do conf -f saveMap_wanted einbroch
