@@ -182,7 +182,7 @@ automacro farmIron{
     ConfigKey quest_classe2 farmIron
     InInventory "Iron" >= 8
     run-once 1
-    call endfarmIron {
+    call {
         do conf quest_classe2 QuestItems
         pause &rand(2,4)
         release FarmQuestItems
@@ -276,7 +276,7 @@ automacro DeliverToBismark {
 automacro DeliverVoucher {
     ConfigKey quest_classe2 GoBackToGetsufenst
     QuestActive 2012
-    NpcNear /Guildsman/ Getsufenst
+    NpcNear /Guildsman/ #Getsufenst
     exclusive 1
     call {
         do talknpc 174 22 c c c r0 #Ah, yes. Here it is!
