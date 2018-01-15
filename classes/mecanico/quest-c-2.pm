@@ -275,7 +275,7 @@ automacro DeliverToBismark {
 
 automacro DeliverVoucher {
     ConfigKey quest_classe2 GoBackToGetsufenst
-    QuestActiive 2012
+    QuestActive 2012
     NpcNear /Guildsman/ Getsufenst
     exclusive 1
     call {
