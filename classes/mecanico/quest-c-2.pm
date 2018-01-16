@@ -32,7 +32,7 @@ automacro virarFerreiro_Inicio {
 automacro virarFerreiro_falarComAltazen {
     ConfigKey quest_classe2 TalkToAltazen
     NpcNear /Mestre Ferreiro/ #Altazen
-    location ein_in01
+    InMap ein_in01
     exclusive 1
     call {
         do talknpc 110 169 c c c r0 c c c c #Do the job change.
@@ -69,7 +69,7 @@ automacro TalkToGetsufenst {
 automacro GetsufenstTask {
     ConfigKey quest_classe2 GetsufenstTask
     QuestActive 2003
-    location alberta_in
+    InMap alberta_in
     exclusive 1
     run-once 1
     call {
