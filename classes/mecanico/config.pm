@@ -1,12 +1,12 @@
 sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz => 'NV_BASIC 9',
-        skillsClasse1 => '',
-        skillsClasse2 => '',
+        skillsClasse1 => 'MC_INCCARRY 10, MC_DISCOUNT 9, MC_PUSHCART 10, MC_OVERCHARGE 10, MC_VENDING 10, MC_IDENTIFY 1,',
+        skillsClasse2 => 'BS_HAMMERFALL 5, BS_ADRENALINE 5, BS_OVERTHRUST 5, BS_HILTBINDING 1, BS_WEAPONRESEARCH 2, BS_WEAPONPERFECT 3, BS_MAXIMIZE 5, ',
         skillsClasse1T => '',
         skillsClasse2T => '',
         skillsClasse3 => '',
-        statsPadrao => '10 dex, 15 agi, 20 dex, 25 agi, 15 str, 40 dex, 60 agi, 30 str, 45 dex, 20 vit, 80 agi ,70 dex, 50 str, 99 agi, 34 vit'
+        statsPadrao => '15 agi, 10 str, 10 vit, 10 dex, 5 luk, 25 agi, 20 str, 25 vit, 20 dex, 10 luk, 35 agi, 30 str, 30 dex, 20 luk, 50 str, 50 vit, 45 agi, 75 str, 60 agi, 34 vit, 80 agi'
         #TODO
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
