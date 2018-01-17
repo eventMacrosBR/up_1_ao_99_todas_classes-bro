@@ -33,7 +33,7 @@ sub extrairMapasDeUp {
         {lvlMin => 54, lvlMax => 59, lockMap => 'iz_dun02',   saveMap => 'izlude'},
         {lvlMin => 60, lvlMax => 70, lockMap => 'moc_fild17', saveMap => 'morocc'},
         {lvlMin => 71, lvlMax => 74, lockMap => 'mjolnir_11', saveMap => 'prontera'},
-        {lvlMin => 75, lvlMax => 98, lockMap => 'gef_fild06',  saveMap => 'geffen'}
+        {lvlMin => 75, lvlMax => 98, lockMap => 'gl_church',  saveMap => 'geffen'}
     ];
     
     
