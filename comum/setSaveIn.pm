@@ -159,7 +159,7 @@ automacro FalarComKafra {
     ConfigKeyNot saveMap $saveMap
     ConfigKeyNot saveMap_wanted none
     InMap $saveMap
-    NpcNear /(Kafra Employee|Funcionária Kafra|Corp. Ev. Incríveis)/
+    NpcNear /(Kafra Employee|Funcionária Kafra|Corp.)/
     delay 2
     timeout 20
     call {
