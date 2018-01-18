@@ -13,29 +13,36 @@ automacro virarFerreiro {
             do conf route_randomWalk 0
             do conf attackAuto 0
         ]
-        
-        do conf quest_classe2 IrParaEinbroch
+        do conf -f virarClasse2 true
+        do conf -f quest_classe2 IrParaEinbroch
     }    
 }
 
-automacro virarFerreiro_Inicio {
+automacro virarFerreiro_Inicio_irPraEinbroch {
     ConfigKey quest_classe2 IrParaEinbroch
     NpcNotNear /Mestre Ferreiro/ #Altazen
+    NotInMap einbroch
+    exclusive 1
+    call junopra "einbroch"
+}
+
+automacro virarFerreiro_Inicio_emEinbroch {
+    ConfigKey quest_classe2 IrParaEinbroch
+    NpcNotNear /Mestre Ferreiro/ #Altazen
+    InMap einbroch, ein_in01
     exclusive 1
     call {
-        call setSaveIn "einbroch"
         do move ein_in01 &rand(16,20) &rand(26, 30)
-        do conf quest_classe2 TalkToAltazen
     }
 }
 
 automacro virarFerreiro_falarComAltazen {
-    ConfigKey quest_classe2 TalkToAltazen
+    ConfigKey quest_classe2 IrParaEinbroch
     NpcNear /Mestre Ferreiro/ #Altazen
     InMap ein_in01
     exclusive 1
     call {
-        do talknpc 110 169 c c c r0 c c c c #Do the job change.
+        do talknpc 110 169 r0 #Do the job change.
         do conf quest_classe2 primeiro_questionario
     }
 }
@@ -79,171 +86,102 @@ automacro GetsufenstTask {
         pause 0.8
         do talknpc 113 60
         do talk resp 1
-        call CheckKafra
     }
 }
 
-#TODO REmover esses GOTO, jumps são ruins
-macro CheckKafra {
-    if (&invamount(511) < 20) goto getGreenHerb
-    if (&invamount(998) < 8) goto getIron
-    if (&invamount(919) < 2) goto getAnimalSkin
-    
-    log Cheking kafra storage done.
-    do conf quest_classe2 FarmQuestItems
-    
-    :getGreenHerb
-        do autostorage
-        if ($.storageopen) {
-            do storage get &storage (511) &eval (20 - $invGH)
-            pause 1
-            do storage close
+automacro pegarItensDaKafra {
+    ConfigKey quest_classe2 GetsufenstTask
+    QuestActive 2003
+    InMap alberta_in
+    StorageOpened 1
+    exclusive 1
+    call {
+        $qtdErvaVerde = &invamount(511)
+        $qtdFerro = &invamount(998)
+        $qtdCouro = &invamount(919)
+        log Checando se tem dos items que eu preciso no armazém
+        if ( $qtdErvaVerde < 20 ) {
+            do storage get &storage (511) &eval (20 - $qtdErvaVerde)
         }
-    :getIron
-        do autostorage
-        if ($.storageopen) {
-            do storage get &storage (998) &eval (8 - $invIR)
-            pause 1
-            do storage close
+        if ( $qtdFerro < 8 ) {
+            do storage get &storage (998) &eval (8 - $qtdFerro)
         }
-    :getAnimalSkin
-        do autostorage 
-        if ($.storageopen) {
-            do storage get &storage (919) &eval (2 - $invAS)
-            pause 1
-            do storage close
+        if ( $qtdCouro < 2 ) {
+            do storage get &storage (919) &eval (2 - $qtdCouro)
         }
+        log Checado.
+        do storage close
+        do conf quest_classe2 FarmQuestItems
+    }
 }
+
 
 automacro FarmQuestItems {
     ConfigKey quest_classe2 FarmQuestItems
+    JobLevel = 50
     exclusive 1
-    run-once 1
-    call {    
-        if (&invamount(998) < 8) goto farmIron
-        if (&invamount(511) < 20) goto farmGreenHerb
-        if (&invamount(919) < 2) goto farmAnimalSkin
-        if (&invamount(1122) < 1) goto getRingPommel
-        
-        
-        do move alberta_in &rand(176,180) &rand(21,26)
-        do conf quest_classe2 TalkToGetsufenstAgain
-        
-        :farmIron
-            [
-                do conf quest_classe2 farmIron
-                do mconf Steel Chonchon 2
-                do pconf Iron 2
-                do conf lockMap moc_fild18
-                do conf route_randomWalk 1
-                do conf attackAuto 2
-            ]
-            lock FarmQuestItems
-            stop
-        :farmGreenHerb
-            [
-                do conf quest_classe2 farmGreenHerb
-                do mconf Green Plant 2
-                do mconf Fabre 2
-                do mconf Poporing 2
-                do pconf Green Herb 2
-                do conf lockMap gef_fild00
-                do conf route_randomWalk 1
-                do conf attackAuto 2
-            ]
-            lock FarmQuestItems
-            stop
-        :farmAnimalSkin
-            [
-                do conf quest_classe2 farmAnimalSkin
-                do mconf Savage Babe 2
-                do mconf Baby Dessert Wolf 2
-                do pconf Animal Skin 2
-                do conf lockMap prt_fild09
-                do conf route_randomWalk 1
-                do conf attackAuto 2
-            ]
-            lock FarmQuestItems
-            stop
-        :getRingPommel
-            [
-                do conf quest_classe2 BuyRingPommelSaber
-                do conf route_randomWalk 0
-                do conf attackAuto 0
-                do conf lockMap none
-            ]
-            do respawn
-            lock FarmQuestItems
-            stop
-    }
-}
-
-automacro farmIron{
-    ConfigKey quest_classe2 farmIron
-    InInventory "Iron" >= 8
-    run-once 1
+    timeout 120
     call {
-        do conf quest_classe2 QuestItems
-        pause &rand(2,4)
-        release FarmQuestItems
-        release farmIron
-    }
-}
-
-automacro farmGreenHerb{
-    ConfigKey quest_classe2 farmGreenHerb
-    InInventory "Green Herb" >= 20
-    run-once 1
-    call {
-        do conf quest_classe2 QuestItems
-        pause &rand(2,4)
-        release FarmQuestItems
-        release farmGreenHerb
-    }
-}
-
-automacro farmAnimalSkin{
-    ConfigKey quest_classe2 farmAnimalSkin
-    InInventory "Animal Skin" >= 2
-    run-once 1
-    call {
-        do conf quest_classe2 QuestItems
-        pause &rand(2,4)
-        release FarmQuestItems
-        release farmAnimalSkin
-    }
-}
-
-automacro BuyRingPommelSaber {
-    ConfigKey quest_classe2 BuyRingPommelSaber
-    InInventoryID 998 >= 8 #Ferro
-    InInventoryID 511 >= 20 #Erva Verde
-    InInventoryID 919 >= 2 #Couro de Animal
-    Zeny >= 24000
-    exclusive 1
-    run-once 1
-    call {
-        if (&invamount(1122) >= 1) goto end
-        
+        $qtdErvaVerde = &invamount(511)
+        $qtdFerro = &invamount(998)
+        $qtdCouro = &invamount(919)
+        $qtdSabre = &invamount(1122)
         [
-            do conf attackAuto 0
-            do conf route_randomWalk 0    
+        
+        if ( $qtdFerro < 8) {
+            do mconf Steel Chonchon 2
+            do pconf Iron 2
+            do conf lockMap moc_fild18
+            call voltarAtacar
+            stop
+        }
+        if ( $qtdErvaVerde < 20) {
+            do mconf Green Plant 2
+            do mconf Fabre 2
+            do mconf Poporing 2
+            do pconf Green Herb 2
+            do conf lockMap gef_fild00
+            call voltarAtacar
+            stop
+        }
+        if ( $qtdCouro < 2) {
+            do mconf Savage Babe 2
+            do mconf Baby Dessert Wolf 2
+            do pconf Animal Skin 2
+            do conf lockMap prt_fild09
+            call voltarAtacar
+            stop
+        }
+        if ($qtdSabre < 1) { #sabre de impacto
+            call pararDeAtacar
             do conf lockMap none
+            do respawn
             do conf sellAuto 0
             do conf storageAuto 0
             
-            do conf buyAuto_0 Ring Pommel Saber [2]
+            do conf buyAuto_0 Sabre De Impacto [2]
             do conf buyAuto_0_npc prt_in 172 130
             do conf buyAuto_0_minAmount none
             do conf buyAuto_0_maxAmount 1
+            do autobuy
+            stop
+        }
+        
+        #condição especial pra desativar o buyAuto, só pra ter certeza
+        if ($qtdSabre >= 1) { #sabre de impacto
+            do conf buyAuto_0 none
+            do conf buyAuto_0_npc none
+            do conf buyAuto_0_minAmount none
+            do conf buyAuto_0_maxAmount none
+            #não vou parar a macro porque tem que continuar
+        }
+        
         ]
         
-        pause &rand(2,4)
-        do autobuy
+        #se chegar nessa linha, significa que temos todos os itens
         
-        :end
-            do move alberta_in &rand(176,180) &rand(21,26)
-            do conf quest_classe2 TalkToGetsufenstAgain
+        do move alberta_in &rand(176,180) &rand(21,26)
+        do conf quest_classe2 TalkToGetsufenstAgain  
     }
 }
 
@@ -255,7 +193,7 @@ automacro TalkToGetsufenstAgain {
     NpcNear /Guildsman/ #Getsufenst
     exclusive 1
     call {
-        do talknpc 174 22 c c c c c c r1 c c c c c c #I'm only holding the items required for this Job.
+        do talknpc 174 22 r1 #I'm only holding the items required for this Job.
         pause &rand(2,4)
         do move comodo &rand(159,161) &rand(338,342)
     }
@@ -266,7 +204,7 @@ automacro DeliverToBismark {
     NpcNear /Bismark/ 
     exclusive 1
     call {
-        do talknpc 158 342 c c r1 c c c c c c #I assure you that it's new!
+        do talknpc 158 342 r1 #I assure you that it's new!
         do conf quest_classe2 GoBackToGetsufenst
         pause &rand(2,4)
         do move alberta_in &rand(176,180) &rand(21,26)
@@ -293,7 +231,7 @@ automacro TalkToAltazen {
     NpcNear /Guildsman/ #Altazen
     exclusive 1
     call {
-        do talknpc 110 169 c c c c r0 c #It's tough, but I have to go do it.
+        do talknpc 110 169 r0 #It's tough, but I have to go do it.
         do conf quest_classe2 TalkToMitmayer
     }
 }
@@ -301,15 +239,12 @@ automacro TalkToAltazen {
 automacro TalkToMitmayer{
     ConfigKey quest_classe2 TalkToMitmayer
     exclusive 1
+    macro_delay 6
     call {
         do move morocc &rand(101,103) &rand(107,109)
-        pause 30
         do move morocc &rand(93,95) &rand(116,118)
-        pause &rand(5,10)
         do move morocc &rand(92,94) &rand(125,127)
-        pause &rand(5,10)
-        do talknpc 95 133 c c r0 c c c r~/Esqueleto|Aumentar|precisa/ r~/Alberta|Coração|Atordoamento/ r~/Sudoeste|Sangue|1000/ r~/Einbroch|Água|24/ r~/DES|5|24/
-        pause &rand(2,4)
+        do talknpc 95 133 r0 r~/Esqueleto|Aumentar|precisa/ r~/Alberta|Coração|Atordoamento/ r~/Sudoeste|Sangue|1000/ r~/Einbroch|Água|24/ r~/DES|5|24/
         do conf quest_classe2 TalkToAltazenAgain
     }
 }
@@ -317,12 +252,11 @@ automacro TalkToMitmayer{
 automacro TalkToAltazenAgain{
     ConfigKey quest_classe2 TalkToAltazenAgain
     exclusive 1
+    macro_delay 5
     call {
         do move morocc &rand(101,103) &rand(107,109)
-        pause &rand(5,10)
         do move geffen_in &rand(106,110) &rand(172, 177)
-        pause 30
-        do talknpc 110 169 c c c c
+        do talknpc 110 169
         log Finally~!
         do conf quest_classe2 none
         do eq Sword Mace
