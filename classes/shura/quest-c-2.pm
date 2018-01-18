@@ -102,9 +102,9 @@ automacro virar Monge 3 {
         do pconf 1027 1
         do pconf 1025 1
         do pconf 940 1
-        $cobWeb = &invamount (Cobweb)
-        $porcupineQuill  = &invamount (Porcupine Quill)
-        $gLeg = &invamount (Grasshopper's Leg) # '
+        $cobWeb = &invamount (1025)
+        $porcupineQuill  = &invamount (1027)
+        $gLeg = &invamount (940) 
         if ( $cobWeb < 20 ) goto Cobweb
         if ( $cobWeb >= 20 && $porcupineQuill < 5 ) goto Porcupine
         if ( $cobWeb >= 20 && $porcupineQuill >= 5 && $gLeg < 10 ) goto GLeg

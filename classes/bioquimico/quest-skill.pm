@@ -540,10 +540,11 @@ automacro voltandoPraJuno {
     exclusive 1
     timeout 300
     call {
-        if (&invamount(Asa de Borboleta) > 0 && &config(saveMap) != $.map) {
+        
+        if (( &invamount(602) > 0 || &invamount(12324) > 0 ) && &config(saveMap) != lighthalzen) {
             do respawn
         } else {
-               call lhzpra "yuno"
+            call lhzpra "yuno"
         }
     }
 }

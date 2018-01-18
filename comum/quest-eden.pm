@@ -412,8 +412,8 @@ automacro Eden60_JuntarItens {
     call {
         do iconf 7196 5 1 0 #ombreira
         do iconf 7100 7 1 0 #folha
-        $qtdOmbreira = &invamount (Ombreira)
-        $qtdFolha = &invamount (Folha Afiada)
+        $qtdOmbreira = &invamount (7196)
+        $qtdFolha = &invamount (7100)
         
         do conf -f o_que_estou_fazendo quest_eden60_coletandoItens
         

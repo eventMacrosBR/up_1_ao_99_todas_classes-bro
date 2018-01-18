@@ -174,11 +174,11 @@ macro voltarProAlquimistaSenior {
        #se não tiver entregado por qualquer motivo que seja, ele simplesmente vai tentar denovo 
        #Se conseguir, ele move pra o proximo passo
        if ($.InInventoryIDLast = 657) { #Poção da Fúria Selvagem
-        if (&inventory(Poção da Fúria Selvagem) < 7) do conf -f questAlquimista questionario
+        if (&inventory(657) < 7) do conf -f questAlquimista questionario
        } elsif ($.InInventoryIDLast = 612) { #Mini-Fornalha
-        if (&inventory(Mini-Fornalha) < 100) do conf -f questAlquimista questionario
+        if (&inventory(612) < 100) do conf -f questAlquimista questionario
        } elsif ($.InInventoryIDLast = 1752) { #Flecha de Fogo
-        if (&inventory(Flecha de Fogo)  < 500) do conf -f questAlquimista questionario
+        if (&inventory(1752)  < 500) do conf -f questAlquimista questionario
     }
 }        
 

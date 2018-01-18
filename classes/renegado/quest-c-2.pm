@@ -104,10 +104,10 @@ automacro virarArruaceiro_etapa3_coletarItens {
         do iconf 957 10 1 0 #unhaApodrecida
         do iconf 932 10 1 0 #osso
         do iconf 958 10 1 0 #mandibula
-        $qtdErvaAzul       = &invamount (Erva Azul)
-        $qtdUnha = &invamount (Unha Apodrecida)
-        $qtdOsso           = &invamount (Osso)
-        $qtdMandibula      = &invamount (Mandíbula Horrenda)
+        $qtdErvaAzul       = &invamount (510)
+        $qtdUnha           = &invamount (957)
+        $qtdOsso           = &invamount (932)
+        $qtdMandibula      = &invamount (958)
 
         if ( $qtdErvaAzul < 6 ) { #primeiro a coletar: Erva Azul
             [

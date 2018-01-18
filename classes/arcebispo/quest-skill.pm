@@ -100,12 +100,12 @@ automacro questLuzDivina_comprarRosario {
     exclusive 1
     priority -1
     call {
-        $qtRosario = &invamount (Rosário)
+        $qtRosario = &invamount (2608)
         if ( $qtRosario < 1 ) {
             do move prt_church 108 124
             do talk &npc(/Madre/)
             do store
-            do buy &store(Rosário) 1
+            do buy &store(2608) 1
         }
     }
 }

@@ -62,8 +62,8 @@ automacro virarTemplario_PegarItens {
     ConfigKeyNot questTemplario jaColeteiOsItens
     call {
         do conf -f virarClasse2 true
-        $qtdBandagem = &invamount(Bandagem Estragada)
-        $qtdLampiao = &invamount(Lampião)
+        $qtdBandagem = &invamount(930)
+        $qtdLampiao = &invamount(1041)
 
         if ( $qtdBandagem < 10 ) {
             #primeiro item a pegar, depois pega o outro
@@ -133,7 +133,7 @@ automacro virarTemplario_comprarRosário {
         do move prt_church 108 124
         do talk &npc(/Madre/)
         do store
-        do buy &store(Rosário) 1
+        do buy &store(2608) 1
     }
 }
 

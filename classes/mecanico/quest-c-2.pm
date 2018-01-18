@@ -85,9 +85,9 @@ automacro GetsufenstTask {
 
 #TODO REmover esses GOTO, jumps são ruins
 macro CheckKafra {
-    if (&invamount(Green Herb) < 20) goto getGreenHerb
-    if (&invamount(Iron) < 8) goto getIron
-    if (&invamount(Animal Skin) < 2) goto getAnimalSkin
+    if (&invamount(511) < 20) goto getGreenHerb
+    if (&invamount(998) < 8) goto getIron
+    if (&invamount(919) < 2) goto getAnimalSkin
     
     log Cheking kafra storage done.
     do conf quest_classe2 FarmQuestItems
@@ -95,21 +95,21 @@ macro CheckKafra {
     :getGreenHerb
         do autostorage
         if ($.storageopen) {
-            do storage get &storage (Green Herb) &eval (20 - $invGH)
+            do storage get &storage (511) &eval (20 - $invGH)
             pause 1
             do storage close
         }
     :getIron
         do autostorage
         if ($.storageopen) {
-            do storage get &storage (Iron) &eval (8 - $invIR)
+            do storage get &storage (998) &eval (8 - $invIR)
             pause 1
             do storage close
         }
     :getAnimalSkin
         do autostorage 
         if ($.storageopen) {
-            do storage get &storage (Animal Skin) &eval (2 - $invAS)
+            do storage get &storage (919) &eval (2 - $invAS)
             pause 1
             do storage close
         }
@@ -120,10 +120,10 @@ automacro FarmQuestItems {
     exclusive 1
     run-once 1
     call {    
-        if (&invamount(Iron) < 8) goto farmIron
-        if (&invamount(Green Herb) < 20) goto farmGreenHerb
-        if (&invamount(Animal Skin) < 2) goto farmAnimalSkin
-        if (&invamount(Ring Pommel Saber [2]) < 1) goto getRingPommel
+        if (&invamount(998) < 8) goto farmIron
+        if (&invamount(511) < 20) goto farmGreenHerb
+        if (&invamount(919) < 2) goto farmAnimalSkin
+        if (&invamount(1122) < 1) goto getRingPommel
         
         
         do move alberta_in &rand(176,180) &rand(21,26)
@@ -223,7 +223,7 @@ automacro BuyRingPommelSaber {
     exclusive 1
     run-once 1
     call {
-        if (&inventory "Ring Pommel Saber" >= 1) goto end
+        if (&invamount(1122) >= 1) goto end
         
         [
             do conf attackAuto 0
