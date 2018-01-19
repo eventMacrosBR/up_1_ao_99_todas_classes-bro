@@ -38,3 +38,4 @@ automacro configurarRajadadeFlechas {
         do conf attackSkillSlot_0_disabled 0
     }
 }
+
