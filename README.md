@@ -6,6 +6,7 @@ Esta macro pretende upar do nível 1 de base até o 99 de todas as classes do ra
 Índice
 -----------------
 - [Referências](#referências)
+- [Download](#download-para-preguiçosos)
 - [Instruções](#instruções)
 - [Configurações Customizadas](#configurações-personalizadas)
 - [Plugins](#plugins)
@@ -38,14 +39,12 @@ Você pode gerar o script com algumas configurações customizadas modificando o
 
 ## Plugins
 Para a macro funcionar corretamente é necessária a instalação dos seguintes plugins: (A macro também instala eles automáticamente caso não queira fazer a instalação manual)
-- [xConf](https://github.com/OpenKore/openkore/tree/master/plugins/needs-review/xconf)
 - [BetterShopper](https://github.com/Henrybk/Plugins/tree/master/BetterShopper)
 
 ## Agradecimentos
 - @nipodemos: Criação do script [up1-99_completo_para_arruaceiros](https://github.com/Nipodemos/up1-99_completo_para_arrauceiros) no qual este script é baseado (Créditos dos scripts que ele utilizou como base em seu próprio repositório)
-- @vitorsilverio: Parametrização do script que permite a adaptação para todas as classes
-- @gabx257: Parâmetros para as classes de Magos
-- @lucasbradok: base quests de sacer e monge
+- Todos os [contribuidores](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/graphs/contributors) que fizeram essa macro acontecer
+- Todos os usuários que utilizam as macros e reportam no forum do openkorebrasil.org
   
 
 ## Funcionalidades:
@@ -66,7 +65,7 @@ Para a macro funcionar corretamente é necessária a instalação dos seguintes 
 |![alt bruxo](http://browiki.org/images/f/fc/Bruxospartyicn.png)|Quest Bruxo|Em desenvolvimento|
 |![alt caçador](http://browiki.org/images/2/21/Ca%C3%A7adorespartyicn.png)|Quest Caçador|Aguardando desenvolvimento|
 |![alt cavaleiro](http://browiki.org/images/3/35/Cavaleirospartyicn.png)|Quest Cavaleiro|Aguardando desenvolvimento|
-|![alt ferreiro](http://browiki.org/images/8/8d/Ferreirospartyicn.png)|Quest Ferreiro|Aguardando desenvolvimento|
+|![alt ferreiro](http://browiki.org/images/8/8d/Ferreirospartyicn.png)|Quest Ferreiro|Em desenvolvimento|
 |![alt mercenario](http://browiki.org/images/3/3f/Mercen%C3%A1riospartyicn.png)|Quest Mercenário|Aguardando desenvolvimento|
 |![alt monge](http://browiki.org/images/0/02/Mongespartyicn.png)|Quest Monge|Em desenvolvimento|
 |![alt odalisca](http://browiki.org/images/0/06/Odaliscaspartyicn.png)|Quest Odalisca|Aguardando desenvolvimento|
