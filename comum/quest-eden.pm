@@ -395,6 +395,7 @@ automacro Eden60Caçar {
 macro caçarMonstros {
     ## $.param[0] tem como valor o lockMap que o bot
     ## vai caçar os monstros
+    if (&config(quest_eden) != em_curso) do conf -f quest_eden em_curso
     [
     call voltarAtacar
     if ( &config(lockMap) != $.param[0]) do conf lockMap $.param[0]
@@ -414,7 +415,7 @@ automacro Eden60_JuntarItens {
         do iconf 7100 7 1 0 #folha
         $qtdOmbreira = &invamount (7196)
         $qtdFolha = &invamount (7100)
-        
+        if (&config(quest_eden) != em_curso) do conf -f quest_eden em_curso
         do conf -f o_que_estou_fazendo quest_eden60_coletandoItens
         
         if ( $qtdOmbreira < 5 ) {
@@ -453,6 +454,7 @@ automacro Eden60_JaJunteiOsItens {
         log vou ao npc entregar
         log ===================================
         ]
+        if (&config(quest_eden) != em_curso) do conf -f quest_eden em_curso
         call pararDeAtacarApenasCorrer
         do move um_fild01 &rand(36,38) &rand(277,279)
         do talknpc 34 280 c #Romeo#2nd02
@@ -466,6 +468,7 @@ automacro Eden12FinalizarCaças {
     exclusive 1
     call {
         call pararDeAtacar
+        if (&config(quest_eden) != em_curso) do conf -f quest_eden em_curso
         do mconf $.QuestHuntCompletedLastMobID 0 0 0
         [
         log ===========================================
@@ -473,7 +476,7 @@ automacro Eden12FinalizarCaças {
         log ===========================================
         ]
         do move moc_fild11 &rand(181,183) &rand(254,256)
-          do talk 0 #Cão falante
+        do talk 0 #Cão falante
         release Eden12Caçar
     }
 }
@@ -483,6 +486,7 @@ automacro Eden26FinalizarCaças {
     exclusive 1
     call {
         call pararDeAtacar
+        if (&config(quest_eden) != em_curso) do conf -f quest_eden em_curso
         do mconf $.QuestHuntCompletedLastMobID 0 0 0
         [
         log ===========================================
@@ -507,6 +511,7 @@ automacro Eden40FinalizarCaças {
     exclusive 1
     call {
         call pararDeAtacar
+        if (&config(quest_eden) != em_curso) do conf -f quest_eden em_curso
         do mconf $.QuestHuntCompletedLastMobID 0 0 0
         [
         log ===========================================
@@ -524,6 +529,7 @@ automacro Eden60FinalizarCaças {
     QuestHuntCompleted 7215 1278, 7216 1278
     exclusive 1
     call {
+        if (&config(quest_eden) != em_curso) do conf -f quest_eden em_curso
         do mconf $.QuestHuntCompletedLastMobID 0 0 0
         [
         log ===========================================
@@ -554,6 +560,7 @@ automacro voltarDoMapa {
     NpcNotNear /Boya|Ur/
     exclusive 1
     call {
+        if (&config(quest_eden) != em_curso) do conf -f quest_eden em_curso
         [
         log ===========================================
         log Completei as Caças!
@@ -575,6 +582,7 @@ automacro voltarDoMapaDentroDoEden {
         #7141 : eden 26
         #7151 : eden 40
         #7218 : eden 60
+        if (&config(quest_eden) != em_curso) do conf -f quest_eden em_curso
         [
         log ===========================================
         log =terminando a quest eden, falando com o npc
