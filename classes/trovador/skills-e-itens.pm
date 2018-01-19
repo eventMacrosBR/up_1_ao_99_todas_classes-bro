@@ -34,7 +34,7 @@ automacro configurarRajadadeFlechas {
         do conf attackSkillSlot_0_distance 10
         do conf attackSkillSlot_0_aggressives > 1
         do conf attackSkillSlot_0_maxUses 3
-    do conf attackSkillSlot_0_maxAttempts 5
+        do conf attackSkillSlot_0_maxAttempts 5
         do conf attackSkillSlot_0_disabled 0
     }
 }
