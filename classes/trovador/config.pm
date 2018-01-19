@@ -1,8 +1,8 @@
 sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz => 'NV_BASIC 9',
-        skillsClasse1 => '',
-        skillsClasse2 => '',
+        skillsClasse1 => 'AC_OWL 10, AC_VULTURE 10, AC_CONCENTRATION 10, AC_DOUBLE 10, AC_SHOWER 10',
+        skillsClasse2 => 'BD_ADAPTATION 1, BA_MUSICALLESSON 5, BA_DISSONANCE 5, BA_ASSASSINCROSS 8, BA_POEMBRAGI 10, BD_SIEGFRIED 5, BD_RICHMANKIM 5, BA_APPLEIDUN 10',
         skillsClasse1T => '',
         skillsClasse2T => '',
         skillsClasse3 => '',
