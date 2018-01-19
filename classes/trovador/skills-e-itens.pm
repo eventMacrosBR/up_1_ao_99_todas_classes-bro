@@ -10,11 +10,6 @@ automacro configurarConcentracao {
         log =Configurando ela
         log ===========================================
         ]
-         {
-            adicionaUseSelfSkill()
-            pause 1
-            do reload config
-        }
         do conf useSelf_skill_0 AC_CONCENTRATION
         do conf useSelf_skill_0_lvl 10
         do conf useSelf_skill_0_whenStatusInactive EFST_CONCENTRATION, EFST_POSTDELAY
@@ -33,11 +28,6 @@ automacro configurarRajadadeFlechas {
         log =Configurando pra usar ela
         log ===========================================
         ]
-        {
-            adicionaAttackSkillSlot()
-            pause 1
-            do reload config
-        }
         do conf attackSkillSlot_0 AC_DOUBLE
         do conf attackSkillSlot_0_lvl 10
         do conf attackSkillSlot_0_sp >= 40
