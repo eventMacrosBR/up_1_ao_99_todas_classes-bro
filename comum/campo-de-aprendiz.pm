@@ -962,7 +962,7 @@ macro mudarDeMapa {
 
 automacro terminouDeUpar {
     exclusive 1
-    JobLevel 10
+    JobLevel = 10
     BaseLevel > 11
     ConfigKey quest_atual todas_completadas
     InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
@@ -975,6 +975,21 @@ automacro terminouDeUpar {
         do talk resp 1
         log Agora vou virar um/uma $paramsQuestClasse1{nomeClasse}!!!
         do conf quest_atual none
+    }
+}
+
+automacro terminouDeUpar_bugged {
+    exclusive 1
+    JobLevel = 10
+    BaseLevel > 11
+    ConfigKeyNot quest_atual todas_completadas
+    QuestInactive 7127
+    QuestInactive 7123
+    QuestInactive 7124
+    InInventoryID 12323 > 50 #asa de mosca de iniciante
+    InInventoryID 12324 > 20 #asa de borboleta de iniciante
+    call {
+        do conf -f quest_atual todas_completadas
     }
 }
 
