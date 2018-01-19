@@ -10,7 +10,6 @@ automacro configurarConcentracao {
         log =Configurando ela
         log ===========================================
         ]
-        $blocoExiste = checarSeExisteNoConfig("useSelf_skill_0")
         if ($blocoExiste = nao ) {
             adicionaUseSelfSkill()
             pause 1
@@ -34,7 +33,6 @@ automacro configurarRajadadeFlechas {
         log =Configurando pra usar ela
         log ===========================================
         ]
-        $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_0")
         if ($blocoExiste = nao ) {
             adicionaAttackSkillSlot()
             pause 1
@@ -46,7 +44,7 @@ automacro configurarRajadadeFlechas {
         do conf attackSkillSlot_0_distance 10
         do conf attackSkillSlot_0_aggressives > 1
         do conf attackSkillSlot_0_maxUses 3
-		    do conf attackSkillSlot_0_maxAttempts 5
+	do conf attackSkillSlot_0_maxAttempts 5
         do conf attackSkillSlot_0_disabled 0
     }
 }
