@@ -4,12 +4,12 @@ automacro configurarGolpeFulminante {
     exclusive 1
     ConfigKeyNot attackSkillSlot_0 SM_BASH
     call {
-        do conf attackSkillSlot_0 SM_BASH
-        do conf attackSkillSlot_0_lvl 10
-        do conf attackSkillSlot_0_sp >= 15
-        do conf attackSkillSlot_0_maxUses 1
-        do conf attackSkillSlot_0_maxAttempts 3
-        do conf attackSkillSlot_0_inLockOnly 1
+        do conf -f attackSkillSlot_0 SM_BASH
+        do conf -f attackSkillSlot_0_lvl 10
+        do conf -f attackSkillSlot_0_sp >= 15
+        do conf -f attackSkillSlot_0_maxUses 1
+        do conf -f attackSkillSlot_0_maxAttempts 3
+        do conf -f attackSkillSlot_0_inLockOnly 1
     }
 }
 
@@ -18,14 +18,14 @@ automacro configurarHolyCross {
     exclusive 1
     ConfigKeyNot attackSkillSlot_0 CR_HOLYCROSS
     call {
-        do conf attackSkillSlot_0 CR_HOLYCROSS
-        do conf attackSkillSlot_0_lvl 10
-        do conf attackSkillSlot_0_sp >= 20
-        do conf attackSkillSlot_0_maxUses 1
-        do conf attackSkillSlot_0_maxAttempts 3
-        do conf attackSkillSlot_0_inLockOnly 1
-        do conf attackSkillSlot_0_notMonsters Argos
-        do conf attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
+        do conf -f attackSkillSlot_0 CR_HOLYCROSS
+        do conf -f attackSkillSlot_0_lvl 10
+        do conf -f attackSkillSlot_0_sp >= 20
+        do conf -f attackSkillSlot_0_maxUses 1
+        do conf -f attackSkillSlot_0_maxAttempts 3
+        do conf -f attackSkillSlot_0_inLockOnly 1
+        do conf -f attackSkillSlot_0_notMonsters Argos
+        do conf -f attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
     }
 }
 
@@ -34,10 +34,10 @@ automacro configurarMedicar {
     exclusive 1
     ConfigKeyNot useSelf_skill_0 AL_CURE
     call {
-        do conf useSelf_skill_0 AL_CURE
-        do conf useSelf_skill_0_lvl 1
-        do conf useSelf_skill_0_sp > 15
-        do conf useSelf_skill_0_whenStatusActive EFST_HEALTHSTATE_BLIND
+        do conf -f useSelf_skill_0 AL_CURE
+        do conf -f useSelf_skill_0_lvl 1
+        do conf -f useSelf_skill_0_sp > 15
+        do conf -f useSelf_skill_0_whenStatusActive EFST_HEALTHSTATE_BLIND
     }
 }
 
@@ -52,11 +52,11 @@ automacro configurarCura {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_1 AL_HEAL
-        do conf useSelf_skill_1_hp < 60%
-        do conf useSelf_skill_1_sp >= 40%
-        do conf useSelf_skill_1_whenStatusInactive EFST_POSTDELAY
-        do conf useSelf_skill_1_notOnAction attack
+        do conf -f useSelf_skill_1 AL_HEAL
+        do conf -f useSelf_skill_1_hp < 60%
+        do conf -f useSelf_skill_1_sp >= 40%
+        do conf -f useSelf_skill_1_whenStatusInactive EFST_POSTDELAY
+        do conf -f useSelf_skill_1_notOnAction attack
     }
 }
 automacro configurarPotBranca {
@@ -69,9 +69,9 @@ automacro configurarPotBranca {
             pause 1
             do reload config
         }
-        do conf useSelf_item_1 504 #Poção Branca
-        do conf useSelf_item_1_hp < 60%
-        do conf useSelf_item_1_disabled 0
+        do conf -f useSelf_item_1 504 #Poção Branca
+        do conf -f useSelf_item_1_hp < 60%
+        do conf -f useSelf_item_1_disabled 0
     }
 }
 
@@ -106,9 +106,9 @@ automacro lockMap_foraDele {
     InLockMap 0
     exclusive 1
     call {
-        do conf attackAuto -1
-        do conf itemsTakeAuto 0
-        do conf itemsGatherAuto 0
+        do conf -f attackAuto -1
+        do conf -f itemsTakeAuto 0
+        do conf -f itemsGatherAuto 0
     }
 }
 
@@ -118,9 +118,9 @@ automacro lockMap_dentroDele {
     InLockMap 1
     exclusive 1
     call {
-        do conf attackAuto 2
-        do conf itemsTakeAuto 2
-        do conf itemsGatherAuto 2
+        do conf -f attackAuto 2
+        do conf -f itemsTakeAuto 2
+        do conf -f itemsGatherAuto 2
     }
 }
 

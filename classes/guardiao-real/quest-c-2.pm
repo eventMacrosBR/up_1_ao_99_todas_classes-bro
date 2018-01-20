@@ -68,13 +68,13 @@ automacro virarTemplario_PegarItens {
         if ( $qtdBandagem < 10 ) {
             #primeiro item a pegar, depois pega o outro
             $nomeDoItem = Bandagem Estragada
-            if (&config(lockMap) != moc_pryd03) do conf lockMap moc_pryd03
+            if (&config(lockMap) != moc_pryd03) do conf -f lockMap moc_pryd03
             if (&config(attackAuto) != 2) call voltarAtacar
             do mconf 1191 1 0 0 #mimico
         } elsif ( $qtdBandagem >= 10 && $qtdLampiao < 10) {
             #quando já tiver 10 bandagens, ele vai pegar os lampiao
             $nomeDoItem = Lampião
-            if (&config(lockMap) != mjo_dun02) do conf lockMap mjo_dun02
+            if (&config(lockMap) != mjo_dun02) do conf -f lockMap mjo_dun02
             if (&config(attackAuto) != 2) call voltarAtacar
             do mconf 1145 0 0 0 #Martin
             do mconf 1121 0 0 0 #Giearth
@@ -85,7 +85,7 @@ automacro virarTemplario_PegarItens {
             log Indo falar com o NPC
             log ====================================
             do conf -f questTemplario jaColeteiOsItens
-            do conf lockMap none
+            do conf -f lockMap none
             stop
         }
 
@@ -106,7 +106,7 @@ automacro virarTemplario_ColeteiTodosOsItens_IndoProNpc {
     QuestActive 3006, 3007, 3008
     NpcNotNear /Senior Crusader/
     call {
-        do conf lockMap none
+        do conf -f lockMap none
         do move prt_castle 45 169 &rand(2,5)
     }
 }
@@ -163,7 +163,7 @@ automacro virarTemplario_ComprarHiper_poucoZeny {
         log = Comprar hiper, melhor me dar zeny
         log ===================================
         ]
-        do conf BetterShopper_on none
+        do conf -f BetterShopper_on none
     }
 }
 
@@ -175,19 +175,19 @@ automacro virarTemplario_ComprarHiper {
     Zeny >= 40000
     QuestActive 3009
     call {
-        do conf lockMap prontera
-        do conf route_randomWalk 1
-        do conf route_randomWalk_inTown 1
+        do conf -f lockMap prontera
+        do conf -f route_randomWalk 1
+        do conf -f route_randomWalk_inTown 1
         call pararDeAtacar
         if (checarSeExisteNoConfig("BetterShopper_0") = nao) {
             adicionaBetterShopper()
             pause 1
             do reload config
         }
-        do conf BetterShopper_0 Doce Hiper Açucarado
-        do conf BetterShopper_0_maxPrice 60000
-        do conf BetterShopper_0_maxAmount 1
-        do conf BetterShopper_0_disabled 0
+        do conf -f BetterShopper_0 Doce Hiper Açucarado
+        do conf -f BetterShopper_0_maxPrice 60000
+        do conf -f BetterShopper_0_maxAmount 1
+        do conf -f BetterShopper_0_disabled 0
         do conf -f BetterShopper_on 1
     }
 }
@@ -201,19 +201,19 @@ automacro virarTemplario_ComprarPotBranca {
     priority -2
     QuestActive 3009
     call {
-        do conf lockMap prontera
-        do conf route_randomWalk 1
-        do conf route_randomWalk_inTown 1
+        do conf -f lockMap prontera
+        do conf -f route_randomWalk 1
+        do conf -f route_randomWalk_inTown 1
         call pararDeAtacar
         if (checarSeExisteNoConfig("BetterShopper_1") = nao) {
             adicionaBetterShopper()
             pause 1
             do reload config    
         }
-        do conf BetterShopper_1 Poção Branca
-        do conf BetterShopper_1_maxPrice 1100
-        do conf BetterShopper_1_maxAmount 20
-        do conf BetterShopper_1_disabled 0
+        do conf -f BetterShopper_1 Poção Branca
+        do conf -f BetterShopper_1_maxPrice 1100
+        do conf -f BetterShopper_1_maxAmount 20
+        do conf -f BetterShopper_1_disabled 0
         do conf -f BetterShopper_on 1
     }
 }
@@ -225,19 +225,19 @@ automacro virarTemplario_ComparBalaDeGuaraná {
     priority -1
     ConfigKeyNot BetterShopper_2 Bala de Guaraná
     call {
-        do conf lockMap prontera
-        do conf route_randomWalk 1
-        do conf route_randomWalk_inTown 1
+        do conf -f lockMap prontera
+        do conf -f route_randomWalk 1
+        do conf -f route_randomWalk_inTown 1
         call pararDeAtacar
         if (checarSeExisteNoConfig("BetterShopper_2") = nao) {
             adicionaBetterShopper()
             pause 1
             do reload config
         }
-        do conf BetterShopper_2 Bala de Guaraná
-        do conf BetterShopper_2_maxPrice 1650
-        do conf BetterShopper_2_maxAmount 2
-        do conf BetterShopper_2_disabled 0
+        do conf -f BetterShopper_2 Bala de Guaraná
+        do conf -f BetterShopper_2_maxPrice 1650
+        do conf -f BetterShopper_2_maxAmount 2
+        do conf -f BetterShopper_2_disabled 0
         do conf -f BetterShopper_on 1
     }
 }
@@ -250,7 +250,7 @@ automacro virarTemplario_FalarComCaraNaPrisão_IndoAteEle {
     InInventoryID 504 > 10 #Poção Branca
     IsEquippedID rightAccessory 2608 #Rosário
     call {
-        do conf BetterShopper_on none
+        do conf -f BetterShopper_on none
         do move prt_castle 164 32 &rand(4,7)
     }
 }
@@ -268,11 +268,11 @@ automacro virarTemplario_FalarComCaraNaPrisão {
         # essa é a parte dificil que ele tem que passar pelos bixos
         # melhor comprar pot e guaraná
         
-        do conf BetterShopper_on 0
-        do conf BetterShopper_0_disabled 1
-        do conf BetterShopper_1_disabled 1
-        do conf BetterShopper_2_disabled 1        
-        do conf lockMap none
+        do conf -f BetterShopper_on 0
+        do conf -f BetterShopper_0_disabled 1
+        do conf -f BetterShopper_1_disabled 1
+        do conf -f BetterShopper_2_disabled 1        
+        do conf -f lockMap none
         call pararDeAtacarApenasCorrer
         $blocoJaExiste = checarSeExisteNoConfig("useSelf_item_1")
         if ($blocoJaExiste = nao) {
@@ -281,8 +281,8 @@ automacro virarTemplario_FalarComCaraNaPrisão {
             do reload config
         }
 
-        do conf useSelf_item_1 Poção Branca
-        do conf useSelf_item_1_hp < 60%
+        do conf -f useSelf_item_1 Poção Branca
+        do conf -f useSelf_item_1_hp < 60%
         do talk $.NpcNearLastBinId
         do talk resp 0
     }
@@ -336,11 +336,11 @@ automacro virarTemplario_correr_morri_indoTentarDenovo {
         # essa é a parte dificil que ele tem que passar pelos bixos
         # melhor comprar pot e guaraná
         
-        do conf BetterShopper_on 0
-        do conf BetterShopper_0_disabled 1
-        do conf BetterShopper_1_disabled 1
-        do conf BetterShopper_2_disabled 1        
-        do conf lockMap none
+        do conf -f BetterShopper_on 0
+        do conf -f BetterShopper_0_disabled 1
+        do conf -f BetterShopper_1_disabled 1
+        do conf -f BetterShopper_2_disabled 1        
+        do conf -f lockMap none
         call pararDeAtacarApenasCorrer
         $blocoJaExiste = checarSeExisteNoConfig("useSelf_item_1")
         if ($blocoJaExiste = nao) {
@@ -349,8 +349,8 @@ automacro virarTemplario_correr_morri_indoTentarDenovo {
             do reload config
         }
 
-        do conf useSelf_item_1 Poção Branca
-        do conf useSelf_item_1_hp < 60%
+        do conf -f useSelf_item_1 Poção Branca
+        do conf -f useSelf_item_1_hp < 60%
         do talk $.NpcNearLastBinId
         do talk resp 0
     }
@@ -408,14 +408,14 @@ automacro virarTemplario_Matarbixo_ComprarAgua {
             pause 1
             do reload config
         }
-        do conf lockMap prontera
-        do conf route_randomWalk 1
-        do conf route_randomWalk_inTown 1
-        do conf BetterShopper_0 Água Benta
-        do conf BetterShopper_0_maxAmount 2
-        do conf BetterShopper_0_maxPrice 2000
-        do conf BetterShopper_0_disabled 0
-        do conf BetterShopper_on 1
+        do conf -f lockMap prontera
+        do conf -f route_randomWalk 1
+        do conf -f route_randomWalk_inTown 1
+        do conf -f BetterShopper_0 Água Benta
+        do conf -f BetterShopper_0_maxAmount 2
+        do conf -f BetterShopper_0_maxPrice 2000
+        do conf -f BetterShopper_0_disabled 0
+        do conf -f BetterShopper_on 1
     }
 }
 
@@ -426,7 +426,7 @@ automacro virarTemplario_Matarbixo_irAteNpc {
     NotInMap job_cru
     NpcNotNear /Patron/
     call {
-        do conf BetterShopper_on none
+        do conf -f BetterShopper_on none
         do move prt_castle 35 151 &rand(2,5)
     }
 }
@@ -499,9 +499,9 @@ automacro virarTemplario_matarBixos_dentroDoMapa_correr {
     ConfigKeyNot lockMap job_cru
     exclusive 1
     call {
-        do conf lockMap job_cru
-        do conf lockMap_x 167
-        do conf lockMap_y 178
+        do conf -f lockMap job_cru
+        do conf -f lockMap_x 167
+        do conf -f lockMap_y 178
         call voltarAtacar
     }
 }
@@ -518,10 +518,10 @@ automacro virarTemplario_matarbixs_falhei {
         log = vou comprar agua benta e começar denovo
         log ===================================
         ]
-        do conf lockMap none
-        do conf lockMap_x none
-        do conf lockMap_y none
-        do conf questTemplario none
+        do conf -f lockMap none
+        do conf -f lockMap_x none
+        do conf -f lockMap_y none
+        do conf -f questTemplario none
     }
 }
 
@@ -532,10 +532,10 @@ automacro virarTemplario_final_irAteNpc {
     JobID $paramsClasses{idC1}
     NpcNotNear /Senior Crusader/
     call {
-        do conf lockMap none
-        do conf lockMap_x none
-        do conf lockMap_y none
-        do conf questTemplario none
+        do conf -f lockMap none
+        do conf -f lockMap_x none
+        do conf -f lockMap_y none
+        do conf -f questTemplario none
         do move prt_castle 45 169 &rand(2,5)
     }
 }

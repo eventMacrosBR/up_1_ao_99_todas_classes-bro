@@ -11,8 +11,8 @@ automacro iniciarQuestClasse2T_Bugged {
         log tentando resolver isso
         log ==================================
         ]
-        do conf skillsAddAuto 1
-        do conf skillsAddAuto_list $configsBuild{skillsClasse1T}
+        do conf -f skillsAddAuto 1
+        do conf -f skillsAddAuto_list $configsBuild{skillsClasse1T}
     }
 }
 
@@ -24,7 +24,7 @@ automacro iniciarQuestClasse2T {
     FreeSkillPoints = 0
     call {
         call pararDeAtacar
-        do conf lockMap none
+        do conf -f lockMap none
         do conf -f virarClasse2T true
         do conf -f o_que_estou_fazendo virandoClasse2T
         do move yuno_in02 &rand(86,90) &rand(162,166)
@@ -73,7 +73,7 @@ automacro jaSouClasse2T {
     JobID $paramsClasses{idC2T}, $paramsClasses{idC2TAlt}
     ConfigKey virarClasse2T true
     call {
-        do conf virarClasse2T none
+        do conf -f virarClasse2T none
         do conf -f o_que_estou_fazendo acabeiDeVirarClasse2T
         call atualizarBuild
     }

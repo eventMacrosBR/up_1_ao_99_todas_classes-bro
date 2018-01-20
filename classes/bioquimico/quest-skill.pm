@@ -44,7 +44,7 @@ automacro questBioetica_naotenhoZenyNemPraComecar {
         do conf -f passoQuestBioetica começo
         call voltarAtacar
         call SetSaveIn payon
-        do conf lockMap pay_fild09
+        do conf -f lockMap pay_fild09
     }
 }
 
@@ -65,9 +65,9 @@ automacro questBioetica_juntandoZenyPraComecar {
         do conf -f quest_skill true
         do conf -f passoQuestBioetica começo
         if (&config(attackAuto) != 2) call voltarAtacar
-        if (&config(itemsTakeAuto) != 2) do conf itemsTakeAuto 2
-        if (&config(itemsGatherAuto) != 2) do conf itemsGatherAuto 2
-        if (&config(itemsMaxWeight_sellOrStore) != 30) do conf itemsMaxWeight_sellOrStore 30
+        if (&config(itemsTakeAuto) != 2) do conf -f itemsTakeAuto 2
+        if (&config(itemsGatherAuto) != 2) do conf -f itemsGatherAuto 2
+        if (&config(itemsMaxWeight_sellOrStore) != 30) do conf -f itemsMaxWeight_sellOrStore 30
     }
 }
 

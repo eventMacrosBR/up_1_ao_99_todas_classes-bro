@@ -9,9 +9,9 @@ automacro virarFerreiro {
     ConfigKeyNot virarClasse2 true
     call {
         [
-            do conf lockMap none
-            do conf route_randomWalk 0
-            do conf attackAuto 0
+            do conf -f lockMap none
+            do conf -f route_randomWalk 0
+            do conf -f attackAuto 0
         ]
         do conf -f virarClasse2 true
         do conf -f quest_classe2 IrParaEinbroch
@@ -43,7 +43,7 @@ automacro virarFerreiro_falarComAltazen {
     exclusive 1
     call {
         do talknpc 110 169 r0 #Do the job change.
-        do conf quest_classe2 primeiro_questionario
+        do conf -f quest_classe2 primeiro_questionario
     }
 }
 
@@ -53,7 +53,7 @@ automacro virarFerreiro_responderPrimeiroQuestionario{
     macro_delay 2
     call {
         do move ein_in01 &rand(199,203) &rand(25,29)
-        do conf quest_classe2 TalkToGetsufenst
+        do conf -f quest_classe2 TalkToGetsufenst
     }    
 }
 
@@ -67,7 +67,7 @@ automacro TalkToGetsufenst {
         pause &rand(5,10)
         do talknpc 201 27
         pause &rand(2,5)
-        do conf quest_classe2 GetsufenstTask
+        do conf -f quest_classe2 GetsufenstTask
     }
 }
 
@@ -82,7 +82,7 @@ automacro GetsufenstTask {
     call {
         do move alberta &rand(115, 118) &rand(51, 54)
         pause 1
-        do conf autoTalkCont 1
+        do conf -f autoTalkCont 1
         pause 0.8
         do talknpc 113 60
         do talk resp 1
@@ -111,7 +111,7 @@ automacro pegarItensDaKafra {
         }
         log Checado.
         do storage close
-        do conf quest_classe2 FarmQuestItems
+        do conf -f quest_classe2 FarmQuestItems
     }
 }
 
@@ -131,7 +131,7 @@ automacro FarmQuestItems {
         if ( $qtdFerro < 8) {
             do mconf Steel Chonchon 2
             do pconf Iron 2
-            do conf lockMap moc_fild18
+            do conf -f lockMap moc_fild18
             call voltarAtacar
             stop
         }
@@ -140,7 +140,7 @@ automacro FarmQuestItems {
             do mconf Fabre 2
             do mconf Poporing 2
             do pconf Green Herb 2
-            do conf lockMap gef_fild00
+            do conf -f lockMap gef_fild00
             call voltarAtacar
             stop
         }
@@ -148,31 +148,31 @@ automacro FarmQuestItems {
             do mconf Savage Babe 2
             do mconf Baby Dessert Wolf 2
             do pconf Animal Skin 2
-            do conf lockMap prt_fild09
+            do conf -f lockMap prt_fild09
             call voltarAtacar
             stop
         }
         if ($qtdSabre < 1) { #sabre de impacto
             call pararDeAtacar
-            do conf lockMap none
+            do conf -f lockMap none
             do respawn
-            do conf sellAuto 0
-            do conf storageAuto 0
+            do conf -f sellAuto 0
+            do conf -f storageAuto 0
             
-            do conf buyAuto_0 Sabre De Impacto [2]
-            do conf buyAuto_0_npc prt_in 172 130
-            do conf buyAuto_0_minAmount none
-            do conf buyAuto_0_maxAmount 1
+            do conf -f buyAuto_0 Sabre De Impacto [2]
+            do conf -f buyAuto_0_npc prt_in 172 130
+            do conf -f buyAuto_0_minAmount none
+            do conf -f buyAuto_0_maxAmount 1
             do autobuy
             stop
         }
         
         #condição especial pra desativar o buyAuto, só pra ter certeza
         if ($qtdSabre >= 1) { #sabre de impacto
-            do conf buyAuto_0 none
-            do conf buyAuto_0_npc none
-            do conf buyAuto_0_minAmount none
-            do conf buyAuto_0_maxAmount none
+            do conf -f buyAuto_0 none
+            do conf -f buyAuto_0_npc none
+            do conf -f buyAuto_0_minAmount none
+            do conf -f buyAuto_0_maxAmount none
             #não vou parar a macro porque tem que continuar
         }
         
@@ -181,7 +181,7 @@ automacro FarmQuestItems {
         #se chegar nessa linha, significa que temos todos os itens
         
         do move alberta_in &rand(176,180) &rand(21,26)
-        do conf quest_classe2 TalkToGetsufenstAgain  
+        do conf -f quest_classe2 TalkToGetsufenstAgain  
     }
 }
 
@@ -205,7 +205,7 @@ automacro DeliverToBismark {
     exclusive 1
     call {
         do talknpc 158 342 r1 #I assure you that it's new!
-        do conf quest_classe2 GoBackToGetsufenst
+        do conf -f quest_classe2 GoBackToGetsufenst
         pause &rand(2,4)
         do move alberta_in &rand(176,180) &rand(21,26)
     }
@@ -218,7 +218,7 @@ automacro DeliverVoucher {
     exclusive 1
     call {
         do talknpc 174 22 c c c r0 #Ah, yes. Here it is!
-        do conf quest_classe2 TalkToAltazen
+        do conf -f quest_classe2 TalkToAltazen
         pause &rand(2,4)
         do move geffen_in &rand(106,110) &rand(172, 177)
     }
@@ -232,7 +232,7 @@ automacro TalkToAltazen {
     exclusive 1
     call {
         do talknpc 110 169 r0 #It's tough, but I have to go do it.
-        do conf quest_classe2 TalkToMitmayer
+        do conf -f quest_classe2 TalkToMitmayer
     }
 }
 
@@ -245,7 +245,7 @@ automacro TalkToMitmayer{
         do move morocc &rand(93,95) &rand(116,118)
         do move morocc &rand(92,94) &rand(125,127)
         do talknpc 95 133 r0 r~/Esqueleto|Aumentar|precisa/ r~/Alberta|Coração|Atordoamento/ r~/Sudoeste|Sangue|1000/ r~/Einbroch|Água|24/ r~/DES|5|24/
-        do conf quest_classe2 TalkToAltazenAgain
+        do conf -f quest_classe2 TalkToAltazenAgain
     }
 }
 
@@ -258,13 +258,13 @@ automacro TalkToAltazenAgain{
         do move geffen_in &rand(106,110) &rand(172, 177)
         do talknpc 110 169
         log Finally~!
-        do conf quest_classe2 none
+        do conf -f quest_classe2 none
         do eq Sword Mace
         [
-            do conf buyAuto_0 none
-            do conf buyAuto_0_npc none
-            do conf buyAuto_0_minAmount none
-            do conf buyAuto_0_maxAmount 3
+            do conf -f buyAuto_0 none
+            do conf -f buyAuto_0_npc none
+            do conf -f buyAuto_0_minAmount none
+            do conf -f buyAuto_0_maxAmount 3
         ]
     }
 }

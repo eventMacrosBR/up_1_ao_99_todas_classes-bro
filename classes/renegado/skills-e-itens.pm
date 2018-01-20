@@ -9,13 +9,13 @@ automacro configurarFurto {
         log =Configurando pra usar ela
         log ===========================================
         ]
-        do conf attackSkillSlot_0 TF_STEAL
-        do conf attackSkillSlot_0_lvl 10
-        do conf attackSkillSlot_0_sp >= 10
-        do conf attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
-        do conf attackSkillSlot_0_maxUses 1
-        do conf attackSkillSlot_0_maxAttempts 2
-        do conf attackSkillSlot_0_disabled 0
+        do conf -f attackSkillSlot_0 TF_STEAL
+        do conf -f attackSkillSlot_0_lvl 10
+        do conf -f attackSkillSlot_0_sp >= 10
+        do conf -f attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
+        do conf -f attackSkillSlot_0_maxUses 1
+        do conf -f attackSkillSlot_0_maxAttempts 2
+        do conf -f attackSkillSlot_0_disabled 0
     }
 }
 
@@ -30,11 +30,11 @@ automacro configurarDesintoxicar {
         log =Configurando ela
         log ===========================================
         ]
-        do conf useSelf_skill_0 TF_DETOXIFY
-        do conf useSelf_skill_0_lvl 1
-        do conf useSelf_skill_0_sp >= 10
-        do conf useSelf_skill_0_whenStatusActive HEALTHSTATE_POISON
-        do conf useSelf_skill_0_disabled 0
+        do conf -f useSelf_skill_0 TF_DETOXIFY
+        do conf -f useSelf_skill_0_lvl 1
+        do conf -f useSelf_skill_0_sp >= 10
+        do conf -f useSelf_skill_0_whenStatusActive HEALTHSTATE_POISON
+        do conf -f useSelf_skill_0_disabled 0
   }
 }
 
@@ -55,15 +55,15 @@ automacro configurarAfanar {
         log =Configurando pra usar ela
         log ===========================================
         ]
-        do conf attackSkillSlot_1 RG_STEALCOIN
-        do conf attackSkillSlot_1_lvl 10
-        do conf attackSkillSlot_1_sp >= 15
-        do conf attackSkillSlot_1_whenStatusInactive EFST_POSTDELAY
-        do conf attackSkillSlot_1_maxUses 1
-        do conf attackSkillSlot_1_maxAttempts 2
-        do conf attackSkillSlot_1_disabled 0
+        do conf -f attackSkillSlot_1 RG_STEALCOIN
+        do conf -f attackSkillSlot_1_lvl 10
+        do conf -f attackSkillSlot_1_sp >= 15
+        do conf -f attackSkillSlot_1_whenStatusInactive EFST_POSTDELAY
+        do conf -f attackSkillSlot_1_maxUses 1
+        do conf -f attackSkillSlot_1_maxAttempts 2
+        do conf -f attackSkillSlot_1_disabled 0
         # Desativar Furto
-        do conf attackSkillSlot_0_disabled 1
+        do conf -f attackSkillSlot_0_disabled 1
     }
 }
 

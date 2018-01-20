@@ -47,7 +47,7 @@ automacro virarArruaceiroInicio_IrNoNpc {
     QuestInactive 2026
     call {
         call pararDeAtacar
-        do conf lockMap none
+        do conf -f lockMap none
         do conf -f virarClasse2 true
         do move in_rogue &rand(361,366) &rand(112,117)
     }
@@ -111,14 +111,14 @@ automacro virarArruaceiro_etapa3_coletarItens {
 
         if ( $qtdErvaAzul < 6 ) { #primeiro a coletar: Erva Azul
             [
-            do conf lockMap cmd_fild02
+            do conf -f lockMap cmd_fild02
             do mconf 1266 0 0 0
             do mconf 1073 0 0 0
             do mconf 1254 0 0 0
             do mconf Cornutus 0 0 0
             do mconf 1074 0 0 0
             do mconf 1391 0 0 0
-            do conf attackAuto_inLockOnly 1
+            do conf -f attackAuto_inLockOnly 1
             call voltarAtacar
             log =================================
             log Estou coletando ERVA AZUL pra
@@ -129,12 +129,12 @@ automacro virarArruaceiro_etapa3_coletarItens {
         } elsif ( $qtdErvaAzul >= 6 && $qtdUnha < 10 ) { 
             #se ja tiver Erva Azul, vai coletar: Unha Apodrecida
             [
-            do conf lockMap pay_dun00
+            do conf -f lockMap pay_dun00
             do mconf 1005 0 0 0
             do mconf 1031 0 0 0
             do mconf 1078 0 0 0
             do mconf 1084 0 0 0
-            do conf attackAuto_inLockOnly 1
+            do conf -f attackAuto_inLockOnly 1
             call voltarAtacar
             log ================================
             log Estou coletando UNHA APODRECIDA
@@ -145,13 +145,13 @@ automacro virarArruaceiro_etapa3_coletarItens {
         } elsif ( $qtdErvaAzul >= 6 && $qtdUnha >= 10 && $qtdOsso < 10 ) { 
             #se ja tiver Erva Azul e Unha Apodrecida, vai coletar: Osso
             [
-            do conf lockMap pay_dun01
+            do conf -f lockMap pay_dun01
             do mconf Drainliar 0 0 0
             do mconf Eggyra 0 0 0
             do mconf 1084 0 0 0
             do mconf 1078 0 0 0
-            do conf attackAuto_inLockOnly 1
-            do conf route_randomWalk 1
+            do conf -f attackAuto_inLockOnly 1
+            do conf -f route_randomWalk 1
             call voltarAtacar
             log ==============================
             log Estou coletando OSSO para
@@ -162,14 +162,14 @@ automacro virarArruaceiro_etapa3_coletarItens {
         } elsif ( $qtdErvaAzul >= 6 && $qtdUnha >= 10 && $qtdOsso >= 10 && $qtdMandibula < 10 ) {
             #se tiver Erva Azul, Unha Apodrecida e Osso, vai coletar: Mandíbula Horrenda
             [
-            do conf lockMap pay_dun00
+            do conf -f lockMap pay_dun00
             do mconf 1005 0 0 0
             do mconf 1031 1 0 0
             do mconf 1078 0 0 0
             do mconf 1084 0 0 0
             do mconf 1076 0 0 0
-            do conf attackAuto_inLockOnly 1
-            do conf route_randomWalk 1
+            do conf -f attackAuto_inLockOnly 1
+            do conf -f route_randomWalk 1
             call voltarAtacar
             log ==============================================
             log Estou coletando MANDIBULA pra quest de arruaceiro
@@ -203,8 +203,8 @@ automacro virarArruaceiro_etapa3_tenhoOsItensIrProNpc {
         do conf -f questArruaceiro peguei
         log Vamos No NPC já temos os Itens...
         call pararDeAtacar
-        do conf lockMap none
-        do conf attackAuto_inLockOnly 0
+        do conf -f lockMap none
+        do conf -f attackAuto_inLockOnly 0
         do mconf 1266 1 0 0
         do mconf 1073 1 0 0
         do mconf 1254 1 0 0
@@ -253,8 +253,8 @@ automacro virarArruaceiro_etapa3_tenhoOsItens {
     exclusive 1
     call {
         do conf -f questArruaceiro peguei
-        do conf lockMap none
-        do conf sitAuto_hp_upper 80
+        do conf -f lockMap none
+        do conf -f sitAuto_hp_upper 80
         call pararDeAtacar
         do talk $.NpcNearLastBinId #Smith
         do talk $.NpcNearLastBinId #Smith
@@ -280,9 +280,9 @@ automacro virarArruaceiro_etapa4 {
             ]
             stop
         }
-        do conf lockMap none
+        do conf -f lockMap none
         do stand
-        do conf attackAuto -1
+        do conf -f attackAuto -1
         log sua posição atual é: $.map $.pos
         switch ($.QuestActiveLastID) {
             case (= 2022) { #opção 1
@@ -355,9 +355,9 @@ automacro virarArruaceiro_etapa6_labirinto {
     macro_delay 0.5
     call {
         #ahhhh o labirinto.... o bixin vai morrer algumas vezes aqui viu... ou não kkkk
-        do conf attackAuto -1
-        do conf itemsTakeAuto 0
-        do conf lockMap none
+        do conf -f attackAuto -1
+        do conf -f itemsTakeAuto 0
+        do conf -f lockMap none
         log ================================
         log Iniciando Labirinto
         log ================================
@@ -382,7 +382,7 @@ automacro virarArruaceiro_etapa6_morreuNoLabirinto_hpAlto {
         log Já esou com hp alto, vou retentar o labirinto
         log ==================================================
         ]
-        do conf lockMap none
+        do conf -f lockMap none
         log a opção de caminho é a &config(questArruaceiro)
         # se vc tiver morrido no labirindo, essa macro que vai fazer voce ir la tentar denovo
         # vai pegar qual o caminho certo e seguir ele
@@ -421,8 +421,8 @@ automacro virarArruaceiro_etapa6_morreuNoLabirinto_hpBaixo {
         ]
         do sit
         if ( &config (sitAuto_hp_upper) != 80 ) {
-        do conf sitAuto_hp_lower 20
-        do conf sitAuto_hp_upper 80
+        do conf -f sitAuto_hp_lower 20
+        do conf -f sitAuto_hp_upper 80
         }
     }
 }
@@ -442,7 +442,7 @@ automacro virarArruaceiro_etapaFinal {
         ]
         do move in_rogue 369 119
         do talknpc 363 122 c c c
-        do conf itemsTakeAuto 1
+        do conf -f itemsTakeAuto 1
     }
 }
 
@@ -461,7 +461,7 @@ automacro virarArruaceiro_etapaFinal_Alternativo {
         ]
         do move in_rogue 369 119
         do talknpc 363 122 c c c
-        do conf itemsTakeAuto 1
+        do conf -f itemsTakeAuto 1
     }
 }
 
@@ -470,7 +470,7 @@ automacro jaSouArruaceiro {
     ConfigKeyNot questArruaceiro none
     exclusive 1
     call {
-        do conf teleportAuto_MaxDmg 1000
+        do conf -f teleportAuto_MaxDmg 1000
         do iconf Erva Azul 0 1 0
         do iconf Mandíbula Horrenda 0 0 1
         do iconf Osso 0 0 1
@@ -480,7 +480,7 @@ automacro jaSouArruaceiro {
         $check = GetIndexAndEquipped("topHead", 5583) #Chapeu valhalla
         if ($check != -1) do eq $check
         call pararDeAtacar
-        do conf questArruaceiro none
+        do conf -f questArruaceiro none
     }
 }
 #

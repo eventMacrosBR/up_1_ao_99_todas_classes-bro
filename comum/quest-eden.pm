@@ -145,7 +145,7 @@ automacro inciandoQuestEden60MoverPerto {
 }
 
 macro moverPertoDosNpcEden {
-    do conf lockMap none
+    do conf -f lockMap none
     call pararDeAtacar
     [
     log ===========================================
@@ -398,7 +398,7 @@ macro caçarMonstros {
     if (&config(quest_eden) != em_curso) do conf -f quest_eden em_curso
     [
     call voltarAtacar
-    if ( &config(lockMap) != $.param[0]) do conf lockMap $.param[0]
+    if ( &config(lockMap) != $.param[0]) do conf -f lockMap $.param[0]
     do mconf $.QuestHuntOngoingLastMobID 2 0 0
     log ===========================================
     log =caçando monstro da quest eden $.param[1]
@@ -425,7 +425,7 @@ automacro Eden60_JuntarItens {
             log = tenho: $qtdOmbreira , Quero: 5 , Falta: &eval(5 - $qtdOmbreira)
             log ===========================================
             ]
-            do conf lockMap um_fild02
+            do conf -f lockMap um_fild02
             call voltarAtacar
         } elsif ( $qtdOmbreira >= 5 && $qtdFolha < 7 ) {
             [
@@ -434,7 +434,7 @@ automacro Eden60_JuntarItens {
             log = tenho: $qtdFolha , Quero: 7 , Falta: &eval(7 - $qtdFolha)
             log ===========================================
             ]
-            do conf lockMap um_fild01
+            do conf -f lockMap um_fild01
             call voltarAtacar    
         }
     }

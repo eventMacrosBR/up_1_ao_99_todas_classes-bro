@@ -9,14 +9,14 @@ automacro ConfigEstáErrada {
         log O valor que quero é $.ConfigKeyNotLastWantedValue
         log Mas o valor atual é $.ConfigKeyNotLastKeyValue
         log Mudando valor da config $.ConfigKeyNotLastKey de $.ConfigKeyNotLastKeyValue para $.ConfigKeyNotLastWantedValue
-        do conf $.ConfigKeyNotLastKey $.ConfigKeyNotLastWantedValue
+        do conf -f $.ConfigKeyNotLastKey $.ConfigKeyNotLastWantedValue
     }
 }
 
 macro pararDeAtacar {
     [
-    do conf route_randomWalk 0
-    do conf attackAuto 1
+    do conf -f route_randomWalk 0
+    do conf -f attackAuto 1
     ]
 }
 
@@ -31,15 +31,15 @@ automacro reloadPortals {
 
 macro pararDeAtacarApenasCorrer {
     [
-    do conf route_randomWalk 0
-    do conf attackAuto -1
+    do conf -f route_randomWalk 0
+    do conf -f attackAuto -1
     ]
 }
 
 macro voltarAtacar {
     [
-    do conf route_randomWalk 1
-    do conf attackAuto 2
+    do conf -f route_randomWalk 1
+    do conf -f attackAuto 2
     ]
 }
 

@@ -36,7 +36,7 @@ automacro VirarSacer_IrNoNpc {
     exclusive 1
     call {
         call pararDeAtacar
-        do conf lockMap none
+        do conf -f lockMap none
         do move prt_church &rand(14,18) &rand(39,43)
     }
 }
@@ -82,8 +82,8 @@ automacro VirarSacer_TesteExorcismo {
     macro_delay 4
     call {
         do talknpc 24 187 r0 r0 #Smith
-        do conf attackAuto 2
-        do conf attackUseWeapon 1
+        do conf -f attackAuto 2
+        do conf -f attackUseWeapon 1
         do talk cont
         do move job_prist 24 109
         do move job_prist 168 49

@@ -15,7 +15,7 @@ automacro InicioVirarBruxo {
         log JÁ TENHO LEVEL PARA VIRAR BRUXO
         log INICIANDO A QUEST
             
-        do conf lockMap none #para ele não fujir hehe
+        do conf -f lockMap none #para ele não fujir hehe
         do move gef_tower 108 35
     }
 }
@@ -99,9 +99,9 @@ automacro TestePraticoBruxoSaladeEspera {
     
         #editar priority.txt para atacar os mais perigosos primeiro?
         do conf -f testepraticobruxo emprogresso
-        do conf attackSkillSlot_0_monsters Guerreiro Orc, Mandrágora, Pé-Grande, Caramelo, Giearth, Vitata, Deniro #lanças de fogo
-        do conf attackSkillSlot_1_monsters Goblin, Salgueiro Ancião, Frilldora, Escorpião, General da Floresta, Pecopeco, Metaller # lanças de gelo
-        do conf attackSkillSlot_1_monsters Hidras, Cornutus, Fens, Moluscos, Vadons, Magnólias,Marins, Marinas, Esferas Marinhas #Relampago
+        do conf -f attackSkillSlot_0_monsters Guerreiro Orc, Mandrágora, Pé-Grande, Caramelo, Giearth, Vitata, Deniro #lanças de fogo
+        do conf -f attackSkillSlot_1_monsters Goblin, Salgueiro Ancião, Frilldora, Escorpião, General da Floresta, Pecopeco, Metaller # lanças de gelo
+        do conf -f attackSkillSlot_1_monsters Hidras, Cornutus, Fens, Moluscos, Vadons, Magnólias,Marins, Marinas, Esferas Marinhas #Relampago
         
         #apos isso tem que entrar no chat do npc, não sei fazer :P
     }
