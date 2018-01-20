@@ -28,7 +28,7 @@ automacro virarAlquimistaInicio_IrNoNpc {
     NpcNotNear /Alquimista sênior/
     call {
         call pararDeAtacar
-        do conf lockMap none
+        do conf -f lockMap none
         do move alde_alche &rand(25,27) &rand(179,181)
     }
 }
@@ -48,7 +48,7 @@ automacro virarAlquimistaInicio {
     ConfigKeyNot virarAlquimista true
     NpcNear /Alquimista sênior/
     call {
-        do conf autoTalkCont 1
+        do conf -f autoTalkCont 1
         do talk $.NpcNearLastBinId
         do talk resp 1
         do talk resp 0
@@ -167,7 +167,7 @@ automacro virarAlquimista_FlechaComprada_indoEntregar {
 macro voltarProAlquimistaSenior {
     do move alde_alche &rand(25,27) &rand(178,180)
        do talk &npc (/Alquimista sênior/)
-       do conf lockMap none
+       do conf -f lockMap none
        pause 3
     
        #isso vai checar se realmente entregamos o item, ja que está sempre suscetivel a falhas
@@ -247,7 +247,7 @@ automacro virarAlquimista_NpcDaFlor {
     exclusive 1
     call {
         call pararDeAtacar
-        do conf lockMap none
+        do conf -f lockMap none
         do iconf 710 0 0 0 #Flor das Ilusões
         do move alde_alche &rand(13,16) &rand(18,20)
         do talk &npc(/Pesquisador/)
@@ -297,14 +297,14 @@ automacro virarAlquimista_naoTenhoAFlor {
     ConfigKeyNot BetterShopper_on 1
     call {
         call pararDeAtacar
-        do conf lockMap none
+        do conf -f lockMap none
         if ( recursoTecnicoPaliativo() = 1 ) { #Significa que o BetterShopper está ativado
-            do conf lockMap prontera
-            do conf route_randomWalk 1
-            do conf route_randomWalk_inTown 1
-            do conf itemsTakeAuto 1
-            do conf itemsGatherAuto 0
-            do conf itemsMaxWeight_sellOrStore 40
+            do conf -f lockMap prontera
+            do conf -f route_randomWalk 1
+            do conf -f route_randomWalk_inTown 1
+            do conf -f itemsTakeAuto 1
+            do conf -f itemsGatherAuto 0
+            do conf -f itemsMaxWeight_sellOrStore 40
         
             if ( checarSeExisteComando('BetterShopper_0') == nao ) {
                 #Se o bloco não existir, vamos criar ele!
@@ -312,9 +312,9 @@ automacro virarAlquimista_naoTenhoAFlor {
                 pause 1
                 do reload config
             }
-            do conf BetterShopper_0 Flor das Ilusões
-            do conf BetterShopper_0_maxPrice 350000
-            do conf BetterShopper_0_maxAmount 1
+            do conf -f BetterShopper_0 Flor das Ilusões
+            do conf -f BetterShopper_0_maxPrice 350000
+            do conf -f BetterShopper_0_maxAmount 1
             do conf -f BetterShopper_on 1
         } else {
             [
@@ -340,7 +340,7 @@ automacro virarAlquimista_naoTenhoAFlor_bugged {
     NotInMap prontera
     call {
         do move prontera
-        do conf lockMap prontera
+        do conf -f lockMap prontera
     }
 }
 
@@ -378,7 +378,7 @@ automacro virarAlquimista_naoTenhoAFlor_NemZeny {
         
         call voltarAtacar
         call SetSaveIn "payon" 
-        do conf lockMap pay_fild09
+        do conf -f lockMap pay_fild09
     }
 }
 
@@ -420,9 +420,9 @@ automacro virarAlquimista_juntandoZeny {
         log ======================================
         ]
         if (&config(attackAuto) != 2) call voltarAtacar
-        if (&config(itemsTakeAuto) != 2) do conf itemsTakeAuto 2
-        if (&config(itemsGatherAuto) != 2) do conf itemsGatherAuto 2
-        if (&config(itemsMaxWeight_sellOrStore) != 30) do conf itemsMaxWeight_sellOrStore 30
+        if (&config(itemsTakeAuto) != 2) do conf -f itemsTakeAuto 2
+        if (&config(itemsGatherAuto) != 2) do conf -f itemsGatherAuto 2
+        if (&config(itemsMaxWeight_sellOrStore) != 30) do conf -f itemsMaxWeight_sellOrStore 30
     }
 }
 
@@ -442,9 +442,9 @@ automacro virarAlquimista_indoEntregaAFlor {
     InInventoryID 710 >= 1 #Flor das Ilusões
     call {
         call pararDeAtacar
-        do conf lockMap none
-        do conf route_randomWalk_inTown 0
-        do conf BetterShopper_on none
+        do conf -f lockMap none
+        do conf -f route_randomWalk_inTown 0
+        do conf -f BetterShopper_on none
         do move alde_alche &rand(13,16) &rand(18,20)
         do talk &npc(/Pesquisador/)
         do talk resp 1
@@ -510,15 +510,15 @@ automacro jaSouAlquimista {
        priority -5
     exclusive 1
     call {
-        do conf teleportAuto_MaxDmg 1000
+        do conf -f teleportAuto_MaxDmg 1000
         $check = GetIndexAndEquipped("robe", 2560) #Capa Valhalla
         if ($check != -1) do eq $check
         $check = GetIndexAndEquipped("topHead", 5583) #Chapeu valhalla
         if ($check != -1) do eq $check
         call pararDeAtacar
-        do conf BetterShopper_on 0
-        do conf route_randomWalk_inTown 0
-        do conf questAlquimista none
+        do conf -f BetterShopper_on 0
+        do conf -f route_randomWalk_inTown 0
+        do conf -f questAlquimista none
     }
 }
 

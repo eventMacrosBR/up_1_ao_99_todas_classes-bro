@@ -84,10 +84,10 @@ macro atualizarBuild {
 
     #parte feita por vitorsilveiro
     $idClasseAtual = pegarID() #sub se encontra no arquivo utilidades.pm
-    if (&config(skillsAddAuto) != 1) do conf skillsAddAuto 1
-    if (&config(statsAddAuto_list) != $configsBuild{statsPadrao}) do conf statsAddAuto_list $configsBuild{statsPadrao}
-    if (&config(statsAddAuto) != 1) do conf statsAddAuto 1
-    if (&config(statsAddAuto_dontUseBonus) != 1) do conf statsAddAuto_dontUseBonus 1
+    if (&config(skillsAddAuto) != 1) do conf -f skillsAddAuto 1
+    if (&config(statsAddAuto_list) != $configsBuild{statsPadrao}) do conf -f statsAddAuto_list $configsBuild{statsPadrao}
+    if (&config(statsAddAuto) != 1) do conf -f statsAddAuto 1
+    if (&config(statsAddAuto_dontUseBonus) != 1) do conf -f statsAddAuto_dontUseBonus 1
     
     #sub 'extrairMapasDeUp' pega o mapa de up e o saveMap correto dependendo do lvl atual
     # $mapa{lockMap}
@@ -96,22 +96,22 @@ macro atualizarBuild {
     
     switch ($idClasseAtual) {
         case (~ 0, 161, 4001) { #Aprendiz / Aprendiz T.
-            if (&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz}) do conf skillsAddAuto_list $configsBuild{skillsAprendiz}
+            if (&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz}) do conf -f skillsAddAuto_list $configsBuild{skillsAprendiz}
         }
         case (== $paramsClasses{idC1}) { #Classes 1
-            if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1})  do conf skillsAddAuto_list $configsBuild{skillsClasse1}
+            if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1})  do conf -f skillsAddAuto_list $configsBuild{skillsClasse1}
         }
         case (~ $paramsClasses{idC2}, $paramsClasses{idC2Alt}) { #Classes 2
-            if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2})  do conf skillsAddAuto_list $configsBuild{skillsClasse2}
+            if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2})  do conf -f skillsAddAuto_list $configsBuild{skillsClasse2}
         }
         case (== $paramsClasses{idC1T}) { #Classes 1T
-            if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1T}) do conf skillsAddAuto_list $configsBuild{skillsClasse1T}
+            if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1T}) do conf -f skillsAddAuto_list $configsBuild{skillsClasse1T}
         }
         case (~ $paramsClasses{idC2T}, $paramsClasses{idC2TAlt} ) { #Classes 2T
-            if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2T}) do conf skillsAddAuto_list $configsBuild{skillsClasse2T}
+            if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2T}) do conf -f skillsAddAuto_list $configsBuild{skillsClasse2T}
         }
         case (~ $paramsClasses{idC3}) { #Classes 3
-            if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse3})  do conf skillsAddAuto_list $configsBuild{skillsClasse3}
+            if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse3})  do conf -f skillsAddAuto_list $configsBuild{skillsClasse3}
         }
         else {
             do eval Log::error "Nao foi possivel definir qual a sua classe.\n";

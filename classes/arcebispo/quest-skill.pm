@@ -120,18 +120,18 @@ automacro questLuzDivina_comprarOpala {
     exclusive 1
     call {
         call pararDeAtacar
-        do conf lockMap prontera
-        do conf route_randomWalk 1
-        do conf route_randomWalk_inTown 1
+        do conf -f lockMap prontera
+        do conf -f route_randomWalk 1
+        do conf -f route_randomWalk_inTown 1
         if (checarSeExisteNoConfig("BetterShopper_0") = nao) {
             adicionaBetterShopper()
             pause 1
             do reload config
         }
-        do conf BetterShopper_0 Opala
-        do conf BetterShopper_0_maxPrice 10000
-        do conf BetterShopper_0_maxAmount 1
-        do conf BetterShopper_0_disabled 0
+        do conf -f BetterShopper_0 Opala
+        do conf -f BetterShopper_0_maxPrice 10000
+        do conf -f BetterShopper_0_maxAmount 1
+        do conf -f BetterShopper_0_disabled 0
         do conf -f BetterShopper_on 1
     }
 }
@@ -145,18 +145,18 @@ automacro questLuzDivina_comprarCristalAzul {
     exclusive 1
     call {
         call pararDeAtacar
-        do conf lockMap prontera
-        do conf route_randomWalk 1
-        do conf route_randomWalk_inTown 1
+        do conf -f lockMap prontera
+        do conf -f route_randomWalk 1
+        do conf -f route_randomWalk_inTown 1
         if (checarSeExisteNoConfig("BetterShopper_1") = nao) {
             adicionaBetterShopper()
             pause 1
             do reload config
         }
-        do conf BetterShopper_1 Cristal Azul
-        do conf BetterShopper_1_maxPrice 10000
-        do conf BetterShopper_1_maxAmount 1
-        do conf BetterShopper_1_disabled 0
+        do conf -f BetterShopper_1 Cristal Azul
+        do conf -f BetterShopper_1_maxPrice 10000
+        do conf -f BetterShopper_1_maxAmount 1
+        do conf -f BetterShopper_1_disabled 0
         do conf -f BetterShopper_on 1
     }
 }
@@ -169,8 +169,8 @@ automacro questLuzDivina_jaTenhosOsItens {
     InInventoryID 2608 > 0
     exclusive 1
     call {
-        do conf BetterShopper_on 0
-        do conf quest_luz_divina falar_com_npc
+        do conf -f BetterShopper_on 0
+        do conf -f quest_luz_divina falar_com_npc
     }
 }
 
@@ -182,8 +182,8 @@ automacro questLuzDivina_jaTenhosOsItens_bugged {
     InInventory "Rosário" > 0
     exclusive 1
     call {
-        do conf BetterShopper_on 0
-        do conf quest_luz_divina falar_com_npc
+        do conf -f BetterShopper_on 0
+        do conf -f quest_luz_divina falar_com_npc
     }
 }
 
@@ -209,8 +209,8 @@ automacro questLuzDivina_aprendiLuzDivina {
         log = Aprendi Luz Divina Yayyy        =
         log ===================================
         ]
-        do conf quest_skill none
-        do conf quest_luz_divina none
+        do conf -f quest_skill none
+        do conf -f quest_luz_divina none
     }
 }
 
@@ -222,7 +222,7 @@ automacro comprandoCristalAzulAdoidadoBug {
     InInventoryID 991 > 0
     priority -10
     call {
-        do conf BetterShopper_1_disabled 1
+        do conf -f BetterShopper_1_disabled 1
     }
 }
 
@@ -234,7 +234,7 @@ automacro comprandoOpalaAdoidadoBug {
     InInventoryID 727 > 0
     priority -10
     call {
-        do conf BetterShopper_0_disabled 1
+        do conf -f BetterShopper_0_disabled 1
     }
 }
 
@@ -246,7 +246,7 @@ automacro comprandoCristalAzulAdoidadoBug2 {
     InInventory "Cristal Azul" > 0
     priority -10
     call {
-        do conf BetterShopper_1_disabled 1
+        do conf -f BetterShopper_1_disabled 1
     }
 }
 
@@ -258,7 +258,7 @@ automacro comprandoOpalaAdoidadoBug2 {
     InInventory "Opala" > 0
     priority -10
     call {
-        do conf BetterShopper_0_disabled 1
+        do conf -f BetterShopper_0_disabled 1
     }
 }
 

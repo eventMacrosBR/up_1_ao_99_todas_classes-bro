@@ -10,10 +10,10 @@ automacro configurarConcentracao {
         log =Configurando ela
         log ===========================================
         ]
-        do conf useSelf_skill_0 AC_CONCENTRATION
-        do conf useSelf_skill_0_lvl 10
-        do conf useSelf_skill_0_whenStatusInactive EFST_CONCENTRATION, EFST_POSTDELAY
-        do conf useSelf_skill_0_disabled 0
+        do conf -f useSelf_skill_0 AC_CONCENTRATION
+        do conf -f useSelf_skill_0_lvl 10
+        do conf -f useSelf_skill_0_whenStatusInactive EFST_CONCENTRATION, EFST_POSTDELAY
+        do conf -f useSelf_skill_0_disabled 0
     }
 }
 automacro configurarRajadadeFlechas {
@@ -28,14 +28,14 @@ automacro configurarRajadadeFlechas {
         log =Configurando pra usar ela
         log ===========================================
         ]
-        do conf attackSkillSlot_0 AC_DOUBLE
-        do conf attackSkillSlot_0_lvl 10
-        do conf attackSkillSlot_0_sp >= 40
-        do conf attackSkillSlot_0_distance 10
-        do conf attackSkillSlot_0_aggressives > 1
-        do conf attackSkillSlot_0_maxUses 3
-        do conf attackSkillSlot_0_maxAttempts 5
-        do conf attackSkillSlot_0_disabled 0
+        do conf -f attackSkillSlot_0 AC_DOUBLE
+        do conf -f attackSkillSlot_0_lvl 10
+        do conf -f attackSkillSlot_0_sp >= 40
+        do conf -f attackSkillSlot_0_distance 10
+        do conf -f attackSkillSlot_0_aggressives > 1
+        do conf -f attackSkillSlot_0_maxUses 3
+        do conf -f attackSkillSlot_0_maxAttempts 5
+        do conf -f attackSkillSlot_0_disabled 0
     }
 }
 

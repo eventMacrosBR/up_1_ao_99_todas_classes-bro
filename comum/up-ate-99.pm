@@ -42,12 +42,12 @@ macro upar {
         log =Configurando lockMap 
         log =====================================
         ]
-        do conf lockMap $mapa{lockMap}
+        do conf -f lockMap $mapa{lockMap}
         call voltarAtacar
         do conf -f o_que_estou_fazendo upando
     } else {
         call pararDeAtacar
-        do conf lockMap none
+        do conf -f lockMap none
         call SetSaveIn "$mapa{saveMap}"
     }
 }
@@ -78,7 +78,7 @@ automacro nivelDeClasse50 {
         log FAÇA A QUEST PARA VIRAR CLASSE 2 MANUALMENTE POR FAVOR
         log DEPOIS ABRA O BOT NOVAMENTE
         log ASSIM QUE ELE SE TORNAR UM CLASSE 2, A MACRO VOLTA A UPAR NORMALMENTE
-        do conf lockMap none
+        do conf -f lockMap none
         call pararDeAtacar
         do conf -f esperarFazerQuest true
         do conf -f o_que_estou_fazendo esperandoQuestSerFeitaManualmente

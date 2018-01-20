@@ -26,29 +26,29 @@ automacro TalkSprakkiOutside {
         do conf -f saveMap_wanted none
         do conf -f saveMap_kafra_position none
         do conf -f saveMap_sellNpc_position none
-        do conf autoMoveOnDeath 1
-        do conf autoMoveOnDeath_x none
-        do conf autoMoveOnDeath_y none
-        do conf autoMoveOnDeath_map none
-        do conf saveMap none
-        do conf saveMap_warpToBuyOrSell 0
-        do conf sellAuto 0
-        do conf storageAuto 0
-        do conf storageAuto_npc none
-        do conf getAuto_0 none
-        do conf autoTalkCont 1
-        do conf sitAuto_idle 0
-        do conf sitAuto_hp_lower 40
-        do conf sitAuto_hp_upper 80
-        do conf itemsTakeAuto 0
-        do conf itemsGatherAuto 0
-        do conf lockMap none
-        do conf attackAuto_inLockOnly 0
-        do conf route_randomWalk 0
-        do conf statsAddAuto_dontUseBonus 1
-        do conf itemsMaxWeight 49
-        do conf itemsMaxWeight_sellOrStore 48
-        do conf itemsMaxNum_sellOrStore 99
+        do conf -f autoMoveOnDeath 1
+        do conf -f autoMoveOnDeath_x none
+        do conf -f autoMoveOnDeath_y none
+        do conf -f autoMoveOnDeath_map none
+        do conf -f saveMap none
+        do conf -f saveMap_warpToBuyOrSell 0
+        do conf -f sellAuto 0
+        do conf -f storageAuto 0
+        do conf -f storageAuto_npc none
+        do conf -f getAuto_0 none
+        do conf -f autoTalkCont 1
+        do conf -f sitAuto_idle 0
+        do conf -f sitAuto_hp_lower 40
+        do conf -f sitAuto_hp_upper 80
+        do conf -f itemsTakeAuto 0
+        do conf -f itemsGatherAuto 0
+        do conf -f lockMap none
+        do conf -f attackAuto_inLockOnly 0
+        do conf -f route_randomWalk 0
+        do conf -f statsAddAuto_dontUseBonus 1
+        do conf -f itemsMaxWeight 49
+        do conf -f itemsMaxWeight_sellOrStore 48
+        do conf -f itemsMaxNum_sellOrStore 99
         do iconf 12323 0 0 0
         do iconf 12324 0 0 0
         do iconf 569 0 0 0
@@ -466,7 +466,7 @@ automacro talkKafra {
     call {
         do talk $.NpcNearLastBinId
         do talk resp 4
-        do conf current_npc zonda
+        do conf -f current_npc zonda
     }
 }
 
@@ -477,7 +477,7 @@ automacro talkZonda {
     NpcNear /Zonda|Corp/
     call {
         do talk $.NpcNearLastBinId
-        do conf current_npc soldado
+        do conf -f current_npc soldado
     }
 }
 
@@ -488,7 +488,7 @@ automacro talkSoldado {
     NpcNear /Soldado|Guide/
     call {
         do talk $.NpcNearLastBinId
-        do conf current_npc choco
+        do conf -f current_npc choco
     }
 }
 
@@ -499,7 +499,7 @@ automacro talkChocoAgain {
     NpcNear /Choco/
     call {
         do talk $.NpcNearLastBinId
-        do conf current_npc kafra
+        do conf -f current_npc kafra
     }
 }
 
@@ -521,16 +521,16 @@ automacro talkBradeonGroundsGetQuest {
     NpcNear /Brade/
     call {
         do talk $.NpcNearLastBinId
-        do conf route_randomWalk 1
-        do conf itemsTakeAuto 2
+        do conf -f route_randomWalk 1
+        do conf -f itemsTakeAuto 2
         $potName = GetNamenyNameID(569)
-        do conf useSelf_item_0 $potName
-        do conf useSelf_item_0_disabled 0
-        do conf useSelf_item_0_hp < 60%
-        do conf getAuto_0 $potName
-        do conf getAuto_0_minAmount 20
-        do conf getAuto_0_maxAmount 200
-        do conf getAuto_0_passive 0
+        do conf -f useSelf_item_0 $potName
+        do conf -f useSelf_item_0_disabled 0
+        do conf -f useSelf_item_0_hp < 60%
+        do conf -f getAuto_0 $potName
+        do conf -f getAuto_0_minAmount 20
+        do conf -f getAuto_0_maxAmount 200
+        do conf -f getAuto_0_passive 0
         do mconf 1063 0 0 0
         do mconf 1002 1 0 0
         do mconf 1113 0 0 0
@@ -546,13 +546,13 @@ automacro usarPocaoDeApreniz {
         log parece que tenho poção de aprendiz, mas ainda não foi configurado pra ser usado
         log mudando isso
         $potName = GetNamenyNameID(569)
-        do conf useSelf_item_0 $potName
-        do conf useSelf_item_0_disabled 0
-        do conf useSelf_item_0_hp < 60%
-        do conf getAuto_0 $potName
-        do conf getAuto_0_minAmount 20
-        do conf getAuto_0_maxAmount 200
-        do conf getAuto_0_passive 0
+        do conf -f useSelf_item_0 $potName
+        do conf -f useSelf_item_0_disabled 0
+        do conf -f useSelf_item_0_hp < 60%
+        do conf -f getAuto_0 $potName
+        do conf -f getAuto_0_minAmount 20
+        do conf -f getAuto_0_maxAmount 200
+        do conf -f getAuto_0_passive 0
         log pronto
     }
 }
@@ -667,8 +667,8 @@ automacro lockMap setado quando nao deveria {
     exclusive 1
     InMapRegex /new_\d-\d/
     call {
-        do conf lockMap none
-        do conf attackAuto_inLockOnly 0
+        do conf -f lockMap none
+        do conf -f attackAuto_inLockOnly 0
     }
 
 }
@@ -974,7 +974,7 @@ automacro terminouDeUpar {
         do talk resp 1
         do talk resp 1
         log Agora vou virar um/uma $paramsQuestClasse1{nomeClasse}!!!
-        do conf quest_atual none
+        do conf -f quest_atual none
     }
 }
 

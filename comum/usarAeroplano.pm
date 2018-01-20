@@ -48,7 +48,7 @@ macro junopra {
     $varAeroplano1 = &config(aeroplano1)
     $varAeroplano2 = &config(aeroplano2)
     do conf -f aeroplano_macroChamada junopra
-    do conf lockMap none
+    do conf -f lockMap none
     do ai manual
     if ($.map = airplane || $.map = airplane_01) {
         log ja estamos no aeroplano, só esperar agora
@@ -102,7 +102,7 @@ macro einbrochpra {
     $varAeroplano1 = &config(aeroplano1)
     $varAeroplano2 = &config(aeroplano2)
     do conf -f aeroplano_macroChamada einbrochpra
-    do conf lockMap none
+    do conf -f lockMap none
     do ai manual
     if ($.map = airplane || $.map = airplane_01) {
         log ja estamos no aeroplano, só esperar agora
@@ -157,7 +157,7 @@ macro rachelpra {
     $varAeroplano1 = &config(aeroplano1)
     $varAeroplano2 = &config(aeroplano2)
     do conf -f aeroplano_macroChamada rachelpra
-    do conf lockMap none
+    do conf -f lockMap none
     do ai manual
     if ( $.map = airplane || $.map = airplane_01) {
         log ja estamos no aeroplano, só esperar agora
@@ -174,7 +174,7 @@ automacro dentroDoAeroplanoBugged {
     CheckOnAI manual
     ConfigKeyNot lockMap none
     call {
-        do conf lockMap none
+        do conf -f lockMap none
     }
 }
 
@@ -292,8 +292,8 @@ macro objetivoCompleto {
     #Se estivermos na cidade, e o local desejado for essa cidade, ele completa o objetivo
     #E automaticamente salva na cidade, usando a macro SetSaveIn
     log cheguei em $.InMapLast , objetivo completo
-    do conf aeroplano2 none
-    do conf aeroplano1 none
+    do conf -f aeroplano2 none
+    do conf -f aeroplano1 none
     do ai on
     call SetSaveIn "$.InMapLast"
     do conf -f o_que_estou_fazendo acabeiDeChegarNaCidadeViaAeroplano

@@ -24,8 +24,8 @@ automacro chegueilvl99 {
             log peso atual: $.weight
             log peso percentual: $.weightpercent
             [
-            do conf dealAuto 3
-            do conf dealAuto_names $paramsQuestClasseRenascer{amigo}
+            do conf -f dealAuto 3
+            do conf -f dealAuto_names $paramsQuestClasseRenascer{amigo}
             do iconf Camisa de Algodão 0 1 0
             do iconf "Faca [3]" 0 1 0
 
@@ -35,7 +35,7 @@ automacro chegueilvl99 {
             $i = 0
             while ($continuarLoop = sim) {
                 if (checarSeExisteComando("getAuto_$i_disabled") = sim) {
-                    do conf getAuto_$i_disabled 1
+                    do conf -f getAuto_$i_disabled 1
                 } else {
                     $continuarLoop = nao
                 }
@@ -46,20 +46,20 @@ automacro chegueilvl99 {
             $i = 0
             while ($continuarLoop = sim) {
                 if (checarSeExisteComando("buyAuto_$i_disabled") = sim) {
-                    do conf buyAuto_$i_disabled 1
+                    do conf -f buyAuto_$i_disabled 1
                 } else {
                     $continuarLoop = nao
                 }
                 $i++
             }
-            do conf lockMap none
-            do conf attackAuto -1
-            do conf route_randomWalk 0
-            do conf relogAfterStorage 0
-            do conf storageAuto 1
-            do conf storageAuto_npc yuno 152 187
-            do conf sellAuto 1
-            do conf sellAuto_npc yuno_in01 25 34
+            do conf -f lockMap none
+            do conf -f attackAuto -1
+            do conf -f route_randomWalk 0
+            do conf -f relogAfterStorage 0
+            do conf -f storageAuto 1
+            do conf -f storageAuto_npc yuno 152 187
+            do conf -f sellAuto 1
+            do conf -f sellAuto_npc yuno_in01 25 34
             ]
             #desequipando tudo
             @slots = (topHead, midHead, lowHead, rightHand, leftHand, armor, robe, shoes, rightAccessory, leftAccessory, arrow)
@@ -207,13 +207,13 @@ automacro Rebornar_primeiroEstagio {
     call {
         [
         do ai auto
-        do conf lockMap 0
-        do conf attackAuto 0
-        do conf route_randomWalk 0
-        do conf sitAuto_idle 0
+        do conf -f lockMap 0
+        do conf -f attackAuto 0
+        do conf -f route_randomWalk 0
+        do conf -f sitAuto_idle 0
         ]
         do move yuno_in02
-        if ($.map = yuno_in02) do conf estagio_Reborn 2
+        if ($.map = yuno_in02) do conf -f estagio_Reborn 2
     }
 }
 automacro Rebornar_primeiroEstagioBugged {
@@ -253,7 +253,7 @@ automacro rebornar_lerOLivroEDescer {
         ####do talknpc 93 207 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c
         do talk &npc(93 207)
         do move yuno_in05
-        if ($.map = yuno_in05) do conf estagio_Reborn 3
+        if ($.map = yuno_in05) do conf -f estagio_Reborn 3
     }
 }
 
@@ -270,7 +270,7 @@ automacro Rebornar_terceiroEstagio {
         }
         if ( $.pos == 41 42 ) {
             do talknpc 49 43 c
-            do conf estagio_Reborn 4
+            do conf -f estagio_Reborn 4
         }
     }
 }
@@ -288,11 +288,11 @@ automacro Rebornar_ultimoEstagio {
     exclusive 1
     call {
         do move 49 86
-        do conf skillsAddAuto_list none
-        do conf statsAddAuto_list none
+        do conf -f skillsAddAuto_list none
+        do conf -f statsAddAuto_list none
         ###do talknpc 48 86 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c
         do talk &npc(48 86)
-        do conf estagio_Reborn none
+        do conf -f estagio_Reborn none
         call atualizarBuild
         do conf -f o_que_estou_fazendo acabeiDeRebornar
         [

@@ -1,6 +1,6 @@
 macro SetSaveIn {
     call pararDeAtacar
-    do conf lockMap none
+    do conf -f lockMap none
     do conf -f saveMap_storage_sequence c r1
     do conf -f saveMap_save_sequence c r0
     switch ($.param[0]) {
@@ -28,37 +28,37 @@ macro SetSaveIn {
             do conf -f saveMap_wanted comodo
             do conf -f saveMap_kafra_position 195 150
             do conf -f saveMap_sellNpc_position cmd_in01 79 182
-            do conf buyAuto_1_npc cmd_in01 79 182
+            do conf -f buyAuto_1_npc cmd_in01 79 182
         }
         case (=~ /prontera/i ) {
             do conf -f saveMap_wanted prontera
             do conf -f saveMap_kafra_position 151 29
             do conf -f saveMap_sellNpc_position prontera 113 42
-            do conf buyAuto_1_npc prt_in 126 76
+            do conf -f buyAuto_1_npc prt_in 126 76
         }
         case (=~ /payon/i ) {
             do conf -f saveMap_wanted payon
             do conf -f saveMap_kafra_position 181 104
             do conf -f saveMap_sellNpc_position payon_in01 5 49
-            do conf buyAuto_1_npc payon_in01 5 49
+            do conf -f buyAuto_1_npc payon_in01 5 49
         }
         case (=~ /geffen/i ) {
             do conf -f saveMap_wanted geffen
             do conf -f saveMap_kafra_position 120 62
             do conf -f saveMap_sellNpc_position geffen_in 74 144
-            do conf buyAuto_1_npc geffen_in 77 167
+            do conf -f buyAuto_1_npc geffen_in 77 167
         }
         case (=~ /morocc|morroc|morooc/i ) {
             do conf -f saveMap_wanted morocc
             do conf -f saveMap_kafra_position 156 97
             do conf -f saveMap_sellNpc_position morocc_in 141 67
-            do conf buyAuto_1_npc moc_ruins 114 63
+            do conf -f buyAuto_1_npc moc_ruins 114 63
         }
         case (=~ /izlude/i ) {
             do conf -f saveMap_wanted izlude
             do conf -f saveMap_kafra_position 134 88
             do conf -f saveMap_sellNpc_position izlude 105 99
-            do conf buyAuto_1_npc izlude_in 115 61
+            do conf -f buyAuto_1_npc izlude_in 115 61
         }
         case ( =~ /veins/i ) {
             do conf -f saveMap_wanted veins
@@ -109,20 +109,20 @@ automacro jaToSalvoNessaCidade {
         log ==============================================
         ]
 
-        do conf saveMap $saveMap
-        do conf storageAuto_npc $saveMap &config(saveMap_kafra_position)
-        do conf storageAuto 1
-        do conf sellAuto 1
-        do conf sellAuto_npc &config(saveMap_sellNpc_position)
-        do conf storageAuto_npc_type 3
-        do conf storageAuto_npc_steps &config(saveMap_storage_sequence)
+        do conf -f saveMap $saveMap
+        do conf -f storageAuto_npc $saveMap &config(saveMap_kafra_position)
+        do conf -f storageAuto 1
+        do conf -f sellAuto 1
+        do conf -f sellAuto_npc &config(saveMap_sellNpc_position)
+        do conf -f storageAuto_npc_type 3
+        do conf -f storageAuto_npc_steps &config(saveMap_storage_sequence)
 
-        do conf saveMap $saveMap
-        do conf saveMap_storage_sequence none
-        do conf saveMap_wanted none
-        do conf saveMap_kafra_position none
-        do conf saveMap_sellNpc_position none
-        do conf In_saveMap_sequence false
+        do conf -f saveMap $saveMap
+        do conf -f saveMap_storage_sequence none
+        do conf -f saveMap_wanted none
+        do conf -f saveMap_kafra_position none
+        do conf -f saveMap_sellNpc_position none
+        do conf -f In_saveMap_sequence false
         do ai on
         release set_savemap_variables
     }
@@ -181,19 +181,19 @@ automacro SalvoNaKafra {
     InMap $saveMap
     call {
         [
-        do conf saveMap $saveMap
-        do conf storageAuto_npc $saveMap &config(saveMap_kafra_position)
-        do conf storageAuto 1
-        do conf sellAuto 1
-        do conf sellAuto_npc &config(saveMap_sellNpc_position)
-        do conf storageAuto_npc_type 3
-        do conf storageAuto_npc_steps &config(saveMap_storage_sequence)
+        do conf -f saveMap $saveMap
+        do conf -f storageAuto_npc $saveMap &config(saveMap_kafra_position)
+        do conf -f storageAuto 1
+        do conf -f sellAuto 1
+        do conf -f sellAuto_npc &config(saveMap_sellNpc_position)
+        do conf -f storageAuto_npc_type 3
+        do conf -f storageAuto_npc_steps &config(saveMap_storage_sequence)
 
-        do conf saveMap_storage_sequence none
-        do conf saveMap_wanted none
-        do conf saveMap_kafra_position none
-        do conf saveMap_sellNpc_position none
-        do conf In_saveMap_sequence false
+        do conf -f saveMap_storage_sequence none
+        do conf -f saveMap_wanted none
+        do conf -f saveMap_kafra_position none
+        do conf -f saveMap_sellNpc_position none
+        do conf -f In_saveMap_sequence false
         release set_savemap_variables
         do ai on
 

@@ -21,16 +21,16 @@ automacro configurarPotLaranja {
             pause 1
             do reload config 
 
-            do conf buyAuto_1 Poção Laranja
-            do conf buyAuto_1_maxAmount 100
-            do conf buyAuto_1_zeny > 30000
-            do conf buyAuto_1_npc payon_in01 5 49
-            do conf buyAuto_1_disabled 0
+            do conf -f buyAuto_1 Poção Laranja
+            do conf -f buyAuto_1_maxAmount 100
+            do conf -f buyAuto_1_zeny > 30000
+            do conf -f buyAuto_1_npc payon_in01 5 49
+            do conf -f buyAuto_1_disabled 0
         }
 
-        do conf useSelf_item_0 Poção Laranja
-        do conf useSelf_item_0_hp < 50%
-        do conf useSelf_item_0_disabled 0
+        do conf -f useSelf_item_0 Poção Laranja
+        do conf -f useSelf_item_0_hp < 50%
+        do conf -f useSelf_item_0_disabled 0
 
         [
         log ========================================
@@ -54,7 +54,7 @@ automacro desabilitarPotLaranja {
         log ===================================
         ]
         
-        do conf buyAuto_1_disabled 1
+        do conf -f buyAuto_1_disabled 1
     }
 }
 
@@ -70,7 +70,7 @@ automacro habilitarNovamentePotLaranja {
         log ===================================
         ]
         
-        do conf buyAuto_1_disabled 0
+        do conf -f buyAuto_1_disabled 0
     }
 }
 
@@ -87,9 +87,9 @@ automacro parandoDePegarPotDeAprendiz {
         log ===================================
         ]
         #parar de tentar usar tambem
-        do conf sitAuto_hp_upper 80
-        do conf getAuto_0 none
-        if (&config(useSelf_item_0) =~ /Aprendiz/) do conf useSelf_item_0 none
+        do conf -f sitAuto_hp_upper 80
+        do conf -f getAuto_0 none
+        if (&config(useSelf_item_0) =~ /Aprendiz/) do conf -f useSelf_item_0 none
     }
 }
 

@@ -18,11 +18,11 @@ automacro configurarCurar {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_0 AL_HEAL
-        do conf useSelf_skill_0_lvl 10
-        do conf useSelf_skill_0_hp < 90%
-        do conf useSelf_skill_0_whenStatusInactive EFST_POSTDELAY
-        do conf useSelf_skill_0_disabled 0
+        do conf -f useSelf_skill_0 AL_HEAL
+        do conf -f useSelf_skill_0_lvl 10
+        do conf -f useSelf_skill_0_hp < 90%
+        do conf -f useSelf_skill_0_whenStatusInactive EFST_POSTDELAY
+        do conf -f useSelf_skill_0_disabled 0
     }
 }
 
@@ -44,14 +44,14 @@ automacro configurarAL_INCAGI {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_1 AL_INCAGI
-        do conf useSelf_skill_1_lvl 10
-        do conf useSelf_skill_1_sp >= 45
-        do conf useSelf_skill_1_whenStatusInactive EFST_INC_AGI, EFST_POSTDELAY
-        do conf useSelf_skill_1_notWhileSitting 1
-        do conf useSelf_skill_1_notInTown 0
-        do conf useSelf_skill_1_stopWhenHit 1
-        do conf useSelf_skill_1_disabled 0
+        do conf -f useSelf_skill_1 AL_INCAGI
+        do conf -f useSelf_skill_1_lvl 10
+        do conf -f useSelf_skill_1_sp >= 45
+        do conf -f useSelf_skill_1_whenStatusInactive EFST_INC_AGI, EFST_POSTDELAY
+        do conf -f useSelf_skill_1_notWhileSitting 1
+        do conf -f useSelf_skill_1_notInTown 0
+        do conf -f useSelf_skill_1_stopWhenHit 1
+        do conf -f useSelf_skill_1_disabled 0
     }
 }
 
@@ -73,13 +73,13 @@ automacro configurarAngelus {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_2 AL_ANGELUS
-        do conf useSelf_skill_2_sp >= 50
-        do conf useSelf_skill_2_whenStatusInactive EFST_ANGELUS, EFST_POSTDELAY
-        do conf useSelf_skill_2_notWhileSitting 1
-        do conf useSelf_skill_2_notInTown 1
-        do conf useSelf_skill_2_stopWhenHit 1
-        do conf useSelf_skill_2_disabled 0
+        do conf -f useSelf_skill_2 AL_ANGELUS
+        do conf -f useSelf_skill_2_sp >= 50
+        do conf -f useSelf_skill_2_whenStatusInactive EFST_ANGELUS, EFST_POSTDELAY
+        do conf -f useSelf_skill_2_notWhileSitting 1
+        do conf -f useSelf_skill_2_notInTown 1
+        do conf -f useSelf_skill_2_stopWhenHit 1
+        do conf -f useSelf_skill_2_disabled 0
     }
 }
 
@@ -101,13 +101,13 @@ automacro configurarAL_BLESSING {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_3 AL_BLESSING
-        do conf useSelf_skill_3_lvl 10
-        do conf useSelf_skill_3_sp >= 64
-        do conf useSelf_skill_3_whenStatusInactive EFST_BLESSING, EFST_POSTDELAY
-        do conf useSelf_skill_3_notWhileSitting 1
-        do conf useSelf_skill_3_notInTown 1
-        do conf useSelf_skill_3_disabled 0
+        do conf -f useSelf_skill_3 AL_BLESSING
+        do conf -f useSelf_skill_3_lvl 10
+        do conf -f useSelf_skill_3_sp >= 64
+        do conf -f useSelf_skill_3_whenStatusInactive EFST_BLESSING, EFST_POSTDELAY
+        do conf -f useSelf_skill_3_notWhileSitting 1
+        do conf -f useSelf_skill_3_notInTown 1
+        do conf -f useSelf_skill_3_disabled 0
     }
 }
 
@@ -131,14 +131,14 @@ automacro configurarKyrieEleison {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_4 PR_KYRIE
-        do conf useSelf_skill_4_lvl 10
-        do conf useSelf_skill_4_sp >= 35
-        do conf useSelf_skill_4_whenStatusInactive EFST_KYRIE, EFST_ASSUMPTIO, EFST_POSTDELAY
-        do conf useSelf_skill_4_notWhileSitting 1
-        do conf useSelf_skill_4_notInTown 1
-        do conf useSelf_skill_4_stopWhenHit 1
-        do conf useSelf_skill_4_disabled 0
+        do conf -f useSelf_skill_4 PR_KYRIE
+        do conf -f useSelf_skill_4_lvl 10
+        do conf -f useSelf_skill_4_sp >= 35
+        do conf -f useSelf_skill_4_whenStatusInactive EFST_KYRIE, EFST_ASSUMPTIO, EFST_POSTDELAY
+        do conf -f useSelf_skill_4_notWhileSitting 1
+        do conf -f useSelf_skill_4_notInTown 1
+        do conf -f useSelf_skill_4_stopWhenHit 1
+        do conf -f useSelf_skill_4_disabled 0
     }
 }
 
@@ -160,13 +160,13 @@ automacro configurarMagnificat {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_5 PR_MAGNIFICAT
-        do conf useSelf_skill_5_sp >= 40
-        do conf useSelf_skill_5_whenStatusInactive EFST_MAGNIFICAT, EFST_POSTDELAY
-        do conf useSelf_skill_5_notWhileSitting 1
-        do conf useSelf_skill_5_notInTown 1
-        do conf useSelf_skill_5_stopWhenHit 1
-        do conf useSelf_skill_5_disabled 0
+        do conf -f useSelf_skill_5 PR_MAGNIFICAT
+        do conf -f useSelf_skill_5_sp >= 40
+        do conf -f useSelf_skill_5_whenStatusInactive EFST_MAGNIFICAT, EFST_POSTDELAY
+        do conf -f useSelf_skill_5_notWhileSitting 1
+        do conf -f useSelf_skill_5_notInTown 1
+        do conf -f useSelf_skill_5_stopWhenHit 1
+        do conf -f useSelf_skill_5_disabled 0
     }
 }
 
@@ -188,13 +188,13 @@ automacro configurarGloria {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_6 PR_GLORIA
-        do conf useSelf_skill_0_lvl 5
-        do conf useSelf_skill_6_sp >= 20
-        do conf useSelf_skill_6_whenStatusInactive EFST_GLORIA, EFST_POSTDELAY
-        do conf useSelf_skill_6_notWhileSitting 1
-        do conf useSelf_skill_6_notInTown 0
-        do conf useSelf_skill_6_disabled 0
+        do conf -f useSelf_skill_6 PR_GLORIA
+        do conf -f useSelf_skill_0_lvl 5
+        do conf -f useSelf_skill_6_sp >= 20
+        do conf -f useSelf_skill_6_whenStatusInactive EFST_GLORIA, EFST_POSTDELAY
+        do conf -f useSelf_skill_6_notWhileSitting 1
+        do conf -f useSelf_skill_6_notInTown 0
+        do conf -f useSelf_skill_6_disabled 0
   }
 }
 
@@ -216,11 +216,11 @@ automacro configurarGraçaDivina {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_7 PR_STRECOVERY
-        do conf useSelf_skill_7_sp >= 5
-        do conf useSelf_skill_7_whenStatusInactive EFST_POSTDELAY
-        do conf useSelf_skill_7_whenStatusActive BODYSTATE_FREEZING, BODYSTATE_STUN, BODYSTATE_STONECURSE, BODYSTATE_STONECURSE_ING
-        do conf useSelf_skill_7_disabled 0
+        do conf -f useSelf_skill_7 PR_STRECOVERY
+        do conf -f useSelf_skill_7_sp >= 5
+        do conf -f useSelf_skill_7_whenStatusInactive EFST_POSTDELAY
+        do conf -f useSelf_skill_7_whenStatusActive BODYSTATE_FREEZING, BODYSTATE_STUN, BODYSTATE_STONECURSE, BODYSTATE_STONECURSE_ING
+        do conf -f useSelf_skill_7_disabled 0
   }
 }
 
@@ -242,12 +242,12 @@ automacro configurarImpositioManus {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_8 PR_IMPOSITIO
-        do conf useSelf_skill_8_sp >= 25
-        do conf useSelf_skill_8_whenStatusInactive EFST_IMPOSITIO, EFST_POSTDELAY
-        do conf useSelf_skill_8_notWhileSitting 1
-        do conf useSelf_skill_8_notInTown 1
-        do conf useSelf_skill_8_disabled 0
+        do conf -f useSelf_skill_8 PR_IMPOSITIO
+        do conf -f useSelf_skill_8_sp >= 25
+        do conf -f useSelf_skill_8_whenStatusInactive EFST_IMPOSITIO, EFST_POSTDELAY
+        do conf -f useSelf_skill_8_notWhileSitting 1
+        do conf -f useSelf_skill_8_notInTown 1
+        do conf -f useSelf_skill_8_disabled 0
   }
 }
 
@@ -271,13 +271,13 @@ automacro configurarCurarMortoVivos {
             pause 1
             do reload config
         }
-        do conf attackSkillSlot_0 AL_HEAL
-        do conf attackSkillSlot_0_lvl 10
-        do conf attackSkillSlot_0_sp >= 40
-        do conf attackSkillSlot_0_distance 1.5
-        do conf attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
-        do conf attackSkillSlot_0_monsters Esqueleto, Zumbi
-        do conf attackSkillSlot_0_disabled 0
+        do conf -f attackSkillSlot_0 AL_HEAL
+        do conf -f attackSkillSlot_0_lvl 10
+        do conf -f attackSkillSlot_0_sp >= 40
+        do conf -f attackSkillSlot_0_distance 1.5
+        do conf -f attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
+        do conf -f attackSkillSlot_0_monsters Esqueleto, Zumbi
+        do conf -f attackSkillSlot_0_disabled 0
     }
 }
 
@@ -292,7 +292,7 @@ automacro diminuirPorcentagemHpAgoraQueTenhoCurar {
     ConfigKeyNot useSelf_item_0_hp <= 20%
     exclusive 1
     call {
-       do conf useSelf_item_0_hp <= 20%
+       do conf -f useSelf_item_0_hp <= 20%
     }
 }
 

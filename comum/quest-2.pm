@@ -13,8 +13,8 @@ automacro virarClasse2Inicio_Bugged {
         log =            Vamos resolver isso!        =
         log =============================================
         ]
-        do conf skillsAddAuto 1
-        do conf skillsAddAuto_list $configsBuild{skillsClasse1}
+        do conf -f skillsAddAuto 1
+        do conf -f skillsAddAuto_list $configsBuild{skillsClasse1}
         [
         log ================================================================
         log = Se isso estiver aparecendo repetidamente, a macro tem um bug
@@ -46,7 +46,7 @@ automacro jsSouClasse2 {
         log = Já sou classe 2 =
         log ===================
         ]
-        do conf virarClasse2 none
+        do conf -f virarClasse2 none
         do conf -f o_que_estou_fazendo acabeiDeVirarClasse2
         call atualizarBuild
     }
@@ -62,7 +62,7 @@ automacro jsSouClasse2NaoAutomatico {
         log = Já sou classe 2, pois fiz a quest manualmente =
         log =================================================
         ]
-        do conf esperarFazerQuest none
+        do conf -f esperarFazerQuest none
         do conf -f o_que_estou_fazendo acabeiDeVirarClasse2
         call atualizarBuild
     }

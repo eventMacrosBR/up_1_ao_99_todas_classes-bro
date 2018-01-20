@@ -53,18 +53,18 @@ automacro configurar Monge 1 {
     QuestInactive 3016
     QuestInactive 3023
     call {
-        do conf route_maxWarpFee none
-        do conf route_maxNpcTries none
-        do conf route_teleport none
-        do conf lockMap none
+        do conf -f route_maxWarpFee none
+        do conf -f route_maxNpcTries none
+        do conf -f route_teleport none
+        do conf -f lockMap none
         conf route_randomWalk 0
-        do conf follow 0
-        do conf route_teleport 5
-        do conf route_teleport_minDistance 150
-        do conf attackAuto -1
+        do conf -f follow 0
+        do conf -f route_teleport 5
+        do conf -f route_teleport_minDistance 150
+        do conf -f attackAuto -1
         do mconf -1 0 1
-        do conf sitAuto_sp_lower 40
-        do conf sitAuto_sp_upper 100
+        do conf -f sitAuto_sp_lower 40
+        do conf -f sitAuto_sp_upper 100
         do pconf all 0
         do pconf Orange Net Mushroom 2
         do pconf Orange Gooey Mushroom 2
@@ -113,14 +113,14 @@ automacro virar Monge 3 {
         :Cobweb
         log Pegar Cobweb
         [
-        do conf lockMap mjolnir_04
+        do conf -f lockMap mjolnir_04
         do mconf Argos 1 0 1
         do mconf Caramel 1 0 1
         do mconf all -1 0 1
-        do conf teleportAuto_hp 50
-        do conf teleportAuto_minAggressives 2
-        do conf teleportAuto_minAggressivesInLock 2
-        do conf attackAuto_inLockOnly 1
+        do conf -f teleportAuto_hp 50
+        do conf -f teleportAuto_minAggressives 2
+        do conf -f teleportAuto_minAggressivesInLock 2
+        do conf -f attackAuto_inLockOnly 1
         call voltarAtacar
         log =================================
         log Estou coletando Cobweb pra
@@ -133,13 +133,13 @@ automacro virar Monge 3 {
         :Porcupine
         log Pegar Porcupine
         [
-        do conf lockMap mjolnir_04
+        do conf -f lockMap mjolnir_04
         do mconf Argos 1 0 1
         do mconf Caramel 1 0 1
         do mconf all -1 0 1
-        do conf teleportAuto_hp 50
-        do conf teleportAuto_minAggressives 2
-        do conf attackAuto_inLockOnly 1
+        do conf -f teleportAuto_hp 50
+        do conf -f teleportAuto_minAggressives 2
+        do conf -f attackAuto_inLockOnly 1
         call voltarAtacar
         log ================================
         log Estou coletando Porcupine
@@ -152,13 +152,13 @@ automacro virar Monge 3 {
         :GLeg
         log Pegar GLEG
         [
-        do conf lockMap prt_fild07
+        do conf -f lockMap prt_fild07
         do mconf Drainliar 0 0 0
         do mconf Eggyra 0 0 0
         do mconf 1084 0 0 0
         do mconf 1078 0 0 0
-        do conf attackAuto_inLockOnly 1
-        do conf route_randomWalk 1
+        do conf -f attackAuto_inLockOnly 1
+        do conf -f route_randomWalk 1
         call voltarAtacar
         log ==============================
         log Estou coletando GLEG para
@@ -179,7 +179,7 @@ automacro virar Monk 4  {
     exclusive 1
     timeout 600
     call {
-        do conf lockMap none
+        do conf -f lockMap none
         call pararDeAtacar
         do move monk_in 99 57
         pause 1
@@ -194,11 +194,11 @@ automacro vireiMonk {
     JobLevel = 1
     run-once 1
     call {
-        do conf follow 1
+        do conf -f follow 1
         call pararDeAtacar
-        do conf teleportAuto_hp 20
-        do conf teleportAuto_minAggressives 0
-        do conf teleportAuto_minAggressivesInLock 0
+        do conf -f teleportAuto_hp 20
+        do conf -f teleportAuto_minAggressives 0
+        do conf -f teleportAuto_minAggressivesInLock 0
     }
 }
 
