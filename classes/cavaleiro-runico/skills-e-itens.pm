@@ -22,7 +22,7 @@ automacro configurarVigor {
         do conf useSelf_skill_0_sp >= 15%
         do conf useSelf_skill_0_whenStatusInactive EFST_POSTDELAY, Vigor
         do conf useSelf_skill_0_disabled 0
-		 do conf useSelf_skill_0_onAction attack
+	do conf useSelf_skill_0_onAction attack
     }
 }
 
