@@ -65,7 +65,7 @@ macro SetSaveIn {
         }
         case ( =~ /veins/i ) {
             do conf -f saveMap_wanted veins
-            do conf -f saveMap_kafra_position 207 128
+            do conf -f saveMap_kafra_position 208 128
             do conf -f saveMap_sellNpc_position ve_in 243 303
         }
         else {
@@ -146,7 +146,7 @@ automacro movendoPraKafraDentroDaCidade {
     CheckOnAI manual
     ConfigKeyNot saveMap $saveMap
     ConfigKeyNot saveMap_wanted none
-    NpcNotNear /(Kafra Employee|Funcionária Kafra|Corp. Ev. Incríveis)/
+    NpcNotNear /(Kafra Employee|Funcionária Kafra|Corp.)/
     InMap $saveMap
     call move_to_near_kafra
 }
@@ -177,7 +177,7 @@ automacro SalvoNaKafra {
     exclusive 1
     CheckOnAI manual
     priority -5
-    NpcMsgName /O seu Ponto (de Retorno )?foi salvo|saved here|foi salvo aqui na cidade/ /Kafra Employee|Funcionária Kafra|Corp/
+    NpcMsgName /O seu Ponto (de Retorno )?foi salvo|saved here|foi salvo aqui na cidade|foi salvo em/ /Kafra Employee|Funcionária Kafra|Corp/
     ConfigKeyNot saveMap $saveMap
     ConfigKey In_saveMap_sequence true
     InMap $saveMap
