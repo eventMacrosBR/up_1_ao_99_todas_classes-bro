@@ -27,7 +27,12 @@ automacro configurarPotLaranja {
             do conf buyAuto_1_npc payon_in01 5 49
             do conf buyAuto_1_disabled 0
         }
-
+        $blocoExiste = checarSeExisteNoConfig("useSelf_item_0")
+        if ( $blocoExiste = nao ) {
+            adicionaUseSelfItem()
+            pause 1
+            do reload config
+        }
         do conf useSelf_item_0 Poção Laranja
         do conf useSelf_item_0_hp < 50%
         do conf useSelf_item_0_disabled 0

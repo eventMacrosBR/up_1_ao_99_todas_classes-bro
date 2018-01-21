@@ -9,6 +9,12 @@ automacro configurarFurto {
         log =Configurando pra usar ela
         log ===========================================
         ]
+        $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_0")
+        if ( $blocoExiste = nao ) {
+            adicionaAttackSkillSlot()
+            pause 1
+            do reload config
+        }
         do conf attackSkillSlot_0 TF_STEAL
         do conf attackSkillSlot_0_lvl 10
         do conf attackSkillSlot_0_sp >= 10

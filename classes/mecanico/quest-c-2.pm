@@ -158,7 +158,12 @@ automacro FarmQuestItems {
             do respawn
             do conf sellAuto 0
             do conf storageAuto 0
-            
+             $blocoExiste = checarSeExisteNoConfig("buyAuto_0")
+            if ( $blocoExiste = nao ) {
+                adicionaBuyAuto()
+                pause 1
+                do reload config
+            }
             do conf buyAuto_0 Sabre De Impacto [2]
             do conf buyAuto_0_npc prt_in 172 130
             do conf buyAuto_0_minAmount none
