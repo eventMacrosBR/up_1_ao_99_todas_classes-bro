@@ -146,7 +146,7 @@ automacro movendoPraKafraDentroDaCidade {
     CheckOnAI manual
     ConfigKeyNot saveMap $saveMap
     ConfigKeyNot saveMap_wanted none
-    NpcNotNear /(Kafra Employee|Funcionária Kafra|Corp. Ev. Incríveis)/
+    NpcNotNear /Kafra Employee|Funcionária Kafra|Corp./
     InMap $saveMap
     call move_to_near_kafra
 }
@@ -162,7 +162,7 @@ automacro FalarComKafra {
     ConfigKeyNot saveMap $saveMap
     ConfigKeyNot saveMap_wanted none
     InMap $saveMap
-    NpcNear /(Kafra Employee|Funcionária Kafra|Corp.)/
+    NpcNear /Kafra Employee|Funcionária Kafra|Corp./
     delay 2
     timeout 20
     call {
@@ -177,7 +177,7 @@ automacro SalvoNaKafra {
     exclusive 1
     CheckOnAI manual
     priority -5
-    NpcMsgName /O seu Ponto (de Retorno )?foi salvo|saved here|foi salvo aqui na cidade/ /Kafra Employee|Funcionária Kafra|Corp/
+    NpcMsgName /O seu Ponto (de Retorno )?foi salvo|saved here|foi salvo aqui na cidade|foi salvo em/ /Kafra Employee|Funcionária Kafra|Corp/
     ConfigKeyNot saveMap $saveMap
     ConfigKey In_saveMap_sequence true
     InMap $saveMap
