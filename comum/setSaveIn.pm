@@ -1,8 +1,11 @@
 macro SetSaveIn {
     call pararDeAtacar
     do conf lockMap none
-    do conf -f saveMap_storage_sequence c r1
-    do conf -f saveMap_save_sequence c r0
+    if (&config(master) =~ /Valhalla/ ) {
+        do conf -f saveMap_storage_sequence r1 r0
+    } else  {
+        do conf -f saveMap_storage_sequence r1 
+    }
     switch ($.param[0]) {
         case (=~ /einbroch/i ) {
             do conf -f saveMap_wanted einbroch
@@ -83,7 +86,7 @@ macro SetSaveIn {
 
 }
 
-automacro set_savemap_variables {
+automacro definirVariavelSaveMap {
     exclusive 1
     run-once 1
     ConfigKey In_saveMap_sequence true
@@ -124,7 +127,7 @@ automacro jaToSalvoNessaCidade {
         do conf saveMap_sellNpc_position none
         do conf In_saveMap_sequence false
         do ai on
-        release set_savemap_variables
+        release definirVariavelSaveMap
     }
 }
 
@@ -164,10 +167,9 @@ automacro FalarComKafra {
     timeout 20
     call {
         log ==============================================================
-        log Falando com kafra na posição: &config(saveMap_kafra_position)
-        log Usando a sequência: &config(saveMap_save_sequence)
+        log Falando com kafra na posição: &config(saveMap_kafra_position
         log ==============================================================
-        do talknpc &config(saveMap_kafra_position) &config(saveMap_save_sequence)
+        do talknpc &config(saveMap_kafra_position) r0
     }
 }
 
@@ -175,7 +177,7 @@ automacro SalvoNaKafra {
     exclusive 1
     CheckOnAI manual
     priority -5
-    NpcMsgName /O seu Ponto (de Retorno )?foi salvo|saved here|foi salvo aqui na cidade/ /(Kafra Employee|Funcionária Kafra|Corp)/
+    NpcMsgName /O seu Ponto (de Retorno )?foi salvo|saved here|foi salvo aqui na cidade/ /Kafra Employee|Funcionária Kafra|Corp/
     ConfigKeyNot saveMap $saveMap
     ConfigKey In_saveMap_sequence true
     InMap $saveMap
@@ -194,7 +196,7 @@ automacro SalvoNaKafra {
         do conf saveMap_kafra_position none
         do conf saveMap_sellNpc_position none
         do conf In_saveMap_sequence false
-        release set_savemap_variables
+        release definirVariavelSaveMap
         do ai on
 
         log ===========================================
