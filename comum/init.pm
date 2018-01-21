@@ -85,7 +85,11 @@ macro atualizarBuild {
     #parte feita por vitorsilveiro
     $idClasseAtual = pegarID() #sub se encontra no arquivo utilidades.pm
     if (&config(skillsAddAuto) != 1) do conf skillsAddAuto 1
-    if (&config(statsAddAuto_list) != $configsBuild{statsPadrao}) do conf statsAddAuto_list $configsBuild{statsPadrao}
+    if ($idClasseAtual == 0 || $idClasseAtual == $paramsClasses{idC1} || $idClasseAtual == $paramsClasses{idC2} || $idClasseAtual == $paramsClasses{idC2Alt} ) {
+        if (&config(statsAddAuto_list) != $configsBuild{statsPadrao}) do conf statsAddAuto_list $configsBuild{statsPadrao}
+    } else {
+        if (&config(statsAddAuto_list) != $configsBuild{statsPadraoTransclasse}) do conf statsAddAuto_list $configsBuild{statsPadraoTransclasse}
+    }
     if (&config(statsAddAuto) != 1) do conf statsAddAuto 1
     if (&config(statsAddAuto_dontUseBonus) != 1) do conf statsAddAuto_dontUseBonus 1
     
