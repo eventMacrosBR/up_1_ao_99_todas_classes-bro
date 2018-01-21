@@ -4,6 +4,12 @@ automacro configurarGolpeFulminante {
     exclusive 1
     ConfigKeyNot attackSkillSlot_0 SM_BASH
     call {
+        $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_0")
+        if ( $blocoExiste = nao ) {
+            adicionaAttackSkillSlot()
+            pause 1
+            do reload config
+        }
         do conf attackSkillSlot_0 SM_BASH
         do conf attackSkillSlot_0_lvl 10
         do conf attackSkillSlot_0_sp >= 15
@@ -18,6 +24,12 @@ automacro configurarHolyCross {
     exclusive 1
     ConfigKeyNot attackSkillSlot_0 CR_HOLYCROSS
     call {
+        $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_0")
+        if ( $blocoExiste = nao ) {
+            adicionaAttackSkillSlot()
+            pause 1
+            do reload config
+        }
         do conf attackSkillSlot_0 CR_HOLYCROSS
         do conf attackSkillSlot_0_lvl 10
         do conf attackSkillSlot_0_sp >= 20
@@ -34,6 +46,12 @@ automacro configurarMedicar {
     exclusive 1
     ConfigKeyNot useSelf_skill_0 AL_CURE
     call {
+        $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_0")
+        if ( $blocoExiste = nao ) {
+            adicionaAttackSkillSlot()
+            pause 1
+            do reload config
+        }
         do conf useSelf_skill_0 AL_CURE
         do conf useSelf_skill_0_lvl 1
         do conf useSelf_skill_0_sp > 15

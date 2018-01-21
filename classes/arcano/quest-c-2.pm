@@ -99,9 +99,10 @@ automacro TestePraticoBruxoSaladeEspera {
     
         #editar priority.txt para atacar os mais perigosos primeiro?
         do conf -f testepraticobruxo emprogresso
+        
         do conf attackSkillSlot_0_monsters Guerreiro Orc, Mandrágora, Pé-Grande, Caramelo, Giearth, Vitata, Deniro #lanças de fogo
         do conf attackSkillSlot_1_monsters Goblin, Salgueiro Ancião, Frilldora, Escorpião, General da Floresta, Pecopeco, Metaller # lanças de gelo
-        do conf attackSkillSlot_1_monsters Hidras, Cornutus, Fens, Moluscos, Vadons, Magnólias,Marins, Marinas, Esferas Marinhas #Relampago
+        do conf attackSkillSlot_2_monsters Hidras, Cornutus, Fens, Moluscos, Vadons, Magnólias,Marins, Marinas, Esferas Marinhas #Relampago
         
         #apos isso tem que entrar no chat do npc, não sei fazer :P
     }
