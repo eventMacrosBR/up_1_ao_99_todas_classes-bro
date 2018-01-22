@@ -68,6 +68,20 @@ automacro init {
         # $paramsQuestClasseRenascer{renascer}
         # $paramsQuestClasseRenascer{amigo}
         initParamsQuestClasseRenascer()
+
+        if (&config(questc2_implementada != true) {
+            [
+            log =========================================================
+            log   AVISO!
+            log   ------
+            log Este script para classe escolhida ainda está incompleto.
+            log Portanto haverá um grande número de bugs e possivelmente
+            log não fará a quest da classe 2.
+            log Ao continuar você está ciente de que essa macro não fará
+            log tudo por você.
+            log ==========================================================
+            ]
+        }
         
     }
 }
