@@ -53,7 +53,6 @@ automacro virarAlquimistaInicio {
         do talk resp 1
         do talk resp 0
         do talk resp 0
-        do conf -f virarAlquimista true
     }
 }
 
@@ -67,8 +66,8 @@ automacro virarAlquimistaInicio {
 
 automacro virarAlquimista_descobrindoQualItem {
     NpcMsg /Como eu te disse, você precisa trazer/
-       exclusive 1
-       call {
+    exclusive 1
+        call {
         [
         log =*=*=*=*=*=*=*=*=*=*=*=*=*=*==*=*=*=
         log a mensagem é: $.NpcMsgLastMsg
@@ -83,18 +82,20 @@ automacro virarAlquimista_descobrindoQualItem {
             do conf -f questAlquimista comprarFornalha
         } else {
             log erro configurado proximo passo, cheque a macro
+            stop
         }
+        do conf -f virarAlquimista true
     }
 }
 
 sub extrairMensagem {
     my ($mensagem) = @_;
-       if ($mensagem =~ /trazer (.+) para completar/) {
-        return $1;
-       } else {
-        warning "ERRO, NÃO FOI POSSIVEL EXTRAIR MENSAGEM\n";
-        return -1;
-       }
+    if ($mensagem =~ /trazer (.+) para completar/) {
+     return $1;
+    } else {
+     warning "ERRO, NÃO FOI POSSIVEL EXTRAIR MENSAGEM\n";
+     return -1;
+    }
 }
 
 automacro virarAlquimista_comprarFornalha {
@@ -102,8 +103,8 @@ automacro virarAlquimista_comprarFornalha {
     JobID $paramsClasses{idC1}
     JobLevel = 50
     ConfigKey questAlquimista comprarFornalha
-       InInventoryID 612 < 100 #Mini-Fornalha
-       call {
+    InInventoryID 612 < 100 #Mini-Fornalha
+    call {
         do move geffen
         do move geffen_in 106 178
         do talk &npc(110 172)
@@ -118,8 +119,8 @@ automacro virarAlquimista_comprarFuria {
     JobID $paramsClasses{idC1}
     JobLevel = 50
     InInventoryID 657 < 7 #Poção da Fúria Selvagem
-       ConfigKey questAlquimista comprarPocao
-       call comprarItem "cmd_in01" "79 182" "Ferramentas" "Poção da Fúria Selvagem" "7"
+    ConfigKey questAlquimista comprarPocao
+    call comprarItem "cmd_in01" "79 182" "Ferramentas" "Poção da Fúria Selvagem" "7"
 }
 
 automacro virarAlquimista_comprarFlechaDeFogo {
@@ -127,74 +128,72 @@ automacro virarAlquimista_comprarFlechaDeFogo {
     JobID $paramsClasses{idC1}
     JobLevel = 50
     ConfigKey questAlquimista comprarFlecha
-       InInventoryID 1752 <= 500 #Flecha de Fogo
-       call comprarItem "alb2trea" "87 65" "Ferramentas" "Flecha de Fogo" "500"
+    InInventoryID 1752 <= 500 #Flecha de Fogo
+    call comprarItem "alb2trea" "87 65" "Ferramentas" "Flecha de Fogo" "500"
 }
 
 macro comprarItem {
     ### $.param[0] tem como valor a cidade
-       ### $.param[1] tem como valor as coordenadas
-       ### $.param[2] tem como valor o NPC
-       ### $.param[3] tem como valor o item
-       ### $.param[4] tem como valor a quantidade
+    ### $.param[1] tem como valor as coordenadas
+    ### $.param[2] tem como valor o NPC
+    ### $.param[3] tem como valor o item
+    ### $.param[4] tem como valor a quantidade
     do move $.param[0] $.param[1] &rand(1,6)
-       do talk &npc(/$.param[2]/)
-       do store
-       do buy &store($.param[3]) $.param[4]
+    do talk &npc(/$.param[2]/)
+    do store
+    do buy &store($.param[3]) $.param[4]
 }
 
 automacro virarAlquimista_FuriaComprada_indoEntregar {
     InInventoryID 657 >= 7 #Poção da Fúria Selvagem
     ConfigKey questAlquimista comprarPocao
     exclusive 1
-       call voltarProAlquimistaSenior
+    call voltarProAlquimistaSenior
 }
 
 automacro virarAlquimsta_FornalhaComprada_indoEntregar {
-       InInventoryID 612 >= 100 #Mini-Fornalha
+    InInventoryID 612 >= 100 #Mini-Fornalha
     ConfigKey questAlquimista comprarFornalha
     exclusive 1
-       call voltarProAlquimistaSenior
+    call voltarProAlquimistaSenior
 }
 
 automacro virarAlquimista_FlechaComprada_indoEntregar {
-       InInventoryID 1752 >= 500 #Flecha de Fogo
+    InInventoryID 1752 >= 500 #Flecha de Fogo
     ConfigKey questAlquimista comprarFlecha
     exclusive 1
-       call voltarProAlquimistaSenior
+    call voltarProAlquimistaSenior
 }
 
 macro voltarProAlquimistaSenior {
     do move alde_alche &rand(25,27) &rand(178,180)
-       do talk &npc (/Alquimista sênior/)
-       do conf lockMap none
-       pause 3
-    
-       #isso vai checar se realmente entregamos o item, ja que está sempre suscetivel a falhas
-       #se não tiver entregado por qualquer motivo que seja, ele simplesmente vai tentar denovo 
-       #Se conseguir, ele move pra o proximo passo
-       if ($.InInventoryIDLast = 657) { #Poção da Fúria Selvagem
+    do talk &npc (/Alquimista sênior/)
+    do conf lockMap none
+    pause 3
+    #isso vai checar se realmente entregamos o item, ja que está sempre suscetivel a falhas
+    #se não tiver entregado por qualquer motivo que seja, ele simplesmente vai tentar denovo 
+    #Se conseguir, ele move pra o proximo passo
+    if ($.InInventoryIDLast = 657) { #Poção da Fúria Selvagem
         if (&inventory(657) < 7) do conf -f questAlquimista questionario
-       } elsif ($.InInventoryIDLast = 612) { #Mini-Fornalha
+    } elsif ($.InInventoryIDLast = 612) { #Mini-Fornalha
         if (&inventory(612) < 100) do conf -f questAlquimista questionario
-       } elsif ($.InInventoryIDLast = 1752) { #Flecha de Fogo
+    } elsif ($.InInventoryIDLast = 1752) { #Flecha de Fogo
         if (&inventory(1752)  < 500) do conf -f questAlquimista questionario
     }
 }        
 
 #################################################################
-#                                #
-#                 Continuando a Quest de Alquimista!    #
-#                 Parte 3 - Falando com Raspuchin#
-#                                #
+#                                                               #
+#                 Continuando a Quest de Alquimista!            #
+#                 Parte 3 - Falando com Raspuchin               #
+#                                                               #
 #################################################################
 
 automacro virarAlquistia_npcDoQuestionario {
-    QuestActive 2031
+    #QuestActive 2031 #ja nao ta funcionando mais vitor hahah
     ConfigKey questAlquimista questionario
-    exclusive 1
-       timeout 60
-       call {
+    timeout 60
+    call {
         [
         log ======================================================
         log =         Como estamos no nível de classe 50,     =
@@ -209,15 +208,16 @@ automacro virarAlquistia_npcDoQuestionario {
 }
 
 automacro virarAlquimista_npcQuestionario_bugged {
-       NpcMsgName /.*vez que falou comigo.*/ / Misterioso/
-       ConfigKey questAlquimista questionario
-       call {
+    NpcMsgName /.*vez que falou comigo.*/ / Misterioso/
+    ConfigKey questAlquimista questionario
+    exclusive 1
+    call {
         do conf -f questAlquimista npcDaFlor
-       }
+    }
 }
 
 automacro virarAlquimista_jaFaleiComNpcQuestionario {
-      exclusive 1
+    exclusive 1
     NpcMsg /Diga a Darcya que eu te mandei/
     ConfigKey questAlquimista questionario
     call {
@@ -229,22 +229,21 @@ automacro virarAlquimista_falarComNpcFlor {
     QuestActive 2032
     ConfigKey questAlquimista questionario
     call {
-    do conf -f questAlquimista npcDaFlor
+        do conf -f questAlquimista npcDaFlor
     }
 }
 
         
 #################################################################
-#                                #
-#                Continuando a Quest de Alquimista!    #
-#                 Parte IV - Falando com Darcya    #
-#                                #
+#                                                               #
+#                Continuando a Quest de Alquimista!             #
+#                 Parte IV - Falando com Darcya                 #
+#                                                               #
 #################################################################
 
 automacro virarAlquimista_NpcDaFlor {
     ConfigKey questAlquimista npcDaFlor
     timeout 30
-    exclusive 1
     call {
         call pararDeAtacar
         do conf lockMap none
@@ -265,9 +264,9 @@ automacro virarAlquimista_faleiComNpcDaFlor_bugged {
 }
 automacro virarAlquimista_faleiComNpcDaFlor {
     ConfigKey questAlquimista npcDaFlor
-        exclusive 1
-        NpcMsg /Consiga os itens e volte/
-        call {
+    exclusive 1
+    NpcMsg /Consiga os itens e volte/
+    call {
         do conf -f questAlquimista pegarAFlor
     }
 }
@@ -282,10 +281,10 @@ automacro virarAlquimista_naoTenhoAFlorVouPegar {
 }
 
 #################################################################
-#                                #
-#             Caso não tenha a Flor, vou ter que    #
-#        comprá-la! Configurando BetterShopper...    #
-#                                #
+#                                                               #
+#             Caso não tenha a Flor, vou ter que                #
+#        comprá-la! Configurando BetterShopper...               #
+#                                                               #
 #################################################################
 
 automacro virarAlquimista_naoTenhoAFlor {
@@ -319,9 +318,9 @@ automacro virarAlquimista_naoTenhoAFlor {
         } else {
             [
             log =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-            log *      É preciso baixar e ativa o plugin BetterShopper.        *
-            log =      Até lá nem a macro nem o Openkore vão continuar!        =
-            log * Caso já tenha feito isso, feche e abra o Openkore novamente!    *
+            log *      É preciso baixar e ativa o plugin BetterShopper.             *
+            log =      Até lá nem a macro nem o Openkore vão continuar!             =
+            log * Caso já tenha feito isso, feche e abra o Openkore novamente!      *
             log =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
             ]
             do eval Misc::offlineMode();
@@ -347,13 +346,13 @@ automacro virarAlquimista_naoTenhoAFlor_bugged {
 automacro virarAlquimista_naoTenhoAFlor_NemZeny {
     ConfigKey questAlquimista pegarAFlor
     ConfigKeyNot questAlquimista fimDaQuest
-        exclusive 1
-        Zeny < 300000
-        InInventoryID 710 < 1 #Flor das Ilusões
-        ConfigKeyNot lockMap pay_fild09
-        ConfigKeyNot In_saveMap_sequence true
-        timeout 120
-        call {
+    exclusive 1
+    Zeny < 300000
+    InInventoryID 710 < 1 #Flor das Ilusões
+    ConfigKeyNot lockMap pay_fild09
+    ConfigKeyNot In_saveMap_sequence true
+    timeout 120
+    call {
         [
         log =====================================================
         log =Não tenho zeny suficiente para comprar a Flor     
@@ -394,7 +393,7 @@ sub recursoTecnicoPaliativo {
         next if $line =~ /^$/ || $line =~ /^#/;
         if ($line =~ /BetterShopper/ ) {
             $estaNoSys = 1 ;
-               last;
+            last;
         }
     }
     
@@ -402,7 +401,7 @@ sub recursoTecnicoPaliativo {
         return 1;
     } else {
         return -1;
-       }
+    }
 }
 
 automacro virarAlquimista_juntandoZeny {
@@ -448,7 +447,7 @@ automacro virarAlquimista_indoEntregaAFlor {
         do move alde_alche &rand(13,16) &rand(18,20)
         do talk &npc(/Pesquisador/)
         do talk resp 1
-       }
+    }
 }
 
 automacro virarAlquimista_entregueiAFlor {
@@ -464,7 +463,7 @@ automacro virarAlquimista_entregueiAFlor {
 
 automacro virarAlquimista_entregueiAFlor_bugged {
     exclusive 1
-       NpcMsgName /de um Alquimista/ /Pesquisador/
+    NpcMsgName /de um Alquimista/ /Pesquisador/
     ConfigKey questAlquimista jaPegueiAFlor
     call {
         do conf -f questAlquimista fimDaQuest
@@ -490,10 +489,10 @@ automacro virarAlquimista_entregueiAFlor_bugged2 {
 
 automacro virarAlquimista_FimDaQuest_FalarComAlquimistaChefe {
     ConfigKey questAlquimista fimDaQuest
-       JobLevel = 50
-       JobID 5
-       exclusive 1
-       call {
+    JobLevel = 50
+    JobID 5
+    exclusive 1
+    call {
         do move alde_alche &rand(99,101) &rand(182,184)
         do talk &npc(101 184)
         [
@@ -507,7 +506,7 @@ automacro virarAlquimista_FimDaQuest_FalarComAlquimistaChefe {
 automacro jaSouAlquimista {
     JobID $paramsClasses{idC2}
     ConfigKey questAlquimista fimDaQuest
-       priority -5
+    priority -5
     exclusive 1
     call {
         do conf teleportAuto_MaxDmg 1000
