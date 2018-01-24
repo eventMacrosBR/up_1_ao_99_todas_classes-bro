@@ -229,7 +229,7 @@ automacro dentroDoAeroplanoDomestico_checagem {
         }
         [
         log ===================================
-        log Estamos no aeroplano, aguardando chegada ao destino
+        log Estou no aeroplano, aguardando chegada ao destino
         log ===================================
         ]
     }
