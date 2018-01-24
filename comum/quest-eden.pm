@@ -348,9 +348,9 @@ macro irNoMapa {
     ## $.param[0] tem como valor a cidade
     ## $.param[1] tem como valor a coordenada x
     ## $.param[2] tem como valor a coordenada y
-    ## $.param[3] tem como valor o monstro 1
-    ## $.param[4] tem como valor o monstro 2
-    ## $.param[5] tem como valor o monstro 3
+    ## $.param[4] tem como valor a id do monstro 2
+    ## $.param[5] tem como valor a id do monstro 3
+    ## $.param[3] tem como valor a id do monstro 1
     
     do move $.param[0] $.param[1] $.param[2] &rand(1,5)
     do talk &npc($.param[1] $.param[2])
@@ -594,25 +594,25 @@ automacro voltarDoMapaDentroDoEden {
             case (= 7132) { #eden 12
                 #do talknpc 25 35 c c c #Boya
                 do talk &npc(/Boya/)
-                do mconf Filhote de Lobo 1 0 0
-                do mconf Escorpião 1 0 0
-                do mconf Condor 1 0 0
+                do mconf 1107 1 0 0 #Filhote de lobo
+                do mconf 1001 1 0 0 #escorpiao
+                do mconf 1009 1 0 0 #Condor
             }
 
             case (= 7141) { #eden 26
                 #do talknpc 25 35 c c #Boya
                 do talk &npc(/Boya/)
-                do mconf Esqueleto 1 0 0
-                do mconf Poporing 1 0 0
-                do mconf Zumbi 1 0 0
+                do mconf 1076 1 0 0 #Esqueleto
+                do mconf 1031 1 0 0 #poporing
+                do mconf 1015 1 0 0 #Zumbi
             }
 
             case (= 7151) { #eden 40
                 #do talknpc 25 35 c c #Boya
                 do talk &npc(/Boya/)
-                do mconf Guerreiro Orc 1 0 0
-                do mconf Filhote de Orc 1 0 0
-                do mconf Senhora Orc 1 0 0
+                do mconf 1023 1 0 0 #Guerreiro Orc
+                do mconf 1686 1 0 0 #Filhote de Orc
+                do mconf 1273 1 0 0 #Senhora Orc 
             }
 
             case (= 7218) { #eden 60

@@ -62,7 +62,6 @@ automacro configurar Monge 1 {
         do conf route_teleport 5
         do conf route_teleport_minDistance 150
         do conf attackAuto -1
-        do mconf -1 0 1
         do conf sitAuto_sp_lower 40
         do conf sitAuto_sp_upper 100
         do pconf all 0

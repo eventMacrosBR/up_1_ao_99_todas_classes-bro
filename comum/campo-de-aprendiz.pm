@@ -531,9 +531,9 @@ automacro talkBradeonGroundsGetQuest {
         do conf getAuto_0_minAmount 20
         do conf getAuto_0_maxAmount 200
         do conf getAuto_0_passive 0
-        do mconf 1063 0 0 0
-        do mconf 1002 1 0 0
-        do mconf 1113 0 0 0
+        do mconf 1063 0 0 0 #lunatico
+        do mconf 1002 1 0 0 #poring
+        do mconf 1113 0 0 0 #drops
         call voltarAtacar
     }
 }
@@ -567,9 +567,9 @@ automacro moveBradeCompleteQuest {
 }
 
 macro moveBradeGrounds {
-    do mconf 1063 0 0 0
-    do mconf 1002 0 0 0
-    do mconf 1113 0 0 0
+    do mconf 1063 0 0 0 #lunatico
+    do mconf 1002 0 0 0 #poring
+    do mconf 1113 0 0 0 #drops
     call pararDeAtacar
     do move 99 31
 }
