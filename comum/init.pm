@@ -69,7 +69,7 @@ automacro init {
         # $paramsQuestClasseRenascer{amigo}
         initParamsQuestClasseRenascer()
 
-        if (&config(questc2_implementada != true)) {
+        if (&config(questc2_implementada) != true) {
             [
             log =========================================================
             log   AVISO!
