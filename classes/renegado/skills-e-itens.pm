@@ -89,3 +89,43 @@ automacro configurarAfanar {
     }
 }
 
+automacro configurarEsconderijo_e_AtaqueSupresa {
+    ConfigKeyNot useSelf_skill_1 TF_HIDING
+    ConfigKeyNot useSelf_skill_2 RG_RAID
+    SkillLevel RG_RAID = 5
+    exclusive 1
+    call {
+        [
+        log ===================================
+        log = Já tenho Ataque Surpresa, configurando
+        log ===================================
+        ]
+        $blocoExiste = checarSeExisteNoConfig("useSelf_skill_1")
+        if ($blocoExiste = nao ) {
+            adicionaUseSelfSkill()
+            pause 1
+            do reload config
+        }
+        [
+        do conf useSelf_skill_1 TF_HIDING
+        do conf useSelf_skill_1_lvl 10
+        do conf useSelf_skill_1_sp >= 30
+        do conf useSelf_skill_1_aggressives >= 3 #Você decide acima de quantos monstros você deseja usar a habilidade
+        do conf useSelf_skill_1_whenStatusInactive EFST_HIDING, EFST_POSTDELAY
+        ]
+        
+        $blocoExiste = checarSeExisteNoConfig("useSelf_skill_2")
+        if ($blocoExiste = nao ) {
+            adicionaUseSelfSkill()
+            pause 1
+            do reload config
+        }
+        [
+        do conf useSelf_skill_2 RG_RAID
+        do conf useSelf_skill_2_lvl 5
+        do conf useSelf_skill_2_sp >= 20
+        do conf useSelf_skill_2_whenStatusInactive EFST_POSTDELAY
+        do conf useSelf_skill_2_whenStatusActive EFST_HIDING
+        ]
+    }
+}
