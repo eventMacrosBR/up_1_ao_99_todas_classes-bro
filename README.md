@@ -49,7 +49,7 @@ Para a macro funcionar corretamente é necessária a instalação dos seguintes 
 
 ## Funcionalidades:
 ||Funcionalidade|Estado|
-|-|--------------|------|
+|---|--------------|------|
 |![alt treinamento](http://browiki.org/images/9/97/Aprendizespartyicn.png)|Campo de treinamento|Funcionando|
 |![alt upar](https://static.divine-pride.net/images/mobs/png/1002.png)|Upar do 1 ao 99|Funcionando|
 |![alt eden](http://static.divine-pride.net/images/items/item/22508.png)|Quest Eden|Funcionando|
