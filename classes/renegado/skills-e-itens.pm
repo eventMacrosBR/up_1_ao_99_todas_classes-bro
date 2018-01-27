@@ -57,7 +57,7 @@ automacro configurarDesintoxicar {
         do conf useSelf_skill_0 TF_DETOXIFY
         do conf useSelf_skill_0_lvl 1
         do conf useSelf_skill_0_sp >= 10
-        do conf useSelf_skill_0_whenStatusActive HEALTHSTATE_POISON
+        do conf useSelf_skill_0_whenStatusActive HEALTHSTATE_POISON, EFST_HEALTHSTATE_POISON 
         do conf useSelf_skill_0_disabled 0
   }
 }
