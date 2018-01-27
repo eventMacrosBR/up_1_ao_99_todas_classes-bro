@@ -1,4 +1,4 @@
-theme: jekyll-theme-cayman
-
+#theme: jekyll-theme-cayman
+remote_theme: "mmistakes/minimal-mistakes"
 title: Up do nível 1 ao 99 para todas as classes bRO
 
