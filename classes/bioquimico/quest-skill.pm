@@ -90,6 +90,14 @@ automacro estouFazendoQuestBioetica {
     }
 }
 
+automacro desabilitandoAutoBuy {
+    ConfigKey quest_skill true
+    ConfigKeyNot buyAuto_1_disabled 1
+    exclusive 1
+    call {
+        do conf buyAuto_1_disabled 1
+    }
+}
 #####################################################################################################################################
 #                                                                                                                                    #
 #                                                                 [Capítulo VI]                                                        #
