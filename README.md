@@ -48,6 +48,7 @@ Para a macro funcionar corretamente é necessária a instalação dos seguintes 
   
 
 ## Funcionalidades:
+
 |Icone                                                                              |Funcionalidade      |Estado                    |
 |-----------------------------------------------------------------------------------|--------------------|--------------------------|
 |![alt treinamento](http://browiki.org/images/9/97/Aprendizespartyicn.png)          |Campo de treinamento|Funcionando               |
