@@ -3,10 +3,19 @@
 
 @import "{{ site.theme }}";
 
-.page-header {
-    background-color: #000;
+body{
     background-image: url(http://mystic-ro.wdfiles.com/local--files/job-classes/tumblr_m1a492SSji1qftb7bo1_1280.png);
+}
+
+.page-header {
+    background-color: #fff;
+    background-image: none;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.main-content{
+    background-color: #fff;
+    background-image: none;
 }
 
 .btn {
