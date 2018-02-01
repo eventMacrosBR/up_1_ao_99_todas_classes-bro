@@ -92,3 +92,18 @@ sub nextMap {
     }
 }
 
+macro termineiQuestEdenManualmente {
+    do conf quest_eden none
+}
+
+macro termineiQuestSkillManualmente {
+    do conf quest_skill none
+}
+
+macro termineiQuestClasse2Manualmente {
+    do conf virarClasse2 none
+}
+
+macro terminei QuestClasse2TManualmente {
+    do conf virarClasse2T none
+}
