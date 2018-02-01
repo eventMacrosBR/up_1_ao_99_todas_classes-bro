@@ -3,7 +3,8 @@ macro SetSaveIn {
     do conf lockMap none
     if (&config(master) =~ /Valhalla/ ) {
         do conf -f saveMap_storage_sequence r1 r0
-    } else  {
+    } 
+    else  {
         do conf -f saveMap_storage_sequence r1 
     }
     switch ($.param[0]) {
@@ -67,6 +68,7 @@ macro SetSaveIn {
             do conf -f saveMap_wanted veins
             do conf -f saveMap_kafra_position 208 128
             do conf -f saveMap_sellNpc_position ve_in 243 303
+            do conf buyAuto_1_npc ve_in 243 303
         }
         else {
             log nome da cidade inválido, tente novamente...

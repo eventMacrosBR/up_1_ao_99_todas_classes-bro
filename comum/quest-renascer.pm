@@ -134,6 +134,7 @@ automacro irNoLocalPraNegociar {
         $vezesQuePediPraVir++
         if ($vezesQuePediPraVir > 2) {
             do pm "$paramsQuestClasseRenascer{amigo}" vou ficar spammando isso ate vc chegar perto de mim
+            do pm "$paramsQuestClasseRenascer{amigo}" vem em juno 146 116
         }
         
         do pm "$paramsQuestClasseRenascer{amigo}" me ajuda a rebornar, vem aqui em

@@ -70,14 +70,11 @@ automacro virarTemplario_PegarItens {
             $nomeDoItem = Bandagem Estragada
             if (&config(lockMap) != moc_pryd03) do conf lockMap moc_pryd03
             if (&config(attackAuto) != 2) call voltarAtacar
-            do mconf 1191 1 0 0 #mimico
         } elsif ( $qtdBandagem >= 10 && $qtdLampiao < 10) {
             #quando já tiver 10 bandagens, ele vai pegar os lampiao
             $nomeDoItem = Lampião
             if (&config(lockMap) != mjo_dun02) do conf lockMap mjo_dun02
             if (&config(attackAuto) != 2) call voltarAtacar
-            do mconf 1145 0 0 0 #Martin
-            do mconf 1121 0 0 0 #Giearth
         } elsif ( $qtdBandagem >= 10 && $qtdLampiao >= 10) {
             #se já tiver todos os itens, tá na hora!
             log ====================================

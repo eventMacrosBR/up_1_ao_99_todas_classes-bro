@@ -113,9 +113,6 @@ automacro virar Monge 3 {
         log Pegar Cobweb
         [
         do conf lockMap mjolnir_04
-        do mconf Argos 1 0 1
-        do mconf Caramel 1 0 1
-        do mconf all -1 0 1
         do conf teleportAuto_hp 50
         do conf teleportAuto_minAggressives 2
         do conf teleportAuto_minAggressivesInLock 2
@@ -133,9 +130,6 @@ automacro virar Monge 3 {
         log Pegar Porcupine
         [
         do conf lockMap mjolnir_04
-        do mconf Argos 1 0 1
-        do mconf Caramel 1 0 1
-        do mconf all -1 0 1
         do conf teleportAuto_hp 50
         do conf teleportAuto_minAggressives 2
         do conf attackAuto_inLockOnly 1
@@ -152,10 +146,6 @@ automacro virar Monge 3 {
         log Pegar GLEG
         [
         do conf lockMap prt_fild07
-        do mconf Drainliar 0 0 0
-        do mconf Eggyra 0 0 0
-        do mconf 1084 0 0 0
-        do mconf 1078 0 0 0
         do conf attackAuto_inLockOnly 1
         do conf route_randomWalk 1
         call voltarAtacar

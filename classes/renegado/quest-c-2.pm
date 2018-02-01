@@ -112,12 +112,6 @@ automacro virarArruaceiro_etapa3_coletarItens {
         if ( $qtdErvaAzul < 6 ) { #primeiro a coletar: Erva Azul
             [
             do conf lockMap cmd_fild02
-            do mconf 1266 0 0 0
-            do mconf 1073 0 0 0
-            do mconf 1254 0 0 0
-            do mconf 1067 0 0 0
-            do mconf 1074 0 0 0
-            do mconf 1391 0 0 0
             do conf attackAuto_inLockOnly 1
             call voltarAtacar
             log =================================
@@ -130,10 +124,6 @@ automacro virarArruaceiro_etapa3_coletarItens {
             #se ja tiver Erva Azul, vai coletar: Unha Apodrecida
             [
             do conf lockMap pay_dun00
-            do mconf 1005 0 0 0
-            do mconf 1031 0 0 0
-            do mconf 1078 0 0 0
-            do mconf 1084 0 0 0
             do conf attackAuto_inLockOnly 1
             call voltarAtacar
             log ================================
@@ -146,10 +136,6 @@ automacro virarArruaceiro_etapa3_coletarItens {
             #se ja tiver Erva Azul e Unha Apodrecida, vai coletar: Osso
             [
             do conf lockMap pay_dun01
-            do mconf 1111 0 0 0
-            do mconf 1116 0 0 0
-            do mconf 1084 0 0 0
-            do mconf 1078 0 0 0
             do conf attackAuto_inLockOnly 1
             do conf route_randomWalk 1
             call voltarAtacar
@@ -163,11 +149,6 @@ automacro virarArruaceiro_etapa3_coletarItens {
             #se tiver Erva Azul, Unha Apodrecida e Osso, vai coletar: Mandíbula Horrenda
             [
             do conf lockMap pay_dun00
-            do mconf 1005 0 0 0
-            do mconf 1031 1 0 0
-            do mconf 1078 0 0 0
-            do mconf 1084 0 0 0
-            do mconf 1076 0 0 0
             do conf attackAuto_inLockOnly 1
             do conf route_randomWalk 1
             call voltarAtacar
@@ -205,17 +186,6 @@ automacro virarArruaceiro_etapa3_tenhoOsItensIrProNpc {
         call pararDeAtacar
         do conf lockMap none
         do conf attackAuto_inLockOnly 0
-        do mconf 1266 1 0 0
-        do mconf 1073 1 0 0
-        do mconf 1254 1 0 0
-        do mconf 1067 1 0 0
-        do mconf 1074 1 0 0
-        do mconf 1391 1 0 0
-        do mconf 1005 1 0 0
-        do mconf 1031 1 0 0
-        do mconf 1078 1 0 0
-        do mconf 1084 1 0 0
-        do mconf 1076 1 0 0
         do move in_rogue &rand(370,373) &rand(20,24)
     }
 }

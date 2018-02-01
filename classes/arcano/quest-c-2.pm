@@ -108,32 +108,32 @@ automacro TestePraticoBruxoSaladeEspera {
     }
 }
 
-automacro DentrodaSala1Bruxo {
-    InMap #Sala1 do teste pratico,bichos detectores mas não agressivos
-    exclusive 1
-    call {
-        #andar pela sala evitando o centro.vai spawnar esferas marinhas e hidras lá
-    }
-}
-
-automacro DentrodaSala2Bruxo {
-    InMap #Sala2 do teste pratico,bichos detectores somente Orc agressivos
-    exclusive 1
-    call {
-        #priorizar atacar o orc primeiro.pode ser um problema ele quebrando o cast.
-        #andar pela sala evitando o centro.vai spawnar mandragoras
-    }
-}
-
-automacro DentrodaSala3Bruxo {
-    InMap #Sala3 do teste pratico,bichos detectores somente Salgueiro Ancião, Escorpião e Goblin
-    exclusive 1
-    call {
-        #priorizar atacar Salgueiro Ancião, Escorpião e Goblin.pode ser um problema eles quebrando o cast.tentar pegar 1 de cada vez
-        #andar pela sala evitando o centro.vai spawnar Guardião da Floresta
-        do conf -f testepraticobruxo concluido
-    }
-}
+#automacro DentrodaSala1Bruxo {
+#    InMap #Sala1 do teste pratico,bichos detectores mas não agressivos
+#    exclusive 1
+#    call {
+#        #andar pela sala evitando o centro.vai spawnar esferas marinhas e hidras lá
+#    }
+#}
+#
+#automacro DentrodaSala2Bruxo {
+#    InMap #Sala2 do teste pratico,bichos detectores somente Orc agressivos
+#    exclusive 1
+#    call {
+#        #priorizar atacar o orc primeiro.pode ser um problema ele quebrando o cast.
+#        #andar pela sala evitando o centro.vai spawnar mandragoras
+#    }
+#}
+#
+#automacro DentrodaSala3Bruxo {
+#    InMap #Sala3 do teste pratico,bichos detectores somente Salgueiro Ancião, Escorpião e Goblin
+#    exclusive 1
+#    call {
+#        #priorizar atacar Salgueiro Ancião, Escorpião e Goblin.pode ser um problema eles quebrando o cast.tentar pegar 1 de cada vez
+#        #andar pela sala evitando o centro.vai spawnar Guardião da Floresta
+#        do conf -f testepraticobruxo concluido
+#    }
+#}
 
 automacro FinalizandoVirarBruxo {
     InMap gef_tower
