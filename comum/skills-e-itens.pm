@@ -100,7 +100,7 @@ automacro parandoDePegarPotDeAprendiz {
 }
 
 sub adicionaAttackSkillSlot {
-    open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
+    open (my $fh, '>>:encoding(UTF-8)', Settings::getConfigFilename());
     print $fh "attackSkillSlot {\n";
     print $fh "\tlvl 10\n";
     print $fh "\tdist 1.5\n";
@@ -154,7 +154,7 @@ sub adicionaAttackSkillSlot {
 }
 
 sub adicionaUseSelfSkill {
-    open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
+    open (my $fh, '>>:encoding(UTF-8)', Settings::getConfigFilename());
     print $fh "useSelf_skill {\n";
     print $fh "\tlvl 10\n";
     print $fh "\tmaxCastTime 0\n";
@@ -188,7 +188,7 @@ sub adicionaUseSelfSkill {
 }
 
 sub adicionaUseSelfItem {
-    open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
+    open (my $fh, '>>:encoding(UTF-8)', Settings::getConfigFilename());
     print $fh "useSelf_item {\n";
     print $fh "\thp\n";
     print $fh "\tsp\n";
@@ -219,7 +219,7 @@ sub adicionaUseSelfItem {
 }
 
 sub adicionaBuyAuto {
-    open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
+    open (my $fh, '>>:encoding(UTF-8)', Settings::getConfigFilename());
     print $fh "buyAuto {\n";
     print $fh "\tnpc\n";
     print $fh "\tstandpoint\n";
@@ -235,7 +235,7 @@ sub adicionaBuyAuto {
 }
 
 sub adicionaGetAuto {
-    open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
+    open (my $fh, '>>:encoding(UTF-8)', Settings::getConfigFilename());
     print $fh "getAuto {\n";
     print $fh "\tminAmount\n";
     print $fh "\tmaxAmount\n";
@@ -245,7 +245,7 @@ sub adicionaGetAuto {
 }
 
 sub adicionaBetterShopper {
-    open (my $fh, '>>:encoding(UTF-8)', Settings::getControlFilename('config.txt'));
+    open (my $fh, '>>:encoding(UTF-8)', Settings::getConfigFilename());
     print $fh "BetterShopper {\n";
     print $fh "\tmaxPrice\n";
     print $fh "\tmaxAmount\n";
