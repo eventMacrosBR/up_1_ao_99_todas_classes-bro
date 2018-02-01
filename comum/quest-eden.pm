@@ -347,19 +347,10 @@ macro irNoMapa {
     ]
     ## $.param[0] tem como valor a cidade
     ## $.param[1] tem como valor a coordenada x
-    ## $.param[2] tem como valor a coordenada y
-    ## $.param[4] tem como valor a id do monstro 2
-    ## $.param[5] tem como valor a id do monstro 3
-    ## $.param[3] tem como valor a id do monstro 1
-    
+    ## $.param[2] tem como valor a coordenada y 
     do move $.param[0] $.param[1] $.param[2] &rand(1,5)
     do talk &npc($.param[1] $.param[2])
     if ($.param[0] = moc_fild11) do talk resp 1  #significa que ta na quest eden 12
-    if (&defined($.param[3]) = 1) { #evita de mostrar linhas vermelhas a toa de "variavel não existe"
-        #do mconf $.param[3] 0 0 0
-        #do mconf $.param[4] 0 0 0
-        #do mconf $.param[5] 0 0 0
-    }
 }
 
 
@@ -399,7 +390,6 @@ macro caçarMonstros {
     [
     call voltarAtacar
     if ( &config(lockMap) != $.param[0]) do conf lockMap $.param[0]
-    #do mconf $.QuestHuntOngoingLastMobID 2 0 0
     log ===========================================
     log =caçando monstro da quest eden $.param[1]
     log ===========================================
@@ -469,7 +459,6 @@ automacro Eden12FinalizarCaças {
     call {
         call pararDeAtacar
         if (&config(quest_eden) != em_curso) do conf -f quest_eden em_curso
-        #do mconf $.QuestHuntCompletedLastMobID 0 0 0
         [
         log ===========================================
         log =completei a caça, indo falar com o Cão falante
@@ -487,14 +476,12 @@ automacro Eden26FinalizarCaças {
     call {
         call pararDeAtacar
         if (&config(quest_eden) != em_curso) do conf -f quest_eden em_curso
-        #do mconf $.QuestHuntCompletedLastMobID 0 0 0
         [
         log ===========================================
         log =completei a caça, indo falar com o Coral
         log ===========================================
         ]
         do move pay_arche &rand(44,46) &rand(132,134)
-        #do talknpc 41 136 c c c c c #Coral
         do talk &npc( 41 136 ) #Coral
         release Eden26Caçar
     }
@@ -512,14 +499,12 @@ automacro Eden40FinalizarCaças {
     call {
         call pararDeAtacar
         if (&config(quest_eden) != em_curso) do conf -f quest_eden em_curso
-        #do mconf $.QuestHuntCompletedLastMobID 0 0 0
         [
         log ===========================================
         log =completei a caça, indo falar com o Absalom
         log ===========================================
         ]
         do move in_orcs01 38 175 &rand(1,4)
-        #do talknpc 38 175 c c #Absalom#para07
         do talk 0 #Absalom
         release Eden40Caçar
     }
@@ -530,7 +515,6 @@ automacro Eden60FinalizarCaças {
     exclusive 1
     call {
         if (&config(quest_eden) != em_curso) do conf -f quest_eden em_curso
-        #do mconf $.QuestHuntCompletedLastMobID 0 0 0
         [
         log ===========================================
         log =completei a caça, indo falar com o npc do eden
@@ -594,25 +578,16 @@ automacro voltarDoMapaDentroDoEden {
             case (= 7132) { #eden 12
                 #do talknpc 25 35 c c c #Boya
                 do talk &npc(/Boya/)
-                #do mconf 1107 1 0 0 #Filhote de lobo
-                #do mconf 1001 1 0 0 #escorpiao
-                #do mconf 1009 1 0 0 #Condor
             }
 
             case (= 7141) { #eden 26
                 #do talknpc 25 35 c c #Boya
                 do talk &npc(/Boya/)
-                #do mconf 1076 1 0 0 #Esqueleto
-                #do mconf 1031 1 0 0 #poporing
-                #do mconf 1015 1 0 0 #Zumbi
             }
 
             case (= 7151) { #eden 40
                 #do talknpc 25 35 c c #Boya
                 do talk &npc(/Boya/)
-                #do mconf 1023 1 0 0 #Guerreiro Orc
-                #do mconf 1686 1 0 0 #Filhote de Orc
-                #do mconf 1273 1 0 0 #Senhora Orc 
             }
 
             case (= 7218) { #eden 60

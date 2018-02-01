@@ -129,24 +129,18 @@ automacro FarmQuestItems {
         [
         
         if ( $qtdFerro < 8) {
-            #do mconf Steel Chonchon 2
             do pconf Iron 2
             do conf lockMap moc_fild18
             call voltarAtacar
             stop
         }
         if ( $qtdErvaVerde < 20) {
-            #do mconf Green Plant 2
-            #do mconf Fabre 2
-            #do mconf Poporing 2
             do pconf Green Herb 2
             do conf lockMap gef_fild00
             call voltarAtacar
             stop
         }
         if ( $qtdCouro < 2) {
-            #do mconf Savage Babe 2
-            #do mconf Baby Dessert Wolf 2
             do pconf Animal Skin 2
             do conf lockMap prt_fild09
             call voltarAtacar
