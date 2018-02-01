@@ -6,7 +6,7 @@ sub xConfConfiguratedOrNot {
     my $path_xconf_na_pasta_plugins = "plugins/xConf/xConf.pl";
     my $path_xconf_na_pasta_needsreview = "plugins/needs-review/xconf/trunk/xconf.pl";
     
-    unlink "plugins/xConf.pl" if (-e "plugins/xconf.pl");
+    unlink "plugins/xConf.pl" if -e "plugins/xConf.pl";
     
     if (-e $path_xconf_na_pasta_plugins) {
         $estaNaPasta = 1;
