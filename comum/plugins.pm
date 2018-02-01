@@ -18,7 +18,7 @@ sub xConfConfiguratedOrNot {
         $estaAtualizado = 0;
     }
     
-    my $controlfile = Settings::getControlFilename('sys.txt');
+    my $controlfile = Settings::getSysFilename();
     open(FILE, '<:encoding(UTF-8)', $controlfile);
     my @lines = <FILE>;
     close(FILE);
@@ -104,7 +104,7 @@ sub BetterShopperConfiguratedOrNot {
         
     }
 
-    my $controlfile = Settings::getControlFilename('sys.txt');
+    my $controlfile = Settings::getSysFilename();
     open(FILE, '<:encoding(UTF-8)', $controlfile);
     my @lines = <FILE>;
     close(FILE);
