@@ -2,12 +2,18 @@
 
 git fetch --unshallow
 
-jobs=("arcano(nao_testado)" "arcebispo(funcionando)" "bioquimico(funcionando)" "cavaleiro-runico(nao_testado)" "feiticeiro(nao_testado)" "guardiao-real(funcionando)" "mecanico(nao_testado)" "musa(nao_testado)" "renegado(funcionando)" "sentinela(nao_testado)" "sicario(nao_testado)" "shura(nao_testado)" "trovador(nao_testado)")
+jobs=("arcano" "arcebispo" "bioquimico" "cavaleiro-runico" "feiticeiro" "guardiao-real" "mecanico" "musa" "renegado" "sentinela" "sicario" "shura" "trovador")
+jobs_ok=("arcebispo" "bioquimico" "guardiao-real" "renegado")
 mkdir dist
 for i in "${jobs[@]}"; do
-    pwsh -File auxiliarGui.ps1 -job "${i/\\(\w+\\)/}";
-    zip $i.zip eventMacros.txt
-    mv $i.zip dist/ ;
+    pwsh -File auxiliarGui.ps1 -job "$i";
+    if [[ "{$jobs_ok[@]}" =~ "$i" ]]; then
+        zip_file = "$i.funcionando.zip"
+    else 
+        zip_file = "$i.nao_testado.zip"
+    fi    
+    zip $zip_file eventMacros.txt
+    mv $zip_file dist/ ;
 done
 
 
