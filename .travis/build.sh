@@ -7,7 +7,7 @@ jobs_ok=("arcebispo" "bioquimico" "guardiao-real" "renegado")
 mkdir dist
 for i in "${jobs[@]}"; do
     pwsh -File auxiliarGui.ps1 -job "$i";
-    if [[ "{$jobs_ok[@]}" =~ "$i" ]]; then
+    if [[ " {$jobs_ok[@]} " =~ " $i " ]]; then
         zip_file="$i.funcionando.zip"
     else 
         zip_file="$i.nao_testado.zip"
