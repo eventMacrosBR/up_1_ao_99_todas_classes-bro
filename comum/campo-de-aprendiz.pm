@@ -531,6 +531,9 @@ automacro talkBradeonGroundsGetQuest {
         do conf getAuto_0_minAmount 20
         do conf getAuto_0_maxAmount 200
         do conf getAuto_0_passive 0
+        #do mconf 1063 0 0 0 #lunatico
+        #do mconf 1002 1 0 0 #poring
+        #do mconf 1113 0 0 0 #drops
         call voltarAtacar
     }
 }
@@ -564,6 +567,9 @@ automacro moveBradeCompleteQuest {
 }
 
 macro moveBradeGrounds {
+    #do mconf 1063 0 0 0 #lunatico
+    #do mconf 1002 0 0 0 #poring
+    #do mconf 1113 0 0 0 #drops
     call pararDeAtacar
     do move 99 31
 }
@@ -646,6 +652,11 @@ automacro caçandoLunaticos {
     InMap new_1-3, new_2-3, new_3-3
     run-once 1
     call {
+        [
+        #do mconf 1063 1 0 0 #lunatico
+        #do mconf 1002 0 0 0 #poring
+        #do mconf 1113 0 0 0 #drops
+        ]
         call voltarAtacar
         log ======== Indo matar lunaticos
     }
@@ -683,6 +694,7 @@ automacro mateiLunaticos {
     NpcNear /Mago|Mage/
     InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
     call {
+        #do mconf 1063 0 0 0 #lunatico
         do talk $.NpcNearLastBinId
         do talk resp 2
         do conf -f quest_atual pickys
@@ -794,6 +806,10 @@ automacro caçandoSalgueiro {
 
 macro sePreparandoPraMatar {
     call voltarAtacar
+    #do mconf 1113 0 0 0 #drops
+    #do mconf 1004 0 0 0 #zangao
+    #do mconf 1049 1 0 0 #picky
+    #do mconf 1010 1 0 0 #Salgueiro
     log  Indo matar pickys e/ou salgueiros
 }
 
@@ -812,6 +828,7 @@ automacro mateiPickys {
     NpcNear /Espadachi|Swordman/i
     call {
         do conf -f quest_atual none
+        #do mconf 1049 0 0 0 #Picky
         do talk $.NpcNearLastBinId
         do talk resp 2
         call voltarAtacar
@@ -832,6 +849,7 @@ automacro mateiSalgueiros {
     NpcNear /Gatuno|Thief/i
     InMap new_4-3, new_5-3
     call {
+        #do mconf 1010 0 0 0 #Salgueiro
         do talk $.NpcNearLastBinId
         do talk resp 2
     }
@@ -868,6 +886,13 @@ automacro continuarUpandoAte12 {
     InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
     call {
         [
+        #do mconf 1004 1 0 0 #zangao
+        #do mconf 1007 1 0 0 #fabre
+        #do mconf 1049 1 0 0 #Picky
+        #do mconf 1010 1 0 0 #Salgueiro
+        #do mconf 1063 1 0 0 #lunatico
+        #do mconf 1002 1 0 0 #poring
+        #do mconf 1113 1 0 0 #drops
         call voltarAtacar
         do conf -f o_que_estou_fazendo campoAprendiz_upandoAteLvl12
         log =================================
@@ -926,6 +951,7 @@ automacro se morrer enquanto mata pickys_e_salgueiros {
 }
 
 macro mudarDeMapa {
+    #do mconf 1063 0 0 0 #lunatico
     call pararDeAtacar
     do move &rand(103,105) &rand(36,38)
     log mudando pra mapa onde tem pickys e salgueiros

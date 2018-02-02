@@ -3,8 +3,7 @@ macro SetSaveIn {
     do conf lockMap none
     if (&config(master) =~ /Valhalla/ ) {
         do conf -f saveMap_storage_sequence r1 r0
-    } 
-    else  {
+    } else  {
         do conf -f saveMap_storage_sequence r1 
     }
     switch ($.param[0]) {
