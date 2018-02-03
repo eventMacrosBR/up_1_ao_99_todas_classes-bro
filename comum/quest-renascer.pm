@@ -193,7 +193,6 @@ automacro TudoCerto_VamosRebornar {
     CharCurrentWeight = 0
     Zeny = 1285000
     exclusive 1
-    ConfigKey estagio_Reborn preparando
     call {
         do conf -f o_que_estou_fazendo indoRebornar!!!
         # se tiver tudo certinho pra começar o reborn ,essa automacro ativa
