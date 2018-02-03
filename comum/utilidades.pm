@@ -107,3 +107,17 @@ macro termineiQuestClasse2Manualmente {
 macro terminei QuestClasse2TManualmente {
     do conf virarClasse2T none
 }
+
+macro rebornarAgora {
+    [
+    log ==========================
+    log Preparar para renascer
+    log > Checando algumas coisas
+    log ==========================
+    ]
+    if ($.weight == 0 && $.map == juno && $.zeny == 1285000 && $.lvl == 99 && $.joblvl == 50 ) {
+         do conf -f estagio_Reborn preparando
+    } else {
+         log Não tem as condições necessárias para rebornar
+    }
+}
