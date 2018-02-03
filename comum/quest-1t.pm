@@ -17,7 +17,7 @@ automacro virandoClasse1tBugged {
 }
 
 automacro virandoClasse1t {
-    InMap $paramsQuestClasse1{mapa}
+    NotInMap $paramsQuestClasse1{mapa}
     JobID 161,4001 #Aprendiz
     JobLevel 10
     SkillLevel NV_BASIC = 9
