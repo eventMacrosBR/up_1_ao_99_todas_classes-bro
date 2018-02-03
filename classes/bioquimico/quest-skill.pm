@@ -1,10 +1,10 @@
 #####################################################################################################################################
-#                                                                                                                                    #
-#                                                                 [Capítulo VI]                                                        #
-#                                                                    - Bioética -                                                        #
-#                                                                    [Parte I]                                                        #
-#                                                           - Juntando zenys caso eu não tenha -                                            #
-#                                                                                                                                    #
+#                                                                                                                                   #
+#                                                            [Capítulo VI]                                                          #
+#                                                            - Bioética -                                                           #
+#                                                              [Parte I]                                                            #
+#                                                 - Juntando zenys caso eu não tenha -                                              #
+#                                                                                                                                   #
 #####################################################################################################################################
 
 automacro questBioetica_naotenhoZenyNemPraComecar {
@@ -22,8 +22,8 @@ automacro questBioetica_naotenhoZenyNemPraComecar {
         [
         log ===============================================
         log = Teríamos que começar a quest bioetica agora =
-        log =      Mas não temos Zeny suficinte pra isso    =
-        log =            vamos conseguir então!              =
+        log =      Mas não temos Zeny suficinte pra isso  =
+        log =            vamos conseguir então!           =
         log ===============================================
         ]
         do autosell
@@ -87,6 +87,15 @@ automacro estouFazendoQuestBioetica {
     SkillLevel AM_BIOETHICS != 1
     call {
         do conf -f quest_skill true
+    }
+}
+
+automacro lockMapAtivado_temQueDesativar {
+    ConfigKeyNot lockMap none
+    exclusive 1
+    ConfigKey quest_skill true
+    call {
+        do conf lockMap none
     }
 }
 
