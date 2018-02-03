@@ -76,7 +76,7 @@ automacro QuestionarioBruxo {
 
 automacro TestePraticoBruxoIniciar {
     InMap gef_tower
-    questActive 9017
+    QuestActive 9017
     exclusive 1
     call {
         if (&Invamount(503) >= 50) { 
