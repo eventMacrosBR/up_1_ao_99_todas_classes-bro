@@ -42,7 +42,7 @@ macro SetSaveIn {
         case (=~ /payon/i ) {
             do conf -f saveMap_wanted payon
             do conf -f saveMap_kafra_position 181 104
-            do conf -f saveMap_sellNpc_position payon_in01 5 49
+            do conf -f saveMap_sellNpc_position payon 159 96
             do conf buyAuto_1_npc payon_in01 5 49
         }
         case (=~ /geffen/i ) {
