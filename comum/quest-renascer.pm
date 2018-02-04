@@ -7,6 +7,7 @@ automacro chegueilvl99 {
     Zeny != 1285000
     Zeny != 0
     exclusive 1
+    timeout 60
     ConfigKey estagio_Reborn none
     macro_delay 2
     call {
