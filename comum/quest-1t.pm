@@ -17,7 +17,7 @@ automacro virandoClasse1tBugged {
 }
 
 automacro virandoClasse1t {
-    NotInMap $paramsQuestClasse1{mapa}
+    NotInMap $paramsQuestClasse1T{mapa}
     JobID 161,4001 #Aprendiz
     JobLevel 10
     SkillLevel NV_BASIC = 9
@@ -29,10 +29,10 @@ automacro virandoClasse1t {
         # $idequipiniciante tem como valor a id da arma que vc recebe quando vira classe 1
         do conf -f virandoClasse1T true
         do conf -f o_que_estou_fazendo virandoClasse1Trans
-        
-        do move $paramsQuestClasse1t{mapa} $paramsQuestClasse1t{npc} &rand(1,5)
-        do talknpc $paramsQuestClasse1t{npc} $paramsQuestClasse1t{sequenciaConversa}
-        $check = GetIndexAndEquipped("rightHand", "$paramsQuestClasse1t{equipeIniciante}")
+        log cidade: $paramsQuestClasse1T
+        do move $paramsQuestClasse1T{mapa} $paramsQuestClasse1T{npc} &rand(1,5)
+        do talknpc $paramsQuestClasse1T{npc} $paramsQuestClasse1T{sequenciaConversa}
+        $check = GetIndexAndEquipped("rightHand", "$paramsQuestClasse1T{equipeIniciante}")
         if ($check != -1) do eq $check
     }
 }
