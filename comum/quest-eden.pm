@@ -12,7 +12,6 @@ automacro seJuntarAoGrupoEden_MoverPerto {
     IsNotEquippedID armor 15031
     InInventoryID 15031 = 0
     ConfigKeyNot quest_eden em_curso
-    ConfigKeyNot virarArrauceiro true
     ConfigKeyNot in_saveMap_sequence true
     InInventoryID 2414 = 0 #sapatos de aprendiz
     exclusive 1
@@ -35,7 +34,6 @@ automacro seJuntarAoGrupoEden {
     InInventoryID 15031 = 0
     ConfigKeyNot membroDoEden sim
     ConfigKeyNot quest_eden em_curso
-    ConfigKeyNot virarArrauceiro true
     ConfigKeyNot in_saveMap_sequence true
     run-once 1
     exclusive 1
@@ -134,7 +132,7 @@ automacro inciandoQuestEden60MoverPerto {
     BaseLevel 60..69
     exclusive 1
     InInventoryID 22508 = 1 
-    JobID $paramsClasses{idC2}, $paramsClasses{idC2Alt}
+    JobID $paramsClasses{idC2}, $paramsClasses{idC2Alt}, $paramsClasses{idC2T}, $paramsClasses{idC2TAlt}
     QuestInactive 7214
     ConfigKeyNot In_saveMap_sequence true
     ConfigKeyNot quest_eden em_curso
