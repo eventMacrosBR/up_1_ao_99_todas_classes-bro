@@ -98,7 +98,7 @@ up_1_ao_99_todas_classes
 │   └── campo-de-aprendiz.pm              * Automacros que realizam o campo de treinamento
 │   └── quest-1.pm                        * Automacros que realizam a quest da classe 1
 │   └── quest-2.pm                        * Automacros que realizam a quest da classe 2
-│   └── quest-renascer.pm                 * Automacros que realizam a quest para renascer
+│   └── quest-renascer.pm                 * Automacros e parâmetros que realizam a quest para renascer
 │   └── quest-1t.pm                       * Automacros que realizam a quest da classe 1 Transclasse
 │   └── quest-2t.pm                       * Automacros que realizam a quest da classe 2 Transclasse
 │   └── quest-eden.pm                     * Automacros que realizam as quests de equipamentos do eden
@@ -117,6 +117,5 @@ up_1_ao_99_todas_classes
 │   │   └── quest-c-2T.pm                 * Parametros para quest da classe 2 Transclasse
 │   │   └── quest-c-3.pm                  * Parametros para quest da classe 3 (Ainda não é utilizado)
 │   │   └── quest-eden.pm                 * Parametros para quests do eden
-│   │   └── quest-renascer.pm             * Parametros para quest de renascer
 │   │   └── skills-e-itens.pm             * Configurações de itens e skills que serão utilizados durante o up
 ```
