@@ -276,7 +276,6 @@ automacro Eden40SalvarNaKafra {
     QuestActive 7147
     BaseLevel >= 50
     exclusive 1
-    ConfigKeyNot virarArrauceiro true
     ConfigKeyNot In_saveMap_sequence true
     ConfigKeyNot saveMap prontera
     call {
@@ -321,7 +320,6 @@ automacro Eden40IrNoMapa {
     QuestActive 7147
     BaseLevel >= 50
     exclusive 1
-    ConfigKeyNot virarArrauceiro true
     ConfigKeyNot In_saveMap_sequence true
     ConfigKey saveMap prontera
     call irNoMapa 'in_orcs01' '38' '175' '1023' '1686' '1273' #monstros: guerreiro orc, filhote de orc, senhora orc
