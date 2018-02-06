@@ -207,7 +207,7 @@ automacro inciandoQuestEden60 {
     BaseLevel 60..69
     exclusive 1
     InInventoryID 22508 = 1
-    JobID $paramsClasses{idC2}, $paramsClasses{idC2Alt}
+    JobID $paramsClasses{idC2}, $paramsClasses{idC2Alt}, $paramsClasses{idC2T}, $paramsClasses{idC2TAlt}
     QuestInactive 7214
     ConfigKeyNot In_saveMap_sequence true
     ConfigKeyNot quest_eden em_curso
