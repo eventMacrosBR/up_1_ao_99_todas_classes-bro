@@ -33,7 +33,7 @@ OBS: Colocamos a classe 3 para definir a linha de evolução a seguir pela macro
 ## Configurações Personalizadas
 Você pode gerar o script com algumas configurações customizadas modificando os seguintes arquivos:
 - Customizando a build e mapas de up: modifique o arquivo `classes/<classe-3>/config.pm`. Ex: Quero modificar a ordem das skills aprendidas por meu arruaceiro devo modificar o arquivo `classes/renegado/config.pm`
-- Quest de Renascimento: por padrão a quest de renascimento vem desativada, você pode ativá-la no arquivo `classes/<classe-3>/quest-renascer.pm`. Obs: É necessário informar o nome de um personagem para que o bot consiga passar os zennys extras para conseguir renascer.
+- Quest de Renascimento: por padrão a quest de renascimento vem desativada, você pode ativá-la no arquivo `comum/quest-renascer.pm`. Obs: É necessário informar o nome de um personagem para que o bot consiga passar os zennys extras para conseguir renascer.
 - Customizando skills e itens utilizaveis: Você pode modificar os itens e skills que seu bot vai utilizar para caçar criando blocos de automacro em `classes/<classe-3>/skills-e-itens.pm`
 
 ## Plugins
