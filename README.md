@@ -64,7 +64,7 @@ Para a macro funcionar corretamente é necessária a instalação dos seguintes 
 |![alt bardo](http://browiki.org/images/5/5c/Bardospartyicn.png)                    |Quest Bardo         |Aguardando desenvolvimento|
 |![alt bruxo](http://browiki.org/images/f/fc/Bruxospartyicn.png)                    |Quest Bruxo         |Em desenvolvimento        |
 |![alt caçador](http://browiki.org/images/2/21/Ca%C3%A7adorespartyicn.png)          |Quest Caçador       |Aguardando desenvolvimento|
-|![alt cavaleiro](http://browiki.org/images/3/35/Cavaleirospartyicn.png)            |Quest Cavaleiro     |Aguardando desenvolvimento|
+|![alt cavaleiro](http://browiki.org/images/3/35/Cavaleirospartyicn.png)            |Quest Cavaleiro     |Funcionando               |
 |![alt ferreiro](http://browiki.org/images/8/8d/Ferreirospartyicn.png)              |Quest Ferreiro      |Em desenvolvimento        |
 |![alt mercenario](http://browiki.org/images/3/3f/Mercen%C3%A1riospartyicn.png)     |Quest Mercenário    |Aguardando desenvolvimento|
 |![alt monge](http://browiki.org/images/0/02/Mongespartyicn.png)                    |Quest Monge         |Em desenvolvimento        |

@@ -3,7 +3,7 @@
 git fetch --unshallow
 
 jobs=("arcano" "arcebispo" "bioquimico" "cavaleiro-runico" "feiticeiro" "guardiao-real" "mecanico" "musa" "renegado" "sentinela" "sicario" "shura" "trovador")
-jobs_ok=(" arcebispo bioquimico guardiao-real renegado ")
+jobs_ok=(" arcebispo bioquimico guardiao-real renegado cavaleiro-runico ")
 mkdir dist
 for i in "${jobs[@]}"; do
     pwsh -File auxiliarGui.ps1 -job "$i"
