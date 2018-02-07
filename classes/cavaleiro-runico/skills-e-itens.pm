@@ -38,6 +38,7 @@ automacro configurarVigor {
         do conf useSelf_skill_0_timeout 10
     }
 }
+
 automacro pegarPeco_irAteNpc {
     SkillLevel KN_CAVALIERMASTERY = 5
     exclusive 1
@@ -46,7 +47,7 @@ automacro pegarPeco_irAteNpc {
     Zeny >= 3500
     priority -3
     call {
-    do move prontera 50 341 &rand(3,7)
+        do move prontera 50 341 &rand(3,7)
     }
 }
 
