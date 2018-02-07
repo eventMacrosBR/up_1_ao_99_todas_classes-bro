@@ -41,7 +41,7 @@ automacro configurarVigor {
 automacro pegarPeco_irAteNpc {
     SkillLevel KN_CAVALIERMASTERY = 5
     exclusive 1
-    StatusInactiveHandle EFFECTSTATE_CHICKEN
+    StatusInactiveHandle EFST_RIDING
     NpcNotNear /Criador de Pecopecos/
     Zeny >= 3500
     priority -3
@@ -53,7 +53,7 @@ automacro pegarPeco_irAteNpc {
 automacro pegarPeco {
     SkillLevel KN_CAVALIERMASTERY = 5
     exclusive 1
-    StatusInactiveHandle EFFECTSTATE_CHICKEN
+    StatusInactiveHandle EFST_RIDING
     NpcNear /Criador de Pecopecos/
     priority -3
     Zeny >= 3500
