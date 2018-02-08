@@ -294,9 +294,10 @@ macro objetivoCompleto {
     log cheguei em $.InMapLast , objetivo completo
     do conf aeroplano2 none
     do conf aeroplano1 none
+    do conf aeroplano_macroChamada none
     do ai on
-    call SetSaveIn "$.InMapLast"
     do conf -f o_que_estou_fazendo acabeiDeChegarNaCidadeViaAeroplano
+    call SetSaveIn "$.InMapLast"
 }
 
 automacro chegueiEmJuno {

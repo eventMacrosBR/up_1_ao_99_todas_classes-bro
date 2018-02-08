@@ -48,7 +48,29 @@ macro upar {
     } else {
         call pararDeAtacar
         do conf lockMap none
-        call SetSaveIn "$mapa{saveMap}"
+        
+        #AS ÚNICAS OPÇÕES DIFERENCIADAS SÃO RACHEL E EINBROCH, SE VC QUER INVENTAR
+        #MODA E IR UPAR EM HUGEL OU LIGHTHALZEN, VAI MANUALMENTE PORQUE EU NAO
+        #TO COM PACIENCIA
+        switch ($mapa{saveMap}) {
+            case (~ rachel,veins) {
+                if ($.map =~ /^ra|^ve|^aru/) {
+                    call SetSaveIn "$mapa{saveMap}"
+                } else {
+                    call junopra "$mapa{saveMap}"
+                }
+            }
+            case (= einbroch) {
+                if ($.map =~ /^ein|^lhz/) {
+                    call SetSaveIn "$mapa{saveMap}"
+                } else {
+                    call junopra "$mapa{saveMap}"
+                }
+            } 
+            else {
+                call SetSaveIn "$mapa{saveMap}"
+            }
+        }
     }
 }
 
