@@ -52,25 +52,26 @@ macro upar {
         #AS ÚNICAS OPÇÕES DIFERENCIADAS SÃO RACHEL E EINBROCH, SE VC QUER INVENTAR
         #MODA E IR UPAR EM HUGEL OU LIGHTHALZEN, VAI MANUALMENTE PORQUE EU NAO
         #TO COM PACIENCIA
-        switch ($mapa{saveMap}) {
-            case (~ rachel,veins) {
-                if ($.map =~ /^ra|^ve|^aru/) {
-                    call SetSaveIn "$mapa{saveMap}"
-                } else {
-                    call junopra "$mapa{saveMap}"
-                }
-            }
-            case (= einbroch) {
-                if ($.map =~ /^ein|^lhz/) {
-                    call SetSaveIn "$mapa{saveMap}"
-                } else {
-                    call junopra "$mapa{saveMap}"
-                }
-            } 
-            else {
+
+        if ($mapa{saveMap} ~ rachel,veins) {
+            if ($.map =~ /^ra|^ve|^aru/) {
                 call SetSaveIn "$mapa{saveMap}"
+            } else {
+                call junopra "$mapa{saveMap}"
             }
+            stop
         }
+        
+        if ($mapa{saveMap} = einbroch) {
+            if ($.map =~ /^ein|^lhz/) {
+                call SetSaveIn "$mapa{saveMap}"
+            } else {
+                call junopra "$mapa{saveMap}"
+            }
+            stop
+        }
+        
+        call SetSaveIn "$mapa{saveMap}"
     }
 }
 
