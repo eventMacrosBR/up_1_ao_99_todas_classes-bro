@@ -1,21 +1,17 @@
 ### Instalação e configuração do xconf
 sub xConfConfiguratedOrNot {
-    use File::Copy;
     
     my ($estaAtualizado, $estaNaPasta, $estaNoSys);
     my $path_xconf_na_pasta_plugins = "plugins/xConf/xConf.pl";
-    my $path_xconf_na_pasta_needsreview = "plugins/needs-review/xconf/trunk/xconf.pl";
     
     unlink "plugins/xConf.pl" if -e "plugins/xConf.pl";
     
     if (-e $path_xconf_na_pasta_plugins) {
         $estaNaPasta = 1;
-        $estaAtualizado = 1
     } else {
-        error "Seu openkore está desatualizado, atualize-o.\n";
-        error "Devido a isso o plugin xConf poderá não funcionar corretamente\n.";
-        $estaNaPasta = 0;
-        $estaAtualizado = 0;
+        error "Plugin xConf não está na pasta plugins\n";
+        error "Por favor baixe o openkore novamente\n";
+        Misc::offlineMode();
     }
     
     my $controlfile = Settings::getSysFilename();
@@ -25,14 +21,14 @@ sub xConfConfiguratedOrNot {
     chomp @lines;
     foreach my $line (@lines) {
         next if $line =~ /^$/ || $line =~ /^#/;
-        if ($line =~ /xconf/ ) {
+        if ($line =~ /xconf/i ) {
             $estaNoSys = 1;
         }
     }
-    if ( $estaNoSys == 0) {
+    if ( !$estaNoSys ) {
         foreach my $line (@lines) {
             next if $line =~ /^$/ || $line =~ /^#/;
-            if ($line =~ /loadPlugins_list\s(.*)/ ) {
+            if ($line =~ /loadPlugins_list\s+(.*)/ ) {
                 $line = 'loadPlugins_list '.join (',',$1,"xConf");
             }
         }
@@ -42,13 +38,12 @@ sub xConfConfiguratedOrNot {
         $estaNoSys = 0;
     }
     debug ("esta na pasta: ". ($estaNaPasta ? "sim\n" : "nao\n"));
-    debug ("esta atualizado: ". ($estaAtualizado ? "sim\n" : "nao\n"));
     debug ("esta no sys: ". ($estaNoSys ? "sim\n" : "nao\n"));
     
-    if ($estaNaPasta && $estaNoSys && $estaAtualizado) {
-        message "Checando algumas coisas...\nTudo certo.\n";
-    } elsif ($estaNaPasta && not $estaNoSys) {
-         message "Ativando xConf\n";
+    if ($estaNaPasta && $estaNoSys) {
+        message "Checando plugin xConf...\nTudo certo.\n";
+    } elsif ($estaNaPasta && !$estaNoSys) {
+        message "Ativando xConf\n";
         Commands::run("plugin load plugins/xConf/xConf.pl");
     }
 }
@@ -130,7 +125,7 @@ sub BetterShopperConfiguratedOrNot {
     debug ("esta na pasta: ". ($estaNaPasta ? "sim\n" : "nao\n"));
     debug ("esta no sys: ". ($estaNoSys ? "sim\n" : "nao\n"));
     if ($estaNaPasta && $estaNoSys) {
-        message "Checando algumas coisas...\nTudo certo.\n";
+        message "Checando plugin BetterShopper...\nTudo certo.\n";
     }
     else {
         message "Ativando BetterShopper\n";
