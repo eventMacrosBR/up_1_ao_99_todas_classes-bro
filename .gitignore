@@ -4,6 +4,7 @@ eventMacros.txt
 .vstags
 #distribution folder
 dist/
-#bat que eu uso pra dar git fetch e pull mais rápido
+#bat que eu uso pra dar git fetch e pull mais rï¿½pido
 atualizarRepositorio.bat
+submodules/plugins/*
 
