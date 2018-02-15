@@ -1,7 +1,6 @@
 [submodule "henrybk-plugins"]
     path = submodules/plugins/henrybk-plugins
     url = https://github.com/Henrybk/Plugins
-
 [submodule "andyfoss-plugins"]
     path = submodules/plugins/andyfoss-plugins
     url = https://github.com/andyfoss/plugins-openkore
