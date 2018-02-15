@@ -6,5 +6,5 @@ eventMacros.txt
 dist/
 #bat que eu uso pra dar git fetch e pull mais r�pido
 atualizarRepositorio.bat
-submodules/plugins/*
+submodules/*
 
