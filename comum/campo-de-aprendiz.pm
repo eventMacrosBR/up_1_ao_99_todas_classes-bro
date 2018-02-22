@@ -522,7 +522,7 @@ automacro talkBradeonGroundsGetQuest {
     call {
         do talk $.NpcNearLastBinId
         do conf route_randomWalk 1
-        do conf itemsTakeAuto 2
+        do conf itemsTakeAuto 1
         $potName = GetNamenyNameID(569)
         do conf useSelf_item_0 $potName
         do conf useSelf_item_0_disabled 0
