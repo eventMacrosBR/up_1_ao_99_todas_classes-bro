@@ -49,7 +49,7 @@ automacro VirarSacer_FalarComBispo {
     QuestInactive 8013
     QuestInactive 8014
     QuestInactive 8015
-    NpcNear /Bispo da Guilda/
+    NpcNear /Bispo/
     exclusive 1
     call {
         do talknpc 16 41 r0 r0 r0  #Bispo da Guilda
