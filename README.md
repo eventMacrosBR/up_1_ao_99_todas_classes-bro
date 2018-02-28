@@ -5,12 +5,13 @@
 Índice
 -----------------
 - [Referências](#referências)
-- [Download](#download-para-preguiçosos)
-- [Instruções](#instruções)
+- [Link de Download](#link-de-download)
+- [Instruções de Instalação](#instruções-de-instalação)
 - [Configurações Customizadas](#configurações-personalizadas)
 - [Plugins](#plugins)
 - [Agradecimentos](#agradecimentos)
 - [Funcionalidades](#funcionalidades)
+- [Para Desenvolvedores](#para-desenvolvedores)
 - [Estrutura de Arquivos](#estrutura-de-arquivos)
 
 
@@ -20,19 +21,19 @@
 - [bROWiki](http://browiki.org/wiki/P%C3%A1gina_principal)
 - [Grupo de discussão no Gitter](https://gitter.im/eventMacro-up-todas-as-classes/Lobby)
 
-## Download para preguiçosos
-Caso não queira gerar através de script o repositório já disponibiliza o eventMacros.txt de todas as classes montados em: 
+## Link de Download
+O repositório já disponibiliza o eventMacros.txt de todas as classes montados em: 
 [Releases ![](https://png.icons8.com/metro/16/000000/download.png)](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/releases)
+## Instruções de Instalação
+1. Clique no link de download [(Ou aqui, dá no mesmo)](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/releases)
+2. Lá terá uma lista com um link para a eventMacro de cada classe. Escolha a classe desejada e clique nela.
+3. Após baixar, descompacte-o. Mova o arquivo **eventMacros.txt** para dentro da pasta control de seu bot.
+4. Seja Feliz :D
 
-## Instruções
-1. Execute o script (geradorEventMacros-plataforma, onde plataforma = seu sistema operacional) para gerar o arquivo eventMacros.txt informando a classe desejada*
-2. Cole esse arquivo em sua pasta control do openkore
-3. Inicie o openkore & have fun!
-OBS: Colocamos a classe 3 para definir a linha de evolução a seguir pela macro
+Obs: Colocamos o nome da classe 3 para definir a linha de evolução a seguir pela macro, porém ela **NÃO UPA CLASSE 3.**
 
 ## Configurações Personalizadas
-Você pode gerar o script com algumas configurações customizadas modificando os seguintes arquivos:
-- Customizando a build e mapas de up: modifique o arquivo `classes/<classe-3>/config.pm`. Ex: Quero modificar a ordem das skills aprendidas por meu arruaceiro devo modificar o arquivo `classes/renegado/config.pm`
+
 - Quest de Renascimento: por padrão a quest de renascimento vem desativada, você pode ativá-la no arquivo `comum/quest-renascer.pm`. Obs: É necessário informar o nome de um personagem para que o bot consiga passar os zennys extras para conseguir renascer.
 - Customizando skills e itens utilizaveis: Você pode modificar os itens e skills que seu bot vai utilizar para caçar criando blocos de automacro em `classes/<classe-3>/skills-e-itens.pm`
 
@@ -82,7 +83,20 @@ Para a macro funcionar corretamente é necessária a instalação dos seguintes 
 |![alt classe 2](http://browiki.org/images/8/8f/Lordespartyicn.png)                 |Quest Classe 2 T.   |Testando                  |
 |![alt classe 3](http://browiki.org/images/7/7c/Cavaleiros_R%C3%BAnicospartyicn.png)|Quest Classe 3      |Aguardando desenvolvimento|
 
-# Estrutura de Arquivos
+# Para Desenvolvedores
+
+### Instruções ao clonar o repositório
+1. Execute o script (geradorEventMacros-plataforma, onde plataforma = seu sistema operacional) para gerar o arquivo eventMacros.txt informando a classe desejada*
+2. Cole esse arquivo em sua pasta control do openkore
+3. Inicie o openkore & have fun!
+OBS: Colocamos a classe 3 para definir a linha de evolução a seguir pela macro, mas ela ainda não faz a classe 3
+
+### Personalizações
+
+Você pode gerar o script com algumas configurações customizadas modificando os seguintes arquivos:
+- Customizando a build e mapas de up: modifique o arquivo `classes/<classe-3>/config.pm`. Ex: Quero modificar a ordem das skills aprendidas por meu arruaceiro devo modificar o arquivo `classes/renegado/config.pm`
+
+### Estrutura de Arquivos
 -----------------------
 ```
 up_1_ao_99_todas_classes
