@@ -1,6 +1,8 @@
 #!/bin/bash
 
 git fetch --unshallow
+git checkout -b master
+git submodule update --init --recursive
 
 jobs=("arcano" "arcebispo" "bioquimico" "cavaleiro-runico" "feiticeiro" "guardiao-real" "mecanico" "musa" "renegado" "sentinela" "sicario" "shura" "trovador")
 jobs_ok=(" arcebispo bioquimico guardiao-real renegado cavaleiro-runico ")
@@ -14,15 +16,10 @@ for i in "${jobs[@]}"; do
     pwsh -File auxiliarGui.ps1 -job "$i"
     if [[ " {$jobs_ok[@]} " =~ " $i " ]]; then
         zip_file="$i.funcionando.zip"
-    else 
+    else
         zip_file="$i.nao_testado.zip"
-    fi    
+    fi
     zip -r $zip_file eventMacros.txt plugins
-    mv $zip_file dist/ 
+    mv $zip_file dist/
 done
-
-
-
-
-
 
