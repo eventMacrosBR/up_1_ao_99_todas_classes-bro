@@ -8,7 +8,7 @@ plugins=("henrybk-plugins/BetterShopper" "andyfoss-plugins/by_me/runFromMonster"
 mkdir dist
 mkdir plugins
 for i in "${plugins[@]}"; do
-    cp -r submodule/$i plugins
+    cp -r submodules/$i plugins/
 done
 for i in "${jobs[@]}"; do
     pwsh -File auxiliarGui.ps1 -job "$i"
