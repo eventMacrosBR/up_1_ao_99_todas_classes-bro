@@ -138,7 +138,7 @@ automacro TestePraticoBruxoSaladeEspera {
 
 automacro FinalizandoVirarBruxo {
     InMap gef_tower
-    questActive 9018
+    QuestActive 9018
     configKey testepraticobruxo concluido
     exclusive 1
     call {
