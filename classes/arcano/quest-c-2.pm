@@ -8,7 +8,7 @@ sub initParamsQuestClasse2 {
 
 automacro InicioVirarBruxo {
     JobLevel = 50
-    InMapNot gef_tower
+    NotInMap gef_tower
     exclusive 1
     call {
 
