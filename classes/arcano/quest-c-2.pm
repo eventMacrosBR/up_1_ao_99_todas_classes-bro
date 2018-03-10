@@ -92,7 +92,7 @@ automacro TestePraticoBruxoIniciar {
 }
 
 automacro TestePraticoBruxoSaladeEspera {
-    npcNear Sala de Espera
+    NpcNear /Sala de Espera/
     exclusive 1
     InMap #Nome do mapa, confirmar depois
     call {
