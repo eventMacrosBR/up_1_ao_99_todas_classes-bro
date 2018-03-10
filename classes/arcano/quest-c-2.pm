@@ -41,36 +41,37 @@ automacro QuestionarioBruxo {
         do talk &npc(102 24)
         do talk resp 1
         
-        switch() {#deixo com vocês tem que ver qual das 3 sequencias o npc vai seguir,da para adaptar a sub da de alquimista,mas como falei não sou bom com sub
-            
-            case() {
-                #Qual dos atributos a seguir é o mais importante para um Mago?
-                do talk resp 0
-                do talk resp 1
-                do talk resp 2
-                do talk resp 1
-                do talk resp 3
-                do talk resp 3
-                do talk resp 1
-                do talk resp 0
-                do talk resp 1
-            }
-            case() {
-                #De que monstro você pode obter uma Vembrassa com Slot?
-                do talk resp 2
-                do talk resp 0
-                do talk resp 1
-                do talk resp 3
-                do talk resp 0
-                do talk resp 1
-                do talk resp 3
-                do talk resp 3
-                do talk resp 2
-            }
-            case() {
-                #Qual das habilidades a seguir não é necessária para aprender Barreira de Fogo? Não achei a ordem dos dialogos infelizmente
-            }
-        }
+        #TODO Utilizar a lógica de respostas por expressão regular que é mais simples que esse switch doido 
+        #switch() {#deixo com vocês tem que ver qual das 3 sequencias o npc vai seguir,da para adaptar a sub da de alquimista,mas como falei não sou bom com sub
+        #    
+        #    case() {
+        #        #Qual dos atributos a seguir é o mais importante para um Mago?
+        #        do talk resp 0
+        #        do talk resp 1
+        #        do talk resp 2
+        #        do talk resp 1
+        #        do talk resp 3
+        #        do talk resp 3
+        #        do talk resp 1
+        #        do talk resp 0
+        #        do talk resp 1
+        #    }
+        #    case() {
+        #        #De que monstro você pode obter uma Vembrassa com Slot?
+        #        do talk resp 2
+        #        do talk resp 0
+        #        do talk resp 1
+        #        do talk resp 3
+        #        do talk resp 0
+        #        do talk resp 1
+        #        do talk resp 3
+        #        do talk resp 3
+        #        do talk resp 2
+        #    }
+        #    case() {
+        #        #Qual das habilidades a seguir não é necessária para aprender Barreira de Fogo? Não achei a ordem dos dialogos infelizmente
+        #    }
+        #}
     }  
 }
 
