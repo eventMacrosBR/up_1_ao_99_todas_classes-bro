@@ -104,7 +104,7 @@ macro termineiQuestClasse2Manualmente {
     do conf virarClasse2 none
 }
 
-macro terminei QuestClasse2TManualmente {
+macro termineiQuestClasse2TManualmente {
     do conf virarClasse2T none
 }
 
