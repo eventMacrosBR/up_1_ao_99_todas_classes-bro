@@ -121,3 +121,28 @@ macro rebornarAgora {
          log Não tem as condições necessárias para rebornar
     }
 }
+
+macro ajuda {
+    [
+    log ==========================
+    log Menu de ajuda da Macro
+    log ==========================
+    log Comandos em caso de bug em alguma quest:
+    log     eventMacro macro termineiQuestEdenManualmente
+    log     eventMacro macro termineiQuestSkillManualmente
+    log     eventMacro macro termineiQuestClasse2Manualmente
+    log     eventMacro macro termineiQuestClasse2TManualmente
+    log Comando para caso de problema com rota
+    log     eventMacro macro reloadPortals
+    log Comando para controlar o modo de ataque do bot
+    log     eventMacro macro pararDeAtacar
+    log     eventMacro macro pararDeAtacarApenasCorrer
+    log     eventMacro macro voltarAtacar
+    log Comandos para utilizar o Aeroplano
+    log     eventMacro macro junopra izlude|rachel|hugel|lighthalzen|einbroch
+    log     eventMacro macro einbrochpra izlude|rachel|hugel|lighthalzen|juno
+    log     eventMacro macro rachelpra izlude|hugel|lighthalzen|juno|einbroch
+    log Comando para debug
+    log     eventMacro status
+    ]
+}
