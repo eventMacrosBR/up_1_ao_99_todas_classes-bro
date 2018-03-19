@@ -9,7 +9,7 @@ automacro versao {
         log   Versão: <versao>
         log   https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro 
         log   Em caso de duvidas digite:
-        log   eventMacro macro ajuda
+        log   eventMacro ajuda
         log ================================================================= 
         ]
         do conf -f versao_eventmacro_up_todas_as_classes_bro <versao>
