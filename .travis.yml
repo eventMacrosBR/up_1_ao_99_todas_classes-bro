@@ -25,7 +25,7 @@ before_deploy:
       # Set up git user name and tag this commit
       - git config --local user.name "EventMacrosBR"
       - git config --local user.email "noreply@noreply.org"
-      - git tag "$(git rev-list --count master).$(git log --format=%h -1)" -m"Macros com final nao_testado NÃO fazem a quest da classe 2, NÃO atacam a distancia, NÃO compram munição, NÃO equipam munição, e SEMPRE bugam em alguma parte."
+      - git tag "$(git rev-list --count master).$(git log --format=%h -1)"
 deploy:
   provider: releases
   api_key: 

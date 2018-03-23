@@ -104,7 +104,7 @@ macro termineiQuestClasse2Manualmente {
     do conf virarClasse2 none
 }
 
-macro terminei QuestClasse2TManualmente {
+macro termineiQuestClasse2TManualmente {
     do conf virarClasse2T none
 }
 
@@ -120,4 +120,29 @@ macro rebornarAgora {
     } else {
          log Não tem as condições necessárias para rebornar
     }
+}
+
+macro ajuda {
+    [
+    log ==========================
+    log Menu de ajuda da Macro
+    log ==========================
+    log Comandos em caso de bug em alguma quest:
+    log     eventMacro termineiQuestEdenManualmente
+    log     eventMacro termineiQuestSkillManualmente
+    log     eventMacro termineiQuestClasse2Manualmente
+    log     eventMacro termineiQuestClasse2TManualmente
+    log Comando para caso de problema com rota
+    log     eventMacro reloadPortals
+    log Comando para controlar o modo de ataque do bot
+    log     eventMacro pararDeAtacar
+    log     eventMacro pararDeAtacarApenasCorrer
+    log     eventMacro voltarAtacar
+    log Comandos para utilizar o Aeroplano
+    log     eventMacro junopra izlude|rachel|hugel|lighthalzen|einbroch
+    log     eventMacro einbrochpra izlude|rachel|hugel|lighthalzen|juno
+    log     eventMacro rachelpra izlude|hugel|lighthalzen|juno|einbroch
+    log Comando para debug
+    log     eventMacro status
+    ]
 }
