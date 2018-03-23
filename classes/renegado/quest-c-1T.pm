@@ -1,8 +1,7 @@
 sub initParamsQuestClasse1T {
     my %paramsQuestClasse1T = (
-        npc => '42 133',
+        npc => '39 129',
         mapa => 'moc_prydb1',
-        precisaMover => 'sim',
         sequenciaConversa => '',
         equipeIniciante => 13041
     );
