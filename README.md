@@ -75,7 +75,7 @@ Para a macro funcionar corretamente é necessária a instalação dos seguintes 
 |![alt templario](http://browiki.org/images/8/8e/Templ%C3%A1riospartyicn.png)       |Quest Templário     |Funcionando               |
 |![alt renascimento](http://browiki.org/images/c/c7/Bt_quest.png)                   |Quest Renascimento  |Funcionando               |
 |![alt espadachim t](http://browiki.org/images/7/77/Espadachinspartyicn.png)        |Quest Espadachim T. |Testando                  |
-|![alt gatuno t](http://browiki.org/images/0/01/Gatunospartyicn.png)                |Quest Gatuno T.     |Testando                  |
+|![alt gatuno t](http://browiki.org/images/0/01/Gatunospartyicn.png)                |Quest Gatuno T.     |Funcionando                  |
 |![alt mercador t](http://browiki.org/images/c/c0/Mercadorespartyicn.png)           |Quest Mercador T.   |Testando                  |
 |![alt mago t](http://browiki.org/images/0/09/Magospartyicn.png)                    |Quest Mago T.       |Testando                  |
 |![alt novico t](http://browiki.org/images/e/e3/Novi%C3%A7ospartyicn.png)           |Quest Noviço T.     |Testando                  |
