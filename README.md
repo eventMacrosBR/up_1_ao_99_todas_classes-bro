@@ -12,7 +12,9 @@
 - [Agradecimentos](#agradecimentos)
 - [Funcionalidades](#funcionalidades)
 - [Para Desenvolvedores](#para-desenvolvedores)
-- [Estrutura de Arquivos](#estrutura-de-arquivos)
+   - [Personalizações](#personalizações)
+   - [Estrutura de Arquivos](#estrutura-de-arquivos)
+   - [Instruções ao clonar o repositório](#instruções-ao-clonar-o-repositório)
 
 
 ## Referências
@@ -97,7 +99,6 @@ Você pode gerar o script com algumas configurações customizadas modificando o
 - Customizando a build e mapas de up: modifique o arquivo `classes/<classe-3>/config.pm`. Ex: Quero modificar a ordem das skills aprendidas por meu arruaceiro devo modificar o arquivo `classes/renegado/config.pm`
 
 ### Estrutura de Arquivos
------------------------
 ```
 up_1_ao_99_todas_classes
 ├── README.md                             * Este arquivo
