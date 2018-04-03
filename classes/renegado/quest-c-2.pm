@@ -1,9 +1,9 @@
-sub initParamsQuestClasse2 {
-    Commands::run("iconf 510 7 1 0" ); #ervaAzul
-    Commands::run("iconf 957 10 1 0"); #unhaApodrecida
-    Commands::run("iconf 932 10 1 0"); #osso
-    Commands::run("iconf 958 10 1 0"); #mandibula
-    Commands::run("conf -f questc2_implementada true");
+macro initParamsQuestClasse2 {
+    do iconf 510 7 1 0 #ervaAzul
+    do iconf 957 10 1 0 #unhaApodrecida
+    do iconf 932 10 1 0 #osso
+    do iconf 958 10 1 0 #mandibula
+    do conf -f questc2_implementada true
 }
 
 #From- Macro Quest Arruaceiro 2.0

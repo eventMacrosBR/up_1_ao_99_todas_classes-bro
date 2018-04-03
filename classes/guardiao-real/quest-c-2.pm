@@ -1,9 +1,9 @@
-sub initParamsQuestClasse2 {
-    Commands::run("iconf 523 1 1 0"  ); #Água Benta
-    Commands::run("iconf 930 10 1 0" ); #Bandagem Estragada
-    Commands::run("iconf 1041 10 1 0"); #Lampião
-    Commands::run("iconf 2608 1 1 0" ); #Rosário 
-    Commands::run("conf -f questc2_implementada true");
+macro initParamsQuestClasse2 {
+    do iconf 523 1 1 0 #Água Benta
+    do iconf 930 10 1 0 #Bandagem Estragada
+    do iconf 1041 10 1 0 #Lampião
+    do iconf 2608 1 1 0 #Rosário 
+    do conf -f questc2_implementada true
 }
 
 automacro virarTemplario_Começo_irAoNpc {

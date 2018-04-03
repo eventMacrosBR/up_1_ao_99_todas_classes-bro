@@ -1,5 +1,5 @@
-sub initParamsQuestClasse2 {
-    Commands::run("conf -f questc2_implementada true");
+macro initParamsQuestClasse2 {
+    do conf -f questc2_implementada true
 }
 #Virar Sacer
 #sacer nescessario job 50
