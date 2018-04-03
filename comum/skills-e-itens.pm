@@ -2,6 +2,7 @@ automacro configurarPotLaranja {
     InInventoryID 569 < 1 #Poção de Aprendiz (não pode ter essa poção)
     InStorageID 569 < 1 #Poção de Aprendiz (não pode ter essa poção)
     Zeny > 30000
+    BaseLevel != 99
     ConfigKeyNot useSelf_item_0 Poção de Aprendiz #só se ativa quando nao ta usando mais pot aprendiz
     ConfigKeyNot useSelf_item_0 Poção Laranja
     exclusive 1

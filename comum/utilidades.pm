@@ -2,6 +2,7 @@ automacro ConfigEstáErrada {
     exclusive 1
     overrideAI 1
     priority -5
+    ConfigKey estagio_Reborn none
     ConfigKeyNot autoTalkCont 1
     call {
         log Tem uma config que está errada
@@ -23,6 +24,7 @@ macro pararDeAtacar {
 automacro reloadPortals {
     exclusive 1
     timeout 300
+    ConfigKey estagio_Reborn none
     JobIDNot 0
     call {
         do reload portals
