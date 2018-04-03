@@ -68,6 +68,7 @@ automacro habilitarNovamentePotLaranja {
     ConfigKeyNot buyAuto_1_disabled 0
     JobID $paramsClasses{idC2}
     ConfigKeyNot quest_skill true
+    BaseLevel != 99
     exclusive 1
     call {
         [

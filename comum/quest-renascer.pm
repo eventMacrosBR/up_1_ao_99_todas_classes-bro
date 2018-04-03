@@ -1,7 +1,12 @@
 sub initParamsQuestClasseRenascer {
     my %paramsQuestClasseRenascer = (
         renascer => 'nao',
-        amigo => ''
+        amigo => '',
+        #observação sobre o ponto de encontro:
+        #só poderá ser as coordenadas, não coloque nome de cidade aqui, senão é treta
+        #a cidade sempre será obrigatoriamente em juno, já que o reborn se passa por lá
+        #altere a coordenada a seu prazer, fique a vontade
+        pontoDeEncontro => '146 116'
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
     $eventMacro->set_full_hash('paramsQuestClasseRenascer', \%paramsQuestClasseRenascer);
@@ -90,6 +95,25 @@ automacro chegueilvl99 {
     }
 }
 
+automacro salvarNaCidadeQueVouUpar_definirVariável {
+    ConfigKey estagio_Reborn preparando
+    exclusive 1
+    priority -10 #prioridade mais alta
+    run-once 1
+    call {
+        #essa automacro tem por objetivo, salvar seu personagem
+        #na cidade em que ele vai upar quando tiver lvl 1 renascido
+        #evita problemas de o char lvl 1 morrer e voltar pra juno
+        #sem dinheiro pra ir pro mapa certo
+        pega o mapa do lvl 1
+        extrairMapasDeUp(1)
+        $mapaQueVouUparNolvl1 = $mapa{saveMap}
+        if (&config(saveMap) != $mapaQueVouUparNolvl1) {
+            call SetSaveIn "$mapaQueVouUparNolvl1"
+        }
+    }
+}
+
 automacro chamarAmigo {
     exclusive 1
     timeout 180
@@ -97,6 +121,7 @@ automacro chamarAmigo {
     ConfigKey estagio_Reborn preparando
     Zeny != 1285000
     Zeny != 0
+    ConfigKey saveMap $mapaQueVouUparNolvl1
     CharCurrentWeight != 0
     CheckOnAI auto,manual
     BaseLevel = 99
@@ -140,17 +165,17 @@ automacro irNoLocalPraNegociar {
     exclusive 1
     timeout 30
     call {
+        conf dealAuto 0
         $vezesQuePediPraVir++
         if ($vezesQuePediPraVir > 2) {
             do pm "$paramsQuestClasseRenascer{amigo}" vou ficar spammando isso ate vc chegar perto de mim
-            do pm "$paramsQuestClasseRenascer{amigo}" vem em juno 146 116
+            do pm "$paramsQuestClasseRenascer{amigo}" vem em juno $paramsQuestClasseRenascer{pontoDeEncontro}
         }
         
-        do pm "$paramsQuestClasseRenascer{amigo}" me ajuda a rebornar, vem aqui em
-        do pm "$paramsQuestClasseRenascer{amigo}" juno 146 116
+        do pm "$paramsQuestClasseRenascer{amigo}" vem aqui em juno $paramsQuestClasseRenascer{pontoDeEncontro}
         do pm "$paramsQuestClasseRenascer{amigo}" quando chegar, negocia comigo
         #movendo pra local especifico
-        do move yuno &rand(145,147) &rand(115,117)
+        do move yuno $paramsQuestClasseRenascer{pontoDeEncontro} &rand(1,2)
     }
 }
 
@@ -158,12 +183,17 @@ automacro amigoPerto_pedindoPraDarTrade {
     CharCurrentWeight 0
     Zeny != 1285000
     ConfigKey estagio_Reborn preparando
+    InMap yuno
     IsInMapAndCoordinate yuno 145..147 115..117 #lugar pra negociar
     PlayerNear /$paramsQuestClasseRenascer{amigo}/
     timeout 30
     call {
         do conf -f o_que_estou_fazendo tentandoRebornar_esperandoNegociação
-        do pm "$paramsQuestClasseRenascer{amigo}" ow, negocia comigo aew, to esperando
+        if ($.PlayerNearLastDistance > 3) {
+            do pm "$paramsQuestClasseRenascer{amigo}" ow, negocia comigo aew, to esperando
+        } else { 
+            do deal &player($paramsQuestClasseRenascer{amigo})
+        }
     }
 }
 
@@ -185,14 +215,12 @@ automacro DandoOuReceBendoZeny {
             #se o zeny atual for maior que 1285000, vc dá o excedente pro mercador
             do deal add z $zenyPraDar
             do pm "$paramsQuestClasseRenascer{amigo}" coloquei o zeny, finaliza ai
-            pause 2
-            do deal
         } else {
             #se o zeny atual for menor que 1285000, vc manda pro mercador via pm quanto mais precisa
             $zenyQuePreciso = &eval(1285000 - $.zeny)
             do pm "$paramsQuestClasseRenascer{amigo}" preciso da quantia de exatamente $zenyQuePreciso zenys
-            do deal
         }
+        do deal
     }
 }
 
