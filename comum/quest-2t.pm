@@ -16,29 +16,18 @@ automacro iniciarQuestClasse2T_Bugged {
     }
 }
 
-
-automacro iniciarQuestClasse2T {
-    exclusive 1
-    JobID $paramsClasses{idC1T} 
-    JobLevel = 50
-    FreeSkillPoints = 0
-    call {
-        call pararDeAtacar
-        do conf lockMap none
-        do conf -f virarClasse2T true
-        do conf -f o_que_estou_fazendo virandoClasse2T
-        do move yuno_in02 &rand(86,90) &rand(162,166)
-    }
-}
-
-automacro falarComMetheus {
+automacro falarComLivro_estaLonge {
     exclusive 1
     JobID $paramsClasses{idC1T} 
     JobLevel = 50
     FreeSkillPoints = 0
     InMap yuno_in02
-    NpcNear /Metheus Sylphe/
+    NpcNotNear /Livro de Ymir/
     call {
+        call pararDeAtacar
+        do conf lockMap none
+        do conf -f virarClasse2T true
+        do conf -f o_que_estou_fazendo virandoClasse2T
         do talknpc 88 164
         do move yuno_in02 &rand(91,95) &rand(204,206)
     }
@@ -52,7 +41,7 @@ automacro falarComLivro {
     InMap yuno_in02
     NpcNear /Livro de Ymir/
     call {
-        do talknpc 93 207
+        do talknpc 93 207 r1
     }
 }
 
@@ -63,8 +52,8 @@ automacro falarComNpcDaClasse {
     FreeSkillPoints = 0
     InMap valkyrie
     call {
-        do move paramsQuestClasse2T{Npc}
-        do talknpc paramsQuestClasse2T{Npc} r1
+        do move valkyrie $paramsQuestClasse2T{Npc} &rand(2,5)
+        do talknpc $paramsQuestClasse2T{Npc} r1
     }
 }
 
@@ -72,7 +61,11 @@ automacro jaSouClasse2T {
     exclusive 1
     JobID $paramsClasses{idC2T}, $paramsClasses{idC2TAlt}
     ConfigKey virarClasse2T true
+    macro_delay 2
     call {
+        do move valkyrie 44 33 &rand(3,10)
+        do talk &npc(44 33) #teleportadora
+        do talk resp /$mapa{saveMap}/i
         do conf virarClasse2T none
         do conf -f o_que_estou_fazendo acabeiDeVirarClasse2T
         call atualizarBuild
