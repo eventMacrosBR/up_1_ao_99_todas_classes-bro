@@ -54,6 +54,9 @@ automacro init {
         # $paramsQuestClasse1T{equipeIniciante}
         initParamsQuestClasse1T()
         
+        # Esse sub configura os itens da quest de classe 2 (para não vender nem guardar)
+        initParamsQuestClasse2()
+        
         # Esse sub gera a hash %paramsQuestClasse2T com a seguinte key:
         # $paramsQuestClasse2T{npc}
         initParamsQuestClasse2T()
@@ -65,9 +68,6 @@ automacro init {
         # $paramsQuestClasseRenascer{renascer}
         # $paramsQuestClasseRenascer{amigo}
         initParamsQuestClasseRenascer()
-        
-        # Esse sub configura os itens da quest de classe 2 (para não vender nem guardar)
-        if ( pegarID() == $paramsClasses{idC1} ) call initParamsQuestClasse2
 
         if (&config(questc2_implementada) != true && pegarID() = $paramsQuestClasse1{idC1}) {
             [

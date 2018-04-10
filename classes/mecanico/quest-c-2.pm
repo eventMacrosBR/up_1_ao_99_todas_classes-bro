@@ -1,4 +1,4 @@
-macro initParamsQuestClasse2 {
+sub initParamsQuestClasse2 {
     #TODO
 }
 

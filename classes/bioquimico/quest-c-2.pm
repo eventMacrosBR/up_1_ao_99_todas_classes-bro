@@ -1,9 +1,9 @@
-macro initParamsQuestClasse2 {
-    do iconf 657 7 1 0     #Poção da Fúria Selvagem
-    do iconf 612 100 1 0   #Mini Fornalha
-    do iconf 1752 500 1 0 #Flecha de Fogo
-    do iconf 710 0 0 0     #Flor das ilusoes (vai ser feita a quest mais rapida)
-    do conf -f questc2_implementada true
+sub initParamsQuestClasse2 {
+    Commands::run("iconf 657 7 1 0");     #Poção da Fúria Selvagem
+    Commands::run("iconf 612 100 1 0");   #Mini Fornalha
+    Commands::run("iconf 1752 500 1 0"); #Flecha de Fogo
+    Commands::run("iconf 710 0 0 0");     #Flor das ilusoes (vai ser feita a quest mais rapida)
+    Commands::run("conf -f questc2_implementada true");
 }
 
 #################################################################

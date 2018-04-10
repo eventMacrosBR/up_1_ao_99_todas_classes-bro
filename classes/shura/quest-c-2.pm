@@ -1,40 +1,40 @@
-macro initParamsQuestClasse2 {
+sub initParamsQuestClasse2 {
     #Possibilidade 1:
-    do iconf 7053 5 1 0 #Cyfar
-    do iconf 508 10 1 0 #Erva Amarela
-    do iconf 509 10 1 0 #Erva Branca
+    Commands::run("iconf 7053 5 1 0"); #Cyfar
+    Commands::run("iconf 508 10 1 0"); #Erva Amarela
+    Commands::run("iconf 509 10 1 0"); #Erva Branca
 
     #Possibilidade 2:
-    do iconf 943 5 1 0 #Casca Rija
-    do iconf 935 20 1 0 #Casca
-    do iconf 912 5 1 0 #Zargônio
+    Commands::run("iconf 943 5 1 0"); #Casca Rija
+    Commands::run("iconf 935 20 1 0"); #Casca
+    Commands::run("iconf 912 5 1 0"); #Zargônio
 
     #Possibilidade 3:
-    do iconf 1027 5 1 0 #Espinho de Porco-Espinho
-    do iconf 1042 10 1 0 #Pata de Inseto
-    do iconf 1025 20 1 0 #Teia de Aranha
+    Commands::run("iconf 1027 5 1 0"); #Espinho de Porco-Espinho
+    Commands::run("iconf 1042 10 1 0"); #Pata de Inseto
+    Commands::run("iconf 1025 20 1 0"); #Teia de Aranha
 
     #Possibilidade 4:
-    do iconf 938 5 1 0 #Muco Pegajoso
-    do iconf 1055 10 1 0 #Pele de Minhoca
-    do iconf 511 20 1 0 #Erva Verde
+    Commands::run("iconf 938 5 1 0"); #Muco Pegajoso
+    Commands::run("iconf 1055 10 1 0"); #Pele de Minhoca
+    Commands::run("iconf 511 20 1 0"); #Erva Verde
 
     #Possibilidade 5:
-    do iconf 913 10 1 0 #Dente de Morcego
-    do iconf 948 5 1 0 #Pata de Urso
-    do iconf 7033 20 1 0 #Esporo Venenoso
+    Commands::run("iconf 913 10 1 0"); #Dente de Morcego
+    Commands::run("iconf 948 5 1 0"); #Pata de Urso
+    Commands::run("iconf 7033 20 1 0"); #Esporo Venenoso
 
     #Possibilidade 6:
-    do iconf 905 30 1 0 #Caule
-    do iconf 909 5 1 0 #Jellopy
-    do iconf 955 10 1 0 #Pele de Verme
+    Commands::run("iconf 905 30 1 0"); #Caule
+    Commands::run("iconf 909 5 1 0"); #Jellopy
+    Commands::run("iconf 955 10 1 0"); #Pele de Verme
 
     #Possibilidade 7:
-    do iconf 942 20 1 0 #Cauda de Yoyo
-    do iconf 1002 5 1 0 #Minério de Ferro
-    do iconf 510 3 1 0 #Erva Azul
+    Commands::run("iconf 942 20 1 0"); #Cauda de Yoyo
+    Commands::run("iconf 1002 5 1 0"); #Minério de Ferro
+    Commands::run("iconf 510 3 1 0"); #Erva Azul
 
-    do conf -f questc2_implementada false
+    Commands::run("conf -f questc2_implementada false");
 }
 
 #Creditos lucasbradok/punky

@@ -1,5 +1,5 @@
-macro initParamsQuestClasse2 {
-    do conf -f questc2_implementada false
+sub initParamsQuestClasse2 {
+    Commands::run("conf -f questc2_implementada false");
 }
 
 #COMEÇANDO SÓ PELO GUIA DA BROWIKI MAIS PARA BOTAR OS DADOS
