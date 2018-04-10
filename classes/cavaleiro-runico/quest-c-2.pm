@@ -81,6 +81,9 @@ automacro virarCavaleiro_Começo {
 #    exclusive 1
 #}
 
+#9000#Mudança de Classe: Cavaleiro#SG_FEEL#QUE_NOIMAGE#
+#Herman, Capitão da Cavalaria, diz que você precisa obter aprovações de outros Cavaleiros para se tornar um. #
+#Fale com outros membros da Cavalaria. #
 automacro virarCavaleiro_irAoNpc2 {
     JobLevel = 50
     JobID $paramsClasses{idC1}
@@ -112,6 +115,9 @@ automacro virarCavaleiro_irAoNpc2 {
     }
 }        
 
+#9003#Mudança de Classe: Cavaleiro#SG_FEEL#QUE_NOIMAGE#
+#Sir Andrew disse para você visitar Sir Siracuse para continuar com os testes. #
+#Converse com Sir Siracuse #
 automacro virarCavaleiro_irAoNpc3 {
     JobLevel = 50
     JobID $paramsClasses{idC1}
@@ -150,6 +156,9 @@ automacro virarCavaleiro_irAoNpc3 {
     }
 }        
 
+#9004#Mudança de Classe: Cavaleiro#SG_FEEL#QUE_NOIMAGE#
+#James Siracuse disse para você visitar Sir Windsor para continuar com os testes. #
+#Converse com Sir Windsor #
 automacro virarCavaleiro_irAoNpc4 {
     JobLevel = 50
     JobID $paramsClasses{idC1}
@@ -159,7 +168,7 @@ automacro virarCavaleiro_irAoNpc4 {
     QuestInactive 9002 #
     QuestInactive 9003 #
     QuestActive 9004 #
-    QuestInactive   9005 #
+    QuestInactive 9005 #
     QuestInactive 9006 #
     QuestInactive 9007 #
     QuestInactive 9008 #
@@ -178,11 +187,15 @@ automacro virarCavaleiro_irAoNpc4 {
     log ==============================
     ]
     }
-}        
+}
+
+#9006#Mudança de Classe: Cavaleiro#SG_FEEL#QUE_NOIMAGE#
+#Sir Windsor não é de falar muito. Ele ordena que você mate todos os monstros na sala de testes. #
+#Mate todos os monstros em 3 minutos #
 automacro virarCavaleiro_irAoNpc4_parte_2_morri { 
     NotInMap job_knt
-	NotInMap prt_fild05
-	JobLevel = 50
+    NotInMap prt_fild05
+    JobLevel = 50
     JobID $paramsClasses{idC1}
     exclusive 1
     QuestInactive 9000 #
@@ -190,7 +203,7 @@ automacro virarCavaleiro_irAoNpc4_parte_2_morri {
     QuestInactive 9002 #
     QuestInactive 9003 #
     QuestInactive 9004 # 
-    QuestInactive   9005 #
+    QuestInactive 9005 #
     QuestActive 9006 #
     QuestInactive 9007 #
     QuestInactive 9008 #
@@ -198,11 +211,15 @@ automacro virarCavaleiro_irAoNpc4_parte_2_morri {
     QuestInactive 9010 #
     QuestInactive 9011 #
     QuestInactive 9012 #
-	NpcNotNear /Cavaleiro das Lutas/ #ou Sir Windsor
+    NpcNotNear /Cavaleiro das Lutas/ #ou Sir Windsor
     call {
     do move prt_in 71 91 #CHECAR
     }
 }
+
+#9006#Mudança de Classe: Cavaleiro#SG_FEEL#QUE_NOIMAGE#
+#Sir Windsor não é de falar muito. Ele ordena que você mate todos os monstros na sala de testes. #
+#Mate todos os monstros em 3 minutos #
 automacro virarCavaleiro_irAoNpc4_parte_2_morri_cheguei {
     NpcNear /Cavaleiro das Lutas/
     exclusive 1
@@ -213,9 +230,13 @@ automacro virarCavaleiro_irAoNpc4_parte_2_morri_cheguei {
     lock virarCavaleiro_irAoNpc4_parte_2_morri_cheguei
     }
 }
+
+#9006#Mudança de Classe: Cavaleiro#SG_FEEL#QUE_NOIMAGE#
+#Sir Windsor não é de falar muito. Ele ordena que você mate todos os monstros na sala de testes. #
+#Mate todos os monstros em 3 minutos #
 automacro virarCavaleiro_irAoNpc4_parte_2 { 
     InMap job_knt
-	JobLevel = 50
+    JobLevel = 50
     JobID $paramsClasses{idC1}
     exclusive 1
     QuestInactive 9000 # CHECAR!!!!
@@ -223,7 +244,7 @@ automacro virarCavaleiro_irAoNpc4_parte_2 {
     QuestInactive 9002 #
     QuestInactive 9003 #
     QuestInactive 9004 # 
-    QuestInactive   9005 #
+    QuestInactive 9005 #
     QuestActive 9006 #
     QuestInactive 9007 #
     QuestInactive 9008 #
@@ -238,8 +259,11 @@ automacro virarCavaleiro_irAoNpc4_parte_2 {
 	do conf route_randomWalk 2
 	lock virarCavaleiro_irAoNpc4_parte_2
     }
-}        
+}
 
+#9007#Mudança de Classe: Cavaleiro#SG_FEEL#QUE_NOIMAGE#
+#Sir Windsor disse para você visitar Amy Beatrice para o próximo teste. #
+#Converse com Amy Beatrice #
 automacro virarCavaleiro_irAoNpcmulher {
     JobLevel = 50
     JobID $paramsClasses{idC1}
@@ -250,8 +274,8 @@ automacro virarCavaleiro_irAoNpcmulher {
     QuestInactive 9003 # 
     QuestInactive 9004 # 
     QuestInactive 9005 #
-    QuestActive 9006 #
-    QuestInactive   9007 #
+    QuestInactive 9006 #
+    QuestActive   9007 #
     QuestInactive 9008 #
     QuestInactive 9009 #
     QuestInactive 9010 #
@@ -282,6 +306,9 @@ automacro virarCavaleiro_irAoNpcmulher {
     }
 }        
 
+#9009#Mudança de Classe: Cavaleiro#SG_FEEL#QUE_NOIMAGE#
+#Amy Beatrice disse para você visitar Sir Edmond para o próximo teste. #
+#Converse com Sir Edmond #
 automacro virarCavaleiro_irAoNpcCalmo {
     JobLevel = 50
     JobID $paramsClasses{idC1}
@@ -314,10 +341,14 @@ automacro virarCavaleiro_irAoNpcCalmo {
     log ==============================
     ]
     }
-}        
+}
+
+#9010#Mudança de Classe: Cavaleiro#SG_FEEL#QUE_NOIMAGE#
+#Sir Edmond deu conselhos sobre uma boa atitude mental, e disse para você ser paciente. #
+#Meditação #
 automacro virarCavaleiro_matei_monstro {
-	InMap prt_fild05
-	JobLevel = 50
+    InMap prt_fild05
+    JobLevel = 50
     JobID $paramsClasses{idC1}
     exclusive 1
     QuestInactive 9000 #
@@ -329,7 +360,7 @@ automacro virarCavaleiro_matei_monstro {
     QuestInactive 9006 #
     QuestInactive 9007 #
     QuestInactive 9008 #
-    QuestInactive   9009 #
+    QuestInactive 9009 #
     QuestActive 9010 # 
     QuestInactive 9011 #
     QuestInactive 9012 #
@@ -337,7 +368,11 @@ automacro virarCavaleiro_matei_monstro {
     call {
     do move prt_in 70 99
     }
-}        
+}   
+
+#9010#Mudança de Classe: Cavaleiro#SG_FEEL#QUE_NOIMAGE#
+#Sir Edmond deu conselhos sobre uma boa atitude mental, e disse para você ser paciente. #
+#Meditação #
 automacro virarCavaleiro_matei_monstro_voltei {
     NpcNear /Cavaleiro Devotado/
     exclusive 1
@@ -352,6 +387,9 @@ automacro virarCavaleiro_matei_monstro_voltei {
     }
 }
 
+#9011#Mudança de Classe: Cavaleiro#SG_FEEL#QUE_NOIMAGE#
+#Sir Edmond disse para você encontrar Sir Gray para o teste final. #
+#Converse com Sir Gray #
 automacro virarCavaleiro_irAoNpcpenultimo {
     JobLevel = 50
     JobID $paramsClasses{idC1}
@@ -365,7 +403,7 @@ automacro virarCavaleiro_irAoNpcpenultimo {
     QuestInactive 9006 #
     QuestInactive 9007 #
     QuestInactive 9008 #
-    QuestInactive   9009 #
+    QuestInactive 9009 #
     QuestInactive 9010 # 
     QuestActive 9011 #
     QuestInactive 9012 #
@@ -387,7 +425,9 @@ automacro virarCavaleiro_irAoNpcpenultimo {
     }
 }        
 
-
+#9012#Mudança de Classe: Cavaleiro#SG_FEEL#QUE_NOIMAGE#
+#Sir Gray disse para você falar com o Capitão para mudar de classe, já que você falou com todos os outros cavaleiros. Finalmente, é hora de se tornar Cavaleiro! #
+#Converse com Sir Gray #
 automacro virarCavaleiro_FIM {
     JobLevel = 50
     JobID $paramsClasses{idC1}
