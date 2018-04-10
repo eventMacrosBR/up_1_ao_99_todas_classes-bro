@@ -1,39 +1,39 @@
 sub initParamsQuestClasse2 {
 	my %items = (
 	#Possibilidade 1
-    7053 => 5 1 0, #Cyfar
-    508 => 10 1 0, #Erva Amarela
-    509 => 10 1 0, #Erva Branca
+    7053 => "5 1 0", #Cyfar
+    508 => "10 1 0", #Erva Amarela
+    509 => "10 1 0", #Erva Branca
 
     #Possibilidade 2
-    943 => 5 1 0, #Casca Rija
-    935 => 20 1 0, #Casca
-    912 => 5 1 0, #Zargônio
+    943 => "5 1 0", #Casca Rija
+    935 => "20 1 0", #Casca
+    912 => "5 1 0", #Zargônio
 
     #Possibilidade 3
-    1027 => 5 1 0, #Espinho de Porco-Espinho
-    1042 => 10 1 0, #Pata de Inseto
-    1025 => 20 1 0, #Teia de Aranha
+    1027 => "5 1 0", #Espinho de Porco-Espinho
+    1042 => "10 1 0", #Pata de Inseto
+    1025 => "20 1 0", #Teia de Aranha
 
     #Possibilidade 4
-    938 => 5 1 0, #Muco Pegajoso
-    1055 => 10 1 0, #Pele de Minhoca
-    511 => 20 1 0, #Erva Verde
+    938 => "5 1 0", #Muco Pegajoso
+    1055 => "10 1 0", #Pele de Minhoca
+    511 => "20 1 0", #Erva Verde
 
     #Possibilidade 5
-    913 => 10 1 0, #Dente de Morcego
-    948 => 5 1 0, #Pata de Urso
-    7033 => 20 1 0, #Esporo Venenoso
+    913 => "10 1 0", #Dente de Morcego
+    948 => "5 1 0", #Pata de Urso
+    7033 => "20 1 0", #Esporo Venenoso
 
     #Possibilidade 6
-    905 => 30 1 0, #Caule
-    909 => 5 1 0, #Jellopy
-    955 => 10 1 0, #Pele de Verme
+    905 => "30 1 0", #Caule
+    909 => "5 1 0", #Jellopy
+    955 => "10 1 0", #Pele de Verme
 
     #Possibilidade 7
-    942 => 20 1 0, #Cauda de Yoyo
-    1002 => 5 1 0, #Minério de Ferro
-    510 => 3 1 0 #Erva Azul
+    942 => "20 1 0", #Cauda de Yoyo
+    1002 => "5 1 0", #Minério de Ferro
+    510 => "3 1 0" #Erva Azul
 
     );
 	Commands::run("conf -f questc2_implementada false");

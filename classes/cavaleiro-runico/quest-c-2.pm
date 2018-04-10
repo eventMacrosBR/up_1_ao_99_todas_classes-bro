@@ -1,19 +1,19 @@
 sub initParamsQuestClasse2 {
 	my %items = (
 	#Possibilidade 1
-    931 => 5 1 0, #Amuleto dos Orcs
-    903 => 5 1 0, #Língua de Réptil
-    1040 => 5 1 0, #Bigode de Anão Ancião
-    7006 => 5 1 0, #Asa de Morcego Vermelha
-    1057 => 5 1 0, #Pó de Traça
-    1028 => 5 1 0, #Crina
+    931 => "5 1 0", #Amuleto dos Orcs
+    903 => "5 1 0", #Língua de Réptil
+    1040 => "5 1 0", #Bigode de Anão Ancião
+    7006 => "5 1 0", #Asa de Morcego Vermelha
+    1057 => "5 1 0", #Pó de Traça
+    1028 => "5 1 0", #Crina
     #Possibilidade 2
-    966 => 5 1 0, #Carne de Ostra
-    950 => 5 1 0, #Coração de Sereia
-    1042 => 5 1 0, #Pata de Inseto
-    1032 => 5 1 0, #Flor de Planta Carnívora
-    7031 => 5 1 0, #Frigideira Velha
-    946 => 5 1 0 #Casco de Caramujo
+    966 => "5 1 0", #Carne de Ostra
+    950 => "5 1 0", #Coração de Sereia
+    1042 => "5 1 0", #Pata de Inseto
+    1032 => "5 1 0", #Flor de Planta Carnívora
+    7031 => "5 1 0", #Frigideira Velha
+    946 => "5 1 0" #Casco de Caramujo
 
     ;
 	Commands::run("conf -f questc2_implementada true");

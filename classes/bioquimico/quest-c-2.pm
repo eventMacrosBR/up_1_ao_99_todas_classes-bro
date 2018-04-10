@@ -1,9 +1,9 @@
 sub initParamsQuestClasse2 {
 	my %items = (
-	657 => 7 1 0,     #Poção da Fúria Selvagem
-    612 => 100 1 0,   #Mini Fornalha
-    1752 => 500 1 0, #Flecha de Fogo
-    710 => 0 0 0     #Flor das ilusoes (vai ser feita a quest mais rapida)
+	657 => "7 1 0",     #Poção da Fúria Selvagem
+    612 => "100 1 0",   #Mini Fornalha
+    1752 => "500 1 0", #Flecha de Fogo
+    710 => "0 0 0"     #Flor das ilusoes (vai ser feita a quest mais rapida)
     );
 	Commands::run("conf -f questc2_implementada true");
 }

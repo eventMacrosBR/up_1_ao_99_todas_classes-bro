@@ -1,9 +1,9 @@
 sub initParamsQuestClasse2 {
 	my %items = (
-	523 => 1 1 0, #Água Benta
-    930 => 10 1 0, #Bandagem Estragada
-    1041 => 10 1 0, #Lampião
-    2608 => 1 1 0 #Rosário 
+	523 => "1 1 0", #Água Benta
+    930 => "10 1 0", #Bandagem Estragada
+    1041 => "10 1 0", #Lampião
+    2608 => "1 1 0" #Rosário 
     );
 	Commands::run("conf -f questc2_implementada true");
 }
