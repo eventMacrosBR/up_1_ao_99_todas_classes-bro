@@ -58,7 +58,7 @@ automacro init {
         if (pegarID() = paramsClasses{idC1}) {
             initParamsQuestClasse2(1) #representa classe 1, o momento que queremos que configure isso
         } else {
-            initParamsQuestClasse2(2) #qualquer outro número serve, contanto que não seja 1
+            initParamsQuestClasse2(-1) #qualquer outro número serve, contanto que não seja 1
         }
         
         # Esse sub gera a hash %paramsQuestClasse2T com a seguinte key:
