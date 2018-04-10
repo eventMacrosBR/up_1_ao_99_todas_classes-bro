@@ -1,4 +1,7 @@
 sub initParamsQuestClasse2 {
-    #TODO
+	my %items = (
+	#TODO
+);
 }
 
+	

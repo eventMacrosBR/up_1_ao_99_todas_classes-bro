@@ -1,9 +1,11 @@
 sub initParamsQuestClasse2 {
-    510 => 7 1 0, #ervaAzul
+	my %items = (
+	510 => 7 1 0, #ervaAzul
     957 => 10 1 0, #unhaApodrecida
     932 => 10 1 0, #osso
-    958 => 10 1 0, #mandibula
-    Commands::run("conf -f questc2_implementada true");
+    958 => 10 1 0 #mandibula
+    );
+	Commands::run("conf -f questc2_implementada true");
 }
 
 #From- Macro Quest Arruaceiro 2.0

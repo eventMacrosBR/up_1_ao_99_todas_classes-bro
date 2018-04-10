@@ -1,5 +1,6 @@
 sub initParamsQuestClasse2 {
-    #Possibilidade 1    
+	my %items = (
+	#Possibilidade 1    
     920 => 5 1 0, #Garras de Lobo
     1019 => 5 1 0, #Troncos
     509 => 3 1 0, #Ervas Brancas
@@ -32,8 +33,9 @@ sub initParamsQuestClasse2 {
     #Possibilidade 7     
     1027 => 2 1 0, #Espinhos de Porco-Espinho
     942 => 1 1 0, #Caudas de Yoyo
-    1026 => 1 1 0, #Avelãs
+    1026 => 1 1 0 #Avelãs
     
-    Commands::run("conf -f questc2_implementada false");
+    );
+	Commands::run("conf -f questc2_implementada false");
 }
 

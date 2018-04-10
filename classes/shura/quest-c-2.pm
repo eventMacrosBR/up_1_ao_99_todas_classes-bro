@@ -1,5 +1,6 @@
 sub initParamsQuestClasse2 {
-    #Possibilidade 1
+	my %items = (
+	#Possibilidade 1
     7053 => 5 1 0, #Cyfar
     508 => 10 1 0, #Erva Amarela
     509 => 10 1 0, #Erva Branca
@@ -32,9 +33,10 @@ sub initParamsQuestClasse2 {
     #Possibilidade 7
     942 => 20 1 0, #Cauda de Yoyo
     1002 => 5 1 0, #Minério de Ferro
-    510 => 3 1 0, #Erva Azul
+    510 => 3 1 0 #Erva Azul
 
-    Commands::run("conf -f questc2_implementada false");
+    );
+	Commands::run("conf -f questc2_implementada false");
 }
 
 #Creditos lucasbradok/punky

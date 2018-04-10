@@ -1,5 +1,6 @@
 sub initParamsQuestClasse2 {
-    #Possibilidade 1
+	my %items = (
+	#Possibilidade 1
     931 => 5 1 0, #Amuleto dos Orcs
     903 => 5 1 0, #Língua de Réptil
     1040 => 5 1 0, #Bigode de Anão Ancião
@@ -12,9 +13,10 @@ sub initParamsQuestClasse2 {
     1042 => 5 1 0, #Pata de Inseto
     1032 => 5 1 0, #Flor de Planta Carnívora
     7031 => 5 1 0, #Frigideira Velha
-    946 => 5 1 0, #Casco de Caramujo
+    946 => 5 1 0 #Casco de Caramujo
 
-    Commands::run("conf -f questc2_implementada true");
+    ;
+	Commands::run("conf -f questc2_implementada true");
 }
 
 # 1 edit : reiropke
