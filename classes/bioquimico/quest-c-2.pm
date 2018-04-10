@@ -1,4 +1,5 @@
 sub initParamsQuestClasse2 {
+	my ($classe) = @_;
 	my %items = (
 	657 => "7 1 0",     #Poção da Fúria Selvagem
     612 => "100 1 0",   #Mini Fornalha
@@ -6,6 +7,13 @@ sub initParamsQuestClasse2 {
     710 => "0 0 0"     #Flor das ilusoes (vai ser feita a quest mais rapida)
     );
 	Commands::run("conf -f questc2_implementada true");
+    foreach $key (keys %items) {
+        if ($classe == 1) { 
+            Commands::run("iconf $key $items{$key}") 
+        } else {
+            Commands::run("iconf $key 0 0 0")
+        }
+    }
 }
 
 #################################################################

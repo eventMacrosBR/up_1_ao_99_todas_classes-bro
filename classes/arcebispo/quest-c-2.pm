@@ -1,8 +1,17 @@
 sub initParamsQuestClasse2 {
+	my ($classe) = @_;
 	my %items = (
 	 );
 	Commands::run("conf -f questc2_implementada true");
+	foreach $key (keys %items) {
+        if ($classe == 1) { 
+            Commands::run("iconf $key $items{$key}") 
+        } else {
+            Commands::run("iconf $key 0 0 0")
+        }
+    }
 }
+
 #Virar Sacer
 #sacer nescessario job 50
 #CREDITOS http://openkorebrasil.org/index.php?/topic/3136-virar-novi%C3%A7o-e-sacer/

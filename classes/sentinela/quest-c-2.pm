@@ -1,4 +1,5 @@
 sub initParamsQuestClasse2 {
+	my ($classe) = @_;
 	my %items = (
 	#Possibilidade 1    
     920 => "5 1 0", #Garras de Lobo
@@ -37,5 +38,12 @@ sub initParamsQuestClasse2 {
     
     );
 	Commands::run("conf -f questc2_implementada false");
+	foreach $key (keys %items) {
+        if ($classe == 1) { 
+            Commands::run("iconf $key $items{$key}") 
+        } else {
+            Commands::run("iconf $key 0 0 0")
+        }
+    }
 }
 

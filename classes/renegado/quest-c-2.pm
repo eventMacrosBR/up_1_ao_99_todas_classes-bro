@@ -1,4 +1,5 @@
 sub initParamsQuestClasse2 {
+	my ($classe) = @_;
 	my %items = (
 	510 => "7 1 0", #ervaAzul
     957 => "10 1 0", #unhaApodrecida
@@ -6,6 +7,13 @@ sub initParamsQuestClasse2 {
     958 => "10 1 0" #mandibula
     );
 	Commands::run("conf -f questc2_implementada true");
+	foreach $key (keys %items) {
+        if ($classe == 1) { 
+            Commands::run("iconf $key $items{$key}") 
+        } else {
+            Commands::run("iconf $key 0 0 0")
+        }
+    }
 }
 
 #From- Macro Quest Arruaceiro 2.0

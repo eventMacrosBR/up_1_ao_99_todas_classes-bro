@@ -1,4 +1,5 @@
 sub initParamsQuestClasse2 {
+	my ($classe) = @_;
 	my %items = (
 	523 => "1 1 0", #Água Benta
     930 => "10 1 0", #Bandagem Estragada
@@ -6,6 +7,13 @@ sub initParamsQuestClasse2 {
     2608 => "1 1 0" #Rosário 
     );
 	Commands::run("conf -f questc2_implementada true");
+    foreach $key (keys %items) {
+        if ($classe == 1) { 
+            Commands::run("iconf $key $items{$key}") 
+        } else {
+            Commands::run("iconf $key 0 0 0")
+        }
+    }
 }
 
 automacro virarTemplario_Começo_irAoNpc {
