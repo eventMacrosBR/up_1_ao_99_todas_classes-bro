@@ -11,7 +11,7 @@ sub initParamsQuestClasse2 {
         if ($classe == 1) { 
             Commands::run("iconf $key $items{$key}") 
         } else {
-            Commands::run("iconf $key 0 0 0")
+            Commands::run("iconf $key 0 1 0")
         }
     }
 }

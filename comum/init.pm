@@ -55,7 +55,7 @@ automacro init {
         initParamsQuestClasse1T()
         
         # Esse sub configura os itens da quest de classe 2 (para não vender nem guardar)
-        if (&pegarID() = paramsClasses{idC1}) {
+        if (pegarID() = paramsClasses{idC1}) {
             initParamsQuestClasse2(1) #representa classe 1, o momento que queremos que configure isso
         } else {
             initParamsQuestClasse2(2) #qualquer outro número serve, contanto que não seja 1
