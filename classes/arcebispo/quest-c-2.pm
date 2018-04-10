@@ -67,6 +67,9 @@ automacro VirarSacer_FalarComBispo {
     }
 }
 
+#8012#Mudança de Classe: Sacerdote#SG_FEEL#QUE_NOIMAGE#
+#Comece o treinamento. Mate todos os monstros! Não tenha pena das criaturas da escuridão! #
+#2a. Prova, o Treinamento Espiritual #
 automacro VirarSacer_Morri {
     NotInMap job_prist
     QuestActive 8012
@@ -110,6 +113,12 @@ automacro VirarSacer_TesteExorcismo {
     }
 }
 
+#8013#Mudança de Classe: Sacerdote#SG_FEEL#QUE_NOIMAGE#
+#Você concluiu o Treinamento Espiritual! Vá falar com a Irmã Cecília. #
+#Mudança de Classe: Sacerdote - Teste #
+#8014#Mudança de Classe: Sacerdote#SG_FEEL#QUE_NOIMAGE#
+#Faça a promessa de se devotar a Deus. #
+#3a. Prova, Devoção a Deus #
 automacro VirarSacer_FalarComIrmaCecilia {
     JobID $paramsClasses{idC1}
     JobLevel = 50
@@ -122,6 +131,9 @@ automacro VirarSacer_FalarComIrmaCecilia {
     } 
 }
 
+#8015#Mudança de Classe: Sacerdote#SG_FEEL#QUE_NOIMAGE#
+#Você concluiu as 3 missões e fez o Juramento do Sacerdócio. Volte a falar com o Bispo Paul. #
+#Mudança de Classe: Sacerdote - Inscrição #
 automacro VirarSacer_Final {
     JobID $paramsClasses{idC1}
     JobLevel = 50

@@ -65,6 +65,15 @@ automacro virarTemplario_Começo {
     }
 }
 
+#3006#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Vou avaliar seu esforço e decidir se você está qualificado ou não. Você deve trazer ^3355FFBandagens Estragadas e Lampiões^000000' #
+#10 Bandagens Estragadas e 10 Lampiões #
+#3007#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Vou avaliar seu esforço e decidir se você está qualificado ou não. Você deve trazer ^3355FFBandagens Estragadas e Lampiões^000000' #
+#10 Bandagens Estragadas e 10 Lampiões #
+#3008#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Vou avaliar seu esforço e decidir se você está qualificado ou não. Você deve trazer ^3355FFBandagens Estragadas e Lampiões^000000' #
+#10 Bandagens Estragadas e 10 Lampiões #
 automacro virarTemplario_PegarItens {
     QuestActive 3006, 3007, 3008
     exclusive 1
@@ -108,6 +117,15 @@ automacro virarTemplario_PegarItens {
     }
 }
 
+#3006#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Vou avaliar seu esforço e decidir se você está qualificado ou não. Você deve trazer ^3355FFBandagens Estragadas e Lampiões^000000' #
+#10 Bandagens Estragadas e 10 Lampiões #
+#3007#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Vou avaliar seu esforço e decidir se você está qualificado ou não. Você deve trazer ^3355FFBandagens Estragadas e Lampiões^000000' #
+#10 Bandagens Estragadas e 10 Lampiões #
+#3008#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Vou avaliar seu esforço e decidir se você está qualificado ou não. Você deve trazer ^3355FFBandagens Estragadas e Lampiões^000000' #
+#10 Bandagens Estragadas e 10 Lampiões #
 automacro virarTemplario_ColeteiTodosOsItens_IndoProNpc {
     InInventoryID 930 >= 10 #Bandagem Estragada
     InInventoryID 1041 >= 10 #Lampião
@@ -121,6 +139,15 @@ automacro virarTemplario_ColeteiTodosOsItens_IndoProNpc {
     }
 }
 
+#3006#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Vou avaliar seu esforço e decidir se você está qualificado ou não. Você deve trazer ^3355FFBandagens Estragadas e Lampiões^000000' #
+#10 Bandagens Estragadas e 10 Lampiões #
+#3007#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Vou avaliar seu esforço e decidir se você está qualificado ou não. Você deve trazer ^3355FFBandagens Estragadas e Lampiões^000000' #
+#10 Bandagens Estragadas e 10 Lampiões #
+#3008#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Vou avaliar seu esforço e decidir se você está qualificado ou não. Você deve trazer ^3355FFBandagens Estragadas e Lampiões^000000' #
+#10 Bandagens Estragadas e 10 Lampiões #
 automacro virarTemplario_ColeteiTodosOsItens {
     InInventoryID 930 >= 10 #Bandagem Estragada
     InInventoryID 1041 >= 10 #Lampião
@@ -133,6 +160,9 @@ automacro virarTemplario_ColeteiTodosOsItens {
     }
 }
 
+#3009#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Posso ver seu potencial como templário. Encontre-se com ^0000FFMoorenak Miyol^000000. Ele está na prisão subterrânea do Castelo de Prontera. Fale com ele primeiro.' #
+##
 automacro virarTemplario_comprarRosário {
     InInventoryID 2608 < 1 #Rosário
     IsNotEquippedID rightAccessory 2608 #Rosário
@@ -147,6 +177,9 @@ automacro virarTemplario_comprarRosário {
     }
 }
 
+#3009#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Posso ver seu potencial como templário. Encontre-se com ^0000FFMoorenak Miyol^000000. Ele está na prisão subterrânea do Castelo de Prontera. Fale com ele primeiro.' #
+##
 automacro virarTemplario_comprarRosário_jaComprado {
     InInventoryID 2608 = 1 #Rosário
     IsNotEquippedID rightAccessory 2608 #Rosário
@@ -158,6 +191,9 @@ automacro virarTemplario_comprarRosário_jaComprado {
     }
 }
 
+#3009#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Posso ver seu potencial como templário. Encontre-se com ^0000FFMoorenak Miyol^000000. Ele está na prisão subterrânea do Castelo de Prontera. Fale com ele primeiro.' #
+##
 automacro virarTemplario_ComprarHiper_poucoZeny {
     InInventoryID 14586 = 0 #Doce Hiper Açucarado
     ConfigKey BetterShopper_0 Doce Hiper Açucarado
@@ -177,6 +213,9 @@ automacro virarTemplario_ComprarHiper_poucoZeny {
     }
 }
 
+#3009#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Posso ver seu potencial como templário. Encontre-se com ^0000FFMoorenak Miyol^000000. Ele está na prisão subterrânea do Castelo de Prontera. Fale com ele primeiro.' #
+##
 automacro virarTemplario_ComprarHiper {
     InInventoryID 14586 = 0 #Doce Hiper Açucarado
     ConfigKeyNot BetterShopper_0 Doce Hiper Açucarado
@@ -203,7 +242,9 @@ automacro virarTemplario_ComprarHiper {
 }
 
 
-
+#3009#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Posso ver seu potencial como templário. Encontre-se com ^0000FFMoorenak Miyol^000000. Ele está na prisão subterrânea do Castelo de Prontera. Fale com ele primeiro.' #
+##
 automacro virarTemplario_ComprarPotBranca {
     InInventoryID 504 = 0 #Poção Branca
     ConfigKeyNot BetterShopper_1 Poção Branca
@@ -228,6 +269,9 @@ automacro virarTemplario_ComprarPotBranca {
     }
 }
 
+#3009#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Posso ver seu potencial como templário. Encontre-se com ^0000FFMoorenak Miyol^000000. Ele está na prisão subterrânea do Castelo de Prontera. Fale com ele primeiro.' #
+##
 automacro virarTemplario_ComparBalaDeGuaraná {
     InInventoryID 12414 = 0 #Bala de Guaraná
     QuestActive 3009
@@ -252,6 +296,9 @@ automacro virarTemplario_ComparBalaDeGuaraná {
     }
 }
 
+#3009#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Posso ver seu potencial como templário. Encontre-se com ^0000FFMoorenak Miyol^000000. Ele está na prisão subterrânea do Castelo de Prontera. Fale com ele primeiro.' #
+##
 automacro virarTemplario_FalarComCaraNaPrisão_IndoAteEle {
     QuestActive 3009
     exclusive 1
@@ -265,6 +312,12 @@ automacro virarTemplario_FalarComCaraNaPrisão_IndoAteEle {
     }
 }
 
+#3009#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Posso ver seu potencial como templário. Encontre-se com ^0000FFMoorenak Miyol^000000. Ele está na prisão subterrânea do Castelo de Prontera. Fale com ele primeiro.' #
+##
+#3010#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Para um templário, a resistência e a paciência são muito importantes. Você só precisa atravessar o corredor até o final. Mas não mate um único monstro, mesmo que eles ataquem você.' #
+##
 automacro virarTemplario_FalarComCaraNaPrisão {
     QuestActive 3009, 3010
     exclusive 1
@@ -298,6 +351,12 @@ automacro virarTemplario_FalarComCaraNaPrisão {
     }
 }
 
+#3009#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Posso ver seu potencial como templário. Encontre-se com ^0000FFMoorenak Miyol^000000. Ele está na prisão subterrânea do Castelo de Prontera. Fale com ele primeiro.' #
+##
+#3010#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Para um templário, a resistência e a paciência são muito importantes. Você só precisa atravessar o corredor até o final. Mas não mate um único monstro, mesmo que eles ataquem você.' #
+##
 automacro virarTemplario_correr {
     QuestActive 3009, 3010
     InMap job_cru
@@ -319,6 +378,9 @@ automacro virarTemplario_correr {
     }
 }
 
+#3010#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Para um templário, a resistência e a paciência são muito importantes. Você só precisa atravessar o corredor até o final. Mas não mate um único monstro, mesmo que eles ataquem você.' #
+##
 automacro virarTemplario_correr_morri_indoTentarDenovo_npcLonge {
     QuestActive 3010
     NotInMap job_cru
@@ -332,6 +394,9 @@ automacro virarTemplario_correr_morri_indoTentarDenovo_npcLonge {
     }
 }
 
+#3010#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Para um templário, a resistência e a paciência são muito importantes. Você só precisa atravessar o corredor até o final. Mas não mate um único monstro, mesmo que eles ataquem você.' #
+##
 automacro virarTemplario_correr_morri_indoTentarDenovo {
     QuestActive 3010
     NotInMap job_cru
@@ -366,6 +431,9 @@ automacro virarTemplario_correr_morri_indoTentarDenovo {
     }
 }
 
+#3011#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Encontre Gabriela Valentine no Santuário de Prontera. Ela vai lhe dar o próximo teste... Pode ir agora.' #
+##
 automacro virarTemplario_questionario_indoFalarComNpc {
     QuestActive 3011
     NpcNotNear /Crusader/
@@ -375,6 +443,12 @@ automacro virarTemplario_questionario_indoFalarComNpc {
     }
 }
 
+#3011#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Encontre Gabriela Valentine no Santuário de Prontera. Ela vai lhe dar o próximo teste... Pode ir agora.' #
+##
+#3012#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Você precisa ter conhecimento suficiente para assumir a classe. Desculpe, mas acho que você precisa estudar mais. Volte quando estiver pronto.' #
+##
 automacro virarTemplario_questionario {
     QuestActive 3011, 3012
     NpcNear /Crusader/
@@ -406,6 +480,9 @@ automacro virarTemplario_questionario {
     }
 }
 
+#3013#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Muito bom. Pode prestar o próximo exame agora. Vá ao Castelo de Prontera e encontre Bliant Piyord. Vou dizer a ele para preparar o próximo teste.' #
+##
 automacro virarTemplario_Matarbixo_ComprarAgua {
     QuestActive 3013
     exclusive 1
@@ -429,6 +506,12 @@ automacro virarTemplario_Matarbixo_ComprarAgua {
     }
 }
 
+#3013#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Muito bom. Pode prestar o próximo exame agora. Vá ao Castelo de Prontera e encontre Bliant Piyord. Vou dizer a ele para preparar o próximo teste.' #
+##
+#3014#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Este é o último teste que você precisa prestar. É um teste de combate. Somente pessoas com boas habilidades de batalha servem para se tornar Templários. Traga 1 Água Benta antes de prestar o teste de combate.' #
+#1 Água Benta #
 automacro virarTemplario_Matarbixo_irAteNpc {
     QuestActive 3013, 3014
     InInventoryID 523 >= 1 #água benta, quando tiver 1 ou mais
@@ -441,6 +524,12 @@ automacro virarTemplario_Matarbixo_irAteNpc {
     }
 }
 
+#3013#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Muito bom. Pode prestar o próximo exame agora. Vá ao Castelo de Prontera e encontre Bliant Piyord. Vou dizer a ele para preparar o próximo teste.' #
+##
+#3014#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Este é o último teste que você precisa prestar. É um teste de combate. Somente pessoas com boas habilidades de batalha servem para se tornar Templários. Traga 1 Água Benta antes de prestar o teste de combate.' #
+#1 Água Benta #
 automacro virarTemplario_Matarbixo {
     QuestActive 3013, 3014
     InInventoryID 523 >= 1 #água benta, quando tiver 1 ou mais
@@ -465,6 +554,9 @@ automacro virarTemplario_manterRosarioSempreEquipado {
     }
 }
 
+#3014#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Este é o último teste que você precisa prestar. É um teste de combate. Somente pessoas com boas habilidades de batalha servem para se tornar Templários. Traga 1 Água Benta antes de prestar o teste de combate.' #
+#1 Água Benta #
 automacro virarTemplario_matarBixos_dentroDoMapa_irNoChat {
     InMap job_cru
     QuestActive 3014
@@ -483,6 +575,9 @@ automacro virarTemplario_matarBixos_dentroDoMapa_irNoChat {
     }
 }
 
+#3014#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Este é o último teste que você precisa prestar. É um teste de combate. Somente pessoas com boas habilidades de batalha servem para se tornar Templários. Traga 1 Água Benta antes de prestar o teste de combate.' #
+#1 Água Benta #
 automacro virarTemplario_matarBixos_dentroDoMapa {
     ChatRoomNear /Waiting|Espera/
     exclusive 1
@@ -501,6 +596,9 @@ automacro virarTemplario_matarBixos_dentroDoMapa {
     }
 }
 
+#3014#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Este é o último teste que você precisa prestar. É um teste de combate. Somente pessoas com boas habilidades de batalha servem para se tornar Templários. Traga 1 Água Benta antes de prestar o teste de combate.' #
+#1 Água Benta #
 automacro virarTemplario_matarBixos_dentroDoMapa_correr {
     IsInCoordinate 160..175 15..180
     ConfigKey questTemplario entreiNoChat
@@ -516,6 +614,9 @@ automacro virarTemplario_matarBixos_dentroDoMapa_correr {
     }
 }
 
+#3014#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Este é o último teste que você precisa prestar. É um teste de combate. Somente pessoas com boas habilidades de batalha servem para se tornar Templários. Traga 1 Água Benta antes de prestar o teste de combate.' #
+#1 Água Benta #
 automacro virarTemplario_matarbixs_falhei {
     NotInMap job_cru
     QuestActive 3014
@@ -535,6 +636,9 @@ automacro virarTemplario_matarbixs_falhei {
     }
 }
 
+#3015#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Parabéns! Você passou em todos os testes. Fale com nosso líder lá dentro. Você é um dos escolhidos para a Guerra Santa.' #
+##
 automacro virarTemplario_final_irAteNpc {
     QuestActive 3015
     exclusive 1
@@ -550,6 +654,9 @@ automacro virarTemplario_final_irAteNpc {
     }
 }
 
+#3015#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Parabéns! Você passou em todos os testes. Fale com nosso líder lá dentro. Você é um dos escolhidos para a Guerra Santa.' #
+##
 automacro virarTemplario_termineiDeMatar {
     QuestActive 3015
     exclusive 1
@@ -560,6 +667,9 @@ automacro virarTemplario_termineiDeMatar {
     }
 }
 
+#3015#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
+#'Parabéns! Você passou em todos os testes. Fale com nosso líder lá dentro. Você é um dos escolhidos para a Guerra Santa.' #
+##
 automacro virarTemplario_final {
     QuestActive 3015
     exclusive 1

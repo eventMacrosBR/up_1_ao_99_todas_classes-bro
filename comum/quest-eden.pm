@@ -246,6 +246,9 @@ macro iniciandoQuestEden {
     ]
 }
 
+#7128#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
+#Você começa seu treinamento com o Grupo Valhalla. Procure o cão falante em Sograt. #
+#Converse com o cão falante #
 automacro Eden12salvarNaKafra {
     QuestActive 7128
     exclusive 1
@@ -259,6 +262,9 @@ automacro Eden12salvarNaKafra {
     }
 }
 
+#7138#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
+#Seu próximo desafio é em na Caverna de Payon. Procure um representante do Grupo Valhalla. #
+#Converse com o representante do Grupo Valhalla #
 automacro Eden26SalvarNaKafra {
     QuestActive 7138
     BaseLevel >= 26
@@ -272,6 +278,9 @@ automacro Eden26SalvarNaKafra {
     }
 }
 
+#7147#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
+#Seu próximo desafio é na Vila Orc. Procure um representante do Grupo Valhalla. #
+#Converse com o representante do Grupo Valhalla #
 automacro Eden40SalvarNaKafra {
     QuestActive 7147
     BaseLevel >= 50
@@ -285,6 +294,9 @@ automacro Eden40SalvarNaKafra {
     }
 }
 
+#7214#Treino Avançado - Passo 1 - Comodo#SG_FEEL#QUE_NOIMAGE#
+#Encontre o Membro do Grupo Éden em frente à entrada da caverna norte de Comodo #
+#Fale com Romeo #
 automacro Eden60SalvarNaKafra {
     QuestActive 7214
     BaseLevel >= 70
@@ -298,6 +310,9 @@ automacro Eden60SalvarNaKafra {
     }
 }
 
+#7128#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
+#Você começa seu treinamento com o Grupo Valhalla. Procure o cão falante em Sograt. #
+#Converse com o cão falante #
 automacro Eden12IrNoMapa {
     QuestActive 7128
     exclusive 1
@@ -307,6 +322,9 @@ automacro Eden12IrNoMapa {
     call irNoMapa 'moc_fild11' '180' '253' '1107' '1001' '1009' #monstros: filhote de lobo, escopião, condor
 }
 
+#7138#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
+#Seu próximo desafio é em na Caverna de Payon. Procure um representante do Grupo Valhalla. #
+#Converse com o representante do Grupo Valhalla #
 automacro Eden26IrNoMapa {
     QuestActive 7138
     BaseLevel >= 26
@@ -316,6 +334,9 @@ automacro Eden26IrNoMapa {
     call irNoMapa 'pay_arche' '41' '136' '1076' '1031' '1015' #monstros: esqueleto, poporing, zumbi
 }
 
+#7147#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
+#Seu próximo desafio é na Vila Orc. Procure um representante do Grupo Valhalla. #
+#Converse com o representante do Grupo Valhalla #
 automacro Eden40IrNoMapa {
     QuestActive 7147
     BaseLevel >= 50
@@ -325,6 +346,9 @@ automacro Eden40IrNoMapa {
     call irNoMapa 'in_orcs01' '38' '175' '1023' '1686' '1273' #monstros: guerreiro orc, filhote de orc, senhora orc
 }
 
+#7214#Treino Avançado - Passo 1 - Comodo#SG_FEEL#QUE_NOIMAGE#
+#Encontre o Membro do Grupo Éden em frente à entrada da caverna norte de Comodo #
+#Fale com Romeo #
 automacro Eden60IrNoMapa {
     QuestActive 7214
     BaseLevel >= 70
@@ -402,6 +426,9 @@ macro caçarMonstros {
     ]
 }
 
+#7217#Treino Avançado - Passo 1.3 - Comodo#SG_FEEL#QUE_NOIMAGE#
+#Romeo te passou uma última missão. Derrote Guerreiros Wootan e Dríades para conseguir alguns itens #
+#Traga 5 Ombreiras, 7 Folhas Afiadas #
 automacro Eden60_JuntarItens {
     QuestActive 7217
     exclusive 1
@@ -436,6 +463,9 @@ automacro Eden60_JuntarItens {
     }
 }
 
+#7217#Treino Avançado - Passo 1.3 - Comodo#SG_FEEL#QUE_NOIMAGE#
+#Romeo te passou uma última missão. Derrote Guerreiros Wootan e Dríades para conseguir alguns itens #
+#Traga 5 Ombreiras, 7 Folhas Afiadas #
 automacro Eden60_JaJunteiOsItens {
     InInventoryID 7196 >= 5
     InInventoryID 7100 >= 7
@@ -551,6 +581,18 @@ automacro Eden60FinalizarCaças {
     }
 }
 
+#7132#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
+#Você completou todas as tarefas do cão falante. Fale com o membro do Grupo Valhalla. #
+#Vá ao escritório do Grupo Valhalla #
+#7141#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
+#Você completou todas as tarefas. Fale com o membro do Grupo Valhalla. #
+#Vá ao escritório do Grupo Valhalla #
+#7151#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
+#Você completou todas as tarefas. Fale com o membro do Grupo Valhalla. #
+#Vá ao escritório do Grupo Valhalla #
+#7218#Reporte para Uru#SG_FEEL#QUE_NOIMAGE#
+#Você completou este passo do Grupo Éden. Você pode voltar para a sede do Grupo Éden. #
+#Reporte para Uru #
 automacro voltarDoMapa {
     QuestActive 7132, 7141, 7151, 7218
     NpcNotNear /Boya|Ur/
@@ -569,6 +611,18 @@ automacro voltarDoMapa {
     }
 }
 
+#7132#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
+#Você completou todas as tarefas do cão falante. Fale com o membro do Grupo Valhalla. #
+#Vá ao escritório do Grupo Valhalla #
+#7141#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
+#Você completou todas as tarefas. Fale com o membro do Grupo Valhalla. #
+#Vá ao escritório do Grupo Valhalla #
+#7151#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
+#Você completou todas as tarefas. Fale com o membro do Grupo Valhalla. #
+#Vá ao escritório do Grupo Valhalla #
+#7218#Reporte para Uru#SG_FEEL#QUE_NOIMAGE#
+#Você completou este passo do Grupo Éden. Você pode voltar para a sede do Grupo Éden. #
+#Reporte para Uru #
 automacro voltarDoMapaDentroDoEden {
     QuestActive 7132, 7141, 7151, 7218
     NpcNear /Boya|Ur/

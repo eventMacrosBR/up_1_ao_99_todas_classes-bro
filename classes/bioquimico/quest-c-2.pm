@@ -235,6 +235,9 @@ automacro virarAlquimista_jaFaleiComNpcQuestionario {
     }
 }
 
+#2032#Mudança de Classe: Alquimista#SG_FEEL#QUE_NOIMAGE#
+#Por seu olhar, posso ver que você é inteligente. Certo, excelente. Agora vá falar com Darwin. Ele vai lhe ensinar a realizar os experimentos. #
+#Fale com o estudioso Darwin. #
 automacro virarAlquimista_falarComNpcFlor {
     QuestActive 2032
     ConfigKey questAlquimista questionario
@@ -281,6 +284,9 @@ automacro virarAlquimista_faleiComNpcDaFlor {
     }
 }
 
+#2033#Mudança de Classe: Alquimista#SG_FEEL#QUE_NOIMAGE#
+#Vou lhe ensinar a fazer um remédio simples. Traga os seguintes materiais imediatamente. #
+#3 Tigelas de Porcelana Branca, 3 Garrafas Vazias, 1 Erva Vermelha, 1 Erva Amarela e 1 Erva Branca #
 automacro virarAlquimista_naoTenhoAFlorVouPegar {
     QuestActive 2033
     InInventoryID 710 < 1

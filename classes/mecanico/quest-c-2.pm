@@ -57,6 +57,9 @@ automacro virarFerreiro_falarComAltazen {
     }
 }
 
+#2000#Mudança de Classe: Ferreiro#SG_FEEL#QUE_NOIMAGE#
+#Queremos verificar a dedicação e vontade dos Mercadores que querem se tornar Ferreiros. Como primeiro teste, vá até Einbech e ajude Geschupenschte, um dos membros da guilda. #
+#Encontre o Ferreiro Geschupenschte em Einbech. #
 automacro virarFerreiro_responderPrimeiroQuestionario{
     ConfigKey quest_classe2 primeiro_questionario
     QuestActive 2000
@@ -82,7 +85,9 @@ automacro TalkToGetsufenst {
 }
 
 # Até aqui parece ok
-
+#2003#Mudança de Classe: Ferreiro#SG_FEEL#QUE_NOIMAGE#
+#Preciso de alguns materiais para cuidar de várias encomendas. Pode me trazer estes materiais? É só um teste, não pense que nós, Ferreiros, somos preguiçosos. Hum. #
+#Traga 2 unidades de Aço, 1 Bandagem Estragada, 1 Gema Azul e 1 Cetro da loja. Depois, volte a falar com Geschupenschte. #
 automacro GetsufenstTask {
     ConfigKey quest_classe2 GetsufenstTask
     QuestActive 2003
@@ -99,6 +104,9 @@ automacro GetsufenstTask {
     }
 }
 
+#2003#Mudança de Classe: Ferreiro#SG_FEEL#QUE_NOIMAGE#
+#Preciso de alguns materiais para cuidar de várias encomendas. Pode me trazer estes materiais? É só um teste, não pense que nós, Ferreiros, somos preguiçosos. Hum. #
+#Traga 2 unidades de Aço, 1 Bandagem Estragada, 1 Gema Azul e 1 Cetro da loja. Depois, volte a falar com Geschupenschte. #
 automacro pegarItensDaKafra {
     ConfigKey quest_classe2 GetsufenstTask
     QuestActive 2003
@@ -214,6 +222,9 @@ automacro TalkToGetsufenstAgain {
     }
 }
 
+#2012#Mudança de Classe: Ferreiro#SG_FEEL#QUE_NOIMAGE#
+#Tudo pronto! Certo. Dê este Sabre de Impacto a Bismarc, que está em Hugel. Não esqueça de me trazer o recibo. #
+#Entregue o Sabre de Impacto a Bismarc em Hugel. #
 automacro DeliverToBismark {
     QuestActive 2012
     NpcNear /Bismark/ 
@@ -226,6 +237,9 @@ automacro DeliverToBismark {
     }
 }
 
+#2012#Mudança de Classe: Ferreiro#SG_FEEL#QUE_NOIMAGE#
+#Tudo pronto! Certo. Dê este Sabre de Impacto a Bismarc, que está em Hugel. Não esqueça de me trazer o recibo. #
+#Entregue o Sabre de Impacto a Bismarc em Hugel. #
 automacro DeliverVoucher {
     ConfigKey quest_classe2 GoBackToGetsufenst
     QuestActive 2012
@@ -239,6 +253,9 @@ automacro DeliverVoucher {
     }
 }
 
+#2013#Mudança de Classe: Ferreiro#SG_FEEL#QUE_NOIMAGE#
+#Excelente! Você é um grande Mercador! Certo, volte a falar com Altiregen em Einbroch! #
+#Volte a falar com Altiregen #
 automacro TalkToAltazen {
     ConfigKey quest_classe2 TalkToAltazen
     QuestActive 2013

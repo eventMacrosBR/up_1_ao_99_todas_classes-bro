@@ -70,6 +70,9 @@ automacro TalkSprakkiOutside {
     }
 }
 
+#7117#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Cruze a ponte e encontre o castelo do Campo de Treinamento. #
+#Converse com o responsável pelo Campo de Treinamento #
 automacro moveInside {
     exclusive 1
     QuestActive 7117
@@ -87,6 +90,9 @@ automacro moveInsideBugged1 {
     call GotoInside
 }
 
+#7118#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Os próximos passos serão ensinados pelo instrutor. #
+#Converse com Brade #
 automacro moveInsideBugged2 {
     exclusive 1
     QuestActive 7118
@@ -101,6 +107,9 @@ macro GotoInside {
     do move $nextMap 101 29
 }
 
+#7117#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Cruze a ponte e encontre o castelo do Campo de Treinamento. #
+#Converse com o responsável pelo Campo de Treinamento #
 automacro moveNextToSprakki {
     exclusive 1
     QuestActive 7117
@@ -121,6 +130,9 @@ automacro moveNextToSprakkiBugged1 {
     call GotoSpraki
 }
 
+#7118#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Os próximos passos serão ensinados pelo instrutor. #
+#Converse com Brade #
 automacro moveNextToSprakkiBugged2 {
     exclusive 1
     QuestActive 7118
@@ -145,6 +157,9 @@ automacro talkSprakkiBugged1 {
     call SprakiiBuggedTalk
 }
 
+#7118#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Os próximos passos serão ensinados pelo instrutor. #
+#Converse com Brade #
 automacro talkSprakkiBugged2 {
     exclusive 1
     QuestActive 7118
@@ -160,6 +175,9 @@ macro SprakiiBuggedTalk {
 
 }
 
+#7117#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Cruze a ponte e encontre o castelo do Campo de Treinamento. #
+#Converse com o responsável pelo Campo de Treinamento #
 automacro talkSprakki {
     exclusive 1
     QuestActive 7117
@@ -173,6 +191,9 @@ automacro talkSprakki {
     }
 }
 
+#7118#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Os próximos passos serão ensinados pelo instrutor. #
+#Converse com Brade #
 automacro moveNextToBrade1 {
     exclusive 1
     QuestActive 7118
@@ -182,6 +203,9 @@ automacro moveNextToBrade1 {
     call MoveToBrade
 }
 
+#7119#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Você recebeu novos equipamentos. Equipe todos eles. #
+#Coloque os novos equipamentos. #
 automacro moveNextToBrade2 {
     exclusive 1
     QuestActive 7119
@@ -195,6 +219,9 @@ macro MoveToBrade {
     do move 103 105
 }
 
+#7118#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Os próximos passos serão ensinados pelo instrutor. #
+#Converse com Brade #
 automacro talkBrade {
     exclusive 1
     QuestActive 7118
@@ -246,6 +273,9 @@ automacro talkBradeBugged {
     }
 }
 
+#7119#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Você recebeu novos equipamentos. Equipe todos eles. #
+#Coloque os novos equipamentos. #
 automacro equipStuffForBrade {
     exclusive 1
     QuestActive 7119
@@ -272,6 +302,9 @@ automacro equipStuffForBrade {
     }
 }
 
+#7119#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Você recebeu novos equipamentos. Equipe todos eles. #
+#Coloque os novos equipamentos. #
 automacro talkBradeSecond {
     exclusive 1
     QuestActive 7119
@@ -305,6 +338,9 @@ automacro BradeBuggedNo7120MoveJinha {
     call MoveJinha
 }
 
+#7120#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Fale com a instrutora sobre a habilidade Primeiros Socorros. #
+#Aprenda sobre Primeiros Socorros #
 automacro moveToGirlSkill {
     exclusive 1
     QuestActive 7120
@@ -335,6 +371,9 @@ automacro BradeBuggedNo7120TalkJinha {
     call TalkJinha
 }
 
+#7120#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Fale com a instrutora sobre a habilidade Primeiros Socorros. #
+#Aprenda sobre Primeiros Socorros #
 automacro talkGirlSkill {
     exclusive 1
     QuestActive 7120
@@ -385,6 +424,9 @@ automacro BradeBuggedNo7120TalkBrade {
     call TalkBradeGetTunic
 }
 
+#7120#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Fale com a instrutora sobre a habilidade Primeiros Socorros. #
+#Aprenda sobre Primeiros Socorros #
 automacro talkBradeThird {
     exclusive 1
     QuestActive 7120
@@ -436,6 +478,9 @@ automacro talkChoco {
     }
 }
 
+#7121#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Converse com os NPCs. #
+#Fale com os Guias e com a Kafra. #
 automacro moveNextToGuys {
     exclusive 1
     QuestActive 7121
@@ -445,6 +490,10 @@ automacro moveNextToGuys {
         do move 32 171
     }
 }
+
+#7121#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Converse com os NPCs. #
+#Fale com os Guias e com a Kafra. #
 automacro talkToGuysBugged {
     exclusive 1
     QuestActive 7121
@@ -458,6 +507,9 @@ automacro talkToGuysBugged {
     }
 }
 
+#7121#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Converse com os NPCs. #
+#Fale com os Guias e com a Kafra. #
 automacro talkKafra {
     exclusive 1
     QuestActive 7121
@@ -470,6 +522,9 @@ automacro talkKafra {
     }
 }
 
+#7121#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Converse com os NPCs. #
+#Fale com os Guias e com a Kafra. #
 automacro talkZonda {
     exclusive 1
     QuestActive 7121
@@ -481,6 +536,9 @@ automacro talkZonda {
     }
 }
 
+#7121#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Converse com os NPCs. #
+#Fale com os Guias e com a Kafra. #
 automacro talkSoldado {
     exclusive 1
     QuestActive 7121
@@ -492,6 +550,9 @@ automacro talkSoldado {
     }
 }
 
+#7121#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Converse com os NPCs. #
+#Fale com os Guias e com a Kafra. #
 automacro talkChocoAgain {
     exclusive 1
     QuestActive 7121
@@ -646,6 +707,9 @@ automacro começarQuestLunaticos {
     }
 }
 
+#7124#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Você pode derrotar 5 Lunáticos? Use as 'Lanças de Fogo' do manual para Magos. #
+#Derrote 5 Lunáticos #
 automacro caçandoLunaticos {
     QuestActive 7124
     exclusive 1
@@ -732,6 +796,9 @@ automacro começarQuestPicky {
     }
 }
 
+#7123#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Derrote 2 Pickys? Use a habilidade 'Golpe Fulminante' do manual para Espadachins. #
+#Derrote 2 Pickys #
 automacro começarQuestSalgueiroMoverPerto {
     NpcNotNear /Thief|Gatuno/
     ConfigKey quest_atual salgueiros
@@ -745,6 +812,9 @@ automacro começarQuestSalgueiroMoverPerto {
     call moverPertoDosNpc
 }
 
+#7123#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Derrote 2 Pickys? Use a habilidade 'Golpe Fulminante' do manual para Espadachins. #
+#Derrote 2 Pickys #
 automacro começarQuestSalgueiro {
     ConfigKey quest_atual salgueiros
     QuestActive 7123
@@ -764,6 +834,12 @@ automacro começarQuestSalgueiro {
     }
 }
 
+#7123#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Derrote 2 Pickys? Use a habilidade 'Golpe Fulminante' do manual para Espadachins. #
+#Derrote 2 Pickys #
+#7127#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Derrote 5 Salgueiros com a ajuda da habilidade 'Ataque Duplo'. #
+#Derrote 5 Salgueiros #
 automacro treinoMaisPesadoMoverPerto {
     QuestActive 7123
     QuestActive 7127
@@ -774,6 +850,12 @@ automacro treinoMaisPesadoMoverPerto {
     call moverPertoDosNpc
 }
 
+#7123#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Derrote 2 Pickys? Use a habilidade 'Golpe Fulminante' do manual para Espadachins. #
+#Derrote 2 Pickys #
+#7127#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Derrote 5 Salgueiros com a ajuda da habilidade 'Ataque Duplo'. #
+#Derrote 5 Salgueiros #
 automacro treinoMaisPesado {
     QuestActive 7123
     QuestActive 7127
@@ -901,6 +983,13 @@ automacro continuarUpandoAte12 {
         ]
     }
 }
+
+#7123#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Derrote 2 Pickys? Use a habilidade 'Golpe Fulminante' do manual para Espadachins. #
+#Derrote 2 Pickys #
+#7124#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Você pode derrotar 5 Lunáticos? Use as 'Lanças de Fogo' do manual para Magos. #
+#Derrote 5 Lunáticos #
 automacro continuar upando ate 12 bugged {
     ConfigKey quest_atual todas_completadas
     QuestActive 7127, 7123, 7124
@@ -941,6 +1030,12 @@ automacro seMorrerEnquantoUpaAteLv12 {
     call mudarDeMapa
 }
 
+#7123#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Derrote 2 Pickys? Use a habilidade 'Golpe Fulminante' do manual para Espadachins. #
+#Derrote 2 Pickys #
+#7127#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
+#Derrote 5 Salgueiros com a ajuda da habilidade 'Ataque Duplo'. #
+#Derrote 5 Salgueiros #
 automacro se morrer enquanto mata pickys_e_salgueiros {
     QuestActive 7123, 7127
     CurrentHP >= 50%

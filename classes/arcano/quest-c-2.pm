@@ -42,6 +42,9 @@ automacro ChefedaguildBruxo {
     }
 }
 
+#9016#Mudança de Classe: Bruxo#SG_FEEL#QUE_NOIMAGE#
+#A segunda etapa do teste de mudança de classe é responder às perguntas de Raulel. #
+#Converse com o Bruxo Misterioso #
 automacro QuestionarioBruxo {
     InMap gef_tower
     QuestActive 9016
@@ -85,6 +88,9 @@ automacro QuestionarioBruxo {
     }  
 }
 
+#9017#Mudança de Classe: Bruxo#SG_FEEL#QUE_NOIMAGE#
+#A 3a. etapa do teste de mudança de classe é entender as 3 diferentes propriedades da Magia. #
+#Faça o teste prático com 3 propriedades diferentes #
 automacro TestePraticoBruxoIniciar {
     InMap gef_tower
     QuestActive 9017
@@ -146,6 +152,9 @@ automacro TestePraticoBruxoSaladeEspera {
 #    }
 #}
 
+#9018#Mudança de Classe: Bruxo#SG_FEEL#QUE_NOIMAGE#
+#Você passou em todos os testes de Raulel. Fale com Catherine para terminar! #
+#Converse com Catherine #
 automacro FinalizandoVirarBruxo {
     InMap gef_tower
     QuestActive 9018

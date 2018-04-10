@@ -92,6 +92,9 @@ automacro virarArruaceiroInicio {
     }
 }
 
+#2017#Mudança de Classe: Arruaceiro#SG_FEEL#QUE_NOIMAGE#
+#Você passou no primeiro teste para se tornar um Arruaceiro. Smithrato cuidará do próximo teste. #
+#Fale com Smithrato #
 automacro virarArruaceiro_etapa2_FalarComSmith {
     JobID $paramsClasses{idC1}
     QuestActive 2017
@@ -102,7 +105,9 @@ automacro virarArruaceiro_etapa2_FalarComSmith {
     }
 }
 
-
+#2018#Mudança de Classe: Arruaceiro#SG_FEEL#QUE_NOIMAGE#
+#Você deve pagar uma taxa de registro para se tornar Arruaceiro. Vou lhe dizer os itens que você precisa trazer e o quanto você precisa pagar de taxa. #
+#10.000 zenys, 10 Ossos, 6 Ervas Azuis, 10 Unhas Apodrecidas e 10 Mandíbulas Horrendas. #
 automacro virarArruaceiro_etapa3_coletarItens {
     JobID $paramsClasses{idC1}
     QuestActive 2018
@@ -200,6 +205,9 @@ automacro virarArruaceiro_etapa3_coletarItens {
     }
 }
 
+#2018#Mudança de Classe: Arruaceiro#SG_FEEL#QUE_NOIMAGE#
+#Você deve pagar uma taxa de registro para se tornar Arruaceiro. Vou lhe dizer os itens que você precisa trazer e o quanto você precisa pagar de taxa. #
+#10.000 zenys, 10 Ossos, 6 Ervas Azuis, 10 Unhas Apodrecidas e 10 Mandíbulas Horrendas. #
 automacro virarArruaceiro_etapa3_tenhoOsItensIrProNpc {
     InInventory "Erva Azul" >= 6
     InInventory "Unha Apodrecida" >= 10
@@ -230,6 +238,9 @@ automacro virarArruaceiro_etapa3_tenhoOsItensIrProNpc {
     }
 }
 
+#2018#Mudança de Classe: Arruaceiro#SG_FEEL#QUE_NOIMAGE#
+#Você deve pagar uma taxa de registro para se tornar Arruaceiro. Vou lhe dizer os itens que você precisa trazer e o quanto você precisa pagar de taxa. #
+#10.000 zenys, 10 Ossos, 6 Ervas Azuis, 10 Unhas Apodrecidas e 10 Mandíbulas Horrendas. #
 automacro virarArruaceiro_etapa3_tenhoOsItensbugged {
     InInventory "Erva Azul" >= 6
     InInventory "Unha Apodrecida" >= 10
@@ -251,7 +262,9 @@ automacro virarArruaceiro_etapa3_tenhoOsItensbugged {
     }
 }
 
-
+#2018#Mudança de Classe: Arruaceiro#SG_FEEL#QUE_NOIMAGE#
+#Você deve pagar uma taxa de registro para se tornar Arruaceiro. Vou lhe dizer os itens que você precisa trazer e o quanto você precisa pagar de taxa. #
+#10.000 zenys, 10 Ossos, 6 Ervas Azuis, 10 Unhas Apodrecidas e 10 Mandíbulas Horrendas. #
 automacro virarArruaceiro_etapa3_tenhoOsItens {
     InInventory "Erva Azul" >= 6
     InInventory "Unha Apodrecida" >= 10
@@ -272,6 +285,15 @@ automacro virarArruaceiro_etapa3_tenhoOsItens {
     }
 }
 
+#2022#Mudança de Classe: Arruaceiro#SG_FEEL#QUE_NOIMAGE#
+#Vá visitar Aragham Jr., que vive ao sul da Fortaleza de Saint Darmain. Essa área encontra-se ao leste, a um campo de distância daqui. A senha é: ^0000FF'Aragham nunca colecionou itens de aprimoramento.'^000000#
+#Fale com Aragham Jr. #
+#2023#Mudança de Classe: Arruaceiro#SG_FEEL#QUE_NOIMAGE#
+#Vá visitar Antonio Jr., que vive perto da praia de Kokomo, em Comodo. A senha é: ^0000FF'Antonio não gosta de destruir itens de aprimoramento.'^000000#
+#Fale com Antonio Jr. #
+#2024#Mudança de Classe: Arruaceiro#SG_FEEL#QUE_NOIMAGE#
+#Vá visitar Holgren Jr., que está no campo ao sul da Fortaleza de Saint Darmain, no caminho para Morroc. Ele vai lhe informar qual é o teste para se tornar Arruaceiro. A senha é: ^0000FF'Meu pai nunca colecionou itens de aprimoramento.'^000000#
+#Fale com Holgren Jr. #
 automacro virarArruaceiro_etapa4 {
     JobID $paramsClasses{idC1}
     exclusive 1
@@ -378,6 +400,9 @@ automacro virarArruaceiro_etapa6_labirinto {
     }
 }
 
+#2026#Mudança de Classe: Arruaceiro#SG_FEEL#QUE_NOIMAGE#
+#Você só precisa andar até a Guilda dos Arruaceiros por um túnel subterrâneo. Um teste simples, não é? Mas não posso garantir que seja totalmente seguro. #
+#Atravesse o túnel subterrâneo até a Guilda dos Arruaceiros. #
 automacro virarArruaceiro_etapa6_morreuNoLabirinto_hpAlto {
     QuestActive 2026
     ConfigKeyNot questArruaceiro none
@@ -414,6 +439,9 @@ automacro virarArruaceiro_etapa6_morreuNoLabirinto_hpAlto {
     }
 }
 
+#2026#Mudança de Classe: Arruaceiro#SG_FEEL#QUE_NOIMAGE#
+#Você só precisa andar até a Guilda dos Arruaceiros por um túnel subterrâneo. Um teste simples, não é? Mas não posso garantir que seja totalmente seguro. #
+#Atravesse o túnel subterrâneo até a Guilda dos Arruaceiros. #
 automacro virarArruaceiro_etapa6_morreuNoLabirinto_hpBaixo {
     QuestActive 2026
     JobLevel = 50
@@ -437,6 +465,9 @@ automacro virarArruaceiro_etapa6_morreuNoLabirinto_hpBaixo {
     }
 }
 
+#2026#Mudança de Classe: Arruaceiro#SG_FEEL#QUE_NOIMAGE#
+#Você só precisa andar até a Guilda dos Arruaceiros por um túnel subterrâneo. Um teste simples, não é? Mas não posso garantir que seja totalmente seguro. #
+#Atravesse o túnel subterrâneo até a Guilda dos Arruaceiros. #
 automacro virarArruaceiro_etapaFinal {
     JobLevel = 50
     #IsInMapAndCoordinate in_rogue 359 117
@@ -456,6 +487,9 @@ automacro virarArruaceiro_etapaFinal {
     }
 }
 
+#2026#Mudança de Classe: Arruaceiro#SG_FEEL#QUE_NOIMAGE#
+#Você só precisa andar até a Guilda dos Arruaceiros por um túnel subterrâneo. Um teste simples, não é? Mas não posso garantir que seja totalmente seguro. #
+#Atravesse o túnel subterrâneo até a Guilda dos Arruaceiros. #
 automacro virarArruaceiro_etapaFinal_Alternativo {
     JobLevel = 50
     #IsInMapAndCoordinate in_rogue 378 113
