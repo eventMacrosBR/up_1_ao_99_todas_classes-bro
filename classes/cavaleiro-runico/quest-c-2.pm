@@ -15,8 +15,7 @@ sub initParamsQuestClasse2 {
     1032 => "5 1 0", #Flor de Planta Carnívora
     7031 => "5 1 0", #Frigideira Velha
     946 => "5 1 0" #Casco de Caramujo
-
-    ;
+    );
 	Commands::run("conf -f questc2_implementada true");
 	foreach $key (keys %items) {
         if ($classe == 1) { 
