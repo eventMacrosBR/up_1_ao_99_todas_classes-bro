@@ -54,6 +54,12 @@ automacro configurarDesintoxicar {
         log =Configurando ela
         log ===========================================
         ]
+        $blocoExiste = checarSeExisteNoConfig("useSelf_skill_0")
+        if ($blocoExiste = nao ) {
+            adicionaUseSelfSkill()
+            pause 1
+            do reload config
+        }
         do conf useSelf_skill_0 TF_DETOXIFY
         do conf useSelf_skill_0_lvl 1
         do conf useSelf_skill_0_sp >= 10
