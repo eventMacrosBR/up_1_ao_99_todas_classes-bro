@@ -1,7 +1,7 @@
 sub initParamsQuestClasse2 {
-	my ($classe) = @_;
-	my %items = (
-	#Possibilidade 1
+    my ($classe) = @_;
+    my %items = (
+    #Possibilidade 1
     931 => "5 1 0", #Amuleto dos Orcs
     903 => "5 1 0", #Língua de Réptil
     1040 => "5 1 0", #Bigode de Anão Ancião
@@ -236,7 +236,6 @@ automacro virarCavaleiro_irAoNpc4_parte_2_morri_cheguei {
     call {
     do talk $.NpcNearLastBinId
     do talk resp 0 
-    lock virarCavaleiro_irAoNpc4_parte_2_morri_cheguei
     }
 }
 
@@ -262,11 +261,10 @@ automacro virarCavaleiro_irAoNpc4_parte_2 {
     QuestInactive 9011 #
     QuestInactive 9012 #
     call {
-    do chat join 0
+        do chat join 0
 	do conf attackAuto 2
 	do conf lockMap none
 	do conf route_randomWalk 2
-	lock virarCavaleiro_irAoNpc4_parte_2
     }
 }
 
@@ -392,7 +390,6 @@ automacro virarCavaleiro_matei_monstro_voltei {
     do conf attackAuto 0
     do conf lockMap none
     do conf route_randomWalk 0
-    lock virarCavaleiro_matei_monstro_voltei
     }
 }
 
