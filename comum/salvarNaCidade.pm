@@ -11,63 +11,73 @@ macro SetSaveIn {
             do conf -f saveMap_wanted einbroch
             do conf -f saveMap_kafra_position 242 205
             do conf -f saveMap_sellNpc_position einbroch 224 207
+            do conf -f saveMap_potionNpc_position ein_in01 189 15
         }
         case (=~ /aldebaran/i ) {
             do conf -f saveMap_wanted aldebaran
             do conf -f saveMap_kafra_position 143 119
             do conf -f saveMap_sellNpc_position aldebaran 165 107
+            do conf -f saveMap_potionNpc_position aldeba_in 94 56
         }
         case (=~ /juno|yuno/i ) {
             do conf -f saveMap_wanted yuno
             do conf -f saveMap_kafra_position 152 187
-            do conf -f saveMap_sellNpc_position yuno_in01 25 34
+            do conf -f saveMap_sellNpc_position yuno 163 187
+            do conf -f saveMap_potionNpc_position yuno 218 97
         }
         case (=~ /rachel/i ) {
             do conf -f saveMap_wanted rachel
             do conf -f saveMap_kafra_position 109 138
-            do conf -f saveMap_sellNpc_position rachel 65 80
+            do conf -f saveMap_sellNpc_position ra_in01 257 269
+            do conf -f saveMap_potionNpc_position ra_in01 257 269
         }
         case (=~ /comodo/i ) {
             do conf -f saveMap_wanted comodo
             do conf -f saveMap_kafra_position 195 150
             do conf -f saveMap_sellNpc_position cmd_in01 79 182
-            do conf buyAuto_1_npc cmd_in01 79 182
+            do conf -f saveMap_potionNpc_position cmd_in01 79 182
         }
         case (=~ /prontera/i ) {
             do conf -f saveMap_wanted prontera
             do conf -f saveMap_kafra_position 151 29
             do conf -f saveMap_sellNpc_position prontera 113 42
-            do conf buyAuto_1_npc prt_in 126 76
+            do conf -f saveMap_potionNpc_position prt_in 126 76
         }
         case (=~ /payon/i ) {
             do conf -f saveMap_wanted payon
             do conf -f saveMap_kafra_position 181 104
             do conf -f saveMap_sellNpc_position payon 159 96
-            do conf buyAuto_1_npc payon_in01 5 49
+            do conf -f saveMap_potionNpc_position payon_in01 5 49
         }
         case (=~ /geffen/i ) {
             do conf -f saveMap_wanted geffen
             do conf -f saveMap_kafra_position 120 62
             do conf -f saveMap_sellNpc_position geffen_in 74 144
-            do conf buyAuto_1_npc geffen_in 77 167
+            do conf -f saveMap_potionNpc_position geffen_in 77 167
         }
         case (=~ /morocc|morroc|morooc/i ) {
             do conf -f saveMap_wanted morocc
             do conf -f saveMap_kafra_position 156 97
             do conf -f saveMap_sellNpc_position morocc_in 141 67
-            do conf buyAuto_1_npc moc_ruins 114 63
+            do conf -f saveMap_potionNpc_position moc_ruins 114 63
         }
         case (=~ /izlude/i ) {
             do conf -f saveMap_wanted izlude
             do conf -f saveMap_kafra_position 134 88
             do conf -f saveMap_sellNpc_position izlude 105 99
-            do conf buyAuto_1_npc izlude_in 115 61
+            do conf -f saveMap_potionNpc_position izlude_in 115 61
         }
         case ( =~ /veins/i ) {
             do conf -f saveMap_wanted veins
             do conf -f saveMap_kafra_position 208 128
             do conf -f saveMap_sellNpc_position ve_in 243 303
-            do conf buyAuto_1_npc ve_in 243 303
+            do conf -f saveMap_potionNpc_position ve_in 243 303
+        }
+        case (=~ /alberta/i ) {
+        	do conf -f saveMap_wanted alberta
+            do conf -f saveMap_kafra_position 113 60
+            do conf -f saveMap_sellNpc_position alberta_in 182 97
+            do conf -f saveMap_potionNpc_position alberta_in 182/97
         }
         else {
             log nome da cidade inválido, tente novamente...
@@ -76,6 +86,22 @@ macro SetSaveIn {
             stop
         }
     }
+
+    $continuarLoop = sim
+    $i = 0
+    while ($continuarLoop = sim && checarSeExisteComando("buyAuto_$i") = sim) {
+    	if (&config(buyAuto_$i) =~ /Poção/i) {
+    		do conf buyAuto_$i_npc &config(saveMap_potionNpc_position)
+    	}
+
+    	if (a&config(buyAuto_$i) = a) {
+    		$continuarLoop = nao
+    	}
+    	$i++
+    }
+
+    #tem que fazer um while pra flecha
+
     [
     log =============================================
     log =Iniciando seguência de salvamento em &config(saveMap_wanted)
