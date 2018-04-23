@@ -47,3 +47,12 @@ sub extrairMapasDeUp {
     }
 }
 
+automacro configurarAtaqueADistancia {
+    ConfigKeyNot attackDistanceAuto 1
+    exclusive 1
+    JobIdNot 0
+    call {
+        do conf attackDistanceAuto 1
+    }
+}
+
