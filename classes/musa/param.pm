@@ -12,3 +12,12 @@ sub initParamsClasses {
     $eventMacro->set_full_hash('paramsClasses', \%paramsClasses);
 }
 
+automacro configurarAtaqueADistancia {
+    ConfigKeyNot attackDistanceAuto 1
+    exclusive 1
+    JobIdNot 0
+    call {
+        do conf attackDistanceAuto 1
+    }
+}
+
