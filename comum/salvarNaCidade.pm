@@ -87,21 +87,6 @@ macro SetSaveIn {
         }
     }
 
-    $continuarLoop = sim
-    $i = 0
-    while ($continuarLoop = sim && checarSeExisteComando("buyAuto_$i") = sim) {
-    	if (&config(buyAuto_$i) =~ /Poção/i) {
-    		do conf buyAuto_$i_npc &config(saveMap_potionNpc_position)
-    	}
-
-    	if (a&config(buyAuto_$i) = a) {
-    		$continuarLoop = nao
-    	}
-    	$i++
-    }
-
-    #tem que fazer um while pra flecha
-
     [
     log =============================================
     log =Iniciando seguência de salvamento em &config(saveMap_wanted)
@@ -223,6 +208,22 @@ automacro SalvoNaKafra {
         do conf saveMap_kafra_position none
         do conf saveMap_sellNpc_position none
         do conf In_saveMap_sequence false
+
+        $continuarLoop = sim
+	    $i = 0
+	    while ($continuarLoop = sim && checarSeExisteComando("buyAuto_$i") = sim) {
+	    	if (&config(buyAuto_$i) =~ /Poção/i) {
+	    		do conf buyAuto_$i_npc &config(saveMap_potionNpc_position)
+	    	}
+
+	    	if (a&config(buyAuto_$i) = a) {
+	    		$continuarLoop = nao
+	    	}
+	    	$i++
+	    }
+
+	    #tem que fazer um while pra flecha
+
         release definirVariavelSaveMap
         do ai on
 
