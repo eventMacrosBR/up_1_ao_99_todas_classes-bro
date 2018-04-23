@@ -77,7 +77,7 @@ macro SetSaveIn {
         	do conf -f saveMap_wanted alberta
             do conf -f saveMap_kafra_position 113 60
             do conf -f saveMap_sellNpc_position alberta_in 182 97
-            do conf -f saveMap_potionNpc_position alberta_in 182/97
+            do conf -f saveMap_potionNpc_position alberta_in 182 97
         }
         else {
             log nome da cidade inválido, tente novamente...
@@ -222,7 +222,19 @@ automacro SalvoNaKafra {
 	    	$i++
 	    }
 
-	    #tem que fazer um while pra flecha
+	    #felizmente TODOS os npcs que vendem poção amarela, também vendem flecha normal
+	    $continuarLoop = sim
+	    $i = 0
+	    while ($continuarLoop = sim && checarSeExisteComando("buyAuto_$i") = sim) {
+	    	if (&config(buyAuto_$i) =~ /Flecha/i) {
+	    		do conf buyAuto_$i_npc &config(saveMap_potionNpc_position)
+	    	}
+
+	    	if (a&config(buyAuto_$i) = a) {
+	    		$continuarLoop = nao
+	    	}
+	    	$i++
+	    }
 
         release definirVariavelSaveMap
         do ai on
