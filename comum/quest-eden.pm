@@ -670,7 +670,15 @@ automacro voltarDoMapaDentroDoEden {
                 do talk &npc(/Ur/)
             }
         }
-        do conf -f quest_eden terminando
+        if (&questInactiveCount(7132, 7141, 7151, 7218) = 4) {
+            do conf -f quest_eden terminando
+        } else {
+            [
+            log ===================================
+            log = acredito que há uma treta no término da quest Éden
+            log ===================================
+            ]
+        }
     }
 }
 automacro EdenPegandoEquips_IndoProNpc {
@@ -733,7 +741,7 @@ automacro EdenPegueiEquips12e26e40 {
 
 automacro EdenPegandoEquips60 {
     ConfigKey quest_eden terminando
-    BaseLevel 60..98
+    BaseLevel 70..98
     timeout 120
     IsNotEquippedID armor 15031
     NpcNear /Ferreiro|smith/i
@@ -753,7 +761,7 @@ automacro EdenPegandoEquips60 {
 
 automacro EdenPegueiEquips60 {
     ConfigKey quest_eden terminando
-    BaseLevel 60..98
+    BaseLevel 70..98
     exclusive 1
     IsNotEquippedID armor 15031
     NpcNear /Ferreiro|smith/i
@@ -812,7 +820,7 @@ automacro Eden26Equipando {
 automacro Eden40Equipando {
     IsNotEquippedID armor 15011
     InInventoryID 15011 = 1
-    BaseLevel 40..69
+    BaseLevel 40..59
     exclusive 1
     run-once 1
     call {
