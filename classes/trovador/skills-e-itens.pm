@@ -48,7 +48,7 @@ automacro configurarRajadaDeFlechas {
         do conf attackSkillSlot_0_lvl 10
         do conf attackSkillSlot_0_sp > 15%
         do conf attackSkillSlot_0_distance 1.5
-        do conf attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
+        do conf useSelf_skill_0_whenStatusInactive EFST_CONCENTRATION, EFST_POSTDELAY
         do conf attackSkillSlot_0_disabled 0
     }
 }
