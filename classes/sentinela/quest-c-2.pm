@@ -97,53 +97,61 @@ sub initParamsQuestClasse2 {
 #4002#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Colete os itens que o Caçador de Demônios pedir. - 5 Garras do Lobo, 5 Troncos e 3 Ervas Brancas #
 ##
-automacro coletarGarrasDoLobo {
+automacro coletarItens_Possibilidade1 {
     QuestActive 4002
-    InInventoryID 920 < 5
     exclusive 1
+    timeout 120
+    ConfigKeyNot passo_quest_cacador indo entregar itens
     call {
-        [
-            log "Coletar"
-        ]
+        #Possibilidade 1    
+        $qtdGarras = &invamount(920)  #Garras de Lobo
+        $qtdTroncos = &invamount(1019) #Troncos
+        $qtdErvasBrancas = &invamount(509)  #Ervas Brancas
+
+        if ( $qtdGarras < 5 ) {
+            do conf lockMap TODO
+        } elsif ( $qtdGarras >= 5 && $qtdTroncos < 5 ) {
+            do conf lockMap TODO
+        } elsif ( $qtdGarras >= 5 && $qtdTroncos >= 5 && $qtdErvasBrancas < 3) {
+            do conf lockMap TODO
+        } elsif ( $qtdGarras >= 5 && $qtdTroncos >= 5 && $qtdErvasBrancas >= 3) {
+            log ================================
+            log Coletei todos os itens, indo Entregar!
+            log ================================
+            do conf -f passo_quest_cacador indo entregar itens
+        } else {
+            log ====================================================
+            log Deveria estar coletando Garra de Lobo, Troco ou Erva Branca agora
+            log Mas algo deu errado... reporte aos criadores dessa eventMacro
+            log ====================================================
+        }
     }
 }
 
 #4002#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Colete os itens que o Caçador de Demônios pedir. - 5 Garras do Lobo, 5 Troncos e 3 Ervas Brancas #
 ##
-automacro coletarTroncos {
-    QuestActive 4002
-    InInventoryID 1019 < 5
-    exclusive 1
-    call {
-        [
-            log "Coletar"
-        ]
-    }
-}
-
-#4002#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
-#Colete os itens que o Caçador de Demônios pedir. - 5 Garras do Lobo, 5 Troncos e 3 Ervas Brancas #
+#4003#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
+#Colete os itens que o Caçador de Demônios pedir. - 3 Bicos de Ave, 5 Ossos e 3 Ervas Verdes #
 ##
-automacro coletarErvasBrancas {
-    QuestActive 4002
-    InInventoryID 509 < 3
-    exclusive 1
-    call {
-        [
-            log "Coletar"
-        ]
-    }
-}
-
-#4002#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
-#Colete os itens que o Caçador de Demônios pedir. - 5 Garras do Lobo, 5 Troncos e 3 Ervas Brancas #
+#4004#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
+#Colete os itens que o Caçador de Demônios pedir. - 3 Caninos Venenosos, 3 Couros de Animal e 5 Ervas Vermelhas #
 ##
-automacro entregarItens4002 {
-    QuestActive 4002
-    InInventoryID 920 >= 5
-    InInventoryID 1019 >= 5
-    InInventoryID 509 >= 3
+#4005#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
+#Colete os itens que o Caçador de Demônios pedir. - 3 Chifres de Dokebi, 3 Pedaços de Casca de Ovo e 10 Felpas #
+##
+#4006#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
+#Colete os itens que o Caçador de Demônios pedir. - 9 Cascas, 9 Peles de Verme e 9 Ervas Amarelas. #
+##
+#4007#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
+#Colete os itens que o Caçador de Demônios pedir. - 3 Dentes de Morcego, 1 Muco Pegajoso, 1 Pata de Urso #
+##
+#4008#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
+#Colete os itens que o Caçador de Demônios pedir. - 2 Espinhos de Porco-Espinho,  1 Avelã e 1 Cauda de Yoyo #
+#
+automacro entregarItens_todasAsPossibilidades {
+    QuestActive 4002, 4003, 4004, 4005, 4006, 4007, 4008
+    ConfigKey passo_quest_cacador indo entregar itens
     exclusive 1
     call {
         [
@@ -194,22 +202,6 @@ automacro coletarErvasVerdes {
     }
 }
 
-#4003#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
-#Colete os itens que o Caçador de Demônios pedir. - 3 Bicos de Ave, 5 Ossos e 3 Ervas Verdes #
-##
-automacro entregarItens4003 {
-    QuestActive 4003
-    InInventoryID 925 >= 3
-    InInventoryID 932 >= 5
-    InInventoryID 511 >= 3
-    exclusive 1
-    call {
-        [
-            log "Entregar"
-        ]
-    }
-}
-
 #4004#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Colete os itens que o Caçador de Demônios pedir. - 3 Caninos Venenosos, 3 Couros de Animal e 5 Ervas Vermelhas #
 ##
@@ -238,9 +230,7 @@ automacro coletarErvasVermelhas {
     }
 }
 
-#4004#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
-#Colete os itens que o Caçador de Demônios pedir. - 3 Caninos Venenosos, 3 Couros de Animal e 5 Ervas Vermelhas #
-##
+
 automacro coletarCourosDeAnimais {
     QuestActive 4004
     InInventoryID 919 < 3
@@ -248,22 +238,6 @@ automacro coletarCourosDeAnimais {
     call {
         [
             log "Coletar"
-        ]
-    }
-}
-
-#4004#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
-#Colete os itens que o Caçador de Demônios pedir. - 3 Caninos Venenosos, 3 Couros de Animal e 5 Ervas Vermelhas #
-##
-automacro entregarItens4004 {
-    QuestActive 4004
-    InInventoryID 937 >= 3
-    InInventoryID 919 >= 3
-    InInventoryID 507 >= 5
-    exclusive 1
-    call {
-        [
-            log "Entregar"
         ]
     }
 }
@@ -296,9 +270,7 @@ automacro coletarPedacosDeCascaDeOvo {
     }
 }
 
-#4005#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
-#Colete os itens que o Caçador de Demônios pedir. - 3 Chifres de Dokebi, 3 Pedaços de Casca de Ovo e 10 Felpas #
-##
+
 automacro coletarFelpas {
     QuestActive 4005
     InInventoryID 914 < 10
@@ -306,22 +278,6 @@ automacro coletarFelpas {
     call {
         [
             log "Coletar"
-        ]
-    }
-}
-
-#4005#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
-#Colete os itens que o Caçador de Demônios pedir. - 3 Chifres de Dokebi, 3 Pedaços de Casca de Ovo e 10 Felpas #
-##
-automacro entregarItens4005 {
-    QuestActive 4005
-    InInventoryID 1021 >= 3
-    InInventoryID 7032 >= 3
-    InInventoryID 914 >= 10
-    exclusive 1
-    call {
-        [
-            log "Entregar"
         ]
     }
 }
@@ -354,9 +310,7 @@ automacro coletarPelesDeVerme {
     }
 }
 
-#4006#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
-#Colete os itens que o Caçador de Demônios pedir. - 9 Cascas, 9 Peles de Verme e 9 Ervas Amarelas. #
-##
+
 automacro coletarErvasAmarelas {
     QuestActive 4006
     InInventoryID 508 < 9
@@ -368,25 +322,7 @@ automacro coletarErvasAmarelas {
     }
 }
 
-#4006#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
-#Colete os itens que o Caçador de Demônios pedir. - 9 Cascas, 9 Peles de Verme e 9 Ervas Amarelas. #
-##
-automacro entregarItens4006 {
-    QuestActive 4006
-    InInventoryID 955 >= 9
-    InInventoryID 935 >= 9
-    InInventoryID 508 >= 9
-    exclusive 1
-    call {
-        [
-            log "Entregar"
-        ]
-    }
-}
 
-#4007#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
-#Colete os itens que o Caçador de Demônios pedir. - 3 Dentes de Morcego, 1 Muco Pegajoso, 1 Pata de Urso #
-##
 automacro coletarDentesDeMorcego {
     QuestActive 4007
     InInventoryID 913 < 3
@@ -422,22 +358,6 @@ automacro coletarPataDeUrso {
     call {
         [
             log "Coletar"
-        ]
-    }
-}
-
-#4007#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
-#Colete os itens que o Caçador de Demônios pedir. - 3 Dentes de Morcego, 1 Muco Pegajoso, 1 Pata de Urso #
-##
-automacro entregarItens4007 {
-    QuestActive 4007
-    InInventoryID 913 >= 3
-    InInventoryID 938 >= 1
-    InInventoryID 948 >= 1
-    exclusive 1
-    call {
-        [
-            log "Entregar"
         ]
     }
 }
@@ -480,22 +400,6 @@ automacro coletarCaldaDeYoyo {
     call {
         [
             log "Coletar"
-        ]
-    }
-}
-
-#4008#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
-#Colete os itens que o Caçador de Demônios pedir. - 2 Espinhos de Porco-Espinho,  1 Avelã e 1 Cauda de Yoyo #
-#
-automacro entregarItens4008 {
-    QuestActive 4008
-    InInventoryID 1027 >= 2
-    InInventoryID 1026 >= 1
-    InInventoryID 942 >= 1
-    exclusive 1
-    call {
-        [
-            log "Entregar"
         ]
     }
 }
