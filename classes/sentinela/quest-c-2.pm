@@ -128,6 +128,37 @@ automacro coletarItens_Possibilidade1 {
     }
 }
 
+automacro coletarItens_Possibilidade2 {
+    QuestActive 4003
+    exclusive 1
+    timeout 120
+    ConfigKeyNot passo_quest_cacador indo entregar itens
+    call {
+        #Possibilidade 1    
+        $qtdPeleDeVerme = &invamount(955)  #Pele de Verme
+        $qtdCasca = &invamount(935) #Casca
+        $qtdErvaAmarela = &invamount(508)  #Erva Amarela
+
+        if ( $qtdPeleDeVerme < 9 ) {
+            do conf lockMap TODO
+        } elsif ( $qtdPeleDeVerme >= 9 && $qtdCasca < 9 ) {
+            do conf lockMap TODO
+        } elsif ( $qtdPeleDeVerme >= 9 && $qtdCasca >= 9 && $qtdErvaAmarela < 9) {
+            do conf lockMap TODO
+        } elsif ( $qtdPeleDeVerme >= 9 && $qtdCasca >= 9 && $qtdErvaAmarela >= 9) {
+            log ================================
+            log Coletei todos os itens, indo Entregar!
+            log ================================
+            do conf -f passo_quest_cacador indo entregar itens
+        } else {
+            log ====================================================
+            log Deveria estar coletando Pele de Verme, Casca ou Erva Amarela agora
+            log Mas algo deu errado... reporte aos criadores dessa eventMacro
+            log ====================================================
+        }
+    }
+}
+
 #4002#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Colete os itens que o Caçador de Demônios pedir. - 5 Garras do Lobo, 5 Troncos e 3 Ervas Brancas #
 ##
@@ -156,48 +187,6 @@ automacro entregarItens_todasAsPossibilidades {
     call {
         [
             log "Entregar"
-        ]
-    }
-}
-
-#4003#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
-#Colete os itens que o Caçador de Demônios pedir. - 3 Bicos de Ave, 5 Ossos e 3 Ervas Verdes #
-##
-automacro coletarBicosDeAves {
-    QuestActive 4003
-    InInventoryID 925 < 3
-    exclusive 1
-    call {
-        [
-            log "Coletar"
-        ]
-    }
-}
-
-#4003#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
-#Colete os itens que o Caçador de Demônios pedir. - 3 Bicos de Ave, 5 Ossos e 3 Ervas Verdes #
-##
-automacro coletarOssos {
-    QuestActive 4003
-    InInventoryID 932 < 5
-    exclusive 1
-    call {
-        [
-            log "Coletar"
-        ]
-    }
-}
-
-#4003#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
-#Colete os itens que o Caçador de Demônios pedir. - 3 Bicos de Ave, 5 Ossos e 3 Ervas Verdes #
-##
-automacro coletarErvasVerdes {
-    QuestActive 4003
-    InInventoryID 511 < 3
-    exclusive 1
-    call {
-        [
-            log "Coletar"
         ]
     }
 }
