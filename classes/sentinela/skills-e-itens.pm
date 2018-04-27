@@ -55,22 +55,36 @@ automacro configurarRajadaDeFlechas {
 
 automacro configurarBuyAutoFlecha {
     ConfigKeyNot buyAuto_0 Flecha
+    exclusive 1
     call {
         do conf buyAuto_0 Flecha
         do conf buyAuto_0_minAmount 25
+        do conf buyAuto_0_maxAmount 2000
+    }
+}
+
+automacro aumentarFlechasLevel30 {
+    ConfigKeyNot buyAuto_0_maxAmount 5000
+    BaseLevel >= 30
+    exclusive 1
+    call {
         do conf buyAuto_0_maxAmount 5000
     }
 }
 
+
 automacro configurarEquiparFlechaAutomaticamente {
     ConfigKeyNot attackEquip_arrow Flecha
+    exclusive 1
     call {
         do conf attackEquip_arrow Flecha
+        do iconf Flecha 0 0 0
     }
 }
 
 automacro configurarUsarAljave {
     ConfigKeyNot useSelf_item_1 Aljave
+    exclusive 1
     call {
         $blocoExiste = checarSeExisteNoConfig("useSelf_item_1")
         if ($blocoExiste = nao ) {
@@ -79,7 +93,7 @@ automacro configurarUsarAljave {
             do reload config
         }
         do conf useSelf_item_1 Aljave
-        do conf useSelf_item_1_inInventory  Flechas < 50
+        do conf useSelf_item_1_inInventory Flechas < 50
     }
 }
 
