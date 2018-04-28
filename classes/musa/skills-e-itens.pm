@@ -24,6 +24,7 @@ automacro configurarConcentracao {
         do conf useSelf_skill_0_whenStatusInactive EFST_CONCENTRATION, EFST_POSTDELAY        
         do conf useSelf_skill_0_disabled 0
         do conf useSelf_skill_0_notInTown  1
+        do conf useSelf_skill_0_notWhileSitting 1
     }
 }
 
