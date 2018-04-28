@@ -104,30 +104,33 @@ automacro coletarItens_Possibilidade1 {
     ConfigKeyNot passo_quest_cacador indo entregar itens
     call {
         #Possibilidade 1    
-        $qtdGarras = &invamount(920)  #Garras de Lobo
-        $qtdTroncos = &invamount(1019) #Troncos
-        $qtdErvasBrancas = &invamount(509)  #Ervas Brancas
+        $qtdItem1 = &invamount(920)  #Garras de Lobo
+        $qtdItem2 = &invamount(1019) #Troncos
+        $qtdItem3 = &invamount(509)  #Ervas Brancas
 
-        if ( $qtdGarras < 5 ) {
+        if ( $qtdItem1 < 5 ) {
             do conf lockMap TODO
-        } elsif ( $qtdGarras >= 5 && $qtdTroncos < 5 ) {
+        } elsif ( $qtdItem1 >= 5 && $qtdItem2 < 5 ) {
             do conf lockMap TODO
-        } elsif ( $qtdGarras >= 5 && $qtdTroncos >= 5 && $qtdErvasBrancas < 3) {
+        } elsif ( $qtdItem1 >= 5 && $qtdItem2 >= 5 && $qtdItem3 < 3) {
             do conf lockMap TODO
-        } elsif ( $qtdGarras >= 5 && $qtdTroncos >= 5 && $qtdErvasBrancas >= 3) {
+        } elsif ( $qtdItem1 >= 5 && $qtdItem2 >= 5 && $qtdItem3 >= 3) {
             log ================================
             log Coletei todos os itens, indo Entregar!
             log ================================
             do conf -f passo_quest_cacador indo entregar itens
         } else {
             log ====================================================
-            log Deveria estar coletando Garra de Lobo, Troco ou Erva Branca agora
+            log Deveria estar coletando 5 Garras do Lobo, 5 Troncos e 3 Ervas Brancas agora
             log Mas algo deu errado... reporte aos criadores dessa eventMacro
             log ====================================================
         }
     }
 }
 
+#4003#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
+#Colete os itens que o Caçador de Demônios pedir. - 3 Bicos de Ave, 5 Ossos e 3 Ervas Verdes #
+##
 automacro coletarItens_Possibilidade2 {
     QuestActive 4003
     exclusive 1
@@ -135,17 +138,51 @@ automacro coletarItens_Possibilidade2 {
     ConfigKeyNot passo_quest_cacador indo entregar itens
     call {
         #Possibilidade 1    
-        $qtdPeleDeVerme = &invamount(955)  #Pele de Verme
-        $qtdCasca = &invamount(935) #Casca
-        $qtdErvaAmarela = &invamount(508)  #Erva Amarela
+        $qtdItem1 = &invamount(925)  #Bico de Ave
+        $qtdItem2 = &invamount(932)  #Osso
+        $qtdItem3 = &invamount(511)  #Erva Verde
 
-        if ( $qtdPeleDeVerme < 9 ) {
+        if ( $qtdItem1 < 3 ) {
             do conf lockMap TODO
-        } elsif ( $qtdPeleDeVerme >= 9 && $qtdCasca < 9 ) {
+        } elsif ( $qtdItem1 >= 3 && $qtdItem2 < 5 ) {
             do conf lockMap TODO
-        } elsif ( $qtdPeleDeVerme >= 9 && $qtdCasca >= 9 && $qtdErvaAmarela < 9) {
+        } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 5 && $qtdItem3 < 3) {
             do conf lockMap TODO
-        } elsif ( $qtdPeleDeVerme >= 9 && $qtdCasca >= 9 && $qtdErvaAmarela >= 9) {
+        } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 5 && $qtdItem3 >= 3) {
+            log ================================
+            log Coletei todos os itens, indo Entregar!
+            log ================================
+            do conf -f passo_quest_cacador indo entregar itens
+        } else {
+            log ====================================================
+            log Deveria estar coletando 3 Bicos de Ave, 5 Ossos e 3 Ervas Verdes agora
+            log Mas algo deu errado... reporte aos criadores dessa eventMacro
+            log ====================================================
+        }
+    }
+}
+
+#4004#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
+#Colete os itens que o Caçador de Demônios pedir. - 3 Caninos Venenosos, 3 Couros de Animal e 5 Ervas Vermelhas #
+##
+automacro coletarItens_Possibilidade3 {
+    QuestActive 4004
+    exclusive 1
+    timeout 120
+    ConfigKeyNot passo_quest_cacador indo entregar itens
+    call {
+        #Possibilidade 2
+        $qtdItem1 = &invamount(937)  #Canino Venenoso
+        $qtdItem2 = &invamount(507)  #Erva Vermelha
+        $qtdItem3 = &invamount(919)  #Couro de Animal
+
+        if ( $qtdItem1 < 3 ) {
+            do conf lockMap TODO
+        } elsif ( $qtdItem1 >= 3 && $qtdItem2 < 5 ) {
+            do conf lockMap TODO
+        } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 5 && $qtdItem3 < 3) {
+            do conf lockMap TODO
+        } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 5 && $qtdItem3 >= 3) {
             log ================================
             log Coletei todos os itens, indo Entregar!
             log ================================
@@ -158,6 +195,38 @@ automacro coletarItens_Possibilidade2 {
         }
     }
 }
+
+automacro coletarItens_Possibilidade5 {
+    QuestActive 4006
+    exclusive 1
+    timeout 120
+    ConfigKeyNot passo_quest_cacador indo entregar itens
+    call {
+        #Possibilidade 2
+        $qtdItem1 = &invamount(955)  #Pele de Verme
+        $qtdItem2 = &invamount(935) #Casca
+        $qtdItem3 = &invamount(508)  #Erva Amarela
+
+        if ( $qtdItem1 < 9 ) {
+            do conf lockMap TODO
+        } elsif ( $qtdItem1 >= 9 && $qtdItem2 < 9 ) {
+            do conf lockMap TODO
+        } elsif ( $qtdItem1 >= 9 && $qtdItem2 >= 9 && $qtdItem3 < 9) {
+            do conf lockMap TODO
+        } elsif ( $qtdItem1 >= 9 && $qtdItem2 >= 9 && $qtdItem3 >= 9) {
+            log ================================
+            log Coletei todos os itens, indo Entregar!
+            log ================================
+            do conf -f passo_quest_cacador indo entregar itens
+        } else {
+            log ====================================================
+            log Deveria estar coletando Pele de Verme, Casca ou Erva Amarela agora
+            log Mas algo deu errado... reporte aos criadores dessa eventMacro
+            log ====================================================
+        }
+    }
+}
+
 
 #4002#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Colete os itens que o Caçador de Demônios pedir. - 5 Garras do Lobo, 5 Troncos e 3 Ervas Brancas #
