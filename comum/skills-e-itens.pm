@@ -20,12 +20,12 @@ automacro parandoDePegarPotDeAprendiz {
 sub adicionaAttackSkillSlot {
     open (my $fh, '>>:encoding(UTF-8)', Settings::getConfigFilename());
     print $fh "attackSkillSlot {\n";
-    print $fh "\tlvl 10\n";
-    print $fh "\tdist 1.5\n";
+    print $fh "\tlvl\n";
+    print $fh "\tdist\n";
     print $fh "\tmaxCastTime 0\n";
     print $fh "\tminCastTime 0\n";
     print $fh "\thp\n";
-    print $fh "\tsp > 10\n";
+    print $fh "\tsp\n";
     print $fh "\thomunculus_hp\n";
     print $fh "\thomunculus_sp\n";
     print $fh "\thomunculus_dead\n";
@@ -45,14 +45,14 @@ sub adicionaAttackSkillSlot {
     print $fh "\tmonsters\n";
     print $fh "\tnotMonsters\n";
     print $fh "\tmonstersCount\n";
-    print $fh "\tmaxAttempts 0\n";
-    print $fh "\tmaxUses 0\n";
+    print $fh "\tmaxAttempts\n";
+    print $fh "\tmaxUses\n";
     print $fh "\ttarget_hp\n";
     print $fh "\ttarget_whenStatusActive\n";
     print $fh "\ttarget_whenStatusInactive\n";
     print $fh "\ttarget_deltaHp\n";
     print $fh "\tinInventory\n";
-    print $fh "\tisSelfSkill 0\n";
+    print $fh "\tisSelfSkill\n";
     print $fh "\tequip_topHead\n";
     print $fh "\tequip_midHead\n";
     print $fh "\tequip_lowHead\n";
@@ -68,13 +68,14 @@ sub adicionaAttackSkillSlot {
     print $fh "\tzeny\n";
     print $fh "\tnotOnAction\n";
     print $fh "}\n";
+    print $fh "\n"; #deixar uma linha em branco
     close ($fh);
 }
 
 sub adicionaUseSelfSkill {
     open (my $fh, '>>:encoding(UTF-8)', Settings::getConfigFilename());
     print $fh "useSelf_skill {\n";
-    print $fh "\tlvl 10\n";
+    print $fh "\tlvl\n";
     print $fh "\tmaxCastTime 0\n";
     print $fh "\tminCastTime 0\n";
     print $fh "\thp\n";
@@ -92,9 +93,9 @@ sub adicionaUseSelfSkill {
     print $fh "\tmonsters\n";
     print $fh "\tnotMonsters\n";
     print $fh "\tmonstersCount\n";
-    print $fh "\tstopWhenHit 0\n";
-    print $fh "\tinLockOnly 0\n";
-    print $fh "\tnotWhileSitting 0\n";
+    print $fh "\tstopWhenHit\n";
+    print $fh "\tinLockOnly\n";
+    print $fh "\tnotWhileSitting\n";
     print $fh "\tnotInTown 0\n";
     print $fh "\ttimeout 0\n";
     print $fh "\tdisabled 0\n";
@@ -102,6 +103,7 @@ sub adicionaUseSelfSkill {
     print $fh "\tmanualAI 0\n";
     print $fh "\tnotOnAction\n";
     print $fh "}\n";
+    print $fh "\n"; #deixar uma linha em branco
     close ($fh);
 }
 
@@ -133,6 +135,7 @@ sub adicionaUseSelfItem {
     print $fh "\tmanualAI 0\n";
     print $fh "\tnotOnAction\n";
     print $fh "}\n";
+    print $fh "\n"; #deixar uma linha em branco
     close ($fh);
 }
 
@@ -143,12 +146,13 @@ sub adicionaBuyAuto {
     print $fh "\tstandpoint\n";
     print $fh "\tdistance 5\n";
     print $fh "\tprice\n";
-    print $fh "\tminAmount 2\n";
-    print $fh "\tmaxAmount 3\n";
+    print $fh "\tminAmount\n";
+    print $fh "\tmaxAmount\n";
     print $fh "\tbatchSize\n";
     print $fh "\tdisabled 0\n";
     print $fh "\tzeny\n";
     print $fh "}\n";
+    print $fh "\n"; #deixar uma linha em branco
     close ($fh);
 }
 
@@ -159,6 +163,7 @@ sub adicionaGetAuto {
     print $fh "\tmaxAmount\n";
     print $fh "\tpassive\n";
     print $fh "}\n";
+    print $fh "\n"; #deixar uma linha em branco
     close ($fh);
 }
 
@@ -169,6 +174,7 @@ sub adicionaBetterShopper {
     print $fh "\tmaxAmount\n";
     print $fh "\tdisabled 0\n";
     print $fh "}\n";
+    print $fh "\n"; #deixar uma linha em branco
     close($fh);
 }
 
