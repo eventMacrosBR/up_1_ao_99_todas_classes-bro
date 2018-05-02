@@ -123,9 +123,11 @@ automacro coletarItens_Possibilidade1 {
             do mconf Megalodon 0
             do mconf Nereida 0 -8
         } elsif ( $qtdItem1 >= 5 && $qtdItem2 >= 5 && $qtdItem3 >= 3) {
+            [
             log ================================
             log Coletei todos os itens, indo Entregar!
             log ================================
+            ]
             
             do mconf Condor 1
             do mconf Escorpião 1
@@ -136,10 +138,12 @@ automacro coletarItens_Possibilidade1 {
             do mconf Nereida 1
             do conf -f passo_quest_cacador indo entregar itens
         } else {
+            [
             log ====================================================
             log Deveria estar coletando 5 Garras do Lobo, 5 Troncos e 3 Ervas Brancas agora
             log Mas algo deu errado... reporte aos criadores dessa eventMacro
             log ====================================================
+            ]
         }
     }
 }
@@ -164,15 +168,19 @@ automacro coletarItens_Possibilidade2 {
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 5 && $qtdItem3 < 3) {
             do conf lockMap prt_fild08
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 5 && $qtdItem3 >= 3) {
+            [
             log ================================
             log Coletei todos os itens, indo Entregar!
             log ================================
+            ]
             do conf -f passo_quest_cacador indo entregar itens
         } else {
+            [
             log ====================================================
             log Deveria estar coletando 3 Bicos de Ave, 5 Ossos e 3 Ervas Verdes agora
             log Mas algo deu errado... reporte aos criadores dessa eventMacro
             log ====================================================
+            ]
         }
     }
 }
@@ -197,15 +205,19 @@ automacro coletarItens_Possibilidade3 {
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 5 && $qtdItem3 < 3) {
             do conf lockMap pay_fild08
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 5 && $qtdItem3 >= 3) {
+            [
             log ================================
             log Coletei todos os itens, indo Entregar!
             log ================================
+            ]
             do conf -f passo_quest_cacador indo entregar itens
         } else {
+            [
             log ====================================================
             log Deveria estar coletando 3 Caninos Venenosos, 3 Couros de Animal e 5 Ervas Vermelhas agora
             log Mas algo deu errado... reporte aos criadores dessa eventMacro
             log ====================================================
+            ]
         }
     }
 }
@@ -234,15 +246,19 @@ automacro coletarItens_Possibilidade4 {
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 3 && $qtdItem3 < 10) {
             do conf lockMap prt_fild08
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 3 && $qtdItem3 >= 10) {
+            [
             log ================================
             log Coletei todos os itens, indo Entregar!
             log ================================
+            ]
             do conf -f passo_quest_cacador indo entregar itens
         } else {
+            [
             log ====================================================
             log Deveria estar coletando 3 Chifres de Dokebi, 3 Pedaços de Casca de Ovo e 10 Felpas agora
             log Mas algo deu errado... reporte aos criadores dessa eventMacro
             log ====================================================
+            ]
         }
     }
 }
@@ -267,15 +283,19 @@ automacro coletarItens_Possibilidade5 {
         } elsif ( $qtdItem1 >= 9 && $qtdItem2 >= 9 && $qtdItem3 < 9) {
             do conf lockMap prt_fild03
         } elsif ( $qtdItem1 >= 9 && $qtdItem2 >= 9 && $qtdItem3 >= 9) {
+            [
             log ================================
             log Coletei todos os itens, indo Entregar!
             log ================================
+            ]
             do conf -f passo_quest_cacador indo entregar itens
         } else {
+            [
             log ====================================================
             log Deveria estar coletando 9 Cascas, 9 Peles de Verme e 9 Ervas Amarelas agora
             log Mas algo deu errado... reporte aos criadores dessa eventMacro
             log ====================================================
+            ]
         }
     }
 }
@@ -305,9 +325,11 @@ automacro coletarItens_Possibilidade6 {
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 1 && $qtdItem3 < 1) {
             do conf lockMap pay_fild07
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 1 && $qtdItem3 >= 1) {
+            [
             log ================================
             log Coletei todos os itens, indo Entregar!
             log ================================
+            ]
             
             do mconf Piere 1
             do mconf Deniro 1
@@ -317,10 +339,12 @@ automacro coletarItens_Possibilidade6 {
             
             do conf -f passo_quest_cacador indo entregar itens
         } else {
+            [
             log ====================================================
             log Deveria estar coletando 3 Dentes de Morcego, 1 Muco Pegajoso, 1 Pata de Urso agora
             log Mas algo deu errado... reporte aos criadores dessa eventMacro
             log ====================================================
+            ]
         }
     }
 }
@@ -346,18 +370,22 @@ automacro coletarItens_Possibilidade7 {
         } elsif ( $qtdItem1 >= 2 && $qtdItem2 >= 1 && $qtdItem3 < 1) {
             do conf lockMap prt_fild03
         } elsif ( $qtdItem1 >= 2 && $qtdItem2 >= 1 && $qtdItem3 >= 1) {
+            [
             log ================================
             log Coletei todos os itens, indo Entregar!
             log ================================
+            ]
             
             do mconf Salgueiro Ancião 1
             
             do conf -f passo_quest_cacador indo entregar itens
         } else {
+            [
             log ====================================================
             log Deveria estar coletando 2 Espinhos de Porco-Espinho,  1 Avelã e 1 Cauda de Yoyo agora
             log Mas algo deu errado... reporte aos criadores dessa eventMacro
             log ====================================================
+            ]
         }
     }
 }
