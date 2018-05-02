@@ -135,7 +135,7 @@ automacro VirarCAcador_IrNoNpc {
     call {
         call pararDeAtacar
         do conf lockMap none
-        do move hu_in01 386 373 &rand(2)
+        do move hu_in01 386 373 &rand(2,4)
     }
 }
 
@@ -175,7 +175,7 @@ automacro VirarCacador_FalarComRecepcionista {
     QuestActive 4001
     exclusive 1
     call {
-        do move hu_in01 382 382 &rand(2)
+        do move hu_in01 382 382 &rand(2,4)
         do talknpc 382 382 r1 #Recepcionista
     }
 }
