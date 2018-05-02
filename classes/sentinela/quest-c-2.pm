@@ -36,7 +36,7 @@ sub initParamsQuestClasse2 {
         942 => "1 1 0", #Caudas de Yoyo
         1026 => "1 1 0" #Avelãs
     );
-	Commands::run("conf -f questc2_implementada false");
+	Commands::run("conf -f questc2_implementada true");
 	foreach $key (keys %items) {
         if ($classe == 1) { 
             Commands::run("iconf $key $items{$key}") 
@@ -85,13 +85,100 @@ sub initParamsQuestClasse2 {
 #(Sem respostas certas aqui, só confirmar 2 ou 3x)
 #Fim da Quest
 
+automacro VirarCacador_SalvarEmHugel {
+    JobID $paramsClasses{idC1}
+    JobLevel = 50
+    ConfigKeyNot saveMap hugel
+    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot quest_eden em_curso
+    ConfigKeyNot quest_eden terminando
+    QuestInactive 4000
+    QuestInactive 4001
+    QuestInactive 4002
+    QuestInactive 4003
+    QuestInactive 4004
+    QuestInactive 4005
+    QuestInactive 4006
+    QuestInactive 4007
+    QuestInactive 4008
+    QuestInactive 4009
+    QuestInactive 4010
+    QuestInactive 4011
+    QuestInactive 4012
+    QuestInactive 4013
+    exclusive 1
+    call SetSaveIn "hugel"
+}
+
+automacro VirarCAcador_IrNoNpc {
+    JobID $paramsClasses{idC1}
+    JobLevel = 50
+    FreeSkillPoints = 0
+    ConfigKey saveMap hugel
+    InMap hugel
+    QuestInactive 4000
+    QuestInactive 4001
+    QuestInactive 4002
+    QuestInactive 4003
+    QuestInactive 4004
+    QuestInactive 4005
+    QuestInactive 4006
+    QuestInactive 4007
+    QuestInactive 4008
+    QuestInactive 4009
+    QuestInactive 4010
+    QuestInactive 4011
+    QuestInactive 4012
+    QuestInactive 4013
+    priority 2
+    exclusive 1
+    call {
+        call pararDeAtacar
+        do conf lockMap none
+        do move hu_in01 386 373 &rand(2)
+    }
+}
+
 #4000#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Você precisa passar pelo teste de Dejiko para avançar. #
 ##
+automacro VirarCacador_FalarDejiko {
+    JobID $paramsClasses{idC1}
+    JobLevel = 50
+    InMap hu_in01
+    QuestInactive 4000
+    QuestInactive 4001
+    QuestInactive 4002
+    QuestInactive 4003
+    QuestInactive 4004
+    QuestInactive 4005
+    QuestInactive 4006
+    QuestInactive 4007
+    QuestInactive 4008
+    QuestInactive 4009
+    QuestInactive 4010
+    QuestInactive 4011
+    QuestInactive 4012
+    QuestInactive 4013
+    exclusive 1
+    call {
+        do talknpc 386 373 r1 r1 r3 r3 r3 r2 r1 r2 r3 r2 r1 r2  #Dejiko
+    }
+}
+
 
 #4001#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Fale com a Caçadora da Guilda para continuar o teste. #
 ##
+automacro VirarCacador_FalarComRecepcionista {
+    InMap hu_in01
+    QuestActive 4001
+    exclusive 1
+    call {
+        do move hu_in01 382 382 &rand(2)
+        do talknpc 382 382 r1 #Recepcionista
+    }
+}
 
 #4002#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Colete os itens que o Caçador de Demônios pedir. - 5 Garras do Lobo, 5 Troncos e 3 Ervas Brancas #
