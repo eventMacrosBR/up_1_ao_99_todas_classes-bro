@@ -1,41 +1,40 @@
 sub initParamsQuestClasse2 {
 	my ($classe) = @_;
 	my %items = (
-	#Possibilidade 1    
-    920 => "5 1 0", #Garras de Lobo
-    1019 => "5 1 0", #Troncos
-    509 => "3 1 0", #Ervas Brancas
-
-    #Possibilidade 2
-    955 => "9 1 0", #Peles de Verme
-    935 => "9 1 0", #Cascas
-    508 => "9 1 0", #Ervas Amarelas
-
-    #Possibilidade 3
-    1021 => "3 1 0", #Chifres de Dokebi
-    7032 => "3 1 0", #Pedaços de Casca de Ovo
-    914 => "10 1 0", #Felpas
-
-    #Possibilidade 4
-    937 => "3 1 0", #Caninos Venenosos
-    507 => "5 1 0", #Ervas Vermelhas
-    919 => "3 1 0", #Couros de Animal
-
-    #Possibilidade 5
-    925 => "3 1 0", #Bicos de Ave
-    932 => "5 1 0", #Ossos
-    511 => "3 1 0", #Ervas Verdes
-
-    #Possibilidade 6
-    913 => "3 1 0", #Dentes de Morcego
-    938 => "1 1 0", #Mucos Pegajosos
-    948 => "1 1 0", #Patas de Urso
-
-    #Possibilidade 7     
-    1027 => "2 1 0", #Espinhos de Porco-Espinho
-    942 => "1 1 0", #Caudas de Yoyo
-    1026 => "1 1 0" #Avelãs
+	    #Possibilidade 1    
+        920 => "5 1 0", #Garras de Lobo
+        1019 => "5 1 0", #Troncos
+        509 => "3 1 0", #Ervas Brancas
     
+        #Possibilidade 2
+        955 => "9 1 0", #Peles de Verme
+        935 => "9 1 0", #Cascas
+        508 => "9 1 0", #Ervas Amarelas
+    
+        #Possibilidade 3
+        1021 => "3 1 0", #Chifres de Dokebi
+        7032 => "3 1 0", #Pedaços de Casca de Ovo
+        914 => "10 1 0", #Felpas
+    
+        #Possibilidade 4
+        937 => "3 1 0", #Caninos Venenosos
+        507 => "5 1 0", #Ervas Vermelhas
+        919 => "3 1 0", #Couros de Animal
+    
+        #Possibilidade 5
+        925 => "3 1 0", #Bicos de Ave
+        932 => "5 1 0", #Ossos
+        511 => "3 1 0", #Ervas Verdes
+    
+        #Possibilidade 6
+        913 => "3 1 0", #Dentes de Morcego
+        938 => "1 1 0", #Mucos Pegajosos
+        948 => "1 1 0", #Patas de Urso
+    
+        #Possibilidade 7     
+        1027 => "2 1 0", #Espinhos de Porco-Espinho
+        942 => "1 1 0", #Caudas de Yoyo
+        1026 => "1 1 0" #Avelãs
     );
 	Commands::run("conf -f questc2_implementada false");
 	foreach $key (keys %items) {
@@ -109,14 +108,32 @@ automacro coletarItens_Possibilidade1 {
 
         if ( $qtdItem1 < 5 ) {
             do conf lockMap moc_fild11
+            #esses dois o bot não pode e nem precisa atacar
+            do mconf Condor 0
+            do mconf Escorpião 0
         } elsif ( $qtdItem1 >= 5 && $qtdItem2 < 5 ) {
-            do conf lockMap TODO
+            do conf lockMap pay_fild10
+            #esses dois o bot não pode e nem precisa atacar
+            do mconf Selvagem 0
+            do mconf 1494 0 #besouro que não sei o nome exato
         } elsif ( $qtdItem1 >= 5 && $qtdItem2 >= 5 && $qtdItem3 < 3) {
-            do conf lockMap TODO
+            do conf lockMap beach_dun3
+            #esses tres o bot não pode e nem precisa atacar
+            do mconf Hidra 0
+            do mconf Megalodon 0
+            do mconf Nereida 0 -8
         } elsif ( $qtdItem1 >= 5 && $qtdItem2 >= 5 && $qtdItem3 >= 3) {
             log ================================
             log Coletei todos os itens, indo Entregar!
             log ================================
+            
+            do mconf Condor 1
+            do mconf Escorpião 1
+            do mconf Selvagem 1
+            do mconf 1494 1 #besouro que não sei o nome exato
+            do mconf Hidra 1
+            do mconf Megalodon 1
+            do mconf Nereida 1
             do conf -f passo_quest_cacador indo entregar itens
         } else {
             log ====================================================
@@ -141,11 +158,11 @@ automacro coletarItens_Possibilidade2 {
         $qtdItem3 = &invamount(Erva Verde)
 
         if ( $qtdItem1 < 3 ) {
-            do conf lockMap TODO
+            do conf lockMap moc_fild01
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 < 5 ) {
-            do conf lockMap TODO
+            do conf lockMap pay_dun01
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 5 && $qtdItem3 < 3) {
-            do conf lockMap TODO
+            do conf lockMap prt_fild08
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 5 && $qtdItem3 >= 3) {
             log ================================
             log Coletei todos os itens, indo Entregar!
@@ -174,11 +191,11 @@ automacro coletarItens_Possibilidade3 {
         $qtdItem3 = &invamount(Couro de Animal)
 
         if ( $qtdItem1 < 3 ) {
-            do conf lockMap TODO
+            do conf lockMap pay_fild08
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 < 5 ) {
-            do conf lockMap TODO
+            do conf lockMap mjolnir_09
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 5 && $qtdItem3 < 3) {
-            do conf lockMap TODO
+            do conf lockMap pay_fild08
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 5 && $qtdItem3 >= 3) {
             log ================================
             log Coletei todos os itens, indo Entregar!
@@ -207,11 +224,15 @@ automacro coletarItens_Possibilidade4 {
         $qtdItem3 = &invamount(Felpa)
 
         if ( $qtdItem1 < 3 ) {
-            do conf lockMap TODO
+            #VAI TER QUE COMPRAR O CHIFRE USANDO O BETTERSHOPPER
+            #PIOR QUE ISSO VAIDAR TRABALHO HAHAHA
+            #MAS VOU COLOCAR O MAPA PRA TENTAR DROPAR E FODAS
+            #QUEM SABE UM DIA EU FAÇA
+            do conf lockMap pay_dun04
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 < 3 ) {
-            do conf lockMap TODO
+            do conf lockMap pay_dun01
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 3 && $qtdItem3 < 10) {
-            do conf lockMap TODO
+            do conf lockMap prt_fild08
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 3 && $qtdItem3 >= 10) {
             log ================================
             log Coletei todos os itens, indo Entregar!
@@ -235,16 +256,16 @@ automacro coletarItens_Possibilidade5 {
     timeout 120
     ConfigKeyNot passo_quest_cacador indo entregar itens
     call {
-        $qtdItem1 = &invamount(Pele de Verme)
         $qtdItem2 = &invamount(Casca)
+        $qtdItem1 = &invamount(Pele de Verme)
         $qtdItem3 = &invamount(Erva Amarela)
 
         if ( $qtdItem1 < 9 ) {
-            do conf lockMap TODO
+            do conf lockMap gef_fild00
         } elsif ( $qtdItem1 >= 9 && $qtdItem2 < 9 ) {
-            do conf lockMap TODO
+            do conf lockMap anthell02
         } elsif ( $qtdItem1 >= 9 && $qtdItem2 >= 9 && $qtdItem3 < 9) {
-            do conf lockMap TODO
+            do conf lockMap prt_fild03
         } elsif ( $qtdItem1 >= 9 && $qtdItem2 >= 9 && $qtdItem3 >= 9) {
             log ================================
             log Coletei todos os itens, indo Entregar!
@@ -273,15 +294,27 @@ automacro coletarItens_Possibilidade6 {
         $qtdItem3 = &invamount(Pata de Urso)
 
         if ( $qtdItem1 < 3 ) {
-            do conf lockMap TODO
+            do mconf Piere 0
+            do mconf Deniro 0
+            do mconf Andre 0
+            do mconf Vitata 0
+            do mconf Gierath 0
+            do conf lockMap anthell01
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 < 1 ) {
-            do conf lockMap TODO
+            do conf lockMap pay_dun00
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 1 && $qtdItem3 < 1) {
-            do conf lockMap TODO
+            do conf lockMap pay_fild07
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 1 && $qtdItem3 >= 1) {
             log ================================
             log Coletei todos os itens, indo Entregar!
             log ================================
+            
+            do mconf Piere 1
+            do mconf Deniro 1
+            do mconf Andre 1
+            do mconf Vitata 1
+            do mconf Gierath 1
+            
             do conf -f passo_quest_cacador indo entregar itens
         } else {
             log ====================================================
@@ -306,15 +339,19 @@ automacro coletarItens_Possibilidade7 {
         $qtdItem3 = &invamount(Cauda de Yoyo)
 
         if ( $qtdItem1 < 2 ) {
-            do conf lockMap TODO
+            do conf lockMap mjolnir_01
         } elsif ( $qtdItem1 >= 2 && $qtdItem2 < 1 ) {
-            do conf lockMap TODO
+            do mconf Salgueiro Ancião 0
+            do conf lockMap pay_fild09
         } elsif ( $qtdItem1 >= 2 && $qtdItem2 >= 1 && $qtdItem3 < 1) {
-            do conf lockMap TODO
+            do conf lockMap prt_fild03
         } elsif ( $qtdItem1 >= 2 && $qtdItem2 >= 1 && $qtdItem3 >= 1) {
             log ================================
             log Coletei todos os itens, indo Entregar!
             log ================================
+            
+            do mconf Salgueiro Ancião 1
+            
             do conf -f passo_quest_cacador indo entregar itens
         } else {
             log ====================================================
