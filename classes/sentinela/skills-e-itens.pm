@@ -55,7 +55,6 @@ automacro configurarRajadaDeFlechas {
         do conf attackSkillSlot_0_whenStatusActive EFST_CONCENTRATION
         do conf attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
         do conf attackSkillSlot_0_maxUses 1 #usar uma rajada por monstro, acho que fica legal assim
-        
         do conf attackSkillSlot_0_disabled 0
     }
 }

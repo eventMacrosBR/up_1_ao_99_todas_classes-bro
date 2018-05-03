@@ -17,12 +17,14 @@ automacro configurarConcentracao {
             pause 1
             do reload config
         }
+        #dicas de configuração do bloco enviadas por @MrAnderson
         do conf useSelf_skill_0 AC_CONCENTRATION
         do conf useSelf_skill_0_lvl 10
-        do conf useSelf_skill_0_sp > 10%
-        do conf useSelf_skill_0_whenStatusInactive EFST_POSTDELAY
+        do conf useSelf_skill_0_sp > 70
+        do conf useSelf_skill_0_whenStatusInactive EFST_CONCENTRATION, EFST_POSTDELAY
         do conf useSelf_skill_0_disabled 0
-        do conf useSelf_skill_0_notInTown  1
+        do conf useSelf_skill_0_notInTown 1
+        do conf useSelf_skill_0_inLockOnly 1
         do conf useSelf_skill_0_notWhileSitting 1
     }
 }
@@ -45,11 +47,13 @@ automacro configurarRajadaDeFlechas {
             pause 1
             do reload config
         }
+        #dicas de configuração do bloco enviadas por @MrAnderson
         do conf attackSkillSlot_0 AC_DOUBLE
-        do conf attackSkillSlot_0_lvl 10
-        do conf attackSkillSlot_0_sp > 15%
-        do conf attackSkillSlot_0_distance 1.5
-        do conf useSelf_skill_0_whenStatusInactive EFST_CONCENTRATION, EFST_POSTDELAY
+        do conf attackSkillSlot_0_sp >= 82
+        do conf attackSkillSlot_0_dist none
+        do conf attackSkillSlot_0_whenStatusActive EFST_CONCENTRATION
+        do conf attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
+        do conf attackSkillSlot_0_maxUses 1 #usar uma rajada por monstro, acho que fica legal assim
         do conf attackSkillSlot_0_disabled 0
     }
 }
