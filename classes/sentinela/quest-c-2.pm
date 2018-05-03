@@ -520,6 +520,40 @@ automacro entregarItens_todasAsPossibilidades {
 #4011#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Mate todos os ^ff0000monstros de mudança de classe^000000, e o interruptor vai aparecer. Destrua o interruptor e fuja pela saída ao norte. #
 #
+automacro questCacador_labirinto {
+    InMap job_hunte
+    exclusive 1
+    call {
+        #TODO por ai Manual e configurar monstros que são os alvos
+        do move 72 76 #-> ataque Monstro Alvo
+        do move 107 76 #-> ataque Monstro Alvo 
+        do move 117 76 #-> ataque Monstro Alvo
+        for ($i = 0; $i < 11; $i++) {
+            do north
+        }
+        do move 94 131 #-> ataque Monstro Alvo
+        do move 110 131
+        for ($i = 0; $i < 5; $i++) {
+            do south
+        }#fica em 110 106
+        for ($i = 0; $i < 2; $i++) {
+            do west
+        }
+
+        do talk 52 #(switch nht)
+
+        for ($i = 0; $i < 2; $i++) {
+            do east
+        }
+        for ($i = 0; $i < 5; $i++) {
+            do north
+        }
+        do move 89 131
+        for ($i = 0; $i < 2; $i++) {
+            do north
+        }
+    }
+}
 
 #4012#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Relate ao Senhor da Guilda dos Caçadores que passou no exame. #
