@@ -528,28 +528,28 @@ automacro questCacador_labirinto {
         do move 72 76 #-> ataque Monstro Alvo
         do move 107 76 #-> ataque Monstro Alvo 
         do move 117 76 #-> ataque Monstro Alvo
-        for ($i = 0; $i < 11; $i++) {
+        foreach $i (1..11) {
             do north
         }
         do move 94 131 #-> ataque Monstro Alvo
         do move 110 131
-        for ($i = 0; $i < 5; $i++) {
+        foreach $i (1..5) {
             do south
         }#fica em 110 106
-        for ($i = 0; $i < 2; $i++) {
+        foreach $i (1..2) {
             do west
         }
 
-        do talk 52 #(switch nht)
+        do talk &npc(/switch.nht/)
 
-        for ($i = 0; $i < 2; $i++) {
+        foreach $i (1..2) {
             do east
         }
-        for ($i = 0; $i < 5; $i++) {
+        foreach $i (1..5) {
             do north
         }
         do move 89 131
-        for ($i = 0; $i < 2; $i++) {
+        foreach $i (1..2) {
             do north
         }
     }
