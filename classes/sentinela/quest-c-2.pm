@@ -1,7 +1,7 @@
 sub initParamsQuestClasse2 {
 	my ($classe) = @_;
 	my %items = (
-	    #Possibilidade 1    
+	#Possibilidade 1    
         920 => "5 1 0", #Garras de Lobo
         1019 => "5 1 0", #Troncos
         509 => "3 1 0", #Ervas Brancas
@@ -528,30 +528,43 @@ automacro questCacador_labirinto {
         do move 72 76 #-> ataque Monstro Alvo
         do move 107 76 #-> ataque Monstro Alvo 
         do move 117 76 #-> ataque Monstro Alvo
-        foreach $i (1..11) {
-            do north
-        }
+        do north
+	do north
+	do north
+	do north
+	do north
+	do north
+	do north
+	do north
+	do north
+	do north
+	do north
         do move 94 131 #-> ataque Monstro Alvo
         do move 110 131
-        foreach $i (1..5) {
-            do south
-        }#fica em 110 106
-        foreach $i (1..2) {
-            do west
-        }
+        do south
+	do south
+	do south
+	do south
+	do south
+	#fica em 110 106
+        do west
+	do west
 
         do talk &npc(/switch.nht/)
 
-        foreach $i (1..2) {
-            do east
-        }
-        foreach $i (1..5) {
-            do north
-        }
+        do east
+	do east
+	
+        do north
+	do north
+	do north
+	do north
+	do north
+	
         do move 89 131
-        foreach $i (1..2) {
-            do north
-        }
+	
+	do north
+	do north
     }
 }
 
