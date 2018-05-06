@@ -1,4 +1,4 @@
-sub inicializarParamsQuestClasse3 {
+sub inicializarParametrosQuestClasse3 {
 
 }
 

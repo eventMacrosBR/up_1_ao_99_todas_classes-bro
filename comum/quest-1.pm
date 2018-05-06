@@ -16,7 +16,7 @@ automacro virandoClasse1Bugged {
 }
 
 automacro virandoClasse1 {
-    InMap $paramsQuestClasse1{mapa}
+    InMap $parametrosQuestClasse1{mapa}
     JobID 0 #Aprendiz
     JobLevel 10
     SkillLevel NV_BASIC = 9
@@ -29,11 +29,11 @@ automacro virandoClasse1 {
         # $idequipiniciante tem como valor a id da arma que vc recebe quando vira classe 1
         
         do conf -f o_que_estou_fazendo virandoClasse1
-        if ($paramsQuestClasse1{precisaMover} = sim) {
-            do move $paramsQuestClasse1{mapa} $paramsQuestClasse1{npc} &rand(1,5)
+        if ($parametrosQuestClasse1{precisaMover} = sim) {
+            do move $parametrosQuestClasse1{mapa} $parametrosQuestClasse1{npc} &rand(1,5)
         }
-        do talknpc $paramsQuestClasse1{npc} $paramsQuestClasse1{sequenciaConversa}
-        $check = GetIndexAndEquipped("rightHand", "$paramsQuestClasse1{equipeIniciante}")
+        do talknpc $parametrosQuestClasse1{npc} $parametrosQuestClasse1{sequenciaConversa}
+        $check = GetIndexAndEquipped("rightHand", "$parametrosQuestClasse1{equipeIniciante}")
         if ($check != -1) do eq $check
     }
 }
@@ -51,7 +51,7 @@ automacro jaSouClasse1 {
         do pconf 2532 0 #2352#Traje_do_Aprendiz#
         do pconf 5055 0 #5055#Chapéu_de_Ovo_do_Aprendiz#
         do iconf 2393 0 0 0 #Tunica de Iniciante
-        do iconf $paramsQuestClasse1{equipeIniciante} 0 0 0
+        do iconf $parametrosQuestClasse1{equipeIniciante} 0 0 0
         $check = GetIndexAndEquipped("rightHand", 1243) #Adaga_do_Aprendiz#
         if ($check != -1) do drop $check
         $check = GetIndexAndEquipped("leftHand", 2112)#Vembrassa_do_Aprendiz#
@@ -66,7 +66,7 @@ automacro jaSouClasse1 {
         if ($check != -1) do drop $check
         $check = GetIndexAndEquipped("armor", 2393) #Tunica de Iniciante
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("rightHand", "$paramsQuestClasse1{equipeIniciante}")
+        $check = GetIndexAndEquipped("rightHand", "$parametrosQuestClasse1{equipeIniciante}")
         if ($check != -1) do eq $check
         call atualizarBuild
         do conf -f o_que_estou_fazendo acabeiDeVirarClasse1

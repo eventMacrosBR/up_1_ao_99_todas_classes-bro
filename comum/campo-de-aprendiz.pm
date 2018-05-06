@@ -1065,10 +1065,10 @@ automacro terminouDeUpar {
     call {
         call pararDeAtacar
         do move &rand(103,105) &rand(36,38)
-        do talk &npc(/$paramsQuestClasse1{nomeClasse}/i)
+        do talk &npc(/$parametrosQuestClasse1{nomeClasse}/i)
         do talk resp 1
         do talk resp 1
-        log Agora vou virar um/uma $paramsQuestClasse1{nomeClasse}!!!
+        log Agora vou virar um/uma $parametrosQuestClasse1{nomeClasse}!!!
         do conf quest_atual none
     }
 }
@@ -1097,12 +1097,12 @@ automacro todobugadão {
     call {
         [
         log WTF?
-        log Deveria ser $paramsQuestClasse1{nomeClasse} agora, mas nem isso eu sou
+        log Deveria ser $parametrosQuestClasse1{nomeClasse} agora, mas nem isso eu sou
         log tô todo bugado
-        log vamo virar $paramsQuestClasse1{nomeClasse}, tá na hora
+        log vamo virar $parametrosQuestClasse1{nomeClasse}, tá na hora
         ]
         do conf -f o_que_estou_fazendo virandoClasse1
-        do move $paramsQuestClasse1{mapa}
+        do move $parametrosQuestClasse1{mapa}
     }
 }
 

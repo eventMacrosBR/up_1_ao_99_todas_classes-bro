@@ -1,5 +1,5 @@
-sub inicializarParamsQuestEden {
-    my %paramsQuestEden = (
+sub inicializarParametrosQuestEden {
+    my %parametrosQuestEden = (
         armaLevel26e40 => 'espada',
         armaLevel60 => 'sabre',
         IDarmaIniciante => 1192,
@@ -7,6 +7,6 @@ sub inicializarParamsQuestEden {
         IDarmaEden => 1434
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
-    $eventMacro->set_full_hash('paramsQuestEden', \%paramsQuestEden);
+    $eventMacro->set_full_hash('parametrosQuestEden', \%parametrosQuestEden);
 }
 

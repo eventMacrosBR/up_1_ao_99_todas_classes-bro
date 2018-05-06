@@ -10,13 +10,13 @@ automacro inicializar {
         
         # Configurações de Ids de classe
         
-        # Esse sub gera a hash %paramsClasses com as seguintes keys:
-        # paramsClasses{idC1} 
-        # paramsClasses{idC2} 
-        # paramsClasses{idC1T}
-        # paramsClasses{idC2T}
-        # paramsClasses{idC3} 
-        inicializarParamsClasses()
+        # Esse sub gera a hash %parametrosClasses com as seguintes keys:
+        # parametrosClasses{idC1} 
+        # parametrosClasses{idC2} 
+        # parametrosClasses{idC1T}
+        # parametrosClasses{idC2T}
+        # parametrosClasses{idC3} 
+        inicializarparametrosClasses()
 
         # Configurações Gerais de Build
         
@@ -32,48 +32,48 @@ automacro inicializar {
 
         # Configurações Quests
         
-        # Esse sub gera a hash %paramsQuestEden com as seguintes keys:
-        # $paramsQuestEden{armaLevel26e40}
-        # $paramsQuestEden{armaLevel60}
-        inicializarParamsQuestEden()
+        # Esse sub gera a hash %parametrosQuestEden com as seguintes keys:
+        # $parametrosQuestEden{armaLevel26e40}
+        # $parametrosQuestEden{armaLevel60}
+        inicializarparametrosQuestEden()
         
-        # Esse sub gera a hash %paramsQuestClasse1 com as seguintes keys:
-        # $paramsQuestClasse1{nomeClasse}
-        # $paramsQuestClasse1{npc}
-        # $paramsQuestClasse1{mapa}
-        # $paramsQuestClasse1{precisaMover}
-        # $paramsQuestClasse1{sequenciaConversa}
-        # $paramsQuestClasse1{equipeIniciante}        
-        inicializarParamsQuestClasse1()
+        # Esse sub gera a hash %parametrosQuestClasse1 com as seguintes keys:
+        # $parametrosQuestClasse1{nomeClasse}
+        # $parametrosQuestClasse1{npc}
+        # $parametrosQuestClasse1{mapa}
+        # $parametrosQuestClasse1{precisaMover}
+        # $parametrosQuestClasse1{sequenciaConversa}
+        # $parametrosQuestClasse1{equipeIniciante}        
+        inicializarparametrosQuestClasse1()
         
-        # Esse sub gera a hash %paramsQuestClasse1T com as seguintes keys:
-        # $paramsQuestClasse1T{nomeClasse}
-        # $paramsQuestClasse1T{npc}
-        # $paramsQuestClasse1T{mapa}
-        # $paramsQuestClasse1T{sequenciaConversa}
-        # $paramsQuestClasse1T{equipeIniciante}
-        inicializarParamsQuestClasse1T()
+        # Esse sub gera a hash %parametrosQuestClasse1T com as seguintes keys:
+        # $parametrosQuestClasse1T{nomeClasse}
+        # $parametrosQuestClasse1T{npc}
+        # $parametrosQuestClasse1T{mapa}
+        # $parametrosQuestClasse1T{sequenciaConversa}
+        # $parametrosQuestClasse1T{equipeIniciante}
+        inicializarparametrosQuestClasse1T()
         
         # Esse sub configura os itens da quest de classe 2 (para não vender nem guardar)
-        if (pegarID() = paramsClasses{idC1}) {
-            inicializarParamsQuestClasse2(1) #representa classe 1, o momento que queremos que configure isso
+        if (pegarID() = parametrosClasses{idC1}) {
+            inicializarparametrosQuestClasse2(1) #representa classe 1, o momento que queremos que configure isso
         } else {
-            inicializarParamsQuestClasse2(-1) #qualquer outro número serve, contanto que não seja 1
+            inicializarparametrosQuestClasse2(-1) #qualquer outro número serve, contanto que não seja 1
         }
         
-        # Esse sub gera a hash %paramsQuestClasse2T com a seguinte key:
-        # $paramsQuestClasse2T{npc}
-        inicializarParamsQuestClasse2T()
+        # Esse sub gera a hash %parametrosQuestClasse2T com a seguinte key:
+        # $parametrosQuestClasse2T{npc}
+        inicializarparametrosQuestClasse2T()
         
         # Esse sub por enquanto nao gera nada, porque ainda não foi implementado
-        inicializarParamsQuestClasse3()
+        inicializarparametrosQuestClasse3()
 
-        # Esse sub gera a hash %paramsQuestClasseRenascer com a seguinte key:
-        # $paramsQuestClasseRenascer{renascer}
-        # $paramsQuestClasseRenascer{amigo}
-        inicializarParamsQuestClasseRenascer()
+        # Esse sub gera a hash %parametrosQuestClasseRenascer com a seguinte key:
+        # $parametrosQuestClasseRenascer{renascer}
+        # $parametrosQuestClasseRenascer{amigo}
+        inicializarparametrosQuestClasseRenascer()
 
-        if (&config(questc2_implementada) != true && pegarID() = $paramsQuestClasse1{idC1}) {
+        if (&config(questc2_implementada) != true && pegarID() = $parametrosQuestClasse1{idC1}) {
             [
             log =========================================================
             log   AVISO!
@@ -103,7 +103,7 @@ macro atualizarBuild {
     #parte feita por vitorsilveiro
     $idClasseAtual = pegarID() #sub se encontra no arquivo utilidades.pm
     if (&config(skillsAddAuto) != 1) do conf skillsAddAuto 1
-    if ($idClasseAtual == 0 || $idClasseAtual == $paramsClasses{idC1} || $idClasseAtual == $paramsClasses{idC2} || $idClasseAtual == $paramsClasses{idC2Alt} ) {
+    if ($idClasseAtual == 0 || $idClasseAtual == $parametrosClasses{idC1} || $idClasseAtual == $parametrosClasses{idC2} || $idClasseAtual == $parametrosClasses{idC2Alt} ) {
         if (&config(statsAddAuto_list) != $configsBuild{statsPadrao}) do conf statsAddAuto_list $configsBuild{statsPadrao}
     } else {
         if (&config(statsAddAuto_list) != $configsBuild{statsPadraoTransclasse}) do conf statsAddAuto_list $configsBuild{statsPadraoTransclasse}
@@ -120,19 +120,19 @@ macro atualizarBuild {
         case (~ 0, 161, 4001) { #Aprendiz / Aprendiz T.
             if (&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz}) do conf skillsAddAuto_list $configsBuild{skillsAprendiz}
         }
-        case (== $paramsClasses{idC1}) { #Classes 1
+        case (== $parametrosClasses{idC1}) { #Classes 1
             if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1})  do conf skillsAddAuto_list $configsBuild{skillsClasse1}
         }
-        case (~ $paramsClasses{idC2}, $paramsClasses{idC2Alt}) { #Classes 2
+        case (~ $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}) { #Classes 2
             if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2})  do conf skillsAddAuto_list $configsBuild{skillsClasse2}
         }
-        case (== $paramsClasses{idC1T}) { #Classes 1T
+        case (== $parametrosClasses{idC1T}) { #Classes 1T
             if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1T}) do conf skillsAddAuto_list $configsBuild{skillsClasse1T}
         }
-        case (~ $paramsClasses{idC2T}, $paramsClasses{idC2TAlt} ) { #Classes 2T
+        case (~ $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt} ) { #Classes 2T
             if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2T}) do conf skillsAddAuto_list $configsBuild{skillsClasse2T}
         }
-        case (~ $paramsClasses{idC3}) { #Classes 3
+        case (~ $parametrosClasses{idC3}) { #Classes 3
             if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse3})  do conf skillsAddAuto_list $configsBuild{skillsClasse3}
         }
         else {

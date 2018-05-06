@@ -1,5 +1,5 @@
 automacro questLuzDivina_configurandoItens {
-    JobID $paramsClasses{idC1}, $paramsClasses{idC2}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idC2}
     SkillLevel AL_HOLYLIGHT != 1
     run-once 1
     exclusive 1
@@ -11,7 +11,7 @@ automacro questLuzDivina_configurandoItens {
 }
 
 automacro questLuzDivina_inicioTenhoOsItens {
-    JobID $paramsClasses{idC1}, $paramsClasses{idC2}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idC2}
     SkillLevel AL_HOLYLIGHT != 1
     JobLevel >= 30
     ConfigKeyNot quest_eden em_curso
@@ -41,7 +41,7 @@ automacro questLuzDivina_inicioTenhoOsItens {
 }
 
 automacro questLuzDivina_inicioNaoTenhoOsItensMasTenhoZenys {
-    JobID $paramsClasses{idC1}, $paramsClasses{idC2}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idC2}
     SkillLevel AL_HOLYLIGHT != 1
     JobLevel >= 30
     ConfigKeyNot quest_eden em_curso

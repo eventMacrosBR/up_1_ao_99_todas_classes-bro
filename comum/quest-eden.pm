@@ -132,7 +132,7 @@ automacro inciandoQuestEden60MoverPerto {
     BaseLevel 60..69
     exclusive 1
     InInventoryID 22508 = 1 
-    JobID $paramsClasses{idC2}, $paramsClasses{idC2Alt}, $paramsClasses{idC2T}, $paramsClasses{idC2TAlt}
+    JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}
     QuestInactive 7214
     ConfigKeyNot In_saveMap_sequence true
     ConfigKeyNot quest_eden em_curso
@@ -207,7 +207,7 @@ automacro inciandoQuestEden60 {
     BaseLevel 60..69
     exclusive 1
     InInventoryID 22508 = 1
-    JobID $paramsClasses{idC2}, $paramsClasses{idC2Alt}, $paramsClasses{idC2T}, $paramsClasses{idC2TAlt}
+    JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}
     QuestInactive 7214
     ConfigKeyNot In_saveMap_sequence true
     ConfigKeyNot quest_eden em_curso
@@ -710,10 +710,10 @@ automacro EdenPegandoEquips12e26e40 {
         do talk resp 1
         
         if ( $.lvl >= 40 ) {
-            do talk resp /$paramsQuestEden{armaLevel26e40}/i
+            do talk resp /$parametrosQuestEden{armaLevel26e40}/i
             
         } elsif ( $.lvl >= 26) {
-            do talk resp /$paramsQuestEden{armaLevel26e40}/i
+            do talk resp /$parametrosQuestEden{armaLevel26e40}/i
             
         }
 
@@ -755,7 +755,7 @@ automacro EdenPegandoEquips60 {
         do talk $.NpcNearLastBinId
         do talk resp 2
         do talk resp 1
-        do talk resp /$paramsQuestEden{armaLevel60}/i
+        do talk resp /$parametrosQuestEden{armaLevel60}/i
     }
 }
 
@@ -810,7 +810,7 @@ automacro Eden26Equipando {
 
         $check = GetIndexAndEquipped("shoes", 2457) #Botas Valhalla Intermediárias
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("rightHand", "$paramsQuestEden{IDarmaIniciante}") #Arma Valhalla Iniciante
+        $check = GetIndexAndEquipped("rightHand", "$parametrosQuestEden{IDarmaIniciante}") #Arma Valhalla Iniciante
         if ($check != -1) do eq $check
         $check = GetIndexAndEquipped("armor", 15010) #Uniforme Valhalla Intermediário
         if ($check != -1) do eq $check
@@ -831,7 +831,7 @@ automacro Eden40Equipando {
         ]
         $check = GetIndexAndEquipped("shoes", 2458) #Botas Valhalla Avançadas
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("rightHand", "$paramsQuestEden{IDarmaIntermediario}") #Arma Valhalla Intermediária
+        $check = GetIndexAndEquipped("rightHand", "$parametrosQuestEden{IDarmaIntermediario}") #Arma Valhalla Intermediária
         if ($check != -1) do eq $check
         $check = GetIndexAndEquipped("armor", 15011) #Uniforme Valhalla Avançado
         if ($check != -1) do eq $check
@@ -842,7 +842,7 @@ automacro Eden60Equipando {
     IsNotEquippedID robe 2571
     IsNotEquippedID topHead 18514
     IsNotEquippedID shoes 2473
-    IsNotEquippedID rightHand $paramsQuestEden{IDarmaEden}
+    IsNotEquippedID rightHand $parametrosQuestEden{IDarmaEden}
     IsNotEquippedID armor 15031
     InInventoryID 2571  = 1
     InInventoryID 18514 = 1
@@ -863,7 +863,7 @@ automacro Eden60Equipando {
         if ($check != -1) do eq $check
         $check = GetIndexAndEquipped("shoes", 2473) ##Botas_IV_do_Grupo_Éden#
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("rightHand","$paramsQuestEden{IDarmaEden}") #Arma do Grupo Eden#
+        $check = GetIndexAndEquipped("rightHand","$parametrosQuestEden{IDarmaEden}") #Arma do Grupo Eden#
         if ($check != -1) do eq $check
         $check = GetIndexAndEquipped("armor", 15031) #Armadura_do_Grupo_Éden#
         if ($check != -1) do eq $check

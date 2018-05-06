@@ -1,4 +1,4 @@
-sub inicializarParamsQuestClasse2 {
+sub inicializarParametrosQuestClasse2 {
 	my ($classe) = @_;
 	my %items = (
 	523 => "1 1 0", #Água Benta
@@ -18,7 +18,7 @@ sub inicializarParamsQuestClasse2 {
 
 automacro virarTemplario_Começo_irAoNpc {
     JobLevel = 50
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     exclusive 1
     QuestInactive 3006 #
     QuestInactive 3007 #
@@ -39,7 +39,7 @@ automacro virarTemplario_Começo_irAoNpc {
 
 automacro virarTemplario_Começo {
     JobLevel = 50
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     exclusive 1
     QuestInactive 3006 #
     QuestInactive 3007 #
@@ -543,7 +543,7 @@ automacro virarTemplario_Matarbixo {
 }
 
 automacro virarTemplario_manterRosarioSempreEquipado {
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     JobLevel = 50
     exclusive 1
     timeout 120
@@ -643,7 +643,7 @@ automacro virarTemplario_final_irAteNpc {
     QuestActive 3015
     exclusive 1
     NotInMap job_cru
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     NpcNotNear /Senior Crusader/
     call {
         do conf lockMap none
@@ -661,7 +661,7 @@ automacro virarTemplario_termineiDeMatar {
     QuestActive 3015
     exclusive 1
     InMap job_cru
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     call {
         do move job_cru 167 178
     }
@@ -674,7 +674,7 @@ automacro virarTemplario_final {
     QuestActive 3015
     exclusive 1
     NotInMap job_cru
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     NpcNear /Senior Crusader/
     call {
         do talk $.NpcNearLastBinId    

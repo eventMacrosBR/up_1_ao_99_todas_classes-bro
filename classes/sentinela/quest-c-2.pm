@@ -1,7 +1,7 @@
-sub inicializarParamsQuestClasse2 {
+sub inicializarParametrosQuestClasse2 {
 	my ($classe) = @_;
 	my %items = (
-	#Possibilidade 1    
+	    #Possibilidade 1    
         920 => "5 1 0", #Garras de Lobo
         1019 => "5 1 0", #Troncos
         509 => "3 1 0", #Ervas Brancas
@@ -86,7 +86,7 @@ sub inicializarParamsQuestClasse2 {
 #Fim da Quest
 
 automacro VirarCacador_SalvarEmHugel {
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     JobLevel = 50
     ConfigKeyNot saveMap hugel
     ConfigKeyNot In_saveMap_sequence true
@@ -111,7 +111,7 @@ automacro VirarCacador_SalvarEmHugel {
 }
 
 automacro VirarCAcador_IrNoNpc {
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     JobLevel = 50
     FreeSkillPoints = 0
     ConfigKey saveMap hugel
@@ -143,7 +143,7 @@ automacro VirarCAcador_IrNoNpc {
 #Você precisa passar pelo teste de Dejiko para avançar. #
 ##
 automacro VirarCacador_FalarDejiko {
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     JobLevel = 50
     InMap hu_in01
     QuestInactive 4000

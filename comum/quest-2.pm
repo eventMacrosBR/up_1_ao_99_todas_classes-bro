@@ -3,7 +3,7 @@ automacro virarClasse2Inicio_Bugged {
     FreeSkillPoints > 0
     timeout 30
     JobLevel = 50
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     exclusive 1
     call {
         [
@@ -26,7 +26,7 @@ automacro virarClasse2Inicio_Bugged {
 
 automacro virarClasse2Inicio {
     JobLevel = 50
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     ConfigKeyNot virarClasse2 true
     exclusive 1
     ConfigKey questc2_implementada true
@@ -37,7 +37,7 @@ automacro virarClasse2Inicio {
 }
 
 automacro jsSouClasse2 {
-    JobID $paramsClasses{idC2}, $paramsClasses{idC2Alt}
+    JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}
     ConfigKey virarClasse2 true
     exclusive 1
     call {
@@ -53,7 +53,7 @@ automacro jsSouClasse2 {
 }
 
 automacro jsSouClasse2NaoAutomatico {
-    JobID $paramsClasses{idC2} , $paramsClasses{idC2Alt}
+    JobID $parametrosClasses{idC2} , $parametrosClasses{idC2Alt}
     ConfigKey esperarFazerQuest true
     exclusive 1
     call {

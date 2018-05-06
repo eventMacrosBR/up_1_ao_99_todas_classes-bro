@@ -1,4 +1,4 @@
-sub inicializarParamsQuestClasse2 {
+sub inicializarParametrosQuestClasse2 {
 	my ($classe) = @_;
 	my %items = (
 	 );
@@ -20,7 +20,7 @@ sub inicializarParamsQuestClasse2 {
 #Possivel conflito com o BRO autoTalkCont 1 ainda funciona no IRO
 
 automacro VirarSacer_SalvarEmProntera {
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     JobLevel = 50
     ConfigKeyNot saveMap prontera
     ConfigKeyNot In_saveMap_sequence true
@@ -35,7 +35,7 @@ automacro VirarSacer_SalvarEmProntera {
 }
 
 automacro VirarSacer_IrNoNpc {
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     JobLevel = 50
     FreeSkillPoints = 0
     ConfigKey saveMap prontera
@@ -53,7 +53,7 @@ automacro VirarSacer_IrNoNpc {
 }
 
 automacro VirarSacer_FalarComBispo {
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     JobLevel = 50
     InMap prt_church
     QuestInactive 8012
@@ -88,7 +88,7 @@ automacro VirarSacer_Morri {
 }
 
 automacro VirarSacer_TesteExorcismo {
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     InMap job_prist
     JobLevel = 50
     exclusive 1
@@ -120,7 +120,7 @@ automacro VirarSacer_TesteExorcismo {
 #Faça a promessa de se devotar a Deus. #
 #3a. Prova, Devoção a Deus #
 automacro VirarSacer_FalarComIrmaCecilia {
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     JobLevel = 50
     QuestActive 8013, 8014
     InMap prt_church
@@ -135,7 +135,7 @@ automacro VirarSacer_FalarComIrmaCecilia {
 #Você concluiu as 3 missões e fez o Juramento do Sacerdócio. Volte a falar com o Bispo Paul. #
 #Mudança de Classe: Sacerdote - Inscrição #
 automacro VirarSacer_Final {
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     JobLevel = 50
     QuestActive 8015
     InMap prt_church

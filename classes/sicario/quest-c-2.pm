@@ -1,4 +1,4 @@
-sub inicializarParamsQuestClasse2 {
+sub inicializarParametrosQuestClasse2 {
 	my ($classe) = @_;
 	my %items = (
 	);

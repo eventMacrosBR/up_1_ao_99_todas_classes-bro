@@ -1,5 +1,5 @@
-sub inicializarParamsQuestClasseRenascer {
-    my %paramsQuestClasseRenascer = (
+sub inicializarparametrosQuestClasseRenascer {
+    my %parametrosQuestClasseRenascer = (
         renascer => 'nao',
         amigo => '',
         #observação sobre o ponto de encontro:
@@ -9,13 +9,13 @@ sub inicializarParamsQuestClasseRenascer {
         pontoDeEncontro => '146 116'
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
-    $eventMacro->set_full_hash('paramsQuestClasseRenascer', \%paramsQuestClasseRenascer);
+    $eventMacro->set_full_hash('parametrosQuestClasseRenascer', \%parametrosQuestClasseRenascer);
 }
 
 automacro chegueilvl99 {
     BaseLevel = 99
     JobLevel = 50
-    JobID $paramsClasses{idC2}, $paramsClasses{idC2Alt}
+    JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}
     CharCurrentWeight != 0
     Zeny != 1285000
     Zeny != 0
@@ -24,7 +24,7 @@ automacro chegueilvl99 {
     ConfigKey estagio_Reborn none
     macro_delay 2
     call {
-        if ($paramsQuestClasseRenascer{renascer} = nao) {
+        if ($parametrosQuestClasseRenascer{renascer} = nao) {
             [
             log ESTOU LVL 99 MAS FUI CONFIGURADO PRA NAO REBORNAR
             log É BOM CASO VC QUEIRA FARMAR ZENY COM CLASSE 2
@@ -34,12 +34,12 @@ automacro chegueilvl99 {
             ]
             lock chamarAmigo
         } else {
-            do pm "$paramsQuestClasseRenascer{amigo}" ajudaRebornar    
+            do pm "$parametrosQuestClasseRenascer{amigo}" ajudaRebornar    
             log peso atual: $.weight
             log peso percentual: $.weightpercent
             [
             do conf dealAuto 3
-            do conf dealAuto_names $paramsQuestClasseRenascer{amigo}
+            do conf dealAuto_names $parametrosQuestClasseRenascer{amigo}
             do iconf Camisa de Algodão 0 1 0
             do iconf "Faca [3]" 0 1 0
 
@@ -117,7 +117,7 @@ automacro salvarNaCidadeQueVouUpar_definirVariável {
 automacro chamarAmigo {
     exclusive 1
     timeout 60
-    JobID $paramsClasses{idC2}, $paramsClasses{idC2Alt}
+    JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}
     ConfigKey estagio_Reborn preparando
     Zeny != 1285000
     Zeny != 0
@@ -146,7 +146,7 @@ automacro chamarAmigo {
         }
         do ai on
         @falas = (da um help pra rebornar, ajudaRebornar, preciso de ajuda pra rebornar)
-        do pm "$paramsQuestClasseRenascer{amigo}" $falas[&rand(0,2)]
+        do pm "$parametrosQuestClasseRenascer{amigo}" $falas[&rand(0,2)]
         
         do iconf 502 0 1 0
         do conf storageAuto_npc yuno 152 187
@@ -173,14 +173,14 @@ automacro irNoLocalPraNegociar {
         do conf sellAuto_npc yuno_in01 25 34
         $vezesQuePediPraVir++
         if ($vezesQuePediPraVir > 2) {
-            do pm "$paramsQuestClasseRenascer{amigo}" vou ficar spammando isso ate vc chegar perto de mim
-            do pm "$paramsQuestClasseRenascer{amigo}" vem em juno $paramsQuestClasseRenascer{pontoDeEncontro}
+            do pm "$parametrosQuestClasseRenascer{amigo}" vou ficar spammando isso ate vc chegar perto de mim
+            do pm "$parametrosQuestClasseRenascer{amigo}" vem em juno $parametrosQuestClasseRenascer{pontoDeEncontro}
         }
         
-        do pm "$paramsQuestClasseRenascer{amigo}" vem aqui em juno $paramsQuestClasseRenascer{pontoDeEncontro}
-        do pm "$paramsQuestClasseRenascer{amigo}" quando chegar, negocia comigo
+        do pm "$parametrosQuestClasseRenascer{amigo}" vem aqui em juno $parametrosQuestClasseRenascer{pontoDeEncontro}
+        do pm "$parametrosQuestClasseRenascer{amigo}" quando chegar, negocia comigo
         #movendo pra local especifico
-        do move yuno $paramsQuestClasseRenascer{pontoDeEncontro} &rand(1,2)
+        do move yuno $parametrosQuestClasseRenascer{pontoDeEncontro} &rand(1,2)
     }
 }
 
@@ -190,16 +190,16 @@ automacro amigoPerto_pedindoTrade {
     priority -5
     ConfigKey estagio_Reborn preparando
     InMap yuno
-    PlayerNear /$paramsQuestClasseRenascer{amigo}/
+    PlayerNear /$parametrosQuestClasseRenascer{amigo}/
     timeout 20
     call {
         lock irNoLocalPraNegociar
         do conf -f o_que_estou_fazendo tentandoRebornar_esperandoNegociação
-        log posição do $paramsQuestClasseRenascer{amigo}: $.PlayerNearLastDist 
+        log posição do $parametrosQuestClasseRenascer{amigo}: $.PlayerNearLastDist 
         if ($.PlayerNearLastDist  > 3) {
-            do pm "$paramsQuestClasseRenascer{amigo}" ow, chega mais perto pow
+            do pm "$parametrosQuestClasseRenascer{amigo}" ow, chega mais perto pow
         } else { 
-            do deal &player($paramsQuestClasseRenascer{amigo})
+            do deal &player($parametrosQuestClasseRenascer{amigo})
         }
     }
 }
@@ -210,7 +210,7 @@ automacro amigoPerto_recebiTrade {
     priority -5
     ConfigKey estagio_Reborn preparando
     InMap yuno
-    PlayerNear /$paramsQuestClasseRenascer{amigo}/
+    PlayerNear /$parametrosQuestClasseRenascer{amigo}/
     timeout 10
     SimpleHookEvent incoming_deal
     macro_delay 0.2
@@ -226,7 +226,7 @@ automacro DandoOuReceBendoZeny {
     Zeny != 1285000
     ConfigKey estagio_Reborn preparando
     IsInMapAndCoordinate yuno 145..147 115..117 #lugar pra negociar
-    PlayerNear /$paramsQuestClasseRenascer{amigo}/ 
+    PlayerNear /$parametrosQuestClasseRenascer{amigo}/ 
     SimpleHookEvent engaged_deal
     priority -5
     call {
@@ -237,11 +237,11 @@ automacro DandoOuReceBendoZeny {
             pause 2
             #se o zeny atual for maior que 1285000, vc dá o excedente pro mercador
             do deal add z $zenyPraDar
-            do pm "$paramsQuestClasseRenascer{amigo}" coloquei o zeny, finaliza ai
+            do pm "$parametrosQuestClasseRenascer{amigo}" coloquei o zeny, finaliza ai
         } else {
             #se o zeny atual for menor que 1285000, vc manda pro mercador via pm quanto mais precisa
             $zenyQuePreciso = &eval(1285000 - $.zeny)
-            do pm "$paramsQuestClasseRenascer{amigo}" preciso da quantia de exatamente $zenyQuePreciso zenys
+            do pm "$parametrosQuestClasseRenascer{amigo}" preciso da quantia de exatamente $zenyQuePreciso zenys
         }
         do deal
         pause 3
@@ -251,7 +251,7 @@ automacro DandoOuReceBendoZeny {
 
 automacro finalizarTrade {
     SimpleHookEvent finalized_deal
-    PlayerNear /$paramsQuestClasseRenascer{amigo}/
+    PlayerNear /$parametrosQuestClasseRenascer{amigo}/
     CharCurrentWeight 0
     Zeny != 1285000
     ConfigKey estagio_Reborn preparando

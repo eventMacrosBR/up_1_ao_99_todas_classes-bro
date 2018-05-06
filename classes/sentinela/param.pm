@@ -1,5 +1,5 @@
-sub inicializarParamsClasses {
-    my %paramsClasses = (
+sub inicializarParametrosClasses {
+    my %parametrosClasses = (
         idC1 => 3,
         idC2 => 11,
         idC2Alt => -1,
@@ -9,7 +9,7 @@ sub inicializarParamsClasses {
         idC3 => 4056
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
-    $eventMacro->set_full_hash('paramsClasses', \%paramsClasses);
+    $eventMacro->set_full_hash('parametrosClasses', \%parametrosClasses);
 }
 
 automacro configurarAtaqueADistancia {

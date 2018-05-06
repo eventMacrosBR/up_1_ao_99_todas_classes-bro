@@ -1,4 +1,4 @@
-sub inicializarParamsQuestClasse2 {
+sub inicializarParametrosQuestClasse2 {
 	my ($classe) = @_;
 	my %items = (
 	#TODO
@@ -14,7 +14,7 @@ sub inicializarParamsQuestClasse2 {
 
 automacro virarFerreiro {
     JobLevel = 50
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     exclusive 1
     ConfigKeyNot virarClasse2 true
     call {

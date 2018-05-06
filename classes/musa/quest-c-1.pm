@@ -1,5 +1,5 @@
-sub inicializarParamsQuestClasse1 {
-    my %paramsQuestClasse1 = (
+sub inicializarParametrosQuestClasse1 {
+    my %parametrosQuestClasse1 = (
         nomeClasse => 'arqueiro',
         npc => '64 71',
         mapa => 'payon_in02',
@@ -8,6 +8,6 @@ sub inicializarParamsQuestClasse1 {
         equipeIniciante => 1742
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
-    $eventMacro->set_full_hash('paramsQuestClasse1', \%paramsQuestClasse1);
+    $eventMacro->set_full_hash('parametrosQuestClasse1', \%parametrosQuestClasse1);
 }
 

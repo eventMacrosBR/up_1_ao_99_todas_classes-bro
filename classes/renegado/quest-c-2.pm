@@ -1,4 +1,4 @@
-sub inicializarParamsQuestClasse2 {
+sub inicializarParametrosQuestClasse2 {
 	my ($classe) = @_;
 	my %items = (
 	510 => "7 1 0", #ervaAzul
@@ -22,7 +22,7 @@ sub inicializarParamsQuestClasse2 {
 #Edited- by CALF
 #convertido e reescrito pra eventMacro por Nipodemos
 automacro virarArruaceiroInicio_salvarEmMorocc {
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     JobLevel = 50
     FreeSkillPoints = 0
     priority 2
@@ -42,7 +42,7 @@ automacro virarArruaceiroInicio_salvarEmMorocc {
 }
 
 automacro virarArruaceiroInicio_IrNoNpc {
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     JobLevel = 50
     FreeSkillPoints = 0
     priority 2
@@ -64,7 +64,7 @@ automacro virarArruaceiroInicio_IrNoNpc {
 }
 
 automacro virarArruaceiroInicio {
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     JobLevel = 50
     priority 2
     exclusive 1
@@ -96,7 +96,7 @@ automacro virarArruaceiroInicio {
 #Você passou no primeiro teste para se tornar um Arruaceiro. Smithrato cuidará do próximo teste. #
 #Fale com Smithrato #
 automacro virarArruaceiro_etapa2_FalarComSmith {
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     QuestActive 2017
     exclusive 1
     call {
@@ -109,7 +109,7 @@ automacro virarArruaceiro_etapa2_FalarComSmith {
 #Você deve pagar uma taxa de registro para se tornar Arruaceiro. Vou lhe dizer os itens que você precisa trazer e o quanto você precisa pagar de taxa. #
 #10.000 zenys, 10 Ossos, 6 Ervas Azuis, 10 Unhas Apodrecidas e 10 Mandíbulas Horrendas. #
 automacro virarArruaceiro_etapa3_coletarItens {
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     QuestActive 2018
     exclusive 1
     ConfigKeyNot questArruaceiro peguei
@@ -295,7 +295,7 @@ automacro virarArruaceiro_etapa3_tenhoOsItens {
 #Vá visitar Holgren Jr., que está no campo ao sul da Fortaleza de Saint Darmain, no caminho para Morroc. Ele vai lhe informar qual é o teste para se tornar Arruaceiro. A senha é: ^0000FF'Meu pai nunca colecionou itens de aprimoramento.'^000000#
 #Fale com Holgren Jr. #
 automacro virarArruaceiro_etapa4 {
-    JobID $paramsClasses{idC1}
+    JobID $parametrosClasses{idC1}
     exclusive 1
     JobLevel = 50
     CurrentHP >= 80%
@@ -510,7 +510,7 @@ automacro virarArruaceiro_etapaFinal_Alternativo {
 }
 
 automacro jaSouArruaceiro {
-    JobID $paramsClasses{idC2}
+    JobID $parametrosClasses{idC2}
     ConfigKeyNot questArruaceiro none
     exclusive 1
     call {

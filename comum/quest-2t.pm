@@ -1,7 +1,7 @@
 automacro iniciarQuestClasse2T_Bugged {
     JobLevel = 50
     exclusive 1
-    JobID $paramsClasses{idC1T}
+    JobID $parametrosClasses{idC1T}
     FreeSkillPoints != 0
     timeout 60
     call {
@@ -18,7 +18,7 @@ automacro iniciarQuestClasse2T_Bugged {
 
 automacro falarComLivro_estaLonge {
     exclusive 1
-    JobID $paramsClasses{idC1T} 
+    JobID $parametrosClasses{idC1T} 
     JobLevel = 50
     FreeSkillPoints = 0
     InMap yuno_in02
@@ -35,7 +35,7 @@ automacro falarComLivro_estaLonge {
 
 automacro falarComLivro {
     exclusive 1
-    JobID $paramsClasses{idC1T} 
+    JobID $parametrosClasses{idC1T} 
     JobLevel = 50
     FreeSkillPoints = 0
     InMap yuno_in02
@@ -47,19 +47,19 @@ automacro falarComLivro {
 
 automacro falarComNpcDaClasse {
     exclusive 1
-    JobID $paramsClasses{idC1T} 
+    JobID $parametrosClasses{idC1T} 
     JobLevel = 50
     FreeSkillPoints = 0
     InMap valkyrie
     call {
-        do move valkyrie $paramsQuestClasse2T{Npc} &rand(2,5)
-        do talknpc $paramsQuestClasse2T{Npc} r1
+        do move valkyrie $parametrosQuestClasse2T{Npc} &rand(2,5)
+        do talknpc $parametrosQuestClasse2T{Npc} r1
     }
 }
 
 automacro jaSouClasse2T {
     exclusive 1
-    JobID $paramsClasses{idC2T}, $paramsClasses{idC2TAlt}
+    JobID $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}
     ConfigKey virarClasse2T true
     macro_delay 2
     call {
