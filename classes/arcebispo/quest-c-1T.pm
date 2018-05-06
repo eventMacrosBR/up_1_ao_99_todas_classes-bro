@@ -1,4 +1,4 @@
-sub initParamsQuestClasse1T {
+sub inicializarParamsQuestClasse1T {
     my %paramsQuestClasse1T = (
         npc => '184 41',
         mapa => 'prt_church',

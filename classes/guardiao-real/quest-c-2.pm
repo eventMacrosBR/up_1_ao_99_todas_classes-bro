@@ -1,4 +1,4 @@
-sub initParamsQuestClasse2 {
+sub inicializarParamsQuestClasse2 {
 	my ($classe) = @_;
 	my %items = (
 	523 => "1 1 0", #Água Benta

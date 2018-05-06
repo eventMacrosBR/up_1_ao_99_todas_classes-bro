@@ -1,4 +1,4 @@
-sub initParamsQuestClasse2 {
+sub inicializarParamsQuestClasse2 {
 	my ($classe) = @_;
 	my %items = (
 	657 => "7 1 0",     #Poção da Fúria Selvagem

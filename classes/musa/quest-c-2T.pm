@@ -1,4 +1,4 @@
-sub initParamsQuestClasse2T {
+sub inicializarParamsQuestClasse2T {
     my %paramsQuestClasse2T = (
         Npc => '53 56'
     );

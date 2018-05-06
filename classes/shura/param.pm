@@ -1,4 +1,4 @@
-sub initParamsClasses {
+sub inicializarParamsClasses {
     my %paramsClasses = (
         idC1 => 4,
         idC2 => 8,

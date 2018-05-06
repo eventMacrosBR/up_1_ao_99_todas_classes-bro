@@ -1,4 +1,4 @@
-sub initParamsQuestClasseRenascer {
+sub inicializarParamsQuestClasseRenascer {
     my %paramsQuestClasseRenascer = (
         renascer => 'nao',
         amigo => '',

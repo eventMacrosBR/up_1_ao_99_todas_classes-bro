@@ -1,4 +1,4 @@
-sub initParamsQuestEden {
+sub inicializarParamsQuestEden {
     my %paramsQuestEden = (
         armaLevel26e40 => 'espada',
         armaLevel60 => 'lança',
