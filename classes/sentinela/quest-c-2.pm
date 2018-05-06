@@ -529,42 +529,42 @@ automacro questCacador_labirinto {
         do move 107 76 #-> ataque Monstro Alvo 
         do move 117 76 #-> ataque Monstro Alvo
         do north
-	do north
-	do north
-	do north
-	do north
-	do north
-	do north
-	do north
-	do north
-	do north
-	do north
+	    do north
+	    do north
+	    do north
+	    do north
+	    do north
+	    do north
+	    do north
+	    do north
+	    do north
+	    do north
         do move 94 131 #-> ataque Monstro Alvo
         do move 110 131
         do south
-	do south
-	do south
-	do south
-	do south
-	#fica em 110 106
+	    do south
+	    do south
+	    do south
+	    do south
+	    #fica em 110 106
         do west
-	do west
+	    do west
 
         do talk &npc(/switch.nht/)
 
         do east
-	do east
+	    do east
 	
         do north
-	do north
-	do north
-	do north
-	do north
+	    do north
+	    do north
+	    do north
+	    do north
 	
         do move 89 131
 	
-	do north
-	do north
+	    do north
+	    do north
     }
 }
 
