@@ -1,2 +1,2 @@
 @echo off
-Powershell.exe -executionpolicy remotesigned -File auxiliarGui.ps1
+Powershell.exe -executionpolicy unrestricted -File auxiliarGui.ps1
