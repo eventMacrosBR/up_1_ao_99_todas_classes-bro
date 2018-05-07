@@ -16,7 +16,7 @@ automacro inicializar {
         # parametrosClasses{idC1T}
         # parametrosClasses{idC2T}
         # parametrosClasses{idC3} 
-        inicializarparametrosClasses()
+        inicializarParametrosClasses()
 
         # Configurações Gerais de Build
         
@@ -35,7 +35,7 @@ automacro inicializar {
         # Esse sub gera a hash %parametrosQuestEden com as seguintes keys:
         # $parametrosQuestEden{armaLevel26e40}
         # $parametrosQuestEden{armaLevel60}
-        inicializarparametrosQuestEden()
+        inicializarParametrosQuestEden()
         
         # Esse sub gera a hash %parametrosQuestClasse1 com as seguintes keys:
         # $parametrosQuestClasse1{nomeClasse}
@@ -44,7 +44,7 @@ automacro inicializar {
         # $parametrosQuestClasse1{precisaMover}
         # $parametrosQuestClasse1{sequenciaConversa}
         # $parametrosQuestClasse1{equipeIniciante}        
-        inicializarparametrosQuestClasse1()
+        inicializarParametrosQuestClasse1()
         
         # Esse sub gera a hash %parametrosQuestClasse1T com as seguintes keys:
         # $parametrosQuestClasse1T{nomeClasse}
@@ -52,26 +52,26 @@ automacro inicializar {
         # $parametrosQuestClasse1T{mapa}
         # $parametrosQuestClasse1T{sequenciaConversa}
         # $parametrosQuestClasse1T{equipeIniciante}
-        inicializarparametrosQuestClasse1T()
+        inicializarParametrosQuestClasse1T()
         
         # Esse sub configura os itens da quest de classe 2 (para não vender nem guardar)
         if (pegarID() = parametrosClasses{idC1}) {
-            inicializarparametrosQuestClasse2(1) #representa classe 1, o momento que queremos que configure isso
+            inicializarParametrosQuestClasse2(1) #representa classe 1, o momento que queremos que configure isso
         } else {
-            inicializarparametrosQuestClasse2(-1) #qualquer outro número serve, contanto que não seja 1
+            inicializarParametrosQuestClasse2(-1) #qualquer outro número serve, contanto que não seja 1
         }
         
         # Esse sub gera a hash %parametrosQuestClasse2T com a seguinte key:
         # $parametrosQuestClasse2T{npc}
-        inicializarparametrosQuestClasse2T()
+        inicializarParametrosQuestClasse2T()
         
         # Esse sub por enquanto nao gera nada, porque ainda não foi implementado
-        inicializarparametrosQuestClasse3()
+        inicializarParametrosQuestClasse3()
 
         # Esse sub gera a hash %parametrosQuestClasseRenascer com a seguinte key:
         # $parametrosQuestClasseRenascer{renascer}
         # $parametrosQuestClasseRenascer{amigo}
-        inicializarparametrosQuestClasseRenascer()
+        inicializarParametrosQuestClasseRenascer()
 
         if (&config(questc2_implementada) != true && pegarID() = $parametrosQuestClasse1{idC1}) {
             [
