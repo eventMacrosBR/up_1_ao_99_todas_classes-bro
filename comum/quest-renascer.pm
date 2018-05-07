@@ -100,6 +100,7 @@ automacro salvarNaCidadeQueVouUpar_definirVariável {
     exclusive 1
     priority -10 #prioridade mais alta
     run-once 1
+    CharCurrentWeight = 0
     call {
         #essa automacro tem por objetivo, salvar seu personagem
         #na cidade em que ele vai upar quando tiver lvl 1 renascido
