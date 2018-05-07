@@ -14,5 +14,5 @@ if hash pwsh 2> /dev/null; then
         fi
    done
 else 
-    echo "Powershell must be installed. Follow https://github.com/PowerShell/PowerShell instructions"
+    echo "Powershell deve ser instalado. Siaga as instruções em: https://github.com/PowerShell/PowerShell"
 fi
