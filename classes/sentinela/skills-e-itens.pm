@@ -117,7 +117,7 @@ automacro configurarUsarAljave {
             do reload config
         }
         do conf useSelf_item_1 Aljave
-        do conf useSelf_item_1_inInventory Flechas < 50
+        do conf useSelf_item_1_inInventory Flecha < 50
     }
 }
 
