@@ -148,3 +148,13 @@ macro ajuda {
     log     eventMacro status
     ]
 }
+
+automacro sairDeMocFild20 {
+    InMap moc_fild20
+    exclusive 1
+    call {
+        do move 38 183 &rand(2,4)
+        do talknpc 38 183 r2
+    }
+}
+
