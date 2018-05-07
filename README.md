@@ -119,8 +119,8 @@ up_1_ao_99_todas_classes
 │   └── quest-eden.pm                     * Automacros que realizam as quests de equipamentos do eden
 │   └── plugins.pm                        * Subs para instalação e configurações de plugins necessários
 │   └── skills-e-itens.pm                 * Subs para adicionar blocos de skills e itens, itens padrões
-│   └── setSaveIn.pm                      * Responsável pela função de mudar os mapas de save, hunt, autosell, etc
-│   └── usarAeroplano.pm                  * Macros uteis para usar o aeroplano
+│   └── salvar-na0cidade.pm               * Responsável pela função de mudar os mapas de save, hunt, autosell, etc
+│   └── usar-aeroplano.pm                 * Macros uteis para usar o aeroplano
 │   └── utilidades.pm                     * Sub utilitárias
 ├── classes                               * Pasta com as configurações e parametros únicos de cada classe
 │   ├── <classe3>                         * Pasta com todas as configurações da <classe3> e sub classes         
