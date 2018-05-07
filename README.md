@@ -42,14 +42,14 @@ Obs: Colocamos o nome da classe 3 para definir a linha de evolução a seguir pe
 
 ## Mantendo modificações de builds entre updates
 
-1- Clone o projeto `git clone https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro`
-2- Faça suas modificações em `classes/classe-desejada/config.pm`
-3- Utilize o `gerador-eventmacros-windows.bat`(Windows 7 ou superior) ou `gerador-eventmacros-lin-osx.sh`(Linux / OsX) para gerar sua macro
-4- Quando sair uma atualização da macro execute os seguintes comandos:
+1. Clone o projeto `git clone https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro`
+2. Faça suas modificações em `classes/classe-desejada/config.pm`
+3. Utilize o `gerador-eventmacros-windows.bat`(Windows 7 ou superior) ou `gerador-eventmacros-lin-osx.sh`(Linux / OsX) para gerar sua macro
+4. Quando sair uma atualização da macro execute os seguintes comandos:
   - `git stash save` Este comando salva suas modificações
   - `git pull --rebase` Este comando atualiza os arquivos da macro
   - `git stash pop` Este comando restaura suas modificações
-5- Utilize o gerador novamente para gerar sua nova macro atualizada com suas configurações já aplicadas
+5. Utilize o gerador novamente para gerar sua nova macro atualizada com suas configurações já aplicadas
 
 ## Plugins
 Para a macro funcionar corretamente é necessária a instalação dos seguintes plugins: (A macro também instala eles automáticamente caso não queira fazer a instalação manual)
