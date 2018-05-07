@@ -69,8 +69,8 @@ automacro questLuzDivina_inicioNaoTenhoOsItensMasTenhoZenys {
 automacro questLuzDivina_comprarRosario {
     ConfigKey quest_skill true
     ConfigKey quest_luz_divina comprar_itens
-    ConfigKeyNot quest_luz_divina falar_com_npc
     InInventoryID 2608 < 1
+    SkillLevel AL_HOLYLIGHT != 1
     Zeny >= 16000
     timeout 120
     exclusive 1
@@ -161,6 +161,7 @@ automacro questLuzDivina_comprarRosario {
 automacro questLuzDivina_jaTenhosOsItens {
     ConfigKey quest_skill true
     ConfigKey quest_luz_divina comprar_itens
+    SkillLevel AL_HOLYLIGHT != 1
     InInventoryID 727 > 0
     InInventoryID 991 > 0
     InInventoryID 2608 > 0
@@ -174,6 +175,7 @@ automacro questLuzDivina_jaTenhosOsItens {
 automacro questLuzDivina_jaTenhosOsItens_bugged {
     ConfigKey quest_skill true
     ConfigKey quest_luz_divina comprar_itens
+    SkillLevel AL_HOLYLIGHT != 1
     InInventory "Opala" > 0
     InInventory "Cristal Azul" > 0
     InInventory "Rosário" > 0
@@ -197,8 +199,8 @@ automacro questLuzDivina_falarComNpc {
 
 automacro questLuzDivina_aprendiLuzDivina {
     ConfigKey quest_skill true
-    ConfigKey quest_luz_divina falar_com_npc
     SkillLevel AL_HOLYLIGHT = 1
+    priority -1
     exclusive 1
     call {
         [
@@ -213,6 +215,7 @@ automacro questLuzDivina_aprendiLuzDivina {
 
 automacro comprandoCristalAzulAdoidadoBug {
     ConfigKey quest_skill true
+    SkillLevel AL_HOLYLIGHT != 1
     ConfigKey quest_luz_divina comprar_itens
     ConfigKey BetterShopper_1 Cristal Azul
     ConfigKeyNot BetterShopper_1_disabled 1
@@ -224,6 +227,7 @@ automacro comprandoCristalAzulAdoidadoBug {
 }
 
 automacro comprandoOpalaAdoidadoBug {
+    SkillLevel AL_HOLYLIGHT != 1
     ConfigKey quest_skill true
     ConfigKey quest_luz_divina comprar_itens
     ConfigKey BetterShopper_0 Opala
@@ -236,6 +240,7 @@ automacro comprandoOpalaAdoidadoBug {
 }
 
 automacro comprandoCristalAzulAdoidadoBug2 {
+    SkillLevel AL_HOLYLIGHT != 1
     ConfigKey quest_skill true
     ConfigKey quest_luz_divina comprar_itens
     ConfigKey BetterShopper_1 Cristal Azul
@@ -248,6 +253,7 @@ automacro comprandoCristalAzulAdoidadoBug2 {
 }
 
 automacro comprandoOpalaAdoidadoBug2 {
+    SkillLevel AL_HOLYLIGHT != 1
     ConfigKey quest_skill true
     ConfigKey quest_luz_divina comprar_itens
     ConfigKey BetterShopper_0 Opala
@@ -259,3 +265,13 @@ automacro comprandoOpalaAdoidadoBug2 {
     }
 }
 
+automacro betterShopper_bugged {
+    priority -5
+    exclusive 1
+    ConfigKey BetterShopper_on 1
+    ConfigKey quest_skill true
+    ConfigKey quest_luz_divina falar_com_npc
+    call {
+        do conf -f BetterShopper_on 0
+    }
+}

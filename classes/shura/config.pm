@@ -25,7 +25,7 @@ sub extrairMapasDeUp {
 
     $variaveisDeUp = 
     [
-        {lvlMin => 1 , lvlMax => 11, lockMap => 'pay_fild01', saveMap => 'payon'},
+        {lvlMin => 1 , lvlMax => 11, lockMap => 'prt_fild08', saveMap => 'prontera'},
         {lvlMin => 12, lvlMax => 25, lockMap => 'pay_fild08', saveMap => 'payon'},
         {lvlMin => 26, lvlMax => 40, lockMap => 'pay_dun00',  saveMap => 'payon'},
         {lvlMin => 41, lvlMax => 45, lockMap => 'pay_fild09', saveMap => 'payon'},
