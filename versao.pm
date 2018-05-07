@@ -1,4 +1,4 @@
-verautomacro versao { 
+automacro versao { 
     BaseLevel > 0 
     priority -999
     exclusive 1
