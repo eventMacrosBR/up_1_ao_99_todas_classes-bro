@@ -108,7 +108,7 @@ up_1_ao_99_todas_classes
 ├── geradorEventMacros-LIN-MAC.sh         * Programa para gerar o script em linux ou osx
 ├── geradorEventMacros-WIN.bat            * Programa para gerar o script em windows
 ├── comum                                 * Pasta com os scripts comuns do projeto ( o core do projeto )
-│   ├── init.pm                           * Inicializador do projeto, reponsável por subir as variáveis
+│   ├── inicializar.pm                    * Inicializador do projeto, reponsável por subir as variáveis
 │   └── up-ate-99.pm                      * Automacro responsável por fazer o personagem upar enquanto não estiver em quests
 │   └── campo-de-aprendiz.pm              * Automacros que realizam o campo de treinamento
 │   └── quest-1.pm                        * Automacros que realizam a quest da classe 1
