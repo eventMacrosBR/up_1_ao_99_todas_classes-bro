@@ -7,7 +7,8 @@
 - [Referências](#referências)
 - [Link de Download](#link-de-download)
 - [Instruções de Instalação](#instruções-de-instalação)
-- [Configurações Customizadas](#configurações-personalizadas)
+- [Configurações Personalizadas](#configurações-personalizadas)
+- [Mantendo modificações de builds entre updates](#mantendo-modificações-de-builds-entre-updates)
 - [Plugins](#plugins)
 - [Agradecimentos](#agradecimentos)
 - [Funcionalidades](#funcionalidades)
@@ -38,6 +39,17 @@ Obs: Colocamos o nome da classe 3 para definir a linha de evolução a seguir pe
 
 - Quest de Renascimento: por padrão a quest de renascimento vem desativada, você pode ativá-la no arquivo `comum/quest-renascer.pm`. Obs: É necessário informar o nome de um personagem para que o bot consiga passar os zennys extras para conseguir renascer.
 - Customizando skills e itens utilizaveis: Você pode modificar os itens e skills que seu bot vai utilizar para caçar criando blocos de automacro em `classes/<classe-3>/skills-e-itens.pm`
+
+## Mantendo modificações de builds entre updates
+
+1- Clone o projeto `git clone https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro`
+2- Faça suas modificações em `classes/classe-desejada/config.pm`
+3- Utilize o `gerador-eventmacros-windows.bat`(Windows 7 ou superior) ou `gerador-eventmacros-lin-osx.sh`(Linux / OsX) para gerar sua macro
+4- Quando sair uma atualização da macro execute os seguintes comandos:
+  - `git stash save` Este comando salva suas modificações
+  - `git pull --rebase` Este comando atualiza os arquivos da macro
+  - `git stash pop` Este comando restaura suas modificações
+5- Utilize o gerador novamente para gerar sua nova macro atualizada com suas configurações já aplicadas
 
 ## Plugins
 Para a macro funcionar corretamente é necessária a instalação dos seguintes plugins: (A macro também instala eles automáticamente caso não queira fazer a instalação manual)
@@ -103,10 +115,9 @@ Você pode gerar o script com algumas configurações customizadas modificando o
 up_1_ao_99_todas_classes
 ├── README.md                             * Este arquivo
 ├── LICENSE                               * Licença de distribuição do projeto
-├── auxiliarGui.ps1                       * Programa com interface gráfica para windows
-├── auxiliarGui.py                        * Programa com interface gráfica para linux ou osx
-├── geradorEventMacros-LIN-MAC.sh         * Programa para gerar o script em linux ou osx
-├── geradorEventMacros-WIN.bat            * Programa para gerar o script em windows
+├── gerador-eventmacros.ps1               * Programa gerador multiplataforma (recomendamos que utilize os scripts bash e sh)
+├── gerador-eventmacros-lin-osx.sh        * Programa para gerar o script em linux ou osx
+├── gerador-eventmacros-windows.bat       * Programa para gerar o script em windows
 ├── comum                                 * Pasta com os scripts comuns do projeto ( o core do projeto )
 │   ├── inicializar.pm                    * Inicializador do projeto, reponsável por subir as variáveis
 │   └── up-ate-99.pm                      * Automacro responsável por fazer o personagem upar enquanto não estiver em quests
