@@ -1,4 +1,4 @@
-sub inicializarparametrosQuestClasseRenascer {
+sub inicializarParametrosQuestClasseRenascer {
     my %parametrosQuestClasseRenascer = (
         renascer => 'nao',
         amigo => '',
