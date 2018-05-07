@@ -13,7 +13,7 @@ for i in "${plugins[@]}"; do
     cp -r submodules/$i plugins/
 done
 for i in "${jobs[@]}"; do
-    pwsh -File auxiliarGui.ps1 -job "$i"
+    pwsh -File gerador-eventmacros.ps1 -job "$i"
     if [[ " {$jobs_ok[@]} " =~ " $i " ]]; then
         zip_file="$i.funcionando.zip"
     else
