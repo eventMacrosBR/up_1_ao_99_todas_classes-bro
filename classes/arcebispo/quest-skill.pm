@@ -265,3 +265,13 @@ automacro comprandoOpalaAdoidadoBug2 {
     }
 }
 
+automacro betterShopper_bugged {
+    priority -5
+    exclusive 1
+    ConfigKey BetterShopper_on 1
+    ConfigKey quest_skill true
+    ConfigKey quest_luz_divina falar_com_npc
+    call {
+        do conf -f BetterShopper_on 0
+    }
+}
