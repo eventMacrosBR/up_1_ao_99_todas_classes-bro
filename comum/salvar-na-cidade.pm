@@ -137,6 +137,7 @@ automacro jaToSalvoNessaCidade {
         do conf saveMap_wanted none
         do conf saveMap_kafra_position none
         do conf saveMap_sellNpc_position none
+        do conf saveMap_potionNpc_position none
         do conf In_saveMap_sequence false
         do ai on
         release definirVariavelSaveMap
@@ -207,6 +208,7 @@ automacro SalvoNaKafra {
         do conf saveMap_wanted none
         do conf saveMap_kafra_position none
         do conf saveMap_sellNpc_position none
+        do conf saveMap_potionNpc_position none
         do conf In_saveMap_sequence false
 
         $continuarLoop = sim
