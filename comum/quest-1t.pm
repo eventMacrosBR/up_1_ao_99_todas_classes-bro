@@ -1,4 +1,4 @@
-automacro virandoClasse1tBugged {
+automacro questClasse1T_virandoClasse1T_bugada {
     JobLevel = 10
     JobID 161 #aprendiz T.
     InMapRegex /^(?!new_\d-\d)$/
@@ -15,7 +15,7 @@ automacro virandoClasse1tBugged {
         }
     }
 }
-automacro virandoClasse1T_movendoAteLa {
+automacro questClasse1T_irAteNpc {
     NotInMap $parametrosQuestClasse1T{mapa}
     JobID 161,4001 #Aprendiz
     JobLevel 10
@@ -31,7 +31,7 @@ automacro virandoClasse1T_movendoAteLa {
     }
 }
 
-automacro virandoClasse1t {
+automacro questClasse1T_virandoClasse1T {
     InMap $parametrosQuestClasse1T{mapa}
     JobID 161,4001 #Aprendiz
     JobLevel 10
@@ -60,7 +60,7 @@ automacro virandoClasse1t {
     }
 }
 
-automacro jaSouClasse1t {
+automacro questClasse1T_jaSouClasse1T {
     JobID $parametrosClasses{idC1T}
     ConfigKey virandoClasse1T true
     exclusive 1
