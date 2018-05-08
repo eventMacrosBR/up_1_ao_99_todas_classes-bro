@@ -1,3 +1,22 @@
+automacro usarPocaoDeAprendiz {
+    ConfigKeyNot useSelf_item_0 Poção de Aprendiz
+    InInventory "Poção de Aprendiz" > 0
+    exclusive 1
+    call {
+        log parece que tenho poção de aprendiz, mas ainda não foi configurado pra ser usado
+        log mudando isso
+        $potName = GetNamenyNameID(569)
+        do conf useSelf_item_0 $potName
+        do conf useSelf_item_0_disabled 0
+        do conf useSelf_item_0_hp < 60%
+        do conf getAuto_0 $potName
+        do conf getAuto_0_minAmount 20
+        do conf getAuto_0_maxAmount 200
+        do conf getAuto_0_passive 0
+        log pronto
+    }
+}
+
 automacro parandoDePegarPotDeAprendiz {
     InInventoryID 569 < 1
     InStorageID 569 < 1

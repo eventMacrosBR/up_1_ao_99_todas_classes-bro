@@ -1,6 +1,6 @@
 #campo dos aprendizes by HenryBK and Nipodemos
 
-automacro moveToSprakkiOutside {
+automacro campoDeAprendiz_irAteSprakkiLadoDeFora {
     exclusive 1
     InMap new_1-1, new_2-1, new_3-1, new_4-1, new_5-1
     BaseLevel = 1
@@ -11,7 +11,7 @@ automacro moveToSprakkiOutside {
     }
 }
 
-automacro TalkSprakkiOutside {
+automacro campoDeAprendiz_falarComSprakkiLadoDeFora {
     exclusive 1
     InMap new_1-1, new_2-1, new_3-1, new_4-1, new_5-1
     BaseLevel = 1
@@ -73,7 +73,7 @@ automacro TalkSprakkiOutside {
 #7117#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Cruze a ponte e encontre o castelo do Campo de Treinamento. #
 #Converse com o responsável pelo Campo de Treinamento #
-automacro moveInside {
+automacro campoDeAprendiz_entrar {
     exclusive 1
     QuestActive 7117
     InMap new_1-1, new_2-1, new_3-1, new_4-1, new_5-1
@@ -93,7 +93,7 @@ automacro moveInsideBugged1 {
 #7118#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Os próximos passos serão ensinados pelo instrutor. #
 #Converse com Brade #
-automacro moveInsideBugged2 {
+automacro campoDeAprendiz_entrar_bugado {
     exclusive 1
     QuestActive 7118
     BaseLevel = 2
@@ -110,7 +110,7 @@ macro GotoInside {
 #7117#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Cruze a ponte e encontre o castelo do Campo de Treinamento. #
 #Converse com o responsável pelo Campo de Treinamento #
-automacro moveNextToSprakki {
+automacro campoDeAprendiz_irAteSprakki {
     exclusive 1
     QuestActive 7117
     NpcNotNear /Sprakki/
@@ -120,7 +120,7 @@ automacro moveNextToSprakki {
     call GotoSpraki
 }
 
-automacro moveNextToSprakkiBugged1 {
+automacro campoDeAprendiz_irAteSprakki_bugado1 {
     exclusive 1
     QuestInactive 7117
     BaseLevel = 2
@@ -133,7 +133,7 @@ automacro moveNextToSprakkiBugged1 {
 #7118#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Os próximos passos serão ensinados pelo instrutor. #
 #Converse com Brade #
-automacro moveNextToSprakkiBugged2 {
+automacro campoDeAprendiz_irAteSprakki_bugado2 {
     exclusive 1
     QuestActive 7118
     BaseLevel = 2
@@ -147,7 +147,7 @@ macro GotoSpraki {
     do move 101 29
 }
 
-automacro talkSprakkiBugged1 {
+automacro campoDeAprendiz_falarComSprakki_bugado1 {
     exclusive 1
     QuestInactive 7117
     BaseLevel = 2
@@ -160,7 +160,7 @@ automacro talkSprakkiBugged1 {
 #7118#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Os próximos passos serão ensinados pelo instrutor. #
 #Converse com Brade #
-automacro talkSprakkiBugged2 {
+automacro campoDeAprendiz_falarComSprakki_bugado2 {
     exclusive 1
     QuestActive 7118
     BaseLevel = 2
@@ -178,7 +178,7 @@ macro SprakiiBuggedTalk {
 #7117#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Cruze a ponte e encontre o castelo do Campo de Treinamento. #
 #Converse com o responsável pelo Campo de Treinamento #
-automacro talkSprakki {
+automacro campoDeAprendiz_falarComSprakki {
     exclusive 1
     QuestActive 7117
     BaseLevel = 1
@@ -194,7 +194,7 @@ automacro talkSprakki {
 #7118#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Os próximos passos serão ensinados pelo instrutor. #
 #Converse com Brade #
-automacro moveNextToBrade1 {
+automacro campoDeAprendiz_irAteBrade1 {
     exclusive 1
     QuestActive 7118
     NpcNotNear /Brade/
@@ -206,7 +206,7 @@ automacro moveNextToBrade1 {
 #7119#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Você recebeu novos equipamentos. Equipe todos eles. #
 #Coloque os novos equipamentos. #
-automacro moveNextToBrade2 {
+automacro campoDeAprendiz_irAteBrade2 {
     exclusive 1
     QuestActive 7119
     NpcNotNear /Brade/
@@ -222,7 +222,7 @@ macro MoveToBrade {
 #7118#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Os próximos passos serão ensinados pelo instrutor. #
 #Converse com Brade #
-automacro talkBrade {
+automacro campoDeAprendiz_falarComBrade {
     exclusive 1
     QuestActive 7118
     BaseLevel = 2
@@ -241,7 +241,7 @@ automacro talkBrade {
 }
 
 
-automacro moveNextToBradeBugged {
+automacro campoDeAprendiz_irAteBrade_bugado {
     exclusive 1
     QuestInactive 7118
     QuestInactive 7119
@@ -253,7 +253,7 @@ automacro moveNextToBradeBugged {
     call MoveToBrade
 }
 
-automacro talkBradeBugged {
+automacro campoDeAprendiz_falarComBrade_bugado {
     exclusive 1
     QuestInactive 7118
     QuestInactive 7119
@@ -276,7 +276,7 @@ automacro talkBradeBugged {
 #7119#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Você recebeu novos equipamentos. Equipe todos eles. #
 #Coloque os novos equipamentos. #
-automacro equipStuffForBrade {
+automacro campoDeAprendiz_equiparEsquipesDoBrade {
     exclusive 1
     QuestActive 7119
     IsNotEquippedID topHead 5055, leftHand 2112, robe 2510, shoes 2414, armor 2352, rightHand 1243
@@ -305,7 +305,7 @@ automacro equipStuffForBrade {
 #7119#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Você recebeu novos equipamentos. Equipe todos eles. #
 #Coloque os novos equipamentos. #
-automacro talkBradeSecond {
+automacro campoDeAprendiz_falarComBradeSegundaVez {
     exclusive 1
     QuestActive 7119
     BaseLevel = 3
@@ -321,7 +321,7 @@ automacro talkBradeSecond {
     }
 }
 
-automacro BradeBuggedNo7120MoveJinha {
+automacro campoDeAprendiz_bugouNoBradeNaQuest7120IrAteJinha {
     exclusive 1
     QuestInactive 7119
     QuestInactive 7120
@@ -341,7 +341,7 @@ automacro BradeBuggedNo7120MoveJinha {
 #7120#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Fale com a instrutora sobre a habilidade Primeiros Socorros. #
 #Aprenda sobre Primeiros Socorros #
-automacro moveToGirlSkill {
+automacro campoDeAprendiz_irAteJinha {
     exclusive 1
     QuestActive 7120
     NpcNotNear /Jinha/
@@ -354,7 +354,7 @@ macro MoveJinha {
     do move 107 108
 }
 
-automacro BradeBuggedNo7120TalkJinha {
+automacro campoDeAprendiz_bugouNoBradeNaQuest7120FalarComJinha {
     exclusive 1
     QuestInactive 7119
     QuestInactive 7120
@@ -374,7 +374,7 @@ automacro BradeBuggedNo7120TalkJinha {
 #7120#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Fale com a instrutora sobre a habilidade Primeiros Socorros. #
 #Aprenda sobre Primeiros Socorros #
-automacro talkGirlSkill {
+automacro campoDeAprendiz_falarComJinha {
     exclusive 1
     QuestActive 7120
     NpcNear /Jinha/
@@ -388,7 +388,7 @@ macro TalkJinha {
     do talk resp 0
 }
 
-automacro BradeBuggedNo7120MoveBrade {
+automacro campoDeAprendiz_bugouNoBradeNaQuest7120IrAteBrade {
     exclusive 1
     QuestInactive 7119
     QuestInactive 7120
@@ -406,7 +406,7 @@ automacro BradeBuggedNo7120MoveBrade {
     call MoveToBrade
 }
 
-automacro BradeBuggedNo7120TalkBrade {
+automacro campoDeAprendiz_bugouNoBradeNaQuest7120FalarComBrade {
     exclusive 1
     QuestInactive 7119
     QuestInactive 7120
@@ -427,7 +427,7 @@ automacro BradeBuggedNo7120TalkBrade {
 #7120#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Fale com a instrutora sobre a habilidade Primeiros Socorros. #
 #Aprenda sobre Primeiros Socorros #
-automacro talkBradeThird {
+automacro campoDeAprendiz_falarComBradeTerceiraVez {
     exclusive 1
     QuestActive 7120
     SkillLevel NV_FIRSTAID = 1
@@ -440,7 +440,7 @@ macro TalkBradeGetTunic {
     do talk $.NpcNearLastBinId
 }
 
-automacro equipStuffForGirl {
+automacro campoDeAprendiz_equiparEquipesDaGarota {
     exclusive 1
     QuestInactive 7120
     InInventoryID 2393 = 1
@@ -454,7 +454,7 @@ automacro equipStuffForGirl {
     }
 }
 
-automacro moveNextToChoco {
+automacro campoDeAprendiz_irAteChoco {
     exclusive 1
     IsEquippedID armor 2393
     InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
@@ -465,7 +465,7 @@ automacro moveNextToChoco {
     }
 }
 
-automacro talkChoco {
+automacro campoDeAprendiz_falarComChoco {
     exclusive 1
     QuestInactive 7120
     QuestInactive 7121
@@ -481,7 +481,7 @@ automacro talkChoco {
 #7121#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Converse com os NPCs. #
 #Fale com os Guias e com a Kafra. #
-automacro moveNextToGuys {
+automacro campoDeAprendiz_irAteOsGuias {
     exclusive 1
     QuestActive 7121
     NpcNotNear /(Choco|Kafra|Zonda|Soldado)/
@@ -494,7 +494,7 @@ automacro moveNextToGuys {
 #7121#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Converse com os NPCs. #
 #Fale com os Guias e com a Kafra. #
-automacro talkToGuysBugged {
+automacro campoDeAprendiz_falarComOsGuias_bugado {
     exclusive 1
     QuestActive 7121
     ConfigKeyNotExist current_npc
@@ -510,7 +510,7 @@ automacro talkToGuysBugged {
 #7121#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Converse com os NPCs. #
 #Fale com os Guias e com a Kafra. #
-automacro talkKafra {
+automacro campoDeAprendiz_falarComKafra {
     exclusive 1
     QuestActive 7121
     ConfigKey current_npc kafra
@@ -525,7 +525,7 @@ automacro talkKafra {
 #7121#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Converse com os NPCs. #
 #Fale com os Guias e com a Kafra. #
-automacro talkZonda {
+automacro campoDeAprendiz_falarComZonda {
     exclusive 1
     QuestActive 7121
     ConfigKey current_npc zonda
@@ -539,7 +539,7 @@ automacro talkZonda {
 #7121#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Converse com os NPCs. #
 #Fale com os Guias e com a Kafra. #
-automacro talkSoldado {
+automacro campoDeAprendiz_falarComSoldado {
     exclusive 1
     QuestActive 7121
     ConfigKey current_npc soldado
@@ -553,7 +553,7 @@ automacro talkSoldado {
 #7121#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Converse com os NPCs. #
 #Fale com os Guias e com a Kafra. #
-automacro talkChocoAgain {
+automacro campoDeAprendiz_falarComChocoDeNovo {
     exclusive 1
     QuestActive 7121
     ConfigKey current_npc choco
@@ -564,7 +564,7 @@ automacro talkChocoAgain {
     }
 }
 
-automacro moveBradeGrounds {
+automacro campoDeAprendiz_irParaOsCamposDoBrade {
     exclusive 1
     QuestInactive 7122
     InInventoryID 13040 = 0
@@ -574,7 +574,7 @@ automacro moveBradeGrounds {
     call moveBradeGrounds
 }
 
-automacro talkBradeonGroundsGetQuest {
+automacro campoDeAprendiz_falarComBradeNosCamposParaPegarQuests {
     exclusive 1
     QuestInactive 7122
     InInventoryID 13040 = 0
@@ -599,26 +599,7 @@ automacro talkBradeonGroundsGetQuest {
     }
 }
 
-automacro usarPocaoDeApreniz {
-    ConfigKeyNot useSelf_item_0 Poção de Aprendiz
-    InInventory "Poção de Aprendiz" > 0
-    exclusive 1
-    call {
-        log parece que tenho poção de aprendiz, mas ainda não foi configurado pra ser usado
-        log mudando isso
-        $potName = GetNamenyNameID(569)
-        do conf useSelf_item_0 $potName
-        do conf useSelf_item_0_disabled 0
-        do conf useSelf_item_0_hp < 60%
-        do conf getAuto_0 $potName
-        do conf getAuto_0_minAmount 20
-        do conf getAuto_0_maxAmount 200
-        do conf getAuto_0_passive 0
-        log pronto
-    }
-}
-
-automacro moveBradeCompleteQuest {
+automacro campoDeAprendiz_irAteBradeQuestCompleta {
     exclusive 1
     QuestHuntCompleted 7122 1002
     InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
@@ -635,7 +616,7 @@ macro moveBradeGrounds {
     do move 99 31
 }
 
-automacro talkBradeonGroundsCompleteQuest {
+automacro campoDeAprendiz_falarComBradeNosCamposQuestCompleta {
     exclusive 1
     QuestHuntCompleted 7122 1002
     InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
@@ -646,7 +627,7 @@ automacro talkBradeonGroundsCompleteQuest {
     }
 }
 
-automacro equipStuffForBradeGrounds {
+automacro campoDeAprendiz_equiparEquipesParaBradeNosCampos {
     exclusive 1
     QuestInactive 7122
     InInventoryID 13040 = 1
@@ -658,7 +639,7 @@ automacro equipStuffForBradeGrounds {
     }
 }
 
-automacro LastBradeBug {
+automacro campoDeAprendiz_ultimoBugDoBrade {
     NpcMsg /Você ainda está no processo de treinamento/
     exclusive 1
     call {
@@ -670,7 +651,7 @@ automacro LastBradeBug {
     }
 }
 
-automacro questLunaticoBugged {
+automacro campoDeAprendiz_questLunaticos_bugada {
     QuestHuntCompleted 7122 1002
     ConfigKey quest_atual lunaticos
     exclusive 1
@@ -684,7 +665,7 @@ automacro questLunaticoBugged {
 
 # Quest de lunaticos , pickys e salgueiros by Nipodemos
 # Inspirada na macro de 1 a 99 do CALF
-automacro irAteQuestLunatico {
+automacro campoDeAprendiz_irAteQuestLunaticos {
     ConfigKey quest_atual lunaticos
     exclusive 1
     NpcNotNear /Mago|Mage/
@@ -693,7 +674,7 @@ automacro irAteQuestLunatico {
     call moverPertoDosNpc
 }
 
-automacro começarQuestLunaticos {
+automacro campoDeAprendiz_comecarQuestLunaticos {
     ConfigKey quest_atual lunaticos
     exclusive 1
     QuestInactive 7124
@@ -710,7 +691,7 @@ automacro começarQuestLunaticos {
 #7124#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Você pode derrotar 5 Lunáticos? Use as 'Lanças de Fogo' do manual para Magos. #
 #Derrote 5 Lunáticos #
-automacro caçandoLunaticos {
+automacro campoDeAprendiz_cacandoLunaticos {
     QuestActive 7124
     exclusive 1
     InMap new_1-3, new_2-3, new_3-3
@@ -726,7 +707,7 @@ automacro caçandoLunaticos {
     }
 }
 
-automacro lockMap setado quando nao deveria {
+automacro campoDeAprendiz_lockMapDefinidoQuandoNaoDeveria {
     ConfigKeyNot lockMap none
     exclusive 1
     InMapRegex /new_\d-\d/
@@ -744,7 +725,7 @@ macro moverPertoDosNpc {
     pause 1
 }
 
-automacro mateiLunaticosIndoAteoNpc {
+automacro campoDeAprendiz_mateiLunaticosIndoAteoNpc {
     QuestHuntCompleted 7124 1063
     exclusive 1
     NpcNotNear /Mago|Mage/
@@ -752,7 +733,7 @@ automacro mateiLunaticosIndoAteoNpc {
     call moverPertoDosNpc
 }
 
-automacro mateiLunaticos {
+automacro campoDeAprendiz_mateiLunaticos {
     exclusive 1
     QuestHuntCompleted 7124 1063
     NpcNear /Mago|Mage/
@@ -765,7 +746,7 @@ automacro mateiLunaticos {
     }
 }
 
-automacro ComeçarQuestPickyMoverPerto {
+automacro campoDeAprendiz_comecarQuestPickyMoverPerto {
     ConfigKey quest_atual pickys
     NpcNotNear /Espadachim|Swordman/
     QuestInactive 7123
@@ -777,7 +758,7 @@ automacro ComeçarQuestPickyMoverPerto {
     call moverPertoDosNpc
 }
 
-automacro começarQuestPicky {
+automacro campoDeAprendiz_comecarQuestPicky {
     ConfigKey quest_atual pickys
     NpcNear /Espadachim|Swordman/
     QuestInactive 7123
@@ -799,7 +780,7 @@ automacro começarQuestPicky {
 #7123#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Derrote 2 Pickys? Use a habilidade 'Golpe Fulminante' do manual para Espadachins. #
 #Derrote 2 Pickys #
-automacro começarQuestSalgueiroMoverPerto {
+automacro campoDeAprendiz_comecarQuestSalgueiroMoverPerto {
     NpcNotNear /Thief|Gatuno/
     ConfigKey quest_atual salgueiros
     QuestActive 7123
@@ -815,7 +796,7 @@ automacro começarQuestSalgueiroMoverPerto {
 #7123#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Derrote 2 Pickys? Use a habilidade 'Golpe Fulminante' do manual para Espadachins. #
 #Derrote 2 Pickys #
-automacro começarQuestSalgueiro {
+automacro campoDeAprendiz_comecarQuestSalgueiro {
     ConfigKey quest_atual salgueiros
     QuestActive 7123
     QuestInactive 7127
@@ -840,7 +821,7 @@ automacro começarQuestSalgueiro {
 #7127#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Derrote 5 Salgueiros com a ajuda da habilidade 'Ataque Duplo'. #
 #Derrote 5 Salgueiros #
-automacro treinoMaisPesadoMoverPerto {
+automacro campoDeAprendiz_treinoMaisPesadoMoverPerto {
     QuestActive 7123
     QuestActive 7127
     ConfigKeyNot master RMS Renewal Test Server
@@ -856,7 +837,7 @@ automacro treinoMaisPesadoMoverPerto {
 #7127#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Derrote 5 Salgueiros com a ajuda da habilidade 'Ataque Duplo'. #
 #Derrote 5 Salgueiros #
-automacro treinoMaisPesado {
+automacro campoDeAprendiz_treinoMaisPesado {
     QuestActive 7123
     QuestActive 7127
     ConfigKeyNot master RMS Renewal Test Server
@@ -870,7 +851,7 @@ automacro treinoMaisPesado {
     }
 }
 
-automacro caçandoPickys {
+automacro campoDeAprendiz_cacandoPickys {
     QuestHuntOngoing 7123 1049
     InMap new_4-3, new_5-3
     timeout 60
@@ -878,7 +859,7 @@ automacro caçandoPickys {
     call sePreparandoPraMatar
 }
 
-automacro caçandoSalgueiro {
+automacro campoDeAprendiz_cacandoSalgueiro {
     QuestHuntOngoing 7127 1010
     InMap new_4-3, new_5-3
     timeout 60
@@ -895,7 +876,7 @@ macro sePreparandoPraMatar {
     log  Indo matar pickys e/ou salgueiros
 }
 
-automacro mateiPickysIndoAteNpc {
+automacro campoDeAprendiz_mateiPickysIndoAteNpc {
     QuestHuntCompleted 7123 1049
     exclusive 1
     InMap new_4-3, new_5-3
@@ -903,7 +884,7 @@ automacro mateiPickysIndoAteNpc {
     call moverPertoDosNpc
 }
 
-automacro mateiPickys {
+automacro campoDeAprendiz_mateiPickys {
     QuestHuntCompleted 7123 1049
     exclusive 1
     InMap new_4-3, new_5-3
@@ -917,7 +898,7 @@ automacro mateiPickys {
     }
 }
 
-automacro mateiSalgueirosIndoAteNpc {
+automacro campoDeAprendiz_mateiSalgueirosIndoAteNpc {
     QuestHuntCompleted 7127 1010
     exclusive 1
     InMap new_4-3, new_5-3
@@ -925,7 +906,7 @@ automacro mateiSalgueirosIndoAteNpc {
     call moverPertoDosNpc
 }
 
-automacro mateiSalgueiros {
+automacro campoDeAprendiz_mateiSalgueiros {
     QuestHuntCompleted 7127 1010
     exclusive 1
     NpcNear /Gatuno|Thief/i
@@ -937,7 +918,7 @@ automacro mateiSalgueiros {
     }
 }
 
-automacro completeiTodasAsQuests {
+automacro campoDeAprendiz_completeiTodasAsQuests {
     JobLevel = 10
     BaseLevel < 12
     BaseLevel >= 9
@@ -955,7 +936,7 @@ automacro completeiTodasAsQuests {
     }
 }
 
-automacro continuarUpandoAte12 {
+automacro campoDeAprendiz_continuarUpandoAte12 {
     ConfigKey quest_atual todas_completadas
     QuestInactive 7127
     QuestInactive 7123
@@ -990,7 +971,7 @@ automacro continuarUpandoAte12 {
 #7124#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Você pode derrotar 5 Lunáticos? Use as 'Lanças de Fogo' do manual para Magos. #
 #Derrote 5 Lunáticos #
-automacro continuar upando ate 12 bugged {
+automacro campoDeAprendiz_continuarUpandoAte12_bugada {
     ConfigKey quest_atual todas_completadas
     QuestActive 7127, 7123, 7124
     BaseLevel < 12
@@ -1021,7 +1002,7 @@ automacro continuar upando ate 12 bugged {
 }
 
 
-automacro seMorrerEnquantoUpaAteLv12 {
+automacro campoDeAprendiz_seMorrerEnquantoUpaAteLv12 {
     ConfigKey quest_atual todas_completadas
     CurrentHP >= 50%
     IsInCoordinate 95 21
@@ -1036,7 +1017,7 @@ automacro seMorrerEnquantoUpaAteLv12 {
 #7127#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
 #Derrote 5 Salgueiros com a ajuda da habilidade 'Ataque Duplo'. #
 #Derrote 5 Salgueiros #
-automacro se morrer enquanto mata pickys_e_salgueiros {
+automacro campoDeAprendiz_seMorrerEnquantoMataPickysESalgueiros {
     QuestActive 7123, 7127
     CurrentHP >= 50%
     priority 5
@@ -1055,7 +1036,7 @@ macro mudarDeMapa {
     call voltarAtacar
 }
 
-automacro terminouDeUpar {
+automacro campoDeAprendiz_terminouDeUpar {
     exclusive 1
     JobLevel = 10
     BaseLevel > 11
@@ -1073,7 +1054,7 @@ automacro terminouDeUpar {
     }
 }
 
-automacro terminouDeUpar_bugged {
+automacro campoDeAprendiz_terminouDeUpar_bugada {
     exclusive 1
     JobLevel = 10
     BaseLevel > 11
@@ -1088,7 +1069,7 @@ automacro terminouDeUpar_bugged {
     }
 }
 
-automacro todobugadão {
+automacro campoDeAprendiz_muitoBugado {
     InMapRegex /^(?!new_\d-\d|moc_prydb1)$/
     JobID 0
     exclusive 1
