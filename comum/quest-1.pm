@@ -1,4 +1,4 @@
-automacro virandoClasse1Bugged {
+automacro questClasse1_virandoClasse1_bugada {
     JobLevel = 10
     InMapRegex /^(?!new_\d-\d)$/
     SkillLevel NV_BASIC != 9
@@ -15,7 +15,7 @@ automacro virandoClasse1Bugged {
     }
 }
 
-automacro virandoClasse1 {
+automacro questClasse1_virandoClasse1 {
     InMap $parametrosQuestClasse1{mapa}
     JobID 0 #Aprendiz
     JobLevel 10
@@ -38,7 +38,7 @@ automacro virandoClasse1 {
     }
 }
 
-automacro jaSouClasse1 {
+automacro questClasse1_jaSouClasse1 {
     JobIDNot 0 #aprendiz
     InInventoryID 2414 = 1 #sandalias de aprendiz
     InInventoryID 5055 = 1 #chapeu de ovo de aprendiz
