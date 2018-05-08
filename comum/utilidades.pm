@@ -158,3 +158,22 @@ automacro sairDeMocFild20 {
     }
 }
 
+sub desequipar {
+    my $type = shift;
+    if (exists $char->{equipment}{$type}) {
+        $char->{equipment}{$type}->unequip();
+    } else {
+        message "There is nothing equipped in $type\n";
+    }
+}
+
+sub checarSeExisteComando {
+    my ($comando) = @_;
+    if ( exists $config{$comando} ) {
+        message "desativando $comando (isso e intencional)\n";
+        return "sim";
+    } else {
+        return "nao";
+    }
+}
+

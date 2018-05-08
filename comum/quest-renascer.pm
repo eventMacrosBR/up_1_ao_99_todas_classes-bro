@@ -12,7 +12,7 @@ sub inicializarParametrosQuestClasseRenascer {
     $eventMacro->set_full_hash('parametrosQuestClasseRenascer', \%parametrosQuestClasseRenascer);
 }
 
-automacro chegueilvl99 {
+automacro questRenascer_chegueilvl99 {
     BaseLevel = 99
     JobLevel = 50
     JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}
@@ -95,7 +95,7 @@ automacro chegueilvl99 {
     }
 }
 
-automacro salvarNaCidadeQueVouUpar_definirVariável {
+automacro questRenascer_salvarNaCidadeQueVouUparEDefinirVariavel {
     ConfigKey estagio_Reborn preparando
     exclusive 1
     priority -10 #prioridade mais alta
@@ -115,7 +115,7 @@ automacro salvarNaCidadeQueVouUpar_definirVariável {
     }
 }
 
-automacro chamarAmigo {
+automacro questRenascer_chamarAmigo {
     exclusive 1
     timeout 60
     JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}
@@ -158,7 +158,7 @@ automacro chamarAmigo {
     }
 }
 
-automacro irNoLocalPraNegociar {
+automacro questRenascer_irNoLocalPraNegociar {
     BaseLevel = 99
     JobLevel = 50
     overrideAI 1
@@ -185,7 +185,7 @@ automacro irNoLocalPraNegociar {
     }
 }
 
-automacro amigoPerto_pedindoTrade {
+automacro questRenascer_amigoPertoPedindoTrade {
     CharCurrentWeight 0
     Zeny != 1285000
     priority -5
@@ -205,7 +205,7 @@ automacro amigoPerto_pedindoTrade {
     }
 }
 
-automacro amigoPerto_recebiTrade {
+automacro questRenascer_amigoPertoRecebiTrade {
     CharCurrentWeight 0
     Zeny != 1285000
     priority -5
@@ -222,7 +222,7 @@ automacro amigoPerto_recebiTrade {
     }
 }
 
-automacro DandoOuReceBendoZeny {
+automacro questRenascer_dandoOuReceBendoZeny {
     CharCurrentWeight 0
     Zeny != 1285000
     ConfigKey estagio_Reborn preparando
@@ -250,7 +250,7 @@ automacro DandoOuReceBendoZeny {
     }
 }
 
-automacro finalizarTrade {
+automacro questRenascer_finalizarTrade {
     SimpleHookEvent finalized_deal
     PlayerNear /$parametrosQuestClasseRenascer{amigo}/
     CharCurrentWeight 0
@@ -261,7 +261,7 @@ automacro finalizarTrade {
     }
 }
 
-automacro TudoCerto_VamosRebornar {
+automacro questRenascer_tudoCertoVamosRebornar {
     BaseLevel = 99
     JobLevel = 50
     CharCurrentWeight = 0
@@ -278,7 +278,7 @@ automacro TudoCerto_VamosRebornar {
     }
 }
 
-automacro Rebornar_primeiroEstagio {
+automacro questRenascer__primeiroEstagio {
     ConfigKey estagio_Reborn 1
     InMap yuno
     exclusive 1
@@ -294,7 +294,7 @@ automacro Rebornar_primeiroEstagio {
         if ($.map = yuno_in02) do conf estagio_Reborn 2
     }
 }
-automacro Rebornar_primeiroEstagioBugged {
+automacro questRenascer_primeiroEstagio_bugada {
     ConfigKey estagio_Reborn 1
     NotInMap yuno
     NotInMap yuno_in02
@@ -307,7 +307,7 @@ automacro Rebornar_primeiroEstagioBugged {
     }
 }
 
-automacro Rebornar_pagarTaxa {
+automacro questRenascer_pagarTaxa {
     ConfigKey estagio_Reborn 2
     Zeny = 1285000
     InMap yuno_in02
@@ -320,7 +320,7 @@ automacro Rebornar_pagarTaxa {
     }
 }
 
-automacro rebornar_lerOLivroEDescer {
+automacro questRenascer_lerOLivroEDescer {
     ConfigKey estagio_Reborn 2
     InMap yuno_in02
     #QuestActive 1000
@@ -335,7 +335,7 @@ automacro rebornar_lerOLivroEDescer {
     }
 }
 
-automacro Rebornar_terceiroEstagio {
+automacro questRenascer_terceiroEstagio {
     ConfigKey estagio_Reborn 3
     InMap yuno_in05
     exclusive 1
@@ -353,7 +353,7 @@ automacro Rebornar_terceiroEstagio {
     }
 }
 
-automacro Rebornar_terceiroEstagio_bugged {
+automacro questRenascer_terceiroEstagio_bugada {
     ConfigKey estagio_Reborn 3
     InMap yuno_in02
     exclusive 1
@@ -361,7 +361,7 @@ automacro Rebornar_terceiroEstagio_bugged {
         do move yuno_in05
     }
 }
-automacro Rebornar_ultimoEstagio {
+automacro questRenascer_ultimoEstagio {
     ConfigKey estagio_Reborn 4
     exclusive 1
     call {
@@ -379,25 +379,6 @@ automacro Rebornar_ultimoEstagio {
         log =========================================
         ]
         stop
-    }
-}
-
-sub desequipar {
-    my $type = shift;
-    if (exists $char->{equipment}{$type}) {
-        $char->{equipment}{$type}->unequip();
-    } else {
-        message "There is nothing equipped in $type\n";
-    }
-}
-
-sub checarSeExisteComando {
-    my ($comando) = @_;
-    if ( exists $config{$comando} ) {
-        message "desativando $comando (isso e intencional)\n";
-        return "sim";
-    } else {
-        return "nao";
     }
 }
 
