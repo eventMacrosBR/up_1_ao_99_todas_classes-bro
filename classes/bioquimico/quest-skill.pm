@@ -104,7 +104,14 @@ automacro desabilitandoAutoBuy {
     ConfigKeyNot buyAuto_1_disabled 1
     exclusive 1
     call {
-        do conf buyAuto_1_disabled 1
+        $blocoExiste = checarSeExisteNoConfig("buyAuto_1")
+        if ( $blocoExiste = nao ) {
+            log não existe o bloco de autoBuy
+            log interrompendo essa macro
+            lock desabilitandoAutoBuy
+        } else {
+            do conf buyAuto_1_disabled 1
+        }
     }
 }
 #####################################################################################################################################
