@@ -68,9 +68,9 @@ automacro questClasse1T_jaSouClasse1T {
         call atualizarBuild
         do iconf 2393 0 0 0 #Tunica de Iniciante
         do iconf $parametrosQuestClasse1T{equipeIniciante} 0 0 0
-        $check = GetIndexAndEquipped("armor", 2393) #Tunica de Iniciante
+        $check = equiparEquipamentoEm("armor", 2393) #Tunica de Iniciante
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("rightHand", "$parametrosQuestClasse1T{equipeIniciante}")
+        $check = equiparEquipamentoEm("rightHand", "$parametrosQuestClasse1T{equipeIniciante}")
         if ($check != -1) do eq $check
         do conf virandoClasse1T none
         

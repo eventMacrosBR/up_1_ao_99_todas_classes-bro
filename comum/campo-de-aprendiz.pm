@@ -103,8 +103,8 @@ automacro campoDeAprendiz_entrar_bugado {
 }
 
 macro GotoInside {
-    $nextMap = nextMap("$.map")
-    do move $nextMap 101 29
+    $proximoMapa = proximoMapa("$.map")
+    do move $proximoMapa 101 29
 }
 
 #7117#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
@@ -287,17 +287,17 @@ automacro campoDeAprendiz_equiparEsquipesDoBrade {
         do pconf 2112 0
         do pconf 1243 0
         do pconf 2352 0
-        $check = GetIndexAndEquipped("topHead", 5055)
+        $check = equiparEquipamentoEm("topHead", 5055)
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("robe", 2510)
+        $check = equiparEquipamentoEm("robe", 2510)
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("shoes",2414)
+        $check = equiparEquipamentoEm("shoes",2414)
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("armor",2352)
+        $check = equiparEquipamentoEm("armor",2352)
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("leftHand",2112)
+        $check = equiparEquipamentoEm("leftHand",2112)
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("rightHand",1243)
+        $check = equiparEquipamentoEm("rightHand",1243)
         if ($check != -1) do eq $check
     }
 }
@@ -447,7 +447,7 @@ automacro campoDeAprendiz_equiparEquipesDaGarota {
     InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
     IsNotEquippedID armor 2393
     call {
-        $check = GetIndexAndEquipped("armor", 2393)
+        $check = equiparEquipamentoEm("armor", 2393)
         if ($check != -1) {
             do eq $check
         }
@@ -584,7 +584,7 @@ automacro campoDeAprendiz_falarComBradeNosCamposParaPegarQuests {
         do talk $.NpcNearLastBinId
         do conf route_randomWalk 1
         do conf itemsTakeAuto 2
-        $potName = GetNamenyNameID(569)
+        $potName = pegarNomePeloIdDoItem(569)
         do conf useSelf_item_0 $potName
         do conf useSelf_item_0_disabled 0
         do conf useSelf_item_0_hp < 60%
@@ -634,7 +634,7 @@ automacro campoDeAprendiz_equiparEquipesParaBradeNosCampos {
     IsNotEquippedID rightHand 13040
     InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
     call {
-        $check = GetIndexAndEquipped("rightHand", 13040)
+        $check = equiparEquipamentoEm("rightHand", 13040)
         if ($check != -1) do eq $check
     }
 }

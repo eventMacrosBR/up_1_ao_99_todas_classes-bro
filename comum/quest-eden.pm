@@ -784,13 +784,13 @@ automacro Eden12Equipando {
         log =equipando os itens de eden lvl 12
         log ===========================================
         ]
-        $check = GetIndexAndEquipped("robe", 2560) #Capa Valhalla
+        $check = equiparEquipamentoEm("robe", 2560) #Capa Valhalla
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("topHead", 5583) #Chapeu valhalla
+        $check = equiparEquipamentoEm("topHead", 5583) #Chapeu valhalla
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("shoes", 2456) #Botas Valhalla Iniciante
+        $check = equiparEquipamentoEm("shoes", 2456) #Botas Valhalla Iniciante
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("armor", 15009) #Uniforme Valhalla Iniciante
+        $check = equiparEquipamentoEm("armor", 15009) #Uniforme Valhalla Iniciante
         if ($check != -1) do eq $check
     }
 }
@@ -808,11 +808,11 @@ automacro Eden26Equipando {
         log ===========================================
         ]
 
-        $check = GetIndexAndEquipped("shoes", 2457) #Botas Valhalla Intermediárias
+        $check = equiparEquipamentoEm("shoes", 2457) #Botas Valhalla Intermediárias
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("rightHand", "$parametrosQuestEden{IDarmaIniciante}") #Arma Valhalla Iniciante
+        $check = equiparEquipamentoEm("rightHand", "$parametrosQuestEden{IDarmaIniciante}") #Arma Valhalla Iniciante
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("armor", 15010) #Uniforme Valhalla Intermediário
+        $check = equiparEquipamentoEm("armor", 15010) #Uniforme Valhalla Intermediário
         if ($check != -1) do eq $check
     }
 }
@@ -829,11 +829,11 @@ automacro Eden40Equipando {
         log =equipando os itens de eden lvl 40
         log ===========================================
         ]
-        $check = GetIndexAndEquipped("shoes", 2458) #Botas Valhalla Avançadas
+        $check = equiparEquipamentoEm("shoes", 2458) #Botas Valhalla Avançadas
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("rightHand", "$parametrosQuestEden{IDarmaIntermediario}") #Arma Valhalla Intermediária
+        $check = equiparEquipamentoEm("rightHand", "$parametrosQuestEden{IDarmaIntermediario}") #Arma Valhalla Intermediária
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("armor", 15011) #Uniforme Valhalla Avançado
+        $check = equiparEquipamentoEm("armor", 15011) #Uniforme Valhalla Avançado
         if ($check != -1) do eq $check
     }
 }
@@ -857,15 +857,15 @@ automacro Eden60Equipando {
         log =equipando os itens de eden level 60
         log ===========================================
         ]
-        $check = GetIndexAndEquipped("robe", 2571) #Capa II do Grupo Eden
+        $check = equiparEquipamentoEm("robe", 2571) #Capa II do Grupo Eden
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("topHead", 18514) #Chapéu_II_do_Grupo_Éden#
+        $check = equiparEquipamentoEm("topHead", 18514) #Chapéu_II_do_Grupo_Éden#
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("shoes", 2473) ##Botas_IV_do_Grupo_Éden#
+        $check = equiparEquipamentoEm("shoes", 2473) ##Botas_IV_do_Grupo_Éden#
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("rightHand","$parametrosQuestEden{IDarmaEden}") #Arma do Grupo Eden#
+        $check = equiparEquipamentoEm("rightHand","$parametrosQuestEden{IDarmaEden}") #Arma do Grupo Eden#
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("armor", 15031) #Armadura_do_Grupo_Éden#
+        $check = equiparEquipamentoEm("armor", 15031) #Armadura_do_Grupo_Éden#
         if ($check != -1) do eq $check
     }
 }

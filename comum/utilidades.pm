@@ -1,4 +1,4 @@
-automacro ConfigEstáErrada {
+automacro utilidades_configEstaErrada {
     exclusive 1
     overrideAI 1
     priority -5
@@ -58,7 +58,7 @@ sub checarSeExisteNoConfig {
     }
 }
 
-sub GetIndexAndEquipped {
+sub equiparEquipamentoEm {
     my ($type, $id) = @_;
     my $Item = $char->inventory->getByNameID($id);
     if ($Item eq "" ) {
@@ -80,12 +80,12 @@ sub GetIndexAndEquipped {
 }
 
 
-sub GetNamenyNameID {
+sub pegarNomePeloIdDoItem {
     my $name = $items_lut{$_[0]};
     return $name;
 }
 
-sub nextMap {
+sub proximoMapa {
     my $map = $_[0];
     if ($map =~ /^new_(\d)-(\d)$/) {
     return "new_".$1."-".($2+1);
@@ -134,8 +134,6 @@ macro ajuda {
     log     eventMacro termineiQuestSkillManualmente
     log     eventMacro termineiQuestClasse2Manualmente
     log     eventMacro termineiQuestClasse2TManualmente
-    log Comando para caso de problema com rota
-    log     eventMacro reloadPortals
     log Comando para controlar o modo de ataque do bot
     log     eventMacro pararDeAtacar
     log     eventMacro pararDeAtacarApenasCorrer

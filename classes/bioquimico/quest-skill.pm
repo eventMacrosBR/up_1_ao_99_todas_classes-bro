@@ -216,9 +216,9 @@ automacro questBioetica_EquipandoBigodeGrisalhoEQuatro-Olhos {
     ConfigKey passoQuestBioetica comprarBigodeEOculos
     IsNotEquippedID midHead 2243, lowHead 2241 #Quatro-Olhos & Bigode Grisalho
     call {
-        $check = GetIndexAndEquipped("midHead", 2243) #Quatro-Olhos
+        $check = equiparEquipamentoEm("midHead", 2243) #Quatro-Olhos
         if ($check != -1) do eq $check
-        $check = GetIndexAndEquipped("lowHead", 2241) #Bigode Grisalho
+        $check = equiparEquipamentoEm("lowHead", 2241) #Bigode Grisalho
         if ($check != -1) do eq $check
     }
 }

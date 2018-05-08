@@ -5,7 +5,7 @@ automacro usarPocaoDeAprendiz {
     call {
         log parece que tenho poção de aprendiz, mas ainda não foi configurado pra ser usado
         log mudando isso
-        $potName = GetNamenyNameID(569)
+        $potName = pegarNomePeloIdDoItem(569)
         do conf useSelf_item_0 $potName
         do conf useSelf_item_0_disabled 0
         do conf useSelf_item_0_hp < 60%
