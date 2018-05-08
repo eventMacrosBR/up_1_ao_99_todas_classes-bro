@@ -92,6 +92,9 @@ automacro VirarCacador_SalvarEmHugel {
     ConfigKeyNot In_saveMap_sequence true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
+    ConfigKey aeroplano1 none
+    ConfigKey aeroplano2 none
+    NotInMap hugel
     QuestInactive 4000
     QuestInactive 4001
     QuestInactive 4002
@@ -107,15 +110,17 @@ automacro VirarCacador_SalvarEmHugel {
     QuestInactive 4012
     QuestInactive 4013
     exclusive 1
-    call SetSaveIn "hugel"
+    call junopra "hugel"
 }
 
 automacro VirarCAcador_IrNoNpc {
     JobID $parametrosClasses{idC1}
     JobLevel = 50
     FreeSkillPoints = 0
+    ConfigKeyNot In_saveMap_sequence true
+    NpcNotNear /caçadora da guilda/i
     ConfigKey saveMap hugel
-    InMap hugel
+    InMap hugel, hu_in01
     QuestInactive 4000
     QuestInactive 4001
     QuestInactive 4002
@@ -145,6 +150,7 @@ automacro VirarCAcador_IrNoNpc {
 automacro VirarCacador_FalarDejiko {
     JobID $parametrosClasses{idC1}
     JobLevel = 50
+    NpcNear /caçadora da guilda/i
     InMap hu_in01
     QuestInactive 4000
     QuestInactive 4001
@@ -166,6 +172,15 @@ automacro VirarCacador_FalarDejiko {
     }
 }
 
+automacro VirarCacador_FalarComRecepcionista_longeDela {
+    NpcNotNear /recepcionista da guilda/i
+    exclusive 1
+    QuestActive 4001
+    InMap hugel,hu_in01
+    call {
+        do move hu_in01 382 382 &rand(2,4)
+    }
+}
 
 #4001#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Fale com a Caçadora da Guilda para continuar o teste. #
@@ -174,9 +189,20 @@ automacro VirarCacador_FalarComRecepcionista {
     InMap hu_in01
     QuestActive 4001
     exclusive 1
+    NpcNear /recepcionista da guilda/i
     call {
-        do move hu_in01 382 382 &rand(2,4)
         do talknpc 382 382 r1 #Recepcionista
+    }
+}
+
+automacro voltandoPraPronteraEArredores {
+    InMap hugel,hu_in01
+    QuestActive 4002,4003,4004,4005,4006,4007,4008
+    exclusive 1
+    ConfigKey aeroplano1 none
+    ConfigKey aeroplano2 none
+    call {
+
     }
 }
 
