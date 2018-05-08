@@ -1,4 +1,4 @@
-automacro iniciarQuestClasse2T_Bugged {
+automacro questClasse2T_iniciarQuestClasse2T_bugada {
     JobLevel = 50
     exclusive 1
     JobID $parametrosClasses{idC1T}
@@ -16,7 +16,7 @@ automacro iniciarQuestClasse2T_Bugged {
     }
 }
 
-automacro falarComLivro_estaLonge {
+automacro questClasse2T_irFalarComLivro {
     exclusive 1
     JobID $parametrosClasses{idC1T} 
     JobLevel = 50
@@ -33,7 +33,7 @@ automacro falarComLivro_estaLonge {
     }
 }
 
-automacro falarComLivro {
+automacro questClasse2T_falarComLivro {
     exclusive 1
     JobID $parametrosClasses{idC1T} 
     JobLevel = 50
@@ -45,7 +45,7 @@ automacro falarComLivro {
     }
 }
 
-automacro falarComNpcDaClasse {
+automacro questClasse2T_falarComNpcDaClasse {
     exclusive 1
     JobID $parametrosClasses{idC1T} 
     JobLevel = 50
@@ -57,7 +57,7 @@ automacro falarComNpcDaClasse {
     }
 }
 
-automacro jaSouClasse2T {
+automacro questClasse2T_jaSouClasse2T {
     exclusive 1
     JobID $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}
     ConfigKey virarClasse2T true
