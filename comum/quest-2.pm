@@ -1,5 +1,5 @@
 #Parte comum em todas quests de classes
-automacro virarClasse2Inicio_Bugged {
+automacro questClasse2_virarClasse2Inicio_bugada {
     FreeSkillPoints > 0
     timeout 30
     JobLevel = 50
@@ -24,7 +24,7 @@ automacro virarClasse2Inicio_Bugged {
     }
 }
 
-automacro virarClasse2Inicio {
+automacro questClasse2_inicio {
     JobLevel = 50
     JobID $parametrosClasses{idC1}
     ConfigKeyNot virarClasse2 true
@@ -36,7 +36,7 @@ automacro virarClasse2Inicio {
     }
 }
 
-automacro jsSouClasse2 {
+automacro questClasse2_jaSouClasse2 {
     JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}
     ConfigKey virarClasse2 true
     exclusive 1
@@ -52,7 +52,7 @@ automacro jsSouClasse2 {
     }
 }
 
-automacro jsSouClasse2NaoAutomatico {
+automacro questClasse2_jaSouClasse2NaoAutomatico {
     JobID $parametrosClasses{idC2} , $parametrosClasses{idC2Alt}
     ConfigKey esperarFazerQuest true
     exclusive 1
