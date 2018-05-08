@@ -1,4 +1,5 @@
 [![Travis CI Build Status](https://travis-ci.org/eventMacrosBR/up_1_ao_99_todas_classes-bro.svg?branch=master)](https://travis-ci.org/eventMacrosBR/up_1_ao_99_todas_classes-bro)
+[![Juntar-se ao chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/eventMacro-up-todas-as-classes/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 ---
 
 
