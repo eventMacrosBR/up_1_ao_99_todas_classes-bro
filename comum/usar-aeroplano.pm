@@ -290,14 +290,14 @@ automacro chegueiPertoDeRachel {
 }
 macro objetivoCompleto {
     #Se estivermos na cidade, e o local desejado for essa cidade, ele completa o objetivo
-    #E automaticamente salva na cidade, usando a macro SetSaveIn
+    #E automaticamente salva na cidade, usando a macro salvarNaCidade
     log cheguei em $.InMapLast , objetivo completo
     do conf aeroplano2 none
     do conf aeroplano1 none
     do conf aeroplano_macroChamada none
     do ai on
     do conf -f o_que_estou_fazendo acabeiDeChegarNaCidadeViaAeroplano
-    call SetSaveIn "$.InMapLast"
+    call salvarNaCidade "$.InMapLast"
 }
 
 automacro chegueiEmJuno {

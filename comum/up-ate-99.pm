@@ -55,7 +55,7 @@ macro upar {
 
         if ($mapa{saveMap} ~ rachel,veins) {
             if ($.map =~ /^ra|^ve|^aru/) {
-                call SetSaveIn "$mapa{saveMap}"
+                call salvarNaCidade "$mapa{saveMap}"
             } else {
                 call junopra "$mapa{saveMap}"
             }
@@ -64,14 +64,14 @@ macro upar {
         
         if ($mapa{saveMap} = einbroch) {
             if ($.map =~ /^ein|^lhz/) {
-                call SetSaveIn "$mapa{saveMap}"
+                call salvarNaCidade "$mapa{saveMap}"
             } else {
                 call junopra "$mapa{saveMap}"
             }
             stop
         }
         
-        call SetSaveIn "$mapa{saveMap}"
+        call salvarNaCidade "$mapa{saveMap}"
     }
 }
 

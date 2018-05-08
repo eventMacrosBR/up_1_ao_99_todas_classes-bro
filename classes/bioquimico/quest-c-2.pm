@@ -392,7 +392,7 @@ automacro virarAlquimista_naoTenhoAFlor_NemZeny {
         do iconf 2402 0 0 1 #Sandálias [1]
         
         call voltarAtacar
-        call SetSaveIn "payon" 
+        call salvarNaCidade "payon" 
         do conf lockMap pay_fild09
     }
 }

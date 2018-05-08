@@ -257,7 +257,7 @@ automacro Eden12salvarNaKafra {
     ConfigKeyNot saveMap morocc
     call {
         do conf -f quest_eden em_curso
-        call SetSaveIn "morocc"
+        call salvarNaCidade "morocc"
         do conf -f o_que_estou_fazendo quest_eden12
     }
 }
@@ -273,7 +273,7 @@ automacro Eden26SalvarNaKafra {
     ConfigKeyNot saveMap payon
     call {
         do conf -f quest_eden em_curso
-        call SetSaveIn "payon"
+        call salvarNaCidade "payon"
         do conf -f o_que_estou_fazendo quest_eden26
     }
 }
@@ -289,7 +289,7 @@ automacro Eden40SalvarNaKafra {
     ConfigKeyNot saveMap prontera
     call {
         do conf -f quest_eden em_curso
-        call SetSaveIn "prontera"
+        call salvarNaCidade "prontera"
         do conf -f o_que_estou_fazendo quest_eden40
     }
 }
@@ -305,7 +305,7 @@ automacro Eden60SalvarNaKafra {
     ConfigKeyNot saveMap comodo
     call {
         do conf -f quest_eden em_curso
-        call SetSaveIn "comodo"
+        call salvarNaCidade "comodo"
         do conf -f o_que_estou_fazendo quest_eden60
     }
 }

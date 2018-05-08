@@ -1,4 +1,4 @@
-macro SetSaveIn {
+macro salvarNaCidade {
     call pararDeAtacar
     do conf lockMap none
     if (&config(master) =~ /Valhalla/ ) {

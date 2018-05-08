@@ -31,7 +31,7 @@ automacro VirarSacer_SalvarEmProntera {
     QuestInactive 8014
     QuestInactive 8015
     exclusive 1
-    call SetSaveIn "prontera"
+    call salvarNaCidade "prontera"
 }
 
 automacro VirarSacer_IrNoNpc {

@@ -38,7 +38,7 @@ automacro virarArruaceiroInicio_salvarEmMorocc {
     QuestInactive 2023
     QuestInactive 2024
     QuestInactive 2026
-    call SetSaveIn "morocc"
+    call salvarNaCidade "morocc"
 }
 
 automacro virarArruaceiroInicio_IrNoNpc {

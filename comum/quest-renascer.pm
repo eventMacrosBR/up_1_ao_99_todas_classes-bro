@@ -110,7 +110,7 @@ automacro salvarNaCidadeQueVouUpar_definirVariável {
         extrairMapasDeUp(1)
         $mapaQueVouUparNolvl1 = $mapa{saveMap}
         if (&config(saveMap) != $mapaQueVouUparNolvl1) {
-            call SetSaveIn "$mapaQueVouUparNolvl1"
+            call salvarNaCidade "$mapaQueVouUparNolvl1"
         }
     }
 }
