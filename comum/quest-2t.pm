@@ -77,7 +77,7 @@ automacro questClasse2T_jaSouClasse2T_SairDaValquiria {
         $mapaQueVou = $mapa{saveMap}
         do move valkyrie 44 33 &rand(3,5)
         do talk &npc(44 33) #teleportadora
-        swtich ($mapaQueVou) {        
+        switch ($mapaQueVou) {        
             case (= aldebaran) $mapaQueVou = Al\sDe\sBaran
             case (= morooc) $mapaQueVou = morroc
             case (= yuno) $mapaQueVou = yuno
