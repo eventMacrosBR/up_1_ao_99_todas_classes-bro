@@ -538,40 +538,56 @@ automacro entregarItens_todasAsPossibilidades {
 #4009#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Vá falar com o Líder da Guilda, que está no Palácio Central de Payon. #
 #
+automacro questCacador_irAteOPalacioDePayon {
+    QuestActive 4009
+    exclusive 1
+    call {
+        log Não implementado ainda!
+    }
+}
 
 #4010#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Vá falar com o Líder da Guilda, que está na Guilda dos Arqueiros. #
 #
+automacro questCacador_irAteAGuildaDosArqueiros {
+    QuestActive 4010
+    exclusive 1
+    call {
+        log Não implementado ainda!
+    }
+}
 
 #4011#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Mate todos os ^ff0000monstros de mudança de classe^000000, e o interruptor vai aparecer. Destrua o interruptor e fuja pela saída ao norte. #
 #
 automacro questCacador_labirinto {
     InMap job_hunte
-    exclusive 1
     call {
         #TODO por ai Manual e configurar monstros que são os alvos
+        do conf route_randomWalk 0
+        call pararDeAtacar
+
         do move 72 76 #-> ataque Monstro Alvo
         do move 107 76 #-> ataque Monstro Alvo 
         do move 117 76 #-> ataque Monstro Alvo
-        do north
-	    do north
-	    do north
-	    do north
-	    do north
-	    do north
-	    do north
-	    do north
-	    do north
-	    do north
-	    do north
+        do north 
+	    do north 
+	    do north 
+	    do north 
+	    do north 
+	    do north 
+	    do north 
+	    do north 
+	    do north 
+	    do north 
+	    do north 
         do move 94 131 #-> ataque Monstro Alvo
         do move 110 131
-        do south
-	    do south
-	    do south
-	    do south
-	    do south
+        do south 
+	    do south 
+	    do south 
+	    do south 
+	    do south 
 	    #fica em 110 106
         do west
 	    do west
@@ -591,6 +607,17 @@ automacro questCacador_labirinto {
 	
 	    do north
 	    do north
+    }
+}
+
+#4011#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
+#Mate todos os ^ff0000monstros de mudança de classe^000000, e o interruptor vai aparecer. Destrua o interruptor e fuja pela saída ao norte. #
+#
+automacro questCacador_labirinto {
+    InMap job_hunte
+    MobNear /Monstro Alvo/
+    call {
+        do a &monster(/Monstro Alvo/)
     }
 }
 
