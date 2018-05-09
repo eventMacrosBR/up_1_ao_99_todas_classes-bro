@@ -55,8 +55,9 @@ automacro inicializar {
         inicializarParametrosQuestClasse1T()
         
         # Esse sub configura os itens da quest de classe 2 (para não vender nem guardar)
-        if (pegarID() = parametrosClasses{idC1}) {
+        if (pegarID() == parametrosClasses{idC1} || pegarID() == 0) {
             inicializarParametrosQuestClasse2(1) #representa classe 1, o momento que queremos que configure isso
+            #aprendiz também pois essa sub só é executada uma vez, se você fazer uma classe 2 num dia só ele não guarda os itens
         } else {
             inicializarParametrosQuestClasse2(-1) #qualquer outro número serve, contanto que não seja 1
         }
