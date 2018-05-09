@@ -69,7 +69,7 @@ automacro questClasse2T_falarComNpcDaClasse {
     }
 }
 
-automacro questClasse2T_jaSouClasse2T_SairDaValquiria {
+automacro questClasse2T_jaSouClasse2TSairDaValquiria {
     InMap valkyrie
     exclusive 1
     JobID $parametrosClasses{idC2T}
