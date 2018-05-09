@@ -75,7 +75,7 @@ automacro questClasse2T_jaSouClasse2T {
     ConfigKey virarClasse2T true
     macro_delay 2
     call {
-        do move valkyrie 44 33 &rand(3,10)
+        do move valkyrie 44 33 &rand(3,5)
         do talk &npc(44 33) #teleportadora
         do talk resp /$mapa{saveMap}/i
         do conf virarClasse2T none
