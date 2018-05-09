@@ -58,7 +58,7 @@ sub checarSeExisteNoConfig {
     }
 }
 
-sub equiparEquipamentoEm {
+sub pegarIndiceDoEquipamentoPeloId {
     my ($type, $id) = @_;
     my $Item = $char->inventory->getByNameID($id);
     if ($Item eq "" ) {

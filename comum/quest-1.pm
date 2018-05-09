@@ -33,7 +33,7 @@ automacro questClasse1_virandoClasse1 {
             do move $parametrosQuestClasse1{mapa} $parametrosQuestClasse1{npc} &rand(1,5)
         }
         do talknpc $parametrosQuestClasse1{npc} $parametrosQuestClasse1{sequenciaConversa}
-        $check = equiparEquipamentoEm("rightHand", "$parametrosQuestClasse1{equipeIniciante}")
+        $check = pegarIndiceDoEquipamentoPeloId("rightHand", "$parametrosQuestClasse1{equipeIniciante}")
         if ($check != -1) do eq $check
     }
 }
@@ -52,21 +52,21 @@ automacro questClasse1_jaSouClasse1 {
         do pconf 5055 0 #5055#Chapéu_de_Ovo_do_Aprendiz#
         do iconf 2393 0 0 0 #Tunica de Iniciante
         do iconf $parametrosQuestClasse1{equipeIniciante} 0 0 0
-        $check = equiparEquipamentoEm("rightHand", 1243) #Adaga_do_Aprendiz#
+        $check = pegarIndiceDoEquipamentoPeloId("rightHand", 1243) #Adaga_do_Aprendiz#
         if ($check != -1) do drop $check
-        $check = equiparEquipamentoEm("leftHand", 2112)#Vembrassa_do_Aprendiz#
+        $check = pegarIndiceDoEquipamentoPeloId("leftHand", 2112)#Vembrassa_do_Aprendiz#
         if ($check != -1) do drop $check
-        $check = equiparEquipamentoEm("shoes", 2414) #Sandálias_do_Aprendiz#
+        $check = pegarIndiceDoEquipamentoPeloId("shoes", 2414) #Sandálias_do_Aprendiz#
         if ($check != -1) do drop $check
-        $check = equiparEquipamentoEm("robe", 2510) #Capuz_do_Aprendiz#
+        $check = pegarIndiceDoEquipamentoPeloId("robe", 2510) #Capuz_do_Aprendiz#
         if ($check != -1) do drop $check
-        $check = equiparEquipamentoEm("armor", 2352) #Chapéu_de_Ovo_do_Aprendiz#
+        $check = pegarIndiceDoEquipamentoPeloId("armor", 2352) #Chapéu_de_Ovo_do_Aprendiz#
         if ($check != -1) do drop $check
-        $check = equiparEquipamentoEm("topHead", 5055) #Chapéu_de_Ovo_do_Aprendiz#
+        $check = pegarIndiceDoEquipamentoPeloId("topHead", 5055) #Chapéu_de_Ovo_do_Aprendiz#
         if ($check != -1) do drop $check
-        $check = equiparEquipamentoEm("armor", 2393) #Tunica de Iniciante
+        $check = pegarIndiceDoEquipamentoPeloId("armor", 2393) #Tunica de Iniciante
         if ($check != -1) do eq $check
-        $check = equiparEquipamentoEm("rightHand", "$parametrosQuestClasse1{equipeIniciante}")
+        $check = pegarIndiceDoEquipamentoPeloId("rightHand", "$parametrosQuestClasse1{equipeIniciante}")
         if ($check != -1) do eq $check
         call atualizarBuild
         do conf -f o_que_estou_fazendo acabeiDeVirarClasse1

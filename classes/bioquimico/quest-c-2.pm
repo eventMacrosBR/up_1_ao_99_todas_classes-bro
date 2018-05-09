@@ -553,9 +553,9 @@ automacro jaSouAlquimista {
     exclusive 1
     call {
         do conf teleportAuto_MaxDmg 1000
-        $check = equiparEquipamentoEm("robe", 2560) #Capa Valhalla
+        $check = pegarIndiceDoEquipamentoPeloId("robe", 2560) #Capa Valhalla
         if ($check != -1) do eq $check
-        $check = equiparEquipamentoEm("topHead", 5583) #Chapeu valhalla
+        $check = pegarIndiceDoEquipamentoPeloId("topHead", 5583) #Chapeu valhalla
         if ($check != -1) do eq $check
         call pararDeAtacar
         do conf BetterShopper_on 0

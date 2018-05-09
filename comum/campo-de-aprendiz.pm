@@ -287,17 +287,17 @@ automacro campoDeAprendiz_equiparEsquipesDoBrade {
         do pconf 2112 0
         do pconf 1243 0
         do pconf 2352 0
-        $check = equiparEquipamentoEm("topHead", 5055)
+        $check = pegarIndiceDoEquipamentoPeloId("topHead", 5055)
         if ($check != -1) do eq $check
-        $check = equiparEquipamentoEm("robe", 2510)
+        $check = pegarIndiceDoEquipamentoPeloId("robe", 2510)
         if ($check != -1) do eq $check
-        $check = equiparEquipamentoEm("shoes",2414)
+        $check = pegarIndiceDoEquipamentoPeloId("shoes",2414)
         if ($check != -1) do eq $check
-        $check = equiparEquipamentoEm("armor",2352)
+        $check = pegarIndiceDoEquipamentoPeloId("armor",2352)
         if ($check != -1) do eq $check
-        $check = equiparEquipamentoEm("leftHand",2112)
+        $check = pegarIndiceDoEquipamentoPeloId("leftHand",2112)
         if ($check != -1) do eq $check
-        $check = equiparEquipamentoEm("rightHand",1243)
+        $check = pegarIndiceDoEquipamentoPeloId("rightHand",1243)
         if ($check != -1) do eq $check
     }
 }
@@ -447,7 +447,7 @@ automacro campoDeAprendiz_equiparEquipesDaGarota {
     InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
     IsNotEquippedID armor 2393
     call {
-        $check = equiparEquipamentoEm("armor", 2393)
+        $check = pegarIndiceDoEquipamentoPeloId("armor", 2393)
         if ($check != -1) {
             do eq $check
         }
@@ -634,7 +634,7 @@ automacro campoDeAprendiz_equiparEquipesParaBradeNosCampos {
     IsNotEquippedID rightHand 13040
     InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
     call {
-        $check = equiparEquipamentoEm("rightHand", 13040)
+        $check = pegarIndiceDoEquipamentoPeloId("rightHand", 13040)
         if ($check != -1) do eq $check
     }
 }
