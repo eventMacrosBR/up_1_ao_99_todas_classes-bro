@@ -22,6 +22,7 @@ automacro questClasse2T_irParaJuno {
     JobLevel = 50
     FreeSkillPoints = 0
     NotInMap yuno_in02
+    ConfigKeyNot virarClasse2T true
     call {
         call pararDeAtacar
         do conf lockMap none
