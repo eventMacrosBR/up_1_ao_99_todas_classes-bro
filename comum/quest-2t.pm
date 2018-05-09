@@ -69,15 +69,33 @@ automacro questClasse2T_falarComNpcDaClasse {
     }
 }
 
+automacro questClasse2T_jaSouClasse2T_SairDaValquiria {
+    InMap valkyrie
+    exclusive 1
+    JobID $parametrosClasses{idC2T}
+    call {
+        $mapaQueVou = $mapa{saveMap}
+        do move valkyrie 44 33 &rand(3,5)
+        do talk &npc(44 33) #teleportadora
+        swtich ($mapaQueVou) {        
+            case (= aldebaran) $mapaQueVou = Al\sDe\sBaran
+            case (= morooc) $mapaQueVou = morroc
+            case (= yuno) $mapaQueVou = yuno
+            case (~ einbroch,rachel,veins) $mapaQueVou = juno
+        }
+        #ainda tem que colocar uma condição pra caso seja uma cidade que nao esteja listada no teleporte
+        do talk resp /$mapaQueVou/i
+    }
+}
+        
+
 automacro questClasse2T_jaSouClasse2T {
     exclusive 1
+    NotInMap valkyrie
     JobID $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}
     ConfigKey virarClasse2T true
     macro_delay 2
     call {
-        do move valkyrie 44 33 &rand(3,5)
-        do talk &npc(44 33) #teleportadora
-        do talk resp /$mapa{saveMap}/i
         do conf virarClasse2T none
         do conf -f o_que_estou_fazendo acabeiDeVirarClasse2T
         call atualizarBuild
