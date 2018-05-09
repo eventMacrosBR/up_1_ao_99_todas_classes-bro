@@ -615,9 +615,9 @@ automacro questCacador_labirinto {
 #
 automacro questCacador_labirinto {
     InMap job_hunte
-    MobNear /Monstro Alvo/
+    MobNear /\[Monstro Alvo\]/
     call {
-        do a &monster(/Monstro Alvo/)
+        do a $.MobNearLastBinId
     }
 }
 
