@@ -148,10 +148,37 @@ macro comprarItem {
     ### $.param[2] tem como valor o NPC
     ### $.param[3] tem como valor o item
     ### $.param[4] tem como valor a quantidade
+    [
+    log ===================================
+    log = vou em $.param[0] nas coordenadas $.param[1]
+    log = conversar com o npc $.param[2] , pode ser 
+    log = que o nome do npc seja abreviado
+    log = para comprar a quantidade $.param[4]
+    log = do item $.param[3]
+    log ===================================
+    ]
+    log movendo-se para $.param[0] $.param[1]
     do move $.param[0] $.param[1] &rand(1,6)
+    do talk no
+    log conversando com npc de venda
     do talk &npc(/$.param[2]/)
-    do store
-    do buy &store($.param[3]) $.param[4]
+    #do store
+    if (&store($.param[3]) != -1) {
+        log o item existe na lista de itens do npc
+        log tentando comprar o item
+        do buy &store($.param[3]) $.param[4]
+    } else {
+        [
+        log ===================================
+        log = ihhhhhhhhhhh deu ruim demais
+        log = muita treta vish mano
+        log = manda mensagem lá pros criador dessa macro
+        log = pq senão vai continuar na treta
+        log = E JÁ MANDA AS ÚLTIMAS 20 LINHAS DO CONFIG.TXT 
+        log = KKKKKKKKKKKKKKKKKKKKKKK
+        log ===================================
+        ]
+    }
 }
 
 automacro virarAlquimista_FuriaComprada_indoEntregar {
