@@ -16,6 +16,21 @@ automacro questClasse2T_iniciarQuestClasse2T_bugada {
     }
 }
 
+automacro questClasse2T_irParaJuno {
+    exclusive 1
+    JobID $parametrosClasses{idC1T} 
+    JobLevel = 50
+    FreeSkillPoints = 0
+    NotInMap yuno_in02
+    call {
+        call pararDeAtacar
+        do conf lockMap none
+        do conf -f virarClasse2T true
+        do conf -f o_que_estou_fazendo virandoClasse2T
+        do move yuno_in02
+    }
+}
+
 automacro questClasse2T_irFalarComLivro {
     exclusive 1
     JobID $parametrosClasses{idC1T} 
@@ -24,10 +39,6 @@ automacro questClasse2T_irFalarComLivro {
     InMap yuno_in02
     NpcNotNear /Livro de Ymir/
     call {
-        call pararDeAtacar
-        do conf lockMap none
-        do conf -f virarClasse2T true
-        do conf -f o_que_estou_fazendo virandoClasse2T
         do talknpc 88 164
         do move yuno_in02 &rand(91,95) &rand(204,206)
     }
