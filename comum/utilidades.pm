@@ -26,7 +26,7 @@ automacro reloadPortals {
     timeout 300
     ConfigKey estagio_Reborn none
     JobIDNot 0 #Aprendiz
-    JobIdNot 4023 #Baby Aprendiz
+    JobIDNot 4023 #Baby Aprendiz
     call {
         do reload portals
     }

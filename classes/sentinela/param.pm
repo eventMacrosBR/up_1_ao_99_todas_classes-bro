@@ -19,7 +19,7 @@ automacro configurarAtaqueADistancia {
     ConfigKeyNot attackDistanceAuto 1
     exclusive 1
     JobIDNot 0 #Aprendiz
-    JobIdNot 4023 #Baby Aprendiz
+    JobIDNot 4023 #Baby Aprendiz
     call {
         do conf attackDistanceAuto 1
     }

@@ -40,7 +40,7 @@ automacro questClasse1_virandoClasse1 {
 
 automacro questClasse1_jaSouClasse1 {
     JobIDNot 0 #aprendiz
-    JobIdNot 4023 #Baby Aprendiz
+    JobIDNot 4023 #Baby Aprendiz
     InInventoryID 2414 = 1 #sandalias de aprendiz
     InInventoryID 5055 = 1 #chapeu de ovo de aprendiz
     exclusive 1
