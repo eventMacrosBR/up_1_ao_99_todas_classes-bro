@@ -17,7 +17,7 @@ automacro questClasse1_virandoClasse1_bugada {
 
 automacro questClasse1_virandoClasse1 {
     InMap $parametrosQuestClasse1{mapa}
-    JobID 0 #Aprendiz
+    JobID 0, 4023 #Aprendiz e Baby Aprendiz
     JobLevel 10
     SkillLevel NV_BASIC = 9
     exclusive 1
@@ -40,6 +40,7 @@ automacro questClasse1_virandoClasse1 {
 
 automacro questClasse1_jaSouClasse1 {
     JobIDNot 0 #aprendiz
+    JobIdNot 4023 #Baby Aprendiz
     InInventoryID 2414 = 1 #sandalias de aprendiz
     InInventoryID 5055 = 1 #chapeu de ovo de aprendiz
     exclusive 1
