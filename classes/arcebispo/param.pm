@@ -8,9 +8,9 @@ sub inicializarParametrosClasses {
         idC2TAlt => -2,
         idC3 => 4057,
         idBC1 => 4027,
-        idBC2 => 4031
+        idBC2 => 4031,
+        idBC2Alt => -3
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
     $eventMacro->set_full_hash('parametrosClasses', \%parametrosClasses);
 }
-
