@@ -149,6 +149,7 @@ automacro virarCavaleiro_irAoNpc4 {
     JobLevel = 50
     JobID $parametrosClasses{idC1}
     exclusive 1
+    ConfigKeyNot passo_questCavaleiro falarComMulher
     QuestActive 9004 #
     NpcNear /Cavaleiro das Lutas/ #ou Sir Windsor
     call {
@@ -169,6 +170,7 @@ automacro virarCavaleiro_irAoNpc4 {
 automacro virarCavaleiro_irAoNpc4_parte_2_morri { 
     NotInMap job_knt
     JobLevel = 50
+    ConfigKeyNot passo_questCavaleiro falarComMulher
     JobID $parametrosClasses{idC1}
     exclusive 1
     QuestActive 9006 #
@@ -187,6 +189,7 @@ automacro virarCavaleiro_irAoNpc4_parte_2_morri_cheguei {
     NpcNear /Cavaleiro das Lutas/
     InMap prt_in
     timeout 20
+    ConfigKeyNot passo_questCavaleiro falarComMulher
     QuestActive 9006 #
     call {        
         call pararDeAtacar
