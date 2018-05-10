@@ -571,14 +571,22 @@ automacro questCacador_labirinto {
         call pararDeAtacar
 
         do move 72 76 
-        do a &monster(Monstro Alvo)
+        while (&monster("Zumbi[Monstro Alvo]") != -1) {
+            do a &monster("Zumbi[Monstro Alvo]")
+        }
         do east 35 #107 76  
-        do a &monster(Monstro Alvo)
+        while (&monster("Zumbi[Monstro Alvo]") != -1) {
+            do a &monster("Zumbi[Monstro Alvo]")
+        }
         do east 10 #117 76 
-        do a &monster(Monstro Alvo)
+        while (&monster("Esqueleto Arqueiro[Monstro Alvo]") != -1) {
+            do a &monster("Esqueleto Arqueiro[Monstro Alvo]")
+        }
         do north 55 #117 131
         do west 23 #94 131 
-        do a &monster(Monstro Alvo)
+        while (&monster("Poring[Monstro Alvo]") != -1) {
+            do a &monster("Poring[Monstro Alvo]")
+        }
         do east 16 #110 131
         do south 25 #110 106
         do west 10 #100 106
