@@ -81,7 +81,8 @@ automacro TrocarEmblema {
 
 automacro iniciandoQuestEden12MoverPerto {
     NpcNotNear /Boya/
-    InInventoryID 22508 = 1 
+    InInventoryID 22508 = 1
+    ConfigKeyNot fazerQuestEden nao
     BaseLevel 12..18
     exclusive 1
     QuestInactive 7128
@@ -97,6 +98,7 @@ automacro iniciandoQuestEden26MoverPerto {
     NpcNotNear /Boya/
     BaseLevel 26..32
     InInventoryID 22508 = 1 
+    ConfigKeyNot fazerQuestEden nao
     exclusive 1
     QuestInactive 7138
     QuestInactive 7139
@@ -115,6 +117,7 @@ automacro IniciandoQuestEden40MoverPerto {
     QuestInactive 7149
     QuestInactive 7150
     QuestInactive 7151
+    ConfigKeyNot fazerQuestEden nao
     JobLevel != 50
     NpcNotNear /Boya/
     BaseLevel 40..49
@@ -135,6 +138,7 @@ automacro inciandoQuestEden60MoverPerto {
     InInventoryID 22508 = 1 
     JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}, $parametrosClasses{idBC2},, $parametrosClasses{idBC2Alt}
     QuestInactive 7214
+    ConfigKeyNot fazerQuestEden nao
     ConfigKeyNot In_saveMap_sequence true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
@@ -164,6 +168,7 @@ automacro iniciandoQuestEden12 {
     BaseLevel 12..17
     exclusive 1
     QuestInactive 7128
+    ConfigKeyNot fazerQuestEden nao
     ConfigKeyNot In_saveMap_sequence true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
@@ -176,6 +181,7 @@ automacro iniciandoQuestEden12 {
 automacro iniciandoQuestEden26 {
     NpcNear /Boya/
     BaseLevel 26..32
+    ConfigKeyNot fazerQuestEden nao
     InInventoryID 22508 = 1 
     exclusive 1
     QuestInactive 7138
@@ -193,6 +199,7 @@ automacro IniciandoQuestEden40 {
     NpcNear /Boya/
     BaseLevel 40..49
     InInventoryID 22508 = 1
+    ConfigKeyNot fazerQuestEden nao
     exclusive 1
     QuestInactive 7147
     ConfigKeyNot In_saveMap_sequence true
@@ -206,6 +213,7 @@ automacro IniciandoQuestEden40 {
 automacro inciandoQuestEden60 {
     NpcNear /Ur/
     BaseLevel 60..69
+    ConfigKeyNot fazerQuestEden nao
     exclusive 1
     InInventoryID 22508 = 1
     JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}, $parametrosClasses{idBC2},, $parametrosClasses{idBC2Alt}
