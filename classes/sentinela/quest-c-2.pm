@@ -562,7 +562,9 @@ automacro questCacador_irAteAGuildaDosArqueiros {
 #
 automacro questCacador_labirinto {
     QuestActive 4011
-    timeout 10
+    InChatRoom 0
+    IsInCoordinate 90..92 66..68
+    exclusive 1
     InMap job_hunte
     call {
         #TODO por ai Manual e configurar monstros que são os alvos
@@ -570,8 +572,11 @@ automacro questCacador_labirinto {
         call pararDeAtacar
 
         do move 72 76 #-> ataque Monstro Alvo
+        do a &monster(Monstro Alvo)
         do move 107 76 #-> ataque Monstro Alvo 
+        do a &monster(Monstro Alvo)
         do move 117 76 #-> ataque Monstro Alvo
+        do a &monster(Monstro Alvo)
         do north 
 	    do north 
 	    do north 
@@ -584,6 +589,7 @@ automacro questCacador_labirinto {
 	    do north 
 	    do north 
         do move 94 131 #-> ataque Monstro Alvo
+        do a &monster(Monstro Alvo)
         do move 110 131
         do south 
 	    do south 
@@ -615,14 +621,14 @@ automacro questCacador_labirinto {
 #4011#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Mate todos os ^ff0000monstros de mudança de classe^000000, e o interruptor vai aparecer. Destrua o interruptor e fuja pela saída ao norte. #
 #
-automacro questCacador_labirintoMatarMonstroAlvo {
-    InMap job_hunte
-    timeout 10
-    MobNear /\[Monstro Alvo\]/
-    call {
-        do a $.MobNearLastBinId
-    }
-}
+#automacro questCacador_labirintoMatarMonstroAlvo {
+#    InMap job_hunte
+#    timeout 10
+#    MobNear /\[Monstro Alvo\]/
+#    call {
+#        do a $.MobNearLastBinId
+#    }
+#}
 
 #4012#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Relate ao Senhor da Guilda dos Caçadores que passou no exame. #
