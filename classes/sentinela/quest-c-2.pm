@@ -113,7 +113,7 @@ automacro VirarCacador_SalvarEmHugel {
     call junopra "hugel"
 }
 
-automacro VirarCAcador_IrNoNpc {
+automacro VirarCacador_IrNoNpc {
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     JobLevel = 50
     FreeSkillPoints = 0
