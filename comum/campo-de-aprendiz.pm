@@ -1071,7 +1071,7 @@ automacro campoDeAprendiz_terminouDeUpar_bugada {
 
 automacro campoDeAprendiz_muitoBugado {
     InMapRegex /^(?!new_\d-\d|moc_prydb1)$/
-    JobID 0
+    JobID 0, 4023 #Aprendiz e Baby Aprendiz
     exclusive 1
     JobLevel = 10
     timeout 100
