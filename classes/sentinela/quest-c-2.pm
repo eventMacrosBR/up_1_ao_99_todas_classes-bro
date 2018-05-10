@@ -524,7 +524,7 @@ automacro coletarItens_Possibilidade7 {
 #4008#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Colete os itens que o Caçador de Demônios pedir. - 2 Espinhos de Porco-Espinho,  1 Avelã e 1 Cauda de Yoyo #
 #
-automacro entregarItens_todasAsPossibilidades {
+automacro questCacador_entregarItens_todasAsPossibilidades {
     QuestActive 4002, 4003, 4004, 4005, 4006, 4007, 4008
     ConfigKey passo_quest_cacador indo entregar itens
     exclusive 1
@@ -561,6 +561,8 @@ automacro questCacador_irAteAGuildaDosArqueiros {
 #Mate todos os ^ff0000monstros de mudança de classe^000000, e o interruptor vai aparecer. Destrua o interruptor e fuja pela saída ao norte. #
 #
 automacro questCacador_labirinto {
+    QuestActive 4011
+    timeout 10
     InMap job_hunte
     call {
         #TODO por ai Manual e configurar monstros que são os alvos
@@ -613,8 +615,9 @@ automacro questCacador_labirinto {
 #4011#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Mate todos os ^ff0000monstros de mudança de classe^000000, e o interruptor vai aparecer. Destrua o interruptor e fuja pela saída ao norte. #
 #
-automacro questCacador_labirinto {
+automacro questCacador_labirintoMatarMonstroAlvo {
     InMap job_hunte
+    timeout 10
     MobNear /\[Monstro Alvo\]/
     call {
         do a $.MobNearLastBinId
