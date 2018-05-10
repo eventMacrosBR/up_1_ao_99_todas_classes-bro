@@ -567,68 +567,29 @@ automacro questCacador_labirinto {
     exclusive 1
     InMap job_hunte
     call {
-        #TODO por ai Manual e configurar monstros que são os alvos
         do conf route_randomWalk 0
         call pararDeAtacar
 
-        do move 72 76 #-> ataque Monstro Alvo
+        do move 72 76 
         do a &monster(Monstro Alvo)
-        do move 107 76 #-> ataque Monstro Alvo 
+        do east 35 #107 76  
         do a &monster(Monstro Alvo)
-        do move 117 76 #-> ataque Monstro Alvo
+        do east 10 #117 76 
         do a &monster(Monstro Alvo)
-        do north 
-	    do north 
-	    do north 
-	    do north 
-	    do north 
-	    do north 
-	    do north 
-	    do north 
-	    do north 
-	    do north 
-	    do north 
-        do move 94 131 #-> ataque Monstro Alvo
+        do north 55 #117 131
+        do west 23 #94 131 
         do a &monster(Monstro Alvo)
-        do move 110 131
-        do south 
-	    do south 
-	    do south 
-	    do south 
-	    do south 
-	    #fica em 110 106
-        do west
-	    do west
-
+        do east 16 #110 131
+        do south 25 #110 106
+        do west 10 #100 106
         do talk &npc(/switch.nht/)
-
-        do east
-	    do east
-	
-        do north
-	    do north
-	    do north
-	    do north
-	    do north
-	
-        do move 89 131
-	
-	    do north
-	    do north
+        do east 10 #110 106
+        do north 25 #110 131
+        do west 21 #89 131
+	    do north 10 #89 141
     }
 }
 
-#4011#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
-#Mate todos os ^ff0000monstros de mudança de classe^000000, e o interruptor vai aparecer. Destrua o interruptor e fuja pela saída ao norte. #
-#
-#automacro questCacador_labirintoMatarMonstroAlvo {
-#    InMap job_hunte
-#    timeout 10
-#    MobNear /\[Monstro Alvo\]/
-#    call {
-#        do a $.MobNearLastBinId
-#    }
-#}
 
 #4012#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Relate ao Senhor da Guilda dos Caçadores que passou no exame. #
