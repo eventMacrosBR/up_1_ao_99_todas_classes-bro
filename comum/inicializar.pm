@@ -104,7 +104,7 @@ macro atualizarBuild {
     #parte feita por vitorsilveiro
     $idClasseAtual = pegarID() #sub se encontra no arquivo utilidades.pm
     if (&config(skillsAddAuto) != 1) do conf skillsAddAuto 1
-    if ($idClasseAtual == 0 || $idClasseAtual == $parametrosClasses{idC1} || $idClasseAtual == $parametrosClasses{idC2} || $idClasseAtual == $parametrosClasses{idC2Alt} ) {
+    if ($idClasseAtual == 0 || $idClasseAtual == 4023 || $idClasseAtual == $parametrosClasses{idC1} || $idClasseAtual == $parametrosClasses{idBC1} || $idClasseAtual == $parametrosClasses{idC2} || $idClasseAtual == $parametrosClasses{idBC2} || $idClasseAtual == $parametrosClasses{idC2Alt} || $idClasseAtual == $parametrosClasses{idBC2Alt} ) {
         if (&config(statsAddAuto_list) != $configsBuild{statsPadrao}) do conf statsAddAuto_list $configsBuild{statsPadrao}
     } else {
         if (&config(statsAddAuto_list) != $configsBuild{statsPadraoTransclasse}) do conf statsAddAuto_list $configsBuild{statsPadraoTransclasse}
@@ -118,13 +118,13 @@ macro atualizarBuild {
     extrairMapasDeUp("$.lvl")
     
     switch ($idClasseAtual) {
-        case (~ 0, 161, 4001) { #Aprendiz / Aprendiz T.
+        case (~ 0, 161, 4001, 4023) { #Aprendiz / Aprendiz T. / Baby Aprendiz
             if (&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz}) do conf skillsAddAuto_list $configsBuild{skillsAprendiz}
         }
-        case (== $parametrosClasses{idC1}) { #Classes 1
+        case (~ $parametrosClasses{idC1}, $parametrosClasses{idBC1}) { #Classes 1
             if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1})  do conf skillsAddAuto_list $configsBuild{skillsClasse1}
         }
-        case (~ $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}) { #Classes 2
+        case (~ $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}) { #Classes 2
             if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2})  do conf skillsAddAuto_list $configsBuild{skillsClasse2}
         }
         case (== $parametrosClasses{idC1T}) { #Classes 1T
