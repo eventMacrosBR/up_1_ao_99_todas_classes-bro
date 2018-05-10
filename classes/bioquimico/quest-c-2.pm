@@ -29,7 +29,7 @@ sub inicializarParametrosQuestClasse2 {
 #################################################################
 
 automacro virarAlquimistaInicio_IrNoNpc {
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     JobLevel = 50
     FreeSkillPoints = 0
     priority 2
@@ -51,7 +51,7 @@ automacro virarAlquimistaInicio_IrNoNpc {
 #################################################################
 
 automacro virarAlquimistaInicio {
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     JobLevel = 50
     priority 2
     timeout 30
@@ -110,7 +110,7 @@ sub extrairMensagem {
 
 automacro virarAlquimista_comprarFornalha {
     exclusive 1
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     JobLevel = 50
     ConfigKey questAlquimista comprarFornalha
     InInventoryID 612 < 100 #Mini-Fornalha
@@ -126,7 +126,7 @@ automacro virarAlquimista_comprarFornalha {
 
 automacro virarAlquimista_comprarFuria {
     exclusive 1
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     JobLevel = 50
     InInventoryID 657 < 7 #Poção da Fúria Selvagem
     ConfigKey questAlquimista comprarPocao
@@ -135,7 +135,7 @@ automacro virarAlquimista_comprarFuria {
 
 automacro virarAlquimista_comprarFlechaDeFogo {
     exclusive 1
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     JobLevel = 50
     ConfigKey questAlquimista comprarFlecha
     InInventoryID 1752 <= 500 #Flecha de Fogo
@@ -547,7 +547,7 @@ automacro virarAlquimista_FimDaQuest_FalarComAlquimistaChefe {
 }
 
 automacro jaSouAlquimista {
-    JobID $parametrosClasses{idC2}
+    JobID $parametrosClasses{idC2}, $parametrosClasses{idBC2}
     ConfigKey questAlquimista fimDaQuest
     priority -5
     exclusive 1

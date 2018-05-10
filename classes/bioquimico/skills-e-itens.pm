@@ -3,7 +3,7 @@ automacro configurarPotLaranja {
     InStorageID 569 < 1 #Poção de Aprendiz (não pode ter essa poção)
     Zeny > 30000
     BaseLevel != 99
-    JobID $parametrosClasses{idC2}
+    JobID $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt}
     ConfigKeyNot useSelf_item_0 Poção de Aprendiz #só se ativa quando nao ta usando mais pot aprendiz
     ConfigKeyNot useSelf_item_0 Poção Laranja
     exclusive 1

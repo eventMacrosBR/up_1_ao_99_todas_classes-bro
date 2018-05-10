@@ -132,7 +132,7 @@ automacro inciandoQuestEden60MoverPerto {
     BaseLevel 60..69
     exclusive 1
     InInventoryID 22508 = 1 
-    JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}
+    JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}, $parametrosClasses{idBC2},, $parametrosClasses{idBC2Alt}
     QuestInactive 7214
     ConfigKeyNot In_saveMap_sequence true
     ConfigKeyNot quest_eden em_curso
@@ -207,7 +207,7 @@ automacro inciandoQuestEden60 {
     BaseLevel 60..69
     exclusive 1
     InInventoryID 22508 = 1
-    JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}
+    JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}, $parametrosClasses{idBC2},, $parametrosClasses{idBC2Alt}
     QuestInactive 7214
     ConfigKeyNot In_saveMap_sequence true
     ConfigKeyNot quest_eden em_curso

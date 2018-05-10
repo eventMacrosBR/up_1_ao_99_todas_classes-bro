@@ -30,7 +30,7 @@ sub inicializarParametrosQuestClasse2 {
 # Testada e Funcional por Sarampo 
 automacro virarCavaleiro_Começo_irAoNpc {
     JobLevel = 50
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     exclusive 1
     QuestInactive 9000 #
     QuestInactive 9001 #
@@ -55,7 +55,7 @@ automacro virarCavaleiro_Começo_irAoNpc {
 
 automacro virarCavaleiro_Começo {
     JobLevel = 50
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     exclusive 1
     QuestInactive 9000 # job change to knight
     QuestInactive 9001 #
@@ -96,7 +96,7 @@ automacro virarCavaleiro_Começo {
 #Fale com outros membros da Cavalaria. #
 automacro virarCavaleiro_irAoNpc2 {
     JobLevel = 50
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     exclusive 1
     QuestActive 9000 #
     NpcNear /Cavaleiro Dedicado/ #ou Sir Andrew
@@ -118,7 +118,7 @@ automacro virarCavaleiro_irAoNpc2 {
 #Converse com Sir Siracuse #
 automacro virarCavaleiro_irAoNpc3 {
     JobLevel = 50
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     exclusive 1
     QuestActive 9003 #
     NpcNear /Cavaleiro Honroso/ #ou Sir Siracuse
@@ -147,7 +147,7 @@ automacro virarCavaleiro_irAoNpc3 {
 #Converse com Sir Windsor #
 automacro virarCavaleiro_irAoNpc4 {
     JobLevel = 50
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     exclusive 1
     ConfigKeyNot passo_questCavaleiro falarComMulher
     QuestActive 9004 #
@@ -170,8 +170,8 @@ automacro virarCavaleiro_irAoNpc4 {
 automacro virarCavaleiro_irAoNpc4_parte_2_morri { 
     NotInMap job_knt
     JobLevel = 50
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     ConfigKeyNot passo_questCavaleiro falarComMulher
-    JobID $parametrosClasses{idC1}
     exclusive 1
     QuestActive 9006 #
     NpcNotNear /Cavaleiro das Lutas/ #ou Sir Windsor
@@ -216,7 +216,7 @@ automacro virarCavaleiro_jámateiOsMonstros {
 automacro virarCavaleiro_irAoNpc4_parte_2 { 
     InMap job_knt
     JobLevel = 50
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     exclusive 1
     ConfigKeyNot attackAuto 2
     QuestActive 9006 #
@@ -287,7 +287,7 @@ automacro virarCavaleiro_irAoNpcmulher_bugged {
 #Converse com Amy Beatrice #
 automacro virarCavaleiro_irAoNpcmulher_indoAteEla {
     JobLevel = 50
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     exclusive 1
     QuestActive 9008 #
     NpcNotNear /Cavaleira Educada/ #ou Amy Beatrice
@@ -301,7 +301,7 @@ automacro virarCavaleiro_irAoNpcmulher_indoAteEla {
 
 automacro virarCavaleiro_irAoNpcmulher {
     JobLevel = 50
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     exclusive 1
     QuestActive 9008 #
     NpcNear /Cavaleira Educada/ #ou Amy Beatrice
@@ -332,7 +332,7 @@ automacro virarCavaleiro_irAoNpcmulher {
 automacro virarCavaleiro_irAoNpcCalmo_indoAteEle {
     JobLevel = 50
     NotInMap job_knt
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     exclusive 1
     QuestActive 9009, 9010 #
     NpcNotNear /Cavaleiro Devotado/ #ou Sir Edmond
@@ -347,7 +347,7 @@ automacro virarCavaleiro_irAoNpcCalmo_indoAteEle {
 #Converse com Sir Edmond #
 automacro virarCavaleiro_irAoNpcCalmo {
     JobLevel = 50
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     exclusive 1
     QuestActive 9009, 9010 #
     NpcNear /Cavaleiro Devotado/ #ou Sir Edmond
@@ -381,7 +381,7 @@ automacro virarCavaleiro_TesteDeCalma {
 #Converse com Sir Gray #
 automacro virarCavaleiro_irAoNpcpenultimo {
     JobLevel = 50
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     exclusive 1
     QuestActive 9011 #
     call {
@@ -406,7 +406,7 @@ automacro virarCavaleiro_irAoNpcpenultimo {
 #Converse com Sir Gray #
 automacro virarCavaleiro_FIM {
     JobLevel = 50
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     exclusive 1
     QuestActive 9012 #
     call {

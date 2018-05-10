@@ -86,7 +86,7 @@ sub inicializarParametrosQuestClasse2 {
 #Fim da Quest
 
 automacro VirarCacador_SalvarEmHugel {
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     JobLevel = 50
     ConfigKeyNot saveMap hugel
     ConfigKeyNot In_saveMap_sequence true
@@ -114,7 +114,7 @@ automacro VirarCacador_SalvarEmHugel {
 }
 
 automacro VirarCAcador_IrNoNpc {
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     JobLevel = 50
     FreeSkillPoints = 0
     ConfigKeyNot In_saveMap_sequence true
@@ -148,7 +148,7 @@ automacro VirarCAcador_IrNoNpc {
 #Você precisa passar pelo teste de Dejiko para avançar. #
 ##
 automacro VirarCacador_FalarDejiko {
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     JobLevel = 50
     NpcNear /caçadora da guilda/i
     InMap hu_in01
