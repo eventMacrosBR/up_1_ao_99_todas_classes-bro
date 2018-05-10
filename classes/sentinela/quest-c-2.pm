@@ -1,7 +1,7 @@
 sub inicializarParametrosQuestClasse2 {
-	my ($classe) = @_;
-	my %items = (
-	    #Possibilidade 1    
+    my ($classe) = @_;
+    my %items = (
+        #Possibilidade 1    
         920 => "5 1 0", #Garras de Lobo
         1019 => "5 1 0", #Troncos
         509 => "3 1 0", #Ervas Brancas
@@ -85,7 +85,7 @@ sub inicializarParametrosQuestClasse2 {
 #(Sem respostas certas aqui, só confirmar 2 ou 3x)
 #Fim da Quest
 
-automacro VirarCacador_SalvarEmHugel {
+automacro questCacador_salvarEmHugel {
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     JobLevel = 50
     ConfigKeyNot saveMap hugel
@@ -113,7 +113,7 @@ automacro VirarCacador_SalvarEmHugel {
     call junopra "hugel"
 }
 
-automacro VirarCacador_IrNoNpc {
+automacro questCacador_irAteACacadoraDaGuild {
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     JobLevel = 50
     FreeSkillPoints = 0
@@ -147,7 +147,7 @@ automacro VirarCacador_IrNoNpc {
 #4000#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Você precisa passar pelo teste de Dejiko para avançar. #
 ##
-automacro VirarCacador_FalarDejiko {
+automacro questCacador_falarDejiko {
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     JobLevel = 50
     NpcNear /caçadora da guilda/i
@@ -172,7 +172,7 @@ automacro VirarCacador_FalarDejiko {
     }
 }
 
-automacro VirarCacador_FalarComRecepcionista_longeDela {
+automacro questCadadpr_irAteARecepcionista {
     NpcNotNear /recepcionista da guilda/i
     exclusive 1
     QuestActive 4001
@@ -185,7 +185,7 @@ automacro VirarCacador_FalarComRecepcionista_longeDela {
 #4001#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Fale com a Caçadora da Guilda para continuar o teste. #
 ##
-automacro VirarCacador_FalarComRecepcionista {
+automacro questCacador_falarComRecepcionista {
     InMap hu_in01
     QuestActive 4001
     exclusive 1
@@ -195,7 +195,7 @@ automacro VirarCacador_FalarComRecepcionista {
     }
 }
 
-automacro voltandoPraPronteraEArredores {
+automacro questCacador_voltandoPraPronteraEArredores {
     InMap hugel,hu_in01
     QuestActive 4002,4003,4004,4005,4006,4007,4008
     exclusive 1
@@ -209,7 +209,7 @@ automacro voltandoPraPronteraEArredores {
 #4002#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Colete os itens que o Caçador de Demônios pedir. - 5 Garras do Lobo, 5 Troncos e 3 Ervas Brancas #
 ##
-automacro coletarItens_Possibilidade1 {
+automacro questCacador_coletarItens_possibilidade1 {
     QuestActive 4002
     exclusive 1
     timeout 120
@@ -264,7 +264,7 @@ automacro coletarItens_Possibilidade1 {
 #4003#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Colete os itens que o Caçador de Demônios pedir. - 3 Bicos de Ave, 5 Ossos e 3 Ervas Verdes #
 ##
-automacro coletarItens_Possibilidade2 {
+automacro questCacador_coletarItens_possibilidade2 {
     QuestActive 4003
     exclusive 1
     timeout 120
@@ -301,7 +301,7 @@ automacro coletarItens_Possibilidade2 {
 #4004#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Colete os itens que o Caçador de Demônios pedir. - 3 Caninos Venenosos, 3 Couros de Animal e 5 Ervas Vermelhas #
 ##
-automacro coletarItens_Possibilidade3 {
+automacro questCacador_coletarItens_possibilidade3 {
     QuestActive 4004
     exclusive 1
     timeout 120
@@ -338,7 +338,7 @@ automacro coletarItens_Possibilidade3 {
 #4005#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Colete os itens que o Caçador de Demônios pedir. - 3 Chifres de Dokebi, 3 Pedaços de Casca de Ovo e 10 Felpas #
 ##
-automacro coletarItens_Possibilidade4 {
+automacro questCacador_coletarItens_possibilidade4 {
     QuestActive 4005
     exclusive 1
     timeout 120
@@ -379,7 +379,7 @@ automacro coletarItens_Possibilidade4 {
 #4006#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Colete os itens que o Caçador de Demônios pedir. - 9 Cascas, 9 Peles de Verme e 9 Ervas Amarelas. #
 ##
-automacro coletarItens_Possibilidade5 {
+automacro questCacador_coletarItens_possibilidade5 {
     QuestActive 4006
     exclusive 1
     timeout 120
@@ -416,7 +416,7 @@ automacro coletarItens_Possibilidade5 {
 #4007#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Colete os itens que o Caçador de Demônios pedir. - 3 Dentes de Morcego, 1 Muco Pegajoso, 1 Pata de Urso #
 ##
-automacro coletarItens_Possibilidade6 {
+automacro questCacador_coletarItens_possibilidade6 {
     QuestActive 4007
     exclusive 1
     timeout 60
@@ -465,7 +465,7 @@ automacro coletarItens_Possibilidade6 {
 #4008#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Colete os itens que o Caçador de Demônios pedir. - 2 Espinhos de Porco-Espinho,  1 Avelã e 1 Cauda de Yoyo #
 #
-automacro coletarItens_Possibilidade7 {
+automacro questCacador_coletarItens_possibilidade7 {
     QuestActive 4008
     exclusive 1
     timeout 120
@@ -594,7 +594,7 @@ automacro questCacador_labirinto {
         do east 10 #110 106
         do north 25 #110 131
         do west 21 #89 131
-	    do north 10 #89 141
+        do north 10 #89 141
     }
 }
 
