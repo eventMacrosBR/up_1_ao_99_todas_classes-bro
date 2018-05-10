@@ -26,7 +26,7 @@ automacro questClasse2_virarClasse2Inicio_bugada {
 
 automacro questClasse2_inicio {
     JobLevel = 50
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     ConfigKeyNot virarClasse2 true
     exclusive 1
     ConfigKey questc2_implementada true
@@ -37,7 +37,7 @@ automacro questClasse2_inicio {
 }
 
 automacro questClasse2_jaSouClasse2 {
-    JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}
+    JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}
     ConfigKey virarClasse2 true
     exclusive 1
     call {
@@ -53,7 +53,7 @@ automacro questClasse2_jaSouClasse2 {
 }
 
 automacro questClasse2_jaSouClasse2NaoAutomatico {
-    JobID $parametrosClasses{idC2} , $parametrosClasses{idC2Alt}
+    JobID $parametrosClasses{idC2} , $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}
     ConfigKey esperarFazerQuest true
     exclusive 1
     call {

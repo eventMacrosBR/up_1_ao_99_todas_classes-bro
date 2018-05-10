@@ -14,7 +14,7 @@ sub inicializarParametrosQuestClasse2 {
 
 automacro virarFerreiro {
     JobLevel = 50
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     exclusive 1
     ConfigKeyNot virarClasse2 true
     call {

@@ -62,7 +62,7 @@ automacro configurarRajadaDeFlechas {
 automacro configurarBuyAutoFlecha {
     ConfigKeyNot buyAuto_1 Flecha
     BaseLevel < 30
-    JobID $parametrosClasses{idC1}
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     exclusive 1
     call {
         $blocoExiste = checarSeExisteNoConfig("buyAuto_1")
