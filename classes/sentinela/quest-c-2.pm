@@ -563,7 +563,7 @@ automacro questCacador_irAteAGuildaDosArqueiros {
 automacro questCacador_labirinto {
     QuestActive 4011
     InChatRoom 0
-    IsInCoordinate 90..92 66..68
+    IsInCoordinate 87..92 65..70
     exclusive 1
     InMap job_hunte
     call {
