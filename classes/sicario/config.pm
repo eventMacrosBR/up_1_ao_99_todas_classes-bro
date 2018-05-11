@@ -3,10 +3,10 @@ sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz => 'NV_BASIC 9',
         skillsClasse1 => 'TF_DOUBLE 10, TF_MISS 10, TF_STEAL 10, TF_HIDING 8, TF_POISON 10, TF_DETOXIFY 1',
-        skillsClasse2 => '',
+        skillsClasse2 => '-1',
         skillsClasse1T => 'TF_DOUBLE 10, TF_MISS 10, TF_STEAL 10, TF_HIDING 8, TF_POISON 10, TF_DETOXIFY 1',
-        skillsClasse2T => '',
-        skillsClasse3 => '',
+        skillsClasse2T => '-1',
+        skillsClasse3 => '-1',
         statsPadrao => '10 dex, 15 agi, 20 dex, 25 agi, 15 str, 40 dex, 60 agi, 30 str, 45 dex, 20 vit, 80 agi ,60 dex, 50 str, 99 agi, 49 vit',
         statsPadraoTransclasse => '10 dex, 15 agi, 20 dex, 25 agi, 15 str, 40 dex, 60 agi, 30 str, 45 dex, 20 vit, 80 agi ,60 dex, 50 str, 99 agi, 49 vit'
     );

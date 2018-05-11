@@ -1,11 +1,11 @@
 sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz => 'NV_BASIC 9',
-        skillsClasse1 => '',
-        skillsClasse2 => '',
-        skillsClasse1T => '',
-        skillsClasse2T => '',
-        skillsClasse3 => '',
+        skillsClasse1 => '-1',
+        skillsClasse2 => '-1',
+        skillsClasse1T => '-1',
+        skillsClasse2T => '-1',
+        skillsClasse3 => '-1',
         statsPadrao => '10 dex, 15 agi, 20 dex, 25 agi, 15 str, 40 dex, 60 agi, 30 str, 45 dex, 20 vit, 80 agi ,70 dex, 50 str, 99 agi, 34 vit',
         statsPadraoTransclasse => '10 dex, 15 agi, 20 dex, 25 agi, 15 str, 40 dex, 60 agi, 30 str, 45 dex, 20 vit, 80 agi ,70 dex, 50 str, 99 agi, 34 vit'
     );
