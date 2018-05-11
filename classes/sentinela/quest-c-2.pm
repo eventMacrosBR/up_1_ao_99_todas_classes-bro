@@ -571,21 +571,57 @@ automacro questCacador_labirinto {
         call pararDeAtacar
 
         do move 72 76 
-        while (&monster(Zumbi[Monstro Alvo]) != -1) {
+        do ml #comando pra listar os monstros na tela
+        if (&monster(Zumbi[Monstro Alvo]) != -1) {
             do a &monster(Zumbi[Monstro Alvo])
+        } else {
+            [
+            log ===================================
+            log = o monstro Zumbi[Monstro Alvo] não está por perto...
+            log = pelo menos é o que a eventMacro diz
+            log ===================================
+            ]
         }
-        do east 35 #107 76  
-        while (&monster(Zumbi[Monstro Alvo]) != -1) {
+        do east 35 #107 76
+        do ml
+        if (&monster(Zumbi[Monstro Alvo]) != -1) {
             do a &monster(Zumbi[Monstro Alvo])
+        } else {
+            [
+            log ===================================
+            log = o monstro Zumbi[Monstro Alvo] não está por perto...
+            log = pelo menos é o que a eventMacro diz.
+            log = agora ela vai pular pra próxima linha
+            log = sem matar o monstro ...
+            log ===================================
+            ]
         }
         do east 10 #117 76 
-        while (&monster(Esqueleto Arqueiro[Monstro Alvo]) != -1) {
+        if (&monster(Esqueleto Arqueiro[Monstro Alvo]) != -1) {
             do a &monster(Esqueleto Arqueiro[Monstro Alvo])
+        } else {
+            [
+            log ===================================
+            log = o monstro Zumbi[Monstro Alvo] não está por perto...
+            log = pelo menos é o que a eventMacro diz.
+            log = agora ela vai pular pra próxima linha
+            log = sem matar o monstro ...
+            log ===================================
+            ]
         }
         do north 55 #117 131
         do west 23 #94 131 
-        while (&monster(Poring[Monstro Alvo]) != -1) {
+        if (&monster(Poring[Monstro Alvo]) != -1) {
             do a &monster(Poring[Monstro Alvo])
+        } else {
+            [
+            log ===================================
+            log = o monstro Zumbi[Monstro Alvo] não está por perto...
+            log = pelo menos é o que a eventMacro diz.
+            log = agora ela vai pular pra próxima linha
+            log = sem matar o monstro ...
+            log ===================================
+            ]
         }
         do east 16 #110 131
         do south 25 #110 106
