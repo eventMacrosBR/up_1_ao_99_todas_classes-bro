@@ -72,22 +72,7 @@ automacro inicializar {
         # Esse sub gera a hash %parametrosQuestClasseRenascer com a seguinte key:
         # $parametrosQuestClasseRenascer{renascer}
         # $parametrosQuestClasseRenascer{amigo}
-        inicializarParametrosQuestClasseRenascer()
-
-        if (&config(questc2_implementada) != true && pegarID() = $parametrosQuestClasse1{idC1}) {
-            [
-            log =========================================================
-            log   AVISO!
-            log   ------
-            log Este script para classe escolhida ainda está incompleto.
-            log Portanto haverá um grande número de bugs e possivelmente
-            log não fará a quest da classe 2.
-            log Ao continuar você está ciente de que essa macro não fará
-            log tudo por você.
-            log ==========================================================
-            ]
-        }
-        
+        inicializarParametrosQuestClasseRenascer()        
     }
 }
 
@@ -195,6 +180,19 @@ macro atualizarBuild {
         else {
             do eval Log::error "Nao foi possivel definir qual a sua classe.\n";
             do eval Log::error "Valor encontrado: $idClasseAtual\n";
+        }
+        if (&config(questc2_implementada) != true && pegarID() = $parametrosQuestClasse1{idC1}) {
+            [
+            log =========================================================
+            log   AVISO!
+            log   ------
+            log Este script para classe escolhida ainda está incompleto.
+            log Portanto haverá um grande número de bugs e possivelmente
+            log não fará a quest da classe 2.
+            log Ao continuar você está ciente de que essa macro não fará
+            log tudo por você.
+            log ==========================================================
+            ]
         }
     }
 }
