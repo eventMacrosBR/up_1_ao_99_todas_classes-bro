@@ -178,8 +178,8 @@ macro atualizarBuild {
             }
         }
         else {
-            do eval Log::error "Nao foi possivel definir qual a sua classe.\n";
-            do eval Log::error "Valor encontrado: $idClasseAtual\n";
+            do eval Log::error "Não foi possivel definir qual é a sua classe.\n";
+            do eval Log::error "ID encontrado: $idClasseAtual\n";
         }
         if (&config(questc2_implementada) != true && pegarID() = $parametrosQuestClasse1{idC1}) {
             [
@@ -187,7 +187,7 @@ macro atualizarBuild {
             log   AVISO!
             log   ------
             log Este script para classe escolhida ainda está incompleto.
-            log Portanto haverá um grande número de bugs e possivelmente
+            log Portanto haverá um grande número de bugs e 
             log não fará a quest da classe 2.
             log Ao continuar você está ciente de que essa macro não fará
             log tudo por você.
