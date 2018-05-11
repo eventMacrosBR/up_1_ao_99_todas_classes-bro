@@ -128,19 +128,69 @@ macro atualizarBuild {
             if (&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz}) do conf skillsAddAuto_list $configsBuild{skillsAprendiz}
         }
         case (~ $parametrosClasses{idC1}, $parametrosClasses{idBC1}) { #Classes 1
-            if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1})  do conf skillsAddAuto_list $configsBuild{skillsClasse1}
+            if ($configsBuild{skillsClasse1}) != 1) { #se existir as skills
+                if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1})  do conf skillsAddAuto_list $configsBuild{skillsClasse1}
+            } else {
+                [
+                log ===================================
+                log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A CLASSE 1
+                log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
+                log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
+                log ===================================
+                ]
+            }
         }
         case (~ $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}) { #Classes 2
-            if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2})  do conf skillsAddAuto_list $configsBuild{skillsClasse2}
+            if ($configsBuild{skillsClasse2} != -1) {
+                if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2})  do conf skillsAddAuto_list $configsBuild{skillsClasse2}
+            } else {
+                [
+                log ===================================
+                log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A SUA CLASSE 2
+                log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
+                log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
+                log ===================================
+                ] 
+            }
         }
         case (== $parametrosClasses{idC1T}) { #Classes 1T
-            if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1T}) do conf skillsAddAuto_list $configsBuild{skillsClasse1T}
+            if ($configsBuild{skillsClasse1T} != -1) {
+                if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1T})  do conf skillsAddAuto_list $configsBuild{skillsClasse1T}
+            } else {
+                [
+                log ===================================
+                log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A SUA CLASSE 1 TRANS
+                log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
+                log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
+                log ===================================
+                ] 
+            }
         }
         case (~ $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt} ) { #Classes 2T
-            if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2T}) do conf skillsAddAuto_list $configsBuild{skillsClasse2T}
+            if ($configsBuild{skillsClasse2T} != -1) {
+                if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2T}) do conf skillsAddAuto_list $configsBuild{skillsClasse2T}
+            } else {
+                [
+                log ===================================
+                log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A SUA CLASSE 2 TRANS
+                log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
+                log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
+                log ===================================
+                ] 
+            }
         }
         case (~ $parametrosClasses{idC3}) { #Classes 3
-            if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse3})  do conf skillsAddAuto_list $configsBuild{skillsClasse3}
+            if ($configsBuild{skillsClasse3} != -1) {
+                if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse3})  do conf skillsAddAuto_list $configsBuild{skillsClasse3}
+            } else {
+                [
+                log ===================================
+                log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A SUA CLASSE 3
+                log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
+                log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
+                log ===================================
+                ] 
+            }
         }
         else {
             do eval Log::error "Nao foi possivel definir qual a sua classe.\n";
