@@ -570,7 +570,13 @@ automacro questCacador_labirinto {
         do conf route_randomWalk 0
         call pararDeAtacar
 
-        do move 72 76 
+        do move 72 76
+        $contador = 0
+        while (&monster(Zumbi[Monstro Alvo]) == -1 & $contador < 5) {
+            log = procurando monstro alvo...
+            pause 1
+            $contador++
+        }
         do ml #comando pra listar os monstros na tela
         if (&monster(Zumbi[Monstro Alvo]) != -1) {
             do a &monster(Zumbi[Monstro Alvo])
@@ -583,6 +589,12 @@ automacro questCacador_labirinto {
             ]
         }
         do east 35 #107 76
+        $contador = 0
+        while (&monster(Zumbi[Monstro Alvo]) == -1 & $contador < 5) {
+            log = procurando monstro alvo...
+            pause 1
+            $contador++
+        }
         do ml
         if (&monster(Zumbi[Monstro Alvo]) != -1) {
             do a &monster(Zumbi[Monstro Alvo])
@@ -596,13 +608,20 @@ automacro questCacador_labirinto {
             log ===================================
             ]
         }
-        do east 10 #117 76 
+        do east 10 #117 76
+        $contador = 0
+        while (&monster(Esqueleto Arqueiro[Monstro Alvo]) == -1 & $contador < 5) {
+            log = procurando monstro alvo...
+            pause 1
+            $contador++
+        }
+        do ml
         if (&monster(Esqueleto Arqueiro[Monstro Alvo]) != -1) {
             do a &monster(Esqueleto Arqueiro[Monstro Alvo])
         } else {
             [
             log ===================================
-            log = o monstro Zumbi[Monstro Alvo] não está por perto...
+            log = o monstro Esqueleto Arqueiro[Monstro Alvo] não está por perto...
             log = pelo menos é o que a eventMacro diz.
             log = agora ela vai pular pra próxima linha
             log = sem matar o monstro ...
@@ -611,12 +630,19 @@ automacro questCacador_labirinto {
         }
         do north 55 #117 131
         do west 23 #94 131 
+        $contador = 0
+        while (&monster(Poring[Monstro Alvo]) == -1 & $contador < 5) {
+            log = procurando monstro alvo...
+            pause 1
+            $contador++
+        }
+        do ml
         if (&monster(Poring[Monstro Alvo]) != -1) {
             do a &monster(Poring[Monstro Alvo])
         } else {
             [
             log ===================================
-            log = o monstro Zumbi[Monstro Alvo] não está por perto...
+            log = o monstro Poring[Monstro Alvo] não está por perto...
             log = pelo menos é o que a eventMacro diz.
             log = agora ela vai pular pra próxima linha
             log = sem matar o monstro ...
