@@ -584,7 +584,9 @@ automacro questCacador_labirinto {
             [
             log ===================================
             log = o monstro Zumbi[Monstro Alvo] não está por perto...
-            log = pelo menos é o que a eventMacro diz
+            log = pelo menos é o que a eventMacro diz.
+            log = agora ela vai pular pra próxima linha
+            log = sem matar o monstro ...
             log ===================================
             ]
         }
