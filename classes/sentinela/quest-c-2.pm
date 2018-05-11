@@ -573,7 +573,7 @@ automacro questCacador_labirintoMoverPraPertoDoChat {
 automacro questCacador_labirintoChatPerto {
     QuestActive 4011
     InChatRoom 0
-    ChatRoomNear /Espera/i
+    ChatRoomNear /Espera|Waiting/i
     IsInCoordinate 164..187 18..41
     exclusive 1
     InMap job_hunte
@@ -609,37 +609,39 @@ automacro questCacador_labirinto {
     exclusive 1
     InMap job_hunte
     call {
+        do conf route_step 3
         do conf route_randomWalk 0
-        call pararDeAtacar
+        do conf lockMap none
+        call pararDeAtacarApenasCorrer
 
         do move 72 76
         $contador = 0
-        while (&monster(Zumbi[Monstro Alvo]) == -1 & $contador < 5) {
+        do ml #comando pra listar os monstros na tela
+        while (&monster(Zumbi[Monstro Alvo]) = -1 && $contador < 5) {
             log = procurando monstro alvo...
             pause 1
             $contador++
+        }
+        if (&monster(Zumbi[Monstro Alvo]) != -1) {
+            do a &monster(Zumbi[Monstro Alvo])
+        } else {
+            [
+            log ===================================
+            log = o monstro Zumbi[Monstro Alvo] não está por perto...
+            log = pelo menos é o que a eventMacro diz.
+            log = agora ela vai pular pra próxima linha
+            log = sem matar o monstro ...
+            log ===================================
+            ]
         }
         do ml #comando pra listar os monstros na tela
-        if (&monster(Zumbi[Monstro Alvo]) != -1) {
-            do a &monster(Zumbi[Monstro Alvo])
-        } else {
-            [
-            log ===================================
-            log = o monstro Zumbi[Monstro Alvo] não está por perto...
-            log = pelo menos é o que a eventMacro diz.
-            log = agora ela vai pular pra próxima linha
-            log = sem matar o monstro ...
-            log ===================================
-            ]
-        }
         do east 35 #107 76
         $contador = 0
-        while (&monster(Zumbi[Monstro Alvo]) == -1 & $contador < 5) {
+        while (&monster(Zumbi[Monstro Alvo]) == -1 && $contador < 5) {
             log = procurando monstro alvo...
             pause 1
             $contador++
         }
-        do ml
         if (&monster(Zumbi[Monstro Alvo]) != -1) {
             do a &monster(Zumbi[Monstro Alvo])
         } else {
@@ -652,14 +654,14 @@ automacro questCacador_labirinto {
             log ===================================
             ]
         }
+        do ml
         do east 10 #117 76
         $contador = 0
-        while (&monster(Esqueleto Arqueiro[Monstro Alvo]) == -1 & $contador < 5) {
+        while (&monster(Esqueleto Arqueiro[Monstro Alvo]) == -1 && $contador < 5) {
             log = procurando monstro alvo...
             pause 1
             $contador++
         }
-        do ml
         if (&monster(Esqueleto Arqueiro[Monstro Alvo]) != -1) {
             do a &monster(Esqueleto Arqueiro[Monstro Alvo])
         } else {
@@ -672,15 +674,15 @@ automacro questCacador_labirinto {
             log ===================================
             ]
         }
+        do ml
         do north 55 #117 131
         do west 23 #94 131 
         $contador = 0
-        while (&monster(Poring[Monstro Alvo]) == -1 & $contador < 5) {
+        while (&monster(Poring[Monstro Alvo]) == -1 && $contador < 5) {
             log = procurando monstro alvo...
             pause 1
             $contador++
         }
-        do ml
         if (&monster(Poring[Monstro Alvo]) != -1) {
             do a &monster(Poring[Monstro Alvo])
         } else {
@@ -693,6 +695,7 @@ automacro questCacador_labirinto {
             log ===================================
             ]
         }
+        do ml
         do east 16 #110 131
         do south 25 #110 106
         do west 10 #100 106
@@ -701,6 +704,7 @@ automacro questCacador_labirinto {
         do north 25 #110 131
         do west 21 #89 131
         do north 10 #89 141
+        do conf route_step 15
     }
 }
 
