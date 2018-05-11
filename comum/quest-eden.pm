@@ -174,7 +174,7 @@ automacro iniciandoQuestEden12 {
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15009
     InInventoryID 15009 = 0
-    call iniciandoQuestEden '12' '1' '0' '0'
+    call iniciandoQuestEden '1' '0' '0'
 }
 
 
@@ -192,7 +192,7 @@ automacro iniciandoQuestEden26 {
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15010
     InInventoryID 15010 = 0
-    call iniciandoQuestEden '26' '1'
+    call iniciandoQuestEden '1'
 }
 
 automacro IniciandoQuestEden40 {
@@ -207,7 +207,7 @@ automacro IniciandoQuestEden40 {
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15011
     InInventoryID 15011 = 0
-    call iniciandoQuestEden '40' '0'
+    call iniciandoQuestEden '0'
 }
 
 automacro inciandoQuestEden60 {
@@ -223,7 +223,7 @@ automacro inciandoQuestEden60 {
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15031
     InInventoryID 15031 = 0
-    call iniciandoQuestEden '60' '0' '1'
+    call iniciandoQuestEden '0' '1'
 }
 
 macro iniciandoQuestEden {
@@ -232,28 +232,59 @@ macro iniciandoQuestEden {
     log =Iniciando a quest eden
     log ==========================
     ]
-    do conf -f o_que_estou_fazendo iniciandoQuestEden$.param[0]
-    #$.param[0] tem como valor a sequencia de conversação correta
     do talk $.NpcNearLastBinId
-    if (&defined($.param[1]) = 1) do talk resp $.param[1]
-    if (&defined($.param[2]) = 1) do talk resp $.param[2]
-    if (&defined($.param[3]) = 1) do talk resp $.param[3]
+    if (&defined($.param[0]) = 1) do talk resp $.param[1]
+    if (&defined($.param[1]) = 1) do talk resp $.param[2]
+    if (&defined($.param[2]) = 1) do talk resp $.param[3]
 
     switch ($.lvl) {
-        case (<= 18) $lvlQueVaiIr = 15
-        case (<= 32) $lvlQueVaiIr = 26
-        case (<= 49) $lvlQueVaiIr = 50
-        case (<= 69) $lvlQueVaiIr = 70
+        case (<= 18) $lvlDaQuestEden = 15
+        case (<= 32) $lvlDaQuestEden = 26
+        case (<= 49) $lvlDaQuestEden = 50
+        case (<= 69) $lvlDaQuestEden = 70
     }
+    do conf -f o_que_estou_fazendo iniciandoQuestEden$lvlDaQuestEden
+
+}
+
+automacro questEden_avisoIntermitenteNivel12 {
+    exclusive 1
+    QuestActive 7128
+    BaseLevel 12..15
+    timeout 120
+    call avisoIntermitente '15'
+}
+
+#Lembrete: quest éden lvl 26 não precisa desse aviso interminente
+#porque ele já vai matar no lvl que começa, diferente das outras
+
+automacro questEden_avisoIntermitenteNivel40 {
+    exclusive 1
+    QuestActive 7147
+    BaseLevel 40..49
+    timeout 180
+    call avisoIntermitente '50'
+}
+
+automacro questEden_avisoIntermitenteNivel60 {
+    exclusive 1
+    QuestActive 7214
+    BaseLevel 60..69
+    timeout 240
+    call avisoIntermitente '70'
+}
+
+macro avisoIntermitente {        
     [
     log ======================================
     log comecei a quest eden, porém só vou
-    log fazer ela no lvl $lvlQueVaiIr ou acima!
+    log fazer ela no lvl $.param[0] ou acima!
     log se eu nao tiver no lvl , eu vou upar.
     log lvl que eu estou: $.lvl
     log ======================================
     ]
 }
+
 
 #7128#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
 #Você começa seu treinamento com o Grupo Valhalla. Procure o cão falante em Sograt. #
@@ -261,7 +292,7 @@ macro iniciandoQuestEden {
 automacro Eden12salvarNaKafra {
     QuestActive 7128
     exclusive 1
-    BaseLevel 15..25
+    BaseLevel >= 15
     ConfigKeyNot In_saveMap_sequence true
     ConfigKeyNot saveMap morocc
     call {
