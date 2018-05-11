@@ -557,6 +557,48 @@ automacro questCacador_irAteAGuildaDosArqueiros {
     }
 }
 
+automacro questCacador_labirintoMoverPraPertoDoChat {
+    QuestActive 4011
+    InChatRoom 0
+    IsInCoordinate 164..187 18..41
+    exclusive 1
+    InMap job_hunte
+    call {
+        do move &rand(174,177) &rand(34,31)
+        do talk resp 0
+        do chat join 0
+    }
+}
+
+automacro questCacador_labirintoChatPerto {
+    QuestActive 4011
+    InChatRoom 0
+    ChatRoomNear /Espera/i
+    IsInCoordinate 164..187 18..41
+    exclusive 1
+    InMap job_hunte
+    priority -1
+    call {
+        do chat join 0
+    }
+}
+
+automacro questCacador_DentroDoChat {
+    exclusive 1
+    InChatRoom 1
+    QuestActive 4011
+    InMap job_hunte
+    timeout 40
+    call {
+        [
+        log ===================================
+        log = Estou dentro do chat
+        log = agora é só esperar minha vez
+        log ===================================
+        ]
+    }
+}
+
 #4011#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Mate todos os ^ff0000monstros de mudança de classe^000000, e o interruptor vai aparecer. Destrua o interruptor e fuja pela saída ao norte. #
 #
