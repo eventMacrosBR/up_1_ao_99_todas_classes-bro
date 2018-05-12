@@ -79,10 +79,20 @@ macro salvarNaCidade {
             do conf -f saveMap_posicaoNpcVenda alberta_in 182 97
             do conf -f saveMap_posicaoNpcPraPocao alberta_in 182 97
         }
+        case ( =~ /hugel/i ) {
+            do conf -f saveMap_desejado hugel
+            do conf -f saveMap_posicaoKafra 88 168
+            do conf -f saveMap_posicaoNpcVenda hugel 77 167
+            do conf -f saveMap_posicaoNpcPraPocao # não tem infelizmente!
+        }
         else {
-            log nome da cidade inválido, tente novamente...
-            log nome é: $.param[0]
-            log Talvez o nome foi escrito errado?
+            [
+            log =====================================
+            log = nome da cidade inválido, tente novamente...
+            log = nome é: $.param[0]
+            log = Talvez o nome foi escrito errado?
+            log =====================================
+            ]
             stop
         }
     }
