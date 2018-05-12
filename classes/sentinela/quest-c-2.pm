@@ -89,7 +89,7 @@ automacro questCacador_salvarEmHugel {
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     JobLevel = 50
     ConfigKeyNot saveMap hugel
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
     ConfigKey aeroplano1 none
@@ -117,7 +117,7 @@ automacro questCacador_irAteACacadoraDaGuild {
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     JobLevel = 50
     FreeSkillPoints = 0
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     NpcNotNear /caçadora da guilda/i
     ConfigKey saveMap hugel
     InMap hugel, hu_in01

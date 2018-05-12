@@ -23,7 +23,7 @@ automacro VirarSacer_SalvarEmProntera {
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     JobLevel = 50
     ConfigKeyNot saveMap prontera
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
     QuestInactive 8012

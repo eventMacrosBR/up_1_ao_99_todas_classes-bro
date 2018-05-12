@@ -28,7 +28,7 @@ automacro virarArruaceiroInicio_salvarEmMorocc {
     priority 2
     exclusive 1
     ConfigKeyNot saveMap morocc
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
     NpcNotNear /Arruaceira da Guilda/

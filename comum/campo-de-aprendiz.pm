@@ -19,7 +19,7 @@ automacro campoDeAprendiz_falarComSprakkiLadoDeFora {
     QuestInactive 7117
     call {
         [
-        do conf -f in_saveMap_sequence false
+        do conf -f naSequenciaDeSalvamento false
         do conf -f membroDoEden none
         do conf -f quest_atual none
         do conf -f saveMap_storage_sequence none

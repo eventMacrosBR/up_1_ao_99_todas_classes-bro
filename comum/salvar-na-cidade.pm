@@ -2,82 +2,82 @@ macro salvarNaCidade {
     call pararDeAtacar
     do conf lockMap none
     if (&config(master) =~ /Valhalla/ ) {
-        do conf -f saveMap_storage_sequence r1 r0
+        do conf -f saveMap_sequenciaPraArmazenar r1 r0
     } else  {
-        do conf -f saveMap_storage_sequence r1 
+        do conf -f saveMap_sequenciaPraArmazenar r1 
     }
     switch ($.param[0]) {
         case (=~ /einbroch/i ) {
-            do conf -f saveMap_wanted einbroch
-            do conf -f saveMap_kafra_position 242 205
-            do conf -f saveMap_sellNpc_position einbroch 224 207
-            do conf -f saveMap_potionNpc_position ein_in01 189 15
+            do conf -f saveMap_desejado einbroch
+            do conf -f saveMap_posicaoKafra 242 205
+            do conf -f saveMap_posicaoNpcVenda einbroch 224 207
+            do conf -f saveMap_posicaoNpcPraPocao ein_in01 189 15
         }
         case (=~ /aldebaran/i ) {
-            do conf -f saveMap_wanted aldebaran
-            do conf -f saveMap_kafra_position 143 119
-            do conf -f saveMap_sellNpc_position aldebaran 165 107
-            do conf -f saveMap_potionNpc_position aldeba_in 94 56
+            do conf -f saveMap_desejado aldebaran
+            do conf -f saveMap_posicaoKafra 143 119
+            do conf -f saveMap_posicaoNpcVenda aldebaran 165 107
+            do conf -f saveMap_posicaoNpcPraPocao aldeba_in 94 56
         }
         case (=~ /juno|yuno/i ) {
-            do conf -f saveMap_wanted yuno
-            do conf -f saveMap_kafra_position 152 187
-            do conf -f saveMap_sellNpc_position yuno 163 187
-            do conf -f saveMap_potionNpc_position yuno 218 97
+            do conf -f saveMap_desejado yuno
+            do conf -f saveMap_posicaoKafra 152 187
+            do conf -f saveMap_posicaoNpcVenda yuno 163 187
+            do conf -f saveMap_posicaoNpcPraPocao yuno 218 97
         }
         case (=~ /rachel/i ) {
-            do conf -f saveMap_wanted rachel
-            do conf -f saveMap_kafra_position 109 138
-            do conf -f saveMap_sellNpc_position ra_in01 257 269
-            do conf -f saveMap_potionNpc_position ra_in01 257 269
+            do conf -f saveMap_desejado rachel
+            do conf -f saveMap_posicaoKafra 109 138
+            do conf -f saveMap_posicaoNpcVenda ra_in01 257 269
+            do conf -f saveMap_posicaoNpcPraPocao ra_in01 257 269
         }
         case (=~ /comodo/i ) {
-            do conf -f saveMap_wanted comodo
-            do conf -f saveMap_kafra_position 195 150
-            do conf -f saveMap_sellNpc_position cmd_in01 79 182
-            do conf -f saveMap_potionNpc_position cmd_in01 79 182
+            do conf -f saveMap_desejado comodo
+            do conf -f saveMap_posicaoKafra 195 150
+            do conf -f saveMap_posicaoNpcVenda cmd_in01 79 182
+            do conf -f saveMap_posicaoNpcPraPocao cmd_in01 79 182
         }
         case (=~ /prontera/i ) {
-            do conf -f saveMap_wanted prontera
-            do conf -f saveMap_kafra_position 151 29
-            do conf -f saveMap_sellNpc_position prontera 113 42
-            do conf -f saveMap_potionNpc_position prt_in 126 76
+            do conf -f saveMap_desejado prontera
+            do conf -f saveMap_posicaoKafra 151 29
+            do conf -f saveMap_posicaoNpcVenda prontera 113 42
+            do conf -f saveMap_posicaoNpcPraPocao prt_in 126 76
         }
         case (=~ /payon/i ) {
-            do conf -f saveMap_wanted payon
-            do conf -f saveMap_kafra_position 181 104
-            do conf -f saveMap_sellNpc_position payon 159 96
-            do conf -f saveMap_potionNpc_position payon_in01 5 49
+            do conf -f saveMap_desejado payon
+            do conf -f saveMap_posicaoKafra 181 104
+            do conf -f saveMap_posicaoNpcVenda payon 159 96
+            do conf -f saveMap_posicaoNpcPraPocao payon_in01 5 49
         }
         case (=~ /geffen/i ) {
-            do conf -f saveMap_wanted geffen
-            do conf -f saveMap_kafra_position 120 62
-            do conf -f saveMap_sellNpc_position geffen_in 74 144
-            do conf -f saveMap_potionNpc_position geffen_in 77 167
+            do conf -f saveMap_desejado geffen
+            do conf -f saveMap_posicaoKafra 120 62
+            do conf -f saveMap_posicaoNpcVenda geffen_in 74 144
+            do conf -f saveMap_posicaoNpcPraPocao geffen_in 77 167
         }
         case (=~ /morocc|morroc|morooc/i ) {
-            do conf -f saveMap_wanted morocc
-            do conf -f saveMap_kafra_position 156 97
-            do conf -f saveMap_sellNpc_position morocc_in 141 67
-            do conf -f saveMap_potionNpc_position moc_ruins 114 63
+            do conf -f saveMap_desejado morocc
+            do conf -f saveMap_posicaoKafra 156 97
+            do conf -f saveMap_posicaoNpcVenda morocc_in 141 67
+            do conf -f saveMap_posicaoNpcPraPocao moc_ruins 114 63
         }
         case (=~ /izlude/i ) {
-            do conf -f saveMap_wanted izlude
-            do conf -f saveMap_kafra_position 134 88
-            do conf -f saveMap_sellNpc_position izlude 105 99
-            do conf -f saveMap_potionNpc_position izlude_in 115 61
+            do conf -f saveMap_desejado izlude
+            do conf -f saveMap_posicaoKafra 134 88
+            do conf -f saveMap_posicaoNpcVenda izlude 105 99
+            do conf -f saveMap_posicaoNpcPraPocao izlude_in 115 61
         }
         case ( =~ /veins/i ) {
-            do conf -f saveMap_wanted veins
-            do conf -f saveMap_kafra_position 208 128
-            do conf -f saveMap_sellNpc_position ve_in 243 303
-            do conf -f saveMap_potionNpc_position ve_in 243 303
+            do conf -f saveMap_desejado veins
+            do conf -f saveMap_posicaoKafra 208 128
+            do conf -f saveMap_posicaoNpcVenda ve_in 243 303
+            do conf -f saveMap_posicaoNpcPraPocao ve_in 243 303
         }
         case (=~ /alberta/i ) {
-        	do conf -f saveMap_wanted alberta
-            do conf -f saveMap_kafra_position 113 60
-            do conf -f saveMap_sellNpc_position alberta_in 182 97
-            do conf -f saveMap_potionNpc_position alberta_in 182 97
+        	do conf -f saveMap_desejado alberta
+            do conf -f saveMap_posicaoKafra 113 60
+            do conf -f saveMap_posicaoNpcVenda alberta_in 182 97
+            do conf -f saveMap_posicaoNpcPraPocao alberta_in 182 97
         }
         else {
             log nome da cidade inválido, tente novamente...
@@ -89,33 +89,33 @@ macro salvarNaCidade {
 
     [
     log =============================================
-    log =Iniciando seguência de salvamento em &config(saveMap_wanted)
+    log =Iniciando seguência de salvamento em &config(saveMap_desejado)
     log =============================================
     ]
     do ai manual
     do conf -f o_que_estou_fazendo indoSalvarem $.param[0]
-    do conf -f In_saveMap_sequence true
+    do conf -f naSequenciaDeSalvamento true
 
 }
 
 automacro definirVariavelSaveMap {
     exclusive 1
     run-once 1
-    ConfigKey In_saveMap_sequence true
+    ConfigKey naSequenciaDeSalvamento true
     priority -4
     CheckOnAI auto, manual
     call {
-        $saveMap = &config(saveMap_wanted)
+        $saveMap = &config(saveMap_desejado)
         do ai manual
     }
 }
 
 automacro jaToSalvoNessaCidade {
     exclusive 1
-    ConfigKey In_saveMap_sequence true
+    ConfigKey naSequenciaDeSalvamento true
     ConfigKey saveMap $saveMap
     CheckOnAI manual
-    ConfigKeyNot saveMap_wanted none
+    ConfigKeyNot saveMap_desejado none
     call {
         [
         log ==============================================
@@ -125,20 +125,20 @@ automacro jaToSalvoNessaCidade {
         ]
 
         do conf saveMap $saveMap
-        do conf storageAuto_npc $saveMap &config(saveMap_kafra_position)
+        do conf storageAuto_npc $saveMap &config(saveMap_posicaoKafra)
         do conf storageAuto 1
         do conf sellAuto 1
-        do conf sellAuto_npc &config(saveMap_sellNpc_position)
+        do conf sellAuto_npc &config(saveMap_posicaoNpcVenda)
         do conf storageAuto_npc_type 3
-        do conf storageAuto_npc_steps &config(saveMap_storage_sequence)
+        do conf storageAuto_npc_steps &config(saveMap_sequenciaPraArmazenar)
 
         do conf saveMap $saveMap
-        do conf saveMap_storage_sequence none
-        do conf saveMap_wanted none
-        do conf saveMap_kafra_position none
-        do conf saveMap_sellNpc_position none
-        do conf saveMap_potionNpc_position none
-        do conf In_saveMap_sequence false
+        do conf saveMap_sequenciaPraArmazenar none
+        do conf saveMap_desejado none
+        do conf saveMap_posicaoKafra none
+        do conf saveMap_posicaoNpcVenda none
+        do conf saveMap_posicaoNpcPraPocao none
+        do conf naSequenciaDeSalvamento false
         do ai on
         release definirVariavelSaveMap
     }
@@ -147,8 +147,8 @@ automacro jaToSalvoNessaCidade {
 automacro movendoPraKafraForaDaCidade {
     exclusive 1
     CheckOnAI manual
-    ConfigKey In_saveMap_sequence true
-    ConfigKeyNot saveMap_wanted none
+    ConfigKey naSequenciaDeSalvamento true
+    ConfigKeyNot saveMap_desejado none
     ConfigKeyNot saveMap $saveMap
     NotInMap $saveMap
     call move_to_near_kafra
@@ -158,31 +158,31 @@ automacro movendoPraKafraDentroDaCidade {
     exclusive 1
     CheckOnAI manual
     ConfigKeyNot saveMap $saveMap
-    ConfigKeyNot saveMap_wanted none
+    ConfigKeyNot saveMap_desejado none
     NpcNotNear /Kafra Employee|Funcionária Kafra|Corp./
     InMap $saveMap
     call move_to_near_kafra
 }
 
 macro move_to_near_Kafra {
-    log estou indo para a kafra em $saveMap &config(saveMap_kafra_position)
-    do move $saveMap &config(saveMap_kafra_position) &random("1","2","3","4","5")
+    log estou indo para a kafra em $saveMap &config(saveMap_posicaoKafra)
+    do move $saveMap &config(saveMap_posicaoKafra) &random("1","2","3","4","5")
 }
 
 automacro FalarComKafra {
     CheckOnAI manual
-    ConfigKey In_saveMap_sequence true
+    ConfigKey naSequenciaDeSalvamento true
     ConfigKeyNot saveMap $saveMap
-    ConfigKeyNot saveMap_wanted none
+    ConfigKeyNot saveMap_desejado none
     InMap $saveMap
     NpcNear /Kafra Employee|Funcionária Kafra|Corp./
     delay 2
     timeout 20
     call {
         log ==============================================================
-        log Falando com kafra na posição: &config(saveMap_kafra_position
+        log Falando com kafra na posição: &config(saveMap_posicaoKafra
         log ==============================================================
-        do talknpc &config(saveMap_kafra_position) r0
+        do talknpc &config(saveMap_posicaoKafra) r0
     }
 }
 
@@ -192,30 +192,30 @@ automacro SalvoNaKafra {
     priority -5
     NpcMsgName /O seu Ponto (de Retorno )?foi salvo|saved here|foi salvo aqui na cidade|foi salvo em/ /Kafra Employee|Funcionária Kafra|Corp/
     ConfigKeyNot saveMap $saveMap
-    ConfigKey In_saveMap_sequence true
+    ConfigKey naSequenciaDeSalvamento true
     InMap $saveMap
     call {
         [
         do conf saveMap $saveMap
-        do conf storageAuto_npc $saveMap &config(saveMap_kafra_position)
+        do conf storageAuto_npc $saveMap &config(saveMap_posicaoKafra)
         do conf storageAuto 1
         do conf sellAuto 1
-        do conf sellAuto_npc &config(saveMap_sellNpc_position)
+        do conf sellAuto_npc &config(saveMap_posicaoNpcVenda)
         do conf storageAuto_npc_type 3
-        do conf storageAuto_npc_steps &config(saveMap_storage_sequence)
+        do conf storageAuto_npc_steps &config(saveMap_sequenciaPraArmazenar)
 
-        do conf saveMap_storage_sequence none
-        do conf saveMap_wanted none
-        do conf saveMap_kafra_position none
-        do conf saveMap_sellNpc_position none
-        do conf saveMap_potionNpc_position none
-        do conf In_saveMap_sequence false
+        do conf saveMap_sequenciaPraArmazenar none
+        do conf saveMap_desejado none
+        do conf saveMap_posicaoKafra none
+        do conf saveMap_posicaoNpcVenda none
+        do conf saveMap_posicaoNpcPraPocao none
+        do conf naSequenciaDeSalvamento false
 
         $continuarLoop = sim
 	    $i = 0
 	    while ($continuarLoop = sim && checarSeExisteComando("buyAuto_$i") = sim) {
 	    	if (&config(buyAuto_$i) =~ /Poção/i) {
-	    		do conf buyAuto_$i_npc &config(saveMap_potionNpc_position)
+	    		do conf buyAuto_$i_npc &config(saveMap_posicaoNpcPraPocao)
 	    	}
 
 	    	if (a&config(buyAuto_$i) = a) {
@@ -229,7 +229,7 @@ automacro SalvoNaKafra {
 	    $i = 0
 	    while ($continuarLoop = sim && checarSeExisteComando("buyAuto_$i") = sim) {
 	    	if (&config(buyAuto_$i) =~ /Flecha/i) {
-	    		do conf buyAuto_$i_npc &config(saveMap_potionNpc_position)
+	    		do conf buyAuto_$i_npc &config(saveMap_posicaoNpcPraPocao)
 	    	}
 
 	    	if (a&config(buyAuto_$i) = a) {

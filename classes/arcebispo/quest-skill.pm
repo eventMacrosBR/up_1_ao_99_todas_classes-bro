@@ -16,7 +16,7 @@ automacro questLuzDivina_inicioTenhoOsItens {
     JobLevel >= 30
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot virarClasse2 true
     InInventoryID 727 > 0
     InInventoryID 991 > 0
@@ -46,7 +46,7 @@ automacro questLuzDivina_inicioNaoTenhoOsItensMasTenhoZenys {
     JobLevel >= 30
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot virarClasse2 true
     ConfigKeyNot quest_skill true
     ConfigKeyNot quest_luz_divina falar_com_npc

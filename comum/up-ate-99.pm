@@ -2,7 +2,7 @@ automacro UpClasse {
     BaseLevel != 99
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot virarClasse2 true
     ConfigKeyNot virarClasse2T true
     ConfigKeyNot quest_skill true

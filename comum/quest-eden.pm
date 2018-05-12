@@ -12,7 +12,7 @@ automacro seJuntarAoGrupoEden_MoverPerto {
     IsNotEquippedID armor 15031
     InInventoryID 15031 = 0
     ConfigKeyNot quest_eden em_curso
-    ConfigKeyNot in_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     InInventoryID 2414 = 0 #sapatos de aprendiz
     exclusive 1
     BaseLevel >= 12
@@ -35,7 +35,7 @@ automacro seJuntarAoGrupoEden {
     InInventoryID 15031 = 0
     ConfigKeyNot membroDoEden sim
     ConfigKeyNot quest_eden em_curso
-    ConfigKeyNot in_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     run-once 1
     exclusive 1
     NpcNear /Lenore|Lime/
@@ -86,7 +86,7 @@ automacro iniciandoQuestEden12MoverPerto {
     BaseLevel 12..18
     exclusive 1
     QuestInactive 7128
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15009
@@ -103,7 +103,7 @@ automacro iniciandoQuestEden26MoverPerto {
     QuestInactive 7138
     QuestInactive 7139
     QuestInactive 7140
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15010
@@ -122,7 +122,7 @@ automacro IniciandoQuestEden40MoverPerto {
     NpcNotNear /Boya/
     BaseLevel 40..49
     exclusive 1
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15011
@@ -139,7 +139,7 @@ automacro inciandoQuestEden60MoverPerto {
     JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}
     QuestInactive 7214
     ConfigKeyNot fazerQuestEden nao
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15031
@@ -169,7 +169,7 @@ automacro iniciandoQuestEden12 {
     exclusive 1
     QuestInactive 7128
     ConfigKeyNot fazerQuestEden nao
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15009
@@ -187,7 +187,7 @@ automacro iniciandoQuestEden26 {
     QuestInactive 7138
     QuestInactive 7139
     QuestInactive 7140
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15010
@@ -202,7 +202,7 @@ automacro IniciandoQuestEden40 {
     ConfigKeyNot fazerQuestEden nao
     exclusive 1
     QuestInactive 7147
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15011
@@ -218,7 +218,7 @@ automacro inciandoQuestEden60 {
     InInventoryID 22508 = 1
     JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}
     QuestInactive 7214
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15031
@@ -293,7 +293,7 @@ automacro Eden12salvarNaKafra {
     QuestActive 7128
     exclusive 1
     BaseLevel >= 15
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot saveMap morocc
     call {
         do conf -f quest_eden em_curso
@@ -309,7 +309,7 @@ automacro Eden26SalvarNaKafra {
     QuestActive 7138
     BaseLevel >= 26
     exclusive 1
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot saveMap payon
     call {
         do conf -f quest_eden em_curso
@@ -325,7 +325,7 @@ automacro Eden40SalvarNaKafra {
     QuestActive 7147
     BaseLevel >= 50
     exclusive 1
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot saveMap prontera
     call {
         do conf -f quest_eden em_curso
@@ -341,7 +341,7 @@ automacro Eden60SalvarNaKafra {
     QuestActive 7214
     BaseLevel >= 70
     exclusive 1
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot saveMap comodo
     call {
         do conf -f quest_eden em_curso
@@ -357,7 +357,7 @@ automacro Eden12IrNoMapa {
     QuestActive 7128
     exclusive 1
     BaseLevel >= 15
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKey saveMap morocc
     call irNoMapa 'moc_fild11' '180' '253' '1107' '1001' '1009' #monstros: filhote de lobo, escopião, condor
 }
@@ -369,7 +369,7 @@ automacro Eden26IrNoMapa {
     QuestActive 7138
     BaseLevel >= 26
     exclusive 1
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKey saveMap payon
     call irNoMapa 'pay_arche' '41' '136' '1076' '1031' '1015' #monstros: esqueleto, poporing, zumbi
 }
@@ -381,7 +381,7 @@ automacro Eden40IrNoMapa {
     QuestActive 7147
     BaseLevel >= 50
     exclusive 1
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKey saveMap prontera
     call irNoMapa 'in_orcs01' '38' '175' '1023' '1686' '1273' #monstros: guerreiro orc, filhote de orc, senhora orc
 }
@@ -393,7 +393,7 @@ automacro Eden60IrNoMapa {
     QuestActive 7214
     BaseLevel >= 70
     exclusive 1
-    ConfigKeyNot In_saveMap_sequence true
+    ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKey saveMap comodo
     call irNoMapa 'comodo' '173' '354'
 }
