@@ -33,7 +33,7 @@ automacro virarFerreiro_Inicio_irPraEinbroch {
     NpcNotNear /Mestre Ferreiro/ #Altazen
     NotInMap einbroch
     exclusive 1
-    call junopra "einbroch"
+    call aeroplano_junoPara "einbroch"
 }
 
 automacro virarFerreiro_Inicio_emEinbroch {

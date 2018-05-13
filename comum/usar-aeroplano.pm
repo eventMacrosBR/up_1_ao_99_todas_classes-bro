@@ -1,11 +1,11 @@
 ﻿#Digite no console do eventMacro 
-#eventMacro junopra --cidade
+#eventMacro aeroplano_junoPara --cidade
 #Pode ser tambem 
-#eventMacro einbrochpra --cidade
+#eventMacro aeroplano_einbrochPara --cidade
 #ou
-#eventMacro rachelpra --cidade
+#eventMacro aeroplano_junoPara --cidade
 #se o nome estiver certo, ele vai mover pra cidade desejada
-macro junopra {
+macro aeroplano_junoPara {
     set exclusive 1
     log Vamos ir de Juno para $.param[0]
     #Se a cidade for izlude ou rachel , ele pega o aeroplano respectivo
@@ -47,7 +47,7 @@ macro junopra {
     }
     $varAeroplano1 = &config(aeroplano1)
     $varAeroplano2 = &config(aeroplano2)
-    do conf -f aeroplano_macroChamada junopra
+    do conf -f aeroplano_macroChamada aeroplano_junoPara
     do conf lockMap none
     do ai manual
     if ($.map = airplane || $.map = airplane_01) {
@@ -58,7 +58,7 @@ macro junopra {
     log $varAeroplano1, $varAeroplano2
 }
 
-macro einbrochpra {
+macro aeroplano_einbrochPara {
     set exclusive 1
     log Vamos ir de Eibroch para $.param[0]
     #se a cidade for juno hugel ou lighthalzen ele só pega 1 aeroplano
@@ -101,7 +101,7 @@ macro einbrochpra {
     }
     $varAeroplano1 = &config(aeroplano1)
     $varAeroplano2 = &config(aeroplano2)
-    do conf -f aeroplano_macroChamada einbrochpra
+    do conf -f aeroplano_macroChamada aeroplano_einbrochPara
     do conf lockMap none
     do ai manual
     if ($.map = airplane || $.map = airplane_01) {
@@ -112,7 +112,7 @@ macro einbrochpra {
     log $varAeroplano1, $varAeroplano2
 }
 
-macro rachelpra {
+macro aeroplano_junoPara {
     set exclusive 1
     log Vamos ir de Rachel para $.param[0]
     #se a cidade for izlude ou juno ele só pega 1 aeroplano
@@ -156,7 +156,7 @@ macro rachelpra {
     }
     $varAeroplano1 = &config(aeroplano1)
     $varAeroplano2 = &config(aeroplano2)
-    do conf -f aeroplano_macroChamada rachelpra
+    do conf -f aeroplano_macroChamada aeroplano_junoPara
     do conf lockMap none
     do ai manual
     if ( $.map = airplane || $.map = airplane_01) {

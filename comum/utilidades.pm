@@ -140,9 +140,9 @@ macro ajuda {
     log     eventMacro pararDeAtacarApenasCorrer
     log     eventMacro voltarAtacar
     log Comandos para utilizar o Aeroplano
-    log     eventMacro junopra izlude|rachel|hugel|lighthalzen|einbroch
-    log     eventMacro einbrochpra izlude|rachel|hugel|lighthalzen|juno
-    log     eventMacro rachelpra izlude|hugel|lighthalzen|juno|einbroch
+    log     eventMacro aeroplano_junoPara izlude|rachel|hugel|lighthalzen|einbroch
+    log     eventMacro aeroplano_einbrochPara izlude|rachel|hugel|lighthalzen|juno
+    log     eventMacro aeroplano_junoPara izlude|hugel|lighthalzen|juno|einbroch
     log Comando para debug
     log     eventMacro status
     ]

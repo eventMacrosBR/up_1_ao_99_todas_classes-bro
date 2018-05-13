@@ -110,7 +110,7 @@ automacro questCacador_salvarEmHugel {
     QuestInactive 4012
     QuestInactive 4013
     exclusive 1
-    call junopra "hugel"
+    call aeroplano_junoPara "hugel"
 }
 
 automacro questCacador_irAteACacadoraDaGuild {

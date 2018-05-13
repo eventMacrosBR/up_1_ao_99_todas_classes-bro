@@ -150,7 +150,7 @@ automacro questBioetica_comeco_IndoPraLighthalzen {
     timeout 300
     call {
         do conf -f quest_skill true
-        call junopra "lighthalzen"
+        call aeroplano_junoPara "lighthalzen"
     }
 }
   

@@ -58,7 +58,7 @@ macro upar {
             if ($.map =~ /^ra|^ve|^aru/) {
                 call salvarNaCidade "$mapa{saveMap}"
             } else {
-                call junopra "$mapa{saveMap}"
+                call aeroplano_junoPara "$mapa{saveMap}"
             }
             stop
         }
@@ -67,7 +67,7 @@ macro upar {
             if ($.map =~ /^ein|^lhz/) {
                 call salvarNaCidade "$mapa{saveMap}"
             } else {
-                call junopra "$mapa{saveMap}"
+                call aeroplano_junoPara "$mapa{saveMap}"
             }
             stop
         }
