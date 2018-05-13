@@ -100,9 +100,31 @@ automacro aumentarFlechasLevel30 {
 automacro configurarEquiparFlechaAutomaticamente {
     ConfigKeyNot attackEquip_arrow Flecha
     exclusive 1
+    JobIDNot 0 #Aprendiz
+    JobIDNot 4001 #Aprendiz T.
+    JobIDNot 4023 #Baby aprendiz
     call {
         do conf attackEquip_arrow Flecha
         do iconf Flecha 0 0 0
+    }
+}
+
+automacro desconfigurarAutoEquiparFlechaAprendizT {
+    ConfigKey attackEquip_arrow Flecha
+    exclusive 1
+    JobID 4001 #Aprendiz T.
+    call {
+        do conf attackEquip_arrow none
+    }
+} 
+
+automacro configurarParaComprarPoucasFlechasArqueiroT {
+    ConfigKey buyAuto_1_maxAmount 5000
+    BaseLevel < 30
+    JobID $parametrosClasses{idC2T}
+    call {
+        do conf buyAuto_1_maxAmount 2000
+        do conf buyAuto_1_zeny > 2000
     }
 }
 
