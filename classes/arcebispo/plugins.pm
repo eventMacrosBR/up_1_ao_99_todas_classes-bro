@@ -1,0 +1,4 @@
+sub inicializarPlugins {
+    verificarEInstalarPlugin("BetterShopper");
+}
+

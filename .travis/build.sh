@@ -11,6 +11,7 @@ mkdir dist
 mkdir plugins
 for i in "${plugins[@]}"; do
     cp -r submodules/$i plugins/
+    for i in plugins; zip -r dist/$i.zip $i  
 done
 for i in "${jobs[@]}"; do
     pwsh -File gerador-eventmacros.ps1 -job "$i"
@@ -19,7 +20,7 @@ for i in "${jobs[@]}"; do
     else
         zip_file="$i.nao_testado.zip"
     fi
-    zip -r $zip_file eventMacros.txt plugins
+    zip $zip_file eventMacros.txt
     mv $zip_file dist/
 done
 

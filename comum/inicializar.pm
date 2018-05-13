@@ -5,8 +5,7 @@ automacro inicializar {
     BaseLevel > 0
     call {
         # Carregando Plugins necessários
-        xConfConfiguratedOrNot() 
-        BetterShopperConfiguratedOrNot()
+        inicializarPlugins()
         
         # Configurações de Ids de classe
         
