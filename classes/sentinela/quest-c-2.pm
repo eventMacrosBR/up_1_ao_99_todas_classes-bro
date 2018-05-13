@@ -609,25 +609,23 @@ automacro questCacador_labirinto {
     exclusive 1
     InMap job_hunte
     call {
-        do conf route_step 3
-        do conf route_randomWalk 0
-        do conf lockMap none
+        if (&config(route_avoidWalls) != 0) do conf route_avoidWalls 0
+        if (&config(lockMap) != none) do conf lockMap none
         call pararDeAtacarApenasCorrer
 
-        do move 72 76
+        do move 90 83
         $contador = 0
         do ml #comando pra listar os monstros na tela
-        while (&monster(Zumbi[Monstro Alvo]) = -1 && $contador < 5) {
+        while (&monster(Monstro Alvo) = -1 && $contador < 4) {
             log = procurando monstro alvo...
-            pause 1
             $contador++
         }
-        if (&monster(Zumbi[Monstro Alvo]) != -1) {
-            do a &monster(Zumbi[Monstro Alvo])
+        if (&monster(Monstro Alvo) != -1) {
+            do a &monster(Monstro Alvo)
         } else {
             [
             log ===================================
-            log = o monstro Zumbi[Monstro Alvo] não está por perto...
+            log = o Monstro Alvo não está por perto...
             log = pelo menos é o que a eventMacro diz.
             log = agora ela vai pular pra próxima linha
             log = sem matar o monstro ...
@@ -635,19 +633,29 @@ automacro questCacador_labirinto {
             ]
         }
         do ml #comando pra listar os monstros na tela
-        do east 35 #107 76
+        stop
+        do move 70 83
+        #do west 10 # 80 83
+        #do west 10 # 70 73
+        if (&arg("$.pos", 1) = 164..187 && &arg("$.pos", 2) = 18..41) {
+            [
+            log ===================================
+            log = errei novamente....
+            log ===================================
+            ]
+            stop
+        }
         $contador = 0
-        while (&monster(Zumbi[Monstro Alvo]) == -1 && $contador < 5) {
+        while (&monster(Monstro Alvo) == -1 && $contador < 4) {
             log = procurando monstro alvo...
-            pause 1
             $contador++
         }
-        if (&monster(Zumbi[Monstro Alvo]) != -1) {
-            do a &monster(Zumbi[Monstro Alvo])
+        if (&monster(Monstro Alvo) != -1) {
+            do a &monster(Monstro Alvo)
         } else {
             [
             log ===================================
-            log = o monstro Zumbi[Monstro Alvo] não está por perto...
+            log = o monstro Monstro Alvo não está por perto...
             log = pelo menos é o que a eventMacro diz.
             log = agora ela vai pular pra próxima linha
             log = sem matar o monstro ...
@@ -655,19 +663,27 @@ automacro questCacador_labirinto {
             ]
         }
         do ml
-        do east 10 #117 76
+        do move 113 83
+        
+         if (&arg("$.pos", 1) = 164..187 && &arg("$.pos", 2) = 18..41) {
+            [
+            log ===================================
+            log = errei novamente....
+            log ===================================
+            ]
+            stop
+        }
         $contador = 0
-        while (&monster(Esqueleto Arqueiro[Monstro Alvo]) == -1 && $contador < 5) {
+        while (&monster(Monstro Alvo) == -1 && $contador < 4) {
             log = procurando monstro alvo...
-            pause 1
             $contador++
         }
-        if (&monster(Esqueleto Arqueiro[Monstro Alvo]) != -1) {
-            do a &monster(Esqueleto Arqueiro[Monstro Alvo])
+        if (&monster(Monstro Alvo) != -1) {
+            do a &monster(Monstro Alvo)
         } else {
             [
             log ===================================
-            log = o monstro Esqueleto Arqueiro[Monstro Alvo] não está por perto...
+            log = o monstro Monstro Alvo não está por perto...
             log = pelo menos é o que a eventMacro diz.
             log = agora ela vai pular pra próxima linha
             log = sem matar o monstro ...
@@ -675,20 +691,26 @@ automacro questCacador_labirinto {
             ]
         }
         do ml
-        do north 55 #117 131
-        do west 23 #94 131 
+        do south 7 # 113 76
+         if (&arg("$.pos", 1) = 164..187 && &arg("$.pos", 2) = 18..41) {
+            [
+            log ===================================
+            log = errei novamente....
+            log ===================================
+            ]
+            stop
+        }
         $contador = 0
-        while (&monster(Poring[Monstro Alvo]) == -1 && $contador < 5) {
+        while (&monster(Monstro Alvo) == -1 && $contador < 4) {
             log = procurando monstro alvo...
-            pause 1
             $contador++
         }
-        if (&monster(Poring[Monstro Alvo]) != -1) {
-            do a &monster(Poring[Monstro Alvo])
+        if (&monster(Monstro Alvo) != -1) {
+            do a &monster(Monstro Alvo)
         } else {
             [
             log ===================================
-            log = o monstro Poring[Monstro Alvo] não está por perto...
+            log = o monstro Monstro Alvo não está por perto...
             log = pelo menos é o que a eventMacro diz.
             log = agora ela vai pular pra próxima linha
             log = sem matar o monstro ...
@@ -696,15 +718,19 @@ automacro questCacador_labirinto {
             ]
         }
         do ml
-        do east 16 #110 131
-        do south 25 #110 106
-        do west 10 #100 106
+        
+        [
+        log ===================================
+        log = teoricamente já matamos todos so monstros
+        log = pelos menos eles tem que estar mortos agora
+        log ===================================
+        ]
+        do move 117 76
+        do move 117 131
+        do move 90 131
+        do move 90 139
         do talk &npc(/switch.nht/)
-        do east 10 #110 106
-        do north 25 #110 131
-        do west 21 #89 131
-        do north 10 #89 141
-        do conf route_step 15
+        do conf route_avoidWalls 1
     }
 }
 

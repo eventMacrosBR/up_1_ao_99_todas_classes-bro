@@ -230,12 +230,15 @@ macro iniciandoQuestEden {
     [
     log ==========================
     log =Iniciando a quest eden
-    log ==========================
+    log = parametro 0 : $.param[0]
+    log = parametro 1 : $.param[1]
+    log = parametro 2 : $.param[2]
+    log ===================================
     ]
     do talk $.NpcNearLastBinId
-    if (&defined($.param[0]) = 1) do talk resp $.param[1]
-    if (&defined($.param[1]) = 1) do talk resp $.param[2]
-    if (&defined($.param[2]) = 1) do talk resp $.param[3]
+    if (&defined($.param[0]) = 1) do talk resp $.param[0]
+    if (&defined($.param[1]) = 1) do talk resp $.param[1]
+    if (&defined($.param[2]) = 1) do talk resp $.param[2]
 
     switch ($.lvl) {
         case (<= 18) $lvlDaQuestEden = 15
