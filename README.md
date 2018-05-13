@@ -33,7 +33,7 @@ O repositório já disponibiliza o eventMacros.txt de todas as classes montados 
 1. Clique no link de download [(Ou aqui, dá no mesmo)](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/releases)
 2. Lá terá uma lista com um link para a eventMacro de cada classe. Escolha a classe desejada e clique nela.
 3. Após baixar, descompacte-o. Mova o arquivo **eventMacros.txt** para dentro da pasta control de seu bot.
-4. Se a macro solicitar algum plugin voC~e pode encontrá-los na página de download, basta colocá-los na pasta sys que a macro instala e configura
+4. Se a macro solicitar algum plugin voC~e pode encontrá-los na página de download, basta colocá-los na pasta plugins que a macro instala e configura
 5. Seja Feliz :D
 
 Obs: Colocamos o nome da classe 3 para definir a linha de evolução a seguir pela macro, porém ela **NÃO UPA CLASSE 3.(ainda)**
