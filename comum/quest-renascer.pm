@@ -372,6 +372,7 @@ automacro questRenascer_terceiroEstagio_bugada {
         do move yuno_in05
     }
 }
+
 automacro questRenascer_ultimoEstagio {
     ConfigKey estagio_Reborn 4
     exclusive 1
@@ -379,7 +380,6 @@ automacro questRenascer_ultimoEstagio {
         do move 49 86
         do conf skillsAddAuto_list none
         do conf statsAddAuto_list none
-        ###do talknpc 48 86 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c
         do talk &npc(48 86)
         do conf estagio_Reborn none
         call atualizarBuild
@@ -389,7 +389,6 @@ automacro questRenascer_ultimoEstagio {
         log REBORNEEEEEEEEEEEEEEEEEEEEEEEEEEEEEI 
         log =========================================
         ]
-        stop
     }
 }
 
