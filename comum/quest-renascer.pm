@@ -23,6 +23,7 @@ automacro questRenascer_chegueilvl99 {
     timeout 60
     ConfigKey estagio_Reborn none
     macro_delay 2
+    QuestInactive 1000
     call {
         if ($parametrosQuestClasseRenascer{renascer} = nao) {
             [
@@ -101,6 +102,7 @@ automacro questRenascer_salvarNaCidadeQueVouUparEDefinirVariavel {
     priority -10 #prioridade mais alta
     run-once 1
     CharCurrentWeight = 0
+    QuestInactive 1000
     call {
         #essa automacro tem por objetivo, salvar seu personagem
         #na cidade em que ele vai upar quando tiver lvl 1 renascido
@@ -128,6 +130,7 @@ automacro questRenascer_chamarAmigo {
     BaseLevel = 99
     JobLevel = 50
     priority -5 #prioridade alta
+    QuestInactive 1000
     call {
         $vezesQueTentouZerarPeso++
 
@@ -169,6 +172,7 @@ automacro questRenascer_irNoLocalPraNegociar {
     Zeny != 0
     exclusive 1
     timeout 50
+    QuestInactive 1000
     call {        
         do conf storageAuto_npc yuno 152 187
         do conf sellAuto_npc yuno_in01 25 34
@@ -193,6 +197,7 @@ automacro questRenascer_amigoPertoPedindoTrade {
     InMap yuno
     PlayerNear /$parametrosQuestClasseRenascer{amigo}/
     timeout 20
+    QuestInactive 1000
     call {
         lock irNoLocalPraNegociar
         do conf -f o_que_estou_fazendo tentandoRebornar_esperandoNegociação
@@ -215,6 +220,7 @@ automacro questRenascer_amigoPertoRecebiTrade {
     timeout 10
     SimpleHookEvent incoming_deal
     macro_delay 0.2
+    QuestInactive 1000
     call {
         lock irNoLocalPraNegociar
         pause 1
@@ -230,6 +236,7 @@ automacro questRenascer_dandoOuReceBendoZeny {
     PlayerNear /$parametrosQuestClasseRenascer{amigo}/ 
     SimpleHookEvent engaged_deal
     priority -5
+    QuestInactive 1000
     call {
         lock amigoPerto_pedindoPraDarTrade
         pause 3
@@ -256,6 +263,7 @@ automacro questRenascer_finalizarTrade {
     CharCurrentWeight 0
     Zeny != 1285000
     ConfigKey estagio_Reborn preparando
+    QuestInactive 1000
     call {
         do deal
     }
@@ -271,6 +279,7 @@ automacro questRenascer_tudoCertoVamosRebornar {
     ConfigKeyNot estagio_Reborn 2
     ConfigKeyNot estagio_Reborn 3
     ConfigKeyNot estagio_Reborn 4
+    QuestInactive 1000
     call {
         do conf -f o_que_estou_fazendo indoRebornar!!!
         # se tiver tudo certinho pra começar o reborn ,essa automacro ativa
@@ -282,6 +291,7 @@ automacro questRenascer__primeiroEstagio {
     ConfigKey estagio_Reborn 1
     InMap yuno
     exclusive 1
+    QuestInactive 1000
     call {
         [
         do ai auto
@@ -312,6 +322,7 @@ automacro questRenascer_pagarTaxa {
     Zeny = 1285000
     InMap yuno_in02
     exclusive 1
+    QuestInactive 1000
     call {
         do move 90 166
         ####do talknpc 88 164 c w1 c w1 c w1 r0
