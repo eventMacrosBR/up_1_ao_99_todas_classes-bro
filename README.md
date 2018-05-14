@@ -61,7 +61,7 @@ Para a macro funcionar corretamente é necessária a instalação dos seguintes 
 ## Agradecimentos
 - @nipodemos: Criação do script [up1-99_completo_para_arruaceiros](https://github.com/Nipodemos/up1-99_completo_para_arrauceiros) no qual este script é baseado (Créditos dos scripts que ele utilizou como base em seu próprio repositório)
 - Todos os [contribuidores](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/graphs/contributors) que fizeram essa macro acontecer
-- Todos os usuários que utilizam as macros e reportam no forum do openkorebrasil.org
+- Todos os usuários que utilizam as macros e reportam no forum do openkorebrasil.org e no gitter
   
 
 ## Funcionalidades:
