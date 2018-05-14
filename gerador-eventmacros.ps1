@@ -95,7 +95,24 @@ function encerrarAplicacao {
     $Form.Dispose()
 }
 
+function updater {
+    if(getVersao -ne "versao_indefinida") {
+        git fetch
+        $versao_atual = (git rev-list --count origin/master) | Out-String
+        $versao_local = (git rev-list --count master) | Out-String
+        if($versao_atual -ne $versao_local) {
+            $confirmacao = [System.Windows.Forms.MessageBox]::Show( "Nova versão disponível. Gostaria de atualizar sua versão", "Versão desatualizada", 4 )
+            if ($confirmacao -eq "YES"){
+                git stash save
+                git pull --rebase
+                git stash pop
+            }
+        }
+    }
+}
+
 if(! $job){
+    updater
     desenharJanela
     carregarValores
     mostrarJanela
