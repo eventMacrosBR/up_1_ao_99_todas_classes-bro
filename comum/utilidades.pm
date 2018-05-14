@@ -145,6 +145,23 @@ macro ajuda {
     log     eventMacro aeroplano_junoPara izlude|hugel|lighthalzen|juno|einbroch
     log Comando para debug
     log     eventMacro status
+    log     eventMacro informacoes
+    ]
+}
+
+macro informacoes {
+    $jobID = pegarID()
+    [
+        log ===========================================
+        log Informações uteis para reportar um problema
+        log -------------------------------------------
+        log versão: &config(versao_eventmacro_up_todas_as_classes_bro)
+        log Level: $.lvl/$.joblvl
+        log JobID: $jobID
+        log O que estava fazendo: &config(o_que_estou_fazendo)
+        log Mapa: $.map $.pos
+        log Ultima automacro: $.caller
+        log ==========================================
     ]
 }
 
