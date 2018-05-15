@@ -1,5 +1,10 @@
+[![GitHub license](https://img.shields.io/github/license/eventMacrosBR/up_1_ao_99_todas_classes-bro.svg)](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/blob/master/LICENSE)
 [![Travis CI Build Status](https://travis-ci.org/eventMacrosBR/up_1_ao_99_todas_classes-bro.svg?branch=master)](https://travis-ci.org/eventMacrosBR/up_1_ao_99_todas_classes-bro)
 [![Juntar-se ao chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/eventMacro-up-todas-as-classes/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+[![GitHub issues](https://img.shields.io/github/issues/eventMacrosBR/up_1_ao_99_todas_classes-bro.svg)](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/issues)
+[![GitHub forks](https://img.shields.io/github/forks/eventMacrosBR/up_1_ao_99_todas_classes-bro.svg)](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/network)
+[![GitHub stars](https://img.shields.io/github/stars/eventMacrosBR/up_1_ao_99_todas_classes-bro.svg)](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/stargazers)
+[![Github All Releases](https://img.shields.io/github/downloads/eventMacrosBR/up_1_ao_99_todas_classes-bro/total.svg)](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/releases)
 
 ---
 
