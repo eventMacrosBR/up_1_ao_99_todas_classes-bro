@@ -609,11 +609,26 @@ automacro questCacador_labirinto {
     exclusive 1
     InMap job_hunte
     call {
+        #começa em job_hunt 91 67
+        #move 72 76 -> ataque Monstro Alvo
+        #move 117 76 -> ataque Monstro Alvo (2x)
+        #north (11x) -> dá pra alterar por aquele north 55
+        #move 94 131 -> ataque Monstro Alvo
+        #move 110 131
+        #south (5x) -> dá pra alterar pra south 25 fica em 110 106
+        #west (2x) -> west 10
+        #
+        #talk 52 (switch#nht)
+        #
+        #east (2x) -> east 10
+        #north (5x) -> north 25
+        #move 89 131
+        #north (2x) -> north 10
         if (&config(route_avoidWalls) != 0) do conf route_avoidWalls 0
         if (&config(lockMap) != none) do conf lockMap none
         call pararDeAtacarApenasCorrer
 
-        do move 90 83
+        do move 72 76
         $contador = 0
         do ml #comando pra listar os monstros na tela
         while (&monster(Monstro Alvo) = -1 && $contador < 4) {
@@ -634,7 +649,7 @@ automacro questCacador_labirinto {
         }
         do ml #comando pra listar os monstros na tela
         stop
-        do move 70 83
+        do move 117 76
         #do west 10 # 80 83
         #do west 10 # 70 73
         if (&arg("$.pos", 1) = 164..187 && &arg("$.pos", 2) = 18..41) {
@@ -663,7 +678,7 @@ automacro questCacador_labirinto {
             ]
         }
         do ml
-        do move 113 83
+        do move 117 76 #movendo pro mesmo lugar, mas para matar outro monstro
         
          if (&arg("$.pos", 1) = 164..187 && &arg("$.pos", 2) = 18..41) {
             [
@@ -691,7 +706,8 @@ automacro questCacador_labirinto {
             ]
         }
         do ml
-        do south 7 # 113 76
+        do north 55
+        do move 94 131
          if (&arg("$.pos", 1) = 164..187 && &arg("$.pos", 2) = 18..41) {
             [
             log ===================================
@@ -725,11 +741,15 @@ automacro questCacador_labirinto {
         log = pelos menos eles tem que estar mortos agora
         log ===================================
         ]
-        do move 117 76
-        do move 117 131
-        do move 90 131
-        do move 90 139
-        do talk &npc(/switch.nht/)
+        do move 110 131
+        do south 25 
+        do west 10
+        do talk 52 (switch#nht)
+        do talk resp 0
+        do east 10 
+        do north 25
+        do move 89 131
+        do north 10
         do conf route_avoidWalls 1
     }
 }
