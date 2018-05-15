@@ -153,8 +153,7 @@ macro comprarItem {
     log = vou em $.param[0] nas coordenadas $.param[1]
     log = conversar com o npc $.param[2] , pode ser 
     log = que o nome do npc seja abreviado
-    log = para comprar a quantidade $.param[4]
-    log = do item $.param[3]
+    log = para comprar $.param[4] $.param[3]
     log ===================================
     ]
     log movendo-se para $.param[0] $.param[1]
@@ -162,7 +161,7 @@ macro comprarItem {
     do talk no
     log conversando com npc de venda
     do talk &npc(/$.param[2]/)
-    #do store
+    do store
     if (&store($.param[3]) != -1) {
         log o item existe na lista de itens do npc
         log tentando comprar o item
