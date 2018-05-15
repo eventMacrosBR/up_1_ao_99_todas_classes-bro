@@ -79,7 +79,7 @@ automacro questClasse2T_jaSouClasse2TSairDaValquiria {
         do talk &npc(44 33) #teleportadora
         switch ($mapaQueVou) {        
             case (= aldebaran) $mapaQueVou = Al\sDe\sBaran
-            case (= morooc) $mapaQueVou = morroc
+            case (= morocc) $mapaQueVou = morroc
             case (= yuno) $mapaQueVou = yuno
             case (~ einbroch,rachel,veins) $mapaQueVou = juno
         }
