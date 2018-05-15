@@ -112,7 +112,7 @@ macro aeroplano_einbrochPara {
     log $varAeroplano1, $varAeroplano2
 }
 
-macro aeroplano_junoPara {
+macro aeroplano_rachelPara {
     set exclusive 1
     log Vamos ir de Rachel para $.param[0]
     #se a cidade for izlude ou juno ele só pega 1 aeroplano
@@ -156,7 +156,7 @@ macro aeroplano_junoPara {
     }
     $varAeroplano1 = &config(aeroplano1)
     $varAeroplano2 = &config(aeroplano2)
-    do conf -f aeroplano_macroChamada aeroplano_junoPara
+    do conf -f aeroplano_macroChamada aeroplano_rachelPara
     do conf lockMap none
     do ai manual
     if ( $.map = airplane || $.map = airplane_01) {
