@@ -219,6 +219,8 @@ automacro questCacador_coletarItens_possibilidade1 {
         $qtdItem2 = &invamount(Troncos)
         $qtdItem3 = &invamount(Ervas Brancas)
 
+        call voltarAtacar
+
         if ( $qtdItem1 < 5 ) {
             do conf lockMap moc_fild11
             #esses dois o bot não pode e nem precisa atacar
@@ -274,6 +276,8 @@ automacro questCacador_coletarItens_possibilidade2 {
         $qtdItem2 = &invamount(Osso)
         $qtdItem3 = &invamount(Erva Verde)
 
+        call voltarAtacar
+
         if ( $qtdItem1 < 3 ) {
             do conf lockMap moc_fild01
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 < 5 ) {
@@ -311,6 +315,8 @@ automacro questCacador_coletarItens_possibilidade3 {
         $qtdItem2 = &invamount(Erva Vermelha)
         $qtdItem3 = &invamount(Couro de Animal)
 
+        call voltarAtacar
+
         if ( $qtdItem1 < 3 ) {
             do conf lockMap pay_fild08
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 < 5 ) {
@@ -347,6 +353,8 @@ automacro questCacador_coletarItens_possibilidade4 {
         $qtdItem1 = &invamount(Chifre de Dokebi)
         $qtdItem2 = &invamount(Pedaço de Casca de Ovo)
         $qtdItem3 = &invamount(Felpa)
+
+        call voltarAtacar
 
         if ( $qtdItem1 < 3 ) {
             #VAI TER QUE COMPRAR O CHIFRE USANDO O BETTERSHOPPER
@@ -389,6 +397,8 @@ automacro questCacador_coletarItens_possibilidade5 {
         $qtdItem1 = &invamount(Pele de Verme)
         $qtdItem3 = &invamount(Erva Amarela)
 
+        call voltarAtacar
+
         if ( $qtdItem1 < 9 ) {
             do conf lockMap gef_fild00
         } elsif ( $qtdItem1 >= 9 && $qtdItem2 < 9 ) {
@@ -425,6 +435,8 @@ automacro questCacador_coletarItens_possibilidade6 {
         $qtdItem1 = &invamount(Dente de Morcego)
         $qtdItem2 = &invamount(Muco Pegajoso)
         $qtdItem3 = &invamount(Pata de Urso)
+
+        call voltarAtacar
 
         if ( $qtdItem1 < 3 ) {
             do mconf Piere 0
@@ -474,6 +486,8 @@ automacro questCacador_coletarItens_possibilidade7 {
         $qtdItem1 = &invamount(Espinho de Porco-Espinho)
         $qtdItem2 = &invamount(Avelã)
         $qtdItem3 = &invamount(Cauda de Yoyo)
+
+        call voltarAtacar
 
         if ( $qtdItem1 < 2 ) {
             do conf lockMap mjolnir_01
@@ -527,11 +541,26 @@ automacro questCacador_coletarItens_possibilidade7 {
 automacro questCacador_entregarItens_todasAsPossibilidades {
     QuestActive 4002, 4003, 4004, 4005, 4006, 4007, 4008
     ConfigKey passo_quest_cacador indo entregar itens
+    NotInMap hugel
+    NotInMap hu_in01
+    ConfigKey aeroplano1 none
+    ConfigKey aeroplano2 none
     exclusive 1
     call {
-        [
-            log "Entregar"
-        ]
+        call pararDeAtacar
+        call aeroplano_junoPara "hugel"
+
+    }
+}
+
+automacro questCacador_entregarItens_todasAsPossibilidades {
+    QuestActive 4002, 4003, 4004, 4005, 4006, 4007, 4008
+    ConfigKey passo_quest_cacador indo entregar itens
+    InMap hugel, hu_in01
+    exclusive 1
+    call {
+        do move hu_in01 382 382 &rand(2,4)
+        do talknpc 382 382 r0 #Recepcionista
     }
 }
 
