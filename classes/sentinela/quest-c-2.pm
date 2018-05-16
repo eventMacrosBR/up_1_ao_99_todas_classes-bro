@@ -570,11 +570,40 @@ automacro questCacador_entregarItens_todasAsPossibilidades {
 #4009#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Vá falar com o Líder da Guilda, que está no Palácio Central de Payon. #
 #
+#4010#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
+#Vá falar com o Líder da Guilda, que está na Guilda dos Arqueiros. #
+#
+automacro questCacador_falarComACacadoraDaGuildIrIzlude {
+    QuestActive 4009, 4010
+    InMap hugel, hu_in01
+    exclusive 1
+    call {
+	 call aeroplano_hugelPara "izlude"
+    }
+}
+
+automacro questCacador_falarComACacadoraDaGuildIrPayon {
+    QuestActive 4009, 4010
+    InMap izlude
+    exclusive 1
+    call {
+	 salvarNaCidade "payon"
+    }
+}
+
+
+
+#4009#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
+#Vá falar com o Líder da Guilda, que está no Palácio Central de Payon. #
+#
 automacro questCacador_irAteOPalacioDePayon {
     QuestActive 4009
     exclusive 1
+    InMap payon, payon_in03
     call {
-        log Não implementado ainda!
+        do conf -f quest_cacador_lider palacio_payon
+        do move payon_in03 131 7 &rand(2,4)
+	do talknpc 131 7 r0 
     }
 }
 
@@ -584,8 +613,11 @@ automacro questCacador_irAteOPalacioDePayon {
 automacro questCacador_irAteAGuildaDosArqueiros {
     QuestActive 4010
     exclusive 1
+    InMap payon, pay_arche, payon_in02
     call {
-        log Não implementado ainda!
+        do conf -f quest_cacador_lider guilda_arqueiros
+        move payon_in02 21 31 &rand(2,4)
+	do talknpc 21 31 r0
     }
 }
 
@@ -790,8 +822,65 @@ automacro questCacador_labirinto {
 #4012#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Relate ao Senhor da Guilda dos Caçadores que passou no exame. #
 ##
+automacro questCacador_irAteAGuildaDosArqueirosRelatarSucesso {
+    QuestActive 4012
+    exclusive 1
+    ConfigKey quest_cacador_lider guilda_arqueiros
+    call {
+        move payon_in02 21 31 &rand(2,4)
+	do talknpc 21 31 r0
+    }
+}
+
+#4012#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
+#Relate ao Senhor da Guilda dos Caçadores que passou no exame. #
+##
+automacro questCacador_irAteOPalacioDePayonRelatarSucesso {
+    QuestActive 4012
+    exclusive 1
+    ConfigKey quest_cacador_lider palacio_payon
+    call {
+        do move payon_in03 131 7 &rand(2,4)
+	do talknpc 131 7 r0 
+    }
+}
 
 #4013#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Volte à Guilda dos Caçadores para relatar que passou no exame. #
 #Penetração #
+automacro questCacador_termineiDesafiosVoltandoHugel {
+    QuestActive 4013
+    NotInMap hugel
+    NotInMap hu_in01
+    ConfigKey aeroplano1 none
+    ConfigKey aeroplano2 none
+    exclusive 1
+    call {
+        call pararDeAtacar
+	do conf lockMap none 
+        call aeroplano_junoPara "hugel"
+
+    }
+}
+
+#4013#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
+#Volte à Guilda dos Caçadores para relatar que passou no exame. #
+#Penetração #
+automacro questCacador_relatarAoLiderDaGuildDosCacadores {
+    QuestActive 4013
+    InMap hugel, hu_in01
+    exclusive 1
+    call {
+        do move hu_in01 386 373 &rand(2,4)
+        do talknpc 386 373
+	[
+	    log =======================
+	    log Finalmente sou caçador
+	    log demorou para caramba
+	    log =======================
+	]
+    }
+}
+
+
 
