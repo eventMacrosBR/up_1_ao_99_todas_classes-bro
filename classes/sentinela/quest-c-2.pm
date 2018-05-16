@@ -168,7 +168,7 @@ automacro questCacador_falarDejiko {
     QuestInactive 4013
     exclusive 1
     call {
-        do talknpc 386 373 r1 r1 r3 r3 r3 r2 r1 r2 r3 r2 r1 r2  #Dejiko
+        do talknpc 386 373 r0 r0 r2 r2 r2 r1 r0 r1 r2 r1 r0 r1  #Dejiko
     }
 }
 
@@ -191,7 +191,7 @@ automacro questCacador_falarComRecepcionista {
     exclusive 1
     NpcNear /recepcionista da guilda/i
     call {
-        do talknpc 382 382 r1 #Recepcionista
+        do talknpc 382 382 r0 #Recepcionista
     }
 }
 
@@ -202,7 +202,7 @@ automacro questCacador_voltandoPraPronteraEArredores {
     ConfigKey aeroplano1 none
     ConfigKey aeroplano2 none
     call {
-
+	call aeroplano_hugelPara "izlude"
     }
 }
 
