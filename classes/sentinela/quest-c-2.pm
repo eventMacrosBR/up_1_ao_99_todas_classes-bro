@@ -563,7 +563,7 @@ automacro questCacador_entregarItens_todasAsPossibilidades {
     exclusive 1
     call {
         do move hu_in01 382 382 &rand(2,4)
-        do talknpc 382 382 r0 #Recepcionista
+        do talknpc 382 382 #Recepcionista
     }
 }
 
