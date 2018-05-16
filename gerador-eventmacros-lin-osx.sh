@@ -9,7 +9,7 @@ if hash pwsh 2> /dev/null; then
         else
           echo "Opção escolhida $opt"
           pwsh -File gerador-eventmacros.ps1 -job "$opt"
-          echo "Arquivo gerado \"enventMacros.txt\""
+          echo "Arquivo gerado \"eventMacros.txt\""
           exit
         fi
    done
