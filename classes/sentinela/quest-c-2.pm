@@ -548,6 +548,7 @@ automacro questCacador_entregarItens_todasAsPossibilidades {
     exclusive 1
     call {
         call pararDeAtacar
+	do conf lockMap none 
         call aeroplano_junoPara "hugel"
 
     }
