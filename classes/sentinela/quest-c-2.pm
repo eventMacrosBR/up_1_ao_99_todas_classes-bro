@@ -587,7 +587,7 @@ automacro questCacador_falarComACacadoraDaGuildIrPayon {
     InMap izlude
     exclusive 1
     call {
-	 salvarNaCidade "payon"
+	 call salvarNaCidade "payon"
     }
 }
 
@@ -616,7 +616,7 @@ automacro questCacador_irAteAGuildaDosArqueiros {
     InMap payon, pay_arche, payon_in02
     call {
         do conf -f quest_cacador_lider guilda_arqueiros
-        move payon_in02 21 31 &rand(2,4)
+        do move payon_in02 21 31 &rand(2,4)
 	do talknpc 21 31 r0
     }
 }
@@ -827,7 +827,7 @@ automacro questCacador_irAteAGuildaDosArqueirosRelatarSucesso {
     exclusive 1
     ConfigKey quest_cacador_lider guilda_arqueiros
     call {
-        move payon_in02 21 31 &rand(2,4)
+        do move payon_in02 21 31 &rand(2,4)
 	do talknpc 21 31 r0
     }
 }
