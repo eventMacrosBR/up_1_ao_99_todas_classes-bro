@@ -275,7 +275,7 @@ macro aeroplano_hugelPara {
     if ( $.map = airplane || $.map = airplane_01) {
         log ja estamos no aeroplano, só esperar agora
     } else {
-        do move ra_fild12 294 208
+        do move hugel 178 142
         do talk resp 0
         log $varAeroplano1, $varAeroplano2
     }
