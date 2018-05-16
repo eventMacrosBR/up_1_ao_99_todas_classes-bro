@@ -283,7 +283,7 @@ automacro questCacador_coletarItens_possibilidade2 {
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 < 5 ) {
             do conf lockMap pay_dun01
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 5 && $qtdItem3 < 3) {
-            do conf lockMap prt_fild02
+            do conf lockMap prt_fild08
         } elsif ( $qtdItem1 >= 3 && $qtdItem2 >= 5 && $qtdItem3 >= 3) {
             [
             log ================================
