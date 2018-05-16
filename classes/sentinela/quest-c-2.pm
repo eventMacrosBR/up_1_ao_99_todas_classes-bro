@@ -192,6 +192,7 @@ automacro questCacador_falarComRecepcionista {
     NpcNear /recepcionista da guilda/i
     call {
         do talknpc 382 382 r0 #Recepcionista
+	do conf -f passo_quest_cacador coletar itens
     }
 }
 
@@ -201,6 +202,7 @@ automacro questCacador_voltandoPraPronteraEArredores {
     exclusive 1
     ConfigKey aeroplano1 none
     ConfigKey aeroplano2 none
+    ConfigKey passo_quest_cacador coletar itens
     call {
 	call aeroplano_hugelPara "izlude"
     }
