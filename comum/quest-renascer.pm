@@ -395,7 +395,7 @@ automacro questRenascer_ultimoEstagio {
 automacro questRenascer_renasci {
     BaseLevel 1
     exclusive 1
-    JobID 4001 #Aprendiz T.
+    JobID $APRENDIZ_T
     ConfigKeyNot estagio_Reborn none
     call {
         do conf estagio_Reborn none

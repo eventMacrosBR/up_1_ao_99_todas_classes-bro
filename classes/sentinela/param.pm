@@ -2,14 +2,14 @@ sub inicializarParametrosClasses {
     my %parametrosClasses = (
         idC1 => 3,
         idC2 => 11,
-        idC2Alt => -1,
+        idC2Alt => $INDEFINIDO,
         idC1T => 4004,
         idC2T => 4012,
-        idC2TAlt => -2,
+        idC2TAlt => $INDEFINIDO,
         idC3 => 4056,
         idBC1 => 4026,
         idBC2 => 4034,
-        idBC2Alt => -3
+        idBC2Alt => $INDEFINIDO
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
     $eventMacro->set_full_hash('parametrosClasses', \%parametrosClasses);
@@ -18,9 +18,9 @@ sub inicializarParametrosClasses {
 automacro configurarAtaqueADistancia {
     ConfigKeyNot attackDistanceAuto 1
     exclusive 1
-    JobIDNot 0 #Aprendiz
-    JobIDNot 4023 #Baby Aprendiz
-    JobIDNot 4001 #Aprendiz T.
+    JobIDNot $APRENDIZ
+    JobIDNot $APRENDIZ_BABY
+    JobIDNot $APRENDIZ_T
     call {
         do conf attackDistanceAuto 1
     }
@@ -29,7 +29,7 @@ automacro configurarAtaqueADistancia {
 automacro removerConfiguracaoAtaqueADistanciaAprendizT {
     ConfigKey attackDistanceAuto 1
     exclusive 1
-    JobID 4001 #Aprendiz T.
+    JobID $APRENDIZ_T
     call {
         do conf attackDistanceAuto 0
     }

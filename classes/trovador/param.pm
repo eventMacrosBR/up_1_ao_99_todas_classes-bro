@@ -18,9 +18,9 @@ sub inicializarParametrosClasses {
 automacro configurarAtaqueADistancia {
     ConfigKeyNot attackDistanceAuto 1
     exclusive 1
-    JobIDNot 0 #Aprendiz
-    JobIDNot 4023 #Baby Aprendiz
-    JobIDNot 4001 #Aprendiz T.
+    JobIDNot $APRENDIZ
+    JobIDNot $APRENDIZ_BABY
+    JobIDNot $APRENDIZ_T
     call {
         do conf attackDistanceAuto 1
     }
@@ -29,7 +29,7 @@ automacro configurarAtaqueADistancia {
 automacro removerConfiguracaoAtaqueADistanciaAprendizT {
     ConfigKey attackDistanceAuto 1
     exclusive 1
-    JobID 4001 #Aprendiz T.
+    JobID $APRENDIZ_T
     call {
         do conf attackDistanceAuto 0
     }

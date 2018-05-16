@@ -17,7 +17,7 @@ automacro questClasse1T_virandoClasse1T_bugada {
 }
 automacro questClasse1T_irAteNpc {
     NotInMap $parametrosQuestClasse1T{mapa}
-    JobID 161,4001 #Aprendiz
+    JobID $APRENDIZ_T #Aprendiz
     JobLevel 10
     SkillLevel NV_BASIC = 9
     exclusive 1
@@ -33,7 +33,7 @@ automacro questClasse1T_irAteNpc {
 
 automacro questClasse1T_virandoClasse1T {
     InMap $parametrosQuestClasse1T{mapa}
-    JobID 161,4001 #Aprendiz
+    JobID $APRENDIZ_T #Aprendiz
     JobLevel 10
     SkillLevel NV_BASIC = 9
     exclusive 1

@@ -70,9 +70,9 @@ automacro configurarBuyAutoFlecha {
 automacro configurarEquiparFlechaAutomaticamente {
     ConfigKeyNot attackEquip_arrow Flecha
     exclusive 1
-    JobIDNot 0 #Aprendiz
-    JobIDNot 4001 #Aprendiz T.
-    JobIDNot 4023 #Baby aprendiz
+    JobIDNot $APRENDIZ
+    JobIDNot $APRENDIZ_T
+    JobIDNot $APRENDIZ_BABY
     call {
         do conf attackEquip_arrow Flecha
         do iconf Flecha 0 0 0
@@ -82,7 +82,7 @@ automacro configurarEquiparFlechaAutomaticamente {
 automacro desconfigurarAutoEquiparFlechaAprendizT {
     ConfigKey attackEquip_arrow Flecha
     exclusive 1
-    JobID 4001 #Aprendiz T.
+    JobID $APRENDIZ_T
     call {
         do conf attackEquip_arrow none
     }
