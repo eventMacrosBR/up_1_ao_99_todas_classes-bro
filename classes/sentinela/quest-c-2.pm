@@ -538,7 +538,7 @@ automacro questCacador_coletarItens_possibilidade7 {
 #4008#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Colete os itens que o Caçador de Demônios pedir. - 2 Espinhos de Porco-Espinho,  1 Avelã e 1 Cauda de Yoyo #
 #
-automacro questCacador_entregarItens_todasAsPossibilidades {
+automacro questCacador_entregarItensEmHugel {
     QuestActive 4002, 4003, 4004, 4005, 4006, 4007, 4008
     ConfigKey passo_quest_cacador indo entregar itens
     NotInMap hugel
