@@ -8,7 +8,7 @@ automacro inicializar {
         inicializarPlugins()
 
         #Inicializar todas as contantes
-        contantes_inicializar()
+        call contantes_inicializar
         
         # Configurações de Ids de classe
         
