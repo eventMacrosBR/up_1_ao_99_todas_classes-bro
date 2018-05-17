@@ -36,8 +36,8 @@ sub inicializarParametrosQuestClasse2 {
         942 => "1 1 0", #Caudas de Yoyo
         1026 => "1 1 0" #Avelãs
     );
-	Commands::run("conf -f questc2_implementada true");
-	foreach $key (keys %items) {
+    Commands::run("conf -f questc2_implementada true");
+    foreach $key (keys %items) {
         if ($classe == 1) { 
             Commands::run("iconf $key $items{$key}") 
         } else {
@@ -154,7 +154,7 @@ automacro questCacador_falarComRecepcionista {
     NpcNear /recepcionista da guilda/i
     call {
         do talknpc 382 382 r0 #Recepcionista
-	do conf -f passo_quest_cacador coletar itens
+    do conf -f passo_quest_cacador coletar itens
     }
 }
 
@@ -166,7 +166,7 @@ automacro questCacador_voltandoPraPronteraEArredores {
     ConfigKey aeroplano2 none
     ConfigKey passo_quest_cacador coletar itens
     call {
-	call aeroplano_hugelPara "izlude"
+    call aeroplano_hugelPara "izlude"
     }
 }
 
@@ -512,7 +512,7 @@ automacro questCacador_entregarItensEmHugel {
     exclusive 1
     call {
         call pararDeAtacar
-	do conf lockMap none 
+    do conf lockMap none 
         call aeroplano_junoPara "hugel"
 
     }
@@ -540,7 +540,7 @@ automacro questCacador_falarComACacadoraDaGuildIrIzlude {
     InMap hugel, hu_in01
     exclusive 1
     call {
-	 call aeroplano_hugelPara "izlude"
+     call aeroplano_hugelPara "izlude"
     }
 }
 
@@ -549,7 +549,7 @@ automacro questCacador_falarComACacadoraDaGuildIrPayon {
     InMap izlude
     exclusive 1
     call {
-	 call salvarNaCidade "payon"
+     call salvarNaCidade "payon"
     }
 }
 
@@ -573,9 +573,9 @@ automacro questCacador_irAteOPalacioDePayon {
     exclusive 1
     InMap payon_in03
     call {
-	do move payon_in03 158 33
+    do move payon_in03 158 33
         do move payon_in03 131 7 &rand(2,4)
-	do talknpc 131 7 r3 
+    do talknpc 131 7 r3 
     }
 }
 
@@ -590,7 +590,7 @@ automacro questCacador_irAteAGuildaDosArqueiros {
     call {
         do conf -f quest_cacador_lider guilda_arqueiros
         do move payon_in02 21 31 &rand(2,4)
-	do talknpc 21 31 r3
+    do talknpc 21 31 r3
     }
 }
 
@@ -785,7 +785,7 @@ automacro questCacador_irAteAGuildaDosArqueirosRelatarSucesso {
     ConfigKey quest_cacador_lider guilda_arqueiros
     call {
         do move payon_in02 21 31 &rand(2,4)
-	do talknpc 21 31 r0
+    do talknpc 21 31 r0
     }
 }
 
@@ -810,7 +810,7 @@ automacro questCacador_irAteOPalacioDePayonRelatarSucessoNoPalacio {
     call {
         do move payon_in03 158 33
         do move payon_in03 131 7 &rand(2,4)
-	do talknpc 131 7 r0 
+    do talknpc 131 7 r0 
     }
 }
 
@@ -826,7 +826,7 @@ automacro questCacador_termineiDesafiosVoltandoHugel {
     exclusive 1
     call {
         call pararDeAtacar
-	do conf lockMap none 
+    do conf lockMap none 
         call aeroplano_junoPara "hugel"
 
     }
@@ -842,12 +842,12 @@ automacro questCacador_relatarAoLiderDaGuildDosCacadores {
     call {
         do move hu_in01 386 373 &rand(2,4)
         do talknpc 386 373
-	[
-	    log =======================
-	    log Finalmente sou caçador
-	    log demorou para caramba
-	    log =======================
-	]
+    [
+        log =======================
+        log Finalmente sou caçador
+        log demorou para caramba
+        log =======================
+    ]
     }
 }
 

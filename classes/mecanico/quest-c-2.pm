@@ -1,9 +1,9 @@
 sub inicializarParametrosQuestClasse2 {
-	my ($classe) = @_;
-	my %items = (
-	#TODO
+    my ($classe) = @_;
+    my %items = (
+    #TODO
     );
-	foreach $key (keys %items) {
+    foreach $key (keys %items) {
         if ($classe == 1) { 
             Commands::run("iconf $key $items{$key}") 
         } else {

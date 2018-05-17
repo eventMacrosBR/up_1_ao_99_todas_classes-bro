@@ -1,9 +1,9 @@
 sub inicializarParametrosQuestClasse2 {
-	my ($classe) = @_;
-	my %items = (
-	 );
-	Commands::run("conf -f questc2_implementada true");
-	foreach $key (keys %items) {
+    my ($classe) = @_;
+    my %items = (
+     );
+    Commands::run("conf -f questc2_implementada true");
+    foreach $key (keys %items) {
         if ($classe == 1) { 
             Commands::run("iconf $key $items{$key}") 
         } else {

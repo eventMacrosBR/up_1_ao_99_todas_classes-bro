@@ -1,7 +1,7 @@
 sub inicializarParametrosQuestClasse2 {
-	my ($classe) = @_;
-	my %items = (
-	#Possibilidade 1
+    my ($classe) = @_;
+    my %items = (
+    #Possibilidade 1
     938 => "20 1 0", #Muco Pegajoso
     501 => "5 1 0", #Poção Vermelha
     909 => "3 1 0", #Jellopy
@@ -16,8 +16,8 @@ sub inicializarParametrosQuestClasse2 {
     1020 => "10 1 0", #Cabelos Morenos
     2401 => "1 1 0" #    Sandálias [0]    
     );
-	Commands::run("conf -f questc2_implementada false");
-	foreach $key (keys %items) {
+    Commands::run("conf -f questc2_implementada false");
+    foreach $key (keys %items) {
         if ($classe == 1) { 
             Commands::run("iconf $key $items{$key}") 
         } else {

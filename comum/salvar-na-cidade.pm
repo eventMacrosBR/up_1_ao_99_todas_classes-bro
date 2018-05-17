@@ -74,7 +74,7 @@ macro salvarNaCidade {
             do conf -f saveMap_posicaoNpcPraPocao ve_in 243 303
         }
         case (=~ /alberta/i ) {
-        	do conf -f saveMap_desejado alberta
+            do conf -f saveMap_desejado alberta
             do conf -f saveMap_posicaoKafra 113 60
             do conf -f saveMap_posicaoNpcVenda alberta_in 182 97
             do conf -f saveMap_posicaoNpcPraPocao alberta_in 182 97
@@ -215,29 +215,29 @@ automacro SalvoNaKafra {
         do conf sellAuto_npc &config(saveMap_posicaoNpcVenda)
         ]
         
-	    #felizmente TODOS os npcs que vendem poção amarela, também vendem flecha normal
+        #felizmente TODOS os npcs que vendem poção amarela, também vendem flecha normal
         $continuarLoop = sim
-	    $i = 0
-	    while ($continuarLoop = sim && &config(saveMap_posicaoNpcPraPocao) != -1) {
-	    	
+        $i = 0
+        while ($continuarLoop = sim && &config(saveMap_posicaoNpcPraPocao) != -1) {
+            
             if (&config(buyAuto_$i) =~ /Poção|Flecha/i) {
                 [
                 log ===================================
                 log = configurando bloco "buyAuto_$i"
                 log ===================================
                 ]
-	    		do conf buyAuto_$i_npc &config(saveMap_posicaoNpcPraPocao)
-	    	}
+                do conf buyAuto_$i_npc &config(saveMap_posicaoNpcPraPocao)
+            }
 
-	    	if (a&config(buyAuto_$i) = a) {
-	    		$continuarLoop = nao
-	    	} elsif (checarSeExisteNoConfig("buyAuto_$i") = nao) {
+            if (a&config(buyAuto_$i) = a) {
+                $continuarLoop = nao
+            } elsif (checarSeExisteNoConfig("buyAuto_$i") = nao) {
                 $continuarLoop = nao
             } elsif (&config(buyAuto_$i) = -1) {
                 $continuarLoop = nao
             }
-	    	$i++
-	    }
+            $i++
+        }
 
         [
         do conf saveMap_sequenciaPraArmazenar none

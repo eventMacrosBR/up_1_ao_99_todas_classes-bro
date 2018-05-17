@@ -1,7 +1,7 @@
 sub inicializarParametrosQuestClasse2 {
-	my ($classe) = @_;
-	my %items = (
-	#Possibilidade 1
+    my ($classe) = @_;
+    my %items = (
+    #Possibilidade 1
     7053 => "5 1 0", #Cyfar
     508 => "10 1 0", #Erva Amarela
     509 => "10 1 0", #Erva Branca
@@ -37,8 +37,8 @@ sub inicializarParametrosQuestClasse2 {
     510 => "3 1 0" #Erva Azul
 
     );
-	Commands::run("conf -f questc2_implementada false");
-	foreach $key (keys %items) {
+    Commands::run("conf -f questc2_implementada false");
+    foreach $key (keys %items) {
         if ($classe == 1) { 
             Commands::run("iconf $key $items{$key}") 
         } else {

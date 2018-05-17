@@ -1,12 +1,12 @@
 sub inicializarParametrosQuestClasse2 {
-	my ($classe) = @_;
-	my %items = (
-	523 => "1 1 0", #Água Benta
+    my ($classe) = @_;
+    my %items = (
+    523 => "1 1 0", #Água Benta
     930 => "10 1 0", #Bandagem Estragada
     1041 => "10 1 0", #Lampião
     2608 => "1 1 0" #Rosário 
     );
-	Commands::run("conf -f questc2_implementada true");
+    Commands::run("conf -f questc2_implementada true");
     foreach $key (keys %items) {
         if ($classe == 1) { 
             Commands::run("iconf $key $items{$key}") 
