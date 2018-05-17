@@ -58,16 +58,6 @@ automacro configurarRajadaDeFlechas {
     }
 }
 
-automacro configurarBuyAutoFlecha {
-    ConfigKeyNot buyAuto_0 Flecha
-    BaseLevel != 99
-    call {
-        do conf buyAuto_0 Flecha
-        do conf buyAuto_0_minAmount 25
-        do conf buyAuto_0_maxAmount 5000
-    }
-}
-
 automacro configurarEquiparFlechaAutomaticamente {
     ConfigKeyNot attackEquip_arrow Flecha
     exclusive 1
@@ -130,6 +120,16 @@ automacro configurarBuyAutoFlecha {
         do conf buyAuto_1_minAmount 25
         do conf buyAuto_1_maxAmount 2000
         do conf buyAuto_1_zeny > 2000
+    }
+}
+
+automacro aumentarFlechasLevel30 {
+    ConfigKeyNot buyAuto_1_maxAmount 5000
+    BaseLevel >= 30
+    exclusive 1
+    call {
+        do conf buyAuto_1_maxAmount 5000
+        do conf buyAuto_1_zeny > 5000
     }
 }
 
