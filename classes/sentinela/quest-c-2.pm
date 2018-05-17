@@ -818,7 +818,7 @@ automacro questCacador_labirinto {
         do move 110 131
         do south 25 
         do west 10
-        do talk &npc(/switch.nht/)
+        do talk &npc(/switch/i)
         do talk resp 0
         do east 10 
         do north 25
