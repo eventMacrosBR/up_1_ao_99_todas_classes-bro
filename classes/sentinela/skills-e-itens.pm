@@ -118,7 +118,6 @@ automacro configurarUsarAljave {
 
 automacro configurarBuyAutoFlecha {
     ConfigKeyNot buyAuto_1 Flecha
-    BaseLevel < 30
     JobIDNot 0 #Aprendiz
     JobIDNot 4001 #Aprendiz T.
     JobIDNot 4023 #Aprendiz Baby
