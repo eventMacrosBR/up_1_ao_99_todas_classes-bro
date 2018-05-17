@@ -723,7 +723,6 @@ automacro questCacador_labirinto {
             ]
         }
         do ml #comando pra listar os monstros na tela
-        stop
         do move 117 76
         #do west 10 # 80 83
         #do west 10 # 70 73
