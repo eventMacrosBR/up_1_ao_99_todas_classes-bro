@@ -229,9 +229,7 @@ automacro SalvoNaKafra {
                 do conf buyAuto_$i_npc &config(saveMap_posicaoNpcPraPocao)
             }
 
-            if (a&config(buyAuto_$i) = a) {
-                $continuarLoop = nao
-            } elsif (checarSeExisteNoConfig("buyAuto_$i") = nao) {
+            if (checarSeExisteNoConfig("buyAuto_$i") = nao) {
                 $continuarLoop = nao
             } elsif (&config(buyAuto_$i) = -1) {
                 $continuarLoop = nao
