@@ -6,9 +6,6 @@ automacro inicializar {
     call {
         # Carregando Plugins necessários
         inicializarPlugins()
-
-        #Inicializar todas as contantes
-        call contantes_inicializar
         
         # Configurações de Ids de classe
         
@@ -57,11 +54,11 @@ automacro inicializar {
         inicializarParametrosQuestClasse1T()
         
         # Esse sub configura os itens da quest de classe 2 (para não vender nem guardar)
-        if (pegarID() ~ $parametrosClasses{idC1}, $APRENDIZ, $APRENDIZ_BABY ) {
-            inicializarParametrosQuestClasse2($TRUE) #representa classe 1, o momento que queremos que configure isso
+        if (pegarID() ~ $parametrosClasses{idC1}, 0, 4023 ) {
+            inicializarParametrosQuestClasse2(1) #representa classe 1, o momento que queremos que configure isso
             #aprendiz também pois essa sub só é executada uma vez, se você fazer uma classe 2 num dia só ele não guarda os itens
         } else {
-            inicializarParametrosQuestClasse2($FALSE) #qualquer outro número serve, contanto que não seja 1
+            inicializarParametrosQuestClasse2(-1) #qualquer outro número serve, contanto que não seja 1
         }
         
         # Esse sub gera a hash %parametrosQuestClasse2T com a seguinte key:
@@ -97,7 +94,7 @@ macro atualizarBuild {
     #parte feita por vitorsilveiro
     $idClasseAtual = pegarID() #sub se encontra no arquivo utilidades.pm
     if (&config(skillsAddAuto) != 1) do conf skillsAddAuto 1
-    if ($idClasseAtual ~ $APRENDIZ, $APRENDIZ_BABY, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
+    if ($idClasseAtual ~ 0, 4023, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
         if (&config(statsAddAuto_list) != $configsBuild{statsPadrao}) do conf statsAddAuto_list $configsBuild{statsPadrao}
     } else {
         if (&config(statsAddAuto_list) != $configsBuild{statsPadraoTransclasse}) do conf statsAddAuto_list $configsBuild{statsPadraoTransclasse}
@@ -111,7 +108,7 @@ macro atualizarBuild {
     extrairMapasDeUp("$.lvl")
     
     switch ($idClasseAtual) {
-        case (~ $APRENDIZ, $APRENDIZ_T, $APRENDIZ_BABY) { #Aprendiz / Aprendiz T. / Baby Aprendiz
+        case (~ 0, 161, 4001, 4023) { #Aprendiz / Aprendiz T. / Baby Aprendiz
             if (&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz}) do conf skillsAddAuto_list $configsBuild{skillsAprendiz}
         }
         case (~ $parametrosClasses{idC1}, $parametrosClasses{idBC1}) { #Classes 1
@@ -183,7 +180,7 @@ macro atualizarBuild {
             do eval Log::error "Não foi possivel definir qual é a sua classe.\n";
             do eval Log::error "ID encontrado: $idClasseAtual\n";
         }
-        if (&config(questc2_implementada) != true && pegarID() ~ $parametrosQuestClasse1{idC1}, $parametrosQuestClasse1{idBC1}) {
+        if (&config(questc2_implementada) != true && pegarID() = $parametrosQuestClasse1{idC1}) {
             [
             log =========================================================
             log   AVISO!

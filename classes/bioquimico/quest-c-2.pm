@@ -423,7 +423,6 @@ automacro virarAlquimista_naoTenhoAFlor_NemZeny {
     }
 }
 
-#PRECISA SER REMOVIDO
 sub recursoTecnicoPaliativo {
     my $estaNoSys;
     my $controlfile = Settings::getSysFilename();

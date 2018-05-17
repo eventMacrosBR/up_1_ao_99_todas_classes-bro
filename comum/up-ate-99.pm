@@ -12,8 +12,8 @@ automacro UpClasse {
     exclusive 1
     priority 20 #baixa prioridade
     timeout 30
-    JobIDNot $APRENDIZ #Ou o campo de treinamento fica louco
-    JobIDNot $APRENDIZ_BABY #Baby Aprendiz
+    JobIDNot 0 #Ou o campo de treinamento fica louco
+    JobIDNot 4023 #Baby Aprendiz
     call upar
 }
 

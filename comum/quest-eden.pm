@@ -18,8 +18,8 @@ automacro seJuntarAoGrupoEden_MoverPerto {
     BaseLevel >= 12
     ConfigKeyNot membroDoEden sim
     NpcNotNear /Lenore|Lime/
-    JobIDNot $APRENDIZ #aprendiz
-    JobIDNot $APRENDIZ_BABY #Baby Aprendiz
+    JobIDNot 0 #aprendiz
+    JobIDNot 4023 #Baby Aprendiz
     call moverPertoDosNpcEden
 }
 

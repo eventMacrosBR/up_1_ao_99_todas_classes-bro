@@ -100,9 +100,9 @@ automacro aumentarFlechasLevel30 {
 automacro configurarEquiparFlechaAutomaticamente {
     ConfigKeyNot attackEquip_arrow Flecha
     exclusive 1
-    JobIDNot $APRENDIZ
-    JobIDNot $APRENDIZ_BABY
-    JobIDNot $APRENDIZ_T
+    JobIDNot 0 #Aprendiz
+    JobIDNot 4001 #Aprendiz T.
+    JobIDNot 4023 #Baby aprendiz
     call {
         do conf attackEquip_arrow Flecha
         do iconf Flecha 0 0 0
@@ -112,7 +112,7 @@ automacro configurarEquiparFlechaAutomaticamente {
 automacro desconfigurarAutoEquiparFlechaAprendizT {
     ConfigKey attackEquip_arrow Flecha
     exclusive 1
-    JobID $APRENDIZ_T
+    JobID 4001 #Aprendiz T.
     call {
         do conf attackEquip_arrow none
     }
