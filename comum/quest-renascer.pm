@@ -35,6 +35,9 @@ automacro questRenascer_chegueilvl99 {
             ]
             lock chamarAmigo
         } else {
+            if ($.statushandle =~ /EFST_RIDING/i) do pecopeco release
+            #TODO adicionar uma linha pra remover falcão
+            #e outra linha para vaporizar homunculo
             do pm "$parametrosQuestClasseRenascer{amigo}" ajudaRebornar    
             log peso atual: $.weight
             log peso percentual: $.weightpercent
@@ -134,7 +137,9 @@ automacro questRenascer_chamarAmigo {
     QuestInactive 1000
     call {
         $vezesQueTentouZerarPeso++
-
+        if ($.statushandle =~ /EFST_RIDING/i) do pecopeco release
+        #TODO adicionar uma linha pra remover falcão
+        #e outra linha para vaporizar homunculo
         if ( $vezesQueTentouZerarPeso > 2 ) {
             [
             log já tentei ficar com peso zero,
