@@ -596,16 +596,27 @@ automacro questCacador_falarComACacadoraDaGuildIrPayon {
 #4009#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Vá falar com o Líder da Guilda, que está no Palácio Central de Payon. #
 #
+automacro questCacador_irAteOPalacioDePayonEntrar {
+    QuestActive 4009
+    exclusive 1
+    InMap payon
+    call {
+        do conf -f quest_cacador_lider palacio_payon
+        do move payon 188 233
+    }
+}
+
 automacro questCacador_irAteOPalacioDePayon {
     QuestActive 4009
     exclusive 1
-    InMap payon, payon_in03
+    InMap payon_in03
     call {
-        do conf -f quest_cacador_lider palacio_payon
+	do move payon_in03 158 33
         do move payon_in03 131 7 &rand(2,4)
 	do talknpc 131 7 r0 
     }
 }
+
 
 #4010#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Vá falar com o Líder da Guilda, que está na Guilda dos Arqueiros. #
@@ -835,11 +846,23 @@ automacro questCacador_irAteAGuildaDosArqueirosRelatarSucesso {
 #4012#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Relate ao Senhor da Guilda dos Caçadores que passou no exame. #
 ##
-automacro questCacador_irAteOPalacioDePayonRelatarSucesso {
+automacro questCacador_irAteOPalacioDePayonRelatarSucessoEntrarPalacio {
     QuestActive 4012
     exclusive 1
+    InMap payon
     ConfigKey quest_cacador_lider palacio_payon
     call {
+        do move payon 188 233 
+    }
+}
+
+automacro questCacador_irAteOPalacioDePayonRelatarSucessoNoPalacio {
+    QuestActive 4012
+    exclusive 1
+    InMap payon_in03
+    ConfigKey quest_cacador_lider palacio_payon
+    call {
+        do move payon_in03 158 33
         do move payon_in03 131 7 &rand(2,4)
 	do talknpc 131 7 r0 
     }
