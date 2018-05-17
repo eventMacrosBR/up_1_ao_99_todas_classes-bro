@@ -65,20 +65,32 @@ macro upar {
             log ===================================
             ]
             switch ($mapa{saveMap}) {
-                case (~ rachel, veins) {
-                    call aeroplano_hugelPara "rachel"
-                    stop
-                }
-                case (= einbroch) {
-                    call aeroplano_hugelPara "einbroch"
-                    stop
-                }
+                case (~ rachel, veins) $destino = rachel
+                case (= einbroch) $destino = einbroch
                 else {
-                    call aeroplano_hugelPara "juno"
-                    stop
+                    $destino = juno
                 }
             }
+            call aeroplano_hugelPara "$destino"
+            stop
+        } elsif ($.map =~ /^ra|^ve|^aru/ && $mapa{saveMap} != rachel && $mapa{saveMap} != veins) {
+            [
+            log ===================================
+            log = estou em $.map, mas quero upar em outro lugar longe
+            log = decidindo como chegar la
+            log ===================================
+            ]
+            switch ($mapa{saveMap}) {
+                case (= einbroch) $destino = einbroch
+                case (= hugel) $destino = hugel
+                else {
+                    $destino = juno
+                }
+            }
+            call aeroplano_rachelPara "$destino"
+            stop
         }
+        #TODO fazer um pra einbroch
 
         if ($mapa{saveMap} ~ rachel,veins) {
             if ($.map =~ /^ra|^ve|^aru/) {
