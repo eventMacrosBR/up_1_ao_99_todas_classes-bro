@@ -45,6 +45,7 @@ automacro pegarPeco_irAteNpc {
     StatusInactiveHandle EFST_RIDING
     NpcNotNear /Criador de Pecopecos/
     Zeny >= 3500
+    BaseLevel != 99
     priority -3
     call {
         do move prontera 50 341 &rand(3,7)
@@ -57,6 +58,7 @@ automacro pegarPeco {
     StatusInactiveHandle EFST_RIDING
     NpcNear /Criador de Pecopecos/
     priority -3
+    BaseLevel != 99
     Zeny >= 3500
     call {
         do talk $.NpcNearLastBinId

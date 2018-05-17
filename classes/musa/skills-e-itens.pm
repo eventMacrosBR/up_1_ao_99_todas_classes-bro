@@ -60,6 +60,7 @@ automacro configurarRajadaDeFlechas {
 
 automacro configurarBuyAutoFlecha {
     ConfigKeyNot buyAuto_0 Flecha
+    BaseLevel != 99
     call {
         do conf buyAuto_0 Flecha
         do conf buyAuto_0_minAmount 25
@@ -91,7 +92,7 @@ automacro desconfigurarAutoEquiparFlechaAprendizT {
 automacro configurarParaComprarPoucasFlechasArqueiroT {
     ConfigKey buyAuto_1_maxAmount 5000
     BaseLevel < 30
-    JobID $parametrosClasses{idC2T}
+    JobID $parametrosClasses{idC1T}
     call {
         do conf buyAuto_1_maxAmount 2000
         do conf buyAuto_1_zeny > 2000
@@ -109,6 +110,26 @@ automacro configurarUsarAljave {
         }
         do conf useSelf_item_1 Aljave
         do conf useSelf_item_1_inInventory  Flecha < 50
+    }
+}
+
+automacro configurarBuyAutoFlecha {
+    ConfigKeyNot buyAuto_1 Flecha
+    BaseLevel < 30
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
+    exclusive 1
+    call {
+        $blocoExiste = checarSeExisteNoConfig("buyAuto_1")
+        if ($blocoExiste = nao ) {
+            adicionaBuyAuto() #preciso adicionar um bloco novo, porque o bloco
+            #de buyauto padrão não tem o "zeny" como chave, apesar que deveria
+            pause 1
+            do reload config
+        }
+        do conf buyAuto_1 Flecha
+        do conf buyAuto_1_minAmount 25
+        do conf buyAuto_1_maxAmount 2000
+        do conf buyAuto_1_zeny > 2000
     }
 }
 

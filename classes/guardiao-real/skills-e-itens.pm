@@ -100,6 +100,7 @@ automacro pegarPeco_irAteNpc {
     NpcNotNear /Peco Peco/
     Zeny >= 3500
     priority -3
+    BaseLevel != 99
     call {
         do move prontera 232 318 &rand(3,7)
     }
@@ -111,34 +112,11 @@ automacro pegarPeco {
     StatusInactiveHandle EFST_RIDING
     NpcNear /Peco Peco/
     priority -3
+    BaseLevel != 99
     Zeny >= 3500
     call {
         do talk $.NpcNearLastBinId
         do talk resp 0
-    }
-}
-
-automacro lockMap_foraDele {
-    ConfigKey lockMap gl_church
-    ConfigKeyNot attackAuto -1
-    InLockMap 0
-    exclusive 1
-    call {
-        do conf attackAuto -1
-        do conf itemsTakeAuto 0
-        do conf itemsGatherAuto 0
-    }
-}
-
-automacro lockMap_dentroDele {
-    ConfigKey lockMap gl_church
-    ConfigKeyNot attackAuto 2
-    InLockMap 1
-    exclusive 1
-    call {
-        do conf attackAuto 2
-        do conf itemsTakeAuto 2
-        do conf itemsGatherAuto 2
     }
 }
 
