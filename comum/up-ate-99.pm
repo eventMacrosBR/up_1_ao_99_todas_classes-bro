@@ -52,7 +52,7 @@ macro upar {
         call pararDeAtacar
         do conf lockMap none
         
-        if ($.map =~ /^hu/ && $mapa{saveMap} != hugel) {
+        if ($.map =~ /^hugel|^hu_/ && $mapa{saveMap} != hugel) {
             #agora é a parte que damos um jeito de chegar onde queremos!
             [
             log ===================================
