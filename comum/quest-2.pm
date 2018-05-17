@@ -26,6 +26,7 @@ automacro questClasse2_virarClasse2Inicio_bugada {
 
 automacro questClasse2_inicio {
     JobLevel = 50
+    FreeSkillPoints = 0
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     ConfigKeyNot virarClasse2 true
     exclusive 1
@@ -68,4 +69,29 @@ automacro questClasse2_jaSouClasse2NaoAutomatico {
     }
 }
 
- 
+automacro nivelDeClasse50 {
+    JobLevel = 50
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
+    exclusive 1
+    timeout 20
+    NotInMap izlude
+    ConfigKeyNot virarClasse2 true
+    ConfigKeyNot questc2_implementada true
+    ConfigKeyNot virarClasse2T true
+    call {
+        [
+        log ===================================
+        log SEU CHAR JÁ ESTÁ NO NIVEL 50 DE CLASSE
+        log FAÇA A QUEST PARA VIRAR CLASSE 2 MANUALMENTE POR FAVOR
+        log DEPOIS ABRA O BOT NOVAMENTE
+        log ASSIM QUE ELE SE TORNAR UM CLASSE 2, A MACRO VOLTA A UPAR NORMALMENTE
+        log ===================================
+        ]
+        do conf lockMap none
+        call pararDeAtacar
+        do conf -f esperarFazerQuest true
+        do conf -f o_que_estou_fazendo esperandoQuestSerFeitaManualmente
+        if ($.map != izlude) do move izlude
+    }
+}
+

@@ -121,25 +121,3 @@ automacro estouLv99 {
     }
 }
 
-automacro nivelDeClasse50 {
-    JobLevel = 50
-    JobID $parametrosClasses{idC1}, $parametrosClasses{idC1T}
-    exclusive 1
-    timeout 20
-    NotInMap izlude
-    ConfigKeyNot virarClasse2 true
-    ConfigKeyNot questc2_implementada true
-    ConfigKeyNot virarClasse2T true
-    call {
-        log SEU CHAR JÁ ESTÁ NO NIVEL 50 DE CLASSE
-        log FAÇA A QUEST PARA VIRAR CLASSE 2 MANUALMENTE POR FAVOR
-        log DEPOIS ABRA O BOT NOVAMENTE
-        log ASSIM QUE ELE SE TORNAR UM CLASSE 2, A MACRO VOLTA A UPAR NORMALMENTE
-        do conf lockMap none
-        call pararDeAtacar
-        do conf -f esperarFazerQuest true
-        do conf -f o_que_estou_fazendo esperandoQuestSerFeitaManualmente
-        if ($.map != izlude) do move izlude
-    }
-}
-
