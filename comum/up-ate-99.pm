@@ -8,6 +8,8 @@ automacro UpClasse {
     ConfigKeyNot quest_skill true
     ConfigKeyNot esperarFazerQuest true
     ConfigKeyNot lockMap $mapa{lockMap}
+    ConfigKey aeroplano1 none
+    ConfigKey aeroplano2 none
     ConfigKey estagio_Reborn none
     exclusive 1
     priority 20 #baixa prioridade
@@ -53,6 +55,24 @@ macro upar {
         #AS ÚNICAS OPÇÕES DIFERENCIADAS SÃO RACHEL E EINBROCH, SE VC QUER INVENTAR
         #MODA E IR UPAR EM HUGEL OU LIGHTHALZEN, VAI MANUALMENTE PORQUE EU NAO
         #TO COM PACIENCIA
+        
+        if ($.map =~ /^hu/ && $mapa{saveMap} != hugel) {
+            #agora é a parte que damos um jeito de chegar onde queremos!
+            switch ($mapa{saveMap}) {
+                case (~ rachel, veins) {
+                    call aeroplano_hugelPara "rachel"
+                    stop
+                }
+                case (= einbroch) {
+                    call aeroplano_hugelPara "einbroch"
+                    stop
+                }
+                else {
+                    call aeroplano_hugelPara "juno"
+                    stop
+                }
+            }
+        }
 
         if ($mapa{saveMap} ~ rachel,veins) {
             if ($.map =~ /^ra|^ve|^aru/) {
