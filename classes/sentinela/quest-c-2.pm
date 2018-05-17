@@ -46,44 +46,6 @@ sub inicializarParametrosQuestClasse2 {
     }
 }
 
-#Primeiros esboços da quest
-#NPC: Caçadora da Guilda
-#Local: hu_in01 386 373
-#r1 r1 r3 r3 r3 r2 r1 r2 r3 r2 r1 r2
-# NPC: Recepcionista da Guilda
-#Local: hu_in01 382 382
-#r1
-# Pediu itens (mas existem várias opções de conjuntos de itens:
-#http://browiki.org/wiki/Mudan%C3%A7a_de_Classe:_Ca%C3%A7adores
-
-#3 Caninos Venenosos
-#5 Ervas Vermelhas
-#3 Couros de Animal
-# Entregar os itens para o Recepcionista da Guilda
-#NPC: Recepcionista da Guilda
-#Local: hu_in01 382 382
-# Agora procurar o Mestre da Guilda. Ele fica no Palácio de Payon (payon_in02 21 31) ou na Guilda dos Arqueiros (payon_in03 131 7)
-#ACHO QUE VOCÊ ENCONTRA ELE EM QUALQUER UM DOS DOIS QUE RESOLVER IR...
-# NPC: Caçadora
-#Local: payon_in03 131 7
-#r4
-# NPC: Sala de Espera
-#Entrar no chat
-#Local: job_hunte 176 38
-#(Eles te dão umas flechas de prata, pode-se equipar porque são mortos-vivos no teste)
-# Faz o teste do mapa. Matar só monstros de nome Monstro Alvo
-#Clica no switch no centro.
-#r1
-#Vai até o portal na parte norte e sai do teste.
-# http://browiki.org/images/b/b7/Que_hunt05.png
-# Retorna à Caçadora
-#NPC: Caçadora
-#Local: payon_in03 131 7
-#(Sem respostas certas aqui, só confirmar 2 ou 3x
-#Ela te entrega um Colar da Sabedoria)
-# Voltar à Guilda dos Caçadores em Hugel (hu_in01 386 373)
-#(Sem respostas certas aqui, só confirmar 2 ou 3x)
-#Fim da Quest
 
 automacro questCacador_salvarEmHugel {
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
@@ -684,21 +646,6 @@ automacro questCacador_labirinto {
     exclusive 1
     InMap job_hunte
     call {
-        #começa em job_hunt 91 67
-        #move 72 76 -> ataque Monstro Alvo
-        #move 117 76 -> ataque Monstro Alvo (2x)
-        #north (11x) -> dá pra alterar por aquele north 55
-        #move 94 131 -> ataque Monstro Alvo
-        #move 110 131
-        #south (5x) -> dá pra alterar pra south 25 fica em 110 106
-        #west (2x) -> west 10
-        #
-        #talk 52 (switch#nht)
-        #
-        #east (2x) -> east 10
-        #north (5x) -> north 25
-        #move 89 131
-        #north (2x) -> north 10
         if (&config(route_avoidWalls) != 0) do conf route_avoidWalls 0
         if (&config(lockMap) != none) do conf lockMap none
         call pararDeAtacarApenasCorrer

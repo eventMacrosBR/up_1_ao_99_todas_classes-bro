@@ -5,7 +5,7 @@ git checkout -b master
 git submodule update --init --recursive
 
 jobs=("arcano" "arcebispo" "bioquimico" "cavaleiro-runico" "feiticeiro" "guardiao-real" "mecanico" "musa" "renegado" "sentinela" "sicario" "shura" "trovador")
-jobs_ok=(" arcebispo bioquimico guardiao-real renegado cavaleiro-runico ")
+jobs_ok=(" arcebispo bioquimico guardiao-real renegado cavaleiro-runico sentinela ")
 plugins=("henrybk-plugins/BetterShopper" "andyfoss-plugins/by_me/runFromMonster")
 mkdir dist
 mkdir plugins

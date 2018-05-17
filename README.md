@@ -86,7 +86,7 @@ Para a macro funcionar corretamente é necessária a instalação dos seguintes 
 |![alt arruaceiro](http://browiki.org/images/4/4f/Arruaceirospartyicn.png)          |Quest Arruaceiro    |Funcionando               |
 |![alt bardo](http://browiki.org/images/5/5c/Bardospartyicn.png)                    |Quest Bardo         |Aguardando desenvolvimento|
 |![alt bruxo](http://browiki.org/images/f/fc/Bruxospartyicn.png)                    |Quest Bruxo         |Em desenvolvimento        |
-|![alt caçador](http://browiki.org/images/2/21/Ca%C3%A7adorespartyicn.png)          |Quest Caçador       |Aguardando desenvolvimento|
+|![alt caçador](http://browiki.org/images/2/21/Ca%C3%A7adorespartyicn.png)          |Quest Caçador       |Funcionando               |
 |![alt cavaleiro](http://browiki.org/images/3/35/Cavaleirospartyicn.png)            |Quest Cavaleiro     |Funcionando               |
 |![alt ferreiro](http://browiki.org/images/8/8d/Ferreirospartyicn.png)              |Quest Ferreiro      |Em desenvolvimento        |
 |![alt mercenario](http://browiki.org/images/3/3f/Mercen%C3%A1riospartyicn.png)     |Quest Mercenário    |Aguardando desenvolvimento|
@@ -97,7 +97,7 @@ Para a macro funcionar corretamente é necessária a instalação dos seguintes 
 |![alt templario](http://browiki.org/images/8/8e/Templ%C3%A1riospartyicn.png)       |Quest Templário     |Funcionando               |
 |![alt renascimento](http://browiki.org/images/c/c7/Bt_quest.png)                   |Quest Renascimento  |Funcionando               |
 |![alt espadachim t](http://browiki.org/images/7/77/Espadachinspartyicn.png)        |Quest Espadachim T. |Testando                  |
-|![alt gatuno t](http://browiki.org/images/0/01/Gatunospartyicn.png)                |Quest Gatuno T.     |Funcionando                  |
+|![alt gatuno t](http://browiki.org/images/0/01/Gatunospartyicn.png)                |Quest Gatuno T.     |Funcionando               |
 |![alt mercador t](http://browiki.org/images/c/c0/Mercadorespartyicn.png)           |Quest Mercador T.   |Testando                  |
 |![alt mago t](http://browiki.org/images/0/09/Magospartyicn.png)                    |Quest Mago T.       |Testando                  |
 |![alt novico t](http://browiki.org/images/e/e3/Novi%C3%A7ospartyicn.png)           |Quest Noviço T.     |Testando                  |
