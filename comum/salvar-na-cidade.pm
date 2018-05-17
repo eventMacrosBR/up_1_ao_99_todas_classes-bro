@@ -190,7 +190,7 @@ automacro FalarComKafra {
     timeout 20
     call {
         log ==============================================================
-        log Falando com kafra na posição: &config(saveMap_posicaoKafra
+        log Falando com kafra na posição: &config(saveMap_posicaoKafra)
         log ==============================================================
         do talknpc &config(saveMap_posicaoKafra) r0
     }
@@ -223,7 +223,7 @@ automacro SalvoNaKafra {
 
         $continuarLoop = sim
 	    $i = 0
-	    while ($continuarLoop = sim && checarSeExisteComando("buyAuto_$i") = sim) {
+	    while ($continuarLoop = sim && checarSeExisteNoConfig("buyAuto_$i") = sim) {
 	    	if (&config(buyAuto_$i) =~ /Poção/i) {
 	    		do conf buyAuto_$i_npc &config(saveMap_posicaoNpcPraPocao)
 	    	}
@@ -237,7 +237,7 @@ automacro SalvoNaKafra {
 	    #felizmente TODOS os npcs que vendem poção amarela, também vendem flecha normal
 	    $continuarLoop = sim
 	    $i = 0
-	    while ($continuarLoop = sim && checarSeExisteComando("buyAuto_$i") = sim) {
+	    while ($continuarLoop = sim && checarSeExisteNoConfig("buyAuto_$i") = sim) {
 	    	if (&config(buyAuto_$i) =~ /Flecha/i) {
 	    		do conf buyAuto_$i_npc &config(saveMap_posicaoNpcPraPocao)
 	    	}

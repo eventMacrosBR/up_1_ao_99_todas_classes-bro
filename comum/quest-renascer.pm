@@ -21,7 +21,7 @@ automacro questRenascer_chegueilvl99 {
     Zeny != 0
     exclusive 1
     timeout 60
-    ConfigKey estagio_Reborn none
+    ConfigKey questRenascer_estagio none
     macro_delay 2
     QuestInactive 1000
     call {
@@ -49,7 +49,7 @@ automacro questRenascer_chegueilvl99 {
             $continuarLoop = sim
             $i = 0
             while ($continuarLoop = sim) {
-                if (checarSeExisteComando("getAuto_$i_disabled") = sim) {
+                if (checarSeExisteNoConfig("getAuto_$i_disabled") = sim) {
                     do conf getAuto_$i_disabled 1
                 } else {
                     $continuarLoop = nao
@@ -60,7 +60,7 @@ automacro questRenascer_chegueilvl99 {
             $continuarLoop = sim
             $i = 0
             while ($continuarLoop = sim) {
-                if (checarSeExisteComando("buyAuto_$i_disabled") = sim) {
+                if (checarSeExisteNoConfig("buyAuto_$i_disabled") = sim) {
                     do conf buyAuto_$i_disabled 1
                 } else {
                     $continuarLoop = nao
@@ -81,6 +81,7 @@ automacro questRenascer_chegueilvl99 {
             
             $i = 0
             while ($i < @slots) {
+                log = desequipando equip do slot $slots[$i]
                 desequipar("$slots[$i]")
                 pause 0.5
                 $i++
@@ -91,13 +92,13 @@ automacro questRenascer_chegueilvl99 {
             log ============================
             ]
             do conf -f o_que_estou_fazendo tentandoRebornar
-            do conf -f estagio_Reborn preparando
+            do conf -f questRenascer_estagio preparando
         }
     }
 }
 
 automacro questRenascer_salvarNaCidadeQueVouUparEDefinirVariavel {
-    ConfigKey estagio_Reborn preparando
+    ConfigKey questRenascer_estagio preparando
     exclusive 1
     priority -10 #prioridade mais alta
     run-once 1
@@ -121,7 +122,7 @@ automacro questRenascer_chamarAmigo {
     exclusive 1
     timeout 60
     JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}
-    ConfigKey estagio_Reborn preparando
+    ConfigKey questRenascer_estagio preparando
     Zeny != 1285000
     Zeny != 0
     ConfigKey saveMap $mapaQueVouUparNolvl1
@@ -167,7 +168,7 @@ automacro questRenascer_irNoLocalPraNegociar {
     overrideAI 1
     ConfigKey saveMap $mapaQueVouUparNolvl1
     CharCurrentWeight = 0
-    ConfigKey estagio_Reborn preparando
+    ConfigKey questRenascer_estagio preparando
     Zeny != 1285000  #vamos ficar com o zeny certo
     Zeny != 0
     exclusive 1
@@ -193,7 +194,7 @@ automacro questRenascer_amigoPertoPedindoTrade {
     CharCurrentWeight 0
     Zeny != 1285000
     priority -5
-    ConfigKey estagio_Reborn preparando
+    ConfigKey questRenascer_estagio preparando
     InMap yuno
     PlayerNear /$parametrosQuestClasseRenascer{amigo}/
     timeout 20
@@ -214,7 +215,7 @@ automacro questRenascer_amigoPertoRecebiTrade {
     CharCurrentWeight 0
     Zeny != 1285000
     priority -5
-    ConfigKey estagio_Reborn preparando
+    ConfigKey questRenascer_estagio preparando
     InMap yuno
     PlayerNear /$parametrosQuestClasseRenascer{amigo}/
     timeout 10
@@ -231,7 +232,7 @@ automacro questRenascer_amigoPertoRecebiTrade {
 automacro questRenascer_dandoOuReceBendoZeny {
     CharCurrentWeight 0
     Zeny != 1285000
-    ConfigKey estagio_Reborn preparando
+    ConfigKey questRenascer_estagio preparando
     IsInMapAndCoordinate yuno 145..147 115..117 #lugar pra negociar
     PlayerNear /$parametrosQuestClasseRenascer{amigo}/ 
     SimpleHookEvent engaged_deal
@@ -262,7 +263,7 @@ automacro questRenascer_finalizarTrade {
     PlayerNear /$parametrosQuestClasseRenascer{amigo}/
     CharCurrentWeight 0
     Zeny != 1285000
-    ConfigKey estagio_Reborn preparando
+    ConfigKey questRenascer_estagio preparando
     QuestInactive 1000
     call {
         do deal
@@ -275,20 +276,20 @@ automacro questRenascer_tudoCertoVamosRebornar {
     CharCurrentWeight = 0
     Zeny = 1285000
     exclusive 1
-    ConfigKeyNot estagio_Reborn 1
-    ConfigKeyNot estagio_Reborn 2
-    ConfigKeyNot estagio_Reborn 3
-    ConfigKeyNot estagio_Reborn 4
+    ConfigKeyNot questRenascer_estagio 1
+    ConfigKeyNot questRenascer_estagio 2
+    ConfigKeyNot questRenascer_estagio 3
+    ConfigKeyNot questRenascer_estagio 4
     QuestInactive 1000
     call {
         do conf -f o_que_estou_fazendo indoRebornar!!!
         # se tiver tudo certinho pra começar o reborn ,essa automacro ativa
-        do conf -f estagio_Reborn 1
+        do conf -f questRenascer_estagio 1
     }
 }
 
 automacro questRenascer__primeiroEstagio {
-    ConfigKey estagio_Reborn 1
+    ConfigKey questRenascer_estagio 1
     InMap yuno
     exclusive 1
     QuestInactive 1000
@@ -301,11 +302,11 @@ automacro questRenascer__primeiroEstagio {
         do conf sitAuto_idle 0
         ]
         do move yuno_in02
-        if ($.map = yuno_in02) do conf estagio_Reborn 2
+        if ($.map = yuno_in02) do conf questRenascer_estagio 2
     }
 }
 automacro questRenascer_primeiroEstagio_bugada {
-    ConfigKey estagio_Reborn 1
+    ConfigKey questRenascer_estagio 1
     NotInMap yuno
     NotInMap yuno_in02
     NotInMap yuno_in05
@@ -318,7 +319,7 @@ automacro questRenascer_primeiroEstagio_bugada {
 }
 
 automacro questRenascer_pagarTaxa {
-    ConfigKey estagio_Reborn 2
+    ConfigKey questRenascer_estagio 2
     Zeny = 1285000
     InMap yuno_in02
     exclusive 1
@@ -332,7 +333,7 @@ automacro questRenascer_pagarTaxa {
 }
 
 automacro questRenascer_lerOLivroEDescer {
-    ConfigKey estagio_Reborn 2
+    ConfigKey questRenascer_estagio 2
     InMap yuno_in02
     #QuestActive 1000
     exclusive 1
@@ -342,12 +343,12 @@ automacro questRenascer_lerOLivroEDescer {
         ####do talknpc 93 207 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c
         do talk &npc(93 207)
         do move yuno_in05
-        if ($.map = yuno_in05) do conf estagio_Reborn 3
+        if ($.map = yuno_in05) do conf questRenascer_estagio 3
     }
 }
 
 automacro questRenascer_terceiroEstagio {
-    ConfigKey estagio_Reborn 3
+    ConfigKey questRenascer_estagio 3
     InMap yuno_in05
     exclusive 1
     call {
@@ -359,13 +360,13 @@ automacro questRenascer_terceiroEstagio {
         }
         if ( $.pos == 41 42 ) {
             do talknpc 49 43 c
-            do conf estagio_Reborn 4
+            do conf questRenascer_estagio 4
         }
     }
 }
 
 automacro questRenascer_terceiroEstagio_bugada {
-    ConfigKey estagio_Reborn 3
+    ConfigKey questRenascer_estagio 3
     InMap yuno_in02
     exclusive 1
     call {
@@ -374,14 +375,14 @@ automacro questRenascer_terceiroEstagio_bugada {
 }
 
 automacro questRenascer_ultimoEstagio {
-    ConfigKey estagio_Reborn 4
+    ConfigKey questRenascer_estagio 4
     exclusive 1
     call {
         do move 49 86
         do conf skillsAddAuto_list none
         do conf statsAddAuto_list none
         do talk &npc(48 86)
-        do conf estagio_Reborn none
+        do conf questRenascer_estagio none
         call atualizarBuild
         do conf -f o_que_estou_fazendo acabeiDeRebornar
         [
@@ -396,9 +397,9 @@ automacro questRenascer_renasci {
     BaseLevel 1
     exclusive 1
     JobID 4001 #Aprendiz T.
-    ConfigKeyNot estagio_Reborn none
+    ConfigKeyNot questRenascer_estagio none
     call {
-        do conf estagio_Reborn none
+        do conf questRenascer_estagio none
         call atualizarBuild
     }
 }

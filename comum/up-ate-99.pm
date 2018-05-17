@@ -10,7 +10,7 @@ automacro UpClasse {
     ConfigKeyNot lockMap $mapa{lockMap}
     ConfigKey aeroplano1 none
     ConfigKey aeroplano2 none
-    ConfigKey estagio_Reborn none
+    ConfigKey questRenascer_estagio none
     exclusive 1
     priority 20 #baixa prioridade
     timeout 30
@@ -34,7 +34,6 @@ macro upar {
     }
     
     #se chegar ate aqui é porque tem algo a ser configurado
-    log vou salvar em: $mapa{saveMap}
     log vou upar em: $mapa{lockMap}
     
     #se chegar aqui significa que tem que ser mudado o lockMap e/ou o saveMap
@@ -49,6 +48,7 @@ macro upar {
         call voltarAtacar
         do conf -f o_que_estou_fazendo upando
     } else {
+        log vou salvar em: $mapa{saveMap}
         call pararDeAtacar
         do conf lockMap none
         
@@ -58,6 +58,12 @@ macro upar {
         
         if ($.map =~ /^hu/ && $mapa{saveMap} != hugel) {
             #agora é a parte que damos um jeito de chegar onde queremos!
+            [
+            log ===================================
+            log = Estou em hugel, mas quero upar em outro lugar longe
+            log = decidindo como chegar la
+            log ===================================
+            ]
             switch ($mapa{saveMap}) {
                 case (~ rachel, veins) {
                     call aeroplano_hugelPara "rachel"
@@ -98,7 +104,7 @@ macro upar {
 
 automacro estouLv99 {
     BaseLevel = 99
-    ConfigKey estagio_Reborn none
+    ConfigKey questRenascer_estagio none
     exclusive 1
     timeout 120
     JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}

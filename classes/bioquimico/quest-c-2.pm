@@ -347,7 +347,7 @@ automacro virarAlquimista_naoTenhoAFlor {
             do conf itemsGatherAuto 0
             do conf itemsMaxWeight_sellOrStore 40
         
-            if ( checarSeExisteComando('BetterShopper_0') == nao ) {
+            if ( checarSeExisteNoConfig('BetterShopper_0') == nao ) {
                 #Se o bloco não existir, vamos criar ele!
                 adicionaBetterShopper()
                 pause 1

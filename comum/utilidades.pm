@@ -2,7 +2,7 @@ automacro utilidades_configEstaErrada {
     exclusive 1
     overrideAI 1
     priority -5
-    ConfigKey estagio_Reborn none
+    ConfigKey questRenascer_estagio none
     ConfigKeyNot autoTalkCont 1
     call {
         log Tem uma config que está errada
@@ -24,7 +24,7 @@ macro pararDeAtacar {
 automacro reloadPortals {
     exclusive 1
     timeout 300
-    ConfigKey estagio_Reborn none
+    ConfigKey questRenascer_estagio none
     JobIDNot 0 #Aprendiz
     JobIDNot 4023 #Baby Aprendiz
     call {
@@ -60,23 +60,23 @@ sub checarSeExisteNoConfig {
 }
 
 sub pegarIndiceDoEquipamentoPeloId {
-    my ($type, $id) = @_;
-    my $Item = $char->inventory->getByNameID($id);
-    if ($Item eq "" ) {
-        message "Erro: ou a ID do item está incorreta, ou você não possui esse equipamento.\n";
+    my ($slotDoEquipamento, $id) = @_;
+    my $item = $char->inventory->getByNameID($id);
+    if ($item eq "" ) {
+        warning "Erro: ou a ID do item está incorreta, ou você não possui esse equipamento.\n";
         return -1;
     }
-    my $EquipIndex = $Item->{binID};
-    if (exists $char->{equipment}{$type}) {
-        my $equipItem = $char->{equipment}{$type};
-        if ($equipItem->{nameID} == $id) {
-            message "Erro: Esse equip já está equipado.\n";
+    my $indiceDoEquip = $item->{binID};
+    if (exists $char->{equipment}{$slotDoEquipamento}) {
+        my $equipamento = $char->{equipment}{$slotDoEquipamento};
+        if ($equipamento->{nameID} == $id) {
+            warning "Erro: Esse equip já está equipado.\n";
             return -1;
         } else {
-            return $EquipIndex;
+            return $indiceDoEquip;
         }
     } else {
-        return $EquipIndex;
+        return $indiceDoEquip;
     }
 }
 
@@ -114,12 +114,12 @@ macro termineiQuestClasse2TManualmente {
 macro rebornarAgora {
     [
     log ==========================
-    log Preparar para renascer
-    log > Checando algumas coisas
+    log =Preparar para renascer
+    log =Checando algumas coisas
     log ==========================
     ]
     if ($.weight == 0 && $.map == juno && $.zeny == 1285000 && $.lvl == 99 && $.joblvl == 50 ) {
-         do conf -f estagio_Reborn preparando
+         do conf -f questRenascer_estagio preparando
     } else {
          log Não tem as condições necessárias para rebornar
     }
@@ -175,21 +175,11 @@ automacro sairDeMocFild20 {
 }
 
 sub desequipar {
-    my $type = shift;
-    if (exists $char->{equipment}{$type}) {
-        $char->{equipment}{$type}->unequip();
+    my $tipo = shift;
+    if (exists $char->{equipment}{$tipo}) {
+        $char->{equipment}{$tipo}->unequip();
     } else {
-        message "There is nothing equipped in $type\n";
-    }
-}
-
-sub checarSeExisteComando {
-    my ($comando) = @_;
-    if ( exists $config{$comando} ) {
-        message "desativando $comando (isso e intencional)\n";
-        return "sim";
-    } else {
-        return "nao";
+        message "Não tem nada equipado em $type\n";
     }
 }
 
