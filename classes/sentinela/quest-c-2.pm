@@ -613,7 +613,7 @@ automacro questCacador_irAteOPalacioDePayon {
     call {
 	do move payon_in03 158 33
         do move payon_in03 131 7 &rand(2,4)
-	do talknpc 131 7 r0 
+	do talknpc 131 7 r3 
     }
 }
 
@@ -628,7 +628,7 @@ automacro questCacador_irAteAGuildaDosArqueiros {
     call {
         do conf -f quest_cacador_lider guilda_arqueiros
         do move payon_in02 21 31 &rand(2,4)
-	do talknpc 21 31 r0
+	do talknpc 21 31 r3
     }
 }
 
