@@ -206,54 +206,53 @@ automacro SalvoNaKafra {
     InMap $saveMap
     call {
         [
+        if (&config(storageAuto) != 1) do conf storageAuto 1
+        if (&config(sellAuto) != 1) do conf sellAuto 1
+        if (&config(storageAuto_npc_type) != 3) do conf storageAuto_npc_type 3
+        if (&config(storageAuto_npc_steps) != &config(saveMap_sequenciaPraArmazenar)) do conf storageAuto_npc_steps &config(saveMap_sequenciaPraArmazenar)
         do conf saveMap $saveMap
         do conf storageAuto_npc $saveMap &config(saveMap_posicaoKafra)
-        do conf storageAuto 1
-        do conf sellAuto 1
         do conf sellAuto_npc &config(saveMap_posicaoNpcVenda)
-        do conf storageAuto_npc_type 3
-        do conf storageAuto_npc_steps &config(saveMap_sequenciaPraArmazenar)
+        ]
+        
+	    #felizmente TODOS os npcs que vendem poção amarela, também vendem flecha normal
+        $continuarLoop = sim
+	    $i = 0
+	    while ($continuarLoop = sim && &config(saveMap_posicaoNpcPraPocao) != -1) {
+	    	
+            if (&config(buyAuto_$i) =~ /Poção|Flecha/i) {
+                [
+                log ===================================
+                log = configurando bloco "buyAuto_$i"
+                log ===================================
+                ]
+	    		do conf buyAuto_$i_npc &config(saveMap_posicaoNpcPraPocao)
+	    	}
 
+	    	if (a&config(buyAuto_$i) = a) {
+	    		$continuarLoop = nao
+	    	} elsif (checarSeExisteNoConfig("buyAuto_$i") = nao) {
+                $continuarLoop = nao
+            } elsif (&config(buyAuto_$i) = -1) {
+                $continuarLoop = nao
+            }
+	    	$i++
+	    }
+
+        [
         do conf saveMap_sequenciaPraArmazenar none
         do conf saveMap_desejado none
         do conf saveMap_posicaoKafra none
         do conf saveMap_posicaoNpcVenda none
         do conf saveMap_posicaoNpcPraPocao none
         do conf naSequenciaDeSalvamento false
-
-        $continuarLoop = sim
-	    $i = 0
-	    while ($continuarLoop = sim && checarSeExisteNoConfig("buyAuto_$i") = sim) {
-	    	if (&config(buyAuto_$i) =~ /Poção/i) {
-	    		do conf buyAuto_$i_npc &config(saveMap_posicaoNpcPraPocao)
-	    	}
-
-	    	if (a&config(buyAuto_$i) = a) {
-	    		$continuarLoop = nao
-	    	}
-	    	$i++
-	    }
-
-	    #felizmente TODOS os npcs que vendem poção amarela, também vendem flecha normal
-	    $continuarLoop = sim
-	    $i = 0
-	    while ($continuarLoop = sim && checarSeExisteNoConfig("buyAuto_$i") = sim) {
-	    	if (&config(buyAuto_$i) =~ /Flecha/i) {
-	    		do conf buyAuto_$i_npc &config(saveMap_posicaoNpcPraPocao)
-	    	}
-
-	    	if (a&config(buyAuto_$i) = a) {
-	    		$continuarLoop = nao
-	    	}
-	    	$i++
-	    }
-
+        
         release definirVariavelSaveMap
         do ai on
 
-        log ===========================================
+        log ================================
         log =Salvo em &config(saveMap)
-        log ===========================================
+        log ================================
         ]
         do conf -f o_que_estou_fazendo acabeiDeSalvarNaKafraDe $saveMap
     }

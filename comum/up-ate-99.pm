@@ -52,10 +52,6 @@ macro upar {
         call pararDeAtacar
         do conf lockMap none
         
-        #AS ÚNICAS OPÇÕES DIFERENCIADAS SÃO RACHEL E EINBROCH, SE VC QUER INVENTAR
-        #MODA E IR UPAR EM HUGEL OU LIGHTHALZEN, VAI MANUALMENTE PORQUE EU NAO
-        #TO COM PACIENCIA
-        
         if ($.map =~ /^hu/ && $mapa{saveMap} != hugel) {
             #agora é a parte que damos um jeito de chegar onde queremos!
             [
@@ -109,7 +105,6 @@ macro upar {
             }
             stop
         }
-        
         call salvarNaCidade "$mapa{saveMap}"
     }
 }
