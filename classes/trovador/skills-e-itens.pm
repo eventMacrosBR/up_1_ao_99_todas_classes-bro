@@ -125,6 +125,7 @@ automacro configurarBuyAutoFlecha {
 }
 
 automacro aumentarFlechasLevel30 {
+    ConfigKey buyAuto_1 Flecha
     ConfigKeyNot buyAuto_1_maxAmount 5000
     BaseLevel >= 30
     exclusive 1
