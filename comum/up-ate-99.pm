@@ -52,7 +52,7 @@ macro upar {
         call pararDeAtacar
         do conf lockMap none
         
-        if ($.map =~ /^hugel|^hu_/ && $mapa{saveMap} != hugel) {
+        if ($.map =~ /hugel|hu_fild/ && $mapa{saveMap} != hugel) {
             #agora é a parte que damos um jeito de chegar onde queremos!
             [
             log ===================================
@@ -61,13 +61,16 @@ macro upar {
             log ===================================
             ]
             switch ($mapa{saveMap}) {
-                case (~ rachel, veins) $destino = rachel
-                case (= einbroch) $destino = einbroch
+                case (~ rachel, veins) {
+                    call aeroplano_hugelPara "rachel"
+                }
+                case (= einbroch) {
+                    call aeroplano_hugelPara "einbroch"
+                }
                 else {
-                    $destino = juno
+                    call aeroplano_hugelPara "juno"
                 }
             }
-            call aeroplano_hugelPara "$destino"
             stop
         } elsif ($.map =~ /^ra|^ve|^aru/ && $mapa{saveMap} != rachel && $mapa{saveMap} != veins) {
             [
@@ -77,13 +80,16 @@ macro upar {
             log ===================================
             ]
             switch ($mapa{saveMap}) {
-                case (= einbroch) $destino = einbroch
-                case (= hugel) $destino = hugel
+                case (= einbroch) {
+                    call aeroplano_rachelPara "einbroch"
+                }
+                case (= hugel) {
+                    call aeroplano_rachelPara "hugel"
+                }
                 else {
-                    $destino = juno
+                    call aeroplano_rachelPara "juno"
                 }
             }
-            call aeroplano_rachelPara "$destino"
             stop
         }
         #TODO fazer um pra einbroch
