@@ -209,9 +209,7 @@ automacro SalvoNaKafra {
         if (&config(storageAuto) != 1) do conf storageAuto 1
         if (&config(sellAuto) != 1) do conf sellAuto 1
         if (&config(storageAuto_npc_type) != 3) do conf storageAuto_npc_type 3
-        if (&config(storageAuto_npc_steps) != &config(saveMap_sequenciaPraArmazenar)) {
-	       	do conf storageAuto_npc_steps &config(saveMap_sequenciaPraArmazenar)
-	}
+        do conf storageAuto_npc_steps &config(saveMap_sequenciaPraArmazenar) if (&config(storageAuto_npc_steps) != &config(saveMap_sequenciaPraArmazenar))
         do conf saveMap $saveMap
         do conf storageAuto_npc $saveMap &config(saveMap_posicaoKafra)
         do conf sellAuto_npc &config(saveMap_posicaoNpcVenda)
