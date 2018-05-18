@@ -106,7 +106,7 @@ macro upar {
         ]
 
         if ($mapa{saveMap} ~ rachel,veins) {
-            if ($.map =~ /^ra|^ve|^aru/) {
+            if ($.map =~ /rachel|veins|ra_fild|ve_fild|aru/) {
                 call salvarNaCidade "$mapa{saveMap}"
             } else {
                 call aeroplano_junoPara "$mapa{saveMap}"
@@ -115,7 +115,7 @@ macro upar {
         }
         
         if ($mapa{saveMap} = einbroch) {
-            if ($.map =~ /^ein|^lhz/) {
+            if ($.map =~ /einbroch|ein_fild|lhz_fild|lighthalzen/) {
                 call salvarNaCidade "$mapa{saveMap}"
             } else {
                 call aeroplano_junoPara "$mapa{saveMap}"
