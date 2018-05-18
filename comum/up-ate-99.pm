@@ -62,12 +62,15 @@ macro upar {
             ]
             switch ($mapa{saveMap}) {
                 case (~ rachel, veins) {
+                    log = usando aeroplano para salvar em rachel
                     call aeroplano_hugelPara "rachel"
                 }
                 case (= einbroch) {
+                    log = usando aeroplano para salvar em einbroch
                     call aeroplano_hugelPara "einbroch"
                 }
                 else {
+                    log = usando aeroplano para salvar em juno
                     call aeroplano_hugelPara "juno"
                 }
             }
@@ -81,18 +84,26 @@ macro upar {
             ]
             switch ($mapa{saveMap}) {
                 case (= einbroch) {
+                    log = usando aeroplano para salvar em einbroch
                     call aeroplano_rachelPara "einbroch"
                 }
                 case (= hugel) {
+                    log = usando aeroplano para salvar em hugel
                     call aeroplano_rachelPara "hugel"
                 }
                 else {
+                    log = usando aeroplano para salvar em juno
                     call aeroplano_rachelPara "juno"
                 }
             }
             stop
         }
         #TODO fazer um pra einbroch
+        [
+        log ===================================
+        log = não estou nem em rachel, nem hugel, nem veins
+        log ===================================
+        ]
 
         if ($mapa{saveMap} ~ rachel,veins) {
             if ($.map =~ /^ra|^ve|^aru/) {
