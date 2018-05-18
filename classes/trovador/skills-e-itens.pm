@@ -80,6 +80,7 @@ automacro desconfigurarAutoEquiparFlechaAprendizT {
 } 
 
 automacro configurarParaComprarPoucasFlechasArqueiroT {
+    ConfigKey buyAuto_1 Flecha
     ConfigKey buyAuto_1_maxAmount 5000
     BaseLevel < 30
     JobID $parametrosClasses{idC1T}
