@@ -75,7 +75,7 @@ macro upar {
                 }
             }
             stop
-        } elsif ($.map =~ /^ra|^ve|^aru/ && $mapa{saveMap} != rachel && $mapa{saveMap} != veins) {
+        } elsif ($.map =~ /rachel|veins|ra_fild|ve_fild|aru/ && $mapa{saveMap} != rachel && $mapa{saveMap} != veins) {
             [
             log ===================================
             log = estou em $.map, mas quero upar em outro lugar longe
