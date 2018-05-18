@@ -50,7 +50,7 @@ automacro seJuntarAoGrupoEden {
     }
 }
 
-automacro entrouNoGrupoEden {
+automacro entreiNoGrupoEden {
     InInventoryID 22508 = 1
     ConfigKeyNot membroDoEden sim
     exclusive 1
@@ -59,7 +59,7 @@ automacro entrouNoGrupoEden {
     }
 }
 
-automacro TrocarEmblema_IndoProNpc {
+automacro questEden_trocarEmblemaIndoProNpc {
     InInventoryID 6219 = 1
     NpcNotNear /Lenore|Lime/
     exclusive 1
@@ -67,7 +67,7 @@ automacro TrocarEmblema_IndoProNpc {
     call moverPertoDosNpcEden
 }
 
-automacro TrocarEmblema {
+automacro questEden_trocarEmblema {
     InInventoryID 6219 = 1
     exclusive 1    
     priority -2 # um pouco alta
@@ -79,7 +79,7 @@ automacro TrocarEmblema {
     }
 }
 
-automacro iniciandoQuestEden12MoverPerto {
+automacro questEden12_iniciandoMoverPerto {
     NpcNotNear /Boya/
     InInventoryID 22508 = 1
     ConfigKeyNot fazerQuestEden nao
@@ -94,7 +94,7 @@ automacro iniciandoQuestEden12MoverPerto {
     call moverPertoDosNpcEden
 }
 
-automacro iniciandoQuestEden26MoverPerto {
+automacro questEden26_iniciandoMoverPerto {
     NpcNotNear /Boya/
     BaseLevel 26..32
     InInventoryID 22508 = 1 
@@ -111,7 +111,7 @@ automacro iniciandoQuestEden26MoverPerto {
     call moverPertoDosNpcEden
 }
 
-automacro IniciandoQuestEden40MoverPerto {
+automacro questEden40_iniciandoMoverPerto {
     QuestInactive 7147
     QuestInactive 7148
     QuestInactive 7149
@@ -131,7 +131,7 @@ automacro IniciandoQuestEden40MoverPerto {
     call moverPertoDosNpcEden
 }
 
-automacro inciandoQuestEden60MoverPerto {
+automacro questEden60_iniciandoMoverPerto {
     NpcNotNear /Ur/
     BaseLevel 60..69
     exclusive 1
@@ -162,7 +162,7 @@ macro moverPertoDosNpcEden {
     #que recarrega o eventMacros, aí a proxima automacro trigga de boas
 }
 
-automacro iniciandoQuestEden12 {
+automacro questEden12_iniciando {
     NpcNear /Boya/
     InInventoryID 22508 = 1 
     BaseLevel 12..17
@@ -178,7 +178,7 @@ automacro iniciandoQuestEden12 {
 }
 
 
-automacro iniciandoQuestEden26 {
+automacro questEden26_iniciando {
     NpcNear /Boya/
     BaseLevel 26..32
     ConfigKeyNot fazerQuestEden nao
@@ -195,7 +195,7 @@ automacro iniciandoQuestEden26 {
     call iniciandoQuestEden '1'
 }
 
-automacro IniciandoQuestEden40 {
+automacro questEden40_iniciando {
     NpcNear /Boya/
     BaseLevel 40..49
     InInventoryID 22508 = 1
@@ -210,7 +210,7 @@ automacro IniciandoQuestEden40 {
     call iniciandoQuestEden '0'
 }
 
-automacro inciandoQuestEden60 {
+automacro questEden60_iniciando {
     NpcNear /Ur/
     BaseLevel 60..69
     ConfigKeyNot fazerQuestEden nao
@@ -241,10 +241,10 @@ macro iniciandoQuestEden {
     if (&defined($.param[2]) = 1) do talk resp $.param[2]
 
     switch ($.lvl) {
-        case (<= 18) $lvlDaQuestEden = 15
+        case (<= 18) $lvlDaQuestEden = 12
         case (<= 32) $lvlDaQuestEden = 26
-        case (<= 49) $lvlDaQuestEden = 50
-        case (<= 69) $lvlDaQuestEden = 70
+        case (<= 49) $lvlDaQuestEden = 40
+        case (<= 69) $lvlDaQuestEden = 60
     }
     do conf -f o_que_estou_fazendo iniciandoQuestEden$lvlDaQuestEden
 
@@ -283,7 +283,7 @@ macro avisoIntermitente {
     log comecei a quest eden, porém só vou
     log fazer ela no lvl $.param[0] ou acima!
     log se eu nao tiver no lvl , eu vou upar.
-    log lvl que eu estou: $.lvl
+    log eu estou no lvl $.lvl agora
     log ======================================
     ]
 }
@@ -292,7 +292,7 @@ macro avisoIntermitente {
 #7128#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
 #Você começa seu treinamento com o Grupo Valhalla. Procure o cão falante em Sograt. #
 #Converse com o cão falante #
-automacro Eden12salvarNaKafra {
+automacro questEden12_salvarNaKafra {
     QuestActive 7128
     exclusive 1
     BaseLevel >= 15
@@ -308,7 +308,7 @@ automacro Eden12salvarNaKafra {
 #7138#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
 #Seu próximo desafio é em na Caverna de Payon. Procure um representante do Grupo Valhalla. #
 #Converse com o representante do Grupo Valhalla #
-automacro Eden26SalvarNaKafra {
+automacro questEden26_SalvarNaKafra {
     QuestActive 7138
     BaseLevel >= 26
     exclusive 1
@@ -324,7 +324,7 @@ automacro Eden26SalvarNaKafra {
 #7147#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
 #Seu próximo desafio é na Vila Orc. Procure um representante do Grupo Valhalla. #
 #Converse com o representante do Grupo Valhalla #
-automacro Eden40SalvarNaKafra {
+automacro questEden40_SalvarNaKafra {
     QuestActive 7147
     BaseLevel >= 50
     exclusive 1
@@ -340,7 +340,7 @@ automacro Eden40SalvarNaKafra {
 #7214#Treino Avançado - Passo 1 - Comodo#SG_FEEL#QUE_NOIMAGE#
 #Encontre o Membro do Grupo Éden em frente à entrada da caverna norte de Comodo #
 #Fale com Romeo #
-automacro Eden60SalvarNaKafra {
+automacro questEden60_SalvarNaKafra {
     QuestActive 7214
     BaseLevel >= 70
     exclusive 1
@@ -356,49 +356,49 @@ automacro Eden60SalvarNaKafra {
 #7128#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
 #Você começa seu treinamento com o Grupo Valhalla. Procure o cão falante em Sograt. #
 #Converse com o cão falante #
-automacro Eden12IrNoMapa {
+automacro questEden12_IrNoMapa {
     QuestActive 7128
     exclusive 1
     BaseLevel >= 15
     ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKey saveMap morocc
-    call irNoMapa 'moc_fild11' '180' '253' '1107' '1001' '1009' #monstros: filhote de lobo, escopião, condor
+    call irNoMapa 'moc_fild11' '180 253' '1107' '1001' '1009' #monstros: filhote de lobo, escopião, condor
 }
 
 #7138#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
 #Seu próximo desafio é em na Caverna de Payon. Procure um representante do Grupo Valhalla. #
 #Converse com o representante do Grupo Valhalla #
-automacro Eden26IrNoMapa {
+automacro questEden26_IrNoMapa {
     QuestActive 7138
     BaseLevel >= 26
     exclusive 1
     ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKey saveMap payon
-    call irNoMapa 'pay_arche' '41' '136' '1076' '1031' '1015' #monstros: esqueleto, poporing, zumbi
+    call irNoMapa 'pay_arche' '41 136' '1076' '1031' '1015' #monstros: esqueleto, poporing, zumbi
 }
 
 #7147#Grupo Valhalla#SG_FEEL#QUE_NOIMAGE#
 #Seu próximo desafio é na Vila Orc. Procure um representante do Grupo Valhalla. #
 #Converse com o representante do Grupo Valhalla #
-automacro Eden40IrNoMapa {
+automacro questEden40_IrNoMapa {
     QuestActive 7147
     BaseLevel >= 50
     exclusive 1
     ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKey saveMap prontera
-    call irNoMapa 'in_orcs01' '38' '175' '1023' '1686' '1273' #monstros: guerreiro orc, filhote de orc, senhora orc
+    call irNoMapa 'in_orcs01' '38 175' '1023' '1686' '1273' #monstros: guerreiro orc, filhote de orc, senhora orc
 }
 
 #7214#Treino Avançado - Passo 1 - Comodo#SG_FEEL#QUE_NOIMAGE#
 #Encontre o Membro do Grupo Éden em frente à entrada da caverna norte de Comodo #
 #Fale com Romeo #
-automacro Eden60IrNoMapa {
+automacro questEden60_IrNoMapa {
     QuestActive 7214
     BaseLevel >= 70
     exclusive 1
     ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKey saveMap comodo
-    call irNoMapa 'comodo' '173' '354'
+    call irNoMapa 'comodo' '173 354'
 }
 
 macro irNoMapa {
@@ -408,39 +408,38 @@ macro irNoMapa {
     log =indo fazer a quest eden
     log ===========================
     ]
-    ## $.param[0] tem como valor a cidade
-    ## $.param[1] tem como valor a coordenada x
-    ## $.param[2] tem como valor a coordenada y
-    ## $.param[4] tem como valor a id do monstro 2
-    ## $.param[5] tem como valor a id do monstro 3
-    ## $.param[3] tem como valor a id do monstro 1
+    ## $.param[0] tem como valor o local do npc
+    ## $.param[1] tem como valor a coordenada x e y
+    ## $.param[2] tem como valor a id do monstro 1
+    ## $.param[3] tem como valor a id do monstro 2
+    ## $.param[4] tem como valor a id do monstro 3
     
-    do move $.param[0] $.param[1] $.param[2] &rand(1,5)
-    do talk &npc($.param[1] $.param[2])
+    do move $.param[0] $.param[1] &rand(1,5)
+    do talk &npc($.param[1])
     if ($.param[0] = moc_fild11) do talk resp 1  #significa que ta na quest eden 12
-    if (&defined($.param[3]) = 1) { #evita de mostrar linhas vermelhas a toa de "variavel não existe"
+    if (&defined($.param[2]) = 1) { #evita de mostrar linhas vermelhas a toa de "variavel não existe"
+        do mconf $.param[2] 0 0 0
         do mconf $.param[3] 0 0 0
         do mconf $.param[4] 0 0 0
-        do mconf $.param[5] 0 0 0
     }
 }
 
 
-automacro Eden12Caçar {
+automacro questEden12_Caçar {
     QuestHuntOngoing 7129 1009, 7130 1107, 7131 1001
     exclusive 1
     timeout 120
     call caçarMonstros "moc_fild11" "12"
 }
 
-automacro Eden26Caçar {
+automacro questEden26_Caçar {
     QuestHuntOngoing 7139 1076, 7140 1031
     exclusive 1
     timeout 180
     call caçarMonstros "pay_dun00" "26"
 }
 
-automacro Eden40Caçar {
+automacro questEden40_Caçar {
     QuestHuntOngoing 7148 1686, 7149 1023, 7150 1273
     exclusive 1
     timeout 180
@@ -448,7 +447,7 @@ automacro Eden40Caçar {
     call caçarMonstros "gef_fild10" "40"
 }
 
-automacro Eden60Caçar {
+automacro questEden60_Caçar {
     QuestHuntOngoing 7215 1278, 7216 1278
     exclusive 1
     timeout 60
@@ -463,6 +462,7 @@ macro caçarMonstros {
     call voltarAtacar
     if ( &config(lockMap) != $.param[0]) do conf lockMap $.param[0]
     do mconf $.QuestHuntOngoingLastMobID 2 0 0
+    ## $.param[1] tem como valor o lvl da quest
     log ===========================================
     log =caçando monstro da quest eden $.param[1]
     log ===========================================
@@ -472,7 +472,7 @@ macro caçarMonstros {
 #7217#Treino Avançado - Passo 1.3 - Comodo#SG_FEEL#QUE_NOIMAGE#
 #Romeo te passou uma última missão. Derrote Guerreiros Wootan e Dríades para conseguir alguns itens #
 #Traga 5 Ombreiras, 7 Folhas Afiadas #
-automacro Eden60_JuntarItens {
+automacro questEden60__JuntarItens {
     QuestActive 7217
     exclusive 1
     timeout 120
@@ -509,7 +509,7 @@ automacro Eden60_JuntarItens {
 #7217#Treino Avançado - Passo 1.3 - Comodo#SG_FEEL#QUE_NOIMAGE#
 #Romeo te passou uma última missão. Derrote Guerreiros Wootan e Dríades para conseguir alguns itens #
 #Traga 5 Ombreiras, 7 Folhas Afiadas #
-automacro Eden60_JaJunteiOsItens {
+automacro questEden60__JaJunteiOsItens {
     InInventoryID 7196 >= 5
     InInventoryID 7100 >= 7
     QuestActive 7217
@@ -532,7 +532,7 @@ automacro Eden60_JaJunteiOsItens {
     }
 }
 
-automacro Eden12FinalizarCaças {
+automacro questEden12_FinalizarCaças {
     QuestHuntCompleted 7129 1009, 7130 1107, 7131 1001
     exclusive 1
     call {
@@ -550,7 +550,7 @@ automacro Eden12FinalizarCaças {
     }
 }
 
-automacro Eden26FinalizarCaças {
+automacro questEden26_FinalizarCaças {
     QuestHuntCompleted 7139 1076, 7140 1031
     exclusive 1
     call {
@@ -569,7 +569,7 @@ automacro Eden26FinalizarCaças {
     }
 }
 
-automacro Eden40FinalizarCaças {
+automacro questEden40_FinalizarCaças {
     QuestHuntCompleted 7148 1686, 7149 1023, 7150 1273
     QuestInactive 2017
     QuestInactive 2018
@@ -594,7 +594,7 @@ automacro Eden40FinalizarCaças {
     }
 }
 
-automacro Eden60FinalizarCaças {
+automacro questEden60_FinalizarCaças {
     QuestHuntCompleted 7215 1278, 7216 1278
     exclusive 1
     call {
@@ -636,7 +636,7 @@ automacro Eden60FinalizarCaças {
 #7218#Reporte para Uru#SG_FEEL#QUE_NOIMAGE#
 #Você completou este passo do Grupo Éden. Você pode voltar para a sede do Grupo Éden. #
 #Reporte para Uru #
-automacro voltarDoMapa {
+automacro questEden_voltarDoMapaMoverPerto {
     QuestActive 7132, 7141, 7151, 7218
     NpcNotNear /Boya|Ur/
     exclusive 1
@@ -666,7 +666,7 @@ automacro voltarDoMapa {
 #7218#Reporte para Uru#SG_FEEL#QUE_NOIMAGE#
 #Você completou este passo do Grupo Éden. Você pode voltar para a sede do Grupo Éden. #
 #Reporte para Uru #
-automacro voltarDoMapaDentroDoEden {
+automacro questEden_voltarDoMapa {
     QuestActive 7132, 7141, 7151, 7218
     NpcNear /Boya|Ur/
     exclusive 1
@@ -736,7 +736,7 @@ automacro EdenPegandoEquips_IndoProNpc {
 }
 
 
-automacro EdenPegandoEquips12e26e40 {
+automacro questEden12e26e40_PegandoEquips {
     ConfigKey quest_eden terminando
     BaseLevel 12..59
     timeout 120
@@ -751,14 +751,7 @@ automacro EdenPegandoEquips12e26e40 {
         do talk $.NpcNearLastBinId
         do talk resp 0
         do talk resp 1
-        
-        if ( $.lvl >= 40 ) {
-            do talk resp /$parametrosQuestEden{armaLevel26e40}/i
-            
-        } elsif ( $.lvl >= 26) {
-            do talk resp /$parametrosQuestEden{armaLevel26e40}/i
-            
-        }
+        do talk resp /$parametrosQuestEden{armaLevel26e40}/i
 
         if ( $.lvl >= 40 ) {
             #pegar encantamento do chapeu valhalla
@@ -770,7 +763,7 @@ automacro EdenPegandoEquips12e26e40 {
     }
 }
 
-automacro EdenPegueiEquips12e26e40 {
+automacro questEden12e26e40_acabeiDePegarEquips {
     ConfigKey quest_eden terminando
     BaseLevel 12..59
     NpcNear /hael/i
@@ -782,7 +775,7 @@ automacro EdenPegueiEquips12e26e40 {
     }
 }
 
-automacro EdenPegandoEquips60 {
+automacro questEden60_PegandoEquips {
     ConfigKey quest_eden terminando
     BaseLevel 70..98
     timeout 120
@@ -802,7 +795,7 @@ automacro EdenPegandoEquips60 {
     }
 }
 
-automacro EdenPegueiEquips60 {
+automacro questEden60_acabeiDePegarEquips {
     ConfigKey quest_eden terminando
     BaseLevel 70..98
     exclusive 1
@@ -815,7 +808,7 @@ automacro EdenPegueiEquips60 {
     }
 }
 
-automacro Eden12Equipando {
+automacro questEden12_Equipando {
     IsNotEquippedID armor 15009
     InInventoryID 15009 = 1
     BaseLevel 12..25
@@ -838,7 +831,7 @@ automacro Eden12Equipando {
     }
 }
 
-automacro Eden26Equipando {
+automacro questEden26_Equipando {
     IsNotEquippedID armor 15010
     InInventoryID 15010 = 1
     BaseLevel 26..49
@@ -860,7 +853,7 @@ automacro Eden26Equipando {
     }
 }
 
-automacro Eden40Equipando {
+automacro questEden40_Equipando {
     IsNotEquippedID armor 15011
     InInventoryID 15011 = 1
     BaseLevel 40..59
@@ -881,7 +874,7 @@ automacro Eden40Equipando {
     }
 }
 
-automacro Eden60Equipando {
+automacro questEden60_Equipando {
     IsNotEquippedID robe 2571
     IsNotEquippedID topHead 18514
     IsNotEquippedID shoes 2473
