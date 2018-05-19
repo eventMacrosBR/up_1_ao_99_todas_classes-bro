@@ -52,7 +52,7 @@ macro upar {
         call pararDeAtacar
         do conf lockMap none
         
-        if ($.map =~ /hugel|hu_fild/ && $mapa{saveMap} != hugel) {
+        if ($.map =~ /^hu/ && $mapa{saveMap} != hugel) {
             #agora é a parte que damos um jeito de chegar onde queremos!
             [
             log ===================================
@@ -75,7 +75,7 @@ macro upar {
                 }
             }
             stop
-        } elsif ($.map =~ /rachel|veins|ra_fild|ve_fild|aru/ && $mapa{saveMap} != rachel && $mapa{saveMap} != veins) {
+        } elsif ($.map =~ /^ra|^ve|^aru/ && $mapa{saveMap} != rachel && $mapa{saveMap} != veins) {
             [
             log ===================================
             log = estou em $.map, mas quero upar em outro lugar longe
@@ -106,7 +106,7 @@ macro upar {
         ]
 
         if ($mapa{saveMap} ~ rachel,veins) {
-            if ($.map =~ /rachel|veins|ra_fild|ve_fild|aru/) {
+            if ($.map =~ /^ra^ve|^aru/) {
                 call salvarNaCidade "$mapa{saveMap}"
             } else {
                 call aeroplano_junoPara "$mapa{saveMap}"
@@ -115,7 +115,7 @@ macro upar {
         }
         
         if ($mapa{saveMap} = einbroch) {
-            if ($.map =~ /einbroch|ein_fild|lhz_fild|lighthalzen/) {
+            if ($.map =~ /^ein|lhz_fild|/) {
                 call salvarNaCidade "$mapa{saveMap}"
             } else {
                 call aeroplano_junoPara "$mapa{saveMap}"
