@@ -47,6 +47,10 @@ automacro questClasse2_jaSouClasse2 {
         log = Já sou classe 2 =
         log ===================
         ]
+        $check = pegarIndiceDoEquipamentoPeloId("robe", 2560) #Capa Valhalla
+        if ($check != -1) do eq $check
+        $check = pegarIndiceDoEquipamentoPeloId("topHead", 5583) #Chapeu valhalla
+        if ($check != -1) do eq $check
         do conf virarClasse2 none
         do conf -f o_que_estou_fazendo acabeiDeVirarClasse2
         call atualizarBuild
@@ -63,6 +67,10 @@ automacro questClasse2_jaSouClasse2NaoAutomatico {
         log = Já sou classe 2, pois fiz a quest manualmente =
         log =================================================
         ]
+        $check = pegarIndiceDoEquipamentoPeloId("robe", 2560) #Capa Valhalla
+        if ($check != -1) do eq $check
+        $check = pegarIndiceDoEquipamentoPeloId("topHead", 5583) #Chapeu valhalla
+        if ($check != -1) do eq $check
         do conf esperarFazerQuest none
         do conf -f o_que_estou_fazendo acabeiDeVirarClasse2
         call atualizarBuild
