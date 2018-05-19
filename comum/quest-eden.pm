@@ -516,7 +516,7 @@ automacro questEden60__JaJunteiOsItens {
     CurrentHP > 80%
     exclusive 1
     call {
-        lock Eden60_JuntarItens
+        lock questEden60__JuntarItens
         [
         log ===================================
         log Ombreira e Folha Afiada coletada
