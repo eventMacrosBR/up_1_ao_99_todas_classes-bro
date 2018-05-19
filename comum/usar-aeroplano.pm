@@ -281,6 +281,60 @@ macro aeroplano_hugelPara {
     }
 }
 
+macro aeroplano_lighthalzenPara {
+    set exclusive 1
+    log Vamos ir de Eibroch para $.param[0]
+    #se a cidade for juno hugel ou lighthalzen ele só pega 1 aeroplano
+    # se for outra cidade, ele pega os dois aeroplanos
+    switch ($.param[0]) {
+        case (=~ /izlude/i) {
+            do conf -f aeroplano1 izlude
+            do conf -f aeroplano2 juno
+        }
+        case (=~ /rachel/i) {
+            do conf -f aeroplano1 rachel
+            do conf -f aeroplano2 juno
+        }
+        case (=~ /hugel/i) {
+            do conf -f aeroplano1 none
+            do conf -f aeroplano2 hugel
+        }
+        case (=~ /lighthalzen/i) {
+            log VOCÊ QUER IR DE EINBROCH PRA EINBROCH?
+            log PORQUE VOCÊ FARIA ISSO?
+            stop
+        }
+        case (=~ /einbroch/i) {
+            do conf -f aeroplano1 none
+            do conf -f aeroplano2 einbroch
+        }
+        case (=~ /[jy]uno/) {
+            do conf -f aeroplano1 none
+            do conf -f aeroplano2 juno
+        }
+        else {
+            [
+            log Você digitou um nome inválido, por favor tente novamente
+            log Os valores podem ser izlude , rachel , juno ou yuno ,
+            log hugel , lighthalzen ou einbroch
+            log pode ser com letra maiuscula ou sem
+            ]
+            stop
+        }
+    }
+    $varAeroplano1 = &config(aeroplano1)
+    $varAeroplano2 = &config(aeroplano2)
+    do conf -f aeroplano_macroChamada aeroplano_lighthalzenPara
+    do conf lockMap none
+    do ai manual
+    if ($.map = airplane || $.map = airplane_01) {
+        log ja estamos no aeroplano, só esperar agora
+    } else {
+        do move airplane
+    }
+    log $varAeroplano1, $varAeroplano2
+}
+
 automacro dentroDoAeroplanoBugged {
     InMap airplane, airplane_01
     exclusive 1
