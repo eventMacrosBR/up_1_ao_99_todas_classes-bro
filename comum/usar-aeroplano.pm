@@ -50,7 +50,7 @@ macro aeroplano_junoPara {
     do conf -f aeroplano_macroChamada aeroplano_junoPara
     do conf lockMap none
     do ai manual
-    if ($.map = airplane || $.map = airplane_01) {
+    if ($.map ~ airplane, airplane_01) {
         log ja estamos no aeroplano, só esperar agora
     } else {
         if ( $.map != yuno ) do move yuno
@@ -104,7 +104,7 @@ macro aeroplano_einbrochPara {
     do conf -f aeroplano_macroChamada aeroplano_einbrochPara
     do conf lockMap none
     do ai manual
-    if ($.map = airplane || $.map = airplane_01) {
+    if ($.map ~ airplane, airplane_01) {
         log ja estamos no aeroplano, só esperar agora
     } else {
         do move airplane
@@ -159,7 +159,7 @@ macro aeroplano_rachelPara {
     do conf -f aeroplano_macroChamada aeroplano_rachelPara
     do conf lockMap none
     do ai manual
-    if ( $.map = airplane || $.map = airplane_01) {
+    if ( $.map ~ airplane, airplane_01) {
         log ja estamos no aeroplano, só esperar agora
     } else {
         do move ra_fild12 294 208
@@ -215,7 +215,7 @@ macro aeroplano_izludePara {
     do conf -f aeroplano_macroChamada aeroplano_izludePara
     do conf lockMap none
     do ai manual
-    if ( $.map = airplane || $.map = airplane_01) {
+    if ( $.map ~ airplane, airplane_01) {
         log ja estamos no aeroplano, só esperar agora
     } else {
         do move izlude 206 55
@@ -272,7 +272,7 @@ macro aeroplano_hugelPara {
     do conf -f aeroplano_macroChamada aeroplano_hugelPara
     do conf lockMap none
     do ai manual
-    if ( $.map = airplane || $.map = airplane_01) {
+    if ( $.map ~ airplane, airplane_01) {
         log ja estamos no aeroplano, só esperar agora
     } else {
         do move hugel 178 142
@@ -327,7 +327,7 @@ macro aeroplano_lighthalzenPara {
     do conf -f aeroplano_macroChamada aeroplano_lighthalzenPara
     do conf lockMap none
     do ai manual
-    if ($.map = airplane || $.map = airplane_01) {
+    if ($.map ~ airplane, airplane_01) {
         log ja estamos no aeroplano, só esperar agora
     } else {
         do move airplane
