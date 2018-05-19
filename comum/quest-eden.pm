@@ -546,7 +546,7 @@ automacro questEden12_FinalizarCaças {
         ]
         do move moc_fild11 &rand(181,183) &rand(254,256)
         do talk 0 #Cão falante
-        release Eden12Caçar
+        release questEden12_Caçar
     }
 }
 
@@ -565,7 +565,7 @@ automacro questEden26_FinalizarCaças {
         do move pay_arche &rand(44,46) &rand(132,134)
         #do talknpc 41 136 c c c c c #Coral
         do talk &npc( 41 136 ) #Coral
-        release Eden26Caçar
+        release questEden26_Caçar
     }
 }
 
@@ -590,7 +590,7 @@ automacro questEden40_FinalizarCaças {
         do move in_orcs01 38 175 &rand(1,4)
         #do talknpc 38 175 c c #Absalom#para07
         do talk 0 #Absalom
-        release Eden40Caçar
+        release questEden40_Caçar
     }
 }
 
@@ -611,14 +611,14 @@ automacro questEden60_FinalizarCaças {
                 do move comodo &rand(174,176) &rand(344,346)
                 #do talknpc 173 354 c c c c c #Mémbro do grupo Éden#2n
                 do talk &npc( 173 354 )
-                release Eden60Caçar
+                release questEden60_Caçar
             }
 
             case (= 7216) { #golem2
                 do move um_fild01 &rand(36,38) &rand(277,279)
                 #do talknpc 34 280 c c c c #Romeo#2nd02
                 do talk &npc( 34 280 )
-                release Eden60Caçar
+                release questEden60_Caçar
             }
         }
     }
