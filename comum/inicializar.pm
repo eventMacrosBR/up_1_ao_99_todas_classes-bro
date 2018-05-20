@@ -194,6 +194,7 @@ macro atualizarBuild {
         }
         
     }
+    
     if (&config(questc2_implementada) != true && pegarID() = $parametrosQuestClasse1{idC1}) {
         [
         log =========================================================
