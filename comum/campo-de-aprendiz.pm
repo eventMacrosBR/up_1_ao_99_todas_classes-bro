@@ -1087,3 +1087,13 @@ automacro campoDeAprendiz_muitoBugado {
     }
 }
 
+automacro campoDeAprendiz_apagarVariaveis {
+    JobIDNot 0
+    JobIDNot 4023
+    exclusive 1
+    ConfigKey quest_atual todas_completadas
+    call {
+        do conf quest_atual none
+        do conf current_npc none
+    }
+}
