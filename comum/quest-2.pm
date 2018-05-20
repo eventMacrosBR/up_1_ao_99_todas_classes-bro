@@ -93,12 +93,11 @@ macro equiparAposVirarClasse2 {
     if ($check != -1) do eq $check
 }
 
-automacro nivelDeClasse50 {
+automacro questClasse2_avisoNivelDeClasse50 {
     JobLevel = 50
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     exclusive 1
     timeout 20
-    NotInMap izlude
     ConfigKeyNot virarClasse2 true
     ConfigKeyNot questc2_implementada true
     ConfigKeyNot virarClasse2T true
@@ -115,7 +114,7 @@ automacro nivelDeClasse50 {
         call pararDeAtacar
         do conf -f esperarFazerQuest true
         do conf -f o_que_estou_fazendo esperandoQuestSerFeitaManualmente
-        if ($.map != izlude) do move izlude
+        do move &config(saveMap) if ($.map != &config(saveMap))
     }
 }
 

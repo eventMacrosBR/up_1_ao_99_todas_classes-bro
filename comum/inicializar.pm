@@ -94,10 +94,16 @@ macro atualizarBuild {
     #parte feita por vitorsilveiro
     $idClasseAtual = pegarID() #sub se encontra no arquivo utilidades.pm
     if (&config(skillsAddAuto) != 1) do conf skillsAddAuto 1
-    if ($idClasseAtual ~ 0, 4023, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
-        if (&config(statsAddAuto_list) != $configsBuild{statsPadrao}) do conf statsAddAuto_list $configsBuild{statsPadrao}
-    } else {
-        if (&config(statsAddAuto_list) != $configsBuild{statsPadraoTransclasse}) do conf statsAddAuto_list $configsBuild{statsPadraoTransclasse}
+    switch ($idClasseAtual) {
+        case (~ 0, 4023, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
+            if (&config(statsAddAuto_list) != $configsBuild{statsPadrao}) do conf statsAddAuto_list $configsBuild{statsPadrao}
+        } 
+        case (~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}) {
+            if (&config(statsAddAuto_list) != $configsBuild{statsPadraoTransclasse}) do conf statsAddAuto_list $configsBuild{statsPadraoTransclasse}
+        }
+        case (~ $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idBC3Alt}) {
+            if (&config(statsAddAuto_list) != $configsBuild{statsPadraoClasse3}) do conf statsAddAuto_list $configsBuild{statsPadraoClasse3}
+        }
     }
     if (&config(statsAddAuto) != 1) do conf statsAddAuto 1
     if (&config(statsAddAuto_dontUseBonus) != 1) do conf statsAddAuto_dontUseBonus 1
@@ -163,7 +169,7 @@ macro atualizarBuild {
                 ] 
             }
         }
-        case (~ $parametrosClasses{idC3}) { #Classes 3
+        case (~ $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idBC3Alt}) { #Classes 3
             if ($configsBuild{skillsClasse3} != '') {
                 if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse3})  do conf skillsAddAuto_list $configsBuild{skillsClasse3}
             } else {
@@ -180,19 +186,20 @@ macro atualizarBuild {
             do eval Log::error "Não foi possivel definir qual é a sua classe.\n";
             do eval Log::error "ID encontrado: $idClasseAtual\n";
         }
-        if (&config(questc2_implementada) != true && pegarID() = $parametrosQuestClasse1{idC1}) {
-            [
-            log =========================================================
-            log   AVISO!
-            log   ------
-            log Este script para classe escolhida ainda está incompleto.
-            log Portanto haverá um grande número de bugs e 
-            log não fará a quest da classe 2.
-            log Ao continuar você está ciente de que essa macro não fará
-            log tudo por você.
-            log ==========================================================
-            ]
-        }
+        
+    }
+    if (&config(questc2_implementada) != true && pegarID() = $parametrosQuestClasse1{idC1}) {
+        [
+        log =========================================================
+        log   AVISO!
+        log   ------
+        log Este script para classe escolhida ainda está incompleto.
+        log Portanto haverá um grande número de bugs e 
+        log não fará a quest da classe 2.
+        log Ao continuar você está ciente de que essa macro não fará
+        log tudo por você.
+        log ==========================================================
+        ]
     }
 }
 

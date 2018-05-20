@@ -8,7 +8,8 @@ sub configurarBuild {
         skillsClasse2T => '',
         skillsClasse3 => '',
         statsPadrao => '50 int, 20 dex, 70 int, 50 dex, 20 vit, 90 int, 65 vit, 99 int, 70 dex',
-        statsPadraoTransclasse => '50 int, 20 dex, 70 int, 50 dex, 20 vit, 90 int, 65 vit, 99 int, 70 dex'
+        statsPadraoTransclasse => '50 int, 20 dex, 70 int, 50 dex, 20 vit, 90 int, 65 vit, 99 int, 70 dex',
+        statsPadraoClasse3 => ''
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
     $eventMacro->set_full_hash('configsBuild', \%configsBuild);

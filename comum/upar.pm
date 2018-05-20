@@ -19,6 +19,20 @@ automacro UpClasse {
     call upar
 }
 
+automacro UpClasseEspecial {
+    BaseLevel >= 99
+    ConfigKeyNot naSequenciaDeSalvamento true
+    ConfigKeyNot esperarFazerQuest true
+    ConfigKeyNot lockMap $mapa{lockMap}
+    ConfigKey aeroplano1 none
+    ConfigKey aeroplano2 none
+    exclusive 1
+    priority 20 #baixa prioridade
+    timeout 30
+    JobID $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idCB3Alt}
+    call upar
+}
+
 macro upar {
     
     if (&config(lockMap) = $mapa{lockMap}) {

@@ -41,7 +41,7 @@ O repositório já disponibiliza o eventMacros.txt de todas as classes montados 
 4. Se a macro solicitar algum plugin você pode encontrá-los na página de download, basta colocá-los na pasta plugins que a macro instala e configura
 5. Seja Feliz :D
 
-Obs: Colocamos o nome da classe 3 para definir a linha de evolução a seguir pela macro, porém ela **NÃO UPA CLASSE 3.(ainda)**
+Obs: Colocamos o nome da classe mais alta para definir a linha de evolução a seguir pela macro
 
 ## Configurações Personalizadas
 
@@ -128,17 +128,18 @@ up_1_ao_99_todas_classes
 ├── gerador-eventmacros-windows.bat       * Programa para gerar o script em windows
 ├── comum                                 * Pasta com os scripts comuns do projeto ( o core do projeto )
 │   ├── inicializar.pm                    * Inicializador do projeto, reponsável por subir as variáveis
-│   └── up-ate-99.pm                      * Automacro responsável por fazer o personagem upar enquanto não estiver em quests
+│   └── upar.pm                           * Automacro responsável por fazer o personagem upar enquanto não estiver em quests
 │   └── campo-de-aprendiz.pm              * Automacros que realizam o campo de treinamento
 │   └── quest-1.pm                        * Automacros que realizam a quest da classe 1
 │   └── quest-2.pm                        * Automacros que realizam a quest da classe 2
 │   └── quest-renascer.pm                 * Automacros e parâmetros que realizam a quest para renascer
 │   └── quest-1t.pm                       * Automacros que realizam a quest da classe 1 Transclasse
 │   └── quest-2t.pm                       * Automacros que realizam a quest da classe 2 Transclasse
+│   └── quest-3.pm                        * Automacros que realizam a quest da classe 3
 │   └── quest-eden.pm                     * Automacros que realizam as quests de equipamentos do eden
 │   └── plugins.pm                        * Subs para instalação e configurações de plugins necessários
 │   └── skills-e-itens.pm                 * Subs para adicionar blocos de skills e itens, itens padrões
-│   └── salvar-na0cidade.pm               * Responsável pela função de mudar os mapas de save, hunt, autosell, etc
+│   └── salvar-na-cidade.pm               * Responsável pela função de mudar os mapas de save, hunt, autosell, etc
 │   └── usar-aeroplano.pm                 * Macros uteis para usar o aeroplano
 │   └── utilidades.pm                     * Sub utilitárias
 ├── classes                               * Pasta com as configurações e parametros únicos de cada classe
