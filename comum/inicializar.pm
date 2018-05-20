@@ -98,17 +98,17 @@ macro atualizarBuild {
     if (&config(skillsAddAuto) != 1) do conf skillsAddAuto 1
     switch ($idClasseAtual) {
         case (~ 0, 4023, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
-            if (&config(statsAddAuto_list) != $configsBuild{statsPadrao}) do conf statsAddAuto_list $configsBuild{statsPadrao}
+            do conf statsAddAuto_list $configsBuild{statsPadrao} if (&config(statsAddAuto_list) != $configsBuild{statsPadrao})
         } 
         case (~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}) {
-            if (&config(statsAddAuto_list) != $configsBuild{statsPadraoTransclasse}) do conf statsAddAuto_list $configsBuild{statsPadraoTransclasse}
+            do conf statsAddAuto_list $configsBuild{statsPadraoTransclasse} if (&config(statsAddAuto_list) != $configsBuild{statsPadraoTransclasse})
         }
         case (~ $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idBC3Alt}) {
-            if (&config(statsAddAuto_list) != $configsBuild{statsPadraoClasse3}) do conf statsAddAuto_list $configsBuild{statsPadraoClasse3}
+            do conf statsAddAuto_list $configsBuild{statsPadraoClasse3} if (&config(statsAddAuto_list) != $configsBuild{statsPadraoClasse3})
         }
     }
-    if (&config(statsAddAuto) != 1) do conf statsAddAuto 1
-    if (&config(statsAddAuto_dontUseBonus) != 1) do conf statsAddAuto_dontUseBonus 1
+    do conf statsAddAuto 1 if (&config(statsAddAuto) != 1)
+    do conf statsAddAuto_dontUseBonus 1 if (&config(statsAddAuto_dontUseBonus) != 1)
     
     #sub 'extrairMapasDeUp' pega o mapa de up e o saveMap correto dependendo do lvl atual
     # $mapa{lockMap}
