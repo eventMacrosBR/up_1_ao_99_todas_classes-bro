@@ -5,8 +5,9 @@ if (! $job) {
 
 
     $Form = New-Object system.Windows.Forms.Form
-    $cbxJobs = New-Object system.windows.Forms.ComboBox
+    $listJobs = New-Object system.windows.Forms.ListView
     $btn = New-Object system.windows.Forms.Button
+    $imageListIcons = New-Object System.Windows.Forms.ImageList
 }
 
 function getVersao {
@@ -24,6 +25,11 @@ function getVersao {
     return $version
 }
 
+function limparNomeDaClasse {
+    Param($classe)
+    return $classe.ToString().ToLower().Replace(" ","-").Replace("í","i").Replace("ú","u").Replace("â","a").Replace("ã","a").Replace("á","a")
+}
+
 function gerarMacro {
     param ($classe)
     $eventMacros =  "eventMacros.txt"
@@ -32,7 +38,7 @@ function gerarMacro {
       Remove-Item $eventMacros
     }
     $versao = getVersao
-    $jobSimples = $classe.ToString().ToLower().Replace(" ","-").Replace("í","i").Replace("ú","u").Replace("â","a").Replace("ã","a").Replace("á","a")
+    $jobSimples = limparNomeDaClasse($classe)
     $automacroVersao = Get-Content -Encoding UTF8 versao.pm 
     $automacroVersao = $automacroVersao -replace "<versao>",$versao
     $automacroVersao | Out-File $eventMacros -Encoding UTF8 -append 
@@ -41,10 +47,10 @@ function gerarMacro {
 }
 
 function acaoBotaoGerar {
-    $classe = $cbxJobs.SelectedItem
-    if ($classe) {
-        gerarMacro($classe)
-        [System.Windows.Forms.MessageBox]::Show("eventMacros.txt para "+$classe+" gerado com sucesso!" , "Ok")
+    $classe = $listJobs.SelectedItems
+    if ($classe.Count -eq 1) {
+        gerarMacro($classe[0].Text)
+        [System.Windows.Forms.MessageBox]::Show("eventMacros.txt para "+$classe[0].Text+" gerado com sucesso!" , "Ok")
         $Form.Dispose()
     } else{
         [System.Windows.Forms.MessageBox]::Show("Erro, nenhum item selecionado", "Selecione uma classe")
@@ -56,12 +62,16 @@ function desenharJanela {
     $Form.Text = "Gerador eventMacros.txt versão: " + $versao
     $Form.TopMost = $true
     $Form.Width = 450
-    $Form.Height = 100
+    $Form.Height = 400
     
-    $cbxJobs.Width = 300
-    $cbxJobs.location = new-object system.drawing.point(10,20)
-    $Form.controls.Add($cbxJobs)
-
+    $listJobs.Width = 300
+    $listJobs.Height = 300
+    $listJobs.location = new-object system.drawing.point(10,20)
+    $Form.controls.Add($listJobs)
+    $listJobs.View = "LargeIcon"
+    $listJobs.LargeImageList = $imageListIcons
+    $listJobs.MultiSelect = false
+    
     $btn.Text = "Gerar"
     $btn.Width = 60
     $btn.location = new-object system.drawing.point(310,20)
@@ -72,19 +82,17 @@ function desenharJanela {
 }
 
 function carregarValores {
-    $cbxJobs.Items.Add("Arcano")
-    $cbxJobs.Items.Add("Arcebispo")
-    $cbxJobs.Items.Add("Bioquímico")
-    $cbxJobs.Items.Add("Cavaleiro Rúnico")
-    $cbxJobs.Items.Add("Feiticeiro")
-    $cbxJobs.Items.Add("Guardião Real")
-    $cbxJobs.Items.Add("Mecânico")
-    $cbxJobs.Items.Add("Musa")
-    $cbxJobs.Items.Add("Renegado")
-    $cbxJobs.Items.Add("Sentinela")
-    $cbxJobs.Items.Add("Sicário")
-    $cbxJobs.Items.Add("Shura")
-    $cbxJobs.Items.Add("Trovador")
+    
+    $classes = "Cavaleiro Rúnico", "Guardião Real", "Arcano", "Feiticeiro", "Sentinela", "Trovador", "Musa", "Mecânico", "Bioquímico", "Sicário", "Renegado", "Arcebispo", "Shura", "Mestre Taekwon", "Espiritualista", "Kagerou", "Oboro", "Justiceiro", "Superaprendiz"
+
+    For ($i=0; $i -lt $classes.Count; $i++) {
+        $listItemClasse = New-Object System.Windows.Forms.ListViewItem
+        $classe = limparNomeDaClasse($classes[$i])
+        $imageListIcons.Images.Add([System.Drawing.Image]::FromFile("gerador-images/$classe.png"))
+        $listItemClasse.ImageIndex = $i
+        $listItemClasse.Text = $classes[$i]
+        $listJobs.Items.Add($listItemClasse)
+    } 
 }
 
 function mostrarJanela {
