@@ -1,5 +1,5 @@
 sub inicializarParametrosQuestClasse2 {
-    my ($classe) = @_;
+    my ($manterOuGuardar) = @_;
     my %items = (
     #Flor qualquer. Pode ser Aloés(704), Hinalle(703), Flor das Ilusões(710), Izidor(709), Menta(708), Flor Cantante(629), Rosa de Gelo(749), Rosa Eterna(748)
     
@@ -10,7 +10,7 @@ sub inicializarParametrosQuestClasse2 {
     );
     Commands::run("conf -f questc2_implementada false");
     foreach $key (keys %items) {
-        if ($classe == 1) { 
+        if ($manterOuGuardar eq "manter" { 
             Commands::run("iconf $key $items{$key}") 
         } else {
             Commands::run("iconf $key 0 1 0")

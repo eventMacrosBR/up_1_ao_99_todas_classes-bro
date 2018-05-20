@@ -1,5 +1,5 @@
 sub inicializarParametrosQuestClasse2 {
-    my ($classe) = @_;
+    my ($manterOuGuardar) = @_;
     my %items = (
     657 => "7 1 0",     #Poção da Fúria Selvagem
     612 => "100 1 0",   #Mini Fornalha
@@ -8,7 +8,7 @@ sub inicializarParametrosQuestClasse2 {
     );
     Commands::run("conf -f questc2_implementada true");
     foreach $key (keys %items) {
-        if ($classe == 1) { 
+        if ($manterOuGuardar eq "manter" { 
             Commands::run("iconf $key $items{$key}") 
         } else {
             Commands::run("iconf $key 0 1 0")

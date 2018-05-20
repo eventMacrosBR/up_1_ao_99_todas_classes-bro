@@ -55,10 +55,12 @@ automacro inicializar {
         
         # Esse sub configura os itens da quest de classe 2 (para não vender nem guardar)
         if (pegarID() ~ $parametrosClasses{idC1}, 0, 4023 ) {
-            inicializarParametrosQuestClasse2(1) #representa classe 1, o momento que queremos que configure isso
-            #aprendiz também pois essa sub só é executada uma vez, se você fazer uma classe 2 num dia só ele não guarda os itens
+            inicializarParametrosQuestClasse2("manter") 
+            #Se o personagem for classe 1, então queremos manter os itens da
+            #quest de classe 2 no inventário
         } else {
-            inicializarParametrosQuestClasse2(-1) #qualquer outro número serve, contanto que não seja 1
+            inicializarParametrosQuestClasse2("guardar") 
+            #se NÃO for classe 1, então guarda tudo no armazém
         }
         
         # Esse sub gera a hash %parametrosQuestClasse2T com a seguinte key:

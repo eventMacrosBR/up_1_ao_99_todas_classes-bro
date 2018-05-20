@@ -1,5 +1,5 @@
 sub inicializarParametrosQuestClasse2 {
-    my ($classe) = @_;
+    my ($manterOuGuardar) = @_;
     my %items = (
     #Possibilidade 1
     7053 => "5 1 0", #Cyfar
@@ -39,7 +39,7 @@ sub inicializarParametrosQuestClasse2 {
     );
     Commands::run("conf -f questc2_implementada false");
     foreach $key (keys %items) {
-        if ($classe == 1) { 
+        if ($manterOuGuardar eq "manter" { 
             Commands::run("iconf $key $items{$key}") 
         } else {
             Commands::run("iconf $key 0 1 0")
