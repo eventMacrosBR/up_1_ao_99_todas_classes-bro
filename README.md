@@ -20,9 +20,10 @@
 - [Agradecimentos](#agradecimentos)
 - [Funcionalidades](#funcionalidades)
 - [Para Desenvolvedores](#para-desenvolvedores)
+   - [Instruções ao clonar o repositório](#instruções-ao-clonar-o-repositório)
    - [Personalizações](#personalizações)
    - [Estrutura de Arquivos](#estrutura-de-arquivos)
-   - [Instruções ao clonar o repositório](#instruções-ao-clonar-o-repositório)
+   
 
 
 ## Referências
