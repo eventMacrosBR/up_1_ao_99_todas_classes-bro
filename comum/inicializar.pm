@@ -93,20 +93,24 @@ automacro atualizarBuild_mudancaDeNivel {
 
 macro atualizarBuild {
 
-    #parte feita por vitorsilveiro
     $idClasseAtual = pegarID() #sub se encontra no arquivo utilidades.pm
-    if (&config(skillsAddAuto) != 1) do conf skillsAddAuto 1
+    do conf skillsAddAuto 1 if (&config(skillsAddAuto) != 1)
     switch ($idClasseAtual) {
         case (~ 0, 4023, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
             do conf statsAddAuto_list $configsBuild{statsPadrao} if (&config(statsAddAuto_list) != $configsBuild{statsPadrao})
         } 
-        case (~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}) {
+        case (~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2}, $parametrosClasses{idC2Alt} ) {
             do conf statsAddAuto_list $configsBuild{statsPadraoTransclasse} if (&config(statsAddAuto_list) != $configsBuild{statsPadraoTransclasse})
         }
-        case (~ $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idBC3Alt}) {
+        case (~ $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idBC3Alt} ) {
             do conf statsAddAuto_list $configsBuild{statsPadraoClasse3} if (&config(statsAddAuto_list) != $configsBuild{statsPadraoClasse3})
         }
+        else {
+            do eval Log::error "Não foi possivel definir qual é a sua classe.\n";
+            do eval Log::error "ID encontrado: $idClasseAtual\n";
+        }
     }
+
     do conf statsAddAuto 1 if (&config(statsAddAuto) != 1)
     do conf statsAddAuto_dontUseBonus 1 if (&config(statsAddAuto_dontUseBonus) != 1)
     
@@ -117,11 +121,11 @@ macro atualizarBuild {
     
     switch ($idClasseAtual) {
         case (~ 0, 161, 4001, 4023) { #Aprendiz / Aprendiz T. / Baby Aprendiz
-            if (&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz}) do conf skillsAddAuto_list $configsBuild{skillsAprendiz}
+            do conf skillsAddAuto_list $configsBuild{skillsAprendiz} if (&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz})
         }
         case (~ $parametrosClasses{idC1}, $parametrosClasses{idBC1}) { #Classes 1
             if ($configsBuild{skillsClasse1}) != 1) { #se existir as skills
-                if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1})  do conf skillsAddAuto_list $configsBuild{skillsClasse1}
+                do conf skillsAddAuto_list $configsBuild{skillsClasse1} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1})
             } else {
                 [
                 log ===================================
@@ -134,7 +138,7 @@ macro atualizarBuild {
         }
         case (~ $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}) { #Classes 2
             if ($configsBuild{skillsClasse2} != '') {
-                if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2})  do conf skillsAddAuto_list $configsBuild{skillsClasse2}
+                do conf skillsAddAuto_list $configsBuild{skillsClasse2} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2})
             } else {
                 [
                 log ===================================
@@ -147,7 +151,7 @@ macro atualizarBuild {
         }
         case (== $parametrosClasses{idC1T}) { #Classes 1T
             if ($configsBuild{skillsClasse1T} != '') {
-                if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1T})  do conf skillsAddAuto_list $configsBuild{skillsClasse1T}
+                do conf skillsAddAuto_list $configsBuild{skillsClasse1T} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1T})
             } else {
                 [
                 log ===================================
@@ -160,7 +164,7 @@ macro atualizarBuild {
         }
         case (~ $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt} ) { #Classes 2T
             if ($configsBuild{skillsClasse2T} != '') {
-                if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2T}) do conf skillsAddAuto_list $configsBuild{skillsClasse2T}
+                do conf skillsAddAuto_list $configsBuild{skillsClasse2T} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2T})
             } else {
                 [
                 log ===================================
@@ -173,7 +177,7 @@ macro atualizarBuild {
         }
         case (~ $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idBC3Alt}) { #Classes 3
             if ($configsBuild{skillsClasse3} != '') {
-                if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse3})  do conf skillsAddAuto_list $configsBuild{skillsClasse3}
+                do conf skillsAddAuto_list $configsBuild{skillsClasse3} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse3})
             } else {
                 [
                 log ===================================
