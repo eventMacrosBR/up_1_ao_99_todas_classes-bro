@@ -70,7 +70,7 @@ function desenharJanela {
     $Form.controls.Add($listJobs)
     $listJobs.View = "LargeIcon"
     $listJobs.LargeImageList = $imageListIcons
-    $listJobs.MultiSelect = false
+    $listJobs.MultiSelect = 0
     
     $btn.Text = "Gerar"
     $btn.Width = 60
