@@ -106,8 +106,13 @@ macro atualizarBuild {
             do conf statsAddAuto_list $configsBuild{statsPadraoClasse3} if (&config(statsAddAuto_list) != $configsBuild{statsPadraoClasse3})
         }
         else {
-            do eval Log::error "Não foi possivel definir qual é a sua classe.\n";
-            do eval Log::error "ID encontrado: $idClasseAtual\n";
+            [
+            log ===================================
+            log = ocorreu um erro ao definir a build de atributos padrão para sua classe
+            log = caso isso apareça mais de 1 vez, contate os criadores da eventMacro
+            log = \$idClasseAtual : "$idClasseAtual"
+            log ===================================
+            ]
         }
     }
 
