@@ -1,10 +1,10 @@
 
 sub configurarBuild {
     my %configsBuild = (
-        skillsAprendiz => 'NV_BASIC 9',
-        skillsClasse1 => 'MG_LIGHTNINGBOLT 5, MG_FIREBOLT 7, MG_COLDBOLT 7,MG_SRECOVERY 10, MG_FIREBOLT 10, MG_COLDBOLT 10, MG_STONECURSE 1, MG_FROSTDIVER 10,MG_SOULSTRIKE 3',
+        skillsAprendiz => 'Habilidades Básicas 9',
+        skillsClasse1 => 'Relâmpago 5, Lanças de Fogo 7, Lanças de Gelo 7,Aumentar Recuperação de SP 10, MG_FIREBOLT 10, MG_COLDBOLT 10, Petrificar 1, Rajada Congelante 10,Espíritos Anciões 3',
         skillsClasse2 => '',
-        skillsClasse1T => 'MG_LIGHTNINGBOLT 5, MG_FIREBOLT 7, MG_COLDBOLT 7,MG_SRECOVERY 10, MG_FIREBOLT 10, MG_COLDBOLT 10, MG_STONECURSE 1, MG_FROSTDIVER 10,MG_SOULSTRIKE 3',
+        skillsClasse1T => 'Relâmpago 5, Lanças de Fogo 7, Lanças de Gelo 7,Aumentar Recuperação de SP 10, MG_FIREBOLT 10, MG_COLDBOLT 10, Petrificar 1, Rajada Congelante 10,Espíritos Anciões 3',
         skillsClasse2T => '',
         skillsClasse3 => '',
         statsPadrao => '70 int, 50 dex, 20 vit, 90 int, 65 vit, 99 int, 70 dex',

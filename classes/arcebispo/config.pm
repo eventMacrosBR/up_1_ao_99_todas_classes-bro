@@ -1,11 +1,11 @@
 sub configurarBuild {
     my %configsBuild = (
-        skillsAprendiz => 'NV_BASIC 9',
-        skillsClasse1 => 'AL_HEAL 10, AL_INCAGI 10, AL_DP 3, AL_ANGELUS 5, AL_DP 6, AL_BLESSING 5, AL_ANGELUS 10, AL_BLESSING 10, AL_RUWACH 1, AL_HOLYWATER 1, AL_PNEUMA 1',
-        skillsClasse2 => 'PR_KYRIE 4, PR_MAGNIFICAT 5, PR_GLORIA 5, PR_STRECOVERY 1, PR_KYRIE 10, PR_IMPOSITIO 5, PR_SANCTUARY 10, MG_SRECOVERY 4, ALL_RESURRECTION 4, MG_SRECOVERY 9',
-        skillsClasse1T => 'AL_HEAL 10, AL_INCAGI 10, AL_DP 3, AL_ANGELUS 5, AL_DP 5, AL_BLESSING 5, AL_ANGELUS 10, AL_BLESSING 10, AL_RUWACH 1, AL_HOLYWATER 1, AL_PNEUMA 1, AL_DECAGI 1',
-        skillsClasse2T => 'PR_KYRIE 4, PR_MAGNIFICAT 5, PR_GLORIA 3, PR_STRECOVERY 1, PR_KYRIE 10, PR_IMPOSITIO 3, PR_SANCTUARY 7, MG_SRECOVERY 5, ALL_RESURRECTION 4, PR_LEXDIVINA 5, PR_LEXAETERNA 1, HP_MEDITATIO 10, PR_ASPERSIO 4, MG_SAFETYWALL 8, PR_REDEMPTIO 1',
-        skillsClasse3 => 'AB_CHEAL 3, AB_CANTO 3, AB_CLEMENTIA 3, AB_PRAEFATIO 10, AB_RENOVATIO 1, AB_HIGHNESSHEAL 5, AB_OFFERTORIUM 5',
+        skillsAprendiz => 'Habilidades Básicas 9',
+        skillsClasse1 => 'Curar 10, Aumentar Agilidade 10, Proteção Divina 3, Angelus 5, AL_DP 6, Bênção 5, AL_ANGELUS 10, AL_BLESSING 10, Revelação 1, Aqua Benedicta 1, Escudo Sagrado 1',
+        skillsClasse2 => 'Kyrie Eleison 4, Magnificat 5, Glória 5, Graça Divina 1, PR_KYRIE 10, Impositio Manus 5, Santuário 10, Aumentar Recuperação de SP 4, Ressuscitar 4, MG_SRECOVERY 9',
+        skillsClasse1T => 'Curar 10, Aumentar Agilidade 10, Proteção Divina 3, Angelus 5, AL_DP 5, Bênção 5, AL_ANGELUS 10, AL_BLESSING 10, Revelação 1, Aqua Benedicta 1, Escudo Sagrado 1, Diminuir Agilidade 1',
+        skillsClasse2T => 'Kyrie Eleison 4, Magnificat 5, Glória 3, Graça Divina 1, PR_KYRIE 10, Impositio Manus 3, Santuário 7, Aumentar Recuperação de SP 5, Ressuscitar 4, Lex Divina 5, Lex Aeterna 1, Meditatio 10, Aspersio 4, Escudo Mágico 8, Martírio 1',
+        skillsClasse3 => 'Sopro Divino 3, Canto Candidus 3, Clementia 3, Praefatio 10, Renovatio 1, Curatio 5, Offertorium 5',
         statsPadrao => '10 vit, 20 int, 15 dex, 20 vit, 25 dex, 30 int, 30 vit, 35 dex, 40 int, 45 vit, 50 int, 40 dex, 60 int, 75 vit, 95 int, 56 dex',
         statsPadraoTransclasse => '10 vit, 20 int, 15 dex, 20 vit, 25 dex, 30 int, 30 vit, 35 dex, 40 int, 45 vit, 50 int, 40 dex, 60 int, 75 vit, 95 int, 56 dex',
         statsPadraoClasse3 => ''

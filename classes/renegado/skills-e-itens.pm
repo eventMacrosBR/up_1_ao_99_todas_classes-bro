@@ -1,7 +1,7 @@
 automacro configurarFurto {
     SkillLevel TF_STEAL = 10
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
-    ConfigKeyNot attackSkillSlot_0 TF_STEAL
+    ConfigKeyNot attackSkillSlot_0 Furto
     exclusive 1
     call {
         [
@@ -16,7 +16,7 @@ automacro configurarFurto {
             pause 1
             do reload config
         }
-        do conf attackSkillSlot_0 TF_STEAL
+        do conf attackSkillSlot_0 Furto
         do conf attackSkillSlot_0_lvl 10
         do conf attackSkillSlot_0_sp >= 10
         do conf attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
@@ -29,7 +29,7 @@ automacro configurarFurto {
 automacro desabilitarFurto {
     SkillLevel RG_SNATCHER = 10
     exclusive 1
-    ConfigKey attackSkillSlot_0 TF_STEAL
+    ConfigKey attackSkillSlot_0 Furto
     call {
         [
         log ===================================
@@ -45,7 +45,7 @@ automacro desabilitarFurto {
 
 automacro configurarDesintoxicar {
     SkillLevel TF_DETOXIFY 1
-    ConfigKeyNot useSelf_skill_0 TF_DETOXIFY
+    ConfigKeyNot useSelf_skill_0 Desintoxicar
     exclusive 1
     call {
         [
@@ -60,7 +60,7 @@ automacro configurarDesintoxicar {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_0 TF_DETOXIFY
+        do conf useSelf_skill_0 Desintoxicar
         do conf useSelf_skill_0_lvl 1
         do conf useSelf_skill_0_sp >= 10
         do conf useSelf_skill_0_whenStatusActive HEALTHSTATE_POISON, EFST_HEALTHSTATE_POISON 
@@ -70,7 +70,7 @@ automacro configurarDesintoxicar {
 
 automacro configurarAfanar {
   SkillLevel RG_STEALCOIN = 10
-  ConfigKeyNot attackSkillSlot_0 RG_STEALCOIN
+  ConfigKeyNot attackSkillSlot_0 Afanar
   exclusive 1
     call {
         $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_0")
@@ -85,7 +85,7 @@ automacro configurarAfanar {
         log =Configurando pra usar ela
         log ===========================================
         ]
-        do conf attackSkillSlot_0 RG_STEALCOIN
+        do conf attackSkillSlot_0 Afanar
         do conf attackSkillSlot_0_lvl 10
         do conf attackSkillSlot_0_sp >= 15
         do conf attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
@@ -96,8 +96,8 @@ automacro configurarAfanar {
 }
 
 automacro configurarEsconderijo_e_AtaqueSupresa {
-    ConfigKeyNot useSelf_skill_1 TF_HIDING
-    ConfigKeyNot useSelf_skill_2 RG_RAID
+    ConfigKeyNot useSelf_skill_1 Esconderijo
+    ConfigKeyNot useSelf_skill_2 Ataque Surpresa
     SkillLevel RG_RAID = 5
     exclusive 1
     call {
@@ -113,7 +113,7 @@ automacro configurarEsconderijo_e_AtaqueSupresa {
             do reload config
         }
         [
-        do conf useSelf_skill_1 TF_HIDING
+        do conf useSelf_skill_1 Esconderijo
         do conf useSelf_skill_1_lvl 10
         do conf useSelf_skill_1_sp >= 30
         do conf useSelf_skill_1_aggressives >= 3 #Você decide acima de quantos monstros você deseja usar a habilidade
@@ -127,7 +127,7 @@ automacro configurarEsconderijo_e_AtaqueSupresa {
             do reload config
         }
         [
-        do conf useSelf_skill_2 RG_RAID
+        do conf useSelf_skill_2 Ataque Surpresa
         do conf useSelf_skill_2_lvl 5
         do conf useSelf_skill_2_sp >= 20
         do conf useSelf_skill_2_whenStatusInactive EFST_POSTDELAY

@@ -1,9 +1,9 @@
 sub configurarBuild {
     my %configsBuild = (
-        skillsAprendiz => 'NV_BASIC 9',
-        skillsClasse1 => 'MC_INCCARRY 10, MC_DISCOUNT 8, MC_OVERCHARGE 10, MC_PUSHCART 10, MC_VENDING 10, MC_IDENTIFY 1',
-        skillsClasse2 => 'AM_AXEMASTERY 10, MC_DISCOUNT 10, AM_REST 1, AM_CALLHOMUN 1, AM_RESURRECTHOMUN 5, AM_LEARNINGPOTION 10, AM_PHARMACY 10, AM_POTIONPITCHER 5, AM_CANNIBALIZE 5',
-        skillsClasse1T => 'MC_INCCARRY 10, MC_DISCOUNT 8, MC_OVERCHARGE 10, MC_PUSHCART 10, MC_VENDING 10, MC_IDENTIFY 1',
+        skillsAprendiz => 'Habilidades Básicas 9',
+        skillsClasse1 => 'Aumentar Capacidade de Carga 10, Desconto 8, Superfaturar 10, Usar Carrinho 10, Comércio 10, Identificar Item 1',
+        skillsClasse2 => 'Perícia com Machado 10, Desconto 10, Vaporizar 1, Criar Homunculus 1, Ressuscitar Homunculus 5, Pesquisa de Poções 10, Preparar Poção 10, Arremessar Poção 5, Criar Monstro Planta 5',
+        skillsClasse1T => 'Aumentar Capacidade de Carga 10, Desconto 8, Superfaturar 10, Usar Carrinho 10, Comércio 10, Identificar Item 1',
         skillsClasse2T => '',
         skillsClasse3 => '',
         statsPadrao => '10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 30 str, 40 dex, 20 vit, 80 agi ,60 dex, 50 str, 90 agi, 70 str, 40 vit',

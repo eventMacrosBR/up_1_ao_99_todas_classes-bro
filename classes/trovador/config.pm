@@ -1,8 +1,8 @@
 sub configurarBuild {
     my %configsBuild = (
-        skillsAprendiz => 'NV_BASIC 9',
-        skillsClasse1 => 'AC_OWL 10, AC_VULTURE 10, AC_CONCENTRATION 10, AC_DOUBLE 10, AC_SHOWER 10',
-        skillsClasse2 => 'BD_ADAPTATION 1, BA_MUSICALLESSON 5, BA_DISSONANCE 5, BA_ASSASSINCROSS 8, BA_POEMBRAGI 10, BD_SIEGFRIED 5, BD_RICHMANKIM 5, BA_APPLEIDUN 10',
+        skillsAprendiz => 'Habilidades Básicas 9',
+        skillsClasse1 => 'Precisão 10, Olhos de Águia 10, Concentração 10, Rajada de Flechas 10, Chuva de Flechas 10',
+        skillsClasse2 => 'Encerramento 1, Lições de Música 5, Dissonância 5, Crepúsculo Sangrento 8, Poema de Bragi 10, Ode a Siegfried 5, Banquete de Njord 5, Maçãs de Idun 10',
         skillsClasse1T => '',
         skillsClasse2T => '',
         skillsClasse3 => '',

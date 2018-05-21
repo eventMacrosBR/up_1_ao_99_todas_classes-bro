@@ -2,7 +2,7 @@
 
 automacro configurarCurar {
     SkillLevel AL_HEAL >= 2
-    ConfigKeyNot useSelf_skill_0 AL_HEAL
+    ConfigKeyNot useSelf_skill_0 Curar
     priority 0
     exclusive 1
     call {
@@ -18,7 +18,7 @@ automacro configurarCurar {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_0 AL_HEAL
+        do conf useSelf_skill_0 Curar
         do conf useSelf_skill_0_lvl 10
         do conf useSelf_skill_0_hp < 90%
         do conf useSelf_skill_0_whenStatusInactive EFST_POSTDELAY
@@ -26,9 +26,9 @@ automacro configurarCurar {
     }
 }
 
-automacro configurarAL_INCAGI {
+automacro configurarAumentar Agilidade {
     SkillLevel AL_INCAGI >= 1
-    ConfigKeyNot useSelf_skill_1 AL_INCAGI
+    ConfigKeyNot useSelf_skill_1 Aumentar Agilidade
     priority 1
     exclusive 1
     call {
@@ -44,7 +44,7 @@ automacro configurarAL_INCAGI {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_1 AL_INCAGI
+        do conf useSelf_skill_1 Aumentar Agilidade
         do conf useSelf_skill_1_lvl 10
         do conf useSelf_skill_1_sp >= 45
         do conf useSelf_skill_1_whenStatusInactive EFST_INC_AGI, EFST_POSTDELAY
@@ -57,7 +57,7 @@ automacro configurarAL_INCAGI {
 
 automacro configurarAngelus {
     SkillLevel AL_ANGELUS >= 1
-    ConfigKeyNot useSelf_skill_2 AL_ANGELUS
+    ConfigKeyNot useSelf_skill_2 Angelus
     priority 2
     exclusive 1
     call {
@@ -73,7 +73,7 @@ automacro configurarAngelus {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_2 AL_ANGELUS
+        do conf useSelf_skill_2 Angelus
         do conf useSelf_skill_2_sp >= 50
         do conf useSelf_skill_2_whenStatusInactive EFST_ANGELUS, EFST_POSTDELAY
         do conf useSelf_skill_2_notWhileSitting 1
@@ -83,9 +83,9 @@ automacro configurarAngelus {
     }
 }
 
-automacro configurarAL_BLESSING {
+automacro configurarBênção {
     SkillLevel AL_BLESSING >= 1
-    ConfigKeyNot useSelf_skill_3 AL_BLESSING
+    ConfigKeyNot useSelf_skill_3 Bênção
     priority 3
     exclusive 1
     call {
@@ -101,7 +101,7 @@ automacro configurarAL_BLESSING {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_3 AL_BLESSING
+        do conf useSelf_skill_3 Bênção
         do conf useSelf_skill_3_lvl 10
         do conf useSelf_skill_3_sp >= 64
         do conf useSelf_skill_3_whenStatusInactive EFST_BLESSING, EFST_POSTDELAY
@@ -115,7 +115,7 @@ automacro configurarAL_BLESSING {
 
 automacro configurarKyrieEleison {
     SkillLevel PR_KYRIE >= 1
-    ConfigKeyNot useSelf_skill_4 PR_KYRIE
+    ConfigKeyNot useSelf_skill_4 Kyrie Eleison
     priority 4
     exclusive 1
     call {
@@ -131,7 +131,7 @@ automacro configurarKyrieEleison {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_4 PR_KYRIE
+        do conf useSelf_skill_4 Kyrie Eleison
         do conf useSelf_skill_4_lvl 10
         do conf useSelf_skill_4_sp >= 35
         do conf useSelf_skill_4_whenStatusInactive EFST_KYRIE, EFST_ASSUMPTIO, EFST_POSTDELAY
@@ -144,7 +144,7 @@ automacro configurarKyrieEleison {
 
 automacro configurarMagnificat {
     SkillLevel PR_MAGNIFICAT >= 1
-    ConfigKeyNot useSelf_skill_5 PR_MAGNIFICAT
+    ConfigKeyNot useSelf_skill_5 Magnificat
     priority 5
     exclusive 1
     call {
@@ -160,7 +160,7 @@ automacro configurarMagnificat {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_5 PR_MAGNIFICAT
+        do conf useSelf_skill_5 Magnificat
         do conf useSelf_skill_5_sp >= 40
         do conf useSelf_skill_5_whenStatusInactive EFST_MAGNIFICAT, EFST_POSTDELAY
         do conf useSelf_skill_5_notWhileSitting 1
@@ -172,7 +172,7 @@ automacro configurarMagnificat {
 
 automacro configurarGloria {
     SkillLevel PR_GLORIA >= 5
-    ConfigKeyNot useSelf_skill_6 PR_GLORIA
+    ConfigKeyNot useSelf_skill_6 Glória
     priority 6
     exclusive 1
     call {
@@ -188,7 +188,7 @@ automacro configurarGloria {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_6 PR_GLORIA
+        do conf useSelf_skill_6 Glória
         do conf useSelf_skill_0_lvl 5
         do conf useSelf_skill_6_sp >= 20
         do conf useSelf_skill_6_whenStatusInactive EFST_GLORIA, EFST_POSTDELAY
@@ -200,7 +200,7 @@ automacro configurarGloria {
 
 automacro configurarGraçaDivina {
     SkillLevel PR_STRECOVERY >= 1
-    ConfigKeyNot useSelf_skill_7 PR_STRECOVERY
+    ConfigKeyNot useSelf_skill_7 Graça Divina
     priority 7
     exclusive 1
     call {
@@ -216,7 +216,7 @@ automacro configurarGraçaDivina {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_7 PR_STRECOVERY
+        do conf useSelf_skill_7 Graça Divina
         do conf useSelf_skill_7_sp >= 5
         do conf useSelf_skill_7_whenStatusInactive EFST_POSTDELAY
         do conf useSelf_skill_7_whenStatusActive BODYSTATE_FREEZING, BODYSTATE_STUN, BODYSTATE_STONECURSE, BODYSTATE_STONECURSE_ING
@@ -226,7 +226,7 @@ automacro configurarGraçaDivina {
 
 automacro configurarImpositioManus {
     SkillLevel PR_IMPOSITIO >= 1
-    ConfigKeyNot useSelf_skill_8 PR_IMPOSITIO
+    ConfigKeyNot useSelf_skill_8 Impositio Manus
     priority 8
     exclusive 1
     call {
@@ -242,7 +242,7 @@ automacro configurarImpositioManus {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_8 PR_IMPOSITIO
+        do conf useSelf_skill_8 Impositio Manus
         do conf useSelf_skill_8_sp >= 25
         do conf useSelf_skill_8_whenStatusInactive EFST_IMPOSITIO, EFST_POSTDELAY
         do conf useSelf_skill_8_notWhileSitting 1
@@ -255,7 +255,7 @@ automacro configurarImpositioManus {
 
 automacro configurarCurarMortoVivos {
     SkillLevel AL_HEAL = 10
-    ConfigKeyNot attackSkillSlot_0 AL_HEAL
+    ConfigKeyNot attackSkillSlot_0 Curar
     priority 0
     exclusive 1
     call {
@@ -271,7 +271,7 @@ automacro configurarCurarMortoVivos {
             pause 1
             do reload config
         }
-        do conf attackSkillSlot_0 AL_HEAL
+        do conf attackSkillSlot_0 Curar
         do conf attackSkillSlot_0_lvl 10
         do conf attackSkillSlot_0_sp >= 40
         do conf attackSkillSlot_0_distance 1.5

@@ -1,7 +1,7 @@
 
 automacro configurarConcentracao {
     SkillLevel AC_CONCENTRATION >= 1
-    ConfigKeyNot useSelf_skill_0 AC_CONCENTRATION
+    ConfigKeyNot useSelf_skill_0 Concentração
     priority 0
     exclusive 1
     call {
@@ -18,7 +18,7 @@ automacro configurarConcentracao {
             do reload config
         }
         #dicas de configuração do bloco enviadas por @MrAnderson
-        do conf useSelf_skill_0 AC_CONCENTRATION
+        do conf useSelf_skill_0 Concentração
         do conf useSelf_skill_0_lvl 10
         do conf useSelf_skill_0_sp > 70
         do conf useSelf_skill_0_whenStatusInactive EFST_CONCENTRATION, EFST_POSTDELAY
@@ -32,7 +32,7 @@ automacro configurarConcentracao {
 
 automacro configurarRajadaDeFlechas {
     SkillLevel AC_DOUBLE > 1
-    ConfigKeyNot attackSkillSlot_0 AC_DOUBLE
+    ConfigKeyNot attackSkillSlot_0 Rajada de Flechas
     priority 0
     exclusive 1
     call {
@@ -49,7 +49,7 @@ automacro configurarRajadaDeFlechas {
             do reload config
         }
         #dicas de configuração do bloco enviadas por @MrAnderson
-        do conf attackSkillSlot_0 AC_DOUBLE
+        do conf attackSkillSlot_0 Rajada de Flechas
         do conf attackSkillSlot_0_sp >= 82
         do conf attackSkillSlot_0_dist none
         do conf attackSkillSlot_0_whenStatusActive EFST_CONCENTRATION

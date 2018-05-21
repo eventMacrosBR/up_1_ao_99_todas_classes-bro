@@ -1,10 +1,10 @@
 
 sub configurarBuild {
     my %configsBuild = (
-        skillsAprendiz => 'NV_BASIC 9',
-        skillsClasse1 => 'SM_RECOVERY 10, SM_PROVOKE 9, SM_BASH 10, SM_ENDURE 10, SM_MAGNUM 10',
-        skillsClasse2 => 'CR_TRUST 7, CR_HOLYCROSS 10, AL_CURE 1, KN_RIDING 1, KN_CAVALIERMASTERY 5, KN_SPEARMASTERY 10, AL_DP 3, AL_DEMONBANE 5, CR_TRUST 10, AL_HEAL 5',
-        skillsClasse1T => 'SM_RECOVERY 10, SM_PROVOKE 9, SM_BASH 10, SM_ENDURE 10, SM_MAGNUM 10',
+        skillsAprendiz => 'Habilidades Básicas 9',
+        skillsClasse1 => 'Aumentar Recuperação de HP 10, Provocar 9, Golpe Fulminante 10, Vigor 10, Impacto Explosivo 10',
+        skillsClasse2 => 'Fé 7, Crux Divinum 10, Medicar 1, Montaria 1, Perícia em Montaria 5, Perícia com Lança 10, Proteção Divina 3, Flagelo do Mal 5, CR_TRUST 10, Curar 5',
+        skillsClasse1T => 'Aumentar Recuperação de HP 10, Provocar 9, Golpe Fulminante 10, Vigor 10, Impacto Explosivo 10',
         skillsClasse2T => '',
         skillsClasse3 => '',
         statsPadrao => '10 dex, 15 agi, 20 dex, 20 agi, 20 str, 30 dex, 30 str, 40 dex, 20 vit, 40 str, 60 dex, 50 str, 20 int, 65 str, 40 int, 70 dex, 40 vit, 50 int, 75 dex, 60 int, 80 dex, 70 int',

@@ -2,7 +2,7 @@ automacro configurarRelampago {
     SkillLevel MG_LIGHTNINGBOLT >= 3
     exclusive 1
     priority -3
-    ConfigKeyNot attackSkillSlot_0 MG_LIGHTNINGBOLT
+    ConfigKeyNot attackSkillSlot_0 Relâmpago
     priority 1
     call {
         [
@@ -18,7 +18,7 @@ automacro configurarRelampago {
             do reload config
         }
         
-        do conf attackSkillSlot_0 MG_LIGHTNINGBOLT
+        do conf attackSkillSlot_0 Relâmpago
         do conf attackSkillSlot_0_sp > 20%
         do conf attackSkillSlot_0_lvl none #faz ele usar no lvl máximo que tiver
         do conf attackSkillSlot_0_stopWhenHit 1
@@ -32,7 +32,7 @@ automacro configurarLancasDeFogo {
     SkillLevel MG_FIREBOLT >= 1
     exclusive 1
     priority -2
-    ConfigKeyNot attackSkillSlot_1 MG_FIREBOLT
+    ConfigKeyNot attackSkillSlot_1 Lanças de Fogo
     priority 2
     call {
         [
@@ -48,7 +48,7 @@ automacro configurarLancasDeFogo {
             do reload config
         }
         
-        do conf attackSkillSlot_1 MG_FIREBOLT
+        do conf attackSkillSlot_1 Lanças de Fogo
         do conf attackSkillSlot_1_sp > 20%
         do conf attackSkillSlot_1_lvl none
         do conf attackSkillSlot_1_stopWhenHit 1
@@ -62,7 +62,7 @@ automacro configurarLancasDeGelo {
     exclusive 1
     priority -1
     SkillLevel MG_COLDBOLT >= 1
-    ConfigKeyNot attackSkillSlot_2 MG_COLDBOLT
+    ConfigKeyNot attackSkillSlot_2 Lanças de Gelo
     call {
         [
         log ===================================
@@ -76,7 +76,7 @@ automacro configurarLancasDeGelo {
             do reload config
         }
         
-        do conf attackSkillSlot_2 MG_COLDBOLT
+        do conf attackSkillSlot_2 Lanças de Gelo
         do conf attackSkillSlot_2_sp > 20%
         do conf attackSkillSlot_2_lvl none
         do conf attackSkillSlot_2_stopWhenHit 1

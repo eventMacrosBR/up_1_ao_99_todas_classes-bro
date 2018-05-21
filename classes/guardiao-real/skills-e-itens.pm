@@ -2,7 +2,7 @@ automacro configurarGolpeFulminante {
     SkillLevel SM_BASH = 10
     SkillLevel CR_HOLYCROSS != 10 #essa automacro nao vai ativar quando o holycross tiver lvl máximo
     exclusive 1
-    ConfigKeyNot attackSkillSlot_0 SM_BASH
+    ConfigKeyNot attackSkillSlot_0 Golpe Fulminante
     call {
         $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_0")
         if ( $blocoExiste = nao ) {
@@ -10,7 +10,7 @@ automacro configurarGolpeFulminante {
             pause 1
             do reload config
         }
-        do conf attackSkillSlot_0 SM_BASH
+        do conf attackSkillSlot_0 Golpe Fulminante
         do conf attackSkillSlot_0_lvl 10
         do conf attackSkillSlot_0_sp >= 15
         do conf attackSkillSlot_0_maxUses 1
@@ -22,7 +22,7 @@ automacro configurarGolpeFulminante {
 automacro configurarHolyCross {
     SkillLevel CR_HOLYCROSS = 10
     exclusive 1
-    ConfigKeyNot attackSkillSlot_0 CR_HOLYCROSS
+    ConfigKeyNot attackSkillSlot_0 Crux Divinum
     call {
         $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_0")
         if ( $blocoExiste = nao ) {
@@ -30,7 +30,7 @@ automacro configurarHolyCross {
             pause 1
             do reload config
         }
-        do conf attackSkillSlot_0 CR_HOLYCROSS
+        do conf attackSkillSlot_0 Crux Divinum
         do conf attackSkillSlot_0_lvl 10
         do conf attackSkillSlot_0_sp >= 20
         do conf attackSkillSlot_0_maxUses 1
@@ -44,7 +44,7 @@ automacro configurarHolyCross {
 automacro configurarMedicar {
     SkillLevel AL_CURE = 1
     exclusive 1
-    ConfigKeyNot useSelf_skill_0 AL_CURE
+    ConfigKeyNot useSelf_skill_0 Medicar
     call {
         $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_0")
         if ( $blocoExiste = nao ) {
@@ -52,7 +52,7 @@ automacro configurarMedicar {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_0 AL_CURE
+        do conf useSelf_skill_0 Medicar
         do conf useSelf_skill_0_lvl 1
         do conf useSelf_skill_0_sp > 15
         do conf useSelf_skill_0_whenStatusActive EFST_HEALTHSTATE_BLIND
@@ -62,7 +62,7 @@ automacro configurarMedicar {
 automacro configurarCura {
     SkillLevel AL_HEAL >= 1
     exclusive 1
-    ConfigKeyNot useSelf_skill_1 AL_HEAL
+    ConfigKeyNot useSelf_skill_1 Curar
     call {
         $blocoExiste = checarSeExisteNoConfig("useSelf_skill_1")
         if ($blocoExiste = nao) {
@@ -70,7 +70,7 @@ automacro configurarCura {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_1 AL_HEAL
+        do conf useSelf_skill_1 Curar
         do conf useSelf_skill_1_hp < 60%
         do conf useSelf_skill_1_sp >= 40%
         do conf useSelf_skill_1_whenStatusInactive EFST_POSTDELAY
