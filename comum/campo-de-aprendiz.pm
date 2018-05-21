@@ -1058,6 +1058,7 @@ automacro campoDeAprendiz_terminouDeUpar_bugada {
     exclusive 1
     JobLevel = 10
     BaseLevel > 11
+    JobID 0, 4023
     ConfigKeyNot quest_atual todas_completadas
     QuestInactive 7127
     QuestInactive 7123
