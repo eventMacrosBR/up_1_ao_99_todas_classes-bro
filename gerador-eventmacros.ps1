@@ -211,7 +211,7 @@ function updater {
 }
 
 if(! $job){
-    #updater
+    updater
     desenharJanela
     carregarValores
     mostrarJanela
