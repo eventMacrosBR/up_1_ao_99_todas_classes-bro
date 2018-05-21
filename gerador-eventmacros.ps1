@@ -1,6 +1,7 @@
 param ( [string]$job )
 
-$versao_pwsh = $PSVersionTable.PSVersion.Major
+#Por questıes de compatibilidade esse arquivo precisa ser aberto em 
+#codificaÁ„o ISO 8859-1 (ANSI) e n„o UTF-8
 
 if (! $job) {
     Add-Type -AssemblyName System.Windows.Forms
@@ -14,7 +15,7 @@ if (! $job) {
     $configsPersonalizadas = New-Object System.Windows.Forms.PropertyGrid
     $labelClasseSelecionada = New-Object System.Windows.Forms.Label
     
-    if (versao_pwsh >= 5) {
+    if($PSVersionTable.PSVersion.Major -ge 3){
         $classDefinition = '
             using System;
             public class Configuracoes {
@@ -29,8 +30,24 @@ if (! $job) {
                 public String statsPadraoClasse3 { get; set; }
             }
         '
-        Add-Type -TypeDefinition $classDefinition
+        Add-Type -Language CSharp  -TypeDefinition $classDefinition
+        
+        $configuracoes = New-Object Configuracoes
+    } else {
+        [System.Windows.Forms.MessageBox]::Show( "O powershell do seu sistema operacional È muito antigo. As configuraÁıes personalizadas ser„o apenas leitura para visualizaÁ„o", "Aviso" )
+        $configuracoes = New-Object -TypeName PSObject -Prop @{ 
+            skillsAprendiz = $null;
+            skillsClasse1 = $null; 
+            skillsClasse2 = $null;
+            skillsClasse1T = $null;
+            skillsClasse2T = $null;
+            skillsClasse3 = $null;
+            statsPadrao = $null;
+            statsPadraoTransclasse = $null;
+            statsPadraoClasse3 = $null;
+        }
     }
+
 }
 
 function getVersao {
@@ -43,14 +60,14 @@ function getVersao {
         $version = $commitCounter + "." + $hash 
         
     }catch{
-        [System.Windows.Forms.MessageBox]::Show( "Git n√£o instalado, n√£o vai ser exibida a vers√£o", "Erro" )
+        [System.Windows.Forms.MessageBox]::Show( "Git n„o instalado, n„o vai ser exibida a vers„o", "Erro" )
     }
     return $version
 }
 
 function limparNomeDaClasse {
     Param($classe)
-    return $classe.ToString().ToLower().Replace(" ","-").Replace("√≠","i").Replace("√∫","u").Replace("√¢","a").Replace("√£","a").Replace("√°","a")
+    return $classe.ToString().ToLower().Replace(" ","-").Replace("Ì≠","i").Replace("˙","u").Replace("„","a").Replace("·","a").Replace("‚","a")
 }
 
 function gerarMacro {
@@ -92,9 +109,7 @@ function acaoBotaoGerar {
     $classe = $listJobs.SelectedItems
     if ($classe.Count -eq 1) {
         $classeSelecionada = $classe[0].Text
-        if (versao_pwsh >= 5) {
-            salvarBuild($classeSelecionada)
-        }
+        salvarBuild($classeSelecionada)
         gerarMacro($classeSelecionada)
         [System.Windows.Forms.MessageBox]::Show("eventMacros.txt para $classeSelecionada gerado com sucesso!" , "Ok")
         $Form.Dispose()
@@ -111,40 +126,36 @@ function acaoCarregarConfiguracoes {
 
         $labelClasseSelecionada.Text = "Classe selecionada: $classeSelecionada"
         $c = limparNomeDaClasse($classe[0].Text)
-        $config = New-Object Configuracoes
         $arquivo = "classes/$c/config.pm"
         Write-Host "Abrindo arquivo: $arquivo"
         foreach($line in Get-Content -Encoding UTF8 $arquivo) {
 
             if($line -match "^\s+\w+\s+=>\s+'.*"){
-                Write-Host "Linha de configura√ßo: $line"
+                Write-Host "Linha de configuraÁ„o: $line"
                 $chave = $line -replace "\s+(\w+)\s+\=\>.*",'$1'
                 $valor = $line -replace ".*'(.*)'.*",'$1'
                 
-                $config."$chave" = $valor
+                $configuracoes."$chave" = $valor
                                 
             }
            
         }
-        $configsPersonalizadas.SelectedObject = $config
+        $configsPersonalizadas.SelectedObject = $configuracoes
 
     } else {
         $labelClasseSelecionada.Text = "Classe selecionada: "
-        $configsPersonalizadas.SelectedObject = New-Object Configuracoes
+        
     }
 }
 
 
 function desenharJanela {
     $versao = getVersao
-    $Form.Text = "Gerador eventMacros.txt vers√£o: " + $versao
+    $Form.Text = "Gerador eventMacros.txt vers„o: " + $versao
     $Form.TopMost = $true
     $Form.Width = 800
-    if (versao_pwsh >= 5) {
-        $Form.Height = 600
-    } else {
-        $Form.Height = 300
-    }
+    $Form.Height = 600
+
 
     $listJobs.Width = 760
     $listJobs.Height = 130
@@ -160,27 +171,21 @@ function desenharJanela {
     $labelClasseSelecionada.Location = New-Object system.drawing.point(10,160)
     $Form.controls.Add($labelClasseSelecionada)
 
-    if (versao_pwsh >= 5) {
-        $labelConfigsPersonalizadas.Text = "Configura√ß√µes Personalizadas"
-        $labelConfigsPersonalizadas.Width = 400
-        $labelConfigsPersonalizadas.location = New-Object system.drawing.point(10,195)
-        $Form.controls.Add($labelConfigsPersonalizadas)
+    $labelConfigsPersonalizadas.Text = "ConfiguraÁıes Personalizadas"
+    $labelConfigsPersonalizadas.Width = 400
+    $labelConfigsPersonalizadas.location = New-Object system.drawing.point(10,195)
+    $Form.controls.Add($labelConfigsPersonalizadas)
 
-        $configsPersonalizadas.Width = 760
-        $configsPersonalizadas.Height = 300
-        $configsPersonalizadas.location = New-Object system.drawing.point(10,220)
-        $configsPersonalizadas.SelectedObject = New-Object Configuracoes
-        $Form.controls.Add($configsPersonalizadas)
-    }
+    $configsPersonalizadas.Width = 760
+    $configsPersonalizadas.Height = 300
+    $configsPersonalizadas.location = New-Object system.drawing.point(10,220)
+    $configsPersonalizadas.SelectedObject = $configuracoes
+    $Form.controls.Add($configsPersonalizadas)
 
     
     $btn.Text = "Gerar"
     $btn.Width = 60
-    if (versao_pwsh >= 5) {
-        $btn.location = New-Object system.drawing.point(710,520)
-    } else {
-        $btn.location = New-Object system.drawing.point(710,220)
-    }
+    $btn.location = New-Object system.drawing.point(710,520)
     $Form.controls.Add($btn)
     $Form.AcceptButton = $btn
 
@@ -189,7 +194,7 @@ function desenharJanela {
 
 function carregarValores {
     
-    $classes = "Cavaleiro R√∫nico", "Guardi√£o Real", "Arcano", "Feiticeiro", "Sentinela", "Trovador", "Musa", "Mec√¢nico", "Bioqu√≠mico", "Sic√°rio", "Renegado", "Arcebispo", "Shura", "Mestre Taekwon", "Espiritualista", "Kagerou", "Oboro", "Justiceiro", "Superaprendiz"
+    $classes = "Cavaleiro R˙nico", "Guardi„o Real", "Arcano", "Feiticeiro", "Sentinela", "Trovador", "Musa", "Mec‚nico", "BioquÌ≠mico", "Sic·rio", "Renegado", "Arcebispo", "Shura", "Mestre Taekwon", "Espiritualista", "Kagerou", "Oboro", "Justiceiro", "Superaprendiz"
 
     For ($i=0; $i -lt $classes.Count; $i++) {
         $listItemClasse = New-Object System.Windows.Forms.ListViewItem
@@ -216,7 +221,7 @@ function updater {
         $versao_atual = (git rev-list --count origin/master) | Out-String
         $versao_local = (git rev-list --count master) | Out-String
         if($versao_atual -ne $versao_local) {
-            $confirmacao = [System.Windows.Forms.MessageBox]::Show( "Nova vers√£o dispon√≠vel. Gostaria de atualizar sua vers√£o?", "Vers√£o desatualizada", [Windows.Forms.MessageBoxButtons]::YesNo )
+            $confirmacao = [System.Windows.Forms.MessageBox]::Show( "Nova vers„o disponÌ≠vel. Gostaria de atualizar sua vers„o?", "Vers„o desatualizada", [Windows.Forms.MessageBoxButtons]::YesNo )
             if ($confirmacao -eq "YES"){
                 git stash save
                 git pull --rebase
