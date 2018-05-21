@@ -2,9 +2,9 @@
 sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz => 'Habilidades Básicas 9',
-        skillsClasse1 => 'Relâmpago 3, Aumentar Recuperação de SP 5, Lanças de Fogo 7, Lanças de Gelo 7, MG_FIREBOLT 10, MG_COLDBOLT 10, MG_SRECOVERY 8, Chama Reveladora 1, Rajada Congelante 1, Ataque Espiritual 4, Espíritos Anciões 10, MG_LIGHTNINGBOLT 4, Tempestade de Raios 1',
+        skillsClasse1 => 'Relâmpago 3, Aumentar Recuperação de SP 5, Lanças de Fogo 7, Lanças de Gelo 7, Lanças de Fogo 10, Lanças de Gelo 10, Aumentar Recuperação de SP 8, Chama Reveladora 1, Rajada Congelante 1, Ataque Espiritual 4, Espíritos Anciões 10, Relâmpago 4, Tempestade de Raios 1',
         skillsClasse2 => 'Barreira de Gelo 9',
-        skillsClasse1T => 'Relâmpago 5, Lanças de Fogo 7, Lanças de Gelo 7,Aumentar Recuperação de SP 10, MG_FIREBOLT 10, MG_COLDBOLT 10, Rajada Congelante 1, Espíritos Anciões 3',
+        skillsClasse1T => 'Relâmpago 5, Lanças de Fogo 7, Lanças de Gelo 7,Aumentar Recuperação de SP 10, Lanças de Fogo 10, Lanças de Gelo 10, Rajada Congelante 1, Espíritos Anciões 3',
         skillsClasse2T => '',
         skillsClasse3 => '',
         statsPadrao => '50 int, 20 dex, 70 int, 50 dex, 20 vit, 90 int, 65 vit, 99 int, 70 dex',
