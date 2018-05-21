@@ -12,19 +12,21 @@ if (! $job) {
     $configsPersonalizadas = New-Object System.Windows.Forms.PropertyGrid
     $labelClasseSelecionada = New-Object System.Windows.Forms.Label
 
-    Class Configuracoes {
-        [string]$skills_classe_1
-        [string]$skills_classe_2
-        [string]$skills_classe_1_transclasse
-        [string]$skills_classe_2_transclasse
-        [string]$skills_classe_3
-        [string]$stats_nao_transclasse
-        [string]$stats_transclasse
-        [string]$stats_classe_3
-
-    }
-    
-
+    $classDefinition = '
+        using System;
+        public class Configuracoes {
+            public String skillsAprendiz { get; set; }
+            public String skillsClasse1 { get; set; }
+            public String skillsClasse2 { get; set; }
+            public String skillsClasse1T { get; set; }
+            public String skillsClasse2T { get; set; }
+            public String skillsClasse3 { get; set; }
+            public String statsPadrao { get; set; }
+            public String statsPadraoTransclasse { get; set; }
+            public String statsPadraoClasse3 { get; set; }
+        }
+    '
+    Add-Type -TypeDefinition $classDefinition
 }
 
 function getVersao {
@@ -69,46 +71,12 @@ function salvarBuild {
     $config = $configsPersonalizadas.SelectedObject
     $tempFile = "classes/$classe/config.pm.tmp"
     foreach($line in Get-Content -Encoding UTF8 $arquivo) {
-        if($line -match "^\s+\bskillsClasse1\b.*"){
-            $c = $config.skills_classe_1
-            "        skillsClasse1 => '$c'," | Out-File $tempFile -Encoding UTF8 -append
+        if($line -match "^\s+\w+\s+=>\s+'.*"){
+            $chave = $line -replace "\s+(\w+)\s+\=\>.*",'$1'
+            $novoValor = $config."$chave"
+            $line -replace "'.*'","'$novoValor'" | Out-File $tempFile -Encoding UTF8 -append
         } else {
-            if($line -match "^\s+\bskillsClasse2\b.*"){
-                $c = $config.skills_classe_2
-                "        skillsClasse2 => '$c'," | Out-File $tempFile -Encoding UTF8 -append
-            } else {
-                if($line -match "^\s+\bskillsClasse1T\b.*"){
-                    $c = $config.skills_classe_1_transclasse
-                    "        skillsClasse1T => '$c'," | Out-File $tempFile -Encoding UTF8 -append
-                } else {
-                    if($line -match "^\s+\bskillsClasse2T\b.*"){
-                        $c = $config.skills_classe_2_transclasse
-                        "        skillsClasse2T => '$c'," | Out-File $tempFile -Encoding UTF8 -append
-                    } else { 
-                        if($line -match "^\s+\bskillsClasse3\b.*"){
-                            $c = $config.skills_classe_3
-                            "        skillsClasse3 => '$c'," | Out-File $tempFile -Encoding UTF8 -append
-                        } else {
-                            if($line -match "^\s+\bstatsPadrao\b.*"){
-                                $c = $config.stats_nao_transclasse 
-                                "        statsPadrao => '$c'," | Out-File $tempFile -Encoding UTF8 -append
-                            } else {
-                                if($line -match "^\s+\bstatsPadraoTransclasse\b.*"){
-                                    $c = $config.stats_transclasse
-                                    "        statsPadraoTransclasse => '$c'," | Out-File $tempFile -Encoding UTF8 -append
-                                } else {
-                                    if($line -match "^\s+\bstatsPadraoClasse3\b.*"){
-                                        $c = $config.stats_classe_3
-                                        "        statsPadraoClasse3 => '$c'" | Out-File $tempFile -Encoding UTF8 -append
-                                    } else{
-                                        $line | Out-File $tempFile -Encoding UTF8 -append
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            $line | Out-File $tempFile -Encoding UTF8 -append
         }
     }
     Remove-Item $arquivo
@@ -137,41 +105,26 @@ function acaoCarregarConfiguracoes {
 
         $labelClasseSelecionada.Text = "Classe selecionada: $classeSelecionada"
         $c = limparNomeDaClasse($classe[0].Text)
-        $config = [Configuracoes]::new()
+        $config = New-Object Configuracoes
         $arquivo = "classes/$c/config.pm"
         Write-Host "Abrindo arquivo: $arquivo"
         foreach($line in Get-Content -Encoding UTF8 $arquivo) {
 
-            if($line -match "^\s+\bskillsClasse1\b.*"){
-                $config.skills_classe_1 = $line -replace ".*'(.*)'.*",'$1'
+            if($line -match "^\s+\w+\s+=>\s+'.*"){
+                Write-Host "Linha de configuraço: $line"
+                $chave = $line -replace "\s+(\w+)\s+\=\>.*",'$1'
+                $valor = $line -replace ".*'(.*)'.*",'$1'
+                
+                $config."$chave" = $valor
+                                
             }
-            if($line -match "^\s+\bskillsClasse2\b.*"){
-                $config.skills_classe_2 = $line -replace ".*'(.*)'.*",'$1'
-            }
-            if($line -match "^\s+\bskillsClasse1T\b.*"){
-                $config.skills_classe_1_transclasse = $line -replace ".*'(.*)'.*",'$1'
-            }
-            if($line -match "^\s+\bskillsClasse2T\b.*"){
-                $config.skills_classe_2_transclasse = $line -replace ".*'(.*)'.*",'$1'
-            }
-            if($line -match "^\s+\bskillsClasse3\b.*"){
-                $config.skills_classe_3 = $line -replace ".*'(.*)'.*",'$1'
-            }
-            if($line -match "^\s+\bstatsPadrao\b.*"){
-                $config.stats_nao_transclasse = $line -replace ".*'(.*)'.*",'$1'
-            }
-            if($line -match "^\s+\bstatsPadraoTransclasse\b.*"){
-                $config.stats_transclasse = $line -replace ".*'(.*)'.*",'$1'
-            }
-            if($line -match "^\s+\bstatsPadraoClasse3\b.*"){
-                $config.stats_classe_3 = $line -replace ".*'(.*)'.*",'$1'
-            }
+           
         }
         $configsPersonalizadas.SelectedObject = $config
 
     } else {
         $labelClasseSelecionada.Text = "Classe selecionada: "
-        $configsPersonalizadas.SelectedObject = [Configuracoes]::new()
+        $configsPersonalizadas.SelectedObject = New-Object Configuracoes
     }
 }
 
@@ -205,8 +158,7 @@ function desenharJanela {
     $configsPersonalizadas.Width = 760
     $configsPersonalizadas.Height = 300
     $configsPersonalizadas.location = New-Object system.drawing.point(10,220)
-    $configsPersonalizadas.SelectedObject = [Configuracoes]::new() 
-    $configsPersonalizadas.AutoSize = true
+    $configsPersonalizadas.SelectedObject = New-Object Configuracoes
     $Form.controls.Add($configsPersonalizadas)
 
     
@@ -259,7 +211,7 @@ function updater {
 }
 
 if(! $job){
-    updater
+    #updater
     desenharJanela
     carregarValores
     mostrarJanela
