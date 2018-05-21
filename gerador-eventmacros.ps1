@@ -1,5 +1,7 @@
 param ( [string]$job )
 
+$versao_pwsh = $PSVersionTable.PSVersion.Major
+
 if (! $job) {
     Add-Type -AssemblyName System.Windows.Forms
 
@@ -11,22 +13,24 @@ if (! $job) {
     $labelConfigsPersonalizadas = New-Object System.Windows.Forms.Label
     $configsPersonalizadas = New-Object System.Windows.Forms.PropertyGrid
     $labelClasseSelecionada = New-Object System.Windows.Forms.Label
-
-    $classDefinition = '
-        using System;
-        public class Configuracoes {
-            public String skillsAprendiz { get; set; }
-            public String skillsClasse1 { get; set; }
-            public String skillsClasse2 { get; set; }
-            public String skillsClasse1T { get; set; }
-            public String skillsClasse2T { get; set; }
-            public String skillsClasse3 { get; set; }
-            public String statsPadrao { get; set; }
-            public String statsPadraoTransclasse { get; set; }
-            public String statsPadraoClasse3 { get; set; }
-        }
-    '
-    Add-Type -TypeDefinition $classDefinition
+    
+    if (versao_pwsh >= 5) {
+        $classDefinition = '
+            using System;
+            public class Configuracoes {
+                public String skillsAprendiz { get; set; }
+                public String skillsClasse1 { get; set; }
+                public String skillsClasse2 { get; set; }
+                public String skillsClasse1T { get; set; }
+                public String skillsClasse2T { get; set; }
+                public String skillsClasse3 { get; set; }
+                public String statsPadrao { get; set; }
+                public String statsPadraoTransclasse { get; set; }
+                public String statsPadraoClasse3 { get; set; }
+            }
+        '
+        Add-Type -TypeDefinition $classDefinition
+    }
 }
 
 function getVersao {
@@ -88,7 +92,9 @@ function acaoBotaoGerar {
     $classe = $listJobs.SelectedItems
     if ($classe.Count -eq 1) {
         $classeSelecionada = $classe[0].Text
-        salvarBuild($classeSelecionada)
+        if (versao_pwsh >= 5) {
+            salvarBuild($classeSelecionada)
+        }
         gerarMacro($classeSelecionada)
         [System.Windows.Forms.MessageBox]::Show("eventMacros.txt para $classeSelecionada gerado com sucesso!" , "Ok")
         $Form.Dispose()
@@ -134,7 +140,11 @@ function desenharJanela {
     $Form.Text = "Gerador eventMacros.txt versão: " + $versao
     $Form.TopMost = $true
     $Form.Width = 800
-    $Form.Height = 600
+    if (versao_pwsh >= 5) {
+        $Form.Height = 600
+    } else {
+        $Form.Height = 300
+    }
 
     $listJobs.Width = 760
     $listJobs.Height = 130
@@ -150,21 +160,27 @@ function desenharJanela {
     $labelClasseSelecionada.Location = New-Object system.drawing.point(10,160)
     $Form.controls.Add($labelClasseSelecionada)
 
-    $labelConfigsPersonalizadas.Text = "Configurações Personalizadas"
-    $labelConfigsPersonalizadas.Width = 400
-    $labelConfigsPersonalizadas.location = New-Object system.drawing.point(10,195)
-    $Form.controls.Add($labelConfigsPersonalizadas)
- 
-    $configsPersonalizadas.Width = 760
-    $configsPersonalizadas.Height = 300
-    $configsPersonalizadas.location = New-Object system.drawing.point(10,220)
-    $configsPersonalizadas.SelectedObject = New-Object Configuracoes
-    $Form.controls.Add($configsPersonalizadas)
+    if (versao_pwsh >= 5) {
+        $labelConfigsPersonalizadas.Text = "Configurações Personalizadas"
+        $labelConfigsPersonalizadas.Width = 400
+        $labelConfigsPersonalizadas.location = New-Object system.drawing.point(10,195)
+        $Form.controls.Add($labelConfigsPersonalizadas)
+
+        $configsPersonalizadas.Width = 760
+        $configsPersonalizadas.Height = 300
+        $configsPersonalizadas.location = New-Object system.drawing.point(10,220)
+        $configsPersonalizadas.SelectedObject = New-Object Configuracoes
+        $Form.controls.Add($configsPersonalizadas)
+    }
 
     
     $btn.Text = "Gerar"
     $btn.Width = 60
-    $btn.location = New-Object system.drawing.point(710,520)
+    if (versao_pwsh >= 5) {
+        $btn.location = New-Object system.drawing.point(710,520)
+    } else {
+        $btn.location = New-Object system.drawing.point(710,220)
+    }
     $Form.controls.Add($btn)
     $Form.AcceptButton = $btn
 
