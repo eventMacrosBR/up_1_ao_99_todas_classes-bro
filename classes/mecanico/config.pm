@@ -1,8 +1,8 @@
 sub configurarBuild {
     my %configsBuild = (
-        skillsAprendiz => 'Habilidades Básicas 9',
-        skillsClasse1 => 'Aumentar Capacidade de Carga 10, Desconto 10, Usar Carrinho 10, Superfaturar 9, Comércio 10, Identificar Item 1,',
-        skillsClasse2 => 'Martelo de Thor 5, Adrenalina Pura 5, Força Violenta 5, Punho Firme 1, Perícia em Armamento 2, Manejo Perfeito 3, Amplificar Poder 5,',
+        skillsAprendiz => 'NV_BASIC 9',
+        skillsClasse1 => 'MC_INCCARRY 10, MC_DISCOUNT 10, MC_PUSHCART 10, MC_OVERCHARGE 9, MC_VENDING 10, MC_IDENTIFY 1,',
+        skillsClasse2 => 'BS_HAMMERFALL 5, BS_ADRENALINE 5, BS_OVERTHRUST 5, BS_HILTBINDING 1, BS_WEAPONRESEARCH 2, BS_WEAPONPERFECT 3, BS_MAXIMIZE 5,',
         skillsClasse1T => '',
         skillsClasse2T => '',
         skillsClasse3 => '',

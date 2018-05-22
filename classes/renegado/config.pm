@@ -1,11 +1,11 @@
 
 sub configurarBuild {
     my %configsBuild = (
-        skillsAprendiz => 'Habilidades Básicas 9',
-        skillsClasse1 => 'Ataque Duplo 10, Perícia em Esquiva 10, Furto 10, Esconderijo 8, Envenenar 10, Desintoxicar 1',
-        skillsClasse2 => 'Mãos Leves 10, Afanar 10, Apunhalar 4, Túnel de Fuga 5, Ataque Surpresa 5, Rapto 5, Plágio 10',
-        skillsClasse1T => 'Ataque Duplo 10, Perícia em Esquiva 10, Furto 10, Esconderijo 10, Envenenar 8, Desintoxicar 1',
-        skillsClasse2T => 'Mãos Leves 10, Afanar 10, Perícia com Espada 10, Apunhalar 8, Túnel de Fuga 5, Espreitar 5, Ataque Surpresa 5, Rapto 5, RG_PLAGIARSIM 10, Preservar 1',
+        skillsAprendiz => 'NV_BASIC 9',
+        skillsClasse1 => 'TF_DOUBLE 10, TF_MISS 10, TF_STEAL 10, TF_HIDING 8, TF_POISON 10, TF_DETOXIFY 1',
+        skillsClasse2 => 'RG_SNATCHER 10, RG_STEALCOIN 10, RG_BACKSTAP 4, RG_TUNNELDRIVE 5, RG_RAID 5, RG_INTIMIDATE 5, RG_PLAGIARISM 10',
+        skillsClasse1T => 'TF_DOUBLE 10, TF_MISS 10, TF_STEAL 10, TF_HIDING 10, TF_POISON 8, TF_DETOXIFY 1',
+        skillsClasse2T => 'RG_SNATCHER 10, RG_STEALCOIN 10, SM_SWORD 10, RG_BACKSTAP 8, RG_TUNNELDRIVE 5, ST_CHASEWALK 5, RG_RAID 5, RG_INTIMIDATE 5, RG_PLAGIARSIM 10, ST_PRESERVE 1',
         skillsClasse3 => '',
         statsPadrao => '10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 30 str, 40 dex, 20 vit, 80 agi ,60 dex, 50 str, 90 agi, 70 str, 40 vit',
         statsPadraoTransclasse => '10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 40 dex, 35 vit, 80 agi, 50 dex, 99 agi, 70 int',
