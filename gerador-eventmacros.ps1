@@ -75,7 +75,7 @@ function getVersao {
 
 function limparNomeDaClasse {
     Param($classe)
-    return $classe.ToString().ToLower().Replace(" ","-").Replace("í­","i").Replace("ú","u").Replace("ã","a").Replace("á","a").Replace("â","a")
+    return $classe.ToString().ToLower().Replace(" ","-").Replace("í","i").Replace("ú","u").Replace("ã","a").Replace("á","a").Replace("â","a")
 }
 
 function gerarMacro {
@@ -207,7 +207,7 @@ function desenharJanela {
 
 function carregarValores {
     
-    $classes = "Cavaleiro Rúnico", "Guardião Real", "Arcano", "Feiticeiro", "Sentinela", "Trovador", "Musa", "Mecânico", "Bioquí­mico", "Sicário", "Renegado", "Arcebispo", "Shura", "Mestre Taekwon", "Espiritualista", "Kagerou", "Oboro", "Justiceiro", "Superaprendiz"
+    $classes = "Cavaleiro Rúnico", "Guardião Real", "Arcano", "Feiticeiro", "Sentinela", "Trovador", "Musa", "Mecânico", "Bioquímico", "Sicário", "Renegado", "Arcebispo", "Shura", "Mestre Taekwon", "Espiritualista", "Kagerou", "Oboro", "Justiceiro", "Superaprendiz"
 
     For ($i=0; $i -lt $classes.Count; $i++) {
         $listItemClasse = New-Object System.Windows.Forms.ListViewItem
