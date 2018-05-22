@@ -49,3 +49,5 @@ sub extrairMapasDeUp {
     }
 }
 
+#Espiritualista não reborna
+

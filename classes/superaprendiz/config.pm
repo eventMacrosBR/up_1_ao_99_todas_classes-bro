@@ -49,3 +49,4 @@ sub extrairMapasDeUp {
     }
 }
 
+#superaprendiz não reborna

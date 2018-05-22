@@ -49,3 +49,5 @@ sub extrairMapasDeUp {
     }
 }
 
+#justiceiro não reborna
+

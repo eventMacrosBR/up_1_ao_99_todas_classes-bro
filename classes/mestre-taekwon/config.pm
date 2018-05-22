@@ -49,3 +49,4 @@ sub extrairMapasDeUp {
     }
 }
 
+#mestre taekwon não reborna

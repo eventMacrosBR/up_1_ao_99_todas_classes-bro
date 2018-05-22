@@ -49,3 +49,5 @@ sub extrairMapasDeUp {
     }
 }
 
+#oboro nao reborna
+

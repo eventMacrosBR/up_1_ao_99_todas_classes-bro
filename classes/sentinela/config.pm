@@ -48,4 +48,17 @@ sub extrairMapasDeUp {
     }
 }
 
+sub inicializarParametrosQuestClasseRenascer {
+    my %parametrosQuestClasseRenascer = (
+        renascer => 'nao',
+        amigo => '',
+        #observação sobre o ponto de encontro:
+        #só poderá ser as coordenadas, não coloque nome de cidade aqui, senão é treta
+        #a cidade sempre será obrigatoriamente em juno, já que o reborn se passa por lá
+        #altere a coordenada a seu prazer, fique a vontade
+        pontoDeEncontro => '146 116'
+    );
+    my $eventMacro = $eventMacro::Data::eventMacro;
+    $eventMacro->set_full_hash('parametrosQuestClasseRenascer', \%parametrosQuestClasseRenascer);
+}
 

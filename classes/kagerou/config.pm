@@ -49,3 +49,4 @@ sub extrairMapasDeUp {
     }
 }
 
+#kagerou não reborna
