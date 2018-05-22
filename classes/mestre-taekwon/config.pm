@@ -51,7 +51,7 @@ sub extrairMapasDeUp {
 
 sub inicializarParametrosQuestClasseRenascer {
     my %parametrosQuestClasseRenascer = (
-        podeRenascer => 'nao'
+        renascer => 'nao'
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
     $eventMacro->set_full_hash('parametrosQuestClasseRenascer', \%parametrosQuestClasseRenascer);

@@ -31,7 +31,7 @@ if (! $job) {
                 public String renascer { get; set; }
                 public String amigo { get; set; }
                 public String pontoDeEncontro { get; set; }
-                public String podeRenascer { get; set; }
+
             }
         '
         Add-Type -Language CSharp  -TypeDefinition $classDefinition
@@ -52,7 +52,7 @@ if (! $job) {
             renascer = $null;
             amigo = $null;
             pontoDeEncontro = $null;
-            podeRenascer = $null;
+
         }
     }
 
