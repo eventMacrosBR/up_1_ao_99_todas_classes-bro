@@ -3,7 +3,7 @@ sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz => 'Habilidades Básicas 9',
         skillsClasse1 => 'Aumentar Recuperação de HP 10, Provocar 9, Golpe Fulminante 10, Vigor 10, Impacto Explosivo 10',
-        skillsClasse2 => 'Fé 7, Crux Divinum 10, Medicar 1, Montaria 1, Perícia em Montaria 5, Perícia com Lança 10, Proteção Divina 3, Flagelo do Mal 5, Fé 10, Curar 5',
+        skillsClasse2 => 'Fé 7, Crux Divinum 10, Medicar 1, Montaria 1, Perícia em Montaria 5, Perícia com Lança 10, Proteção Divina 3, Flagelo do Mal 5, CR_TRUST 10, Curar 5',
         skillsClasse1T => 'Aumentar Recuperação de HP 10, Provocar 9, Golpe Fulminante 10, Vigor 10, Impacto Explosivo 10',
         skillsClasse2T => '',
         skillsClasse3 => '',

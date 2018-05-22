@@ -1,10 +1,10 @@
 sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz => 'Habilidades Básicas 9',
-        skillsClasse1 => 'Curar 10, Aumentar Agilidade 10, Proteção Divina 3, Angelus 5, Proteção Divina 6, Bênção 5, Angelus 10, Bênção 10, Revelação 1, Aqua Benedicta 1, Escudo Sagrado 1',
-        skillsClasse2 => 'Kyrie Eleison 4, Magnificat 5, Glória 5, Graça Divina 1, Kyrie Eleison 10, Impositio Manus 5, Santuário 10, Aumentar Recuperação de SP 4, Ressuscitar 4, Aumentar Recuperação de SP 9',
-        skillsClasse1T => 'Curar 10, Aumentar Agilidade 10, Proteção Divina 3, Angelus 5, Proteção Divina 5, Bênção 5, Angelus 10, Bênção 10, Revelação 1, Aqua Benedicta 1, Escudo Sagrado 1, Diminuir Agilidade 1',
-        skillsClasse2T => 'Kyrie Eleison 4, Magnificat 5, Glória 3, Graça Divina 1, Kyrie Eleison 10, Impositio Manus 3, Santuário 7, Aumentar Recuperação de SP 5, Ressuscitar 4, Lex Divina 5, Lex Aeterna 1, Meditatio 10, Aspersio 4, Escudo Mágico 8, Martírio 1',
+        skillsClasse1 => 'Curar 10, Aumentar Agilidade 10, Proteção Divina 3, Angelus 5, AL_DP 6, Bênção 5, AL_ANGELUS 10, AL_BLESSING 10, Revelação 1, Aqua Benedicta 1, Escudo Sagrado 1',
+        skillsClasse2 => 'Kyrie Eleison 4, Magnificat 5, Glória 5, Graça Divina 1, PR_KYRIE 10, Impositio Manus 5, Santuário 10, Aumentar Recuperação de SP 4, Ressuscitar 4, MG_SRECOVERY 9',
+        skillsClasse1T => 'Curar 10, Aumentar Agilidade 10, Proteção Divina 3, Angelus 5, AL_DP 5, Bênção 5, AL_ANGELUS 10, AL_BLESSING 10, Revelação 1, Aqua Benedicta 1, Escudo Sagrado 1, Diminuir Agilidade 1',
+        skillsClasse2T => 'Kyrie Eleison 4, Magnificat 5, Glória 3, Graça Divina 1, PR_KYRIE 10, Impositio Manus 3, Santuário 7, Aumentar Recuperação de SP 5, Ressuscitar 4, Lex Divina 5, Lex Aeterna 1, Meditatio 10, Aspersio 4, Escudo Mágico 8, Martírio 1',
         skillsClasse3 => 'Sopro Divino 3, Canto Candidus 3, Clementia 3, Praefatio 10, Renovatio 1, Curatio 5, Offertorium 5',
         statsPadrao => '10 vit, 20 int, 15 dex, 20 vit, 25 dex, 30 int, 30 vit, 35 dex, 40 int, 45 vit, 50 int, 40 dex, 60 int, 75 vit, 95 int, 56 dex',
         statsPadraoTransclasse => '10 vit, 20 int, 15 dex, 20 vit, 25 dex, 30 int, 30 vit, 35 dex, 40 int, 45 vit, 50 int, 40 dex, 60 int, 75 vit, 95 int, 56 dex',
