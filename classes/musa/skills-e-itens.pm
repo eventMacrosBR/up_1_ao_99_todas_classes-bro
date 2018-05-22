@@ -135,3 +135,24 @@ automacro aumentarFlechasLevel30 {
     }
 }
 
+
+automacro configurarAtaqueADistancia {
+    ConfigKeyNot attackDistanceAuto 1
+    exclusive 1
+    JobIDNot 0 #Aprendiz
+    JobIDNot 4023 #Baby Aprendiz
+    JobIDNot 4001 #Aprendiz T.
+    call {
+        do conf attackDistanceAuto 1
+    }
+}
+
+automacro removerConfiguracaoAtaqueADistanciaAprendizT {
+    ConfigKey attackDistanceAuto 1
+    exclusive 1
+    JobID 4001 #Aprendiz T.
+    call {
+        do conf attackDistanceAuto 0
+    }
+}
+
