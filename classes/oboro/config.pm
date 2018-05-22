@@ -49,5 +49,11 @@ sub extrairMapasDeUp {
     }
 }
 
-#oboro nao reborna
+sub inicializarParametrosQuestClasseRenascer {
+    my %parametrosQuestClasseRenascer = (
+        podeRenascer => 'nao'
+    );
+    my $eventMacro = $eventMacro::Data::eventMacro;
+    $eventMacro->set_full_hash('parametrosQuestClasseRenascer', \%parametrosQuestClasseRenascer);
+}
 
