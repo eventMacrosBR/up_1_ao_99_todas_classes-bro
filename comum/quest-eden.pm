@@ -906,6 +906,88 @@ automacro questEden60_Equipando {
     }
 }
 
+#automacro escolherEquipCertoParaEquipar {
+#    exclusive 1
+#    JobIDNot 0 #aprendiz
+#    JobIDNot 4023 #aprendiz baby
+#    timeout 1800 #30 minutos
+#    ConfigKey membroDoEden sim
+#    ConfigKey quest_eden none
+#    BaseLevel != 99
+#    call checkEquipsEden
+#}
+#
+#macro checkEquipsEden {
+#    
+#    if (checarSeEquipEstaEquipado("armor", 15031) = sim) { #Armadura_do_Grupo_Éden# - éden 60
+#        [
+#        log ===================================
+#        log = estou com os equips do éden 60 equipados,
+#        log = então to de boas
+#        log ===================================
+#        ]
+#        stop
+#    } elsif (checarSeEquipEstaEquipado("armor", 15011) = sim) { #Uniforme Valhalla Avançado - éden 40
+#        
+#        if (checarSeEquipEstaEquipado("armor", 15031) = não existe) {
+#            #se tiver com os equips do lvl 40, e não existir os de 60, então ta de boas
+#            [
+#            log ===================================
+#            log = estou com os equips do éden 40 equipados,
+#            log = então to de boas
+#            log ===================================
+#            ]    
+#            stop
+#        } else {
+#            #se entrar aqui, é porque tá equipado com os equips do eden 40, mas os
+#            # do lvl 60 existem no inventário, então tem que checar se tem lvl pra equipar
+#            if ( $.lvl >= 60) {    
+#                [
+#                log ===================================
+#                log = tá equipado agora os equips do 40,
+#                log = mas deveria tá com os do lvl 60
+#                log = equipando agora
+#                log ===================================
+#                ]
+#            }
+#        }
+#        
+#    } elsif (checarSeEquipEstaEquipado("armor", 15010)= sim) { #Uniforme Valhalla Intermediário - éden 26
+#        [
+#        log ===================================
+#        log = estou com os equips do éden 26 equipados,
+#        log = então to de boas
+#        log ===================================
+#        ]        
+#    } elsif (checarSeEquipEstaEquipado("armor", 15009) = sim) { #Uniforme Valhalla Iniciante - éden 12
+#        [
+#        log ===================================
+#        log = estou com os equips do éden 12 equipados,
+#        log = então to de boas
+#        log ===================================
+#        ]
+#    }
+#    
+#    
+#    if (&inventory($parametrosQuestEden{IDarmaEden}) != -1) {
+#        # equip está no inventário, em vez de estar equipado
+#        [
+#        log ===========================================
+#        log =equipando os itens de eden level 60
+#        log ===========================================
+#        ]
+#        $check = pegarIndiceDoEquipamentoPeloId("robe", 2571) #Capa II do Grupo Eden
+#        if ($check != -1) do eq $check
+#        $check = pegarIndiceDoEquipamentoPeloId("topHead", 18514) #Chapéu_II_do_Grupo_Éden#
+#        if ($check != -1) do eq $check
+#        $check = pegarIndiceDoEquipamentoPeloId("shoes", 2473) ##Botas_IV_do_Grupo_Éden#
+#        if ($check != -1) do eq $check
+#        $check = pegarIndiceDoEquipamentoPeloId("rightHand","$parametrosQuestEden{IDarmaEden}") #Arma do Grupo Eden#
+#        if ($check != -1) do eq $check
+#        $check = pegarIndiceDoEquipamentoPeloId("armor", 15031) #Armadura_do_Grupo_Éden#
+#        if ($check != -1) do eq $check
+#    } elsif ( &inventory())
+#}
 
 #
 #

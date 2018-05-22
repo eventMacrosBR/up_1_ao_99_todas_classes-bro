@@ -80,6 +80,26 @@ sub pegarIndiceDoEquipamentoPeloId {
     }
 }
 
+sub checarSeEquipEstaEquipado {
+    my ($slotDoEquipamento, $id) = @_;
+    my $item = $char->inventory->getByNameID($id);
+    if ($item eq "" ) {
+        warning "Erro: você não possui esse equipamento.\n";
+        return "não existe";
+    }
+     my $indiceDoEquip = $item->{binID};
+    if (exists $char->{equipment}{$slotDoEquipamento}) {
+        my $equipamento = $char->{equipment}{$slotDoEquipamento};
+        if ($equipamento->{nameID} == $id) {
+            return "sim";
+        } else {
+            return "não equipado";
+        }
+    } else {
+        return "não equipado";
+    }
+}
+
 
 sub pegarNomePeloIdDoItem {
     my $name = $items_lut{$_[0]};
