@@ -28,6 +28,10 @@ if (! $job) {
                 public String statsPadrao { get; set; }
                 public String statsPadraoTransclasse { get; set; }
                 public String statsPadraoClasse3 { get; set; }
+                public String renascer { get; set; }
+                public String amigo { get; set; }
+                public String pontoDeEncontro { get; set; }
+                public String podeRenascer { get; set; }
             }
         '
         Add-Type -Language CSharp  -TypeDefinition $classDefinition
@@ -45,6 +49,10 @@ if (! $job) {
             statsPadrao = $null;
             statsPadraoTransclasse = $null;
             statsPadraoClasse3 = $null;
+            renascer = $null;
+            amigo = $null;
+            pontoDeEncontro = $null;
+            podeRenascer = $null;
         }
     }
 
@@ -180,7 +188,12 @@ function desenharJanela {
     $configsPersonalizadas.Height = 300
     $configsPersonalizadas.location = New-Object system.drawing.point(10,220)
     $configsPersonalizadas.SelectedObject = $configuracoes
+    $configsPersonalizadas.PropertySort = [System.Windows.Forms.PropertySort]::NoSort
+    $configsPersonalizadas.ToolbarVisible = $false
+
     $Form.controls.Add($configsPersonalizadas)
+
+    
 
     
     $btn.Text = "Gerar"
