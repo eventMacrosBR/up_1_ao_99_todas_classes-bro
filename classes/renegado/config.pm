@@ -1,4 +1,4 @@
-
+﻿
 sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz => 'Habilidades Básicas 9',

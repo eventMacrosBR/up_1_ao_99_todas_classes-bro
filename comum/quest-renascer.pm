@@ -1,3 +1,16 @@
+sub inicializarParametrosQuestClasseRenascer {
+    my %parametrosQuestClasseRenascer = (
+        renascer => 'sim',
+        amigo => '_Dark Avenger',
+        #observação sobre o ponto de encontro:
+        #só poderá ser as coordenadas, não coloque nome de cidade aqui, senão é treta
+        #a cidade sempre será obrigatoriamente em juno, já que o reborn se passa por lá
+        #altere a coordenada a seu prazer, fique a vontade
+        pontoDeEncontro => '130 130'
+    );
+    my $eventMacro = $eventMacro::Data::eventMacro;
+    $eventMacro->set_full_hash('parametrosQuestClasseRenascer', \%parametrosQuestClasseRenascer);
+}
 
 automacro questRenascer_chegueilvl99 {
     BaseLevel = 99

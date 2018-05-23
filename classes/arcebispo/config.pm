@@ -1,7 +1,7 @@
-sub configurarBuild {
+﻿sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz => 'Habilidades Básicas 9',
-        skillsClasse1 => 'Curar 10, Aumentar Agilidade 10, Proteção Divina 3, Angelus 5, Proteção Divina 6, Bênção 5, Angelus 10, Bênção 10, Revelação 1, Aqua Benedicta 1, Escudo Sagrado 1',
+        skillsClasse1 => 'Curar 9, Aumentar Agilidade 10, Proteção Divina 3, Angelus 5, Proteção Divina 6, Bênção 5, Angelus 10, Bênção 10, Revelação 1, Aqua Benedicta 1, Escudo Sagrado 1',
         skillsClasse2 => 'Kyrie Eleison 4, Magnificat 5, Glória 5, Graça Divina 1, Kyrie Eleison 10, Impositio Manus 5, Santuário 10, Aumentar Recuperação de SP 4, Ressuscitar 4, Aumentar Recuperação de SP 9',
         skillsClasse1T => 'Curar 10, Aumentar Agilidade 10, Proteção Divina 3, Angelus 5, Proteção Divina 5, Bênção 5, Angelus 10, Bênção 10, Revelação 1, Aqua Benedicta 1, Escudo Sagrado 1, Diminuir Agilidade 1',
         skillsClasse2T => 'Kyrie Eleison 4, Magnificat 5, Glória 3, Graça Divina 1, Kyrie Eleison 10, Impositio Manus 3, Santuário 7, Aumentar Recuperação de SP 5, Ressuscitar 4, Lex Divina 5, Lex Aeterna 1, Meditatio 10, Aspersio 4, Escudo Mágico 8, Martírio 1',
