@@ -66,77 +66,8 @@ macro upar {
         call pararDeAtacar
         do conf lockMap none
         
-        if ($.map =~ /^hu/ && $mapa{saveMap} != hugel) {
-            #agora é a parte que damos um jeito de chegar onde queremos!
-            [
-            log ===================================
-            log = Estou em hugel, mas quero upar em outro lugar longe
-            log = decidindo como chegar la
-            log ===================================
-            ]
-            switch ($mapa{saveMap}) {
-                case (~ rachel, veins) {
-                    log = usando aeroplano para salvar em rachel
-                    call aeroplano_hugelPara "rachel"
-                }
-                case (= einbroch) {
-                    log = usando aeroplano para salvar em einbroch
-                    call aeroplano_hugelPara "einbroch"
-                }
-                else {
-                    log = usando aeroplano para salvar em juno
-                    call aeroplano_hugelPara "juno"
-                }
-            }
-            stop
-        } elsif ($.map =~ /^ra|^ve|^aru/ && $mapa{saveMap} != rachel && $mapa{saveMap} != veins) {
-            [
-            log ===================================
-            log = estou em $.map, mas quero upar em outro lugar longe
-            log = decidindo como chegar la
-            log ===================================
-            ]
-            switch ($mapa{saveMap}) {
-                case (= einbroch) {
-                    log = usando aeroplano para salvar em einbroch
-                    call aeroplano_rachelPara "einbroch"
-                }
-                case (= hugel) {
-                    log = usando aeroplano para salvar em hugel
-                    call aeroplano_rachelPara "hugel"
-                }
-                else {
-                    log = usando aeroplano para salvar em juno
-                    call aeroplano_rachelPara "juno"
-                }
-            }
-            stop
-        }
-        #TODO fazer um pra einbroch
-        [
-        log ===================================
-        log = não estou nem em rachel, nem hugel, nem veins
-        log ===================================
-        ]
-
-        if ($mapa{saveMap} ~ rachel,veins) {
-            if ($.map =~ /^ra^ve|^aru/) {
-                call salvarNaCidade "$mapa{saveMap}"
-            } else {
-                call aeroplano_junoPara "$mapa{saveMap}"
-            }
-            stop
-        }
+        salvarOndeVouUpar(&config(saveMap), $mapa{saveMap})
         
-        if ($mapa{saveMap} = einbroch) {
-            if ($.map =~ /^ein|lhz_fild|/) {
-                call salvarNaCidade "$mapa{saveMap}"
-            } else {
-                call aeroplano_junoPara "$mapa{saveMap}"
-            }
-            stop
-        }
-        call salvarNaCidade "$mapa{saveMap}"
     }
 }
 
@@ -149,6 +80,61 @@ automacro estouLv99 {
     call {
         log CHEGUEI NO LVL 99 FINALMENTE !!!!!!!
         log CARA ISSO LEVOU TEMPO PARA CAR**HO
+    }
+}
+
+sub salvarOndeVouUpar {
+    my $mapaOrigem = @_[0];
+    my $mapaDestino = @_[1];
+
+    my %rotas = (
+        { de => 'hugel', para => 'rachel', usar => 'aeroplano_hugelPara "rachel"'},
+        { de => 'hugel', para => 'veins', usar => 'aeroplano_hugelPara "rachel"'},
+        { de => 'hugel', para => 'einbroch', usar => 'aeroplano_hugelPara "einbroch"'},
+        { de => 'hugel', para => 'juno', usar => 'aeroplano_hugelPara "juno"'},
+        { de => 'hugel', para => '*',  usar => 'aeroplano_hugelPara "izlude"'},
+        { de => 'rachel', para => 'hugel', usar => 'aeroplano_rachelPara "rachel"'},
+        { de => 'rachel', para => 'veins', usar => 'salvarNaCidade "veins"'},
+        { de => 'rachel', para => 'einbroch', usar => 'aeroplano_rachelPara "einbroch"'},
+        { de => 'rachel', para => 'juno', usar => 'aeroplano_rachelPara "juno"'},
+        { de => 'rachel', para => '*',  usar => 'aeroplano_rachelPara "izlude"'},
+        { de => 'veins', para => 'hugel', usar => 'aeroplano_rachelPara "rachel"'},
+        { de => 'veins', para => 'rachel', usar => 'salvarNaCidade "rachel"'},
+        { de => 'veins', para => 'einbroch', usar => 'aeroplano_rachelPara "einbroch"'},
+        { de => 'veins', para => 'juno', usar => 'aeroplano_rachelPara "juno"'},
+        { de => 'veins', para => '*',  usar => 'aeroplano_rachelPara "izlude"'},
+        { de => '*', para => 'hugel',  usar => 'aeroplano_junoPara "hugel"'},
+        { de => '*', para => 'rachel',  usar => 'aeroplano_junoPara "rachel"'},
+        { de => '*', para => 'veins',  usar => 'aeroplano_junoPara "rachel"'},
+        { de => '*', para => 'einbroch',  usar => 'aeroplano_junoPara "einbroch"'},
+        { de => '*', para => '*',  usar => 'salvarNaCidade "{param}"'}
+    );
+
+    foreach my $rota (@{$rotas}) {
+        if ($mapaOrigem = $rota->{de}) {
+            if ($mapaDestino = $rota->{para}) {
+                Commands::run("eventMacro $rota{$usar}");
+                last;
+            } else {
+                if ($rota->{para} = "*") {
+                    Commands::run("eventMacro $rota{$usar}");
+                    last;
+                }
+            }
+        } else {
+            if ($rota->{de} = "*") {
+                if ($mapaDestino = $rota->{para}) {
+                    Commands::run("eventMacro $rota{$usar}");
+                    last;
+                } else {
+                    if ($rota->{para} = "*") {
+                        $salvarNaCidade = $rota->{usar} =~ s/\{param\}/$mapaDestino/r;
+                        Commands::run("eventMacro $salvarNaCidade");
+                        last;
+                    }
+                }
+            }
+        }
     }
 }
 
