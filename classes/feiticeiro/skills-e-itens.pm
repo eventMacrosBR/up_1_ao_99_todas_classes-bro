@@ -21,7 +21,7 @@ automacro configurarLancasDeGelo {
         do conf attackSkillSlot_0_sp >= 20
         do conf attackSkillSlot_0_dist 10
         do conf attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
-        do conf attackSkillSlot_1_monsters
+        do conf attackSkillSlot_0_monsters
         do conf attackSkillSlot_0_disabled 1
     }
 }
@@ -49,7 +49,7 @@ automacro configurarLancasDeFogo {
         do conf attackSkillSlot_1_sp >= 20
         do conf attackSkillSlot_1_dist 10
         do conf attackSkillSlot_1_whenStatusInactive EFST_POSTDELAY
-        do conf attackSkillSlot_1_monsters Mandrágora, ChonChon, Fabre, Lunático
+        do conf attackSkillSlot_1_monsters
         do conf attackSkillSlot_1_disabled 0
     }
 }
