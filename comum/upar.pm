@@ -87,7 +87,7 @@ sub salvarOndeVouUpar {
     my $mapaOrigem = @_[0];
     my $mapaDestino = @_[1];
 
-    my %rotas = (
+    my @rotas = (
         { de => 'hugel', para => 'rachel', usar => 'aeroplano_hugelPara "rachel"'},
         { de => 'hugel', para => 'veins', usar => 'aeroplano_hugelPara "rachel"'},
         { de => 'hugel', para => 'einbroch', usar => 'aeroplano_hugelPara "einbroch"'},
@@ -128,8 +128,7 @@ sub salvarOndeVouUpar {
                     last;
                 } else {
                     if ($rota->{para} = "*") {
-                        $salvarNaCidade = $rota->{usar} =~ s/\{param\}/$mapaDestino/r;
-                        Commands::run("eventMacro $salvarNaCidade");
+                        Commands::run("eventMacro salvarNaCidade $salvarNaCidade");
                         last;
                     }
                 }
