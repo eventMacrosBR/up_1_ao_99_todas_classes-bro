@@ -167,3 +167,4 @@ automacro configurarRajadaCongelante {
         do conf attackSkillSlot_5_disabled 1
     }
 }
+
