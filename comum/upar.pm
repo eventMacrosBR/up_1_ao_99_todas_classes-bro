@@ -66,7 +66,7 @@ macro upar {
         call pararDeAtacar
         do conf lockMap none
         
-        salvarOndeVouUpar(&config(saveMap), $mapa{saveMap})
+        salvarOndeVouUpar("&config(saveMap)", "$mapa{saveMap}")
         
     }
 }
@@ -88,26 +88,26 @@ sub salvarOndeVouUpar {
     my $mapaDestino = $_[1];
 
     my @rotas = (
-        { de => 'hugel', para => 'rachel', usar => 'aeroplano_hugelPara "rachel"'},
-        { de => 'hugel', para => 'veins', usar => 'aeroplano_hugelPara "rachel"'},
-        { de => 'hugel', para => 'einbroch', usar => 'aeroplano_hugelPara "einbroch"'},
-        { de => 'hugel', para => 'juno', usar => 'aeroplano_hugelPara "juno"'},
-        { de => 'hugel', para => '*',  usar => 'aeroplano_hugelPara "izlude"'},
-        { de => 'rachel', para => 'hugel', usar => 'aeroplano_rachelPara "rachel"'},
-        { de => 'rachel', para => 'veins', usar => 'salvarNaCidade "veins"'},
-        { de => 'rachel', para => 'einbroch', usar => 'aeroplano_rachelPara "einbroch"'},
-        { de => 'rachel', para => 'juno', usar => 'aeroplano_rachelPara "juno"'},
-        { de => 'rachel', para => '*',  usar => 'aeroplano_rachelPara "izlude"'},
-        { de => 'veins', para => 'hugel', usar => 'aeroplano_rachelPara "rachel"'},
-        { de => 'veins', para => 'rachel', usar => 'salvarNaCidade "rachel"'},
-        { de => 'veins', para => 'einbroch', usar => 'aeroplano_rachelPara "einbroch"'},
-        { de => 'veins', para => 'juno', usar => 'aeroplano_rachelPara "juno"'},
-        { de => 'veins', para => '*',  usar => 'aeroplano_rachelPara "izlude"'},
-        { de => '*', para => 'hugel',  usar => 'aeroplano_junoPara "hugel"'},
-        { de => '*', para => 'rachel',  usar => 'aeroplano_junoPara "rachel"'},
-        { de => '*', para => 'veins',  usar => 'aeroplano_junoPara "rachel"'},
-        { de => '*', para => 'einbroch',  usar => 'aeroplano_junoPara "einbroch"'},
-        { de => '*', para => '*',  usar => 'salvarNaCidade "{param}"'}
+        { de => 'hugel',   para => 'rachel',    usar => 'aeroplano_hugelPara "rachel"'},
+        { de => 'hugel',   para => 'veins',     usar => 'aeroplano_hugelPara "rachel"'},
+        { de => 'hugel',   para => 'einbroch',  usar => 'aeroplano_hugelPara "einbroch"'},
+        { de => 'hugel',   para => 'juno',      usar => 'aeroplano_hugelPara "juno"'},
+        { de => 'hugel',   para => '*',         usar => 'aeroplano_hugelPara "izlude"'},
+        { de => 'rachel',  para => 'hugel',     usar => 'aeroplano_rachelPara "rachel"'},
+        { de => 'rachel',  para => 'veins',     usar => 'salvarNaCidade "veins"'},
+        { de => 'rachel',  para => 'einbroch',  usar => 'aeroplano_rachelPara "einbroch"'},
+        { de => 'rachel',  para => 'juno',      usar => 'aeroplano_rachelPara "juno"'},
+        { de => 'rachel',  para => '*',         usar => 'aeroplano_rachelPara "izlude"'},
+        { de => 'veins',   para => 'hugel',     usar => 'aeroplano_rachelPara "rachel"'},
+        { de => 'veins',   para => 'rachel',    usar => 'salvarNaCidade "rachel"'},
+        { de => 'veins',   para => 'einbroch',  usar => 'aeroplano_rachelPara "einbroch"'},
+        { de => 'veins',   para => 'juno',      usar => 'aeroplano_rachelPara "juno"'},
+        { de => 'veins',   para => '*',         usar => 'aeroplano_rachelPara "izlude"'},
+        { de => '*',       para => 'hugel',     usar => 'aeroplano_junoPara "hugel"'},
+        { de => '*',       para => 'rachel',    usar => 'aeroplano_junoPara "rachel"'},
+        { de => '*',       para => 'veins',     usar => 'aeroplano_junoPara "rachel"'},
+        { de => '*',       para => 'einbroch',  usar => 'aeroplano_junoPara "einbroch"'},
+        { de => '*',       para => '*' }
     );
 
     foreach my $rota (@{$rotas}) {
@@ -128,7 +128,7 @@ sub salvarOndeVouUpar {
                     last;
                 } else {
                     if ($rota->{para} eq "*") {
-                        Commands::run("eventMacro salvarNaCidade $salvarNaCidade");
+                        Commands::run("eventMacro salvarNaCidade $mapaDestino");
                         last;
                     }
                 }
