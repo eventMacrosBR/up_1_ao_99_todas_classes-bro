@@ -1,7 +1,7 @@
 param ( [string]$job )
 
-#Por quest√µes de compatibilidade esse arquivo precisa ser aberto em 
-#codifica√ß√£o ISO 8859-1 (ANSI) e n√£o UTF-8
+#Por questıes de compatibilidade esse arquivo precisa ser aberto em 
+#codificaÁ„o ISO 8859-1 (ANSI) e n„o UTF-8
 
 if (! $job) {
     Add-Type -AssemblyName System.Windows.Forms
@@ -42,7 +42,7 @@ if (! $job) {
         
         $configuracoes = New-Object Configuracoes
     } else {
-        [System.Windows.Forms.MessageBox]::Show( "O powershell do seu sistema operacional √© muito antigo. As configura√ß√µes personalizadas ser√£o apenas leitura para visualiza√ß√£o", "Aviso" )
+        [System.Windows.Forms.MessageBox]::Show( "O powershell do seu sistema operacional È muito antigo. As configuraÁıes personalizadas ser„o apenas leitura para visualizaÁ„o", "Aviso" )
         $configuracoes = New-Object -TypeName PSObject -Prop @{ 
             skillsAprendiz = $null;
             skillsClasse1 = $null; 
@@ -72,14 +72,14 @@ function getVersao {
         $version = $commitCounter + "." + $hash 
         
     }catch{
-        [System.Windows.Forms.MessageBox]::Show( "Git n√£o instalado, n√£o vai ser exibida a vers√£o", "Erro" )
+        [System.Windows.Forms.MessageBox]::Show( "Git n„o instalado, n„o vai ser exibida a vers„o", "Erro" )
     }
     return $version
 }
 
 function limparNomeDaClasse {
     Param($classe)
-    return $classe.ToString().ToLower().Replace(" ","-").Replace("√≠","i").Replace("√∫","u").Replace("√£","a").Replace("√°","a").Replace("√¢","a")
+    return $classe.ToString().ToLower().Replace(" ","-").Replace("Ì","i").Replace("˙","u").Replace("„","a").Replace("·","a").Replace("‚","a")
 }
 
 function gerarMacro {
@@ -143,7 +143,7 @@ function acaoCarregarConfiguracoes {
         foreach($line in Get-Content -Encoding UTF8 $arquivo) {
 
             if($line -match "^\s+\w+\s+=>\s+'.*"){
-                Write-Host "Linha de configura√ß√£o: $line"
+                Write-Host "Linha de configuraÁ„o: $line"
                 $chave = $line -replace "\s+(\w+)\s+\=\>.*",'$1'
                 $valor = $line -replace ".*'(.*)'.*",'$1'
                 
@@ -163,7 +163,7 @@ function acaoCarregarConfiguracoes {
 
 function desenharJanela {
     $versao = getVersao
-    $Form.Text = "Gerador eventMacros.txt vers√£o: " + $versao
+    $Form.Text = "Gerador eventMacros.txt vers„o: " + $versao
     $Form.TopMost = $true
     $Form.Width = 800
     $Form.Height = 600
@@ -198,7 +198,7 @@ function desenharJanela {
    
     $painelSuperior.Controls.Add($labelConfigsPersonalizadas);
     $labelConfigsPersonalizadas.Dock = [System.Windows.Forms.DockStyle]::Bottom
-    $labelConfigsPersonalizadas.Text = "Configura√ß√µes Personalizadas"
+    $labelConfigsPersonalizadas.Text = "ConfiguraÁıes Personalizadas"
 
      
 
@@ -222,7 +222,7 @@ function desenharJanela {
 
 function carregarValores {
     
-    $classes = "Cavaleiro R√∫nico", "Guardi√£o Real", "Arcano", "Feiticeiro", "Sentinela", "Trovador", "Musa", "Mec√¢nico", "Bioqu√≠mico", "Sic√°rio", "Renegado", "Arcebispo", "Shura", "Mestre Taekwon", "Espiritualista", "Kagerou", "Oboro", "Justiceiro", "Superaprendiz"
+    $classes = "Cavaleiro R˙nico", "Guardi„o Real", "Arcano", "Feiticeiro", "Sentinela", "Trovador", "Musa", "Mec‚nico", "BioquÌmico", "Sic·rio", "Renegado", "Arcebispo", "Shura", "Mestre Taekwon", "Espiritualista", "Kagerou", "Oboro", "Justiceiro", "Superaprendiz"
 
     For ($i=0; $i -lt $classes.Count; $i++) {
         $listItemClasse = New-Object System.Windows.Forms.ListViewItem
@@ -250,7 +250,7 @@ function updater {
         $versao_atual = (git rev-list --count origin/master) | Out-String
         $versao_local = (git rev-list --count master) | Out-String
         if($versao_atual -ne $versao_local) {
-            $confirmacao = [System.Windows.Forms.MessageBox]::Show( "Nova vers√£o dispon√≠vel. Gostaria de atualizar sua vers√£o?", "Vers√£o desatualizada", [Windows.Forms.MessageBoxButtons]::YesNo )
+            $confirmacao = [System.Windows.Forms.MessageBox]::Show( "Nova vers„o disponÌvel. Gostaria de atualizar sua vers„o?", "Vers„o desatualizada", [Windows.Forms.MessageBoxButtons]::YesNo )
             if ($confirmacao -eq "YES"){
                 git stash save
                 git pull --rebase
