@@ -73,8 +73,9 @@ macro upar {
         do conf -f o_que_estou_fazendo upando
     } else {
         log vou salvar em: $mapa{saveMap}
-        call pararDeAtacar        
-        salvarOndeVouUpar("&config(saveMap)", "$mapa{saveMap}")
+        call pararDeAtacar      
+        $macroParaChamar = salvarOndeVouUpar("&config(saveMap)", "$mapa{saveMap}")
+        call $macroParaChamar
     }
 }
 
@@ -93,22 +94,22 @@ automacro estouLv99 {
 sub salvarOndeVouUpar {
     my $mapaOrigem = $_[0];
     my $mapaDestino = $_[1];
-
+    warning "\$mapaOrigem: $mapaOrigem, \$mapaDestino: $mapaDestino\n";
     my @rotas = (
         { de => 'hugel',   para => 'rachel',    usar => 'aeroplano_hugelPara "rachel"'},
         { de => 'hugel',   para => 'veins',     usar => 'aeroplano_hugelPara "rachel"'},
         { de => 'hugel',   para => 'einbroch',  usar => 'aeroplano_hugelPara "einbroch"'},
-        { de => 'hugel',   para => 'juno',      usar => 'aeroplano_hugelPara "juno"'},
+        { de => 'hugel',   para => 'yuno',      usar => 'aeroplano_hugelPara "juno"'},
         { de => 'hugel',   para => '*',         usar => 'aeroplano_hugelPara "izlude"'},
         { de => 'rachel',  para => 'hugel',     usar => 'aeroplano_rachelPara "rachel"'},
         { de => 'rachel',  para => 'veins',     usar => 'salvarNaCidade "veins"'},
         { de => 'rachel',  para => 'einbroch',  usar => 'aeroplano_rachelPara "einbroch"'},
-        { de => 'rachel',  para => 'juno',      usar => 'aeroplano_rachelPara "juno"'},
+        { de => 'rachel',  para => 'yuno',      usar => 'aeroplano_rachelPara "juno"'},
         { de => 'rachel',  para => '*',         usar => 'aeroplano_rachelPara "izlude"'},
         { de => 'veins',   para => 'hugel',     usar => 'aeroplano_rachelPara "rachel"'},
         { de => 'veins',   para => 'rachel',    usar => 'salvarNaCidade "rachel"'},
         { de => 'veins',   para => 'einbroch',  usar => 'aeroplano_rachelPara "einbroch"'},
-        { de => 'veins',   para => 'juno',      usar => 'aeroplano_rachelPara "juno"'},
+        { de => 'veins',   para => 'yuno',      usar => 'aeroplano_rachelPara "juno"'},
         { de => 'veins',   para => '*',         usar => 'aeroplano_rachelPara "izlude"'},
         { de => '*',       para => 'hugel',     usar => 'aeroplano_junoPara "hugel"'},
         { de => '*',       para => 'rachel',    usar => 'aeroplano_junoPara "rachel"'},
@@ -117,30 +118,38 @@ sub salvarOndeVouUpar {
         { de => '*',       para => '*' }
     );
 
-    foreach my $rota (@{$rotas}) {
+    foreach my $rota (@rotas) {
         if ($mapaOrigem eq $rota->{de}) {
             if ($mapaDestino eq $rota->{para}) {
-                Commands::run("eventMacro $rota->{$usar}");
-                last;
+                $rotaDecidida = 1;
+                message "Será retornado o comando $rota->{usar}\n";
+                return $rota->{usar};
             } else {
                 if ($rota->{para} eq "*") {
-                    Commands::run("eventMacro $rota->{$usar}");
-                    last;
+                    $rotaDecidida = 1;
+                    message "Será retornado o comando $rota->{usar}\n";
+                    return $rota->{usar};
                 }
             }
         } else {
             if ($rota->{de} eq "*") {
-                if ($mapaDestino = $rota->{para}) {
-                    Commands::run("eventMacro $rota->{$usar}");
-                    last;
+                if ($mapaDestino eq $rota->{para}) {
+                    $rotaDecidida = 1;
+                    message "Será retornado o comando $rota->{usar}\n";
+                    return $rota->{usar};
                 } else {
                     if ($rota->{para} eq "*") {
-                        Commands::run("eventMacro salvarNaCidade $mapaDestino");
-                        last;
+                        $rotaDecidida = 1;
+                        message "Será retornado o comando savarNaCidade $mapaDestino\n";
+                        return "salvarNaCidade $mapaDestino";
                     }
                 }
             }
         }
+    }
+    
+    if (!$rotaDecidida) {
+        error "tem um erro em decidir qual rota deve ser seguida\n";
     }
 }
 
