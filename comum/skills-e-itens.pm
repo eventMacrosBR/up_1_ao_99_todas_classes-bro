@@ -46,7 +46,7 @@ automacro configurandoEmblemaDoEdenComoItemDeTeleport {
             log configurando Emblema do Éden como item de teleport
             log ==================================================
         ]
-        do conf teleportAuto_item1 Emblema do Éden
+        do conf teleportAuto_item1 Emblema do Éden 
     }
 }
 
