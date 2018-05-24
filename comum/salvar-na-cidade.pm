@@ -259,8 +259,8 @@ automacro SalvoNaKafra {
 automacro saveMapNone {
     ConfigKey saveMap none
     exclusive 1
-    JobIdNot 0
-    JobIdNot 4023
+    JobIDNot 0
+    JobIDNot 4023
     call {
         conf -f saveMap indefinido
     }
