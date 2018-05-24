@@ -36,6 +36,20 @@ automacro parandoDePegarPotDeAprendiz {
     }
 }
 
+automacro configurandoEmblemaDoEdenComoItemDeTeleport {
+    ConfigKeyNot teleportAuto_item1 Emblema do Éden
+    InInventoryID 22508 = 1
+    exclusive 1
+    call {
+        [
+            log ==================================================
+            log configurando Emblema do Éden como item de teleport
+            log ==================================================
+        ]
+        conf teleportAuto_item1 Emblema do Éden
+    }
+}
+
 sub adicionaAttackSkillSlot {
     open (my $fh, '>>:encoding(UTF-8)', Settings::getConfigFilename());
     print $fh "attackSkillSlot {\n";
