@@ -2,12 +2,12 @@
 sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz => 'NV_BASIC 9',
-        skillsClasse1 => 'MG_FIREBOLT 1, MG_COLDBOLT 5, MG_SRECOVERY 8, MG_LIGHTNINGBOLT 1, MG_NAPALMBEAT 7, MG_SOULSTRIKE 5, MG_FROSTDIVER 1, MG_SIGHT 1, MG_STONECURSE 10, MG_SAFETYWALL 10',
-        skillsClasse2 => 'SA_ADVANCEDBOOK 9, SA_DRAGONOLOGY 4, SA_CASTCANCEL 1, SA_FREECAST 1, SA_SEISMICWEAPON 5, WZ_EARTHSPIKE 5, SA_MAGICROD 3, SA_SPELLBREAKER 3, SA_DISPELL 5, SA_FROSTWEAPON 5, SA_LIGHTNINGLOADER 4, SA_FLAMELAUNCHER 5, SA_DELUGE 3, SA_VIOLENTGALE 3, SA_VOLCANO 3, PF_FOGWALL 1, SA_LANDPROTECTOR 2, PF_SPIDERWEB 1, PF_SOULCHANGE 1, PF_HPCONVERSION 5',
+        skillsClasse1 => 'MG_FIREBOLT 1, MG_LIGHTNINGBOLT 4, MG_NAPALMBEAT 7, MG_SOULSTRIKE 7, MG_COLDBOLT 5, MG_FIREBOLT 8, MG_LIGHTNINGBOLT 5, MG_SIGHT 1, MG_SOULSTRIKE 10, MG_COLDBOLT 10, MG_LIGHTNINGBOLT 10, MG_FIREBOLT 10',
+        skillsClasse2 => 'SA_ADVANCEDBOOK 9, SA_CASTCANCEL 1, SA_FREECAST 1, SA_SEISMICWEAPON 5, WZ_EARTHSPIKE 5, SA_MAGICROD 3, SA_SPELLBREAKER 3, SA_DISPELL 5, SA_FROSTWEAPON 5, SA_LIGHTNINGLOADER 4, SA_FLAMELAUNCHER 5, SA_DELUGE 3, SA_VIOLENTGALE 3, SA_VOLCANO 3, SA_LANDPROTECTOR 2',
         skillsClasse1T => 'MG_FIREBOLT 1, MG_COLDBOLT 5, MG_SRECOVERY 8, MG_LIGHTNINGBOLT 1, MG_NAPALMBEAT 7, MG_SOULSTRIKE 5, MG_FROSTDIVER 1, MG_SIGHT 1, MG_STONECURSE 10, MG_SAFETYWALL 10',
         skillsClasse2T => 'SA_ADVANCEDBOOK 9, SA_DRAGONOLOGY 4, SA_CASTCANCEL 1, SA_FREECAST 1, SA_SEISMICWEAPON 5, WZ_EARTHSPIKE 5, SA_MAGICROD 3, SA_SPELLBREAKER 3, SA_DISPELL 5, SA_FROSTWEAPON 5, SA_LIGHTNINGLOADER 4, SA_FLAMELAUNCHER 5, SA_DELUGE 3, SA_VIOLENTGALE 3, SA_VOLCANO 3, PF_FOGWALL 1, SA_LANDPROTECTOR 2, PF_SPIDERWEB 1, PF_SOULCHANGE 1, PF_HPCONVERSION 5',
         skillsClasse3 => '',
-        statsPadrao => '60 int, 60 dex, 40 vit, 20 luk, 80 int, 80 dex, 92 int, 91 dex',
+        statsPadrao => '40 int, 20 dex, 40 agi, 60 int, 40 agi, 80 int, 80 dex, 92 int, 91 dex',
         statsPadraoTransclasse => '60 int, 60 dex, 40 vit, 20 luk, 80 int, 80 dex, 94 int, 92 dex, 43 vit, 2 str',
         statsPadraoClasse3 => '60 int, 60 dex, 40 vit, 20 luk, 80 int, 80 dex, 100 int, 100 dex, 70 vit, 20 str, 45 luk, 100 vit, 120 int, 120 vit, 85 luk'
     );
@@ -27,9 +27,9 @@ sub extrairMapasDeUp {
 
     $variaveisDeUp = 
     [
-        {lvlMin => 1 , lvlMax => 11, lockMap => 'gef_fild04',  saveMap => 'geffen'},
-        {lvlMin => 12, lvlMax => 25, lockMap => 'gef_fild04',  saveMap => 'geffen'},
-        {lvlMin => 26, lvlMax => 40, lockMap => 'gef_fild04',  saveMap => 'geffen'},
+        {lvlMin => 1 , lvlMax => 15, lockMap => 'gef_fild04',  saveMap => 'geffen'},
+        {lvlMin => 16, lvlMax => 25, lockMap => 'pay_fild08',  saveMap => 'payon'}, #matar esporo one hit, tenho que lembrar de não castar em rabo de verme
+        {lvlMin => 26, lvlMax => 40, lockMap => 'pay_dun01',  saveMap => 'payon'}, #já vai ter napalm beat, dá pra matar bem
         {lvlMin => 41, lvlMax => 45, lockMap => 'moc_fild03',  saveMap => 'payon'},
         {lvlMin => 46, lvlMax => 60, lockMap => 'cmd_fild01',  saveMap => 'comodo'},
         {lvlMin => 60, lvlMax => 70, lockMap => 'moc_fild17',  saveMap => 'morocc'},
