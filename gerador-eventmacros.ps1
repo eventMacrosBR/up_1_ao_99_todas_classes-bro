@@ -11,9 +11,13 @@ if (! $job) {
     $listJobs = New-Object system.windows.Forms.ListView
     $btn = New-Object system.windows.Forms.Button
     $imageListIcons = New-Object System.Windows.Forms.ImageList
+    $labelEscolherClasse = New-Object System.Windows.Forms.Label
     $labelConfigsPersonalizadas = New-Object System.Windows.Forms.Label
     $configsPersonalizadas = New-Object System.Windows.Forms.PropertyGrid
     $labelClasseSelecionada = New-Object System.Windows.Forms.Label
+    $painelSuperior = New-Object System.Windows.Forms.Panel
+    $painelMedio = New-Object System.Windows.Forms.Panel
+    $painelInferior = New-Object System.Windows.Forms.Panel
     
     if($PSVersionTable.PSVersion.Major -ge 3){
         $classDefinition = '
@@ -164,44 +168,55 @@ function desenharJanela {
     $Form.Width = 800
     $Form.Height = 600
 
-
-    $listJobs.Width = 760
-    $listJobs.Height = 130
-    $listJobs.location = New-Object system.drawing.point(10,20)
-    $Form.controls.Add($listJobs)
-    $listJobs.View = "LargeIcon"
-    $listJobs.LargeImageList = $imageListIcons
-    $listJobs.MultiSelect = 0
-    $listJobs.Add_click({ acaoCarregarConfiguracoes })
-
-    $labelClasseSelecionada.Width = 400
-    $labelClasseSelecionada.Text = "Classe selecionada: "
-    $labelClasseSelecionada.Location = New-Object system.drawing.point(10,160)
-    $Form.controls.Add($labelClasseSelecionada)
-
-    $labelConfigsPersonalizadas.Text = "Configurações Personalizadas"
-    $labelConfigsPersonalizadas.Width = 400
-    $labelConfigsPersonalizadas.location = New-Object system.drawing.point(10,195)
-    $Form.controls.Add($labelConfigsPersonalizadas)
-
-    $configsPersonalizadas.Width = 760
-    $configsPersonalizadas.Height = 300
-    $configsPersonalizadas.location = New-Object system.drawing.point(10,220)
+    $Form.Controls.Add($painelMedio)
+    $painelMedio.Dock = [System.Windows.Forms.DockStyle]::Fill
+         
+    $painelMedio.Controls.Add($configsPersonalizadas)
+    $configsPersonalizadas.Dock = [System.Windows.Forms.DockStyle]::Fill
     $configsPersonalizadas.SelectedObject = $configuracoes
     $configsPersonalizadas.PropertySort = [System.Windows.Forms.PropertySort]::NoSort
     $configsPersonalizadas.ToolbarVisible = $false
 
-    $Form.controls.Add($configsPersonalizadas)
+    $Form.Controls.Add($painelSuperior)
+    $painelSuperior.Dock = [System.Windows.Forms.DockStyle]::Top
+    $painelSuperior.Height = 300
 
+    $painelSuperior.Controls.Add($listJobs)
+    $listJobs.Anchor = [System.Windows.Forms.AnchorStyles]::Left
+    $listJobs.Dock = [System.Windows.Forms.DockStyle]::Fill
+    $listJobs.View = "LargeIcon"
+    $listJobs.LargeImageList = $imageListIcons
+    $listJobs.MultiSelect = $false
+    $listJobs.Add_click({ acaoCarregarConfiguracoes })
+    $listJobs.AutoSize = $true
     
 
-    
+    $painelSuperior.Controls.Add($labelEscolherClasse);
+    $labelEscolherClasse.Dock = [System.Windows.Forms.DockStyle]::Top
+    $labelEscolherClasse.Text = "Selecione sua classe:"
+
+   
+    $painelSuperior.Controls.Add($labelConfigsPersonalizadas);
+    $labelConfigsPersonalizadas.Dock = [System.Windows.Forms.DockStyle]::Bottom
+    $labelConfigsPersonalizadas.Text = "Configurações Personalizadas"
+
+     
+
+    $Form.Controls.Add($painelInferior)
+    $painelInferior.Dock = [System.Windows.Forms.DockStyle]::Bottom
+    $painelInferior.Height = 25
+
+    $painelInferior.Controls.Add($labelClasseSelecionada)
+    $labelClasseSelecionada.Dock = [System.Windows.Forms.DockStyle]::Left
+    $labelClasseSelecionada.Text = "Classe selecionada: "
+
+
+    $painelInferior.Controls.Add($btn)
+    $btn.Dock = [System.Windows.Forms.DockStyle]::Right
     $btn.Text = "Gerar"
-    $btn.Width = 60
-    $btn.location = New-Object system.drawing.point(710,520)
-    $Form.controls.Add($btn)
-    $Form.AcceptButton = $btn
 
+
+    $Form.AcceptButton = $btn
     $btn.Add_click({ acaoBotaoGerar })
 }
 
