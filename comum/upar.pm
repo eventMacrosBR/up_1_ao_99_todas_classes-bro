@@ -48,7 +48,17 @@ macro upar {
     }
     
     #se chegar ate aqui é porque tem algo a ser configurado
-    log vou upar em: $mapa{lockMap}
+    [
+    log ===================================
+    log = saveMap que está configurado agora: &config(saveMap)
+    log = saveMap que quero salvar: $mapa{saveMap}
+    log ===================================
+
+    log ===================================
+    log = lockMap que está configurado agora: &config(lockMap)
+    log = lockMap que quero salvar: $mapa{lockMap}
+    log ===================================
+    ]
     
     #se chegar aqui significa que tem que ser mudado o lockMap e/ou o saveMap
     if (&config(saveMap) = $mapa{saveMap}) {
@@ -65,7 +75,6 @@ macro upar {
         log vou salvar em: $mapa{saveMap}
         call pararDeAtacar        
         salvarOndeVouUpar("&config(saveMap)", "$mapa{saveMap}")
-        
     }
 }
 
@@ -111,18 +120,18 @@ sub salvarOndeVouUpar {
     foreach my $rota (@{$rotas}) {
         if ($mapaOrigem eq $rota->{de}) {
             if ($mapaDestino eq $rota->{para}) {
-                Commands::run("eventMacro $rota{$usar}");
+                Commands::run("eventMacro $rota->{$usar}");
                 last;
             } else {
                 if ($rota->{para} eq "*") {
-                    Commands::run("eventMacro $rota{$usar}");
+                    Commands::run("eventMacro $rota->{$usar}");
                     last;
                 }
             }
         } else {
             if ($rota->{de} eq "*") {
                 if ($mapaDestino = $rota->{para}) {
-                    Commands::run("eventMacro $rota{$usar}");
+                    Commands::run("eventMacro $rota->{$usar}");
                     last;
                 } else {
                     if ($rota->{para} eq "*") {
