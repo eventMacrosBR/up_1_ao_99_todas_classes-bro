@@ -425,36 +425,36 @@ macro irNoMapa {
 }
 
 
-automacro questEden12_Caçar {
+automacro questEden12_Cacar {
     QuestHuntOngoing 7129 1009, 7130 1107, 7131 1001
     exclusive 1
     timeout 120
-    call caçarMonstros "moc_fild11" "12"
+    call cacarMonstros "moc_fild11" "12"
 }
 
-automacro questEden26_Caçar {
+automacro questEden26_Cacar {
     QuestHuntOngoing 7139 1076, 7140 1031
     exclusive 1
     timeout 180
-    call caçarMonstros "pay_dun00" "26"
+    call cacarMonstros "pay_dun00" "26"
 }
 
-automacro questEden40_Caçar {
+automacro questEden40_Cacar {
     QuestHuntOngoing 7148 1686, 7149 1023, 7150 1273
     exclusive 1
     timeout 180
     JobLevel != 50
-    call caçarMonstros "gef_fild10" "40"
+    call cacarMonstros "gef_fild10" "40"
 }
 
-automacro questEden60_Caçar {
+automacro questEden60_Cacar {
     QuestHuntOngoing 7215 1278, 7216 1278
     exclusive 1
     timeout 60
-    call caçarMonstros "beach_dun2" "60"
+    call cacarMonstros "beach_dun2" "60"
 }
 
-macro caçarMonstros {
+macro cacarMonstros {
     ## $.param[0] tem como valor o lockMap que o bot
     ## vai caçar os monstros
     if (&config(quest_eden) != em_curso) do conf -f quest_eden em_curso
@@ -532,7 +532,7 @@ automacro questEden60__JaJunteiOsItens {
     }
 }
 
-automacro questEden12_FinalizarCaças {
+automacro questEden12_FinalizarCacas {
     QuestHuntCompleted 7129 1009, 7130 1107, 7131 1001
     exclusive 1
     call {
@@ -546,11 +546,11 @@ automacro questEden12_FinalizarCaças {
         ]
         do move moc_fild11 &rand(181,183) &rand(254,256)
         do talk 0 #Cão falante
-        release questEden12_Caçar
+        release questEden12_Cacar
     }
 }
 
-automacro questEden26_FinalizarCaças {
+automacro questEden26_FinalizarCacas {
     QuestHuntCompleted 7139 1076, 7140 1031
     exclusive 1
     call {
@@ -565,11 +565,11 @@ automacro questEden26_FinalizarCaças {
         do move pay_arche &rand(44,46) &rand(132,134)
         #do talknpc 41 136 c c c c c #Coral
         do talk &npc( 41 136 ) #Coral
-        release questEden26_Caçar
+        release questEden26_Cacar
     }
 }
 
-automacro questEden40_FinalizarCaças {
+automacro questEden40_FinalizarCacas {
     QuestHuntCompleted 7148 1686, 7149 1023, 7150 1273
     QuestInactive 2017
     QuestInactive 2018
@@ -590,11 +590,11 @@ automacro questEden40_FinalizarCaças {
         do move in_orcs01 38 175 &rand(1,4)
         #do talknpc 38 175 c c #Absalom#para07
         do talk 0 #Absalom
-        release questEden40_Caçar
+        release questEden40_Cacar
     }
 }
 
-automacro questEden60_FinalizarCaças {
+automacro questEden60_FinalizarCacas {
     QuestHuntCompleted 7215 1278, 7216 1278
     exclusive 1
     call {
@@ -611,14 +611,14 @@ automacro questEden60_FinalizarCaças {
                 do move comodo &rand(174,176) &rand(344,346)
                 #do talknpc 173 354 c c c c c #Mémbro do grupo Éden#2n
                 do talk &npc( 173 354 )
-                release questEden60_Caçar
+                release questEden60_Cacar
             }
 
             case (= 7216) { #golem2
                 do move um_fild01 &rand(36,38) &rand(277,279)
                 #do talknpc 34 280 c c c c #Romeo#2nd02
                 do talk &npc( 34 280 )
-                release questEden60_Caçar
+                release questEden60_Cacar
             }
         }
     }
