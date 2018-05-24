@@ -262,7 +262,7 @@ automacro saveMapNone {
     JobIDNot 0
     JobIDNot 4023
     call {
-        conf -f saveMap indefinido
+        do conf -f saveMap indefinido
     }
 }
 #
