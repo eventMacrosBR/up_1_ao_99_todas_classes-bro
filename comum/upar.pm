@@ -84,8 +84,8 @@ automacro estouLv99 {
 }
 
 sub salvarOndeVouUpar {
-    my $mapaOrigem = @_[0];
-    my $mapaDestino = @_[1];
+    my $mapaOrigem = $_[0];
+    my $mapaDestino = $_[1];
 
     my @rotas = (
         { de => 'hugel', para => 'rachel', usar => 'aeroplano_hugelPara "rachel"'},
@@ -111,23 +111,23 @@ sub salvarOndeVouUpar {
     );
 
     foreach my $rota (@{$rotas}) {
-        if ($mapaOrigem = $rota->{de}) {
-            if ($mapaDestino = $rota->{para}) {
+        if ($mapaOrigem eq $rota->{de}) {
+            if ($mapaDestino eq $rota->{para}) {
                 Commands::run("eventMacro $rota{$usar}");
                 last;
             } else {
-                if ($rota->{para} = "*") {
+                if ($rota->{para} eq "*") {
                     Commands::run("eventMacro $rota{$usar}");
                     last;
                 }
             }
         } else {
-            if ($rota->{de} = "*") {
+            if ($rota->{de} eq "*") {
                 if ($mapaDestino = $rota->{para}) {
                     Commands::run("eventMacro $rota{$usar}");
                     last;
                 } else {
-                    if ($rota->{para} = "*") {
+                    if ($rota->{para} eq "*") {
                         Commands::run("eventMacro salvarNaCidade $salvarNaCidade");
                         last;
                     }
