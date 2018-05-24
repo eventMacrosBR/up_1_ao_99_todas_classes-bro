@@ -63,9 +63,7 @@ macro upar {
         do conf -f o_que_estou_fazendo upando
     } else {
         log vou salvar em: $mapa{saveMap}
-        call pararDeAtacar
-        do conf lockMap none
-        
+        call pararDeAtacar        
         salvarOndeVouUpar("&config(saveMap)", "$mapa{saveMap}")
         
     }
