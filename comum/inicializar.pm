@@ -95,25 +95,23 @@ macro atualizarBuild {
 
     $idClasseAtual = pegarID() #sub se encontra no arquivo utilidades.pm
     do conf skillsAddAuto 1 if (&config(skillsAddAuto) != 1)
-    switch ($idClasseAtual) {
-        case (~ 0, 4023, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
-            do conf statsAddAuto_list $configsBuild{statsPadrao} if (&config(statsAddAuto_list) != $configsBuild{statsPadrao})
-        } 
-        case (~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2}, $parametrosClasses{idC2Alt} ) {
-            do conf statsAddAuto_list $configsBuild{statsPadraoTransclasse} if (&config(statsAddAuto_list) != $configsBuild{statsPadraoTransclasse})
-        }
-        case (~ $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idBC3Alt} ) {
-            do conf statsAddAuto_list $configsBuild{statsPadraoClasse3} if (&config(statsAddAuto_list) != $configsBuild{statsPadraoClasse3})
-        }
-        else {
-            [
-            log ===================================
-            log = ocorreu um erro ao definir a build de atributos padrão para sua classe
-            log = caso isso apareça mais de 1 vez, contate os criadores da eventMacro
-            log = \$idClasseAtual : "$idClasseAtual"
-            log ===================================
-            ]
-        }
+    if ($idClasseAtual ~ 0, 4023, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
+        do conf statsAddAuto_list $configsBuild{statsPadrao} if (&config(statsAddAuto_list) != $configsBuild{statsPadrao})
+    } 
+    elsif ($idClasseAtual ~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2}, $parametrosClasses{idC2Alt} ) {
+        do conf statsAddAuto_list $configsBuild{statsPadraoTransclasse} if (&config(statsAddAuto_list) != $configsBuild{statsPadraoTransclasse})
+    }
+    elsif ($idClasseAtual ~ $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idBC3Alt} ) {
+        do conf statsAddAuto_list $configsBuild{statsPadraoClasse3} if (&config(statsAddAuto_list) != $configsBuild{statsPadraoClasse3})
+    }
+    else {
+        [
+        log ===================================
+        log = ocorreu um erro ao definir a build de atributos padrão para sua classe
+        log = caso isso apareça mais de 1 vez, contate os criadores da eventMacro
+        log = \$idClasseAtual : "$idClasseAtual"
+        log ===================================
+        ]
     }
 
     do conf statsAddAuto 1 if (&config(statsAddAuto) != 1)
@@ -124,80 +122,77 @@ macro atualizarBuild {
     # $mapa{saveMap}
     extrairMapasDeUp("$.lvl")
     
-    switch ($idClasseAtual) {
-        case (~ 0, 161, 4001, 4023) { #Aprendiz / Aprendiz T. / Baby Aprendiz
-            do conf skillsAddAuto_list $configsBuild{skillsAprendiz} if (&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz})
+    if ($idClasseAtual ~ 0, 161, 4001, 4023) { #Aprendiz / Aprendiz T. / Baby Aprendiz
+        do conf skillsAddAuto_list $configsBuild{skillsAprendiz} if (&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz})
+    }
+    elsif ($idClasseAtual ~ $parametrosClasses{idC1}, $parametrosClasses{idBC1}) { #Classes 1
+        if ($configsBuild{skillsClasse1}) != 1) { #se existir as skills
+            do conf skillsAddAuto_list $configsBuild{skillsClasse1} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1})
+        } else {
+            [
+            log ===================================
+            log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A CLASSE 1
+            log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
+            log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
+            log ===================================
+            ]
         }
-        case (~ $parametrosClasses{idC1}, $parametrosClasses{idBC1}) { #Classes 1
-            if ($configsBuild{skillsClasse1}) != 1) { #se existir as skills
-                do conf skillsAddAuto_list $configsBuild{skillsClasse1} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1})
-            } else {
-                [
-                log ===================================
-                log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A CLASSE 1
-                log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
-                log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
-                log ===================================
-                ]
-            }
+    }
+    elsif ($idClasseAtual ~ $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}) { #Classes 2
+        if ($configsBuild{skillsClasse2} != '') {
+            do conf skillsAddAuto_list $configsBuild{skillsClasse2} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2})
+        } else {
+            [
+            log ===================================
+            log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A SUA CLASSE 2
+            log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
+            log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
+            log ===================================
+            ] 
         }
-        case (~ $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}) { #Classes 2
-            if ($configsBuild{skillsClasse2} != '') {
-                do conf skillsAddAuto_list $configsBuild{skillsClasse2} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2})
-            } else {
-                [
-                log ===================================
-                log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A SUA CLASSE 2
-                log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
-                log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
-                log ===================================
-                ] 
-            }
+    }
+    elsif ($idClasseAtual == $parametrosClasses{idC1T}) { #Classes 1T
+        if ($configsBuild{skillsClasse1T} != '') {
+            do conf skillsAddAuto_list $configsBuild{skillsClasse1T} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1T})
+        } else {
+            [
+            log ===================================
+            log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A SUA CLASSE 1 TRANS
+            log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
+            log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
+            log ===================================
+            ] 
         }
-        case (== $parametrosClasses{idC1T}) { #Classes 1T
-            if ($configsBuild{skillsClasse1T} != '') {
-                do conf skillsAddAuto_list $configsBuild{skillsClasse1T} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1T})
-            } else {
-                [
-                log ===================================
-                log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A SUA CLASSE 1 TRANS
-                log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
-                log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
-                log ===================================
-                ] 
-            }
+    }
+    elsif ($idClasseAtual ~ $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt} ) { #Classes 2T
+        if ($configsBuild{skillsClasse2T} != '') {
+            do conf skillsAddAuto_list $configsBuild{skillsClasse2T} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2T})
+        } else {
+            [
+            log ===================================
+            log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A SUA CLASSE 2 TRANS
+            log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
+            log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
+            log ===================================
+            ] 
         }
-        case (~ $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt} ) { #Classes 2T
-            if ($configsBuild{skillsClasse2T} != '') {
-                do conf skillsAddAuto_list $configsBuild{skillsClasse2T} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2T})
-            } else {
-                [
-                log ===================================
-                log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A SUA CLASSE 2 TRANS
-                log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
-                log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
-                log ===================================
-                ] 
-            }
+    }
+    elsif ($idClasseAtual ~ $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idBC3Alt}) { #Classes 3
+        if ($configsBuild{skillsClasse3} != '') {
+            do conf skillsAddAuto_list $configsBuild{skillsClasse3} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse3})
+        } else {
+            [
+            log ===================================
+            log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A SUA CLASSE 3
+            log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
+            log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
+            log ===================================
+            ] 
         }
-        case (~ $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idBC3Alt}) { #Classes 3
-            if ($configsBuild{skillsClasse3} != '') {
-                do conf skillsAddAuto_list $configsBuild{skillsClasse3} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse3})
-            } else {
-                [
-                log ===================================
-                log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A SUA CLASSE 3
-                log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
-                log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
-                log ===================================
-                ] 
-            }
-        }
-        else {
-            do eval Log::error "Não foi possivel definir qual é a sua classe.\n";
-            do eval Log::error "ID encontrado: $idClasseAtual\n";
-        }
-        
+    }
+    else {
+        do eval Log::error "Não foi possivel definir qual é a sua classe.\n";
+        do eval Log::error "ID encontrado: $idClasseAtual\n";
     }
     
     if (&config(questc2_implementada) != true && pegarID() = $parametrosQuestClasse1{idC1}) {
