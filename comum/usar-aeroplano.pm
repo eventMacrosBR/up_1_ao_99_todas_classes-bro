@@ -48,7 +48,7 @@ macro aeroplano_junoPara {
     }
     $varAeroplano1 = &config(aeroplano1)
     $varAeroplano2 = &config(aeroplano2)
-    do conf -f aeroplano_macroChamada aeroplano_junoPara
+    do conf -f aeroplano_macroChamada aeroplano_junoPara "$.param[0]"
     do conf lockMap none
     do ai manual
     if ($.map ~ airplane, airplane_01) {
@@ -102,7 +102,7 @@ macro aeroplano_einbrochPara {
     }
     $varAeroplano1 = &config(aeroplano1)
     $varAeroplano2 = &config(aeroplano2)
-    do conf -f aeroplano_macroChamada aeroplano_einbrochPara
+    do conf -f aeroplano_macroChamada aeroplano_einbrochPara "$.param[0]"
     do conf lockMap none
     do ai manual
     if ($.map ~ airplane, airplane_01) {
@@ -157,7 +157,7 @@ macro aeroplano_rachelPara {
     }
     $varAeroplano1 = &config(aeroplano1)
     $varAeroplano2 = &config(aeroplano2)
-    do conf -f aeroplano_macroChamada aeroplano_rachelPara
+    do conf -f aeroplano_macroChamada aeroplano_rachelPara "$.param[0]"
     do conf lockMap none
     do ai manual
     if ( $.map ~ airplane, airplane_01) {
@@ -213,7 +213,7 @@ macro aeroplano_izludePara {
     }
     $varAeroplano1 = &config(aeroplano1)
     $varAeroplano2 = &config(aeroplano2)
-    do conf -f aeroplano_macroChamada aeroplano_izludePara
+    do conf -f aeroplano_macroChamada aeroplano_izludePara "$.param[0]"
     do conf lockMap none
     do ai manual
     if ( $.map ~ airplane, airplane_01) {
@@ -270,7 +270,7 @@ macro aeroplano_hugelPara {
     }
     $varAeroplano1 = &config(aeroplano1)
     $varAeroplano2 = &config(aeroplano2)
-    do conf -f aeroplano_macroChamada aeroplano_hugelPara
+    do conf -f aeroplano_macroChamada aeroplano_hugelPara "$.param[0]"
     do conf lockMap none
     do ai manual
     if ( $.map ~ airplane, airplane_01) {
@@ -325,7 +325,7 @@ macro aeroplano_lighthalzenPara {
     }
     $varAeroplano1 = &config(aeroplano1)
     $varAeroplano2 = &config(aeroplano2)
-    do conf -f aeroplano_macroChamada aeroplano_lighthalzenPara
+    do conf -f aeroplano_macroChamada aeroplano_lighthalzenPara "$.param[0]"
     do conf lockMap none
     do ai manual
     if ($.map ~ airplane, airplane_01) {
@@ -357,6 +357,11 @@ automacro usarAeroplanoBugged {
         #o openkore foss fechado
         do ai manual
         $macro = &config(aeroplano_macroChamada)
+        [
+        log ===================================
+        log = chamando a macro $macro
+        log ===================================
+        ]
         call $macro
     }
 }
