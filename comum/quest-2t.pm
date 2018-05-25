@@ -77,11 +77,15 @@ automacro questClasse2T_jaSouClasse2TSairDaValquiria {
         $mapaQueVou = $mapa{saveMap}
         do move valkyrie 44 33 &rand(3,5)
         do talk &npc(44 33) #teleportadora
-        switch ($mapaQueVou) {        
-            case (= aldebaran) $mapaQueVou = Al\sDe\sBaran
-            case (= morocc) $mapaQueVou = morroc
-            case (= yuno) $mapaQueVou = yuno
-            case (~ einbroch,rachel,veins) $mapaQueVou = juno
+        if ($mapaQueVou = aldebaran) {
+            $mapaQueVou = Al\sDe\sBaran
+
+        } elsif ($mapaQueVou = morocc) {
+            $mapaQueVou = morroc
+
+        } elsif ($mapaQueVou ~ einbroch,rachel,veins,yuno) {
+            $mapaQueVou = juno
+
         }
         #ainda tem que colocar uma condição pra caso seja uma cidade que nao esteja listada no teleporte
         do talk resp /$mapaQueVou/i
