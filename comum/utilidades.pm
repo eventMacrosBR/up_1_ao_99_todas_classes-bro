@@ -87,7 +87,7 @@ sub checarSeExisteNoConfig {
 }
 
 sub checarSeSouTransclasse {
-    if ($char->{jobID} ~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}) {
+    if ($char->{jobID} ) {
         return "sim";
     }
     else {

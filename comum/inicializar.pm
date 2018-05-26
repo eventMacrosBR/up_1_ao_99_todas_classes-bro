@@ -97,7 +97,7 @@ macro atualizarBuild {
     do conf skillsAddAuto 1 if (&config(skillsAddAuto) != 1)
     if ($idClasseAtual ~ 0, 4023, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
         do conf statsAddAuto_list $configsBuild{statsPadrao} if (&config(statsAddAuto_list) != $configsBuild{statsPadrao})
-    } elsif (checarSeSouTransclasse() = sim ) {
+    } elsif ($idClasseAtual ~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}) {
         do conf statsAddAuto_list $configsBuild{statsPadraoTransclasse} if (&config(statsAddAuto_list) != $configsBuild{statsPadraoTransclasse})
     } elsif ($idClasseAtual ~ $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idBC3Alt} ) {
         do conf statsAddAuto_list $configsBuild{statsPadraoClasse3} if (&config(statsAddAuto_list) != $configsBuild{statsPadraoClasse3})
@@ -118,7 +118,14 @@ macro atualizarBuild {
     #sub 'extrairMapasDeUp' pega o mapa de up e o saveMap correto dependendo do lvl atual
     # $mapa{lockMap}
     # $mapa{saveMap}
-    extrairMapasDeUp("$.lvl", "checarSeSouTransclasse()")
+    
+     if ($idClasseAtual ~ 0, 4023, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
+        extrairMapasDeUp("$.lvl", "nao") # "nao" significa que ele não é transclasse
+    } elsif ($idClasseAtual ~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}) {
+        extrairMapasDeUp("$.lvl", "sim") # "sim" significa que ele já rebornou e é trans
+    }
+    #futuramente: adicionar uma elsif para caso seja classe 3
+    
     
     if ($idClasseAtual ~ 0, 161, 4001, 4023) { #Aprendiz / Aprendiz T. / Baby Aprendiz
         do conf skillsAddAuto_list $configsBuild{skillsAprendiz} if (&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz})
