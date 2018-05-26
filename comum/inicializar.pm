@@ -97,7 +97,7 @@ macro atualizarBuild {
     do conf skillsAddAuto 1 if (&config(skillsAddAuto) != 1)
     if ($idClasseAtual ~ 0, 4023, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
         do conf statsAddAuto_list $configsBuild{statsPadrao} if (&config(statsAddAuto_list) != $configsBuild{statsPadrao})
-    } elsif ($idClasseAtual ~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2}, $parametrosClasses{idC2Alt} ) {
+    } elsif (checarSeETransclasse() = sim ) {
         do conf statsAddAuto_list $configsBuild{statsPadraoTransclasse} if (&config(statsAddAuto_list) != $configsBuild{statsPadraoTransclasse})
     } elsif ($idClasseAtual ~ $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idBC3Alt} ) {
         do conf statsAddAuto_list $configsBuild{statsPadraoClasse3} if (&config(statsAddAuto_list) != $configsBuild{statsPadraoClasse3})
