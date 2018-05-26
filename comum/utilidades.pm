@@ -87,37 +87,12 @@ sub checarSeExisteNoConfig {
 }
 
 sub checarSeSouTransclasse {
-    my @idsTransclasses = (
-        161, 4001, # 'High Novice'
-	    162, 4002, # 'High Swordsman'
-	    163, 4003, # 'High Magician'
-	    164, 4004, # 'High Archer'
-	    165, 4005, # 'High Acolyte'
-	    166, 4006, # 'High Merchant'
-	    167, 4007, # 'High Thief'
-	    168, 4008, # 'Lord Knight'
-	    169, 4009, # 'High Priest'
-	    170, 4010, # 'High Wizard'
-	    171, 4011, # 'Whitesmith'
-	    172, 4012, # 'Sniper'
-	    173, 4013, # 'Assassin Cross'
-	    174, 4014, # 'Peco Lord Knight'
-	    175, 4015, # 'Paladin'
-	    176, 4016, # 'Champion'
-	    177, 4017, # 'Professor'
-	    178, 4018, # 'Stalker'
-	    179, 4019, # 'Creator'
-	    180, 4020, # 'Clown'
-	    181, 4021, # 'Gypsy'
-	    4022  # 'Peco Paladin'
-    );
-    
-    foreach my $idTrans (@idsTransclasses) {
-        if ($char->{jobID} == $idTrans) {
-            return "sim";
-        }
+    if ($char->{jobID} ~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}) {
+        return "sim";
     }
-    return "nao";
+    else {
+        return "nao";
+    } 
 }
 
 sub pegarIndiceDoEquipamentoPeloId {
