@@ -38,6 +38,25 @@ automacro questClasse1_virandoClasse1 {
     }
 }
 
+automacro questClasse1_saiDoCampoDeTreinamentoEEstouNoMapaErrado {
+    NotInMap $parametrosQuestClasse1{mapa}
+    NotInMapRegex /^(?!new_\d-\d)$/
+    JobID 0, 4023 #Aprendiz e Baby Aprendiz
+    JobLevel 10
+    SkillLevel NV_BASIC = 9
+    exclusive 1
+    BaseLevel > 11
+    call {
+        [
+            log ==============================================
+            log Deveria estar em $parametrosQuestClasse1{mapa}
+            log mas não estou, vou para lá
+            log ==============================================
+        ]
+        do move $parametrosQuestClasse1{mapa} $parametrosQuestClasse1{npc} &rand(1,5)
+    }
+}
+
 automacro questClasse1_jaSouClasse1 {
     JobIDNot 0 #aprendiz
     JobIDNot 4023 #Baby Aprendiz
