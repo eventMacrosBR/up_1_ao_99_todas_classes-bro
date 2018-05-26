@@ -25,7 +25,7 @@ sub extrairMapasDeUp {
     #QUE SEJA EXTREMAMENTE FÁCIL DE ALTERAR A SEU GOSTO
     ########################################################################
 
-    if ($souTransclasse = nao) {
+    if ($souTransclasse eq "nao") {
 		$variaveisDeUp =
 		# AQUI SÃO OS MAPAS DE UP ATÉ 99, ANTES DE REBORNAR
             [

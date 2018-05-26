@@ -38,8 +38,8 @@ automacro configurarLancasDeFogo {
         log =Configurando pra usar ela
         log ===========================================
         ]
-        $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_1")
-        if ($blocoExiste = nao ) {
+        
+        while (checarSeExisteNoConfig("attackSkillSlot_1") = nao ) {
             adicionaAttackSkillSlot()
             pause 1
             do reload config
@@ -66,8 +66,7 @@ automacro configurarAtaqueEspiritual {
         log =Configurando pra usar ela
         log ===========================================
         ]
-        $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_2")
-        if ($blocoExiste = nao ) {
+        while (checarSeExisteNoConfig("attackSkillSlot_2") = nao ) {
             adicionaAttackSkillSlot()
             pause 1
             do reload config
@@ -82,7 +81,7 @@ automacro configurarAtaqueEspiritual {
     }
 }
 
-automacro configurarAtaqueEspiritual {
+automacro configurarRelampago {
     SkillLevel MG_LIGHTNINGBOLT > 0
     ConfigKeyNot attackSkillSlot_3 MG_LIGHTNINGBOLT
     priority 0
@@ -94,8 +93,7 @@ automacro configurarAtaqueEspiritual {
         log =Configurando pra usar ela
         log ===========================================
         ]
-        $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_3")
-        if ($blocoExiste = nao ) {
+        while (checarSeExisteNoConfig("attackSkillSlot_3") = nao ) {
             adicionaAttackSkillSlot()
             pause 1
             do reload config
@@ -123,8 +121,7 @@ automacro configurarEspiritosAncioes {
         log =Configurando pra usar ela
         log ===========================================
         ]
-        $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_4")
-        if ($blocoExiste = nao ) {
+        while (checarSeExisteNoConfig("attackSkillSlot_4") = nao ) {
             adicionaAttackSkillSlot()
             pause 1
             do reload config
@@ -151,8 +148,7 @@ automacro configurarRajadaCongelante {
         log =Configurando pra usar ela
         log ===========================================
         ]
-        $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_5")
-        if ($blocoExiste = nao ) {
+        while (checarSeExisteNoConfig("attackSkillSlot_5") = nao ) {
             adicionaAttackSkillSlot()
             pause 1
             do reload config
@@ -168,3 +164,9 @@ automacro configurarRajadaCongelante {
     }
 }
 
+automacro darCajadadaNeles {
+    exclusive 1
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
+    JobLevel < 2
+    ConfigKey attack
+}
