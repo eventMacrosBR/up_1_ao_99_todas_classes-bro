@@ -354,7 +354,7 @@ automacro usarAeroplanoBugged {
         #se essa macro se ativar, significa que a AI ta no automático
         #quando deveria estar no manual pra todas as outras macros se ativarem
         #aconteceria se no meio do uso da macro (mover ate la ou dentro do aeroplano)
-        #o openkore foss fechado
+        #o openkore fosse fechado
         do ai manual
         $macro = &config(aeroplano_macroChamada)
         [
