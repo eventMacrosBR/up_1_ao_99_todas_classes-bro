@@ -84,3 +84,50 @@ automacro configurarLancasDeGelo {
     }
 }
 
+automacro darCajadadaNeles {
+    exclusive 1
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
+    JobLevel < 2
+    ConfigKeyNot attackUseWeapon 1
+    call {
+        do conf attackUseWeapon 1
+    }
+}
+
+automacro jaTenhoSkill_pararDeBaterNaCajadada {
+    JobLevel > 1
+    exclusive 1
+    ConfigKeyNot attackUseWeapon 0
+    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC1T}
+    call {
+        do conf attackUseWeapon 0
+    }
+}
+
+automacro souUmMeroAprendizEqueroBater {
+    JobID 0, 4023, 4001
+    exclusive 1
+    ConfigKeyNot attackUseWeapon 1
+    call {
+        do conf attackUseWeapon 1
+    }
+}
+
+automacro configurarDistanciaDeAtaque_usandoMagias {
+    ConfigKey attackUseWeapon 0
+    ConfigKeyNot attackDistance 6
+    exclusive 1
+    call {
+        do conf attackDistance 6
+    }
+}
+
+automacro configurarDistanciaDeAtaque_naCajadada {
+    ConfigKey attackUseWeapon 1
+    ConfigKeyNot attackDistance 1.5
+    exclusive 1
+    call {
+        do conf attackDistance 1.5
+    }
+}
+
