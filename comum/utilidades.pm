@@ -86,7 +86,7 @@ sub checarSeExisteNoConfig {
     }
 }
 
-sub checarSeETransclasse {
+sub checarSeSouTransclasse {
     my @idsTransclasses = (
         161, 4001, # 'High Novice'
 	    162, 4002, # 'High Swordsman'
