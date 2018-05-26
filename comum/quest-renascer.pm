@@ -224,7 +224,6 @@ automacro questRenascer_dandoOuReceBendoZeny {
     CharCurrentWeight 0
     Zeny != 1285000
     ConfigKey questRenascer_estagio preparando
-    IsInMapAndCoordinate yuno 145..147 115..117 #lugar pra negociar
     PlayerNear /$parametrosQuestClasseRenascer{amigo}/ 
     SimpleHookEvent engaged_deal
     priority -5
