@@ -86,15 +86,6 @@ sub checarSeExisteNoConfig {
     }
 }
 
-sub checarSeSouTransclasse {
-    if ($char->{jobID} ) {
-        return "sim";
-    }
-    else {
-        return "nao";
-    } 
-}
-
 sub pegarIndiceDoEquipamentoPeloId {
     my ($slotDoEquipamento, $id) = @_;
     my $item = $char->inventory->getByNameID($id);
