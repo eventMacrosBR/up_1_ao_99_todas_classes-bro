@@ -25,7 +25,9 @@ sub extrairMapasDeUp {
     #QUE SEJA EXTREMAMENTE FÁCIL DE ALTERAR A SEU GOSTO
     ########################################################################
 
-    $variaveisDeUp = 
+    if ($souTransclasse = nao) {
+		$variaveisDeUp =
+		# AQUI SÃO OS MAPAS DE UP ATÉ 99, ANTES DE REBORNAR
     [
         {lvlMin => 1 , lvlMax => 15, lockMap => 'gef_fild04',  saveMap => 'geffen'},
         {lvlMin => 16, lvlMax => 25, lockMap => 'pay_fild08',  saveMap => 'payon'}, #matar esporo one hit, tenho que lembrar de não castar em rabo de verme
@@ -36,6 +38,7 @@ sub extrairMapasDeUp {
         {lvlMin => 71, lvlMax => 79, lockMap => 'yuno_fild09', saveMap => 'aldebaran'},
         {lvlMin => 80, lvlMax => 98, lockMap => 'ein_fild09',  saveMap => 'einbroch'}
     ];
+	}
     
     
     foreach my $configs (@{$variaveisDeUp}) {
