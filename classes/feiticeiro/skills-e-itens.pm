@@ -54,33 +54,6 @@ automacro configurarLancasDeFogo {
     }
 }
 
-automacro configurarAtaqueEspiritual {
-    SkillLevel MG_NAPALMBEAT > 0
-    ConfigKeyNot attackSkillSlot_2 MG_NAPALMBEAT
-    priority 0
-    exclusive 1
-    call {
-        [
-        log ===========================================
-        log =Já tenho a skill Ataque Espiritual,
-        log =Configurando pra usar ela
-        log ===========================================
-        ]
-        while (checarSeExisteNoConfig("attackSkillSlot_2") = nao ) {
-            adicionaAttackSkillSlot()
-            pause 1
-            do reload config
-        }
-        
-        do conf attackSkillSlot_2 MG_NAPALMBEAT
-        do conf attackSkillSlot_2_sp >= 25
-        do conf attackSkillSlot_2_dist 10
-        do conf attackSkillSlot_2_whenStatusInactive EFST_POSTDELAY
-        do conf attackSkillSlot_2_monsters
-        do conf attackSkillSlot_2_disabled 1
-    }
-}
-
 automacro configurarRelampago {
     SkillLevel MG_LIGHTNINGBOLT > 0
     ConfigKeyNot attackSkillSlot_3 MG_LIGHTNINGBOLT
@@ -106,6 +79,33 @@ automacro configurarRelampago {
         do conf attackSkillSlot_3_target_whenStatusActive EFST_BODYSTATE_FREEZING
         do conf attackSkillSlot_3_monsters
         do conf attackSkillSlot_3_disabled 1
+    }
+}
+
+automacro configurarAtaqueEspiritual {
+    SkillLevel MG_NAPALMBEAT > 0
+    ConfigKeyNot attackSkillSlot_2 MG_NAPALMBEAT
+    priority 0
+    exclusive 1
+    call {
+        [
+        log ===========================================
+        log =Já tenho a skill Ataque Espiritual,
+        log =Configurando pra usar ela
+        log ===========================================
+        ]
+        while (checarSeExisteNoConfig("attackSkillSlot_2") = nao ) {
+            adicionaAttackSkillSlot()
+            pause 1
+            do reload config
+        }
+        
+        do conf attackSkillSlot_2 MG_NAPALMBEAT
+        do conf attackSkillSlot_2_sp >= 25
+        do conf attackSkillSlot_2_dist 10
+        do conf attackSkillSlot_2_whenStatusInactive EFST_POSTDELAY
+        do conf attackSkillSlot_2_monsters
+        do conf attackSkillSlot_2_disabled 1
     }
 }
 
