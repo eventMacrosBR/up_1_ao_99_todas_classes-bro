@@ -28,7 +28,7 @@ sub extrairMapasDeUp {
     if ($souTransclasse = nao) {
 		$variaveisDeUp =
 		# AQUI SÃO OS MAPAS DE UP ATÉ 99, ANTES DE REBORNAR
-    [
+        [
         {lvlMin => 1 , lvlMax => 15, lockMap => 'gef_fild04',  saveMap => 'geffen'},
         {lvlMin => 16, lvlMax => 25, lockMap => 'pay_fild08',  saveMap => 'payon'}, #matar esporo one hit, tenho que lembrar de não castar em rabo de verme
         {lvlMin => 26, lvlMax => 40, lockMap => 'pay_dun01',  saveMap => 'payon'}, #já vai ter napalm beat, dá pra matar bem
@@ -37,8 +37,21 @@ sub extrairMapasDeUp {
         {lvlMin => 60, lvlMax => 70, lockMap => 'moc_fild17',  saveMap => 'morocc'},
         {lvlMin => 71, lvlMax => 79, lockMap => 'yuno_fild09', saveMap => 'aldebaran'},
         {lvlMin => 80, lvlMax => 98, lockMap => 'ein_fild09',  saveMap => 'einbroch'}
-    ];
-	}
+        ];
+	} else {
+        $variaveisDeUp =
+		# AQUI SÃO OS MAPAS DE UP ATÉ 99, DEPOIS DE REBORNAR
+            [
+            {lvlMin => 1 , lvlMax => 15, lockMap => 'gef_fild04',  saveMap => 'geffen'},
+            {lvlMin => 16, lvlMax => 25, lockMap => 'pay_fild08',  saveMap => 'payon'}, #matar esporo one hit, tenho que lembrar de não castar em rabo de verme
+            {lvlMin => 26, lvlMax => 40, lockMap => 'pay_dun01',  saveMap => 'payon'}, #já vai ter napalm beat, dá pra matar bem
+            {lvlMin => 41, lvlMax => 45, lockMap => 'moc_fild03',  saveMap => 'payon'},
+            {lvlMin => 46, lvlMax => 60, lockMap => 'cmd_fild01',  saveMap => 'comodo'},
+            {lvlMin => 60, lvlMax => 70, lockMap => 'moc_fild17',  saveMap => 'morocc'},
+            {lvlMin => 71, lvlMax => 79, lockMap => 'yuno_fild09', saveMap => 'aldebaran'},
+            {lvlMin => 80, lvlMax => 98, lockMap => 'ein_fild09',  saveMap => 'einbroch'}
+        ];
+    }
     
     
     foreach my $configs (@{$variaveisDeUp}) {

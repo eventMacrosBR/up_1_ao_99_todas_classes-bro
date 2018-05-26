@@ -27,7 +27,7 @@ sub extrairMapasDeUp {
 
     if ($souTransclasse = nao) {
 		$variaveisDeUp =
-		# AQUI SÃO OS MAPAS DE UP ATÉ 99, ANTES DE REBORNAR
+		# AQUI SÃO OS MAPAS DE UP ATÉ 99
     [
         {lvlMin => 1 , lvlMax => 11, lockMap => 'gef_fild04',  saveMap => 'geffen'},
         {lvlMin => 12, lvlMax => 25, lockMap => 'pay_fild08',  saveMap => 'payon'},
