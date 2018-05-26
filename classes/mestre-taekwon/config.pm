@@ -50,9 +50,6 @@ sub extrairMapasDeUp {
 }
 
 sub inicializarParametrosQuestClasseRenascer {
-    my %parametrosQuestClasseRenascer = (
-        renascer => 'nao'
-    );
-    my $eventMacro = $eventMacro::Data::eventMacro;
-    $eventMacro->set_full_hash('parametrosQuestClasseRenascer', \%parametrosQuestClasseRenascer);
+    #só de estar vazia é o suficiente para não ocorrer erros
+    #mestre-taewkon não reborna
 }
