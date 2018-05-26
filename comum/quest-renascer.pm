@@ -20,7 +20,7 @@ automacro questRenascer_chegueilvl99 {
             log renascer => nao 
             log E TROQUE POR sim
             ]
-            lock chamarAmigo
+            lock questRenascer_chamarAmigo
         } else {
             if ($.statushandle =~ /EFST_RIDING/i) do pecopeco release
             #TODO adicionar uma linha pra remover falcão
@@ -191,7 +191,7 @@ automacro questRenascer_amigoPertoPedindoTrade {
     timeout 20
     QuestInactive 1000
     call {
-        lock irNoLocalPraNegociar
+        lock questRenascer_irNoLocalPraNegociar
         do conf -f o_que_estou_fazendo tentandoRebornar_esperandoNegociação
         log posição do $parametrosQuestClasseRenascer{amigo}: $.PlayerNearLastDist 
         if ($.PlayerNearLastDist  > 3) {
@@ -214,7 +214,7 @@ automacro questRenascer_amigoPertoRecebiTrade {
     macro_delay 0.2
     QuestInactive 1000
     call {
-        lock irNoLocalPraNegociar
+        lock questRenascer_irNoLocalPraNegociar
         pause 1
         do deal
     }
@@ -230,7 +230,7 @@ automacro questRenascer_dandoOuReceBendoZeny {
     priority -5
     QuestInactive 1000
     call {
-        lock amigoPerto_pedindoPraDarTrade
+        lock questRenascer_amigoPertoPedindoTrade
         pause 3
         $zenyPraDar = &eval($.zeny - 1285000)
         if ( $zenyPraDar > 0) {
