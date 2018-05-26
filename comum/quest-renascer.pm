@@ -92,7 +92,6 @@ automacro questRenascer_salvarNaCidadeQueVouUparEDefinirVariavel {
     exclusive 1
     priority -10 #prioridade mais alta
     run-once 1
-    CharCurrentWeight = 0
     QuestInactive 1000
     call {
         #essa automacro tem por objetivo, salvar seu personagem
