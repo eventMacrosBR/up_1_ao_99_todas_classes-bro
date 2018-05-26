@@ -18,7 +18,7 @@ sub configurarBuild {
 
 
 sub extrairMapasDeUp {
-    my ($lvl) = @_;
+    my ($lvl, $souTransclasse) = @_;
     my $variaveisDeUp;
     
     #########################################################################
