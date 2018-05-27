@@ -6,10 +6,10 @@ sub configurarBuild {
         skillsClasse2 => 'WZ_ICEWALL 5, WZ_FROSTNOVA 10, WZ_WATERBALL 5, WZ_STORMGUST 1, WZ_JUPITEL 1, WZ_VERMILION 1, WZ_EARTHSPIKE 5, WZ_EARTHSPIKE 1, WZ_QUAGMIRE 5, WZ_SIGHTRASHER 2, WZ_METEOR 9',
         skillsClasse1T => 'MG_LIGHTNINGBOLT 4, MG_COLDBOLT 10, MG_SRECOVERY 7, MG_NAPALMBEAT 7, MG_SOULSTRIKE 7, MG_SAFETYWALL 10, MG_STONECURSE 1, MG_SIGHT 1, MG_FROSTDIVER 1, MG_THUNDERSTORM 1',
         skillsClasse2T => 'HW_MAGICPOWER 10, HW_SOULDRAIN 10, WZ_ESTIMATION 1, WZ_ICEWALL 5, WZ_FROSTNOVA 10, WZ_WATERBALL 5, WZ_STORMGUST 10, WZ_JUPITEL 5, WZ_VERMILION 1, WZ_EARTHSPIKE 3, WZ_HEAVENDRIVE 1, WZ_QUAGMIRE 5, WZ_SIGHTRASHER 2, WZ_METEOR 1',
-        skillsClasse3 => '',
-        statsPadrao => '10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 30 str, 40 dex, 20 vit, 80 agi ,60 dex, 50 str, 90 agi, 70 str, 40 vit',
-        statsPadraoTransclasse => '10 dex, 15 agi, 20 dex, 25 agi, 20 str, 30 dex, 60 agi, 30 str, 40 dex, 20 vit, 80 agi ,60 dex, 50 str, 90 agi, 70 str, 40 vit',
-        statsPadraoClasse3 => ''
+        skillsClasse3 => 'WL_RADIUS 3, WL_READING_SB 1, WL_RELEASE 2, WL_STASIS 1, WL_WHITEIMPRISON 1, WL_RECOGNIZEDSPELL 1, WL_SUMMONFB 1, WL_SUMMONWB 1, WL_SUMMONBL 1, WL_FROSTMISTY 2, WL_JACKFROST 5, WL_CRIMSONROCK 5, WL_HELLINFERNO 5, WL_CHAINLIGHTNING 5, WL_DRAINLIFE 2, WL_SOULEXPANSION 5, WL_TELEKINESIS_INTENSE 5, WL_SIENNAEXECRATE 2, WL_EARTHSTRAIN 5, WL_TETRAVORTEX 5',
+        statsPadrao => '20 dex, 40 int, 10 vit, 20 luk, 40 dex, 70 int, 40 luk, 70 dex, 60 luk, 99 int',
+        statsPadraoTransclasse => '15 dex, 15 int, 15 vit, 30 dex, 30 int, 25 vit, 60 int, 60 dex, 90 int, 90 dex, 99 int, 99 dex',
+        statsPadraoClasse3 => '120 dex, 120 int, 90 vit, 100 agi'
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
     $eventMacro->set_full_hash('configsBuild', \%configsBuild);
