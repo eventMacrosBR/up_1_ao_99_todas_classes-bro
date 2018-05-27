@@ -1,6 +1,3 @@
-[submodule "submodules/henrybk-plugins"]
-	path = submodules/henrybk-plugins
-	url = https://github.com/Henrybk/Plugins.git
-[submodule "submodules/andyfoss-plugins"]
-	path = submodules/andyfoss-plugins
-	url = https://github.com/andyfoss/plugins-openkore.git
+[submodule "pluginParaUpTodasAsClasses"]
+	path = pluginParaUpTodasAsClasses
+	url = https://github.com/eventMacrosBR/PluginsParaUpTodasAsClasses.git
