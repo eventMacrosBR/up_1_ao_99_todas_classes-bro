@@ -7,8 +7,8 @@ sub configurarBuild {
         skillsClasse1T => 'MG_LIGHTNINGBOLT 4, MG_COLDBOLT 10, MG_SRECOVERY 7, MG_NAPALMBEAT 7, MG_SOULSTRIKE 7, MG_SAFETYWALL 10, MG_STONECURSE 1, MG_SIGHT 1, MG_FROSTDIVER 1, MG_THUNDERSTORM 1',
         skillsClasse2T => 'HW_MAGICPOWER 10, HW_SOULDRAIN 10, WZ_ESTIMATION 1, WZ_ICEWALL 5, WZ_FROSTNOVA 10, WZ_WATERBALL 5, WZ_STORMGUST 10, WZ_JUPITEL 5, WZ_VERMILION 1, WZ_EARTHSPIKE 3, WZ_HEAVENDRIVE 1, WZ_QUAGMIRE 5, WZ_SIGHTRASHER 2, WZ_METEOR 1'
         skillsClasse3 => '',
-        statsPadrao => 'vit 10, 20 dex, 40 int, 20 luk, 40 dex, 80 int, 40 luk, 70 dex, 60 luk, int 99'
-        statsPadraoTransclasse => 'vit 15, int 15, dex 15, vit 25, int 30, dex 30, int 60, dex 60, int 90, dex 90, int 99, dex 99'
+        statsPadrao => '20 dex, 40 int, 10 vit, 20 luk, 40 dex, 70 int, 40 luk, 70 dex, 60 luk, 99 int',
+        statsPadraoTransclasse => '15 dex, 15 int, 15 vit, 30 dex, 30 int, 25 vit, 60 int, 60 dex, 90 int, 90 dex, 99 int, 99 dex',
         statsPadraoClasse3 => ''
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
