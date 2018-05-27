@@ -11,20 +11,20 @@ automacro configurarRelampago {
         log ===========================================
         ]
         while (checarSeExisteNoConfig("attackSkillSlot_0") = nao ) {
-	adicionaAttackSkillSlot()
-	pause 1
-	do reload config
-	}
+    adicionaAttackSkillSlot()
+    pause 1
+    do reload config
+    }
     do conf attackSkillSlot_0 MG_LIGHTNINGBOLT
     do conf attackSkillSlot_0_lvl 10
-	do conf attackSkillSlot_0_dist 10
-	do conf attackSkillSlot_0_maxCastTime 0.1
-	do conf attackSkillSlot_0_minCastTime 0
+    do conf attackSkillSlot_0_dist 10
+    do conf attackSkillSlot_0_maxCastTime 0.1
+    do conf attackSkillSlot_0_minCastTime 0
     do conf attackSkillSlot_0_sp > 30
     do conf attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
-	do conf attackSkillSlot_0_stopWhenHit 1
-	do conf attackSkillSlot_0_inLockOnly 1
-	do conf attackSkillSlot_0_notInTown 1
+    do conf attackSkillSlot_0_stopWhenHit 1
+    do conf attackSkillSlot_0_inLockOnly 1
+    do conf attackSkillSlot_0_notInTown 1
     do conf attackSkillSlot_0_maxUses 1
     do conf attackSkillSlot_0_maxAttempts 2
     do conf attackSkillSlot_0_monsters Esporo, Hidra
@@ -45,20 +45,20 @@ automacro configurarLancasdeFogo {
         log ===========================================
         ]
         while (checarSeExisteNoConfig("attackSkillSlot_1") = nao ) {
-	adicionaAttackSkillSlot()
-	pause 1
-	do reload config
-	}
+    adicionaAttackSkillSlot()
+    pause 1
+    do reload config
+    }
     do conf attackSkillSlot_1 MG_FIREBOLT
     do conf attackSkillSlot_1_lvl 10
-	do conf attackSkillSlot_1_dist 10
-	do conf attackSkillSlot_1_maxCastTime 0.1
-	do conf attackSkillSlot_1_minCastTime 0
+    do conf attackSkillSlot_1_dist 10
+    do conf attackSkillSlot_1_maxCastTime 0.1
+    do conf attackSkillSlot_1_minCastTime 0
     do conf attackSkillSlot_1_sp > 30
     do conf attackSkillSlot_1_whenStatusInactive EFST_POSTDELAY
-	do conf attackSkillSlot_0_stopWhenHit 1
-	do conf attackSkillSlot_1_inLockOnly 1
-	do conf attackSkillSlot_1_notInTown 1
+    do conf attackSkillSlot_0_stopWhenHit 1
+    do conf attackSkillSlot_1_inLockOnly 1
+    do conf attackSkillSlot_1_notInTown 1
     do conf attackSkillSlot_1_maxUses 1
     do conf attackSkillSlot_1_maxAttempts 2
     do conf attackSkillSlot_1_monsters Mandrágora, Lunático, Fabre, ChonChon, Rabo de Verme, Jibóia, Zumbi, Esqueleto, Familiar, Poporing, Lobo, Argos. ChonChon de Aço, Grove, Flora, Hode, Arenoso, Rochoso, Planta Carnívora, Porcellio, Guerreiro Orc, Senhora Orc, Filhote de Orc, Tribolita, Nereida, Guerreiro Wootnan, Dríade, Atirador Wootnan, Golem de Madeira, Condor 
@@ -79,20 +79,20 @@ automacro configurarLancasdeGelo {
         log ===========================================
         ]
         while (checarSeExisteNoConfig("attackSkillSlot_2") = nao ) {
-	adicionaAttackSkillSlot()
-	pause 1
-	do reload config
-	}
+    adicionaAttackSkillSlot()
+    pause 1
+    do reload config
+    }
     do conf attackSkillSlot_2 MG_COLDBOLT
     do conf attackSkillSlot_2_lvl 10
-	do conf attackSkillSlot_2_dist 10
-	do conf attackSkillSlot_2_maxCastTime 0.1
-	do conf attackSkillSlot_2_minCastTime 0
+    do conf attackSkillSlot_2_dist 10
+    do conf attackSkillSlot_2_maxCastTime 0.1
+    do conf attackSkillSlot_2_minCastTime 0
     do conf attackSkillSlot_2_sp > 30
     do conf attackSkillSlot_2_whenStatusInactive EFST_POSTDELAY
-	do conf attackSkillSlot_0_stopWhenHit 1
-	do conf attackSkillSlot_2_inLockOnly 1
-	do conf attackSkillSlot_2_notInTown 1
+    do conf attackSkillSlot_0_stopWhenHit 1
+    do conf attackSkillSlot_2_inLockOnly 1
+    do conf attackSkillSlot_2_notInTown 1
     do conf attackSkillSlot_2_maxUses 1
     do conf attackSkillSlot_2_maxAttempts 2
     do conf attackSkillSlot_2_monsters Frilldora, Grand Peco, Metaling, Escorpião, Filhote de Lobo do Deserto, Atirador de Pedras 
@@ -113,20 +113,20 @@ automacro configurarAtaqueEspiritual {
         log ===========================================
         ]
         while (checarSeExisteNoConfig("attackSkillSlot_3") = nao ) {
-	adicionaAttackSkillSlot()
-	pause 1
-	do reload config
-	}
+    adicionaAttackSkillSlot()
+    pause 1
+    do reload config
+    }
     do conf attackSkillSlot_3 MG_NAPALMBEAT
     do conf attackSkillSlot_3_lvl 10
-	do conf attackSkillSlot_3_dist 8
-	do conf attackSkillSlot_3_maxCastTime 0.1
-	do conf attackSkillSlot_3_minCastTime 0
+    do conf attackSkillSlot_3_dist 8
+    do conf attackSkillSlot_3_maxCastTime 0.1
+    do conf attackSkillSlot_3_minCastTime 0
     do conf attackSkillSlot_3_sp > 38
     do conf attackSkillSlot_3_whenStatusInactive EFST_POSTDELAY
-	do conf attackSkillSlot_0_stopWhenHit 1
-	do conf attackSkillSlot_3_inLockOnly 1
-	do conf attackSkillSlot_3_notInTown 1
+    do conf attackSkillSlot_0_stopWhenHit 1
+    do conf attackSkillSlot_3_inLockOnly 1
+    do conf attackSkillSlot_3_notInTown 1
     do conf attackSkillSlot_3_maxUses 1
     do conf attackSkillSlot_3_maxAttempts 2
     do conf attackSkillSlot_3_disabled 0
@@ -146,20 +146,20 @@ automacro configurarEspiritosAncioes {
         log ===========================================
         ]
         while (checarSeExisteNoConfig("attackSkillSlot_4") = nao ) {
-	adicionaAttackSkillSlot()
-	pause 1
-	do reload config
-	}
+    adicionaAttackSkillSlot()
+    pause 1
+    do reload config
+    }
     do conf attackSkillSlot_4 MG_SOULSTRIKE
     do conf attackSkillSlot_4_lvl 10
-	do conf attackSkillSlot_4_dist 8
-	do conf attackSkillSlot_4_maxCastTime 0.1
-	do conf attackSkillSlot_4_minCastTime 0
+    do conf attackSkillSlot_4_dist 8
+    do conf attackSkillSlot_4_maxCastTime 0.1
+    do conf attackSkillSlot_4_minCastTime 0
     do conf attackSkillSlot_4_sp > 12
     do conf attackSkillSlot_4_whenStatusInactive EFST_POSTDELAY
-	do conf attackSkillSlot_4_stopWhenHit 1
-	do conf attackSkillSlot_4_inLockOnly 1
-	do conf attackSkillSlot_4_notInTown 1
+    do conf attackSkillSlot_4_stopWhenHit 1
+    do conf attackSkillSlot_4_inLockOnly 1
+    do conf attackSkillSlot_4_notInTown 1
     do conf attackSkillSlot_4_maxUses 1
     do conf attackSkillSlot_4_maxAttempts 2
     do conf attackSkillSlot_4_disabled 0

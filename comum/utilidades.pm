@@ -47,30 +47,30 @@ macro voltarAtacar {
 }
 
 automacro desativarStorageAuto_lvlAbaixodeSeis {
-	SkillLevel NV_BASIC < 6
-	exclusive 1
-	JobID 4001 #aprendiz trans
-	ConfigKeyNot storageAuto 0
-	call {
-		log =============================
-		log = desativando storageAuto, porque
-		log = nem posso usar ainda, lvl baixo demais
-		log =============================
-		do conf storageAuto 0
-	}
+    SkillLevel NV_BASIC < 6
+    exclusive 1
+    JobID 4001 #aprendiz trans
+    ConfigKeyNot storageAuto 0
+    call {
+        log =============================
+        log = desativando storageAuto, porque
+        log = nem posso usar ainda, lvl baixo demais
+        log =============================
+        do conf storageAuto 0
+    }
 }
 
 automacro reativarStorageAuto_maisQuelvlSeis {
-	exclusive 1
-	SkillLevel NV_BASIC >= 6
-	ConfigKeyNot storageAuto 1
-	JobID 4001 #aprendiz trans
-	call {
-		log ================================
-		log = reativando storageAuto, já posso usar
-		log ================================
-		do conf storageAuto 1
-	}
+    exclusive 1
+    SkillLevel NV_BASIC >= 6
+    ConfigKeyNot storageAuto 1
+    JobID 4001 #aprendiz trans
+    call {
+        log ================================
+        log = reativando storageAuto, já posso usar
+        log ================================
+        do conf storageAuto 1
+    }
 }
 
 sub pegarID {
