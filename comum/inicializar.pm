@@ -130,7 +130,7 @@ macro atualizarBuild {
     if ($idClasseAtual ~ 0, 161, 4001, 4023) { #Aprendiz / Aprendiz T. / Baby Aprendiz
         do conf skillsAddAuto_list $configsBuild{skillsAprendiz} if (&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz})
     } elsif ($idClasseAtual ~ $parametrosClasses{idC1}, $parametrosClasses{idBC1}) { #Classes 1
-        if ($configsBuild{skillsClasse1}) != 1) { #se existir as skills
+        if ($configsBuild{skillsClasse1} != -1) { #se existir as skills
             do conf skillsAddAuto_list $configsBuild{skillsClasse1} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1})
         } else {
             [
@@ -142,7 +142,7 @@ macro atualizarBuild {
             ]
         }
     } elsif ($idClasseAtual ~ $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}) { #Classes 2
-        if ($configsBuild{skillsClasse2} != '') {
+        if ($configsBuild{skillsClasse2} != -1) {
             do conf skillsAddAuto_list $configsBuild{skillsClasse2} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2})
         } else {
             [
@@ -154,7 +154,7 @@ macro atualizarBuild {
             ] 
         }
     } elsif ($idClasseAtual == $parametrosClasses{idC1T}) { #Classes 1T
-        if ($configsBuild{skillsClasse1T} != '') {
+        if ($configsBuild{skillsClasse1T} != -1) {
             do conf skillsAddAuto_list $configsBuild{skillsClasse1T} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1T})
         } else {
             [
@@ -166,7 +166,7 @@ macro atualizarBuild {
             ] 
         }
     } elsif ($idClasseAtual ~ $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt} ) { #Classes 2T
-        if ($configsBuild{skillsClasse2T} != '') {
+        if ($configsBuild{skillsClasse2T} != -1) {
             do conf skillsAddAuto_list $configsBuild{skillsClasse2T} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2T})
         } else {
             [
@@ -178,7 +178,7 @@ macro atualizarBuild {
             ] 
         }
     } elsif ($idClasseAtual ~ $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idBC3Alt}) { #Classes 3
-        if ($configsBuild{skillsClasse3} != '') {
+        if ($configsBuild{skillsClasse3} != -1) {
             do conf skillsAddAuto_list $configsBuild{skillsClasse3} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse3})
         } else {
             [

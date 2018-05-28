@@ -3,12 +3,12 @@ sub configurarBuild {
         skillsAprendiz => 'NV_BASIC 9',
         skillsClasse1 => 'AC_OWL 10, AC_VULTURE 10, AC_CONCENTRATION 10, AC_DOUBLE 10, AC_SHOWER 10',
         skillsClasse2 => 'HT_BEASTBANE 10, HT_FALCON 1, HT_BLITZBEAT 5, HT_STEELCROW 10',
-        skillsClasse1T => '',
-        skillsClasse2T => '',
-        skillsClasse3 => '',
+        skillsClasse1T => '-1',
+        skillsClasse2T => '-1',
+        skillsClasse3 => '-1',
         statsPadrao => '30 dex, 50 agi, 40 dex, 20 luk, 60 agi, 20 vit, 80 agi, 80 dex, 90 agi, 49 vit, 92 dex',
         statsPadraoTransclasse => '30 dex, 50 agi, 40 dex, 20 luk, 60 agi, 20 vit, 80 agi, 80 dex, 90 agi, 49 vit, 92 dex',
-        statsPadraoClasse3 => ''
+        statsPadraoClasse3 => '-1'
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
     $eventMacro->set_full_hash('configsBuild', \%configsBuild);
@@ -68,7 +68,7 @@ sub extrairMapasDeUp {
 sub inicializarParametrosQuestClasseRenascer {
     my %parametrosQuestClasseRenascer = (
         renascer => 'nao',
-        amigo => '',
+        amigo => '-1',
         #observação sobre o ponto de encontro:
         #só poderá ser as coordenadas, não coloque nome de cidade aqui, senão é treta
         #a cidade sempre será obrigatoriamente em juno, já que o reborn se passa por lá
