@@ -68,7 +68,7 @@ sub extrairMapasDeUp {
 sub inicializarParametrosQuestClasseRenascer {
     my %parametrosQuestClasseRenascer = (
         renascer => 'nao',
-        amigo => '-1',
+        amigo => '',
         #observação sobre o ponto de encontro:
         #só poderá ser as coordenadas, não coloque nome de cidade aqui, senão é treta
         #a cidade sempre será obrigatoriamente em juno, já que o reborn se passa por lá
