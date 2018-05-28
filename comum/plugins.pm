@@ -37,8 +37,8 @@ sub verificarEInstalarPlugin {
         #erro caso a pessoa não tiver instalado o plugin necessário para o funcionamento
         error "Plugin $plugin não está na pasta plugins\n";
         error "Por favor coloque o $plugin.pl na pasta plugins\n";
-        error "No mesmo site que você baixou a eventMacro, existe uma pasta\n";
-        error "plugins.zip, lá vc encontrará o plugin $plugin.pl\n"
+        error "Baixe o plugins.zip em https://github.com/eventMacrosBR/PluginsParaUpTodasAsClasses/releases\n";
+        error "No plugins.zip, lá você encontrará o plugin $plugin.pl\n"
         Misc::offlineMode(); #interrompe o openkore de continuar, para que a pessoa possa ver o erro
     }
 }
