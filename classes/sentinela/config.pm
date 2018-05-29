@@ -1,15 +1,16 @@
 sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz => 'NV_BASIC 9',
-        skillsClasse1 => 'AC_OWL 10, AC_VULTURE 10, AC_CONCENTRATION 10, AC_DOUBLE 10, AC_SHOWER 10',
+        skillsClasse1 => 'AC_OWL 10, AC_VULTURE 10, AC_CONCENTRATION 10, AC_DOUBLE 10, AC_SHOWER 9',
         skillsClasse2 => 'HT_BEASTBANE 10, HT_FALCON 1, HT_BLITZBEAT 5, HT_STEELCROW 10',
-        skillsClasse1T => '-1',
-        skillsClasse2T => '-1',
-        skillsClasse3 => '-1',
+        skillsClasse1T => 'AC_OWL 10, AC_VULTURE 10, AC_CONCENTRATION 10, AC_DOUBLE 10, AC_SHOWER 9',
+        skillsClasse2T => 'HT_BEASTBANE 10, HT_FALCON 1, SN_SIGHT 10, SN_WINDWALK 10, HT_BLITZBEAT 5, HT_STEELCROW 6, HT_SKIDTRAP 1, HT_FLASHER 1, HT_FREEZINGTRAP 5, HT_SANDMAN 5, HT_BLASTMINE 1, HT_CLAYMORETRAP 5, HT_ANKLESNARE 5, HT_SHOCKWAVE 1, HT_LANDMINE 1, HT_REMOVETRAP 1, HT_TALKIEBOX 1',
+        skillsClasse3 => 'RA_AIMEDBOLT 5, RA_ARROWSTORM 10,RA_RANGERMAIN 1, RA_CAMOUFLAGE 5, RA_FEARBREEZE 5, RA_UNLIMIT 5, RA_WUGMASTERY 1, RA_TOOTHOFWUG 10, RA_WUGRIDER 3, RA_WUGDASH 1, RA_WUGSTRIKE 1, RA_SENSITIVEKEEN 2, RA_WUGBITE 5',
         statsPadrao => '30 dex, 50 agi, 40 dex, 20 luk, 60 agi, 20 vit, 80 agi, 80 dex, 90 agi, 49 vit, 92 dex',
         statsPadraoTransclasse => '30 dex, 50 agi, 40 dex, 20 luk, 60 agi, 20 vit, 80 agi, 80 dex, 90 agi, 49 vit, 92 dex',
-        statsPadraoClasse3 => '-1'
+        statsPadraoClasse3 => '120 dex, 110 agi, 120 luk, 71 vit'
     );
+    #https://pt.ragnaplace.com/Sentinela-Critico-Tio-Pedrao
     my $eventMacro = $eventMacro::Data::eventMacro;
     $eventMacro->set_full_hash('configsBuild', \%configsBuild);
 }
