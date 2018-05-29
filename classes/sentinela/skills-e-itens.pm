@@ -159,3 +159,63 @@ automacro removerConfiguracaoAtaqueADistanciaAprendizT {
     }
 }
 
+automacro pegarFalcao_irAteNpc {
+    SkillLevel HT_BEASTBANE >= 1
+    exclusive 1
+    NotInMap hugel
+    StatusInactiveHandle EFST_FALCON
+    NpcNotNear /Falcoeiro/
+    Zeny >= 3500
+    priority -3
+    BaseLevel != 99
+    call {
+        call aeroplano_izludePara "hugel"
+        [
+        log ==================================
+        log =Indo agora para Hugel pelo
+        log =aeroplano pra buscar minha águia!
+        log ==================================
+        ]
+    }
+}
+
+automacro pegarFalcao_jaEstouEmHugel_irAteNpc {
+    SkillLevel HT_BEASTBANE >= 1
+    exclusive 1
+    ConfigKey saveMap hugel
+    StatusInactiveHandle EFST_FALCON
+    NpcNotNear /Falcoeiro/
+    Zeny >= 3500
+    priority -3
+    BaseLevel != 99
+    call {
+        do move hu_in01 385 307 &rand(3,7)
+        [
+        log ==============================
+        log =Indo até a Guilda dos
+        log =Caçadores buscar minha águia!
+        log ==============================
+        ]
+    }
+}
+
+automacro pegarFalcao {
+    SkillLevel HT_BEASTBANE >= 1
+    exclusive 1
+    StatusInactiveHandle EFST_FALCON
+    NpcNear /Falcoeiro/
+    priority -3
+    BaseLevel != 99
+    Zeny >= 3500
+    call {
+        do talk $.NpcNearLastBinId
+        do talk resp 0
+        [
+        log ==========================
+        log =Feito!
+        log =Já estou com a águia...
+        log ==========================
+        ]
+    }
+}
+
