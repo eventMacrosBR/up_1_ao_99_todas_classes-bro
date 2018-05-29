@@ -1,20 +1,67 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-git fetch --unshallow
-git checkout -b master
-git submodule update --init --recursive
+function corrigirVersao {
+    git fetch --unshallow;
+    git checkout -b master;
+}
 
-jobs=("arcano" "arcebispo" "bioquimico" "cavaleiro-runico" "feiticeiro" "guardiao-real" "mecanico" "musa" "renegado" "sentinela" "sicario" "shura" "trovador" "mestre-taekwon" "espiritualista" "kagerou" "oboro" "justiceiro" "superaprendiz")
-jobs_ok=(" arcebispo bioquimico guardiao-real renegado cavaleiro-runico sentinela ")
-mkdir dist
-for i in "${jobs[@]}"; do
-    pwsh -File gerador-eventmacros.ps1 -job "$i"
-    if [[ " {$jobs_ok[@]} " =~ " $i " ]]; then
-        zip_file="$i.funcionando.zip"
+function baixarPlugins {
+    diretorioCorrente=$(pwd)
+    cd ~
+    git clone https://github.com/eventMacrosBR/PluginsParaUpTodasAsClasses.git
+    cd $diretorioCorrente
+}
+
+function estaFuncionando {
+    classe=$1;
+    if grep -q "Commands::run(\"conf -f questc2_implementada true\");" classes/$classe/quest-c-2.pm; then
+        echo "funcionando";
     else
-        zip_file="$i.nao_testado.zip"
+        echo "nao_testado";
     fi
-    zip $zip_file eventMacros.txt
-    mv $zip_file dist/
-done
+}
 
+function temPluginsParaEmpacotar {
+    classe=$1;
+    if grep -q "verificarEInstalarPlugin" classes/$classe/plugins.pm; then
+        echo "temPlugins";
+    else
+        echo "naoTemPlugins";
+    fi
+}
+
+function adicionarPlugins {
+    arquivoZip=$1
+    classe=$2
+    mkdir plugins
+    while read -r linha; do
+        plugin=$(echo $linha | sed -r 's/.*\"(\w+)\".*/\1/g');
+        cp -R ~/PluginsParaUpTodasAsClasses/plugins/$plugin plugins   
+    done < <(grep verificarEInstalarPlugin classes/$classe/plugins.pm) 
+    zip -ur $arquivoZip plugins
+    rm -Rf plugins
+}
+
+function gerarEEmpacotarMacros {
+    # Por padrão o travis só baixa os ultimos commits fazendo a contagem de commits dar errada, é preciso corrigir isso
+    corrigirVersao
+    # Baixar os plugins via git na pasta do usuário do travis
+    baixarPlugins
+
+    # Pasta onde serão armazenados as macos empacotadas
+    mkdir dist
+
+    for classe in classes/*; do
+        classe=$(basename $classe)
+        echo $classe
+        pwsh -File gerador-eventmacros.ps1 -job "$classe"
+        arquivoZip="$classe.$(estaFuncionando $classe).zip"
+        zip $arquivoZip eventMacros.txt
+        if [ "$(temPluginsParaEmpacotar $classe)" == "temPlugins" ]; then
+            adicionarPlugins "$arquivoZip" "$classe"
+        fi
+        mv $arquivoZip dist/
+    done
+}
+
+gerarEEmpacotarMacros
