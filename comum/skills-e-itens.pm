@@ -197,3 +197,46 @@ sub adicionaBetterShopper {
     close($fh);
 }
 
+sub adicionaEnhancedCasting {
+    open (my $fh, '>>:encoding(UTF-8)', Settings::getConfigFilename());
+    print $fh "enhancedCasting {\n";
+    print $fh "\tlvl\n";
+    print $fh "\tmaxCastTime 0\n";
+    print $fh "\tminCastTime 0\n";
+    print $fh "\thp\n";
+    print $fh "\tsp\n";
+    print $fh "\tonAction\n";
+    print $fh "\twhenStatusActive\n";
+    print $fh "\twhenStatusInactive\n";
+    print $fh "\twhenFollowing\n";
+    print $fh "\taggressives\n";
+    print $fh "\tmonsters\n";
+    print $fh "\tnotMonsters\n";
+    print $fh "\tmonstersCount\n";
+    print $fh "\tstopWhenHit\n";
+    print $fh "\tinLockOnly\n";
+    print $fh "\tnotWhileSitting\n";
+    print $fh "\tnotInTown 0\n";
+    print $fh "\ttimeout 0\n";
+    print $fh "\tdisabled 0\n";
+    print $fh "\tinInventory\n";
+    print $fh "\tnotOnAction\n";
+    print $fh "\tblockDelayBeforeUse\n";
+    print $fh "\tblockDelayAfterUse\n";
+    print $fh "\ttarget\n";
+    print $fh "\tnotTarget\n";
+    print $fh "\tElement\n";
+    print $fh "\tnotElement\n";
+    print $fh "\tRace\n";
+    print $fh "\tnotRace\n";
+    print $fh "\tSize\n";
+    print $fh "\tnotSize\n";
+    print $fh "\tnotImmovable\n";
+    print $fh "\tdist\n";
+    print $fh "\tdamageFormula\n";
+    print $fh "\tdamageType\n";
+    print $fh "\tfallThrough\n";
+    print $fh "}\n";
+    print $fh "\n"; #deixar uma linha em branco
+    close ($fh);
+}

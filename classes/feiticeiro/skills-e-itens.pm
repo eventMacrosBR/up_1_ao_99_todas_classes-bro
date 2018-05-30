@@ -1,6 +1,6 @@
 automacro configurarLancasDeGelo {
     SkillLevel MG_COLDBOLT > 1
-    ConfigKeyNot attackSkillSlot_0 MG_COLDBOLT
+    ConfigKeyNot enhancedCasting_0 Lanças de Gelo
     priority 0
     exclusive 1
     call {
@@ -10,25 +10,28 @@ automacro configurarLancasDeGelo {
         log =Configurando pra usar ela
         log ===========================================
         ]
-        $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_0")
+        $blocoExiste = checarSeExisteNoConfig("enhancedCasting")
         if ($blocoExiste = nao ) {
-            adicionaAttackSkillSlot()
+            adicionaEnhancedCasting()
             pause 1
             do reload config
         }
         
-        do conf attackSkillSlot_0 MG_COLDBOLT
-        do conf attackSkillSlot_0_sp >= 20
-        do conf attackSkillSlot_0_dist 10
-        do conf attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
-        do conf attackSkillSlot_0_monsters
-        do conf attackSkillSlot_0_disabled 1
+        do conf enhancedCasting_0 Lanças de Gelo
+        do conf enhancedCasting_0_sp >= 20
+        do conf enhancedCasting_0_dist 8
+        do conf enhancedCasting_0_whenStatusInactive EFST_POSTDELAY
+        do conf enhancedCasting_0_monsters
+        do conf enhancedCasting_0_disabled 1
+        do conf enhancedCasting_0_Element Fire
+        do conf enhancedCasting_0_damageFormula mATK * (100 * sLVL)
+        do conf enhancedCasting_0_damageType Water
     }
 }
 
 automacro configurarLancasDeFogo {
     SkillLevel MG_FIREBOLT > 0
-    ConfigKeyNot attackSkillSlot_1 MG_FIREBOLT
+    ConfigKeyNot enhancedCasting_1 Lanças de Fogo
     priority 0
     exclusive 1
     call {
@@ -39,24 +42,27 @@ automacro configurarLancasDeFogo {
         log ===========================================
         ]
         
-        while (checarSeExisteNoConfig("attackSkillSlot_1") = nao ) {
-            adicionaAttackSkillSlot()
+        while (checarSeExisteNoConfig("enhancedCasting_1") = nao ) {
+            adicionaEnhancedCasting()
             pause 1
             do reload config
         }
         
-        do conf attackSkillSlot_1 MG_FIREBOLT
-        do conf attackSkillSlot_1_sp >= 20
-        do conf attackSkillSlot_1_dist 10
-        do conf attackSkillSlot_1_whenStatusInactive EFST_POSTDELAY
-        do conf attackSkillSlot_1_monsters
-        do conf attackSkillSlot_1_disabled 0
+        do conf enhancedCasting_1 Lanças de Fogo
+        do conf enhancedCasting_1_sp >= 20
+        do conf enhancedCasting_1_dist 8
+        do conf enhancedCasting_1_whenStatusInactive EFST_POSTDELAY
+        do conf enhancedCasting_1_monsters
+        do conf enhancedCasting_1_disabled 0
+        do conf enhancedCasting_1_Element Earth
+        do conf enhancedCasting_1_damageFormula mATK * (100 * sLVL)
+        do conf enhancedCasting_1_damageType Fire
     }
 }
 
 automacro configurarRelampago {
     SkillLevel MG_LIGHTNINGBOLT > 0
-    ConfigKeyNot attackSkillSlot_3 MG_LIGHTNINGBOLT
+    ConfigKeyNot enhancedCasting_2 Relâmpago
     priority 0
     exclusive 1
     call {
@@ -66,25 +72,29 @@ automacro configurarRelampago {
         log =Configurando pra usar ela
         log ===========================================
         ]
-        while (checarSeExisteNoConfig("attackSkillSlot_3") = nao ) {
-            adicionaAttackSkillSlot()
+        while (checarSeExisteNoConfig("enhancedCasting_2") = nao ) {
+            adicionaEnhancedCasting()
             pause 1
             do reload config
         }
         
-        do conf attackSkillSlot_3 MG_LIGHTNINGBOLT
-        do conf attackSkillSlot_3_sp >= 25
-        do conf attackSkillSlot_3_dist 10
-        do conf attackSkillSlot_3_whenStatusInactive EFST_POSTDELAY
-        do conf attackSkillSlot_3_target_whenStatusActive EFST_BODYSTATE_FREEZING
-        do conf attackSkillSlot_3_monsters
-        do conf attackSkillSlot_3_disabled 1
+        do conf enhancedCasting_2 Relâmpago
+        do conf enhancedCasting_2_sp >= 25
+        do conf enhancedCasting_2_dist 8
+        do conf enhancedCasting_2_whenStatusInactive EFST_POSTDELAY
+        do conf enhancedCasting_2_target_whenStatusActive EFST_BODYSTATE_FREEZING
+        do conf enhancedCasting_2_monsters
+        do conf enhancedCasting_2_disabled 1
+        do conf enhancedCasting_2_Element Water
+        do conf enhancedCasting_2_damageFormula mATK * (100 * sLVL)
+        do conf enhancedCasting_2_damageType Wind        
     }
 }
 
 automacro configurarAtaqueEspiritual {
     SkillLevel MG_NAPALMBEAT > 0
-    ConfigKeyNot attackSkillSlot_2 MG_NAPALMBEAT
+    SkillLevel MG_SOULSTRIKE < 3
+    ConfigKeyNot enhancedCasting_3 Ataque Espiritual
     priority 0
     exclusive 1
     call {
@@ -94,24 +104,25 @@ automacro configurarAtaqueEspiritual {
         log =Configurando pra usar ela
         log ===========================================
         ]
-        while (checarSeExisteNoConfig("attackSkillSlot_2") = nao ) {
-            adicionaAttackSkillSlot()
+        while (checarSeExisteNoConfig("enhancedCasting_3") = nao ) {
+            adicionaEnhancedCasting()
             pause 1
             do reload config
         }
         
-        do conf attackSkillSlot_2 MG_NAPALMBEAT
-        do conf attackSkillSlot_2_sp >= 25
-        do conf attackSkillSlot_2_dist 10
-        do conf attackSkillSlot_2_whenStatusInactive EFST_POSTDELAY
-        do conf attackSkillSlot_2_monsters
-        do conf attackSkillSlot_2_disabled 1
+        do conf enhancedCasting_3 Ataque Espiritual
+        do conf enhancedCasting_3_sp >= 25
+        do conf enhancedCasting_3_dist 8
+        do conf enhancedCasting_3_whenStatusInactive EFST_POSTDELAY
+        do conf enhancedCasting_3_monsters
+        do conf enhancedCasting_3_disabled 1
+        do conf enhancedCasting_3_Element Shadow, Undead
     }
 }
 
 automacro configurarEspiritosAncioes {
-    SkillLevel MG_SOULSTRIKE > 0
-    ConfigKeyNot attackSkillSlot_4 MG_SOULSTRIKE
+    SkillLevel MG_SOULSTRIKE >= 3
+    ConfigKeyNot enhancedCasting_3 Espíritos Anciões
     priority 0
     exclusive 1
     call {
@@ -121,46 +132,24 @@ automacro configurarEspiritosAncioes {
         log =Configurando pra usar ela
         log ===========================================
         ]
-        while (checarSeExisteNoConfig("attackSkillSlot_4") = nao ) {
-            adicionaAttackSkillSlot()
+        while (checarSeExisteNoConfig("enhancedCasting_3") = nao ) {
+            adicionaEnhancedCasting()
             pause 1
             do reload config
         }
         
-        do conf attackSkillSlot_4 MG_SOULSTRIKE
-        do conf attackSkillSlot_4_sp >= 25
-        do conf attackSkillSlot_4_dist 10
-        do conf attackSkillSlot_4_whenStatusInactive EFST_POSTDELAY
-        do conf attackSkillSlot_4_monsters
-        do conf attackSkillSlot_4_disabled 1
-    }
-}
-
-automacro configurarRajadaCongelante {
-    SkillLevel MG_FROSTDIVER > 0
-    ConfigKeyNot attackSkillSlot_5 MG_FROSTDIVER
-    priority 0
-    exclusive 1
-    call {
-        [
-        log ===========================================
-        log =Já tenho a skill Rajada Congelante,
-        log =Configurando pra usar ela
-        log ===========================================
-        ]
-        while (checarSeExisteNoConfig("attackSkillSlot_5") = nao ) {
-            adicionaAttackSkillSlot()
-            pause 1
-            do reload config
-        }
+        ## O OBJETIVO AQUI É OS ESPIRITOS ANCIOES SUBSTITUIR O BLOCO
+        ## DO ATAQUE ESPIRITUAL, NÃO TEM NECESSIDADE DE CASTAR OS DOIS
+        ## OU UM OU OUTRO
         
-        do conf attackSkillSlot_5 MG_FROSTDIVER
-        do conf attackSkillSlot_5_sp >= 25
-        do conf attackSkillSlot_5_dist 10
-        do conf attackSkillSlot_5_whenStatusInactive EFST_POSTDELAY
-        do conf attackSkillSlot_5_target_whenStatusInactive EFST_BODYSTATE_FREEZING
-        do conf attackSkillSlot_5_monsters
-        do conf attackSkillSlot_5_disabled 1
+        do conf enhancedCasting_3 Espíritos Anciões
+        do conf enhancedCasting_3_sp >= 25
+        do conf enhancedCasting_3_dist 8
+        do conf enhancedCasting_3_whenStatusInactive EFST_POSTDELAY
+        do conf enhancedCasting_3_monsters
+        do conf enhancedCasting_3_disabled 1
+        do conf enhancedCasting_3_Element Shadow, Undead
+        do conf enhancedCasting_3_damageFormula mATK * (5 * sLVL)
     }
 }
 

@@ -1,4 +1,4 @@
 sub inicializarPlugins {
-    
+    verificarEInstalarPlugin("enhancedCasting");
 }
 
