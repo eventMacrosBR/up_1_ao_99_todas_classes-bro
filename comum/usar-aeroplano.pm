@@ -220,6 +220,7 @@ macro aeroplano_izludePara {
         log ja estamos no aeroplano, só esperar agora
     } else {
         do move izlude 206 55
+        do talknpc 206 55
         do talk resp 0
         do talk resp 0
         log $varAeroplano1, $varAeroplano2
