@@ -51,7 +51,7 @@ automacro configurarVisaoReal {
         do conf useSelf_skill_1 SN_SIGHT
         do conf useSelf_skill_1_lvl 10
         do conf useSelf_skill_1_sp > 40
-        do conf useSelf_skill_1_whenStatusInactive EFST_SIGHT, EFST_POSTDELAY
+        do conf useSelf_skill_1_whenStatusInactive Visão Real, EFST_POSTDELAY
         do conf useSelf_skill_1_disabled 0
         do conf useSelf_skill_1_notInTown 1
         do conf useSelf_skill_1_inLockOnly 1
@@ -81,7 +81,7 @@ automacro configurarCaminhoDoVento {
         do conf useSelf_skill_2 SN_WINDWALK
         do conf useSelf_skill_2_lvl 10
         do conf useSelf_skill_2_sp > 100
-        do conf useSelf_skill_2_whenStatusInactive EFST_WINDWALK, EFST_POSTDELAY
+        do conf useSelf_skill_2_whenStatusInactive Caminho do Vento, EFST_POSTDELAY
         do conf useSelf_skill_2_disabled 0
         do conf useSelf_skill_2_notInTown 1
         do conf useSelf_skill_2_inLockOnly 1
@@ -116,6 +116,34 @@ automacro configurarRajadaDeFlechas {
         do conf attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
         do conf attackSkillSlot_0_maxUses 1 #usar uma rajada por monstro, acho que fica legal assim
         do conf attackSkillSlot_0_disabled 0
+    }
+}
+
+automacro configurarAssaltoDoFalcao {
+    SkillLevel HT_BLITZBEAT > 1
+    ConfigKeyNot attackSkillSlot_1 HT_BLITZBEAT
+    priority 0
+    exclusive 1
+    call {
+        [
+        log ===========================================
+        log =Já tenho a skill Assalto do Falcão,
+        log =Configurando pra usar ela
+        log ===========================================
+        ]
+        $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_1")
+        if ($blocoExiste = nao ) {
+            adicionaAttackSkillSlot()
+            pause 1
+            do reload config
+        }
+        do conf attackSkillSlot_1 HT_BLITZBEAT
+        do conf attackSkillSlot_1_sp >= 42
+        do conf attackSkillSlot_1_dist none
+        do conf attackSkillSlot_1_whenStatusActive EFFECTSTATE_BIRD, Visão Real
+        do conf attackSkillSlot_1_whenStatusInactive EFST_POSTDELAY
+        do conf attackSkillSlot_1_maxUses 1 
+        do conf attackSkillSlot_1_disabled 0
     }
 }
 
