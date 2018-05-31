@@ -1,6 +1,6 @@
 automacro configurarLancasDeGelo {
     SkillLevel MG_COLDBOLT > 1
-    ConfigKeyNot enhancedCasting_0 Lanças de Gelo
+    ConfigKeyNot enhancedCasting_0 MG_COLDBOLT
     priority 0
     exclusive 1
     call {
@@ -17,7 +17,7 @@ automacro configurarLancasDeGelo {
             do reload config
         }
         
-        do conf enhancedCasting_0 Lanças de Gelo
+        do conf enhancedCasting_0 MG_COLDBOLT
         do conf enhancedCasting_0_sp >= 20
         do conf enhancedCasting_0_dist 8
         do conf enhancedCasting_0_whenStatusInactive EFST_POSTDELAY
@@ -31,7 +31,7 @@ automacro configurarLancasDeGelo {
 
 automacro configurarLancasDeFogo {
     SkillLevel MG_FIREBOLT > 0
-    ConfigKeyNot enhancedCasting_1 Lanças de Fogo
+    ConfigKeyNot enhancedCasting_1 MG_FIREBOLT
     priority 0
     exclusive 1
     call {
@@ -48,7 +48,7 @@ automacro configurarLancasDeFogo {
             do reload config
         }
         
-        do conf enhancedCasting_1 Lanças de Fogo
+        do conf enhancedCasting_1 MG_FIREBOLT
         do conf enhancedCasting_1_sp >= 20
         do conf enhancedCasting_1_dist 8
         do conf enhancedCasting_1_whenStatusInactive EFST_POSTDELAY
@@ -62,7 +62,7 @@ automacro configurarLancasDeFogo {
 
 automacro configurarRelampago {
     SkillLevel MG_LIGHTNINGBOLT > 0
-    ConfigKeyNot enhancedCasting_2 Relâmpago
+    ConfigKeyNot enhancedCasting_2 MG_LIGHTNINGBOLT
     priority 0
     exclusive 1
     call {
@@ -78,7 +78,7 @@ automacro configurarRelampago {
             do reload config
         }
         
-        do conf enhancedCasting_2 Relâmpago
+        do conf enhancedCasting_2 MG_LIGHTNINGBOLT
         do conf enhancedCasting_2_sp >= 25
         do conf enhancedCasting_2_dist 8
         do conf enhancedCasting_2_whenStatusInactive EFST_POSTDELAY
@@ -94,7 +94,7 @@ automacro configurarRelampago {
 automacro configurarAtaqueEspiritual {
     SkillLevel MG_NAPALMBEAT > 0
     SkillLevel MG_SOULSTRIKE < 3
-    ConfigKeyNot enhancedCasting_3 Ataque Espiritual
+    ConfigKeyNot enhancedCasting_3 MG_NAPALMBEAT
     priority 0
     exclusive 1
     call {
@@ -110,7 +110,7 @@ automacro configurarAtaqueEspiritual {
             do reload config
         }
         
-        do conf enhancedCasting_3 Ataque Espiritual
+        do conf enhancedCasting_3 MG_NAPALMBEAT
         do conf enhancedCasting_3_sp >= 25
         do conf enhancedCasting_3_dist 8
         do conf enhancedCasting_3_whenStatusInactive EFST_POSTDELAY
@@ -122,7 +122,7 @@ automacro configurarAtaqueEspiritual {
 
 automacro configurarEspiritosAncioes {
     SkillLevel MG_SOULSTRIKE >= 3
-    ConfigKeyNot enhancedCasting_3 Espíritos Anciões
+    ConfigKeyNot enhancedCasting_3 MG_SOULSTRIKE
     priority 0
     exclusive 1
     call {
@@ -142,7 +142,7 @@ automacro configurarEspiritosAncioes {
         ## DO ATAQUE ESPIRITUAL, NÃO TEM NECESSIDADE DE CASTAR OS DOIS
         ## OU UM OU OUTRO
         
-        do conf enhancedCasting_3 Espíritos Anciões
+        do conf enhancedCasting_3 MG_SOULSTRIKE
         do conf enhancedCasting_3_sp >= 25
         do conf enhancedCasting_3_dist 8
         do conf enhancedCasting_3_whenStatusInactive EFST_POSTDELAY
