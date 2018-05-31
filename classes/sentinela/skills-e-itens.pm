@@ -30,6 +30,66 @@ automacro configurarConcentracao {
     }
 }
 
+automacro configurarVisaoReal {
+    SkillLevel SN_SIGHT >= 1
+    ConfigKeyNot useSelf_skill_1 SN_SIGHT
+    priority 0
+    exclusive 1
+    call {
+        [
+        log ===========================================
+        log =Já tenho a skill Visão Real,
+        log =Configurando ela
+        log ===========================================
+        ]
+        $blocoExiste = checarSeExisteNoConfig("useSelf_skill_1")
+        if ($blocoExiste = nao ) {
+            adicionaUseSelfSkill()
+            pause 1
+            do reload config
+        }
+        do conf useSelf_skill_1 SN_SIGHT
+        do conf useSelf_skill_1_lvl 10
+        do conf useSelf_skill_1_sp > 40
+        do conf useSelf_skill_1_whenStatusInactive EFST_SIGHT, EFST_POSTDELAY
+        do conf useSelf_skill_1_disabled 0
+        do conf useSelf_skill_1_notInTown 1
+        do conf useSelf_skill_1_inLockOnly 1
+        do conf useSelf_skill_1_notWhileSitting 1
+
+    }
+}
+
+automacro configurarCaminhoDoVento {
+    SkillLevel SN_WINDWALK >= 1
+    ConfigKeyNot useSelf_skill_2 SN_WINDWALK
+    priority 0
+    exclusive 1
+    call {
+        [
+        log ===========================================
+        log =Já tenho a skill Caminho do Vento,
+        log =Configurando ela
+        log ===========================================
+        ]
+        $blocoExiste = checarSeExisteNoConfig("useSelf_skill_2")
+        if ($blocoExiste = nao ) {
+            adicionaUseSelfSkill()
+            pause 1
+            do reload config
+        }
+        do conf useSelf_skill_2 SN_WINDWALK
+        do conf useSelf_skill_2_lvl 10
+        do conf useSelf_skill_2_sp > 100
+        do conf useSelf_skill_2_whenStatusInactive EFST_WINDWALK, EFST_POSTDELAY
+        do conf useSelf_skill_2_disabled 0
+        do conf useSelf_skill_2_notInTown 1
+        do conf useSelf_skill_2_inLockOnly 1
+        do conf useSelf_skill_2_notWhileSitting 1
+
+    }
+}
+
 automacro configurarRajadaDeFlechas {
     SkillLevel AC_DOUBLE > 1
     ConfigKeyNot attackSkillSlot_0 AC_DOUBLE
