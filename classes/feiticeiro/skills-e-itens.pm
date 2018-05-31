@@ -22,7 +22,7 @@ automacro configurarLancasDeGelo {
         do conf enhancedCasting_0_dist 8
         do conf enhancedCasting_0_whenStatusInactive EFST_POSTDELAY
         do conf enhancedCasting_0_monsters
-        do conf enhancedCasting_0_disabled 1
+        do conf enhancedCasting_0_disabled 0
         do conf enhancedCasting_0_Element Fire
         do conf enhancedCasting_0_damageFormula mATK * (100 * sLVL)
         do conf enhancedCasting_0_damageType Water
@@ -82,9 +82,7 @@ automacro configurarRelampago {
         do conf enhancedCasting_2_sp >= 25
         do conf enhancedCasting_2_dist 8
         do conf enhancedCasting_2_whenStatusInactive EFST_POSTDELAY
-        do conf enhancedCasting_2_target_whenStatusActive EFST_BODYSTATE_FREEZING
-        do conf enhancedCasting_2_monsters
-        do conf enhancedCasting_2_disabled 1
+        do conf enhancedCasting_2_disabled 0
         do conf enhancedCasting_2_Element Water
         do conf enhancedCasting_2_damageFormula mATK * (100 * sLVL)
         do conf enhancedCasting_2_damageType Wind        
@@ -114,8 +112,7 @@ automacro configurarAtaqueEspiritual {
         do conf enhancedCasting_3_sp >= 25
         do conf enhancedCasting_3_dist 8
         do conf enhancedCasting_3_whenStatusInactive EFST_POSTDELAY
-        do conf enhancedCasting_3_monsters
-        do conf enhancedCasting_3_disabled 1
+        do conf enhancedCasting_3_disabled 0
         do conf enhancedCasting_3_Element Shadow, Undead
     }
 }
@@ -147,7 +144,7 @@ automacro configurarEspiritosAncioes {
         do conf enhancedCasting_3_dist 8
         do conf enhancedCasting_3_whenStatusInactive EFST_POSTDELAY
         do conf enhancedCasting_3_monsters
-        do conf enhancedCasting_3_disabled 1
+        do conf enhancedCasting_3_disabled 0
         do conf enhancedCasting_3_Element Shadow, Undead
         do conf enhancedCasting_3_damageFormula mATK * (5 * sLVL)
         do conf enhancedCasting_3_damageType Holy
