@@ -218,7 +218,7 @@ sub adicionaEnhancedCasting {
     print $fh "\tnotWhileSitting\n";
     print $fh "\tnotInTown 0\n";
     print $fh "\ttimeout 0\n";
-    print $fh "\tdisabled 0\n";
+    print $fh "\tdisabled 1\n";
     print $fh "\tinInventory\n";
     print $fh "\tnotOnAction\n";
     print $fh "\tblockDelayBeforeUse\n";
