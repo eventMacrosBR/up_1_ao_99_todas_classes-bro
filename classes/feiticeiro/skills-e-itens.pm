@@ -10,7 +10,7 @@ automacro configurarLancasDeGelo {
         log =Configurando pra usar ela
         log ===========================================
         ]
-        $blocoExiste = checarSeExisteNoConfig("enhancedCasting")
+        $blocoExiste = checarSeExisteNoConfig("enhancedCasting_0")
         if ($blocoExiste = nao ) {
             adicionaEnhancedCasting()
             pause 1
@@ -150,6 +150,7 @@ automacro configurarEspiritosAncioes {
         do conf enhancedCasting_3_disabled 1
         do conf enhancedCasting_3_Element Shadow, Undead
         do conf enhancedCasting_3_damageFormula mATK * (5 * sLVL)
+        do conf enhancedCasting_3_damageType Holy
     }
 }
 
