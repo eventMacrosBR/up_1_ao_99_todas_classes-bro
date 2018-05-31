@@ -119,34 +119,6 @@ automacro configurarRajadaDeFlechas {
     }
 }
 
-automacro configurarAssaltoDoFalcao {
-    SkillLevel HT_BLITZBEAT > 1
-    ConfigKeyNot attackSkillSlot_1 HT_BLITZBEAT
-    priority 0
-    exclusive 1
-    call {
-        [
-        log ===========================================
-        log =Já tenho a skill Assalto do Falcão,
-        log =Configurando pra usar ela
-        log ===========================================
-        ]
-        $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_1")
-        if ($blocoExiste = nao ) {
-            adicionaAttackSkillSlot()
-            pause 1
-            do reload config
-        }
-        do conf attackSkillSlot_1 HT_BLITZBEAT
-        do conf attackSkillSlot_1_sp >= 42
-        do conf attackSkillSlot_1_dist none
-        do conf attackSkillSlot_1_whenStatusActive EFFECTSTATE_BIRD, Visão Real
-        do conf attackSkillSlot_1_whenStatusInactive EFST_POSTDELAY
-        do conf attackSkillSlot_1_maxUses 1 
-        do conf attackSkillSlot_1_disabled 0
-    }
-}
-
 automacro aumentarFlechasLevel30 {
     ConfigKey buyAuto_1 Flecha
     ConfigKeyNot buyAuto_1_maxAmount 5000
