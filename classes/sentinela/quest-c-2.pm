@@ -196,7 +196,6 @@ automacro questCacador_coletarItens_possibilidade1 {
         $item3{qtdQueTenho}   = &invamount($item2{nomeDoItem})
         $item3{qtdQuePreciso} = pegarConfigItemsControl("$item3{idDoItem}", "keep")
         $item3{lockMap}       = beach_dun3
-        $item1 = nome=Garra de Lobo,ID=920,qtdQueTenho=&invamount(920),lockMap=moc_fild11
         call decidirLockMapProItem 
     }
 }
@@ -233,15 +232,6 @@ macro decidirLockMapProItem {
         log Mas algo deu errado... reporte aos criadores dessa eventMacro
         log ====================================================
         ]
-    }
-}
-
-sub pegarConfigItemsControl {
-    my ($item, $info) = @_;
-    if ($items_control{$item}{$info}) {
-        return $items_control{$item}{$info};
-    } else {
-        return -1;
     }
 }
 

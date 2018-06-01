@@ -138,6 +138,15 @@ sub checarSeExisteNoConfig {
     }
 }
 
+sub pegarConfigItemsControl {
+    my ($item, $info) = @_;
+    if ($items_control{$item}{$info}) {
+        return $items_control{$item}{$info};
+    } else {
+        return -1;
+    }
+}
+
 sub pegarIndiceDoEquipamentoPeloId {
     my ($slotDoEquipamento, $id) = @_;
     my $item = $char->inventory->getByNameID($id);
