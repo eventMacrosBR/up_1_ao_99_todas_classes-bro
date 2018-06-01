@@ -68,6 +68,9 @@ macro checarSeArmazenJaFoiAberto {
 macro pegarItemDoArmazenSeTiver {
     $item = $.param[0]
     $quantidade = $.param[1]
+    
+    #Verificar se armazenamento já foi aberto antes de começar
+    call checarSeArmazenJaFoiAberto
 
     #checando duas vezes se tem o item mesmo no storage
     if (&storamount($item) > 0) {
@@ -93,6 +96,7 @@ macro pegarItemDoArmazenSeTiver {
         ]
     }
 }
+
 
 sub armazemJaFoiAberto {
     return $char->storage->wasOpenedThisSession() ? "sim" : "nao";
