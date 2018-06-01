@@ -200,9 +200,13 @@ automacro questCacador_coletarItens_possibilidade1 {
         $item3{lockMap}       = beach_dun3
         $item3{mconfs}        = Hidra 0, Megalodon 0, Nereida 0 -8
 
-        call voltarAtacar
+        call decidirLockMapProItem 
+    }
+}
 
-        if ( $item1{qtdQueTenho} < $item1{qtdQuePreciso} ) {
+macro decidirLockMapProItem {
+    call voltarAtacar
+    if ( $item1{qtdQueTenho} < $item1{qtdQuePreciso} ) {
             do conf lockMap $item1{lockMap}
             #esses dois o bot não pode e nem precisa atacar
             @mconfs = &split(/,/,$item1{mconfs})
@@ -262,12 +266,14 @@ automacro questCacador_coletarItens_possibilidade1 {
         } else {
             [
             log ====================================================
-            log Deveria estar coletando 5 Garras do Lobo, 5 Troncos e 3 Ervas Brancas agora
+            log Deveria estar coletando:
+            log $item1{qtdQuePreciso} $item1{nomeDoItem},
+            log $item2{qtdQuePreciso} $item2{nomeDoItem} e
+            log $item3{qtdQuePreciso} $item3{nomeDoItem} agora
             log Mas algo deu errado... reporte aos criadores dessa eventMacro
             log ====================================================
             ]
         }
-    }
 }
 
 sub pegarConfigItemsControl {
