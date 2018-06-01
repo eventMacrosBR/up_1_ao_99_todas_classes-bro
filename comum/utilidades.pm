@@ -71,8 +71,9 @@ macro pegarItemDoArmazenSeTiver {
 
     #checando duas vezes se tem o item mesmo no storage
     if (&storamount($item) > 0) {
-        do move &config(storageAuto_npc) &rand(3,8)
-        do talknpc &arg("&config(storageAuto_npc)", 2) &arg("&config(storageAuto_npc)", 3) r1
+        $localDaKafra = &config(storageAuto_npc)
+        do move $localDaKafra &rand(3,8)
+        do talknpc &arg("$localDaKafra", 2) &arg("$localDaKafra", 3) r1
         if ($.storageopen = 1) {
             do storage get &storage($item) $quantidade
             do storage close
