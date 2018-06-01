@@ -20,8 +20,8 @@ automacro configurarRelâmpago {
         do conf enhancedCasting_0_sp >= 25
         do conf enhancedCasting_0_dist 9
         do conf enhancedCasting_0_whenStatusInactive EFST_POSTDELAY
-		do conf enhancedCasting_0_inLockOnly 1
-		do conf enhancedCasting_0_notInTown 1
+        do conf enhancedCasting_0_inLockOnly 1
+        do conf enhancedCasting_0_notInTown 1
         do conf enhancedCasting_0_disabled 0
         do conf enhancedCasting_0_Element Water, Neutral
         do conf enhancedCasting_0_damageFormula mATK * (100 * sLVL)
@@ -52,8 +52,8 @@ automacro configurarLançasDeGelo {
         do conf enhancedCasting_1_sp >= 20
         do conf enhancedCasting_1_dist 9
         do conf enhancedCasting_1_whenStatusInactive EFST_POSTDELAY
-		do conf enhancedCasting_1_inLockOnly 1
-		do conf enhancedCasting_1_notInTown 1
+        do conf enhancedCasting_1_inLockOnly 1
+        do conf enhancedCasting_1_notInTown 1
         do conf enhancedCasting_1_disabled 0
         do conf enhancedCasting_1_Element Fire
         do conf enhancedCasting_1_damageFormula mATK * (100 * sLVL)
@@ -70,7 +70,7 @@ automacro configurarLançasDeFogo {
         [
         log ==============================================
         log =Já tenho a skill Lanças de Fogo,
-        log =Configurando pra usar e queiar as zinimigas
+        log =Configurando pra usar e queimar as zinimigas
         log ==============================================
         ]
         
@@ -84,8 +84,8 @@ automacro configurarLançasDeFogo {
         do conf enhancedCasting_2_sp >= 20
         do conf enhancedCasting_2_dist 9
         do conf enhancedCasting_2_whenStatusInactive EFST_POSTDELAY
-		do conf enhancedCasting_2_inLockOnly 1
-		do conf enhancedCasting_2_notInTown 1
+        do conf enhancedCasting_2_inLockOnly 1
+        do conf enhancedCasting_2_notInTown 1
         do conf enhancedCasting_2_disabled 0
         do conf enhancedCasting_2_Element Earth
         do conf enhancedCasting_2_damageFormula mATK * (100 * sLVL)
@@ -116,8 +116,8 @@ automacro configurarAtaqueEspiritual {
         do conf enhancedCasting_3_sp >= 25
         do conf enhancedCasting_3_dist 9
         do conf enhancedCasting_3_whenStatusInactive EFST_POSTDELAY
-		do conf enhancedCasting_3_inLockOnly 1
-		do conf enhancedCasting_3_notInTown 1
+        do conf enhancedCasting_3_inLockOnly 1
+        do conf enhancedCasting_3_notInTown 1
         do conf enhancedCasting_3_disabled 0
         do conf enhancedCasting_3_Element Shadow, Undead
     }

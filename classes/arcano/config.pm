@@ -30,7 +30,7 @@ sub extrairMapasDeUp {
 		# AQUI SÃO OS MAPAS DE UP ATÉ 99, ANTES DE REBORNAR
             [
             {lvlMin => 1 , lvlMax => 18, lockMap => 'gef_fild04',  saveMap => 'geffen'},
-            {lvlMin => 18, lvlMax => 25, lockMap => 'pay_fild08',  saveMap => 'payon'},
+            {lvlMin => 19, lvlMax => 25, lockMap => 'pay_fild08',  saveMap => 'payon'},
             {lvlMin => 26, lvlMax => 40, lockMap => 'pay_dun00',   saveMap => 'payon'},
             {lvlMin => 41, lvlMax => 45, lockMap => 'moc_fild03',  saveMap => 'payon'},
             {lvlMin => 46, lvlMax => 60, lockMap => 'cmd_fild01',  saveMap => 'comodo'},
@@ -43,7 +43,7 @@ sub extrairMapasDeUp {
 		# AQUI SÃO OS MAPAS DE UP ATÉ 99, DEPOIS DE REBORNAR
             [
             {lvlMin => 1 , lvlMax => 18, lockMap => 'gef_fild04',  saveMap => 'geffen'},
-            {lvlMin => 18, lvlMax => 25, lockMap => 'pay_fild08',  saveMap => 'payon'},
+            {lvlMin => 19, lvlMax => 25, lockMap => 'pay_fild08',  saveMap => 'payon'},
             {lvlMin => 26, lvlMax => 40, lockMap => 'pay_dun00',   saveMap => 'payon'},
             {lvlMin => 41, lvlMax => 45, lockMap => 'moc_fild03',  saveMap => 'payon'},
             {lvlMin => 46, lvlMax => 60, lockMap => 'cmd_fild01',  saveMap => 'comodo'},
