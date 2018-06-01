@@ -179,32 +179,72 @@ automacro questCacador_coletarItens_possibilidade1 {
     timeout 120
     ConfigKeyNot passo_quest_cacador indo entregar itens
     call {
-        $qtdItem1 = &invamount(Garras de Lobo)
-        $qtdItem2 = &invamount(Troncos)
-        $qtdItem3 = &invamount(Ervas Brancas)
+        $item1{nomeDoItem}    = Garra de Lobo
+        $item1{idDoItem}      = 920
+        $item1{qtdQueTenho}   = &invamount($item1{nomeDoItem})
+        $item1{qtdQuePreciso} = pegarConfigItemsControl("$item1{idDoItem}", "keep")
+        $item1{lockMap}       = moc_fild11
+        $item1{mconfs}        = Condor 0, Escorpião 0
+        
+        $item2{nomeDoItem}    = Tronco
+        $item2{idDoItem}      = 1019
+        $item2{qtdQueTenho}   = &invamount($item2{nomeDoItem})
+        $item2{qtdQuePreciso} = pegarConfigItemsControl("$item2{idDoItem}", "keep")
+        $item2{lockMap}       = pay_fild10
+        $item2{mconfs}        = Selvagem 0, 1494 0
+        
+        $item3{nomeDoItem}    = Erva Branca
+        $item3{idDoItem}      = 509
+        $item3{qtdQueTenho}   = &invamount($item2{nomeDoItem})
+        $item3{qtdQuePreciso} = pegarConfigItemsControl("$item3{idDoItem}", "keep")
+        $item3{lockMap}       = beach_dun3
+        $item3{mconfs}        = Hidra 0, Megalodon 0, Nereida 0 -8
 
         call voltarAtacar
 
-        if ( $qtdItem1 < 5 ) {
-            do conf lockMap moc_fild11
+        if ( $item1{qtdQueTenho} < $item1{qtdQuePreciso} ) {
+            do conf lockMap $item1{lockMap}
             #esses dois o bot não pode e nem precisa atacar
-            do mconf Condor 0
-            do mconf Escorpião 0
-            call pegarItemDoArmazenSeTiver "Garras de Lobo" "5"
-        } elsif ( $qtdItem1 >= 5 && $qtdItem2 < 5 ) {
-            do conf lockMap pay_fild10
+            @mconfs = &split(/,/,$item1{mconfs})
+            if ($mconfs[0] = nao tem) {
+                #ignorando
+            } else {
+                $i = 0
+                while ($i < @mconfs) {
+                    do mconf $mconfs[$i]
+                    $i++
+                }
+            }
+            call pegarItemDoArmazenSeTiver "$item1{idDoItem}" "$item1{qtdQuePreciso}"
+        } elsif ( $item1{qtdQueTenho} >= $item1{qtdQuePreciso} && $item2{qtdQueTenho} < $item2{qtdQuePreciso} ) {
+            do conf lockMap $item1{lockMap}
             #esses dois o bot não pode e nem precisa atacar
-            do mconf Selvagem 0
-            do mconf 1494 0 #besouro que não sei o nome exato
-            call pegarItemDoArmazenSeTiver "Troncos" "5"
-        } elsif ( $qtdItem1 >= 5 && $qtdItem2 >= 5 && $qtdItem3 < 3) {
-            do conf lockMap beach_dun3
-            #esses tres o bot não pode e nem precisa atacar
-            do mconf Hidra 0
-            do mconf Megalodon 0
-            do mconf Nereida 0 -8
-            call pegarItemDoArmazenSeTiver "Ervas Brancas" "3"
-        } elsif ( $qtdItem1 >= 5 && $qtdItem2 >= 5 && $qtdItem3 >= 3) {
+            @mconfs = &split(/,/,$item2{mconfs})
+            if ($mconfs[0] = nao tem) {
+                #ignorando
+            } else {
+                $i = 0
+                while ($i < @mconfs) {
+                    do mconf $mconfs[$i]
+                    $i++
+                }
+            }
+            call pegarItemDoArmazenSeTiver "$item2{idDoItem}" "$item2{qtdQuePreciso}"
+        } elsif ( $item1{qtdQueTenho} >= $item1{qtdQuePreciso} && $item2{qtdQueTenho} >= $item2{qtdQuePreciso} && $item3{qtdQueTenho} < $item3{qtdQuePreciso}) {
+            do conf lockMap $item1{lockMap}
+            #esses dois o bot não pode e nem precisa atacar
+            @mconfs = &split(/,/,$item1{mconfs})
+            if ($mconfs[0] = nao tem) {
+                #ignorando
+            } else {
+                $i = 0
+                while ($i < @mconfs) {
+                    do mconf $mconfs[$i]
+                    $i++
+                }
+            }
+            call pegarItemDoArmazenSeTiver "$item3{idDoItem}" "$item3{qtdQuePreciso}"
+        } elsif ( $item1{qtdQueTenho} >= $item1{qtdQuePreciso} && $item2{qtdQueTenho} >= $item2{qtdQuePreciso} && $item3{qtdQueTenho} >= $item3{qtdQuePreciso}) {
             [
             log ================================
             log Coletei todos os itens, indo Entregar!
@@ -227,6 +267,15 @@ automacro questCacador_coletarItens_possibilidade1 {
             log ====================================================
             ]
         }
+    }
+}
+
+sub pegarConfigItemsControl {
+    my ($item, $info) = @_;
+    if ($items_control{$item}{$info}) {
+        return $items_control{$item}{$info};
+    } else {
+        return -1;
     }
 }
 
