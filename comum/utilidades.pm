@@ -85,13 +85,9 @@ macro pegarItemDoArmazenSeTiver {
             muita treta vixi
         }
     } else {
-        # esse código supostamente não pode acontecer, porque antes de chama essa macro
-        # já é tetado se tem o item no storage, e essa checagem é feita denovo só por precaução
         [
         log ===================================
-        log = bugs e mais bugs!!!!
-        log = essa mensagem nao deveria aparecer
-        log = código do erro: eu sei lá, seu openkore é bugado
+        log = Não tenho o item :/
         log ===================================
         ]
     }
