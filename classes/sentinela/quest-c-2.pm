@@ -184,22 +184,19 @@ automacro questCacador_coletarItens_possibilidade1 {
         $item1{qtdQueTenho}   = &invamount($item1{nomeDoItem})
         $item1{qtdQuePreciso} = pegarConfigItemsControl("$item1{idDoItem}", "keep")
         $item1{lockMap}       = moc_fild11
-        $item1{mconfs}        = Condor 0, Escorpião 0
         
         $item2{nomeDoItem}    = Tronco
         $item2{idDoItem}      = 1019
         $item2{qtdQueTenho}   = &invamount($item2{nomeDoItem})
         $item2{qtdQuePreciso} = pegarConfigItemsControl("$item2{idDoItem}", "keep")
         $item2{lockMap}       = pay_fild10
-        $item2{mconfs}        = Selvagem 0, 1494 0
         
         $item3{nomeDoItem}    = Erva Branca
         $item3{idDoItem}      = 509
         $item3{qtdQueTenho}   = &invamount($item2{nomeDoItem})
         $item3{qtdQuePreciso} = pegarConfigItemsControl("$item3{idDoItem}", "keep")
         $item3{lockMap}       = beach_dun3
-        $item3{mconfs}        = Hidra 0, Megalodon 0, Nereida 0 -8
-
+        $item1 = nome=Garra de Lobo,ID=920,qtdQueTenho=&invamount(920),lockMap=moc_fild11
         call decidirLockMapProItem 
     }
 }
@@ -207,73 +204,36 @@ automacro questCacador_coletarItens_possibilidade1 {
 macro decidirLockMapProItem {
     call voltarAtacar
     if ( $item1{qtdQueTenho} < $item1{qtdQuePreciso} ) {
-            do conf lockMap $item1{lockMap}
-            #esses dois o bot não pode e nem precisa atacar
-            @mconfs = &split(/,/,$item1{mconfs})
-            if ($mconfs[0] = nao tem) {
-                #ignorando
-            } else {
-                $i = 0
-                while ($i < @mconfs) {
-                    do mconf $mconfs[$i]
-                    $i++
-                }
-            }
-            call pegarItemDoArmazenSeTiver "$item1{idDoItem}" "$item1{qtdQuePreciso}"
-        } elsif ( $item1{qtdQueTenho} >= $item1{qtdQuePreciso} && $item2{qtdQueTenho} < $item2{qtdQuePreciso} ) {
-            do conf lockMap $item1{lockMap}
-            #esses dois o bot não pode e nem precisa atacar
-            @mconfs = &split(/,/,$item2{mconfs})
-            if ($mconfs[0] = nao tem) {
-                #ignorando
-            } else {
-                $i = 0
-                while ($i < @mconfs) {
-                    do mconf $mconfs[$i]
-                    $i++
-                }
-            }
-            call pegarItemDoArmazenSeTiver "$item2{idDoItem}" "$item2{qtdQuePreciso}"
-        } elsif ( $item1{qtdQueTenho} >= $item1{qtdQuePreciso} && $item2{qtdQueTenho} >= $item2{qtdQuePreciso} && $item3{qtdQueTenho} < $item3{qtdQuePreciso}) {
-            do conf lockMap $item1{lockMap}
-            #esses dois o bot não pode e nem precisa atacar
-            @mconfs = &split(/,/,$item1{mconfs})
-            if ($mconfs[0] = nao tem) {
-                #ignorando
-            } else {
-                $i = 0
-                while ($i < @mconfs) {
-                    do mconf $mconfs[$i]
-                    $i++
-                }
-            }
-            call pegarItemDoArmazenSeTiver "$item3{idDoItem}" "$item3{qtdQuePreciso}"
-        } elsif ( $item1{qtdQueTenho} >= $item1{qtdQuePreciso} && $item2{qtdQueTenho} >= $item2{qtdQuePreciso} && $item3{qtdQueTenho} >= $item3{qtdQuePreciso}) {
-            [
-            log ================================
-            log Coletei todos os itens, indo Entregar!
-            log ================================
-            ]
-            
-            do mconf Condor 1
-            do mconf Escorpião 1
-            do mconf Selvagem 1
-            do mconf 1494 1 #besouro que não sei o nome exato
-            do mconf Hidra 1
-            do mconf Megalodon 1
-            do mconf Nereida 1
-            do conf -f passo_quest_cacador indo entregar itens
-        } else {
-            [
-            log ====================================================
-            log Deveria estar coletando:
-            log $item1{qtdQuePreciso} $item1{nomeDoItem},
-            log $item2{qtdQuePreciso} $item2{nomeDoItem} e
-            log $item3{qtdQuePreciso} $item3{nomeDoItem} agora
-            log Mas algo deu errado... reporte aos criadores dessa eventMacro
-            log ====================================================
-            ]
-        }
+        do conf lockMap $item1{lockMap}
+        call pegarItemDoArmazenSeTiver "$item1{idDoItem}" "$item1{qtdQuePreciso}"
+        
+    } elsif ( $item1{qtdQueTenho} >= $item1{qtdQuePreciso} && $item2{qtdQueTenho} < $item2{qtdQuePreciso} ) {
+        do conf lockMap $item1{lockMap}
+        call pegarItemDoArmazenSeTiver "$item2{idDoItem}" "$item2{qtdQuePreciso}"
+        
+    } elsif ( $item1{qtdQueTenho} >= $item1{qtdQuePreciso} && $item2{qtdQueTenho} >= $item2{qtdQuePreciso} && $item3{qtdQueTenho} < $item3{qtdQuePreciso}) {
+        do conf lockMap $item1{lockMap}
+        call pegarItemDoArmazenSeTiver "$item3{idDoItem}" "$item3{qtdQuePreciso}"
+        
+    } elsif ( $item1{qtdQueTenho} >= $item1{qtdQuePreciso} && $item2{qtdQueTenho} >= $item2{qtdQuePreciso} && $item3{qtdQueTenho} >= $item3{qtdQuePreciso}) {
+        [
+        log ================================
+        log Coletei todos os itens, indo Entregar!
+        log ================================
+        ]
+        do conf -f passo_quest_cacador indo entregar itens
+        
+    } else {
+        [
+        log ====================================================
+        log Deveria estar coletando:
+        log $item1{qtdQuePreciso} $item1{nomeDoItem},
+        log $item2{qtdQuePreciso} $item2{nomeDoItem} e
+        log $item3{qtdQuePreciso} $item3{nomeDoItem} agora
+        log Mas algo deu errado... reporte aos criadores dessa eventMacro
+        log ====================================================
+        ]
+    }
 }
 
 sub pegarConfigItemsControl {
