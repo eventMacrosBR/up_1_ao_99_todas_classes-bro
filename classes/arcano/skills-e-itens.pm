@@ -1,181 +1,197 @@
-automacro configurarRelampago {
-    SkillLevel MG_LIGHTNINGBOLT >=1
-    ConfigKeyNot attackSkillSlot_0 MG_LIGHTNINGBOLT
+automacro configurarRelâmpago {
+    SkillLevel MG_LIGHTNINGBOLT > 0
+    ConfigKeyNot enhancedCasting_0 MG_LIGHTNINGBOLT
     priority 0
     exclusive 1
     call {
-         [
-        log ===========================================
-        log =Já tenho a skill Relampago,
-        log =Configurando pra usar ela
-        log ===========================================
+        [
+        log =================================================
+        log =Já tenho a skill Relâmpago,
+        log =Configurando pra usar e eletrocutar as zinimigas
+        log ==================================================
         ]
-        while (checarSeExisteNoConfig("attackSkillSlot_0") = nao ) {
-	adicionaAttackSkillSlot()
-	pause 1
-	do reload config
-	}
-    do conf attackSkillSlot_0 MG_LIGHTNINGBOLT
-    do conf attackSkillSlot_0_lvl 10
-	do conf attackSkillSlot_0_dist 10
-	do conf attackSkillSlot_0_maxCastTime 0.1
-	do conf attackSkillSlot_0_minCastTime 0
-    do conf attackSkillSlot_0_sp > 30
-    do conf attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
-	do conf attackSkillSlot_0_stopWhenHit 1
-	do conf attackSkillSlot_0_inLockOnly 1
-	do conf attackSkillSlot_0_notInTown 1
-    do conf attackSkillSlot_0_maxUses 1
-    do conf attackSkillSlot_0_maxAttempts 2
-    do conf attackSkillSlot_0_monsters Esporo, Hidra
-    do conf attackSkillSlot_0_disabled 0
+        while (checarSeExisteNoConfig("enhancedCasting_0") = nao ) {
+            adicionaEnhancedCasting()
+            pause 1
+            do reload config
+        }
+        
+        do conf enhancedCasting_0 MG_LIGHTNINGBOLT
+        do conf enhancedCasting_0_sp >= 25
+        do conf enhancedCasting_0_dist 9
+        do conf enhancedCasting_0_whenStatusInactive EFST_POSTDELAY
+        do conf enhancedCasting_0_inLockOnly 1
+        do conf enhancedCasting_0_notInTown 1
+        do conf enhancedCasting_0_disabled 0
+        do conf enhancedCasting_0_Element Water, Neutral
+        do conf enhancedCasting_0_damageFormula mATK * (100 * sLVL)
+        do conf enhancedCasting_0_damageType Wind        
     }
 }
 
-automacro configurarLancasdeFogo {
-    SkillLevel MG_FIREBOLT >= 1
-    ConfigKeyNot attackSkillSlot_1 MG_FIREBOLT
-    priority 1
+automacro configurarLançasDeGelo {
+    SkillLevel MG_COLDBOLT > 1
+    ConfigKeyNot enhancedCasting_1 MG_COLDBOLT
+    priority 0
     exclusive 1
     call {
         [
-        log ===========================================
-        log =Já tenho a skill LancasdeFogo,
-        log =Configurando pra usar ela
-        log ===========================================
+        log ===============================================
+        log =Já tenho a skill Lanças de Gelo,
+        log =Configurando pra usar e congelar as zinimigas
+        log ===============================================
         ]
-        while (checarSeExisteNoConfig("attackSkillSlot_1") = nao ) {
-	adicionaAttackSkillSlot()
-	pause 1
-	do reload config
-	}
-    do conf attackSkillSlot_1 MG_FIREBOLT
-    do conf attackSkillSlot_1_lvl 10
-	do conf attackSkillSlot_1_dist 10
-	do conf attackSkillSlot_1_maxCastTime 0.1
-	do conf attackSkillSlot_1_minCastTime 0
-    do conf attackSkillSlot_1_sp > 30
-    do conf attackSkillSlot_1_whenStatusInactive EFST_POSTDELAY
-	do conf attackSkillSlot_0_stopWhenHit 1
-	do conf attackSkillSlot_1_inLockOnly 1
-	do conf attackSkillSlot_1_notInTown 1
-    do conf attackSkillSlot_1_maxUses 1
-    do conf attackSkillSlot_1_maxAttempts 2
-    do conf attackSkillSlot_1_monsters Mandrágora, Lunático, Fabre, ChonChon, Rabo de Verme, Jibóia, Zumbi, Esqueleto, Familiar, Poporing, Lobo, Argos. ChonChon de Aço, Grove, Flora, Hode, Arenoso, Rochoso, Planta Carnívora, Porcellio, Guerreiro Orc, Senhora Orc, Filhote de Orc, Tribolita, Nereida, Guerreiro Wootnan, Dríade, Atirador Wootnan, Golem de Madeira, Condor 
-    do conf attackSkillSlot_1_disabled 0
+        $blocoExiste = checarSeExisteNoConfig("enhancedCasting_1")
+        if ($blocoExiste = nao ) {
+            adicionaEnhancedCasting()
+            pause 1
+            do reload config
+        }
+        
+        do conf enhancedCasting_1 MG_COLDBOLT
+        do conf enhancedCasting_1_sp >= 20
+        do conf enhancedCasting_1_dist 9
+        do conf enhancedCasting_1_whenStatusInactive EFST_POSTDELAY
+        do conf enhancedCasting_1_inLockOnly 1
+        do conf enhancedCasting_1_notInTown 1
+        do conf enhancedCasting_1_disabled 0
+        do conf enhancedCasting_1_Element Fire
+        do conf enhancedCasting_1_damageFormula mATK * (100 * sLVL)
+        do conf enhancedCasting_1_damageType Water
     }
 }
 
-automacro configurarLancasdeGelo {
-    SkillLevel MG_COLDBOLT >= 1
-    ConfigKeyNot attackSkillSlot_2 MG_COLDBOLT
-    priority 2
+automacro configurarLançasDeFogo {
+    SkillLevel MG_FIREBOLT > 0
+    ConfigKeyNot enhancedCasting_2 MG_FIREBOLT
+    priority 0
     exclusive 1
     call {
         [
-        log ===========================================
-        log =Já tenho a skill LancasdeGelo,
-        log =Configurando pra usar ela
-        log ===========================================
+        log ==============================================
+        log =Já tenho a skill Lanças de Fogo,
+        log =Configurando pra usar e queimar as zinimigas
+        log ==============================================
         ]
-        while (checarSeExisteNoConfig("attackSkillSlot_2") = nao ) {
-	adicionaAttackSkillSlot()
-	pause 1
-	do reload config
-	}
-    do conf attackSkillSlot_2 MG_COLDBOLT
-    do conf attackSkillSlot_2_lvl 10
-	do conf attackSkillSlot_2_dist 10
-	do conf attackSkillSlot_2_maxCastTime 0.1
-	do conf attackSkillSlot_2_minCastTime 0
-    do conf attackSkillSlot_2_sp > 30
-    do conf attackSkillSlot_2_whenStatusInactive EFST_POSTDELAY
-	do conf attackSkillSlot_0_stopWhenHit 1
-	do conf attackSkillSlot_2_inLockOnly 1
-	do conf attackSkillSlot_2_notInTown 1
-    do conf attackSkillSlot_2_maxUses 1
-    do conf attackSkillSlot_2_maxAttempts 2
-    do conf attackSkillSlot_2_monsters Frilldora, Grand Peco, Metaling, Escorpião, Filhote de Lobo do Deserto, Atirador de Pedras 
-    do conf attackSkillSlot_2_disabled 0
+        
+        while (checarSeExisteNoConfig("enhancedCasting_2") = nao ) {
+            adicionaEnhancedCasting()
+            pause 1
+            do reload config
+        }
+        
+        do conf enhancedCasting_2 MG_FIREBOLT
+        do conf enhancedCasting_2_sp >= 20
+        do conf enhancedCasting_2_dist 9
+        do conf enhancedCasting_2_whenStatusInactive EFST_POSTDELAY
+        do conf enhancedCasting_2_inLockOnly 1
+        do conf enhancedCasting_2_notInTown 1
+        do conf enhancedCasting_2_disabled 0
+        do conf enhancedCasting_2_Element Earth
+        do conf enhancedCasting_2_damageFormula mATK * (100 * sLVL)
+        do conf enhancedCasting_2_damageType Fire
     }
 }
 
 automacro configurarAtaqueEspiritual {
-    SkillLevel MG_NAPALMBEAT >= 1
-    ConfigKeyNot attackSkillSlot_3 MG_NAPALMBEAT
-    priority 3
+    SkillLevel MG_NAPALMBEAT > 0
+    SkillLevel MG_SOULSTRIKE < 3
+    ConfigKeyNot enhancedCasting_3 MG_NAPALMBEAT
+    priority 0
     exclusive 1
     call {
         [
-        log ===========================================
-        log =Já tenho a skill AtaqueEspiritual,
-        log =Configurando pra usar ela
-        log ===========================================
+        log ===============================================
+        log =Já tenho a skill Ataque Espiritual,
+        log =Configurando pra usar e assustar as zinimigas
+        log ===============================================
         ]
-        while (checarSeExisteNoConfig("attackSkillSlot_3") = nao ) {
-	adicionaAttackSkillSlot()
-	pause 1
-	do reload config
-	}
-    do conf attackSkillSlot_3 MG_NAPALMBEAT
-    do conf attackSkillSlot_3_lvl 10
-	do conf attackSkillSlot_3_dist 8
-	do conf attackSkillSlot_3_maxCastTime 0.1
-	do conf attackSkillSlot_3_minCastTime 0
-    do conf attackSkillSlot_3_sp > 38
-    do conf attackSkillSlot_3_whenStatusInactive EFST_POSTDELAY
-	do conf attackSkillSlot_0_stopWhenHit 1
-	do conf attackSkillSlot_3_inLockOnly 1
-	do conf attackSkillSlot_3_notInTown 1
-    do conf attackSkillSlot_3_maxUses 1
-    do conf attackSkillSlot_3_maxAttempts 2
-    do conf attackSkillSlot_3_disabled 0
+        while (checarSeExisteNoConfig("enhancedCasting_3") = nao ) {
+            adicionaEnhancedCasting()
+            pause 1
+            do reload config
+        }
+        
+        do conf enhancedCasting_3 MG_NAPALMBEAT
+        do conf enhancedCasting_3_sp >= 25
+        do conf enhancedCasting_3_dist 9
+        do conf enhancedCasting_3_whenStatusInactive EFST_POSTDELAY
+        do conf enhancedCasting_3_inLockOnly 1
+        do conf enhancedCasting_3_notInTown 1
+        do conf enhancedCasting_3_disabled 0
+        do conf enhancedCasting_3_Element Shadow, Undead
     }
 }
 
-automacro configurarEspiritosAncioes {
-    SkillLevel MG_SOULSTRIKE >= 1
-    ConfigKeyNot attackSkillSlot_4 MG_SOULSTRIKE
-    priority 4
+automacro configurarEspirítosAnciões {
+    SkillLevel MG_SOULSTRIKE >= 3
+    ConfigKeyNot enhancedCasting_3 MG_SOULSTRIKE
+    priority 0
     exclusive 1
     call {
         [
-        log ===========================================
-        log =Já tenho a skill EspiritosAncioes,
-        log =Configurando pra usar ela
-        log ===========================================
+        log ==================================================
+        log =Já tenho a skill Espíritos Anciões,
+        log =Configurando pra usar e aterrorizar as zinimigas
+        log ==================================================
         ]
-        while (checarSeExisteNoConfig("attackSkillSlot_4") = nao ) {
-	adicionaAttackSkillSlot()
-	pause 1
-	do reload config
-	}
-    do conf attackSkillSlot_4 MG_SOULSTRIKE
-    do conf attackSkillSlot_4_lvl 10
-	do conf attackSkillSlot_4_dist 8
-	do conf attackSkillSlot_4_maxCastTime 0.1
-	do conf attackSkillSlot_4_minCastTime 0
-    do conf attackSkillSlot_4_sp > 12
-    do conf attackSkillSlot_4_whenStatusInactive EFST_POSTDELAY
-	do conf attackSkillSlot_4_stopWhenHit 1
-	do conf attackSkillSlot_4_inLockOnly 1
-	do conf attackSkillSlot_4_notInTown 1
-    do conf attackSkillSlot_4_maxUses 1
-    do conf attackSkillSlot_4_maxAttempts 2
-    do conf attackSkillSlot_4_disabled 0
+        while (checarSeExisteNoConfig("enhancedCasting_3") = nao ) {
+            adicionaEnhancedCasting()
+            pause 1
+            do reload config
+        }
+
+        do conf enhancedCasting_3 MG_SOULSTRIKE
+        do conf enhancedCasting_3_sp >= 25
+        do conf enhancedCasting_3_dist 9
+        do conf enhancedCasting_3_whenStatusInactive EFST_POSTDELAY
+        do conf enhancedCasting_3_monsters
+        do conf enhancedCasting_3_disabled 0
+        do conf enhancedCasting_3_Element Shadow, Undead
+        do conf enhancedCasting_3_damageFormula mATK * (5 * sLVL)
+        do conf enhancedCasting_3_damageType Holy
     }
 }
 
-automacro configurarProtecaoArcana {
+automacro configurarProteçãoArcana {
     SkillLevel MG_ENERGYCOAT 1
-    ConfigKeyNot useSelf_skill_5 MG_ENERGYCOAT
+    ConfigKeyNot useSelf_skill_4 MG_ENERGYCOAT
     priority 5
     exclusive 1
     call {
         [
         log ===========================================
-        log =Já tenho a skill ProtecaoArcana,
-        log =Configurando ela
+        log =Já tenho a skill Proteção Arcana,
+        log =Configurando ela para se proteger
+        log ===========================================
+        ]
+        $blocoExiste = checarSeExisteNoConfig("useSelf_skill_4")
+        if ($blocoExiste = nao ) {
+            adicionaUseSelfSkill()
+            pause 1
+            do reload config
+        }
+        do conf useSelf_skill_4 MG_ENERGYCOAT
+        do conf useSelf_skill_4_lvl 1
+        do conf useSelf_skill_4_sp >= 20
+        do conf useSelf_skill_4_whenStatusInactive MG_ENERGYCOAT, EFST_POSTDELAY
+        do conf useSelf_skill_4_notWhileSitting 1
+        do conf useSelf_skill_4_notInTown 1
+        do conf useSelf_skill_4_stopWhenHit 1
+        do conf useSelf_skill_4_disabled 0
+    }
+}
+
+automacro configurarAmplificaçãoMística {
+    SkillLevel HW_MAGICPOWER >= 1
+    ConfigKeyNot useSelf_skill_5 HW_MAGICPOWER
+    priority 0
+    exclusive 1
+    call {
+        [
+        log ===========================================
+        log =Já tenho a skill Amplificação Mística,
+        log =Configurando ela para ficar bruxão
         log ===========================================
         ]
         $blocoExiste = checarSeExisteNoConfig("useSelf_skill_5")
@@ -184,43 +200,14 @@ automacro configurarProtecaoArcana {
             pause 1
             do reload config
         }
-        do conf useSelf_skill_5 MG_ENERGYCOAT
-        do conf useSelf_skill_5_lvl 1
+        do conf useSelf_skill_5 HW_MAGICPOWER
+        do conf useSelf_skill_5_lvl 10
         do conf useSelf_skill_5_sp >= 20
-        do conf useSelf_skill_5_whenStatusInactive MG_ENERGYCOAT, EFST_POSTDELAY
+        do conf useSelf_skill_5_whenStatusInactive EFST_MAGICPOWER, EFST_POSTDELAY
         do conf useSelf_skill_5_notWhileSitting 1
         do conf useSelf_skill_5_notInTown 1
         do conf useSelf_skill_5_stopWhenHit 1
         do conf useSelf_skill_5_disabled 0
-    }
-}
-
-automacro configurarAmplificacaoMistica {
-    SkillLevel HW_MAGICPOWER >= 1
-    ConfigKeyNot useSelf_skill_6 HW_MAGICPOWER
-    priority 6
-    exclusive 1
-    call {
-        [
-        log ===========================================
-        log =Já tenho a skill AmplificacaoMistica,
-        log =Configurando ela
-        log ===========================================
-        ]
-        $blocoExiste = checarSeExisteNoConfig("useSelf_skill_6")
-        if ($blocoExiste = nao ) {
-            adicionaUseSelfSkill()
-            pause 1
-            do reload config
-        }
-        do conf useSelf_skill_6 HW_MAGICPOWER
-        do conf useSelf_skill_6_lvl 10
-        do conf useSelf_skill_6_sp >= 20
-        do conf useSelf_skill_6_whenStatusInactive EFST_MAGICPOWER, EFST_POSTDELAY
-        do conf useSelf_skill_6_notWhileSitting 1
-        do conf useSelf_skill_6_notInTown 1
-        do conf useSelf_skill_6_stopWhenHit 1
-        do conf useSelf_skill_6_disabled 0
     }
 }
 
@@ -255,10 +242,10 @@ automacro souUmMeroAprendizEqueroBater {
 
 automacro configurarDistanciaDeAtaque_usandoMagias {
     ConfigKey attackUseWeapon 0
-    ConfigKeyNot attackDistance 6
+    ConfigKeyNot attackDistance 9
     exclusive 1
     call {
-        do conf attackDistance 6
+        do conf attackDistance 9
     }
 }
 
