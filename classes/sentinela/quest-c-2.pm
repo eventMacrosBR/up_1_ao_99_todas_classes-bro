@@ -190,32 +190,20 @@ automacro questCacador_coletarItens_possibilidade1 {
             #esses dois o bot não pode e nem precisa atacar
             do mconf Condor 0
             do mconf Escorpião 0
-            if (&storamount($qtdItem1) > 0 && &invamount($qtdItem1) < 5) {
-                log tenho que ir no armazem pegar
-                call checarSeArmazenJaFoiAberto
-                call pegarItemDoArmazenSeTiver "$qtdItem1" "5"
-            }
+            call pegarItemDoArmazenSeTiver "Garras de Lobo" "5"
         } elsif ( $qtdItem1 >= 5 && $qtdItem2 < 5 ) {
             do conf lockMap pay_fild10
             #esses dois o bot não pode e nem precisa atacar
             do mconf Selvagem 0
             do mconf 1494 0 #besouro que não sei o nome exato
-            if (&storamount($qtdItem2) > 0 && &invamount($qtdItem2) < 5) {
-                log tenho que ir no armazem pegar
-                call checarSeArmazenJaFoiAberto
-                call pegarItemDoArmazenSeTiver "$qtdItem2" "5"
-            }
+            call pegarItemDoArmazenSeTiver "Troncos" "5"
         } elsif ( $qtdItem1 >= 5 && $qtdItem2 >= 5 && $qtdItem3 < 3) {
             do conf lockMap beach_dun3
             #esses tres o bot não pode e nem precisa atacar
             do mconf Hidra 0
             do mconf Megalodon 0
             do mconf Nereida 0 -8
-            if (&storamount($qtdItem3) > 0 && &invamount($qtdItem3) < 3) {
-                log tenho que ir no armazem pegar
-                call checarSeArmazenJaFoiAberto
-                call pegarItemDoArmazenSeTiver "$qtdItem3" "3"
-            }
+            call pegarItemDoArmazenSeTiver "Ervas Brancas" "3"
         } elsif ( $qtdItem1 >= 5 && $qtdItem2 >= 5 && $qtdItem3 >= 3) {
             [
             log ================================
