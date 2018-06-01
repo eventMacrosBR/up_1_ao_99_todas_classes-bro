@@ -46,6 +46,57 @@ macro voltarAtacar {
     ]
 }
 
+#coloque esse if dentro da macro que tiver checando o item
+#substitua item pelo item que quer, e o número 5 pela quantidade que precisa
+#   if (&storamount(ITEM) > 0 && &invamount(ITEM) < 5) {
+#       log tenho que ir no armazem pegar
+#       call checarSeArmazenJaFoiAberto
+#       call pegarItemDoArmazenSeTiver "NOME" "5"
+#   }
+
+macro checarSeArmazenJaFoiAberto {
+
+    $armazemJaFoiAberto = armazemJaFoiAberto()
+    if ($armazemJaFoiAberto = nao) {
+        log armazém ainda não foi inicializado, indo lá!
+        do autostorage
+    } else {
+        log armazém já foi aberto uma vez nessa sessão, então tá de boas
+    }
+}
+
+macro pegarItemDoArmazenSeTiver {
+    $item = $.param[0]
+    $quantidade = $.param[1]
+
+    #checando duas vezes se tem o item mesmo no storage
+    if (&storamount($item) > 0) {
+        do move &config(storageAuto_npc) &rand(3,8)
+        do talknpc &arg("&config(storageAuto_npc)", 2) &arg("&config(storageAuto_npc)", 3) r1
+        if ($.storageopen = 1) {
+            do storage get &storage($item) $quantidade
+            do storage close
+        } else {
+            log o storage deveria estar aberto agora, mas não está
+            muita treta vixi
+        }
+    } else {
+        # esse código supostamente não pode acontecer, porque antes de chama essa macro
+        # já é tetado se tem o item no storage, e essa checagem é feita denovo só por precaução
+        [
+        log ===================================
+        log = bugs e mais bugs!!!!
+        log = essa mensagem nao deveria aparecer
+        log = código do erro: eu sei lá, seu openkore é bugado
+        log ===================================
+        ]
+    }
+}
+
+sub armazemJaFoiAberto {
+    return $char->storage->wasOpenedThisSession() ? "sim" : "nao";
+}
+
 automacro desativarStorageAuto_lvlAbaixodeSeis {
 	SkillLevel NV_BASIC < 6
 	exclusive 1
