@@ -2,7 +2,7 @@
 sub configurarBuild {
     my %configsBuild = (
         skillsAprendiz => 'NV_BASIC 9',
-        skillsClasse1 => 'MG_FIREBOLT 3, MG_LIGHTNINGBOLT 3, MG_NAPALMBEAT 5, MG_SOULSTRIKE 5, MG_LIGHTNINGBOLT 5, MG_FIREBOLT 5, MG_COLDBOLT 5, MG_SRECOVERY 5, MG_FIREBOLT 7, MG_COLDBOLT 7, MG_FIREBOLT 10, MG_COLDBOLT 10, MG_SOULSTRIKE 10, MG_STONECURSE 1, MG_SIGHT 1, MG_FROSTDIVER 1, MG_THUNDERSTORM 1',
+        skillsClasse1 => 'MG_FIREBOLT 3, MG_LIGHTNINGBOLT 3, MG_COLDBOLT 3, MG_NAPALMBEAT 5, MG_SOULSTRIKE 5, MG_LIGHTNINGBOLT 5, MG_FIREBOLT 5, MG_COLDBOLT 5, MG_SRECOVERY 5, MG_FIREBOLT 7, MG_COLDBOLT 7, MG_FIREBOLT 10, MG_COLDBOLT 10, MG_SOULSTRIKE 10, MG_STONECURSE 1, MG_SIGHT 1, MG_FROSTDIVER 1, MG_THUNDERSTORM 1',
         skillsClasse2 => 'WZ_ICEWALL 5, WZ_FROSTNOVA 10, WZ_WATERBALL 5, WZ_STORMGUST 1, WZ_JUPITEL 1, WZ_VERMILION 1, WZ_EARTHSPIKE 5, WZ_EARTHSPIKE 1, WZ_QUAGMIRE 5, WZ_SIGHTRASHER 2, WZ_METEOR 9',
         skillsClasse1T => 'MG_LIGHTNINGBOLT 4, MG_COLDBOLT 10, MG_SRECOVERY 7, MG_NAPALMBEAT 7, MG_SOULSTRIKE 7, MG_SAFETYWALL 10, MG_STONECURSE 1, MG_SIGHT 1, MG_FROSTDIVER 1, MG_THUNDERSTORM 1',
         skillsClasse2T => 'HW_MAGICPOWER 10, HW_SOULDRAIN 10, WZ_ESTIMATION 1, WZ_ICEWALL 5, WZ_FROSTNOVA 10, WZ_WATERBALL 5, WZ_STORMGUST 10, WZ_JUPITEL 5, WZ_VERMILION 1, WZ_EARTHSPIKE 3, WZ_HEAVENDRIVE 1, WZ_QUAGMIRE 5, WZ_SIGHTRASHER 2, WZ_METEOR 1',
@@ -31,7 +31,7 @@ sub extrairMapasDeUp {
             [
             {lvlMin => 1 , lvlMax => 18, lockMap => 'gef_fild04',  saveMap => 'geffen'},
             {lvlMin => 19, lvlMax => 25, lockMap => 'pay_fild08',  saveMap => 'payon'},
-            {lvlMin => 26, lvlMax => 40, lockMap => 'pay_dun00',   saveMap => 'payon'},
+            {lvlMin => 26, lvlMax => 40, lockMap => 'pay_fild07',   saveMap => 'payon'},
             {lvlMin => 41, lvlMax => 45, lockMap => 'moc_fild03',  saveMap => 'payon'},
             {lvlMin => 46, lvlMax => 60, lockMap => 'cmd_fild01',  saveMap => 'comodo'},
             {lvlMin => 60, lvlMax => 70, lockMap => 'moc_fild17',  saveMap => 'morocc'},
