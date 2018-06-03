@@ -123,9 +123,8 @@ automacro configurarAtaqueEspiritual {
         do conf enhancedCasting_3_notInTown 1
         do conf enhancedCasting_3_disabled 0
         do conf enhancedCasting_3_Element Shadow, Undead
-		do conf enhancedCasting_3_damageFormula mATK * (0.72 * sLVL)
+		do conf enhancedCasting_3_damageFormula mATK * ((sLVL / 10) + 0,6)
         do conf enhancedCasting_3_damageType Holy
-		
     }
 }
 
@@ -155,7 +154,7 @@ automacro configurarEspirítosAnciões {
         do conf enhancedCasting_3_monsters
         do conf enhancedCasting_3_disabled 0
         do conf enhancedCasting_3_Element Shadow, Undead
-        do conf enhancedCasting_3_damageFormula mATK * (0.45 * sLVL)
+        do conf enhancedCasting_3_damageFormula mATK * (1 + 0.05 * sLVL)
         do conf enhancedCasting_3_damageType Holy
     }
 }
