@@ -1,6 +1,6 @@
 sub verificarEInstalarPlugin {
     my ($plugin) = @_;
-    if (-e "plugins/$plugin.pl") { #primeiro checa se o plugin já está na pasta plugins do opk
+    if (-e "plugins/$plugin.pl" || -e "plugins/$plugin/$plugin.pl") { #primeiro checa se o plugin já está na pasta plugins do opk
 
         $estaNoSys = 0;
         
