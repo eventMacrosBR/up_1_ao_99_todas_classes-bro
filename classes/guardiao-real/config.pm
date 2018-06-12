@@ -9,7 +9,9 @@ sub configurarBuild {
         skillsClasse3 => '-1',
         statsPadrao => '10 dex, 15 agi, 20 dex, 20 agi, 20 str, 30 dex, 30 str, 40 dex, 20 vit, 40 str, 60 dex, 50 str, 20 int, 65 str, 40 int, 70 dex, 40 vit, 50 int, 75 dex, 60 int, 80 dex, 70 int',
         statsPadraoTransclasse => '10 dex, 15 agi, 20 dex, 20 agi, 20 str, 30 dex, 30 str, 40 dex, 20 vit, 40 str, 60 dex, 50 str, 20 int, 65 str, 40 int, 70 dex, 40 vit, 50 int, 75 dex, 60 int, 80 dex, 70 int',
-        statsPadraoClasse3 => '-1'
+        statsPadraoClasse3 => '-1',
+        lvlClasseParaVirarClasse2 => '50',
+        lvlClasseParaVirarClasse2T => '50'
     );
     my $eventMacro = $eventMacro::Data::eventMacro;
     $eventMacro->set_full_hash('configsBuild', \%configsBuild);

@@ -23,7 +23,7 @@ sub inicializarParametrosQuestClasse2 {
 #convertido e reescrito pra eventMacro por Nipodemos
 automacro virarArruaceiroInicio_salvarEmMorocc {
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
-    JobLevel = 50
+    JobLevel >= $configsBuild{lvlClasseParaVirarClasse2}
     FreeSkillPoints = 0
     priority 2
     exclusive 1
@@ -43,7 +43,7 @@ automacro virarArruaceiroInicio_salvarEmMorocc {
 
 automacro virarArruaceiroInicio_IrNoNpc {
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
-    JobLevel = 50
+    JobLevel >= $configsBuild{lvlClasseParaVirarClasse2}
     FreeSkillPoints = 0
     priority 2
     exclusive 1
@@ -65,7 +65,7 @@ automacro virarArruaceiroInicio_IrNoNpc {
 
 automacro virarArruaceiroInicio {
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
-    JobLevel = 50
+    JobLevel >= $configsBuild{lvlClasseParaVirarClasse2}
     priority 2
     exclusive 1
     NpcNear /Arruaceira da Guilda/
@@ -297,7 +297,6 @@ automacro virarArruaceiro_etapa3_tenhoOsItens {
 automacro virarArruaceiro_etapa4 {
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     exclusive 1
-    JobLevel = 50
     CurrentHP >= 80%
     priority 5 #prioridade baixa
     delay 5
@@ -359,7 +358,6 @@ macro irAteLocal_questArruaceiro {
 }
 
 automacro virarArruaceiro_etapa5_DentroDaCasa {
-    JobLevel = 50
     IsInMapAndCoordinate in_rogue 169 34, in_rogue 246 25, in_rogue 164 106
     exclusive 1
     priority -5
@@ -381,7 +379,6 @@ automacro virarArruaceiro_etapa5_DentroDaCasa {
 }
 
 automacro virarArruaceiro_etapa6_labirinto {
-    JobLevel = 50
     exclusive 1
     IsInMapAndCoordinate in_rogue 15 105
     macro_delay 0.5
@@ -406,7 +403,6 @@ automacro virarArruaceiro_etapa6_labirinto {
 automacro virarArruaceiro_etapa6_morreuNoLabirinto_hpAlto {
     QuestActive 2026
     ConfigKeyNot questArruaceiro none
-    JobLevel = 50
     NotInMap in_rogue
     CurrentHP >= 80%
     exclusive 1
@@ -444,7 +440,6 @@ automacro virarArruaceiro_etapa6_morreuNoLabirinto_hpAlto {
 #Atravesse o túnel subterrâneo até a Guilda dos Arruaceiros. #
 automacro virarArruaceiro_etapa6_morreuNoLabirinto_hpBaixo {
     QuestActive 2026
-    JobLevel = 50
     NotInMap in_rogue
     CurrentHP < 80%
     exclusive 1
@@ -469,7 +464,6 @@ automacro virarArruaceiro_etapa6_morreuNoLabirinto_hpBaixo {
 #Você só precisa andar até a Guilda dos Arruaceiros por um túnel subterrâneo. Um teste simples, não é? Mas não posso garantir que seja totalmente seguro. #
 #Atravesse o túnel subterrâneo até a Guilda dos Arruaceiros. #
 automacro virarArruaceiro_etapaFinal {
-    JobLevel = 50
     #IsInMapAndCoordinate in_rogue 359 117
     NpcNear /Marybell/
     InMap in_rogue
@@ -491,7 +485,6 @@ automacro virarArruaceiro_etapaFinal {
 #Você só precisa andar até a Guilda dos Arruaceiros por um túnel subterrâneo. Um teste simples, não é? Mas não posso garantir que seja totalmente seguro. #
 #Atravesse o túnel subterrâneo até a Guilda dos Arruaceiros. #
 automacro virarArruaceiro_etapaFinal_Alternativo {
-    JobLevel = 50
     #IsInMapAndCoordinate in_rogue 378 113
     NpcNear /Homem Assustador/
     InMap in_rogue
