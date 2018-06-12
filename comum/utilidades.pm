@@ -93,6 +93,52 @@ macro pegarItemDoArmazenSeTiver {
     }
 }
 
+macro pegarDoStorageEVender {
+    set exclusive 1
+    do ai manual
+    if (&config(itemsCheckWeight) != 1) do conf -f itemsCheckWeight 1
+    $localKafra = &config(storageAuto_npc)
+    do move $localKafra &rand(4,7)
+    do talknpc &arg("$localKafra", 2) &arg("$localKafra", 3) r1
+    pause 2
+    if ($.storageopen = 1) {
+
+        criarListaDeItens("sell") #cria a array listaDeItems        
+        $cont = 0
+        while ($cont < @listaDeItems  && $.weightpercent < 85) {
+            $qtdDoItemAtual = &storamount($listaDeItems[$cont])
+            do storage get &storage($listaDeItems[$cont]) if ( $qtdDoItemAtual > 0) 
+            $cont++
+        }
+        do storage close
+        pause 1
+        ai on
+        do autosell
+    } else {
+        log o strorage deveria estar aberto agora, mas não está
+        log muita treta vish
+    }
+    log FIM
+}
+
+sub criarListaDeItens {
+    my ($option) = @_; 
+    my @lista;
+    #warning "option is $option\n";
+    foreach $key ( keys %items_control ) {
+        if ($items_control{$key}{$option}) {
+            #warning "da pra vender $key\n";
+            push @lista, $key;
+        }
+    }
+
+    if (@lista) {    
+        my $eventMacro = $eventMacro::Data::eventMacro;
+        $eventMacro->set_full_array('listaDeItems', \@lista);
+    } else {
+        warning "não foi encontrado items para vender no items_control.txt"
+    }
+}
 
 sub armazemJaFoiAberto {
     return $char->storage->wasOpenedThisSession() ? "sim" : "nao";
@@ -248,9 +294,12 @@ macro ajuda {
     log     eventMacro pararDeAtacarApenasCorrer
     log     eventMacro voltarAtacar
     log Comandos para utilizar o Aeroplano
-    log     eventMacro aeroplano_junoPara izlude|rachel|hugel|lighthalzen|einbroch
-    log     eventMacro aeroplano_einbrochPara izlude|rachel|hugel|lighthalzen|juno
-    log     eventMacro aeroplano_junoPara izlude|hugel|lighthalzen|juno|einbroch
+    log     eventMacro aeroplano_junoPara izlude OU rachel OU hugel OU lighthalzen OU einbroch
+    log     eventMacro aeroplano_einbrochPara izlude OU rachel OU hugel OU lighthalzen OU juno
+    log     eventMacro aeroplano_junoPara izlude OU hugel OU lighthalzen OU juno OU einbroch
+    log Comando para pegar do storage itens que deveria vender no npc, e vender
+    log     eventMacro pegarDoStorageEVender
+    log     Obs: Lembrando que ele só vende items que estiver marcado pra vender no items_control
     log Comando para debug
     log     eventMacro status
     log     eventMacro informacoes
