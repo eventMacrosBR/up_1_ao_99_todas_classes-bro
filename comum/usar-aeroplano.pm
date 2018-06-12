@@ -221,8 +221,6 @@ macro aeroplano_izludePara {
     } else {
         do move izlude 206 55
         do talknpc 206 55
-        do talk resp 0
-        do talk resp 0
         log $varAeroplano1, $varAeroplano2
     }
 }
