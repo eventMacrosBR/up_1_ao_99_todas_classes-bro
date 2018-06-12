@@ -181,20 +181,14 @@ automacro questCacador_coletarItens_possibilidade1 {
     call {
         $item1{nomeDoItem}    = Garra de Lobo
         $item1{idDoItem}      = 920
-        $item1{qtdQueTenho}   = &invamount($item1{nomeDoItem})
-        $item1{qtdQuePreciso} = pegarConfigItemsControl("$item1{idDoItem}", "keep")
         $item1{lockMap}       = moc_fild11
         
         $item2{nomeDoItem}    = Tronco
         $item2{idDoItem}      = 1019
-        $item2{qtdQueTenho}   = &invamount($item2{nomeDoItem})
-        $item2{qtdQuePreciso} = pegarConfigItemsControl("$item2{idDoItem}", "keep")
         $item2{lockMap}       = pay_fild10
         
         $item3{nomeDoItem}    = Erva Branca
         $item3{idDoItem}      = 509
-        $item3{qtdQueTenho}   = &invamount($item2{nomeDoItem})
-        $item3{qtdQuePreciso} = pegarConfigItemsControl("$item3{idDoItem}", "keep")
         $item3{lockMap}       = beach_dun3
         call decidirLockMapProItem 
     }
@@ -202,26 +196,36 @@ automacro questCacador_coletarItens_possibilidade1 {
 
 macro decidirLockMapProItem {
     call voltarAtacar
-    if ( $item1{qtdQueTenho} < $item1{qtdQuePreciso} ) {
+    
+    $item1{qtdQuePreciso} = pegarConfigItemsControl("$item1{idDoItem}", "keep")
+    $item2{qtdQuePreciso} = pegarConfigItemsControl("$item2{idDoItem}", "keep")
+    $item3{qtdQuePreciso} = pegarConfigItemsControl("$item3{idDoItem}", "keep")
+    
+    #se não tiver o item1, vamos pegar ele
+    if ( &invamount($item1{idDoItem}) < $item1{qtdQuePreciso} ) {
         do conf lockMap $item1{lockMap}
         call pegarItemDoArmazenSeTiver "$item1{idDoItem}" "$item1{qtdQuePreciso}"
         
-    } elsif ( $item1{qtdQueTenho} >= $item1{qtdQuePreciso} && $item2{qtdQueTenho} < $item2{qtdQuePreciso} ) {
+    #se já tiver o item1, vamos pegar o item2
+    } elsif ( &invamount($item1{idDoItem}) >= $item1{qtdQuePreciso} && &invamount($item2{idDoItem}) < $item2{qtdQuePreciso} ) {
         do conf lockMap $item1{lockMap}
         call pegarItemDoArmazenSeTiver "$item2{idDoItem}" "$item2{qtdQuePreciso}"
         
-    } elsif ( $item1{qtdQueTenho} >= $item1{qtdQuePreciso} && $item2{qtdQueTenho} >= $item2{qtdQuePreciso} && $item3{qtdQueTenho} < $item3{qtdQuePreciso}) {
+    #se ja tiver tanto o item1 quanto o item2, vamos pegar o item3
+    } elsif ( &invamount($item1{idDoItem}) >= $item1{qtdQuePreciso} && &invamount($item2{idDoItem}) >= $item2{qtdQuePreciso} && &invamount($item3{idDoItem}) < $item3{qtdQuePreciso}) {
         do conf lockMap $item1{lockMap}
         call pegarItemDoArmazenSeTiver "$item3{idDoItem}" "$item3{qtdQuePreciso}"
         
-    } elsif ( $item1{qtdQueTenho} >= $item1{qtdQuePreciso} && $item2{qtdQueTenho} >= $item2{qtdQuePreciso} && $item3{qtdQueTenho} >= $item3{qtdQuePreciso}) {
+    #se tiver todos os 3 items, aí vai entregar
+    } elsif ( &invamount($item1{idDoItem}) >= $item1{qtdQuePreciso} && &invamount($item2{idDoItem}) >= $item2{qtdQuePreciso} && &invamount($item3{idDoItem}) >= $item3{qtdQuePreciso}) {
         [
         log ================================
         log Coletei todos os itens, indo Entregar!
         log ================================
         ]
         do conf -f passo_quest_cacador indo entregar itens
-        
+    
+    #se cair aqui é porque tem um bug na macro, aí é muita treta
     } else {
         [
         log ====================================================
