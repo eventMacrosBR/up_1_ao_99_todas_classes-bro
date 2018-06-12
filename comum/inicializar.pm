@@ -1,6 +1,6 @@
 automacro inicializar {
     run-once 1
-    priority -999 #pioridade altíssmia, sempre vai ser a primeira a executar
+    priority -998 #pioridade alta, sempre vai ser a segunda a executar
     exclusive 1
     BaseLevel > 0
     call {
@@ -79,7 +79,7 @@ automacro inicializar {
 
 automacro atualizadorBuild {
     BaseLevel > 0
-    priority -998 #sempre a segunda a executar
+    priority -997 #sempre a terceira a executar
     timeout 300 #atualiza as variáveis a cada 5 minutos
     exclusive 1
     call atualizarBuild

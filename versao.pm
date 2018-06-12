@@ -1,6 +1,6 @@
 automacro versao { 
     BaseLevel > 0 
-    priority -999
+    priority -999 #sempre a primeira a ser executada
     exclusive 1
     run-once 1 
     call { 
