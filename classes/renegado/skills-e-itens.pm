@@ -141,7 +141,8 @@ automacro configurarPotLaranja {
     InStorageID 569 < 1 #Poção de Aprendiz (não pode ter essa poção)
     Zeny > 30000
     BaseLevel != 99
-    JobIDNot 0
+    JobIDNot 0 #aprendiz
+    JobIDNot 4023 # baby aprendiz
     ConfigKey quest_skill none
     ConfigKey questRenascer_estagio none
     ConfigKeyNot useSelf_item_0 Poção de Aprendiz #só se ativa quando nao ta usando mais pot aprendiz
@@ -207,5 +208,29 @@ automacro configurarPotLaranja {
         log feita com sucesso
         log ========================================
         ]
+    }
+}
+
+#só vai reabilitar o buyAuto se não tiver fazendo nada!!!
+#upando ou coisa assim
+automacro reabilitarBuyAuto {
+    BaseLevel != 99
+    ConfigKeyNot quest_eden em_curso
+    ConfigKeyNot quest_eden terminando
+    ConfigKeyNot naSequenciaDeSalvamento true
+    ConfigKeyNot virarClasse2 true
+    ConfigKeyNot virarClasse2T true
+    ConfigKeyNot quest_skill true
+    ConfigKeyNot esperarFazerQuest true
+    ConfigKey aeroplano1 none
+    ConfigKey aeroplano2 none
+    ConfigKey questRenascer_estagio none
+    exclusive 1
+    JobIDNot 0 #Ou o campo de treinamento fica louco
+    JobIDNot 4023 #Baby Aprendiz
+    ConfigKey buyAuto_1 Poção Laranja
+    ConfigKeyNot buyAuto_1_disabled 0
+    call {
+        do conf buyAuto_1_disabled 0
     }
 }
