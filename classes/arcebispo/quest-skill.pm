@@ -10,34 +10,6 @@ automacro questLuzDivina_configurandoItens {
     }
 }
 
-automacro questLuzDivina_inicioTenhoOsItens {
-    JobID $parametrosClasses{idC1}, $parametrosClasses{idC2}
-    SkillLevel AL_HOLYLIGHT != 1
-    JobLevel >= 30
-    ConfigKeyNot quest_eden em_curso
-    ConfigKeyNot quest_eden terminando
-    ConfigKeyNot naSequenciaDeSalvamento true
-    ConfigKeyNot virarClasse2 true
-    ConfigKeyNot quest_luz_divina falar_com_npc
-    exclusive 1
-    call {
-        if (&invamount(Opala) > 0 && &invamount(Cristal Azul) > 0 && &invamount(Rosário) > 0) {
-            [
-            log ===================================
-            log = Iniciando a quest da Luz Divina
-            log = Tenho os itens.
-            log ===================================
-            ]
-            call pararDeAtacar
-            do move prontera
-            do conf -f quest_skill true
-            do conf -f quest_luz_divina falar_com_npc
-        } else {
-            log pequeno bug, ignorando
-        }
-    }
-}
-
 automacro questLuzDivina_inicioNaoTenhoOsItensMasTenhoZenys {
     JobID $parametrosClasses{idC1}, $parametrosClasses{idC2}
     SkillLevel AL_HOLYLIGHT != 1
