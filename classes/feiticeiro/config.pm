@@ -7,7 +7,7 @@ sub configurarBuild {
         skillsClasse1T => 'MG_FIREBOLT 1, MG_COLDBOLT 5, MG_SRECOVERY 8, MG_LIGHTNINGBOLT 1, MG_NAPALMBEAT 7, MG_SOULSTRIKE 5, MG_FROSTDIVER 1, MG_SIGHT 1, MG_STONECURSE 10, MG_SAFETYWALL 10',
         skillsClasse2T => 'SA_ADVANCEDBOOK 9, SA_DRAGONOLOGY 4, SA_CASTCANCEL 1, SA_FREECAST 1, SA_SEISMICWEAPON 5, WZ_EARTHSPIKE 5, SA_MAGICROD 3, SA_SPELLBREAKER 3, SA_DISPELL 5, SA_FROSTWEAPON 5, SA_LIGHTNINGLOADER 4, SA_FLAMELAUNCHER 5, SA_DELUGE 3, SA_VIOLENTGALE 3, SA_VOLCANO 3, PF_FOGWALL 1, SA_LANDPROTECTOR 2, PF_SPIDERWEB 1, PF_SOULCHANGE 1, PF_HPCONVERSION 5',
         skillsClasse3 => '-1',
-        statsPadrao => '50 int, 50 agi, 60 int, 80 agi, 80 int, 99 agi, 99 int',
+        statsPadrao => '70 int, 50 agi, 80 agi, 80 int, 99 agi, 99 int',
         statsPadraoTransclasse => '60 int, 60 dex, 40 vit, 20 luk, 80 int, 80 dex, 94 int, 92 dex, 43 vit, 2 str',
         statsPadraoClasse3 => '60 int, 60 dex, 40 vit, 20 luk, 80 int, 80 dex, 100 int, 100 dex, 70 vit, 20 str, 45 luk, 100 vit, 120 int, 120 vit, 85 luk'
     );
