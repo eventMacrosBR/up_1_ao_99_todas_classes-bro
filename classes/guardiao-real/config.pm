@@ -5,7 +5,7 @@ sub configurarBuild {
         skillsClasse1 => 'SM_RECOVERY 10, SM_PROVOKE 9, SM_BASH 10, SM_ENDURE 10, SM_MAGNUM 10',
         skillsClasse2 => 'CR_TRUST 7, CR_HOLYCROSS 10, AL_CURE 1, KN_RIDING 1, KN_CAVALIERMASTERY 5, KN_SPEARMASTERY 10, AL_DP 3, AL_DEMONBANE 5, CR_TRUST 10, AL_HEAL 5',
         skillsClasse1T => 'SM_RECOVERY 10, SM_PROVOKE 9, SM_BASH 10, SM_ENDURE 10, SM_MAGNUM 10',
-        skillsClasse2T => '-1',
+        skillsClasse2T => 'KN_RIDING 1, KN_CAVALIERMASTERY 5, KN_SPEARMASTERY 10, CR_SPEARQUICKEN 5, CR_TRUST 7, CR_HOLYCROSS 6, CR_TRUST 10, CR_GRANDCROSS 5, CR_AUTOGUARD 5, CR_SHIELDCHARGE 3, CR_SHIELDBOOMERANG 3, CR_REFLECTSHIELD 5, CR_DEVOTION 3, PA_SACRIFICE 5, CR_DEFENDER 5',
         skillsClasse3 => '-1',
         statsPadrao => '10 dex, 15 agi, 20 dex, 20 agi, 20 str, 30 dex, 30 str, 40 dex, 20 vit, 40 str, 60 dex, 50 str, 20 int, 65 str, 40 int, 70 dex, 40 vit, 50 int, 75 dex, 60 int, 80 dex, 70 int',
         statsPadraoTransclasse => '10 dex, 15 agi, 20 dex, 20 agi, 20 str, 30 dex, 30 str, 40 dex, 20 vit, 40 str, 60 dex, 50 str, 20 int, 65 str, 40 int, 70 dex, 40 vit, 50 int, 75 dex, 60 int, 80 dex, 70 int',
