@@ -1,7 +1,7 @@
 #!/bin/bash
 if hash pwsh 2> /dev/null; then
    PS3='Escolha classe desejada: '
-   options=("Cavaleiro Rúnico" "Guardião Real" "Arcano" "Feiticeiro" "Sentinela" "Trovador" "Musa" "Mecânico" "Bioquímico" "Sicário" "Renegado" "Arcebispo" "Shura" "Mestre Taekwon" "Espiritualista" "Kagerou" "Oboro" "Justiceiro" "Superaprendiz")
+   options=("Cavaleiro Rúnico" "Guardião Real" "Arcano" "Feiticeiro" "Sentinela" "Trovador" "Musa" "Mecânico" "Bioquímico" "Sicário" "Renegado" "Arcebispo" "Shura" "Mestre Taekwon" "Espiritualista" "Kagerou" "Oboro" "Insurgente" "Superaprendiz")
    select opt in "${options[@]}"
    do
         if [ -z $opt ]; then
