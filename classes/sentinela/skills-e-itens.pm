@@ -193,7 +193,7 @@ automacro configurarBuyAutoFlecha {
             do reload config
         }
         do conf buyAuto_1 Flecha
-        do conf buyAuto_1_minAmount 25
+        do conf buyAuto_1_minAmount 100
         do conf buyAuto_1_maxAmount 2000
         do conf buyAuto_1_zeny > 2000
     }
