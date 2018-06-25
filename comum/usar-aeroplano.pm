@@ -34,7 +34,7 @@ macro aeroplano_junoPara {
             log VOCÊ QUER IR DE JUNO PRA JUNO?
             log PORQUE VOCÊ FARIA ISSO?
             stop
-        } 
+        }
         else {
             [
             log Você digitou um nome inválido, por favor tente novamente

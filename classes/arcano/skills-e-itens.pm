@@ -17,7 +17,7 @@ automacro configurarRelâmpago {
         }
         
         do conf enhancedCasting_0 MG_LIGHTNINGBOLT
-		do conf enhancedCasting_0_lvl 10
+        do conf enhancedCasting_0_lvl 10
         do conf enhancedCasting_0_sp >= 25
         do conf enhancedCasting_0_dist 9
         do conf enhancedCasting_0_whenStatusInactive EFST_POSTDELAY
@@ -50,7 +50,7 @@ automacro configurarLançasDeGelo {
         }
         
         do conf enhancedCasting_1 MG_COLDBOLT
-		do conf enhancedCasting_1_lvl 10
+        do conf enhancedCasting_1_lvl 10
         do conf enhancedCasting_1_sp >= 20
         do conf enhancedCasting_1_dist 9
         do conf enhancedCasting_1_whenStatusInactive EFST_POSTDELAY
@@ -83,7 +83,7 @@ automacro configurarLançasDeFogo {
         }
         
         do conf enhancedCasting_2 MG_FIREBOLT
-		do conf enhancedCasting_2_lvl 10
+        do conf enhancedCasting_2_lvl 10
         do conf enhancedCasting_2_sp >= 20
         do conf enhancedCasting_2_dist 9
         do conf enhancedCasting_2_whenStatusInactive EFST_POSTDELAY
@@ -123,7 +123,7 @@ automacro configurarAtaqueEspiritual {
         do conf enhancedCasting_3_notInTown 1
         do conf enhancedCasting_3_disabled 0
         do conf enhancedCasting_3_Element Shadow, Undead
-		do conf enhancedCasting_3_damageFormula mATK * ((sLVL / 10) + 0,6)
+        do conf enhancedCasting_3_damageFormula mATK * ((sLVL / 10) + 0,6)
         do conf enhancedCasting_3_damageType Holy
     }
 }
@@ -147,7 +147,7 @@ automacro configurarEspirítosAnciões {
         }
 
         do conf enhancedCasting_3 MG_SOULSTRIKE
-	    do conf enhancedCasting_3_lvl 10
+        do conf enhancedCasting_3_lvl 10
         do conf enhancedCasting_3_sp >= 25
         do conf enhancedCasting_3_dist 9
         do conf enhancedCasting_3_whenStatusInactive EFST_POSTDELAY

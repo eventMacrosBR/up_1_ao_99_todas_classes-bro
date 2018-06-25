@@ -28,8 +28,8 @@ sub extrairMapasDeUp {
     ########################################################################
 
     if ($souTransclasse eq "nao") {
-		$variaveisDeUp =
-		# AQUI SÃO OS MAPAS DE UP ATÉ 99, ANTES DE REBORNAR
+        $variaveisDeUp =
+        # AQUI SÃO OS MAPAS DE UP ATÉ 99, ANTES DE REBORNAR
         [
             {lvlMin => 1 , lvlMax => 11, lockMap => 'prt_fild08', saveMap => 'izlude'},
             {lvlMin => 12, lvlMax => 25, lockMap => 'pay_fild08', saveMap => 'payon'},
@@ -41,9 +41,9 @@ sub extrairMapasDeUp {
             {lvlMin => 71, lvlMax => 74, lockMap => 'mjolnir_11', saveMap => 'prontera'},
             {lvlMin => 75, lvlMax => 98, lockMap => 'gl_church',  saveMap => 'geffen'}
         ];
-	} else {
+    } else {
         $variaveisDeUp =
-		# AQUI SÃO OS MAPAS DE UP ATÉ 99, DEPOIS DE REBORNAR
+        # AQUI SÃO OS MAPAS DE UP ATÉ 99, DEPOIS DE REBORNAR
             [
             {lvlMin => 1 , lvlMax => 11, lockMap => 'prt_fild08', saveMap => 'izlude'},
             {lvlMin => 12, lvlMax => 25, lockMap => 'pay_fild08', saveMap => 'payon'},

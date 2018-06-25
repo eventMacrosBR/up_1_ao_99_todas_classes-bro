@@ -23,8 +23,8 @@ sub extrairMapasDeUp {
     ########################################################################
 
     if ($souTransclasse eq "nao") {
-		$variaveisDeUp =
-		# AQUI SÃO OS MAPAS DE UP ATÉ 99
+        $variaveisDeUp =
+        # AQUI SÃO OS MAPAS DE UP ATÉ 99
     [
         {lvlMin => 1 , lvlMax => 11, lockMap => 'gef_fild04',  saveMap => 'geffen'},
         {lvlMin => 12, lvlMax => 25, lockMap => 'pay_fild08',  saveMap => 'payon'},
@@ -35,7 +35,7 @@ sub extrairMapasDeUp {
         {lvlMin => 71, lvlMax => 79, lockMap => 'yuno_fild09', saveMap => 'aldebaran'},
         {lvlMin => 80, lvlMax => 98, lockMap => 'ein_fild09',  saveMap => 'einbroch'}
     ];
-	}
+    }
     
     
     foreach my $configs (@{$variaveisDeUp}) {
