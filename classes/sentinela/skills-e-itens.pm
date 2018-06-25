@@ -220,7 +220,7 @@ automacro removerConfiguracaoAtaqueADistanciaAprendizT {
 }
 
 automacro pegarFalcao_irAteNpc {
-    SkillLevel HT_BEASTBANE >= 1
+    SkillLevel HT_FALCON >= 1
     exclusive 1
     NotInMap hugel
     StatusInactiveHandle EFST_FALCON
@@ -229,7 +229,9 @@ automacro pegarFalcao_irAteNpc {
     priority -3
     BaseLevel != 99
     call {
-        call aeroplano_izludePara "hugel"
+        do conf saveMap izlude
+        do conf -f quest_skill true
+        call aeroplano_junoPara "hugel"
         [
         log ==================================
         log =Indo agora para Hugel pelo
@@ -240,7 +242,7 @@ automacro pegarFalcao_irAteNpc {
 }
 
 automacro pegarFalcao_jaEstouEmHugel_irAteNpc {
-    SkillLevel HT_BEASTBANE >= 1
+    SkillLevel HT_FALCON >= 1
     exclusive 1
     ConfigKey saveMap hugel
     StatusInactiveHandle EFST_FALCON
@@ -260,7 +262,7 @@ automacro pegarFalcao_jaEstouEmHugel_irAteNpc {
 }
 
 automacro pegarFalcao {
-    SkillLevel HT_BEASTBANE >= 1
+    SkillLevel HT_FALCON >= 1
     exclusive 1
     StatusInactiveHandle EFST_FALCON
     NpcNear /Falcoeiro/
@@ -270,6 +272,9 @@ automacro pegarFalcao {
     call {
         do talk $.NpcNearLastBinId
         do talk resp 0
+        if ($.statushandle =~ /FALCON/) {
+            do conf quest_skill none
+        }
         [
         log ==========================
         log =Feito!
