@@ -293,3 +293,34 @@ automacro pegarFalcao {
     }
 }
 
+automacro verificarFlechas {
+    exclusive 1
+    timeout 300
+	JobLevel > 1
+	JobIDNot 0 #Aprendiz
+    JobIDNot 4001 #Aprendiz T.
+    JobIDNot 4023 #Baby Aprendiz
+    call {
+        $qtdItem1 = &invamount(1750) #ID da flecha
+
+        if ( $qtdItem1 < 100 ) {
+		    [
+            log ===================================
+            log Quantidade de flechas insuficiente,
+            log Inicializando compras automáticas!!
+            log ===================================
+            ]
+		    call pararDeAtacar
+            do autobuy
+        } else {
+            [
+            log ================================
+            log Flechas OK, continuando a upar!!
+            log ================================
+            ]
+			do eq &inventory(1750) #ID da flecha
+			call voltarAtacar
+        }
+    }
+}
+
