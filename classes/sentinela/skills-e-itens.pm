@@ -274,13 +274,22 @@ automacro pegarFalcao {
         do talk resp 0
         if ($.statushandle =~ /FALCON/) {
             do conf quest_skill none
+            [
+            log ==========================
+            log =Feito!
+            log =Já estou com a águia...
+            log ==========================
+            ]
+        } else {
+            [
+            log ===================================
+            log = PROBLEMA
+            log = falei com o npc falcoeiro mas ainda
+            log = nao tenho o falcão, reporte aos criadores
+            log = da eventMacro
+            log ===================================
+            ]
         }
-        [
-        log ==========================
-        log =Feito!
-        log =Já estou com a águia...
-        log ==========================
-        ]
     }
 }
 
