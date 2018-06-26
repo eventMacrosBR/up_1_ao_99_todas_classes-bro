@@ -312,7 +312,17 @@ automacro verificarFlechas {
             ]
 		    call pararDeAtacar
 		    do autosell
-                    do autobuy
+		    if ( (&config(buyAuto_1_zeny) =~ /2000/ && $.zeny >= 2000) || (&config(buyAuto_1_zeny) =~ /5000/ && $.zeny >= 5000) ) {
+                do autobuy
+				
+			} elsif ( (&config(buyAuto_1_zeny) =~ /2000/ && $.zeny < 2000) || (&config(buyAuto_1_zeny) =~ /5000/ && $.zeny < 5000) ) {
+				[
+				log ===================================
+				log = estou sem flechas, e estou sem zeny pra comprar
+				log ===================================
+				]
+				
+			}
         } else {
             [
             log ================================
