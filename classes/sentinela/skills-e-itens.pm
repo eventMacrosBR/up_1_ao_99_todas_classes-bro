@@ -300,7 +300,6 @@ automacro verificarFlechas {
     JobIDNot 0 #Aprendiz
     JobIDNot 4001 #Aprendiz T.
     JobIDNot 4023 #Baby Aprendiz
-    Zeny > 5000
     call {
         $qtdItem1 = &invamount(1750) #ID da flecha
 
@@ -313,7 +312,7 @@ automacro verificarFlechas {
             ]
 		    call pararDeAtacar
 		    do autosell
-            do autobuy
+                    do autobuy
         } else {
             [
             log ================================
