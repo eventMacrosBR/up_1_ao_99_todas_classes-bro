@@ -296,10 +296,11 @@ automacro pegarFalcao {
 automacro verificarFlechas {
     exclusive 1
     timeout 300
-	JobLevel > 1
-	JobIDNot 0 #Aprendiz
+    JobLevel > 1
+    JobIDNot 0 #Aprendiz
     JobIDNot 4001 #Aprendiz T.
     JobIDNot 4023 #Baby Aprendiz
+    Zeny > 5000
     call {
         $qtdItem1 = &invamount(1750) #ID da flecha
 
