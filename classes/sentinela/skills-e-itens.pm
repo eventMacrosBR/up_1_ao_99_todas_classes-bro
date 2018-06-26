@@ -312,6 +312,7 @@ automacro verificarFlechas {
             log ===================================
             ]
 		    call pararDeAtacar
+		    do autosell
             do autobuy
         } else {
             [
