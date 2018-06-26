@@ -321,7 +321,7 @@ automacro verificarFlechas {
 				log = estou sem flechas, e estou sem zeny pra comprar
 				log ===================================
 				]
-				
+				do eval Misc::offlineMode()
 			}
         } else {
             [
