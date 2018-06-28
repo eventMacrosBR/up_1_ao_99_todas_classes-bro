@@ -75,7 +75,7 @@ automacro virarAlquimistaInicio {
 #################################################################################
 
 automacro virarAlquimista_descobrindoQualItem {
-    NpcMsg /Como eu te disse, você precisa trazer/
+    NpcMsg /trazer (.+) para completar/
     exclusive 1
         call {
         [
@@ -101,10 +101,10 @@ automacro virarAlquimista_descobrindoQualItem {
 sub extrairMensagem {
     my ($mensagem) = @_;
     if ($mensagem =~ /trazer (.+) para completar/) {
-     return $1;
+        return $1;
     } else {
-     warning "ERRO, NÃO FOI POSSIVEL EXTRAIR MENSAGEM\n";
-     return -1;
+        warning "ERRO, NÃO FOI POSSIVEL EXTRAIR MENSAGEM\n";
+        return -1;
     }
 }
 
