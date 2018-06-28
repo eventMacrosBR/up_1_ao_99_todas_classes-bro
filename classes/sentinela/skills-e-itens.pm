@@ -300,6 +300,7 @@ automacro verificarFlechas {
     JobIDNot 0 #Aprendiz
     JobIDNot 4001 #Aprendiz T.
     JobIDNot 4023 #Baby Aprendiz
+    ConfigKey buyAuto_1_zeny > 2000, buyAuto_1_zeny > 5000
     call {
         $qtdItem1 = &invamount(1750) #ID da flecha
 
@@ -312,7 +313,7 @@ automacro verificarFlechas {
             ]
 		    call pararDeAtacar
 		    do autosell
-		    if ( a&config(buyAuto_1_zeny) != a && $.zeny >= &config(buyAuto_1_zeny)  ) {
+		    if ( $.zeny >= &config(buyAuto_1_zeny) ) {
                 do autobuy
 				
 			} else {
