@@ -305,33 +305,33 @@ automacro verificarFlechas {
         $qtdItem1 = &invamount(1750) #ID da flecha
 
         if ( $qtdItem1 < 100 ) {
-		    [
+            [
             log ===================================
             log Quantidade de flechas insuficiente,
             log Inicializando compras automáticas!!
             log ===================================
             ]
-		    call pararDeAtacar
-		    do autosell
-		    if ( $.zeny >= &config(buyAuto_1_zeny) ) {
+            call pararDeAtacar
+            do autosell
+            if ( $.zeny >= &config(buyAuto_1_zeny) ) {
                 do autobuy
-				
-			} else {
-			    [
-				log ===================================
-				log = estou sem flechas, e estou sem zeny pra comprar
-				log ===================================
-				]
-				do eval Misc::offlineMode()
-			}
+                
+            } else {
+                [
+                log ===================================
+                log = estou sem flechas, e estou sem zeny pra comprar
+                log ===================================
+                ]
+                do eval Misc::offlineMode()
+            }
         } else {
             [
             log ================================
             log Flechas OK, continuando a upar!!
             log ================================
             ]
-			do eq &inventory(1750) #ID da flecha
-			call voltarAtacar
+            do eq &inventory(1750) #ID da flecha
+            call voltarAtacar
         }
     }
 }
