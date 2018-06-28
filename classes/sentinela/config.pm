@@ -9,8 +9,7 @@ sub configurarBuild {
         statsPadrao => '30 dex, 50 agi, 40 dex, 20 luk, 60 agi, 20 vit, 80 agi, 80 dex, 90 agi, 49 vit, 92 dex',
         statsPadraoTransclasse => '30 dex, 50 agi, 40 dex, 20 luk, 60 agi, 20 vit, 80 agi, 80 dex, 90 agi, 49 vit, 92 dex',
         statsPadraoClasse3 => '120 dex, 110 agi, 120 luk, 71 vit'
-    );
-    #https://pt.ragnaplace.com/Sentinela-Critico-Tio-Pedrao
+    );    #https://pt.ragnaplace.com/Sentinela-Critico-Tio-Pedrao
 
     return \%configsBuild;
 }
@@ -60,7 +59,6 @@ sub extrairMapasDeUp {
         #warning "lvl min: " . $configs->{lvlMin}.' '. "lvl max: " . $configs->{lvlMax}."\n";
         if ($configs->{lvlMin} <= $lvl && $lvl <= $configs->{lvlMax}) {  #checa em qual "grupo" (de lvlMin e lvlMax) seu nivel se encaixa
             my %hash = (lockMap => $configs->{lockMap}, saveMap => $configs->{saveMap});
-
             return \%hash;
         }    
     }
@@ -76,7 +74,6 @@ sub inicializarParametrosQuestClasseRenascer {
         #altere a coordenada a seu prazer, fique a vontade
         pontoDeEncontro => '146 116'
     );
-
     return \%parametrosQuestClasseRenascer;
 }
 

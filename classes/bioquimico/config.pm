@@ -12,7 +12,6 @@ sub configurarBuild {
         lvlClasseParaVirarClasse2 => '50',
         lvlClasseParaVirarClasse2T => '50'
     );
-
     return \%configsBuild;
 }
 
@@ -61,7 +60,6 @@ sub extrairMapasDeUp {
         #warning "lvl min: " . $configs->{lvlMin}.' '. "lvl max: " . $configs->{lvlMax}."\n";
         if ($configs->{lvlMin} <= $lvl && $lvl <= $configs->{lvlMax}) {  #checa em qual "grupo" (de lvlMin e lvlMax) seu nivel se encaixa
             my %hash = (lockMap => $configs->{lockMap}, saveMap => $configs->{saveMap});
-
             return \%hash;
         }    
     }
@@ -77,7 +75,6 @@ sub inicializarParametrosQuestClasseRenascer {
         #altere a coordenada a seu prazer, fique a vontade
         pontoDeEncontro => '146 116'
     );
-
     return \%parametrosQuestClasseRenascer;
 }
 

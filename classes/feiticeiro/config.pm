@@ -11,7 +11,6 @@ sub configurarBuild {
         statsPadraoTransclasse => '60 int, 60 dex, 40 vit, 20 luk, 80 int, 80 dex, 94 int, 92 dex, 43 vit, 2 str',
         statsPadraoClasse3 => '60 int, 60 dex, 40 vit, 20 luk, 80 int, 80 dex, 100 int, 100 dex, 70 vit, 20 str, 45 luk, 100 vit, 120 int, 120 vit, 85 luk'
     );
-
     return \%configsBuild;
 }
 
@@ -59,7 +58,6 @@ sub extrairMapasDeUp {
         #warning "lvl min: " . $configs->{lvlMin}.' '. "lvl max: " . $configs->{lvlMax}."\n";
         if ($configs->{lvlMin} <= $lvl && $lvl <= $configs->{lvlMax}) {  #checa em qual "grupo" (de lvlMin e lvlMax) seu nivel se encaixa
             my %hash = (lockMap => $configs->{lockMap}, saveMap => $configs->{saveMap});
-
                return \%hash;
         }    
     }
@@ -75,7 +73,6 @@ sub inicializarParametrosQuestClasseRenascer {
         #altere a coordenada a seu prazer, fique a vontade
         pontoDeEncontro => '146 116'
     );
-
     return \%parametrosQuestClasseRenascer;
 }
 
