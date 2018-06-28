@@ -19,7 +19,7 @@ automacro inicializar {
 
         # Configurações Gerais de Build
         
-        # Esse sub gera as hash %configsBuild e %mapa com as seguintes keys:
+        # Esse sub gera as hash %configsBuild com as seguintes keys:
         # $configsBuild{skillsAprendiz}
         # $configsBuild{skillsClasse1}
         # $configsBuild{skillsClasse2}
@@ -27,7 +27,7 @@ automacro inicializar {
         # $configsBuild{skillsClasse2T}
         # $configsBuild{skillsClasse3}
         # $configsBuild{statsPadrao}
-        configurarBuild()
+        %configsBuild = configurarBuild()
 
         # Configurações Quests
         
@@ -73,7 +73,7 @@ automacro inicializar {
         # Esse sub gera a hash %parametrosQuestClasseRenascer com a seguinte key:
         # $parametrosQuestClasseRenascer{renascer}
         # $parametrosQuestClasseRenascer{amigo}
-        inicializarParametrosQuestClasseRenascer()        
+        %parametrosQuestClasseRenascer = inicializarParametrosQuestClasseRenascer()        
     }
 }
 
@@ -118,11 +118,10 @@ macro atualizarBuild {
     #sub 'extrairMapasDeUp' pega o mapa de up e o saveMap correto dependendo do lvl atual
     # $mapa{lockMap}
     # $mapa{saveMap}
-    
      if ($idClasseAtual ~ 0, 4023, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
-        extrairMapasDeUp("$.lvl", "nao") # "nao" significa que ele não é transclasse
+        %mapa = extrairMapasDeUp("$.lvl", "nao") # "nao" significa que ele não é transclasse
     } elsif ($idClasseAtual ~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}) {
-        extrairMapasDeUp("$.lvl", "sim") # "sim" significa que ele já rebornou e é trans
+        %mapa = extrairMapasDeUp("$.lvl", "sim") # "sim" significa que ele já rebornou e é trans
     }
     #futuramente: adicionar uma elsif para caso seja classe 3
     
