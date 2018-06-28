@@ -11,8 +11,8 @@ sub configurarBuild {
         statsPadraoClasse3 => '120 dex, 110 agi, 120 luk, 71 vit'
     );
     #https://pt.ragnaplace.com/Sentinela-Critico-Tio-Pedrao
-    my $eventMacro = $eventMacro::Data::eventMacro;
-    $eventMacro->set_full_hash('configsBuild', \%configsBuild);
+
+    return \%configsBuild;
 }
 
 
@@ -60,8 +60,8 @@ sub extrairMapasDeUp {
         #warning "lvl min: " . $configs->{lvlMin}.' '. "lvl max: " . $configs->{lvlMax}."\n";
         if ($configs->{lvlMin} <= $lvl && $lvl <= $configs->{lvlMax}) {  #checa em qual "grupo" (de lvlMin e lvlMax) seu nivel se encaixa
             my %hash = (lockMap => $configs->{lockMap}, saveMap => $configs->{saveMap});
-            my $eventMacro = $eventMacro::Data::eventMacro;
-            $eventMacro->set_full_hash('mapa', \%hash);
+
+            return \%hash;
         }    
     }
 }
@@ -76,7 +76,7 @@ sub inicializarParametrosQuestClasseRenascer {
         #altere a coordenada a seu prazer, fique a vontade
         pontoDeEncontro => '146 116'
     );
-    my $eventMacro = $eventMacro::Data::eventMacro;
-    $eventMacro->set_full_hash('parametrosQuestClasseRenascer', \%parametrosQuestClasseRenascer);
+
+    return \%parametrosQuestClasseRenascer;
 }
 

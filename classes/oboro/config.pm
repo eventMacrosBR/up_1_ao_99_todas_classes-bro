@@ -7,8 +7,8 @@ sub configurarBuild {
         statsPadrao => '-1',
         statsPadraoClasse3 => '-1'
     );
-    my $eventMacro = $eventMacro::Data::eventMacro;
-    $eventMacro->set_full_hash('configsBuild', \%configsBuild);
+
+    return \%configsBuild;
 }
 
 
@@ -42,8 +42,8 @@ sub extrairMapasDeUp {
         #warning "lvl min: " . $configs->{lvlMin}.' '. "lvl max: " . $configs->{lvlMax}."\n";
         if ($configs->{lvlMin} <= $lvl && $lvl <= $configs->{lvlMax}) {  #checa em qual "grupo" (de lvlMin e lvlMax) seu nivel se encaixa
             my %hash = (lockMap => $configs->{lockMap}, saveMap => $configs->{saveMap});
-            my $eventMacro = $eventMacro::Data::eventMacro;
-               $eventMacro->set_full_hash('mapa', \%hash);
+
+               return \%hash;
         }    
     }
 }
