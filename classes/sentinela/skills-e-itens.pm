@@ -295,43 +295,30 @@ automacro pegarFalcao {
 
 automacro verificarFlechas {
     exclusive 1
-    timeout 300
-    JobLevel > 1
     JobIDNot 0 #Aprendiz
     JobIDNot 4001 #Aprendiz T.
     JobIDNot 4023 #Baby Aprendiz
+    InInventoryID 1750 < 100
     ConfigKey buyAuto_1_zeny > 2000, buyAuto_1_zeny > 5000
     call {
-        $qtdItem1 = &invamount(1750) #ID da flecha
+        [
+        log ===================================
+        log Quantidade de flechas insuficiente,
+        log Inicializando compras automáticas!!
+        log ===================================
+        ]
+        call pararDeAtacar
+        do autosell
+        if ( $.zeny >= &config(buyAuto_1_zeny) ) {
+            do autobuy
 
-        if ( $qtdItem1 < 100 ) {
-            [
-            log ===================================
-            log Quantidade de flechas insuficiente,
-            log Inicializando compras automáticas!!
-            log ===================================
-            ]
-            call pararDeAtacar
-            do autosell
-            if ( $.zeny >= &config(buyAuto_1_zeny) ) {
-                do autobuy
-                
-            } else {
-                [
-                log ===================================
-                log = estou sem flechas, e estou sem zeny pra comprar
-                log ===================================
-                ]
-                do eval Misc::offlineMode()
-            }
         } else {
             [
-            log ================================
-            log Flechas OK, continuando a upar!!
-            log ================================
+            log ===================================
+            log = estou sem flechas, e estou sem zeny pra comprar
+            log ===================================
             ]
-            do eq &inventory(1750) #ID da flecha
-            call voltarAtacar
+            do eval Misc::offlineMode()
         }
     }
 }
