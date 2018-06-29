@@ -8,7 +8,7 @@ automacro questClasse3_virarClasse3Inicio_bugada {
     call {
         [
         log =============================================
-        log = Estou pronto para virar claase3, porém    =
+        log = Estou pronto para virar classe3, porém    =
         log =     os pontos não estão distribuídos...   =
         log =            Vamos resolver isso!        =
         log =============================================
