@@ -2,6 +2,7 @@ automacro configurarGolpeFulminante {
     SkillLevel SM_BASH = 10
     exclusive 1
     ConfigKeyNot attackSkillSlot_0 SM_BASH
+    ConfigKeyNot attackSkillSlot_0 LK_SPIRALPIERCE
     call {
         $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_0")
         if ( $blocoExiste = nao ) {
@@ -36,6 +37,23 @@ automacro configurarVigor {
         do conf useSelf_skill_0_disabled 0
         do conf useSelf_skill_0_agressives > 1
         do conf useSelf_skill_0_timeout 10
+    }
+}
+
+automacro configurarPerfurarEmEspiral {
+    SkillLevel LK_SPIRALPIERCE = 5
+    exclusive 1
+    ConfigKeyNot attackSkillSlot_0 LK_SPIRALPIERCE
+    call {
+        $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_0")
+        if ( $blocoExiste = nao ) {
+            adicionaAttackSkillSlot()
+            pause 1
+            do reload config
+        }
+        do conf attackSkillSlot_0 LK_SPIRALPIERCE
+        do conf attackSkillSlot_0 lvl 5
+        do conf attackSkillSlot_0_maxUses 5
     }
 }
 
