@@ -115,13 +115,16 @@ macro atualizarBuild {
     do conf statsAddAuto 1 if (&config(statsAddAuto) != 1)
     do conf statsAddAuto_dontUseBonus 1 if (&config(statsAddAuto_dontUseBonus) != 1)
     
-    #sub 'extrairMapasDeUp' pega o mapa de up e o saveMap correto dependendo do lvl atual
-    # $mapa{lockMap}
-    # $mapa{saveMap}
-     if ($idClasseAtual ~ 0, 4023, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
-        %mapa = extrairMapasDeUp("$.lvl", "nao") # "nao" significa que ele não é transclasse
-    } elsif ($idClasseAtual ~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}) {
-        %mapa = extrairMapasDeUp("$.lvl", "sim") # "sim" significa que ele já rebornou e é trans
+    #se estivermos lvl 99, não precisamos definir mapa de up
+    if ($.lvl != 99) {
+        #sub 'extrairMapasDeUp' pega o mapa de up e o saveMap correto dependendo do lvl atual
+        # $mapa{lockMap}
+        # $mapa{saveMap}
+         if ($idClasseAtual ~ 0, 4023, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
+            %mapa = extrairMapasDeUp("$.lvl", "nao") # "nao" significa que ele não é transclasse
+        } elsif ($idClasseAtual ~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}) {
+            %mapa = extrairMapasDeUp("$.lvl", "sim") # "sim" significa que ele já rebornou e é trans
+        }
     }
     #futuramente: adicionar uma elsif para caso seja classe 3
     
