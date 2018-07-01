@@ -259,7 +259,7 @@ automacro virarTemplario_ComprarPotBranca {
         if (checarSeExisteNoConfig("BetterShopper_1") = nao) {
             adicionaBetterShopper()
             pause 1
-            do reload config    
+            do reload config
         }
         do conf BetterShopper_1 Poção Branca
         do conf BetterShopper_1_maxPrice 1100
@@ -296,6 +296,24 @@ automacro virarTemplario_ComparBalaDeGuaraná {
     }
 }
 
+automacro virarTemplario_bugado {
+    ConfigKey BetterShopper_on 1
+    ConfigKeyNot route_randomWalk 1
+    exclusive 1
+    call {
+        do conf route_randomWalk 1
+    }
+}
+
+automacro virarTemplario_bugado2 {
+    ConfigKey BetterShopper_on 1
+    ConfigKeyNot route_randomWalk_inTown 1
+    exclusive 1
+    call {
+        do conf route_randomWalk_inTown 1
+    }
+}
+
 #3009#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
 #'Posso ver seu potencial como templário. Encontre-se com ^0000FFMoorenak Miyol^000000. Ele está na prisão subterrânea do Castelo de Prontera. Fale com ele primeiro.' #
 ##
@@ -311,6 +329,7 @@ automacro virarTemplario_FalarComCaraNaPrisão_IndoAteEle {
         do move prt_castle 164 32 &rand(4,7)
     }
 }
+
 
 #3009#Mudança de Classe: Templário#SG_FEEL#QUE_NOIMAGE#
 #'Posso ver seu potencial como templário. Encontre-se com ^0000FFMoorenak Miyol^000000. Ele está na prisão subterrânea do Castelo de Prontera. Fale com ele primeiro.' #
@@ -334,7 +353,7 @@ automacro virarTemplario_FalarComCaraNaPrisão {
         do conf BetterShopper_on 0
         do conf BetterShopper_0_disabled 1
         do conf BetterShopper_1_disabled 1
-        do conf BetterShopper_2_disabled 1        
+        do conf BetterShopper_2_disabled 1
         do conf lockMap none
         call pararDeAtacarApenasCorrer
         $blocoJaExiste = checarSeExisteNoConfig("useSelf_item_1")
