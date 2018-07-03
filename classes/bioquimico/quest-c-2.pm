@@ -100,7 +100,8 @@ automacro virarAlquimista_descobrindoQualItem {
 
 sub extrairMensagem {
     my ($mensagem) = @_;
-    if ($mensagem =~ /trazer (.+) para completar/) {
+    my $escapado = quotemeta($mensagem);
+    if ($escapado =~ /trazer (.+) para completar/) {
         return $1;
     } else {
         warning "ERRO, NÃO FOI POSSIVEL EXTRAIR MENSAGEM\n";
