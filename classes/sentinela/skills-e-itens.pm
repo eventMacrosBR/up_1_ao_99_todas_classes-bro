@@ -299,7 +299,7 @@ automacro verificarFlechas {
     JobIDNot 4001 #Aprendiz T.
     JobIDNot 4023 #Baby Aprendiz
     InInventory "Flecha" < 100
-    ConfigKeyNot buyAuto_1_zeny none
+    ConfigKey buyAuto_1_zeny > 2000, buyAuto_1_zeny > 5000
     call {
         [
         log ===================================
