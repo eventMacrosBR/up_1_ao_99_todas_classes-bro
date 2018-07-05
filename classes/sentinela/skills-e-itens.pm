@@ -340,7 +340,7 @@ automacro autoEquiparFlechas {
     JobIDNot 4001 #Aprendiz T.
     JobIDNot 4023 #Baby Aprendiz
     InInventory "Flecha" >= 100
-    IsNotEquippedID Arrow 1750
+    IsNotEquippedID arrow 1750
     call {
         [
         log ===================================
