@@ -329,6 +329,26 @@ automacro verificarFlechas {
             ]
             do eval Misc::offlineMode()
         }
+        do eq &inventory(1750) #Id da flecha
+        call voltarAtacar
+    }
+}
+
+automacro autoEquiparFlechas {
+    exclusive 1
+    JobIDNot 0 #Aprendiz
+    JobIDNot 4001 #Aprendiz T.
+    JobIDNot 4023 #Baby Aprendiz
+    InInventory "Flecha" >= 100
+    IsNotEquippedID Arrow 1750
+    call {
+        [
+        log ===================================
+        log Tenho flechas, mas não equipadas
+        log Equipando!!
+        log ===================================
+        ]
+        do eq &inventory(1750) #Id da flecha
     }
 }
 
