@@ -298,8 +298,8 @@ automacro verificarFlechas {
     JobIDNot 0 #Aprendiz
     JobIDNot 4001 #Aprendiz T.
     JobIDNot 4023 #Baby Aprendiz
-    InInventoryID 1750 < 100
-    ConfigKey buyAuto_1_zeny > 2000, buyAuto_1_zeny > 5000
+    InInventory "Flecha" < 100
+    ConfigKeyNot buyAuto_1_zeny none
     call {
         [
         log ===================================
@@ -309,7 +309,16 @@ automacro verificarFlechas {
         ]
         call pararDeAtacar
         do autosell
-        if ( $.zeny >= int(&config(buyAuto_1_zeny)) ) {
+        # buyAuto_1_zeny contem valores como "> 5000" ou "> 2000" temos que remover o "> "
+        $condicao_compra = &config(buyAuto_1_zeny)
+        @condicao_compra_split = &split(' ',$condicao_compra) 
+        $valor_minimo = @condicao_compra_split[1]
+        [
+        log ====================================
+        log Checando se tenho no mínimo $valor_minimo
+        log ====================================
+        ]
+        if ( $.zeny >= $valor_minimo ) {
             do autobuy
 
         } else {
