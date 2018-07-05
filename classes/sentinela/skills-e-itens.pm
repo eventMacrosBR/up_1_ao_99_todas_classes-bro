@@ -309,7 +309,7 @@ automacro verificarFlechas {
         ]
         call pararDeAtacar
         do autosell
-        if ( $.zeny >= &config(buyAuto_1_zeny) ) {
+        if ( $.zeny >= int(&config(buyAuto_1_zeny)) ) {
             do autobuy
 
         } else {
