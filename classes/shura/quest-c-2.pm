@@ -54,7 +54,7 @@ sub inicializarParametrosQuestClasse2 {
 #Não esta completo
 #falta a parte dos cogumelos e a parte final
 #Testar no BRO pois esta pro IRO RESTART
-automacro configurar Monge 1 {
+automacro configurarMonge1 {
     NotInMap prt_monk
     NotInMap monk_in
     JobLevel = 50
@@ -81,7 +81,7 @@ automacro configurar Monge 1 {
     }
 }
 
-automacro virar Monge 1 {
+automacro virarMonge1 {
     InMap prt_monk
     QuestInactive 3016 
     priority 2
@@ -96,7 +96,7 @@ automacro virar Monge 1 {
 #3016#Mudança de Classe: Monge#SG_FEEL#QUE_NOIMAGE#
 #'Você quer ser um Monge? Então entre e fale com o Monge ^0000FFMuhae^000000. Ele vai orientar você.' #
 ##
-automacro virar Monge 2 {
+automacro virarMonge2 {
     QuestActive 3016
     priority 2
     run-once 1
@@ -109,7 +109,7 @@ automacro virar Monge 2 {
 #3023#Mudança de Classe: Monge#SG_FEEL#QUE_NOIMAGE#
 #'Vou avaliar seu esforço e decidir se você está qualificado ou não. Você deve trazer ^3355FFEspinhos de Porco-Espinho, Teias de Aranha e Patas de Inseto^000000.' #
 #5 Espinhos de Porco-Espinho, 20 Teias de Aranha e 10 Patas de Inseto #
-automacro virar Monge 3 {
+automacro virarMonge3 {
     QuestActive 3023
     priority 2
     timeout 300
@@ -187,7 +187,7 @@ automacro virar Monge 3 {
 #3023#Mudança de Classe: Monge#SG_FEEL#QUE_NOIMAGE#
 #'Vou avaliar seu esforço e decidir se você está qualificado ou não. Você deve trazer ^3355FFEspinhos de Porco-Espinho, Teias de Aranha e Patas de Inseto^000000.' #
 #5 Espinhos de Porco-Espinho, 20 Teias de Aranha e 10 Patas de Inseto #
-automacro virar Monk 4  {
+automacro virarMonk4 {
     InInventory "Cobweb" >= 20
     InInventory "Porcupine Quill" >= 5
     InInventory "Grasshopper's Leg" >= 10
