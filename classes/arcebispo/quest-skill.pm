@@ -50,64 +50,95 @@ automacro questLuzDivina_pegarItens {
         $tenhoCristal = nao
         
         if (&invamount(2608) < 1 ) { #Rosário
+            [
+            log ===================================
+            log = não tenho rosário, indo comprar
+            log ===================================
+            ]
             do move prt_church 108 124
             do talk &npc(/Madre/)
             do store
             do buy &store(2608) 1
         } else {
-            log Já tenho Rosário, indo comprar Opala
+            log Já tenho Rosário, checando se tenho Opala
             $tenhoRosario = sim
         }
         
         if (&invamount(Opala) < 1) {
+            [
+            log ===================================
+            log = Não tenho Opala,
+            log = Configurando pra comprar
+            log ===================================
+            ]
             if (&config(BetterShopper_0) != Opala) {
-                [
-                log ===================================
-                log = Configurando pra comprar Opala
-                log ===================================
-                ]
-                do conf lockMap prontera
-                do conf route_randomWalk 1
-                do conf route_randomWalk_inTown 1
+                log criando bloco do BetterShopper para comprar Opala
                 if (checarSeExisteNoConfig("BetterShopper_0") = nao) {
                     adicionaBetterShopper()
                     pause 1
                     do reload config
                 }
-                do conf BetterShopper_0 Opala
-                do conf BetterShopper_0_maxPrice 10000
-                do conf BetterShopper_0_maxAmount 1
-                do conf BetterShopper_0_disabled 0
-                do conf -f BetterShopper_on 1
             }
+            
+            if (&config(lockMap) != prontera)               do conf lockMap prontera
+            if (&config(route_randomWalk) != 1)             do conf route_randomWalk 1
+            if (&config(route_randomWalk_inTown) != 1)      do conf route_randomWalk_inTown 1
+            if (&config(BetterShopper_0) != Opala)          do conf BetterShopper_0 Opala
+            if (&config(BetterShopper_0_maxPrice) != 1000)  do conf BetterShopper_0_maxPrice 1000
+            if (&config(BetterShopper_0_maxAmount) != 1)    do conf BetterShopper_0_maxAmount 1
+            if (&config(BetterShopper_0_disabled) != 0)     do conf BetterShopper_0_disabled 0
+            if (&config(BetterShopper_on) != 1)             do conf -f BetterShopper_on 1
+            
+            [
+            log ===================================
+            log = configurado, agora tentarei comprar Opala
+            log ===================================
+            ]
+            stop
         } else {
-            log Já tenho Opala
             if (a&config(BetterShopper_0) != a) do conf BetterShopper_0 none #desabilitar
             if (&config(BetterShopper_0_disabled) != 1) do conf BetterShopper_0_disabled 1
+            log Já tenho Opala, checando se tenho Cristal Azul
             $tenhoOpala = sim
         }
         
         if (&invamount(Cristal Azul) < 1) {
+            [
+            log ===================================
+            log = Não tenho Cristal Azul, 
+            log = Configurando para comprar
+            log ===================================
+            ]
             if (&config(BetterShopper_1) != Cristal Azul) {
-                do conf lockMap prontera
-                do conf route_randomWalk 1
-                do conf route_randomWalk_inTown 1
+                log criando bloco do BetterShopper para o Cristal Azul
                 if (checarSeExisteNoConfig("BetterShopper_1") = nao) {
                     adicionaBetterShopper()
                     pause 1
                     do reload config
                 }
-                do conf BetterShopper_1 Cristal Azul
-                do conf BetterShopper_1_maxPrice 10000
-                do conf BetterShopper_1_maxAmount 1
-                do conf BetterShopper_1_disabled 0
-                do conf -f BetterShopper_on 1
             }
+            
+            if (&config(lockMap) != prontera)               do conf lockMap prontera
+            if (&config(route_randomWalk) != 1)             do conf route_randomWalk 1
+            if (&config(route_randomWalk_inTown) != 1)      do conf route_randomWalk_inTown 1
+            if (&config(BetterShopper_1) != Cristal Azul)   do conf BetterShopper_1 Cristal Azul
+            if (&config(BetterShopper_1_maxPrice) != 10000) do conf BetterShopper_1_maxPrice 10000
+            if (&config(BetterShopper_1_maxAmount) != 1)    do conf BetterShopper_1_maxAmount 1
+            if (&config(BetterShopper_1_disabled) != 0)     do conf BetterShopper_1_disabled 0
+            if (&config(BetterShopper_on) != 1)             do conf -f BetterShopper_on 1
+            
+            [
+            log ===================================
+            log = configurado, agora tentarei comprar Cristal Azul
+            log ===================================
+            ]
+            stop
         } else {
-            log Já tenho Cristal Azul
             if (a&config(BetterShopper_1) != a) do conf BetterShopper_1 none #desabilitar
             if (&config(BetterShopper_1_disabled) != 1) do conf BetterShopper_1_disabled 1
             $tenhoCristal = sim
+            log Já tenho Cristal Azul, portanto
+            log devo ter todos os itens (eu espero)
         }
         
         if ( $tenhoRosario = sim && $tenhoOpala = sim && $tenhoCristal = sim ) {
@@ -118,14 +149,19 @@ automacro questLuzDivina_pegarItens {
             ]
             if (a&config(BetterShopper_0) != a) do conf BetterShopper_0 none #desabilitar
             if (&config(BetterShopper_0_disabled) != 1) do conf BetterShopper_0_disabled 1
+            
             if (a&config(BetterShopper_1) != a) do conf BetterShopper_1 none #desabilitar
             if (&config(BetterShopper_1_disabled) != 1) do conf BetterShopper_1_disabled 1
+            
             do conf -f quest_luz_divina falar_com_npc
             do conf -f BetterShopper_on 0
         } else {
             [
             log ===================================
             log = ainda não tenho todos os itens para a quest
+            log = falta Rosário      if ($tenhoRosario = nao)
+            log = falta Opala        if ($tenhoOpala   = nao)
+            log = falta Cristal Azul if ($tenhoCristal = nao)
             log ===================================
             ]
         }
