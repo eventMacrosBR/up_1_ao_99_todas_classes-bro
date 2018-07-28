@@ -99,7 +99,7 @@ automacro questRenascer_salvarNaCidadeQueVouUparEDefinirVariavel {
         #evita problemas de o char lvl 1 morrer e voltar pra juno
         #sem dinheiro pra ir pro mapa certo
         #pega o mapa do lvl 1
-        extrairMapasDeUp(1, "sim") # o "sim" representa que queremos os mapa de up de transclasse
+        %mapa = extrairMapasDeUp(1, "sim") # o "sim" representa que queremos os mapa de up de transclasse
         $mapaQueVouUparNolvl1 = $mapa{saveMap}
         if (&config(saveMap) != $mapaQueVouUparNolvl1) {
             call salvarNaCidade "$mapaQueVouUparNolvl1"
