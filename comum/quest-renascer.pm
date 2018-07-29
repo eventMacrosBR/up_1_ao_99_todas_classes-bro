@@ -31,8 +31,8 @@ automacro questRenascer_chegueilvl99 {
             [
             do conf dealAuto 3
             do conf dealAuto_names $parametrosQuestClasseRenascer{amigo}
-            do iconf Camisa de Algodão 0 1 0
-            do iconf "Faca [3]" 0 1 0
+            do iconf 2301 0 1 0 # Camisa de Algodão
+            do iconf 1201 0 1 0 # Faca [3]
 
             # é uma forma que eu pensei de desabilitar TODOS os getAuto
             # independente de quantos hajam
