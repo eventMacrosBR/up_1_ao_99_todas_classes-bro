@@ -75,88 +75,29 @@ automacro virarAlquimistaInicio {
 #################################################################################
 
 automacro virarAlquimista_descobrindoQualItem_fornalha {
-    NpcMsg /trazer 100 Mini-Fornalhas para completar/
+    NpcMsg /trazer 100 Mini-Fornalhas/
     exclusive 1
         call {
-        [
-        log =*=*=*=*=*=*=*=*=*=*=*=*=*=*==*=*=*=
-        log a mensagem é: $.NpcMsgLastMsg
-        log *=*=*=*=*=*=*=*=*=*=*=*==*=*=*=*=*=*
-        ]
-        $mensagemExtraida = extrairMensagem($.NpcMsgLastMsg)
-        if ( $mensagemExtraida =~ /F.ria Selvagem/) {
-            do conf -f questAlquimista comprarPocao
-        } elsif ( $mensagemExtraida =~ /Flecha/ ) {
-            do conf -f questAlquimista comprarFlecha
-        } elsif ( $mensagemExtraida =~ /Fornalha/ ) {
-            do conf -f questAlquimista comprarFornalha
-        } else {
-            log erro configurado proximo passo, cheque a macro
-            stop
-        }
+        do conf -f questAlquimista comprarFornalha
         do conf -f virarAlquimista true
     }
 }
 
 automacro virarAlquimista_descobrindoQualItem_flecha {
-    NpcMsg /trazer (.+) para completar/
+    NpcMsg /trazer \d+ Flecha/
     exclusive 1
         call {
-        [
-        log =*=*=*=*=*=*=*=*=*=*=*=*=*=*==*=*=*=
-        log a mensagem é: $.NpcMsgLastMsg
-        log *=*=*=*=*=*=*=*=*=*=*=*==*=*=*=*=*=*
-        ]
-        $mensagemExtraida = extrairMensagem($.NpcMsgLastMsg)
-        if ( $mensagemExtraida =~ /F.ria Selvagem/) {
-            do conf -f questAlquimista comprarPocao
-        } elsif ( $mensagemExtraida =~ /Flecha/ ) {
-            do conf -f questAlquimista comprarFlecha
-        } elsif ( $mensagemExtraida =~ /Fornalha/ ) {
-            do conf -f questAlquimista comprarFornalha
-        } else {
-            log erro configurado proximo passo, cheque a macro
-            stop
-        }
+        do conf -f questAlquimista comprarFlecha
         do conf -f virarAlquimista true
     }
 }
 
 automacro virarAlquimista_descobrindoQualItem_pocao {
-    NpcMsg /trazer (.+) para completar/
+    NpcMsg /trazer \d+ .+F.ria Selvagem/
     exclusive 1
         call {
-        [
-        log =*=*=*=*=*=*=*=*=*=*=*=*=*=*==*=*=*=
-        log a mensagem é: $.NpcMsgLastMsg
-        log *=*=*=*=*=*=*=*=*=*=*=*==*=*=*=*=*=*
-        ]
-        $mensagemExtraida = extrairMensagem($.NpcMsgLastMsg)
-        if ( $mensagemExtraida =~ /F.ria Selvagem/) {
-            do conf -f questAlquimista comprarPocao
-        } elsif ( $mensagemExtraida =~ /Flecha/ ) {
-            do conf -f questAlquimista comprarFlecha
-        } elsif ( $mensagemExtraida =~ /Fornalha/ ) {
-            do conf -f questAlquimista comprarFornalha
-        } else {
-            log erro configurado proximo passo, cheque a macro
-            stop
-        }
+        do conf -f questAlquimista comprarPocao
         do conf -f virarAlquimista true
-    }
-}
-
-sub extrairMensagem {
-    use utf8;
-    my ($mensagem) = @_;
-    warning "mensagem e: $mensagem\n";
-    my $escapado = quotemeta($mensagem);
-    warning "quotemeta message: $escapado\n";
-    if ($escapado =~ /trazer (.+) para completar/) {
-        return $1;
-    } else {
-        warning "ERRO, NÃO FOI POSSIVEL EXTRAIR MENSAGEM\n";
-        return -1;
     }
 }
 
