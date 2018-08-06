@@ -291,8 +291,9 @@ macro rebornarAgora {
         log ===================================
         log = tenho que estar em um dos seguintes mapas:
         log = yuno
-        log = yuno_in_05
         log = yuno_in_01
+        log = yuno_in_02
+        log = yuno_in_05
         log = mas estou em $.map...
         log = impossível começar a rebornar
         log = parando macro
@@ -331,7 +332,7 @@ macro rebornarAgora {
     log ==========================
         
     #se chegou até aqui é porque está tudo certinho
-    do conf -f questRenascer_estagio preparando
+    do conf -f questRenascer_estagio 1
 }
 
 macro ajuda {
