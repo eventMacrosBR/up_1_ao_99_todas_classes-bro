@@ -273,6 +273,12 @@ automacro questRenascer_tudoCertoVamosRebornar {
     QuestInactive 1000
     call {
         do conf -f o_que_estou_fazendo indoRebornar!!!
+        [
+        do ai auto
+        do conf lockMap 0
+        call pararDeAtacar
+        do conf sitAuto_idle 0
+        ]
         # se tiver tudo certinho pra começar o reborn ,essa automacro ativa
         do conf -f questRenascer_estagio 1
     }
@@ -280,21 +286,15 @@ automacro questRenascer_tudoCertoVamosRebornar {
 
 automacro questRenascer__primeiroEstagio {
     ConfigKey questRenascer_estagio 1
-    InMap yuno
+    InMap yuno, yuno_in02
     exclusive 1
     QuestInactive 1000
     call {
-        [
-        do ai auto
-        do conf lockMap 0
-        do conf attackAuto 0
-        do conf route_randomWalk 0
-        do conf sitAuto_idle 0
-        ]
         do move yuno_in02
         if ($.map = yuno_in02) do conf questRenascer_estagio 2
     }
 }
+
 automacro questRenascer_primeiroEstagio_bugada {
     ConfigKey questRenascer_estagio 1
     NotInMap yuno
@@ -311,11 +311,10 @@ automacro questRenascer_primeiroEstagio_bugada {
 automacro questRenascer_pagarTaxa {
     ConfigKey questRenascer_estagio 2
     Zeny = 1285000
-    InMap yuno_in02
     exclusive 1
     QuestInactive 1000
     call {
-        do move 90 166
+        do move yuno_in02 90 166
         ####do talknpc 88 164 c w1 c w1 c w1 r0
         do talk &npc(/Metheus /)
         do talk resp 0

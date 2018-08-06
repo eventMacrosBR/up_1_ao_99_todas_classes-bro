@@ -266,17 +266,73 @@ macro termineiQuestClasse2TManualmente {
 }
 
 macro rebornarAgora {
-    [
     log ==========================
     log =Preparar para renascer
     log =Checando algumas coisas
-    log ==========================
-    ]
-    if ($.weight == 0 && $.map == juno && $.zeny == 1285000 && $.lvl == 99 && $.joblvl == 50 ) {
-         do conf -f questRenascer_estagio preparando
+    
+    if ($.weight < 1) {
+        log = peso zero, correto
     } else {
-         log Não tem as condições necessárias para rebornar
+        [
+        log ===================================
+        log = ainda não está com zero de peso
+        log = impossível começar a rebornar
+        log = peso: $.weight
+        log = parando macro
+        log ===================================
+        ]
+        stop
     }
+    
+    if ($.map =~ /yuno/) {
+        log = mapa $.map, correto
+    } else {
+        [
+        log ===================================
+        log = tenho que estar em um dos seguintes mapas:
+        log = yuno
+        log = yuno_in_01
+        log = yuno_in_02
+        log = yuno_in_05
+        log = mas estou em $.map...
+        log = impossível começar a rebornar
+        log = parando macro
+        log ===================================
+        ]
+        stop
+    }
+    
+    if ($.lvl = 99) {
+        log = lvl de base 99, correto
+    } else {
+        [
+        log ===================================
+        log = ainda nao estou no lvl 99 de base
+        log = impossível começar a rebornar
+        log = lvl de base que estou: $.lvl
+        log = parando macro
+        log ===================================
+        ]
+        stop
+    }
+    
+    if ($.joblvl = 50) {
+        log = lvl de classe 50, correto
+    } else {
+        [
+        log ===================================
+        log = ainda não estou no lvl 50 de classe
+        log = impossível começar a rebornar
+        log = lvl de classe que estou: $.joblvl
+        log = parando a macro
+        log ===================================
+        ]
+        stop
+    }
+    log ==========================
+        
+    #se chegou até aqui é porque está tudo certinho
+    do conf -f questRenascer_estagio 1
 }
 
 macro ajuda {
