@@ -77,7 +77,7 @@ automacro virarAlquimistaInicio {
 automacro virarAlquimista_descobrindoQualItem_fornalha {
     NpcMsg /trazer 100 Mini-Fornalhas/
     exclusive 1
-        call {
+    call {
         do conf -f questAlquimista comprarFornalha
         do conf -f virarAlquimista true
     }
@@ -86,7 +86,7 @@ automacro virarAlquimista_descobrindoQualItem_fornalha {
 automacro virarAlquimista_descobrindoQualItem_flecha {
     NpcMsg /trazer \d+ Flecha/
     exclusive 1
-        call {
+    call {
         do conf -f questAlquimista comprarFlecha
         do conf -f virarAlquimista true
     }
@@ -95,7 +95,7 @@ automacro virarAlquimista_descobrindoQualItem_flecha {
 automacro virarAlquimista_descobrindoQualItem_pocao {
     NpcMsg /trazer \d+ .+F.ria Selvagem/
     exclusive 1
-        call {
+    call {
         do conf -f questAlquimista comprarPocao
         do conf -f virarAlquimista true
     }
