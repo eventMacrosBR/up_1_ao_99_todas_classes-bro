@@ -136,6 +136,39 @@ automacro configurarEsconderijo_e_AtaqueSupresa {
     }
 }
 
+automacro desconfigurarAtaqueSurpresa {
+    ConfigKey useSelf_skill_1 TF_HIDING
+    ConfigKey useSelf_skill_2 RG_RAID
+    SkillLevel RG_RAID != 5
+    exclusive 1
+    call {
+        [
+        log ===================================
+        log = Estou com ataque surpresa configurado
+        log = porém eu não tenho a skill, ou ela 
+        log = não está no lvl 5
+        log = DESCONFIGURANDO
+        log ===================================
+        ]
+        
+        [
+        do conf useSelf_skill_1 none
+        do conf useSelf_skill_1_lvl none
+        do conf useSelf_skill_1_sp none
+        do conf useSelf_skill_1_aggressives none #Você decide acima de quantos monstros você deseja usar a habilidade
+        do conf useSelf_skill_1_whenStatusInactive none
+        ]
+        
+        [
+        do conf useSelf_skill_2 none
+        do conf useSelf_skill_2_lvl none
+        do conf useSelf_skill_2_sp none
+        do conf useSelf_skill_2_whenStatusInactive none
+        do conf useSelf_skill_2_whenStatusActive none
+        ]
+    }
+}
+
 automacro configurarPotLaranja {
     InInventoryID 569 < 1 #Poção de Aprendiz (não pode ter essa poção)
     InStorageID 569 < 1 #Poção de Aprendiz (não pode ter essa poção)
@@ -154,7 +187,7 @@ automacro configurarPotLaranja {
         log = configurando poção laranja
         log ===================================
         ]
-        if (&invamount(569) != 0 || &storamount(569) != 0) {
+        if (&invamount(569) > 0 || &storamount(569) > 0) {
             [
             log ===================================
             log = um bug ocorreu
