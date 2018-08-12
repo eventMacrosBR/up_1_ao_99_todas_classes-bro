@@ -84,7 +84,7 @@ automacro questLuzDivina_pegarItens {
             if (&config(route_randomWalk) != 1)             do conf route_randomWalk 1
             if (&config(route_randomWalk_inTown) != 1)      do conf route_randomWalk_inTown 1
             if (&config(BetterShopper_0) != Opala)          do conf BetterShopper_0 Opala
-            if (&config(BetterShopper_0_maxPrice) != 1000)  do conf BetterShopper_0_maxPrice 1000
+            if (&config(BetterShopper_0_maxPrice) != 10000)  do conf BetterShopper_0_maxPrice 10000
             if (&config(BetterShopper_0_maxAmount) != 1)    do conf BetterShopper_0_maxAmount 1
             if (&config(BetterShopper_0_disabled) != 0)     do conf BetterShopper_0_disabled 0
             if (&config(BetterShopper_on) != 1)             do conf -f BetterShopper_on 1
@@ -138,7 +138,7 @@ automacro questLuzDivina_pegarItens {
             if (&config(BetterShopper_1_disabled) != 1) do conf BetterShopper_1_disabled 1
             $tenhoCristal = sim
             log Já tenho Cristal Azul, portanto
-            log devo ter todos os itens (eu espero)
+            log devo ter todos os itens, eu espero....
         }
         
         if ( $tenhoRosario = sim && $tenhoOpala = sim && $tenhoCristal = sim ) {
