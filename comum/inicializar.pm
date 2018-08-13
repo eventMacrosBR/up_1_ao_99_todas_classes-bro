@@ -77,7 +77,7 @@ automacro inicializar {
     }
 }
 
-automacro atualizadorBuild {
+automacro atualizarBuild {
     BaseLevel > 0
     priority -997 #sempre a terceira a executar
     timeout 300 #atualiza as variáveis a cada 5 minutos
@@ -85,24 +85,54 @@ automacro atualizadorBuild {
     call atualizarBuild
 }
 
-automacro atualizarBuild_mudancaDeNivel {
-    SimpleHookEvent base_level_changed, job_level_changed
-    exclusive 1
-    call atualizarBuild
-}
-
 macro atualizarBuild {
 
     $idClasseAtual = pegarID() #sub se encontra no arquivo utilidades.pm
-    do conf skillsAddAuto 1 if (&config(skillsAddAuto) != 1)
-    if ($idClasseAtual ~ 0, 4023, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
-        do conf statsAddAuto_list $configsBuild{statsPadrao} if (&config(statsAddAuto_list) != $configsBuild{statsPadrao})
-    } elsif ($idClasseAtual ~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}) {
-        do conf statsAddAuto_list $configsBuild{statsPadraoTransclasse} if (&config(statsAddAuto_list) != $configsBuild{statsPadraoTransclasse})
-    } elsif ($idClasseAtual ~ $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idBC3Alt} ) {
-        do conf statsAddAuto_list $configsBuild{statsPadraoClasse3} if (&config(statsAddAuto_list) != $configsBuild{statsPadraoClasse3})
+    call atualizarBuild_atributos
+    call atualizarBuild_skills
+    
+    if (&config(questc2_implementada) != true && pegarID() = $parametrosQuestClasse1{idC1}) {
+        [
+        do eval Log::warning "=========================================================\n"
+        do eval Log::warning "  AVISO!\n"
+        do eval Log::warning "  ------\n"
+        do eval Log::warning "Este script para classe escolhida ainda está incompleto.\n"
+        do eval Log::warning "Portanto haverá um grande número de bugs e \n"
+        do eval Log::warning "não fará a quest da classe 2.\n"
+        do eval Log::warning "Ao continuar você está ciente de que essa macro não fará\n"
+        do eval Log::warning "tudo por você.\n"
+        do eval Log::warning "==========================================================\n"
+        ]
+        pause 4
     }
-    else {
+}
+
+macro atualizarBuild_atributos {
+    $classeSemBuildDeAtributos = undef
+    do conf statsAddAuto 1 if (&config(statsAddAuto) != 1)
+    do conf statsAddAuto_dontUseBonus 1 if (&config(statsAddAuto_dontUseBonus) != 1)
+    if ($idClasseAtual ~ 0, 4023, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
+        if ($configsBuild{statsPadrao} != -1) {
+            do conf statsAddAuto_list $configsBuild{statsPadrao} if (&config(statsAddAuto_list) != $configsBuild{statsPadrao})
+        } else {
+            $classeSemBuildDeAtributos = 1
+        }
+        
+    } elsif ($idClasseAtual ~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}) {
+        if ($configsBuild{statsPadraoTransclasse} != -1) {
+            do conf statsAddAuto_list $configsBuild{statsPadraoTransclasse} if (&config(statsAddAuto_list) != $configsBuild{statsPadraoTransclasse})
+        } else {
+            $classeSemBuildDeAtributos = 1
+        }
+        
+    } elsif ($idClasseAtual ~ $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idBC3Alt} ) {
+        if ($configsBuild{statsPadraoClasse3} != -1) {
+            do conf statsAddAuto_list $configsBuild{statsPadraoClasse3} if (&config(statsAddAuto_list) != $configsBuild{statsPadraoClasse3})
+        } else {
+            $classeSemBuildDeAtributos = 1
+        }
+    
+    } else {
         [
         log ===================================
         log = ocorreu um erro ao definir a build de atributos padrão para sua classe
@@ -110,105 +140,152 @@ macro atualizarBuild {
         log = \$idClasseAtual : "$idClasseAtual"
         log ===================================
         ]
+        stop
+    }
+    
+    if ($classeSemBuildDeAtributos = 1) {
+        [
+        do eval Log::error "===================================\n"
+        do eval Log::error "= NÃO EXISTE UMA BUILD DE ATRIBUTOS PRONTA PARA A CLASSE\n"
+        do eval Log::error "= SEU BOT NÃO VAI DISTRIBIUR PONTOS DE ATRIBUTOS\n"
+        do eval Log::error "= SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD\n"
+        do eval Log::error "===================================\n"
+        ]
+        stop
     }
 
-    do conf statsAddAuto 1 if (&config(statsAddAuto) != 1)
-    do conf statsAddAuto_dontUseBonus 1 if (&config(statsAddAuto_dontUseBonus) != 1)
-    
-    #se estivermos lvl 99, não precisamos definir mapa de up
-    if ($.lvl != 99) {
-        #sub 'extrairMapasDeUp' pega o mapa de up e o saveMap correto dependendo do lvl atual
-        # $mapa{lockMap}
-        # $mapa{saveMap}
-         if ($idClasseAtual ~ 0, 4023, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
-            %mapa = extrairMapasDeUp("$.lvl", "nao") # "nao" significa que ele não é transclasse
-        } elsif ($idClasseAtual ~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}) {
-            %mapa = extrairMapasDeUp("$.lvl", "sim") # "sim" significa que ele já rebornou e é trans
-        }
-    }
-    #futuramente: adicionar uma elsif para caso seja classe 3
-    
+    #se chegar até aqui tudo deu certo
+    [
+    log ===================================
+    log = build de atributos atualizada
+    log ===================================
+    ]
+}
+
+macro atualizarBuild_skills {
+    do conf skillsAddAuto 1 if (&config(skillsAddAuto) != 1)
+    $classeSemBuild = undef
     
     if ($idClasseAtual ~ 0, 161, 4001, 4023) { #Aprendiz / Aprendiz T. / Baby Aprendiz
         do conf skillsAddAuto_list $configsBuild{skillsAprendiz} if (&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz})
+        [
+        log ===================================
+        log = build de aprendiz configurada
+        log ===================================
+        ]
     } elsif ($idClasseAtual ~ $parametrosClasses{idC1}, $parametrosClasses{idBC1}) { #Classes 1
         if ($configsBuild{skillsClasse1} != -1) { #se existir as skills
             do conf skillsAddAuto_list $configsBuild{skillsClasse1} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1})
-        } else {
             [
             log ===================================
-            log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A CLASSE 1
-            log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
-            log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
+            log = build de skills da classe 1 configurada
             log ===================================
             ]
+        } else {
+            $classeSemBuild = classe 1
         }
     } elsif ($idClasseAtual ~ $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}) { #Classes 2
         if ($configsBuild{skillsClasse2} != -1) {
             do conf skillsAddAuto_list $configsBuild{skillsClasse2} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2})
-        } else {
             [
             log ===================================
-            log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A SUA CLASSE 2
-            log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
-            log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
+            log = build de skills da classe 2 configurada
             log ===================================
-            ] 
+            ]
+        } else {
+            $classeSemBuild = classe 2
         }
     } elsif ($idClasseAtual == $parametrosClasses{idC1T}) { #Classes 1T
         if ($configsBuild{skillsClasse1T} != -1) {
             do conf skillsAddAuto_list $configsBuild{skillsClasse1T} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1T})
-        } else {
             [
             log ===================================
-            log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A SUA CLASSE 1 TRANS
-            log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
-            log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
+            log = build de skills da classe 1 Trans configurada
             log ===================================
-            ] 
+            ]
+        } else {
+            $classeSemBuild = classe 1 Trans
         }
     } elsif ($idClasseAtual ~ $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt} ) { #Classes 2T
         if ($configsBuild{skillsClasse2T} != -1) {
             do conf skillsAddAuto_list $configsBuild{skillsClasse2T} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2T})
-        } else {
             [
             log ===================================
-            log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A SUA CLASSE 2 TRANS
-            log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
-            log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
+            log = build de skills da classe 2 Trans configurada
             log ===================================
-            ] 
+            ]
+        } else {
+            $classeSemBuild = classe 2 trans
         }
     } elsif ($idClasseAtual ~ $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idBC3Alt}) { #Classes 3
         if ($configsBuild{skillsClasse3} != -1) {
             do conf skillsAddAuto_list $configsBuild{skillsClasse3} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse3})
-        } else {
             [
             log ===================================
-            log = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A SUA CLASSE 3
-            log = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
-            log = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
+            log = build de skills da classe 3 configurada
             log ===================================
-            ] 
+            ]
+        } else {
+            $classeSemBuild = classe 3
         }
-    }
-    else {
-        do eval Log::error "Não foi possivel definir qual é a sua classe.\n";
+    } else {
+        do eval Log::error "===================================\n"
+        do eval Log::error "Não foi possivel saber qual é a sua classe.\n";
         do eval Log::error "ID encontrado: $idClasseAtual\n";
+        do eval Log::error "===================================\n"
+        stop
     }
-    
-    if (&config(questc2_implementada) != true && pegarID() = $parametrosQuestClasse1{idC1}) {
+    if (&defined($classeSemBuild) = 1) {
         [
-        log =========================================================
-        log   AVISO!
-        log   ------
-        log Este script para classe escolhida ainda está incompleto.
-        log Portanto haverá um grande número de bugs e 
-        log não fará a quest da classe 2.
-        log Ao continuar você está ciente de que essa macro não fará
-        log tudo por você.
-        log ==========================================================
+        do eval Log::error "===================================\n"
+        do eval Log::error "= NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A $classeSemBuild\n"
+        do eval Log::error "= SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE\n"
+        do eval Log::error "= SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD\n"
+        do eval Log::error "===================================\n"
         ]
+        stop
     }
 }
 
+
+automacro atualizarMapasDeUp_hook {
+    SimpleHookEvent base_level_changed, job_level_changed
+    exclusive 1
+    call atualizarMapasDeUp
+}
+
+automacro atualizarMapasDeUp_ACada5Minutos {
+    timeout 300
+    exclusive 1
+    priority -997 #sempre a quarta a executar
+    BaseLevel != 99 #se estivermos lvl 99, não precisamos definir mapa de up
+    call atualizarMapasDeUp
+}
+
+macro atualizarMapasDeUp {
+    #sub 'extrairMapasDeUp' pega o mapa de up e o saveMap correto dependendo do lvl atual
+    # $mapa{lockMap}
+    # $mapa{saveMap}
+    if ($idClasseAtual ~ 0, 4023, $parametrosClasses{idC1}, $parametrosClasses{idBC1}, $parametrosClasses{idC2}, $parametrosClasses{idBC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2Alt} ) {
+        %mapa = extrairMapasDeUp("$.lvl", "nao") # "nao" significa que ele não é transclasse
+    } elsif ($idClasseAtual ~ 4001, $parametrosClasses{idC1T}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}) {
+        %mapa = extrairMapasDeUp("$.lvl", "sim") # "sim" significa que ele já rebornou e é trans
+    } else {
+        [
+        do eval Log::error "===================================\n"
+        do eval Log::error "= ERRO:\n"
+        do eval Log::error "= impossível definir locais de up\n"
+        do eval Log::error "= contate um dos criadores da macro\n"
+        do eval Log::error "===================================\n"
+        ]
+        stop
+    }
+    #futuramente: adicionar uma elsif para caso seja classe 3
+    
+    [
+    log ===================================
+    log = mapas de up atualizados
+    log = vou upar em $mapa{lockMap} e salvar em $mapa{cidade}
+    log ===================================
+    ]
+}
