@@ -285,7 +285,7 @@ macro atualizarMapasDeUp {
     [
     log ===================================
     log = mapas de up atualizados
-    log = vou upar em $mapa{lockMap} e salvar em $mapa{cidade}
+    log = vou upar em $mapa{lockMap} e salvar em $mapa{saveMap}
     log ===================================
     ]
 }
