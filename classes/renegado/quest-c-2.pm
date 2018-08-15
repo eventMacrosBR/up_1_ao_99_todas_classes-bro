@@ -208,17 +208,52 @@ automacro virarArruaceiro_etapa3_coletarItens {
 #2018#Mudança de Classe: Arruaceiro#SG_FEEL#QUE_NOIMAGE#
 #Você deve pagar uma taxa de registro para se tornar Arruaceiro. Vou lhe dizer os itens que você precisa trazer e o quanto você precisa pagar de taxa. #
 #10.000 zenys, 10 Ossos, 6 Ervas Azuis, 10 Unhas Apodrecidas e 10 Mandíbulas Horrendas. #
-automacro virarArruaceiro_etapa3_tenhoOsItensIrProNpc {
-    InInventory "Erva Azul" >= 6
-    InInventory "Unha Apodrecida" >= 10
-    InInventory "Osso" >= 10
+automacro virarArruaceiro_etapa3_tenhoOsItensbugged {
+    ConfigKey questArruaceiro peguei
+    QuestActive 2018
+    Zeny < 10000
+    exclusive 1
+    timeout 60
+    call {
+        [
+        log por algum motivo, o bot não tem nem os 10k de zeny pra fazer a quest
+        log tentando resolver isso
+        log Se essa mensagem aparecer repetidas vezes, seu bot nao tem 
+        log zeny suficiente pra fazer a quest, logue manualmente nele
+        log e passa pelo menos 20k de zeny 
+        ]
+        do autosell
+    }
+}
+
+automacro virarArruaceiro_etapa3_tenhoOsItensbugged2 {
+    InInventory "Erva Azul"          >= 6
+    InInventory "Unha Apodrecida"    >= 10
+    InInventory "Osso"               >= 10
     InInventory "Mandíbula Horrenda" >= 10
+    QuestActive 2018
+    ConfigKeyNot questArruaceiro peguei
+    exclusive 1
+    call {
+        [
+        log ===================================
+        log = TENHO TODOS OS ITEMS DA QUEST!!!!
+        log ===================================
+        ]
+        do conf -f questArruaceiro peguei
+    }
+}
+
+#2018#Mudança de Classe: Arruaceiro#SG_FEEL#QUE_NOIMAGE#
+#Você deve pagar uma taxa de registro para se tornar Arruaceiro. Vou lhe dizer os itens que você precisa trazer e o quanto você precisa pagar de taxa. #
+#10.000 zenys, 10 Ossos, 6 Ervas Azuis, 10 Unhas Apodrecidas e 10 Mandíbulas Horrendas. #
+automacro virarArruaceiro_etapa3_tenhoOsItensIrProNpc {
+    ConfigKey questArruaceiro peguei
     QuestActive 2018
     Zeny > 9999
     NpcNotNear /Smith/
     exclusive 1
     call {
-        do conf -f questArruaceiro peguei
         log Vamos No NPC já temos os Itens...
         call pararDeAtacar
         do conf lockMap none
@@ -241,41 +276,13 @@ automacro virarArruaceiro_etapa3_tenhoOsItensIrProNpc {
 #2018#Mudança de Classe: Arruaceiro#SG_FEEL#QUE_NOIMAGE#
 #Você deve pagar uma taxa de registro para se tornar Arruaceiro. Vou lhe dizer os itens que você precisa trazer e o quanto você precisa pagar de taxa. #
 #10.000 zenys, 10 Ossos, 6 Ervas Azuis, 10 Unhas Apodrecidas e 10 Mandíbulas Horrendas. #
-automacro virarArruaceiro_etapa3_tenhoOsItensbugged {
-    InInventory "Erva Azul" >= 6
-    InInventory "Unha Apodrecida" >= 10
-    InInventory "Osso" >= 10
-    InInventory "Mandíbula Horrenda" >= 10
-    QuestActive 2018
-    Zeny < 10000
-    exclusive 1
-    call {
-        do conf -f questArruaceiro peguei
-        [
-        log por algum motivo, o bot não tem nem os 10k de zeny pra fazer a quest
-        log tentando resolver isso
-        log Se essa mensagem aparecer repetidas vezes, seu bot nao tem 
-        log zeny suficiente pra fazer a quest, logue manualmente nele
-        log e passa pelo menos 20k de zeny 
-        ]
-        do autosell
-    }
-}
-
-#2018#Mudança de Classe: Arruaceiro#SG_FEEL#QUE_NOIMAGE#
-#Você deve pagar uma taxa de registro para se tornar Arruaceiro. Vou lhe dizer os itens que você precisa trazer e o quanto você precisa pagar de taxa. #
-#10.000 zenys, 10 Ossos, 6 Ervas Azuis, 10 Unhas Apodrecidas e 10 Mandíbulas Horrendas. #
 automacro virarArruaceiro_etapa3_tenhoOsItens {
-    InInventory "Erva Azul" >= 6
-    InInventory "Unha Apodrecida" >= 10
-    InInventory "Osso" >= 10
+    ConfigKey questArruaceiro peguei
     NpcNear /Smith/
-    InInventory "Mandíbula Horrenda" >= 10
     Zeny > 9999
     QuestActive 2018
     exclusive 1
     call {
-        do conf -f questArruaceiro peguei
         do conf lockMap none
         do conf sitAuto_hp_upper 80
         call pararDeAtacar
