@@ -263,6 +263,9 @@ automacro atualizarMapasDeUp_ACada5Minutos {
 }
 
 macro atualizarMapasDeUp {
+    
+    $idClasseAtual = pegarID() #sub se encontra no arquivo utilidades.pm
+    
     #sub 'extrairMapasDeUp' pega o mapa de up e o saveMap correto dependendo do lvl atual
     # $mapa{lockMap}
     # $mapa{saveMap}
@@ -276,6 +279,7 @@ macro atualizarMapasDeUp {
         do eval Log::error "= ERRO:\n"
         do eval Log::error "= impossível definir locais de up\n"
         do eval Log::error "= contate um dos criadores da macro\n"
+        do eval Log::error "= Id encontrada: '$idClasseAtual'\n"
         do eval Log::error "===================================\n"
         ]
         stop
