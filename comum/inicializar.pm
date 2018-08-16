@@ -286,6 +286,20 @@ macro atualizarMapasDeUp {
     }
     #futuramente: adicionar uma elsif para caso seja classe 3
     
+    if (&exists($mapa{lockMap}) = 0 && $.lvl < 99) {
+        [
+        do eval Log::error "===================================\n"
+        do eval Log::error "= ERRO:\n"
+        do eval Log::error "= mapas de up não foram definidos\n"
+        do eval Log::error "= significa que seu bot provavelmente nao vai upar\n"
+        do eval Log::error "= Contate os criadores da eventMacro\n"
+        do eval Log::error "= se vc tiver usando o 'Openkore Premium' do oscar\n"
+        do eval Log::error "= peço encarecidamente que vá se fuder\n"
+        do eval Log::error "===================================\n"
+        ]
+        pause 240 #fica travado mesmo, não quero que funcione
+        stop
+    }
     [
     log ===================================
     log = mapas de up atualizados
