@@ -65,7 +65,7 @@ automacro inicializar {
         
         # Esse sub gera a hash %parametrosQuestClasse2T com a seguinte key:
         # $parametrosQuestClasse2T{npc}
-        inicializarParametrosQuestClasse2T()
+        %parametrosQuestClasse2T = inicializarParametrosQuestClasse2T()
         
         # Esse sub por enquanto nao gera nada, porque ainda não foi implementado
         inicializarParametrosQuestClasse3()
