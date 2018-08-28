@@ -43,7 +43,7 @@ automacro inicializar {
         # $parametrosQuestClasse1{precisaMover}
         # $parametrosQuestClasse1{sequenciaConversa}
         # $parametrosQuestClasse1{equipeIniciante}        
-        inicializarParametrosQuestClasse1()
+        %parametrosQuestClasse1 = inicializarParametrosQuestClasse1()
         
         # Esse sub gera a hash %parametrosQuestClasse1T com as seguintes keys:
         # $parametrosQuestClasse1T{nomeClasse}

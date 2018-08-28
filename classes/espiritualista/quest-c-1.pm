@@ -1,12 +1,10 @@
 sub inicializarParametrosQuestClasse1 {
     Commands::run("eventMacro disable questClasse1_virandoClasse1");
-    my %parametrosQuestClasse1 = (
+    return {
         nomeClasse => "arqueiro", #isso é gambiarra pra ele sair do campo de aprendiz e ir pra payon
         equipeIniciante => -1,
         mapa => 'payon_in02',
-    );
-    my $eventMacro = $eventMacro::Data::eventMacro;
-    $eventMacro->set_full_hash('parametrosQuestClasse1', \%parametrosQuestClasse1);
+    }
 }
 
 
