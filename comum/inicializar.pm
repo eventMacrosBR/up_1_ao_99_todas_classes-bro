@@ -34,7 +34,7 @@ automacro inicializar {
         # Esse sub gera a hash %parametrosQuestEden com as seguintes keys:
         # $parametrosQuestEden{armaLevel26e40}
         # $parametrosQuestEden{armaLevel60}
-        inicializarParametrosQuestEden()
+        %parametrosQuestEden = inicializarParametrosQuestEden()
         
         # Esse sub gera a hash %parametrosQuestClasse1 com as seguintes keys:
         # $parametrosQuestClasse1{nomeClasse}
