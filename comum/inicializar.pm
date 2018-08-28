@@ -151,6 +151,7 @@ macro atualizarBuild_atributos {
         do eval Log::error "= SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD\n"
         do eval Log::error "===================================\n"
         ]
+        pause 5
         stop
     }
 
@@ -229,10 +230,13 @@ macro atualizarBuild_skills {
             $classeSemBuild = classe 3
         }
     } else {
+        [
         do eval Log::error "===================================\n"
         do eval Log::error "Não foi possivel saber qual é a sua classe.\n";
         do eval Log::error "ID encontrado: $idClasseAtual\n";
+        do eval Log::error "Contate os criadores da eventMacro\n";
         do eval Log::error "===================================\n"
+        ]
         stop
     }
     if (&defined($classeSemBuild) = 1) {
@@ -243,6 +247,7 @@ macro atualizarBuild_skills {
         do eval Log::error "= SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD\n"
         do eval Log::error "===================================\n"
         ]
+        pause 5
         stop
     }
 }
