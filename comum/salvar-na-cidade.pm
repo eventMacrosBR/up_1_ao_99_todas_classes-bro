@@ -111,12 +111,35 @@ macro salvarNaCidade {
 automacro definirVariavelSaveMap {
     exclusive 1
     run-once 1
+    ConfigKeyNot saveMap_desejado           none
+    ConfigKeyNot saveMap_posicaoKafra       none
+    ConfigKeyNot saveMap_posicaoNpcVenda    none
+    ConfigKeyNot saveMap_posicaoNpcPraPocao none
     ConfigKey naSequenciaDeSalvamento true
     priority -4
     CheckOnAI auto, manual
     call {
         $saveMap = &config(saveMap_desejado)
         do ai manual
+    }
+}
+
+automacro salvarNaCidade_bugged {
+    exclusive 1
+    ConfigKey saveMap_desejado           none
+    ConfigKey saveMap_posicaoKafra       none
+    ConfigKey saveMap_posicaoNpcVenda    none
+    ConfigKey saveMap_posicaoNpcPraPocao none
+    ConfigKey naSequenciaDeSalvamento true
+    CheckOnAI auto, manual
+    call {
+        [
+        log ===================================
+        log = tem algum bug bem sério
+        log = tentando resolver
+        log ===================================
+        ]
+        do conf -f naSequenciaDeSalvamento false
     }
 }
 
