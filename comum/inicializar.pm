@@ -51,7 +51,7 @@ automacro inicializar {
         # $parametrosQuestClasse1T{mapa}
         # $parametrosQuestClasse1T{sequenciaConversa}
         # $parametrosQuestClasse1T{equipeIniciante}
-        inicializarParametrosQuestClasse1T()
+        %parametrosQuestClasse1T = inicializarParametrosQuestClasse1T()
         
         # Esse sub configura os itens da quest de classe 2 (para não vender nem guardar)
         if (pegarID() ~ $parametrosClasses{idC1}, 0, 4023 ) {
