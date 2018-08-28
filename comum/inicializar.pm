@@ -15,7 +15,7 @@ automacro inicializar {
         # parametrosClasses{idC1T}
         # parametrosClasses{idC2T}
         # parametrosClasses{idC3} 
-        inicializarParametrosClasses()
+        %parametrosClasses = inicializarParametrosClasses()
 
         # Configurações Gerais de Build
         
