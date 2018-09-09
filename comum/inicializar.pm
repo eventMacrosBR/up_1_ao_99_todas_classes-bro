@@ -216,7 +216,7 @@ macro atualizarBuild_skills {
         ]
         stop
     }
-    if (&defined($classeSemBuild)) {
+    if (&defined($classeSemBuild) = 1) {
         [
         do eval Log::error "===================================\n"
         do eval Log::error "= NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A $classeSemBuild\n"
@@ -227,7 +227,7 @@ macro atualizarBuild_skills {
         pause 5
         stop
     }
-    if (&defined($classeAtual)) {
+    if (&defined($classeAtual) = 1) {
         [
         log ===================================
         log = build de skills da $classeAtual ta certinha
