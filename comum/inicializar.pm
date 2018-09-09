@@ -10,11 +10,11 @@ automacro inicializar {
         # Configurações de Ids de classe
         
         # Esse sub gera a hash %parametrosClasses com as seguintes keys:
-        # parametrosClasses{idC1} 
-        # parametrosClasses{idC2} 
+        # parametrosClasses{idC1}
+        # parametrosClasses{idC2}
         # parametrosClasses{idC1T}
         # parametrosClasses{idC2T}
-        # parametrosClasses{idC3} 
+        # parametrosClasses{idC3}
         %parametrosClasses = inicializarParametrosClasses()
 
         # Configurações Gerais de Build
@@ -42,7 +42,7 @@ automacro inicializar {
         # $parametrosQuestClasse1{mapa}
         # $parametrosQuestClasse1{precisaMover}
         # $parametrosQuestClasse1{sequenciaConversa}
-        # $parametrosQuestClasse1{equipeIniciante}        
+        # $parametrosQuestClasse1{equipeIniciante}
         %parametrosQuestClasse1 = inicializarParametrosQuestClasse1()
         
         # Esse sub gera a hash %parametrosQuestClasse1T com as seguintes keys:
@@ -55,11 +55,11 @@ automacro inicializar {
         
         # Esse sub configura os itens da quest de classe 2 (para não vender nem guardar)
         if (pegarID() ~ $parametrosClasses{idC1}, 0, 4023 ) {
-            inicializarParametrosQuestClasse2("manter") 
+            inicializarParametrosQuestClasse2("manter")
             #Se o personagem for classe 1, então queremos manter os itens da
             #quest de classe 2 no inventário
         } else {
-            inicializarParametrosQuestClasse2("guardar") 
+            inicializarParametrosQuestClasse2("guardar")
             #se NÃO for classe 1, então guarda tudo no armazém
         }
         
@@ -80,7 +80,7 @@ automacro inicializar {
 automacro atualizarBuild {
     BaseLevel > 0
     priority -997 #sempre a terceira a executar
-    timeout 300 #atualiza as variáveis a cada 5 minutos
+    timeout 600 #atualiza as variáveis a cada 10 minutos
     exclusive 1
     call atualizarBuild
 }
@@ -103,7 +103,7 @@ macro atualizarBuild {
         do eval Log::warning "tudo por você.\n"
         do eval Log::warning "==========================================================\n"
         ]
-        pause 4
+        pause 5
     }
 }
 
