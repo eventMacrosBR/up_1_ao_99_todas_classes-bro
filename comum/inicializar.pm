@@ -158,7 +158,7 @@ macro atualizarBuild_atributos {
     #se chegar até aqui tudo deu certo
     [
     log ===================================
-    log = build de atributos atualizada
+    log = build de atributos ta certinho
     log ===================================
     ]
 }
@@ -166,66 +166,43 @@ macro atualizarBuild_atributos {
 macro atualizarBuild_skills {
     do conf skillsAddAuto 1 if (&config(skillsAddAuto) != 1)
     $classeSemBuild = undef
+    $classeAtual = undef
     
     if ($idClasseAtual ~ 0, 161, 4001, 4023) { #Aprendiz / Aprendiz T. / Baby Aprendiz
         do conf skillsAddAuto_list $configsBuild{skillsAprendiz} if (&config(skillsAddAuto_list) != $configsBuild{skillsAprendiz})
-        [
-        log ===================================
-        log = build de aprendiz configurada
-        log ===================================
-        ]
+        $classeAtual = Aprendiz
     } elsif ($idClasseAtual ~ $parametrosClasses{idC1}, $parametrosClasses{idBC1}) { #Classes 1
         if ($configsBuild{skillsClasse1} != -1) { #se existir as skills
             do conf skillsAddAuto_list $configsBuild{skillsClasse1} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1})
-            [
-            log ===================================
-            log = build de skills da classe 1 configurada
-            log ===================================
-            ]
+            $classeAtual = Classe 1
         } else {
             $classeSemBuild = classe 1
         }
     } elsif ($idClasseAtual ~ $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}) { #Classes 2
         if ($configsBuild{skillsClasse2} != -1) {
             do conf skillsAddAuto_list $configsBuild{skillsClasse2} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2})
-            [
-            log ===================================
-            log = build de skills da classe 2 configurada
-            log ===================================
-            ]
+            $classeAtual = Classe 2
         } else {
             $classeSemBuild = classe 2
         }
     } elsif ($idClasseAtual == $parametrosClasses{idC1T}) { #Classes 1T
         if ($configsBuild{skillsClasse1T} != -1) {
             do conf skillsAddAuto_list $configsBuild{skillsClasse1T} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse1T})
-            [
-            log ===================================
-            log = build de skills da classe 1 Trans configurada
-            log ===================================
-            ]
+            $classeAtual = Classe 1 Trans
         } else {
             $classeSemBuild = classe 1 Trans
         }
     } elsif ($idClasseAtual ~ $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt} ) { #Classes 2T
         if ($configsBuild{skillsClasse2T} != -1) {
             do conf skillsAddAuto_list $configsBuild{skillsClasse2T} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse2T})
-            [
-            log ===================================
-            log = build de skills da classe 2 Trans configurada
-            log ===================================
-            ]
+            $classeAtual = Classe 2 Trans
         } else {
             $classeSemBuild = classe 2 trans
         }
     } elsif ($idClasseAtual ~ $parametrosClasses{idC3}, $parametrosClasses{idC3Alt}, $parametrosClasses{idBC3}, $parametrosClasses{idBC3Alt}) { #Classes 3
         if ($configsBuild{skillsClasse3} != -1) {
             do conf skillsAddAuto_list $configsBuild{skillsClasse3} if (&config(skillsAddAuto_list) != $configsBuild{skillsClasse3})
-            [
-            log ===================================
-            log = build de skills da classe 3 configurada
-            log ===================================
-            ]
+            $classeAtual = Classe 3
         } else {
             $classeSemBuild = classe 3
         }
@@ -239,7 +216,7 @@ macro atualizarBuild_skills {
         ]
         stop
     }
-    if (&defined($classeSemBuild) = 1) {
+    if (&defined($classeSemBuild)) {
         [
         do eval Log::error "===================================\n"
         do eval Log::error "= NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A $classeSemBuild\n"
@@ -249,6 +226,13 @@ macro atualizarBuild_skills {
         ]
         pause 5
         stop
+    }
+    if (&defined($classeAtual)) {
+        [
+        log ===================================
+        log = build de skills da $classeAtual ta certinha
+        log ===================================
+        ]
     }
 }
 
