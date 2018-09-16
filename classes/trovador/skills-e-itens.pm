@@ -58,6 +58,17 @@ automacro configurarRajadaDeFlechas {
     }
 }
 
+automacro aumentarFlechasLevel30 {
+    ConfigKey buyAuto_1 Flecha
+    ConfigKeyNot buyAuto_1_maxAmount 5000
+    BaseLevel >= 30
+    exclusive 1
+    call {
+        do conf buyAuto_1_maxAmount 5000
+        do conf buyAuto_1_zeny > 5000
+    }
+}
+
 automacro configurarEquiparFlechaAutomaticamente {
     ConfigKeyNot attackEquip_arrow Flecha
     exclusive 1
@@ -92,6 +103,7 @@ automacro configurarParaComprarPoucasFlechasArqueiroT {
 
 automacro configurarUsarAljave {
     ConfigKeyNot useSelf_item_1 Aljave
+    exclusive 1
     call {
         $blocoExiste = checarSeExisteNoConfig("useSelf_item_1")
         if ($blocoExiste = nao ) {
@@ -124,17 +136,6 @@ automacro configurarBuyAutoFlecha {
     }
 }
 
-automacro aumentarFlechasLevel30 {
-    ConfigKey buyAuto_1 Flecha
-    ConfigKeyNot buyAuto_1_maxAmount 5000
-    BaseLevel >= 30
-    exclusive 1
-    call {
-        do conf buyAuto_1_maxAmount 5000
-        do conf buyAuto_1_zeny > 5000
-    }
-}
-
 automacro configurarAtaqueADistancia {
     ConfigKeyNot attackDistanceAuto 1
     exclusive 1
@@ -155,3 +156,80 @@ automacro removerConfiguracaoAtaqueADistanciaAprendizT {
     }
 }
 
+automacro verificarFlechas {
+    exclusive 1
+    JobIDNot 0 #Aprendiz
+    JobIDNot 4001 #Aprendiz T.
+    JobIDNot 4023 #Baby Aprendiz
+    InInventory "Flecha" < 100
+    InInventory "Flecha" > 0
+    ConfigKey buyAuto_1_zeny > 2000, buyAuto_1_zeny > 5000
+    call {
+        [
+        log ===================================
+        log Quantidade de flechas insuficiente,
+        log Inicializando compras automáticas!!
+        log ===================================
+        ]
+        call pararDeAtacar
+        do autosell
+        # buyAuto_1_zeny contem valores como "> 5000" ou "> 2000" temos que remover o "> "
+        [
+        log ================================
+        log = tentando descobrir quantos zenys precisamos
+        log ================================
+        ]
+        $zenyNecessario = pegarZenyDoBuyAuto()
+        if ($zenyNecessario = erro) stop
+        
+        [
+        log ====================================
+        log Checando se tenho no minimo $zenyNecessario zenys
+        ]
+        if ( $.zeny >= $zenyNecessario ) {
+            [
+            log = tenho sim
+            log ===================================
+            ]
+            do autobuy
+        } else {
+            [
+            log ===================================
+            log = estou sem flechas, e estou sem zeny pra comprar
+            log ===================================
+            ]
+            do eval Misc::offlineMode()
+        }
+        do eq &inventory(1750) #Id da flecha
+        call voltarAtacar
+    }
+}
+
+sub pegarZenyDoBuyAuto {
+
+    if ($config{"buyAuto_1_zeny"} =~ /(\d+)/) {
+        return $1;
+    } else {
+        error "Erro encontrado tentando saber quanto zeny preciso ter pra comprar flechas\n".
+        "valor: '" . $config{"buyAuto_1_zeny"} . "' \n";
+        return "erro";
+    }
+}
+
+automacro autoEquiparFlechas {
+    exclusive 1
+    JobIDNot 0 #Aprendiz
+    JobIDNot 4001 #Aprendiz T.
+    JobIDNot 4023 #Baby Aprendiz
+    InInventory "Flecha" >= 100
+    IsNotEquippedID arrow 1750
+    call {
+        [
+        log ===================================
+        log Tenho flechas, mas não equipadas
+        log Equipando!!
+        log ===================================
+        ]
+        do eq &inventory(1750) #Id da flecha
+    }
+}
