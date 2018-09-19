@@ -329,6 +329,19 @@ macro rebornarAgora {
         ]
         stop
     }
+    
+    if ($.zeny = 1285000) {
+        log = tenho o zeny exato necessário pra rebornar
+    } elsif (($.zeny = 0 && $.map ~ yuno_in_02, yuno_in_05 ) || ($.zeny = 0 && &questStatus(1000))) {
+        log = já paguei a taxa pro livro
+    } else {
+        [
+        log ===================================
+        log = não estou com a quantidade certa de zenys
+        log = impossivel rebornar desse jeito
+        log ===================================
+        ]
+    }
     log ==========================
         
     #se chegou até aqui é porque está tudo certinho
