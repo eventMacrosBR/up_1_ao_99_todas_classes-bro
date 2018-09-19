@@ -25,7 +25,7 @@ automacro questRenascer_chegueilvl99 {
             if ($.statushandle =~ /EFST_RIDING/i) do pecopeco release
             #TODO adicionar uma linha pra remover falcão
             #e outra linha para vaporizar homunculo
-            do pm "$parametrosQuestClasseRenascer{amigo}" ajudaRebornar    
+            do pm "$parametrosQuestClasseRenascer{amigo}" ajudaRebornar
             log peso atual: $.weight
             log peso percentual: $.weightpercent
             [
@@ -115,6 +115,7 @@ automacro questRenascer_chamarAmigo {
     Zeny != 1285000
     Zeny != 0
     ConfigKey saveMap $mapaQueVouUparNolvl1
+    ConfigKeyNot naSequenciaDeSalvamento true
     CharCurrentWeight != 0
     CheckOnAI auto,manual
     BaseLevel = 99
@@ -160,12 +161,12 @@ automacro questRenascer_irNoLocalPraNegociar {
     ConfigKey saveMap $mapaQueVouUparNolvl1
     CharCurrentWeight = 0
     ConfigKey questRenascer_estagio preparando
-    Zeny != 1285000  #vamos ficar com o zeny certo
+    Zeny != 1285000 #vamos ficar com o zeny certo
     Zeny != 0
     exclusive 1
     timeout 50
     QuestInactive 1000
-    call {        
+    call {
         do conf storageAuto_npc yuno 152 187
         do conf sellAuto_npc yuno_in01 25 34
         $vezesQuePediPraVir++
@@ -181,22 +182,50 @@ automacro questRenascer_irNoLocalPraNegociar {
     }
 }
 
+automacro questRenascer__amigoPertoMasNaoTaoPerto {
+    CharCurrentWeight 0
+    Zeny != 1285000
+    priority -5
+    ConfigKey questRenascer_estagio preparando
+    InMap yuno
+    PlayerNearDist /\Q$parametrosQuestClasseRenascer{amigo}\E/ >= 3
+    timeout 20
+    QuestInactive 1000
+    call {
+        undef @frasesRandom
+        
+        &push(@frasesRandom, ow chega mais manin)
+        &push(@frasesRandom, aqui, nao consigo negociar a essa distancia nao uai)
+        &push(@frasesRandom, então... se vc nao chegar mais perto, não vai rolar)
+        &push(@frasesRandom, cola aqui ze chega mais)
+        &push(@frasesRandom, vem ca)
+        &push(@frasesRandom, ow vai ficar longe assim mesmo? cole ze)
+        
+        $i = &rand(0,5)
+        do pm "$parametrosQuestClasseRenascer{amigo}" $frasesRandom[$i]
+    }
+}
+
 automacro questRenascer_amigoPertoPedindoTrade {
     CharCurrentWeight 0
     Zeny != 1285000
     priority -5
     ConfigKey questRenascer_estagio preparando
     InMap yuno
-    PlayerNear /$parametrosQuestClasseRenascer{amigo}/
+    PlayerNearDist /\Q$parametrosQuestClasseRenascer{amigo}\E/ < 3
     timeout 20
     QuestInactive 1000
     call {
         lock questRenascer_irNoLocalPraNegociar
         do conf -f o_que_estou_fazendo tentandoRebornar_esperandoNegociação
-        log posição do $parametrosQuestClasseRenascer{amigo}: $.PlayerNearLastDist 
-        if ($.PlayerNearLastDist  > 3) {
-            do pm "$parametrosQuestClasseRenascer{amigo}" ow, chega mais perto pow
-        } else { 
+        log posição do $parametrosQuestClasseRenascer{amigo}: $.PlayerNearLastDist
+        if (&eval(defined %::incomingDeal) ? 1 : 0) {
+            [
+            log ele acabou de me mandar deal
+            log aceitando
+            ]
+            do deal
+        } else {
             do deal &player($parametrosQuestClasseRenascer{amigo})
         }
     }
@@ -208,7 +237,7 @@ automacro questRenascer_amigoPertoRecebiTrade {
     priority -5
     ConfigKey questRenascer_estagio preparando
     InMap yuno
-    PlayerNear /$parametrosQuestClasseRenascer{amigo}/
+    PlayerNearDist /\Q$parametrosQuestClasseRenascer{amigo}\E/ < 3
     timeout 10
     SimpleHookEvent incoming_deal
     macro_delay 0.2
@@ -224,7 +253,7 @@ automacro questRenascer_dandoOuReceBendoZeny {
     CharCurrentWeight 0
     Zeny != 1285000
     ConfigKey questRenascer_estagio preparando
-    PlayerNear /$parametrosQuestClasseRenascer{amigo}/ 
+    PlayerNearDist /\Q$parametrosQuestClasseRenascer{amigo}\E/ < 3
     SimpleHookEvent engaged_deal
     priority -5
     QuestInactive 1000
@@ -250,7 +279,7 @@ automacro questRenascer_dandoOuReceBendoZeny {
 
 automacro questRenascer_finalizarTrade {
     SimpleHookEvent finalized_deal
-    PlayerNear /$parametrosQuestClasseRenascer{amigo}/
+    PlayerNearDist /\Q$parametrosQuestClasseRenascer{amigo}\E/ < 3
     CharCurrentWeight 0
     Zeny != 1285000
     ConfigKey questRenascer_estagio preparando
@@ -275,12 +304,13 @@ automacro questRenascer_tudoCertoVamosRebornar {
         do conf -f o_que_estou_fazendo indoRebornar!!!
         [
         do ai auto
-        do conf lockMap 0
+        do conf lockMap nada
         call pararDeAtacar
         do conf sitAuto_idle 0
         ]
         # se tiver tudo certinho pra começar o reborn ,essa automacro ativa
         do conf -f questRenascer_estagio 1
+        release questRenascer_amigoPertoPedindoTrade
     }
 }
 
@@ -324,7 +354,6 @@ automacro questRenascer_pagarTaxa {
 automacro questRenascer_lerOLivroEDescer {
     ConfigKey questRenascer_estagio 2
     InMap yuno_in02
-    #QuestActive 1000
     exclusive 1
     Zeny = 0
     call {
@@ -349,7 +378,18 @@ automacro questRenascer_terceiroEstagio {
         }
         if ( $.pos == 41 42 ) {
             do talknpc 49 43 c
-            do conf questRenascer_estagio 4
+            if ($.map = valkyrie) {
+                do conf questRenascer_estagio 4
+            } else {
+                #if map is not valkyrie, try a different way to talk to npc
+                do talk 0
+                
+                #if still doesn't inside valkyrie map, then throw error
+                if ($.map != valkyrie) {
+                    do eval Log::error("Ocorreu um erro ao tentar entrar no mapa de rebornar")
+                    do eval Log::error("Contate os criadores da eventMacro ou post no fórum esse erro")
+                }
+            }
         }
     }
 }
@@ -365,6 +405,7 @@ automacro questRenascer_terceiroEstagio_bugada {
 
 automacro questRenascer_ultimoEstagio {
     ConfigKey questRenascer_estagio 4
+    InMap valkyrie
     exclusive 1
     call {
         do move 49 86
@@ -382,10 +423,28 @@ automacro questRenascer_ultimoEstagio {
     }
 }
 
-automacro questRenascer_renasci {
-    BaseLevel 1
+automacro questRenascer_ultimoEstagio_bugada {
+    ConfigKey questRenascer_estagio 4
+    BaseLevel = 99
+    JobLevel = 50
+    NotInMap valkyrie
     exclusive 1
-    JobID 4001 #Aprendiz T.
+    timeout 10
+    call {
+        [
+        log ===================================
+        log = existe um problema na eventMacro de rebornar
+        log = nesse momento ele deveria estar no mapa 'valkyrie'
+        log = que é onde fica a valquíria, mas ele está em $.map
+        log = contate os criadores da eventMacro e mostre o erro
+        log ===================================
+        ]
+    }
+}
+
+automacro questRenascer_renasci {
+    BaseLevel != 99
+    exclusive 1
     ConfigKeyNot questRenascer_estagio none
     call {
         do conf questRenascer_estagio none
