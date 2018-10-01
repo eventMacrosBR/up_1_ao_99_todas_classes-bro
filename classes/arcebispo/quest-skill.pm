@@ -96,7 +96,7 @@ automacro questLuzDivina_pegarItens {
             ]
             stop
         } else {
-            if (a&config(BetterShopper_0) != a) do conf BetterShopper_0 none #desabilitar
+            if (&config(BetterShopper_0)) do conf BetterShopper_0 none #desabilitar
             if (&config(BetterShopper_0_disabled) != 1) do conf BetterShopper_0_disabled 1
             log Já tenho Opala, checando se tenho Cristal Azul
             $tenhoOpala = sim
@@ -134,7 +134,7 @@ automacro questLuzDivina_pegarItens {
             ]
             stop
         } else {
-            if (a&config(BetterShopper_1) != a) do conf BetterShopper_1 none #desabilitar
+            if (&config(BetterShopper_1)) do conf BetterShopper_1 none #desabilitar
             if (&config(BetterShopper_1_disabled) != 1) do conf BetterShopper_1_disabled 1
             $tenhoCristal = sim
             log Já tenho Cristal Azul, portanto
@@ -147,10 +147,10 @@ automacro questLuzDivina_pegarItens {
             log = TENHO TODOS OS ITENS, VOU FALAR COM NPC
             log ===================================
             ]
-            if (a&config(BetterShopper_0) != a) do conf BetterShopper_0 none #desabilitar
+            if (&config(BetterShopper_0)) do conf BetterShopper_0 none #desabilitar
             if (&config(BetterShopper_0_disabled) != 1) do conf BetterShopper_0_disabled 1
             
-            if (a&config(BetterShopper_1) != a) do conf BetterShopper_1 none #desabilitar
+            if (&config(BetterShopper_1)) do conf BetterShopper_1 none #desabilitar
             if (&config(BetterShopper_1_disabled) != 1) do conf BetterShopper_1_disabled 1
             
             do conf -f quest_luz_divina falar_com_npc
@@ -177,9 +177,9 @@ automacro questLuzDivina_jaTenhosOsItens {
     InInventory "Rosário" > 0
     exclusive 1
     call {
-        if (a&config(BetterShopper_0) != a) do conf BetterShopper_0 none #desabilitar
+        if (&config(BetterShopper_0)) do conf BetterShopper_0 none #desabilitar
         if (&config(BetterShopper_0_disabled) != 1) do conf BetterShopper_0_disabled 1
-        if (a&config(BetterShopper_1) != a) do conf BetterShopper_1 none #desabilitar
+        if (config(BetterShopper_1)) do conf BetterShopper_1 none #desabilitar
         if (&config(BetterShopper_1_disabled) != 1) do conf BetterShopper_1_disabled 1
         do conf -f quest_luz_divina falar_com_npc
         do conf -f BetterShopper_on 0
@@ -272,9 +272,9 @@ automacro betterShopper_bugged {
     ConfigKey quest_skill true
     ConfigKey quest_luz_divina falar_com_npc
     call {
-        if (a&config(BetterShopper_0) != a) do conf BetterShopper_0 none #desabilitar
+        if (&config(BetterShopper_0)) do conf BetterShopper_0 none #desabilitar
         if (&config(BetterShopper_0_disabled) != 1) do conf BetterShopper_0_disabled 1
-        if (a&config(BetterShopper_1) != a) do conf BetterShopper_1 none #desabilitar
+        if (&config(BetterShopper_1)) do conf BetterShopper_1 none #desabilitar
         if (&config(BetterShopper_1_disabled) != 1) do conf BetterShopper_1_disabled 1
         do conf -f BetterShopper_on 0
     }

@@ -275,7 +275,7 @@ macro atualizarMapasDeUp {
     }
     #futuramente: adicionar uma elsif para caso seja classe 3
     
-    if (&exists($mapa{lockMap}) = 0 && $.lvl < 99) {
+    if (!&exists($mapa{lockMap}) && $.lvl < 99) {
         [
         do eval Log::error "===================================\n"
         do eval Log::error "= ERRO:\n"

@@ -371,7 +371,7 @@ automacro dentroDoAeroplanoInternacional_checagem {
     CheckOnAI manual
     timeout 50
     call {
-        if (&defined($varAeroplano1) = 0) {
+        if (! &defined($varAeroplano1) ) {
             $varAeroplano1 = &config(aeroplano1)
         }
         [

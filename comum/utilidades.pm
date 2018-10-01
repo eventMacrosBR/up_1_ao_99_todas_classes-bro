@@ -77,7 +77,7 @@ macro pegarItemDoArmazenSeTiver {
         $localDaKafra = &config(storageAuto_npc)
         do move $localDaKafra &rand(3,8)
         do talknpc &arg("$localDaKafra", 2) &arg("$localDaKafra", 3) r1
-        if ($.storageopen = 1) {
+        if ($.storageopen) {
             do storage get &storage($item) $quantidade
             do storage close
         } else {
@@ -101,7 +101,7 @@ macro pegarDoStorageEVender {
     do move $localKafra &rand(4,7)
     do talknpc &arg("$localKafra", 2) &arg("$localKafra", 3) r1
     pause 2
-    if ($.storageopen = 1) {
+    if ($.storageopen) {
 
         criarListaDeItens("sell") #cria a array listaDeItems        
         $cont = 0

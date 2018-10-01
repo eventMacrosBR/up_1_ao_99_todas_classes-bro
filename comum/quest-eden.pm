@@ -236,9 +236,9 @@ macro iniciandoQuestEden {
     log ===================================
     ]
     do talk $.NpcNearLastBinId
-    if (&defined($.param[0]) = 1) do talk resp $.param[0]
-    if (&defined($.param[1]) = 1) do talk resp $.param[1]
-    if (&defined($.param[2]) = 1) do talk resp $.param[2]
+    if ( &defined($.param[0]) ) do talk resp $.param[0]
+    if ( &defined($.param[1]) ) do talk resp $.param[1]
+    if ( &defined($.param[2]) ) do talk resp $.param[2]
 
     switch ($.lvl) {
         case (<= 18) $lvlDaQuestEden = 12
@@ -417,7 +417,7 @@ macro irNoMapa {
     do move $.param[0] $.param[1] &rand(1,5)
     do talk &npc($.param[1])
     if ($.param[0] = moc_fild11) do talk resp 1  #significa que ta na quest eden 12
-    if (&defined($.param[2]) = 1) { #evita de mostrar linhas vermelhas a toa de "variavel não existe"
+    if ( &defined($.param[2]) ) { #evita de mostrar linhas vermelhas a toa de "variavel não existe"
         do mconf $.param[2] 0 0 0
         do mconf $.param[3] 0 0 0
         do mconf $.param[4] 0 0 0
