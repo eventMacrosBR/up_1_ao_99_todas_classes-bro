@@ -812,6 +812,7 @@ automacro questEden12_Equipando {
     IsNotEquippedID armor 15009
     InInventoryID 15009 = 1
     BaseLevel 12..25
+    ConfigKeyNot checar_e_equipar_eden nao
     exclusive 1
     run-once 1
     call {
@@ -835,6 +836,7 @@ automacro questEden26_Equipando {
     IsNotEquippedID armor 15010
     InInventoryID 15010 = 1
     BaseLevel 26..49
+    ConfigKeyNot checar_e_equipar_eden nao
     exclusive 1
     run-once 1
     call {
@@ -856,6 +858,7 @@ automacro questEden26_Equipando {
 automacro questEden40_Equipando {
     IsNotEquippedID armor 15011
     InInventoryID 15011 = 1
+    ConfigKeyNot checar_e_equipar_eden nao
     BaseLevel 40..59
     exclusive 1
     run-once 1
@@ -884,6 +887,7 @@ automacro questEden60_Equipando {
     InInventoryID 18514 = 1
     InInventoryID 2473  = 1
     InInventoryID 15031 = 1
+    ConfigKeyNot checar_e_equipar_eden nao
     run-once 1
     BaseLevel 60..98
     exclusive 1
