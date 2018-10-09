@@ -10,7 +10,7 @@ automacro questClasse2_virarClasse2Inicio_bugada {
         log =============================================
         log = Estou pronto para virar claase2, porém    =
         log =     os pontos não estão distribuídos...   =
-        log =            Vamos resolver isso!        =
+        log =            Vamos resolver isso!           =
         log =============================================
         ]
         do conf skillsAddAuto 1
@@ -47,9 +47,13 @@ automacro questClasse2_jaSouClasse2 {
         log = Já sou classe 2 =
         log ===================
         ]
-        call equiparAposVirarClasse2
         do conf virarClasse2 none
         do conf -f o_que_estou_fazendo acabeiDeVirarClasse2
+        release equipandoArmaEden
+        release equipandoArmaduraEden
+        release equipandoBotaEden
+        release equipandoChapeuEden
+        release equipandoCapaEden
         call atualizarBuild
     }
 }
@@ -64,33 +68,15 @@ automacro questClasse2_jaSouClasse2NaoAutomatico {
         log = Já sou classe 2, pois fiz a quest manualmente =
         log =================================================
         ]
-        call equiparAposVirarClasse2
         do conf esperarFazerQuest none
         do conf -f o_que_estou_fazendo acabeiDeVirarClasse2
+        release equipandoArmaEden
+        release equipandoArmaduraEden
+        release equipandoBotaEden
+        release equipandoChapeuEden
+        release equipandoCapaEden
         call atualizarBuild
     }
-}
-
-macro equiparAposVirarClasse2 {
-    # essa parte tem o pressuposto de que a pessoa que acabou de virar classe 2
-    # ainda não fez a quest eden do 60, só a do 40
-    # então vamos equipar isso
-    
-    [
-    log ===========================================
-    log =equipando os itens de eden após virar classe 2
-    log ===========================================
-    ]
-    $check = pegarIndiceDoEquipamentoPeloId("robe", 2560) #Capa Valhalla
-    if ($check != -1) do eq $check
-    $check = pegarIndiceDoEquipamentoPeloId("topHead", 5583) #Chapeu valhalla
-    if ($check != -1) do eq $check
-    $check = pegarIndiceDoEquipamentoPeloId("shoes", 2458) #Botas Valhalla Avançadas
-    if ($check != -1) do eq $check
-    $check = pegarIndiceDoEquipamentoPeloId("rightHand", "$parametrosQuestEden{IDarmaIntermediario}") #Arma Valhalla Intermediária
-    if ($check != -1) do eq $check
-    $check = pegarIndiceDoEquipamentoPeloId("armor", 15011) #Uniforme Valhalla Avançado
-    if ($check != -1) do eq $check
 }
 
 automacro questClasse2_avisoNivelDeClasse50 {

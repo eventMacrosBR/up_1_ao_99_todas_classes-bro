@@ -4,7 +4,7 @@ sub inicializarParametrosQuestEden {
         armaLevel60 => 'sabre|espada',
         IDarmaIniciante => 13423, # Sabre Valhalla Iniciante
         IDarmaIntermediario => 13424, # Sabre Valhalla Intermediário
-        IDarmaEden => 1391 # Machado de 2 Mãos I do Éden
+        IDarmaEden => 13434 #Sabre III do Grupo Éden#
     }
 }
 

@@ -772,6 +772,12 @@ automacro questEden12e26e40_acabeiDePegarEquips {
     call {
         do conf -f quest_eden none
         do conf -f o_que_estou_fazendo acabeiDeTerminarQuestEden
+        
+        release equipandoArmaEden
+        release equipandoArmaduraEden
+        release equipandoBotaEden
+        release equipandoChapeuEden
+        release equipandoCapaEden
     }
 }
 
@@ -779,7 +785,6 @@ automacro questEden60_PegandoEquips {
     ConfigKey quest_eden terminando
     BaseLevel 70..98
     timeout 120
-    IsNotEquippedID armor 15031
     NpcNear /Ferreiro|smith/i
     call {
         [
@@ -799,199 +804,229 @@ automacro questEden60_acabeiDePegarEquips {
     ConfigKey quest_eden terminando
     BaseLevel 70..98
     exclusive 1
-    IsNotEquippedID armor 15031
     NpcNear /Ferreiro|smith/i
     SimpleHookEvent item_gathered
     call {
         do conf -f quest_eden none
         do conf -f o_que_estou_fazendo acabeiDeTerminarQuestEden60
+        release equipandoArmaEden
+        release equipandoArmaduraEden
+        release equipandoBotaEden
+        release equipandoChapeuEden
+        release equipandoCapaEden
     }
 }
 
-automacro questEden12_Equipando {
-    IsNotEquippedID armor 15009
-    InInventoryID 15009 = 1
-    BaseLevel 12..25
-    ConfigKeyNot checar_e_equipar_eden nao
-    exclusive 1
+automacro equipandoArmaEden {
+    BaseLevel 1..98 #não quero checar por armas no lvl 99, pode dar treta
+    JobIDNot 0 #aprendiz
+    JobIDNot 4023 # baby aprendiz
     run-once 1
-    call {
-        [
-        log ===========================================
-        log =equipando os itens de eden lvl 12
-        log ===========================================
-        ]
-        $check = pegarIndiceDoEquipamentoPeloId("robe", 2560) #Capa Valhalla
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("topHead", 5583) #Chapeu valhalla
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("shoes", 2456) #Botas Valhalla Iniciante
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("armor", 15009) #Uniforme Valhalla Iniciante
-        if ($check != -1) do eq $check
-    }
-}
-
-automacro questEden26_Equipando {
-    IsNotEquippedID armor 15010
-    InInventoryID 15010 = 1
-    BaseLevel 26..49
-    ConfigKeyNot checar_e_equipar_eden nao
     exclusive 1
-    run-once 1
-    call {
-        [
-        log ===========================================
-        log =equipando os itens de eden lvl 26
-        log ===========================================
-        ]
+    call equiparArma
+}
 
-        $check = pegarIndiceDoEquipamentoPeloId("shoes", 2457) #Botas Valhalla Intermediárias
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("rightHand", "$parametrosQuestEden{IDarmaIniciante}") #Arma Valhalla Iniciante
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("armor", 15010) #Uniforme Valhalla Intermediário
-        if ($check != -1) do eq $check
+macro equiparArma {
+    $equipar = 0 #padrão zero
+    
+    #se tiver alguma arma equipada e ela não for do eden ou iniciante, então não faça nada
+    if (checarSeSlotEquipamentoEstaVazio(rightHand) = "nao" && !pegarNomeDoItemEquipado(rightHand) =~ /Iniciante|Valhalla|Éden/i) {
+        stop
+        
+    } else {
+        $equipar = 1
+    }
+    
+    
+    if ($equipar = 1) {
+        if ($.lvl >= 60 && &inventory($parametrosQuestEden{IDarmaEden}) != -1) {
+            do eq &inventory($parametrosQuestEden{IDarmaEden})
+            
+        } elsif ($.lvl >= 40 && &inventory($parametrosQuestEden{IDarmaIntermediario}) != -1) {
+            do eq &inventory($parametrosQuestEden{IDarmaIntermediario})
+            
+        } elsif ($.lvl >= 26 && &inventory($parametrosQuestEden{IDarmaIniciante}) != -1) {
+            do eq &inventory($parametrosQuestEden{IDarmaIniciante})
+            
+        } elsif ($.lvl >= 1 && &inventory($parametrosQuestClasse1{equipeIniciante}) != -1) {
+            do eq &inventory($parametrosQuestClasse1{equipeIniciante})
+            
+        } else {
+            if (checarSeSlotEquipamentoEstaVazio("rightHand") = "sim") {
+                [
+                do eval Log::error"[eventMacro] Erro: não foi encontrado nenhuma arma éden para equipar\n"
+                do eval Log::error"[eventMacro] Seu bot ta batendo na mão\n"
+                do eval Log::error"[eventMacro] A eventMacro não pode fazer nada a respeito disso\n"
+                ]
+            } else {
+                [
+                do eval Log::error"[eventMacro] Erro desconhecido ao tentar encontrar uma arma para equipar\n"
+                do eval Log::error"[eventMacro] Você está com pegarNomeDoItemEquipado(rightHand) equipado, não deveria aparecer esse erro\n"
+                do eval Log::error"[eventMacro] Caso você esteja lendo isso, contate os criadores da eventMacro\n"
+                ]
+            }
+        }
     }
 }
 
-automacro questEden40_Equipando {
-    IsNotEquippedID armor 15011
-    InInventoryID 15011 = 1
-    ConfigKeyNot checar_e_equipar_eden nao
-    BaseLevel 40..59
+automacro equipandoArmaduraEden {
+    BaseLevel 12..98 #não quero checar por armaduras no lvl 99, pode dar treta
+    JobIDNot 0 #aprendiz
+    JobIDNot 4023 # baby aprendiz
+    run-once 1
     exclusive 1
-    run-once 1
-    call {
-        [
-        log ===========================================
-        log =equipando os itens de eden lvl 40
-        log ===========================================
-        ]
-        $check = pegarIndiceDoEquipamentoPeloId("shoes", 2458) #Botas Valhalla Avançadas
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("rightHand", "$parametrosQuestEden{IDarmaIntermediario}") #Arma Valhalla Intermediária
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("armor", 15011) #Uniforme Valhalla Avançado
-        if ($check != -1) do eq $check
+    call equiparArmadura
+}
+
+macro equiparArmadura {
+    $equipar = 0 #padrão zero
+    
+    #se tiver alguma armadura equipada e ela não for do eden ou iniciante, então não faça nada
+    if (checarSeSlotEquipamentoEstaVazio(armor) = "nao" && !pegarNomeDoItemEquipado(armor) =~ /Iniciante|Valhalla|Éden/i) {
+        stop
+        
+    } else {
+        $equipar = 1
+    }
+    
+    #15009) #Uniforme Valhalla Iniciante
+    #15010) #Uniforme Valhalla Intermediário
+    #15011) #Uniforme Valhalla Avançado
+    #15031) #Armadura_do_Grupo_Éden#
+    if ($equipar = 1) {
+        if ($.lvl >= 60 && &inventory(15031) != -1) { #Armadura_do_Grupo_Éden#
+            log = Vou equipar armadura do lvl 60+
+            do eq &inventory(15031) #Armadura_do_Grupo_Éden#
+            
+        } elsif ($.lvl >= 40 && &inventory(15011) != -1) { #Uniforme Valhalla Avançado
+            log = Vou equipar armadura do lvl 40+
+            do eq &inventory(15011) #Uniforme Valhalla Avançado
+            
+        } elsif ($.lvl >= 26 && &inventory(15010) != -1) { #Uniforme Valhalla Intermediário
+            log = Vou equipar armadura do lvl 26+
+            do eq &inventory(15010) #Uniforme Valhalla Intermediário
+            
+        } elsif ($.lvl >= 12 && &inventory(15009) != -1) { #Uniforme Valhalla Iniciante
+            log = Vou equipar armadura do lvl 12+ que não é eden mas é bom
+            do eq &inventory(15009) #Uniforme Valhalla Iniciante
+            
+        }
     }
 }
 
-automacro questEden60_Equipando {
-    IsNotEquippedID robe 2571
-    IsNotEquippedID topHead 18514
-    IsNotEquippedID shoes 2473
-    IsNotEquippedID rightHand $parametrosQuestEden{IDarmaEden}
-    IsNotEquippedID armor 15031
-    InInventoryID 2571  = 1
-    InInventoryID 18514 = 1
-    InInventoryID 2473  = 1
-    InInventoryID 15031 = 1
-    ConfigKeyNot checar_e_equipar_eden nao
+automacro equipandoBotaEden {
+    BaseLevel 12..98 #não quero checar por armas no lvl 99, pode dar treta
+    JobIDNot 0 #aprendiz
+    JobIDNot 4023 # baby aprendiz
     run-once 1
-    BaseLevel 60..98
     exclusive 1
-    call {
-        [
-        log ===========================================
-        log =equipando os itens de eden level 60
-        log ===========================================
-        ]
-        $check = pegarIndiceDoEquipamentoPeloId("robe", 2571) #Capa II do Grupo Eden
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("topHead", 18514) #Chapéu_II_do_Grupo_Éden#
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("shoes", 2473) ##Botas_IV_do_Grupo_Éden#
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("rightHand","$parametrosQuestEden{IDarmaEden}") #Arma do Grupo Eden#
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("armor", 15031) #Armadura_do_Grupo_Éden#
-        if ($check != -1) do eq $check
+    call equiparBota
+}
+
+macro equiparBota {
+    $equipar = 0 #padrão zero
+    
+    #se tiver alguma bota equipada e ela não for do eden ou iniciante, então não faça nada
+    if (checarSeSlotEquipamentoEstaVazio(rightHand) = "nao" && !pegarNomeDoItemEquipado(rightHand) =~ /Iniciante|Valhalla|Éden/i) {
+        stop
+        
+    } else {
+        $equipar = 1
+    }
+    
+    # 2456) #Botas Valhalla Iniciante
+    # 2457) #Botas Valhalla Intermediárias
+    # 2458) #Botas Valhalla Avançadas
+    # 2473) ##Botas_IV_do_Grupo_Éden#
+    if ($equipar = 1) {
+        if ($.lvl >= 60 && &inventory(2473) != -1) { ##Botas_IV_do_Grupo_Éden#
+            log = Vou equipar bota do lvl 60+
+            do eq &inventory(2473) ##Botas_IV_do_Grupo_Éden#
+            
+        } elsif ($.lvl >= 40 && &inventory(2458) != -1) { #Botas Valhalla Avançadas
+            log = Vou equipar bota do lvl 40+
+            do eq &inventory(2458) #Botas Valhalla Avançadas
+            
+        } elsif ($.lvl >= 26 && &inventory(2457) != -1) { #Botas Valhalla Intermediárias
+            log = Vou equipar bota do lvl 26+
+            do eq &inventory(2457) #Botas Valhalla Intermediárias
+            
+        } elsif ($.lvl >= 12 && &inventory(2456) != -1) { #Botas Valhalla Iniciante
+            log = Vou equipar bota do lvl 12+ que não é eden mas é bom
+            do eq &inventory(2456) #Botas Valhalla Iniciante
+            
+        }
     }
 }
 
-#automacro escolherEquipCertoParaEquipar {
-#    exclusive 1
-#    JobIDNot 0 #aprendiz
-#    JobIDNot 4023 #aprendiz baby
-#    timeout 1800 #30 minutos
-#    ConfigKey membroDoEden sim
-#    ConfigKey quest_eden none
-#    BaseLevel != 99
-#    call checkEquipsEden
-#}
-#
-#macro checkEquipsEden {
-#    
-#    if (checarSeEquipEstaEquipado("armor", 15031) = sim) { #Armadura_do_Grupo_Éden# - éden 60
-#        [
-#        log ===================================
-#        log = estou com os equips do éden 60 equipados,
-#        log = então to de boas
-#        log ===================================
-#        ]
-#        stop
-#    } elsif (checarSeEquipEstaEquipado("armor", 15011) = sim) { #Uniforme Valhalla Avançado - éden 40
-#        
-#        if (checarSeEquipEstaEquipado("armor", 15031) = não existe) {
-#            #se tiver com os equips do lvl 40, e não existir os de 60, então ta de boas
-#            [
-#            log ===================================
-#            log = estou com os equips do éden 40 equipados,
-#            log = então to de boas
-#            log ===================================
-#            ]    
-#            stop
-#        } else {
-#            #se entrar aqui, é porque tá equipado com os equips do eden 40, mas os
-#            # do lvl 60 existem no inventário, então tem que checar se tem lvl pra equipar
-#            if ( $.lvl >= 60) {    
-#                [
-#                log ===================================
-#                log = tá equipado agora os equips do 40,
-#                log = mas deveria tá com os do lvl 60
-#                log = equipando agora
-#                log ===================================
-#                ]
-#            }
-#        }
-#        
-#    } elsif (checarSeEquipEstaEquipado("armor", 15010)= sim) { #Uniforme Valhalla Intermediário - éden 26
-#        [
-#        log ===================================
-#        log = estou com os equips do éden 26 equipados,
-#        log = então to de boas
-#        log ===================================
-#        ]        
-#    } elsif (checarSeEquipEstaEquipado("armor", 15009) = sim) { #Uniforme Valhalla Iniciante - éden 12
-#        [
-#        log ===================================
-#        log = estou com os equips do éden 12 equipados,
-#        log = então to de boas
-#        log ===================================
-#        ]
-#    }
-#    
-#    
-#    if (&inventory($parametrosQuestEden{IDarmaEden}) != -1) {
-#        # equip está no inventário, em vez de estar equipado
-#        [
-#        log ===========================================
-#        log =equipando os itens de eden level 60
-#        log ===========================================
-#        ]
-#        $check = pegarIndiceDoEquipamentoPeloId("robe", 2571) #Capa II do Grupo Eden
-#        if ($check != -1) do eq $check
-#        $check = pegarIndiceDoEquipamentoPeloId("topHead", 18514) #Chapéu_II_do_Grupo_Éden#
-#        if ($check != -1) do eq $check
-#        $check = pegarIndiceDoEquipamentoPeloId("shoes", 2473) ##Botas_IV_do_Grupo_Éden#
-#        if ($check != -1) do eq $check
-#        $check = pegarIndiceDoEquipamentoPeloId("rightHand","$parametrosQuestEden{IDarmaEden}") #Arma do Grupo Eden#
-#        if ($check != -1) do eq $check
-#        $check = pegarIndiceDoEquipamentoPeloId("armor", 15031) #Armadura_do_Grupo_Éden#
-#        if ($check != -1) do eq $check
-#    } elsif ( &inventory())
-#}
+automacro equipandoChapeuEden {
+    BaseLevel 12..98 #não quero checar por armas no lvl 99, pode dar treta
+    JobIDNot 0 #aprendiz
+    JobIDNot 4023 # baby aprendiz
+    run-once 1
+    exclusive 1
+    call equiparChapeu
+}
+
+macro equiparChapeu {
+    $equipar = 0 #padrão zero
+    
+    #se tiver algum chapeu equipado e ele não for do eden ou iniciante, então não faça nada
+    if (checarSeSlotEquipamentoEstaVazio(topHead) = "nao" && !pegarNomeDoItemEquipado(topHead) =~ /Iniciante|Valhalla|Éden/i) {
+        stop
+        
+    } else {
+        $equipar = 1
+    }
+    
+    if ($equipar = 1) {
+        if ($.lvl >= 60 && &inventory(18514) != -1) { #Chapéu_II_do_Grupo_Éden#
+            log = Vou equipar chapeu do lvl 60+
+            do eq &inventory(18514) #Chapéu_II_do_Grupo_Éden#
+            
+        } elsif ($.lvl >= 12 && &inventory(5583) != -1) { #Chapeu Valhalla
+            log = Vou equipar chapeu do lvl 12+
+            do eq &inventory(5583) #Chapeu Valhalla
+            
+        } 
+        #sem um else aqui, porque se o slot tiver vazio, e não tiver nenhum do éden, fodas, ninguém liga
+    }
+}
+
+automacro equipandoCapaEden {
+    BaseLevel 12..98 #não quero checar por armas no lvl 99, pode dar treta
+    JobIDNot 0 #aprendiz
+    JobIDNot 4023 # baby aprendiz
+    run-once 1
+    exclusive 1
+    call equiparCapa
+}
+
+macro equiparCapa {
+    $equipar = 0 #padrão zero
+    
+    #se tiver alguma capa equipada e ela não for do eden ou iniciante, então não faça nada
+    if (checarSeSlotEquipamentoEstaVazio(robe) = "nao" && !pegarNomeDoItemEquipado(robe) =~ /Iniciante|Valhalla|Éden/i) {
+        stop
+        
+    } else {
+        $equipar = 1
+    }
+    
+    
+    if ($equipar = 1) {
+        if ($.lvl >= 60 && &inventory(2571)  != -1) { #Capa II do Grupo Eden
+            log = Vou equipar chapeu do lvl 60+
+            do eq &inventory(2571) #Capa II do Grupo Eden
+            
+        } elsif ($.lvl >= 12 && &inventory(2560) != -1) { #Capa Valhalla
+            log = Vou equipar chapeu do lvl 12+ 
+            do eq &inventory(2560) #Capa Valhalla
+            
+        } 
+        #sem um else aqui, porque se o slot tiver vazio, e não tiver nenhum do éden, fodas, ninguém liga
+    }
+}
 
 #
 #

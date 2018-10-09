@@ -214,6 +214,15 @@ sub pegarIndiceDoEquipamentoPeloId {
     }
 }
 
+sub checarSeSlotEquipamentoEstaVazio {
+    my ($slotDoEquipamento) = @_;
+    if (exists $char->{equipment}{$slotDoEquipamento}) {
+        return "nao";
+    } else {
+        return "sim";
+    }
+}
+
 sub checarSeEquipEstaEquipado {
     my ($slotDoEquipamento, $id) = @_;
     my $item = $char->inventory->getByNameID($id);
@@ -234,6 +243,16 @@ sub checarSeEquipEstaEquipado {
     }
 }
 
+sub pegarNomeDoItemEquipado {
+    my ($slotDoEquipamento) = @_;
+    use strict;
+    if (exists $char->{equipment}{$slotDoEquipamento}) {
+        my $equipamento = $char->{equipment}{$slotDoEquipamento};
+        return $equipamento->{name};
+    } else {
+        return "-1";
+    }
+}
 
 sub pegarNomePeloIdDoItem {
     my $name = $items_lut{$_[0]};
