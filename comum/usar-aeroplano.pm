@@ -14,7 +14,7 @@ macro aeroplano_junoPara {
             do conf -f aeroplano1 izlude
             do conf -f aeroplano2 none
         }
-        case (=~ /rachel/i){
+        case (=~ /rachel/i) {
             do conf -f aeroplano1 rachel
             do conf -f aeroplano2 none
         }
