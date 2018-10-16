@@ -1,0 +1,123 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+    // }
+    
+    "nova automacro": {
+        "prefix": "automacro",
+        "body": [
+            "automacro ${1:nome da automacro} {",
+            "    exclusive 1",
+            "    ${2:#insira condições aqui}",
+            "}"
+        ]
+    },
+    
+    "novo macro": {
+        "prefix": "macro",
+        "body": [
+            "macro ${1:nome do macro} {",
+            "   ${2:insira comandos aqui}",
+            "}"
+        ]
+    },
+    
+    "switch case": {
+        "prefix": "switch",
+        "body": [
+            "switch ($1} {",
+            "    case ($2) {",
+            "        #insira comandos aqui",
+            "    }",
+            "    case ($3) {",
+            "        #insira comandos aqui",
+            "    }",
+            "    else {",
+            "        #insira comandos aqui",
+            "    }",
+            "}"
+        ]
+    },
+    
+    "multilinha case": {
+        "prefix": "case",
+        "body": [
+            "case (${1:condição}) {",
+            "    ${2:#insira comandos aqui}",
+            "}"
+        ]
+    },
+    
+    "linha única case": {
+        "prefix": "case",
+        "body": "case (${1:condição}) ${2:#digite o comando aqui}",
+        "description": "case compacto, de apenas uma linha"
+    },
+    
+    "multilinha": {
+        "prefix": "if",
+        "body": [
+            "if (${1:condição}) {",
+            "    ${2:#insira comandos aqui}",
+            "} $0"
+        ],
+        "description": "um if completo que pode executar vários comandos"
+    },
+    
+    "linha única": {
+        "prefix": "if",
+        "body": [
+            "if (${1:condição}) ${2:#insira comando aqui}"
+        ],
+        "description": "um if compacto de apenas um linha"
+    },
+    
+    "elsif": {
+        "prefix": "elsif",
+        "body": [
+            "elsif (${1:condição}) {",
+            "    ${2:#insira comandos aqui}",
+            "} $0"
+        ]
+    },
+    
+    "else": {
+        "prefix": "else",
+        "body": [
+            "else {",
+            "    ${1:#insira comandos aqui}",
+            "}"
+        ]
+    },
+    
+    "Log Maior": {
+        "prefix": "logm",
+        "body":[
+            "[",
+            "log ===================================",
+            "log = $1",
+            "log ===================================",
+            "]"
+        ],
+        "description": "Log mais visível para os usuários"
+    },
+    
+    "Trocar Config de um jeito eficiente": {
+        "prefix": "if",
+        "body": "if (&config($1) != $2) do conf $1 $2",
+        "description": "Troca uma config usando um if, que faz com que ele não troque caso já esteja igual, útil pra não ficar mostrando avisos a toa no openkore"
+    }
+}
