@@ -38,7 +38,7 @@
     "switch case": {
         "prefix": "switch",
         "body": [
-            "switch ($1} {",
+            "switch ($1) {",
             "    case ($2) {",
             "        #insira comandos aqui",
             "    }",
@@ -110,6 +110,30 @@
             "log ===================================",
             "log = $1",
             "log ===================================",
+            "]"
+        ],
+        "description": "Log mais visível para os usuários"
+    },
+    
+    "warning Maior": {
+        "prefix": "warningm",
+        "body":[
+            "[",
+            "warning ===================================",
+            "warning = $1",
+            "warning ===================================",
+            "]"
+        ],
+        "description": "Log mais visível para os usuários"
+    },
+    
+    "error Maior": {
+        "prefix": "errorm",
+        "body":[
+            "[",
+            "error ===================================",
+            "error = $1",
+            "error ===================================",
             "]"
         ],
         "description": "Log mais visível para os usuários"

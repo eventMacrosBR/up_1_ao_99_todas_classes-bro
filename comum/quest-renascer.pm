@@ -386,8 +386,10 @@ automacro questRenascer_terceiroEstagio {
                 
                 #if still doesn't inside valkyrie map, then throw error
                 if ($.map != valkyrie) {
-                    do eval Log::error("Ocorreu um erro ao tentar entrar no mapa de rebornar")
-                    do eval Log::error("Contate os criadores da eventMacro ou post no fórum esse erro")
+                    [
+                    error Ocorreu um erro ao tentar entrar no mapa de rebornar
+                    error Contate os criadores da eventMacro ou post no fórum esse erro
+                    ]
                 }
             }
         }

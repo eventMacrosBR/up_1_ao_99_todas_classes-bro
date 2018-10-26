@@ -93,15 +93,15 @@ macro atualizarBuild {
     
     if (&config(questc2_implementada) != true && pegarID() = $parametrosQuestClasse1{idC1}) {
         [
-        do eval Log::warning "=========================================================\n"
-        do eval Log::warning "  AVISO!\n"
-        do eval Log::warning "  ------\n"
-        do eval Log::warning "Este script para classe escolhida ainda está incompleto.\n"
-        do eval Log::warning "Portanto haverá um grande número de bugs e \n"
-        do eval Log::warning "não fará a quest da classe 2.\n"
-        do eval Log::warning "Ao continuar você está ciente de que essa macro não fará\n"
-        do eval Log::warning "tudo por você.\n"
-        do eval Log::warning "==========================================================\n"
+        warning =========================================================
+        warning   AVISO!
+        warning   ------
+        warning Este script para classe escolhida ainda está incompleto.
+        warning Portanto haverá um grande número de bugs e
+        warning não fará a quest da classe 2.
+        warning Ao continuar você está ciente de que essa macro não fará
+        warning tudo por você.
+        warning ==========================================================
         ]
         pause 5
     }
@@ -134,22 +134,22 @@ macro atualizarBuild_atributos {
     
     } else {
         [
-        log ===================================
-        log = ocorreu um erro ao definir a build de atributos padrão para sua classe
-        log = caso isso apareça mais de 1 vez, contate os criadores da eventMacro
-        log = \$idClasseAtual : "$idClasseAtual"
-        log ===================================
+        error ===================================
+        error = ocorreu um erro ao definir a build de atributos padrão para sua classe
+        error = caso isso apareça mais de 1 vez, contate os criadores da eventMacro
+        error = \$idClasseAtual : "$idClasseAtual"
+        error ===================================
         ]
         stop
     }
     
     if ($classeSemBuildDeAtributos = 1) {
         [
-        do eval Log::error "===================================\n"
-        do eval Log::error "= NÃO EXISTE UMA BUILD DE ATRIBUTOS PRONTA PARA A CLASSE\n"
-        do eval Log::error "= SEU BOT NÃO VAI DISTRIBIUR PONTOS DE ATRIBUTOS\n"
-        do eval Log::error "= SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD\n"
-        do eval Log::error "===================================\n"
+        error ===================================
+        error = NÃO EXISTE UMA BUILD DE ATRIBUTOS PRONTA PARA A CLASSE
+        error = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE ATRIBUTOS
+        error = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
+        error ===================================
         ]
         pause 5
         stop
@@ -208,21 +208,21 @@ macro atualizarBuild_skills {
         }
     } else {
         [
-        do eval Log::error "===================================\n"
-        do eval Log::error "Não foi possivel saber qual é a sua classe.\n";
-        do eval Log::error "ID encontrado: $idClasseAtual\n";
-        do eval Log::error "Contate os criadores da eventMacro\n";
-        do eval Log::error "===================================\n"
+        error ===================================
+        error Não foi possivel saber qual é a sua classe.
+        error ID encontrado: $idClasseAtual
+        error Contate os criadores da eventMacro
+        error ===================================
         ]
         stop
     }
     if (&defined($classeSemBuild) = 1) {
         [
-        do eval Log::error "===================================\n"
-        do eval Log::error "= NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A $classeSemBuild\n"
-        do eval Log::error "= SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE\n"
-        do eval Log::error "= SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD\n"
-        do eval Log::error "===================================\n"
+        error ===================================
+        error = NÃO EXISTE UMA BUILD DE SKILLS PRONTA PARA A $classeSemBuild
+        error = SEU BOT NÃO VAI DISTRIBIUR PONTOS DE HABILIDADE
+        error = SUGIRO FORTEMENTE CRIAR A SUA PRÓPRIA BUILD
+        error ===================================
         ]
         pause 5
         stop
@@ -264,12 +264,12 @@ macro atualizarMapasDeUp {
         %mapa = extrairMapasDeUp("$.lvl", "sim") # "sim" significa que ele já rebornou e é trans
     } else {
         [
-        do eval Log::error "===================================\n"
-        do eval Log::error "= ERRO:\n"
-        do eval Log::error "= impossível definir locais de up\n"
-        do eval Log::error "= contate um dos criadores da macro\n"
-        do eval Log::error "= Id encontrada: '$idClasseAtual'\n"
-        do eval Log::error "===================================\n"
+        error ===================================
+        error = ERRO:
+        error = impossível definir locais de up
+        error = contate um dos criadores da macro
+        error = Id encontrada: '$idClasseAtual'
+        error ===================================
         ]
         stop
     }
@@ -277,14 +277,14 @@ macro atualizarMapasDeUp {
     
     if (!&exists($mapa{lockMap}) && $.lvl < 99) {
         [
-        do eval Log::error "===================================\n"
-        do eval Log::error "= ERRO:\n"
-        do eval Log::error "= mapas de up não foram definidos\n"
-        do eval Log::error "= significa que seu bot provavelmente nao vai upar\n"
-        do eval Log::error "= Contate os criadores da eventMacro\n"
-        do eval Log::error "= se vc tiver usando o 'Openkore Premium' do oscar\n"
-        do eval Log::error "= peço encarecidamente que vá se fuder\n"
-        do eval Log::error "===================================\n"
+        error ===================================
+        error = ERRO:
+        error = mapas de up não foram definidos
+        error = significa que seu bot provavelmente nao vai upar
+        error = Contate os criadores da eventMacro
+        error = se vc tiver usando o 'Openkore Premium' do oscar
+        error = peço encarecidamente que vá se fuder
+        error ===================================
         ]
         pause 240 #fica travado mesmo, não quero que funcione
         stop

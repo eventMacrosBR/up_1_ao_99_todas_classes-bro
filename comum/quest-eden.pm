@@ -854,15 +854,15 @@ macro equiparArma {
         } else {
             if (checarSeSlotEquipamentoEstaVazio("rightHand") = "sim") {
                 [
-                do eval Log::error"[eventMacro] Erro: não foi encontrado nenhuma arma éden para equipar\n"
-                do eval Log::error"[eventMacro] Seu bot ta batendo na mão\n"
-                do eval Log::error"[eventMacro] A eventMacro não pode fazer nada a respeito disso\n"
+                error Erro: não foi encontrado nenhuma arma éden para equipar
+                error Seu bot ta batendo na mao
+                error A eventMacro não pode fazer nada a respeito disso
                 ]
             } else {
                 [
-                do eval Log::error"[eventMacro] Erro desconhecido ao tentar encontrar uma arma para equipar\n"
-                do eval Log::error"[eventMacro] Você está com pegarNomeDoItemEquipado(rightHand) equipado, não deveria aparecer esse erro\n"
-                do eval Log::error"[eventMacro] Caso você esteja lendo isso, contate os criadores da eventMacro\n"
+                error Erro desconhecido ao tentar encontrar uma arma para equipar
+                error Você está com pegarNomeDoItemEquipado(rightHand) equipado, não deveria aparecer esse erro
+                error Caso você esteja lendo isso, contate os criadores da eventMacro
                 ]
             }
         }
