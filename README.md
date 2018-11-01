@@ -1,6 +1,5 @@
 [![GitHub license](https://img.shields.io/github/license/eventMacrosBR/up_1_ao_99_todas_classes-bro.svg)](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/blob/master/LICENSE)
 [![Travis CI Build Status](https://travis-ci.org/eventMacrosBR/up_1_ao_99_todas_classes-bro.svg?branch=master)](https://travis-ci.org/eventMacrosBR/up_1_ao_99_todas_classes-bro)
-[![Juntar-se ao chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/eventMacro-up-todas-as-classes/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 [![GitHub issues](https://img.shields.io/github/issues/eventMacrosBR/up_1_ao_99_todas_classes-bro.svg)](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/issues)
 [![GitHub forks](https://img.shields.io/github/forks/eventMacrosBR/up_1_ao_99_todas_classes-bro.svg)](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/network)
 [![GitHub stars](https://img.shields.io/github/stars/eventMacrosBR/up_1_ao_99_todas_classes-bro.svg)](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/stargazers)
@@ -23,6 +22,8 @@
 
 ## Referências
 Documentação e links uteis para trabalhar com o projeto e eventMacros em geral acesse nossa [Wiki](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/wiki)
+
+Caso queria tirar dúvidas com os criadores da eventMacro ou reportar um erro, temos um grupo no discord: [Clique aqui](https://discord.gg/tnBrAS)
 
 ## Link de Download
 O repositório já disponibiliza o eventMacros.txt de todas as classes montados em: 
@@ -58,7 +59,7 @@ Obs: Colocamos o nome da classe mais alta para definir a linha de evolução a s
 ## Agradecimentos
 - @nipodemos: Criação do script [up1-99_completo_para_arruaceiros](https://github.com/Nipodemos/up1-99_completo_para_arrauceiros) no qual este script é baseado (Créditos dos scripts que ele utilizou como base em seu próprio repositório)
 - Todos os [contribuidores](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/graphs/contributors) que fizeram essa macro acontecer
-- Todos os usuários que utilizam as macros e reportam no forum do openkorebrasil.org e no gitter
+- Todos os usuários que utilizam as macros e reportam no forum do openkorebrasil.org
 
 ## Funcionalidades:
 Veja a lista de todas funcionalidades em: [Funcionalidades](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/wiki/Funcionalidades)
