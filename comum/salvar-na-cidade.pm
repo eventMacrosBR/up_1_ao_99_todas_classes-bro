@@ -129,7 +129,6 @@ automacro salvarNaCidade_bugged {
     ConfigKey saveMap_desejado           none
     ConfigKey saveMap_posicaoKafra       none
     ConfigKey saveMap_posicaoNpcVenda    none
-    ConfigKey saveMap_posicaoNpcPraPocao none
     ConfigKey naSequenciaDeSalvamento true
     CheckOnAI auto, manual
     call {
