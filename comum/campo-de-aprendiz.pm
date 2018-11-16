@@ -154,7 +154,10 @@ automacro campoDeAprendiz_falarComSprakki_bugado1 {
     NpcNear /Sprakki/
     InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
     priority 0
-    call SprakiiBuggedTalk
+    call {
+      do talk $.NpcNearLastBinId
+      do talk resp 0
+    }
 }
 
 #7118#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
@@ -167,12 +170,10 @@ automacro campoDeAprendiz_falarComSprakki_bugado2 {
     NpcNear /Sprakki/
     InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
     priority 0
-    call SprakiiBuggedTalk
-}
-
-macro SprakiiBuggedTalk {
-    do talk $.NpcNearLastBinId
-
+    call {
+      do talk $.NpcNearLastBinId
+      do talk resp 0
+    }
 }
 
 #7117#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
