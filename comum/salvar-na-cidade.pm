@@ -114,7 +114,6 @@ automacro definirVariavelSaveMap {
     ConfigKeyNot saveMap_desejado           none
     ConfigKeyNot saveMap_posicaoKafra       none
     ConfigKeyNot saveMap_posicaoNpcVenda    none
-    ConfigKeyNot saveMap_posicaoNpcPraPocao none
     ConfigKey naSequenciaDeSalvamento true
     priority -4
     CheckOnAI auto, manual
@@ -129,7 +128,6 @@ automacro salvarNaCidade_bugged {
     ConfigKey saveMap_desejado           none
     ConfigKey saveMap_posicaoKafra       none
     ConfigKey saveMap_posicaoNpcVenda    none
-    ConfigKey saveMap_posicaoNpcPraPocao none
     ConfigKey naSequenciaDeSalvamento true
     CheckOnAI auto, manual
     call {
