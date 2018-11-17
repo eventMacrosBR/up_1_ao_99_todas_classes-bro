@@ -85,7 +85,7 @@ automacro configurarRelampago {
         do conf enhancedCasting_2_disabled 0
         do conf enhancedCasting_2_Element Water
         do conf enhancedCasting_2_damageFormula mATK * (0.9 * sLVL)
-        do conf enhancedCasting_2_damageType Wind        
+        do conf enhancedCasting_2_damageType Wind
     }
 }
 
@@ -188,6 +188,7 @@ automacro configurarDistanciaDeAtaque_usandoMagias {
     exclusive 1
     call {
         do conf attackDistance 6
+        do conf attackMaxDistance 8
     }
 }
 
@@ -197,6 +198,7 @@ automacro configurarDistanciaDeAtaque_naCajadada {
     exclusive 1
     call {
         do conf attackDistance 1.5
+        do conf attackMaxDistance 2.5
     }
 }
 
