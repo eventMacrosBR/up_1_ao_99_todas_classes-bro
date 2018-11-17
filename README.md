@@ -23,7 +23,7 @@
 ## Referências
 Documentação e links uteis para trabalhar com o projeto e eventMacros em geral acesse nossa [Wiki](https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro/wiki)
 
-Caso queria tirar dúvidas com os criadores da eventMacro ou reportar um erro, temos um grupo no discord: [Clique aqui](https://discord.gg/3pSBdBN)
+Caso queria tirar dúvidas com os criadores da eventMacro ou reportar um erro, temos um grupo no discord: [Clique aqui](https://discord.gg/dYGG2sN)
 
 ## Link de Download
 O repositório já disponibiliza o eventMacros.txt de todas as classes montados em: 
