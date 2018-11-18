@@ -300,7 +300,6 @@ automacro verificarFlechas {
     JobIDNot 4023 #Baby Aprendiz
     InInventory "Flecha" < 100
     InInventory "Flecha" > 0
-    ConfigKey buyAuto_1_zeny > 2000, buyAuto_1_zeny > 5000
     call {
         [
         log ===================================
@@ -316,14 +315,7 @@ automacro verificarFlechas {
         log = tentando descobrir quantos zenys precisamos
         log ================================
         ]
-        $zenyNecessario = pegarZenyDoBuyAuto()
-        if ($zenyNecessario = erro) stop
-        
-        [
-        log ====================================
-        log Checando se tenho no minimo $zenyNecessario zenys
-        ]
-        if ( $.zeny >= $zenyNecessario ) {
+        if ( $.zeny >= 100 ) {
             [
             log = tenho sim
             log ===================================
@@ -339,17 +331,6 @@ automacro verificarFlechas {
         }
         do eq &inventory(1750) #Id da flecha
         call voltarAtacar
-    }
-}
-
-sub pegarZenyDoBuyAuto {
-
-    if ($config{"buyAuto_1_zeny"} =~ /(\d+)/) {
-        return $1;
-    } else {
-        error "Erro encontrado tentando saber quanto zeny preciso ter pra comprar flechas\n".
-        "valor: '" . $config{"buyAuto_1_zeny"} . "' \n";
-        return "erro";
     }
 }
 

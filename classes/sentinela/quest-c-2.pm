@@ -181,7 +181,7 @@ automacro questCacador_coletarItens_possibilidade1 {
     call {
         $item1{nomeDoItem}    = Garra de Lobo
         $item1{idDoItem}      = 920
-        $item1{lockMap}       = moc_fild11
+        $item1{lockMap}       = moc_fild03
         
         $item2{nomeDoItem}    = Tronco
         $item2{idDoItem}      = 1019
@@ -189,7 +189,7 @@ automacro questCacador_coletarItens_possibilidade1 {
         
         $item3{nomeDoItem}    = Erva Branca
         $item3{idDoItem}      = 509
-        $item3{lockMap}       = beach_dun3
+        $item3{lockMap}       = orcsdun01
         call decidirLockMapProItem 
     }
 }
@@ -208,12 +208,12 @@ macro decidirLockMapProItem {
         
     #se já tiver o item1, vamos pegar o item2
     } elsif ( &invamount($item1{idDoItem}) >= $item1{qtdQuePreciso} && &invamount($item2{idDoItem}) < $item2{qtdQuePreciso} ) {
-        do conf lockMap $item1{lockMap}
+        do conf lockMap $item2{lockMap}
         call pegarItemDoArmazenSeTiver "$item2{idDoItem}" "$item2{qtdQuePreciso}"
         
     #se ja tiver tanto o item1 quanto o item2, vamos pegar o item3
     } elsif ( &invamount($item1{idDoItem}) >= $item1{qtdQuePreciso} && &invamount($item2{idDoItem}) >= $item2{qtdQuePreciso} && &invamount($item3{idDoItem}) < $item3{qtdQuePreciso}) {
-        do conf lockMap $item1{lockMap}
+        do conf lockMap $item3{lockMap}
         call pegarItemDoArmazenSeTiver "$item3{idDoItem}" "$item3{qtdQuePreciso}"
         
     #se tiver todos os 3 items, aí vai entregar
@@ -794,7 +794,7 @@ automacro questCacador_labirinto {
 automacro questCacador_irAteAGuildaDosArqueirosRelatarSucesso {
     QuestActive 4012
     exclusive 1
-    ConfigKey quest_cacador_lider guilda_arqueiros
+    ConfigKey quest_cacador_lider palacio_payon
     call {
         do move payon_in02 21 31 &rand(2,4)
     do talknpc 21 31 r0
