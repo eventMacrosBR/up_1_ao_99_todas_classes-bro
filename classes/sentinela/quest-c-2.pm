@@ -801,6 +801,21 @@ automacro questCacador_irAteAGuildaDosArqueirosRelatarSucesso {
     }
 }
 
+#Nao quis entender o porque. Apenas funcionou (testado duas vezes)
+#4012#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
+#Relate ao Senhor da Guilda dos Caçadores que passou no exame. #
+##
+automacro questCacador_irAteAGuildaDosArqueirosRelatarSucesso2 {
+    QuestActive 4012
+    exclusive 1
+    ConfigKey quest_cacador_lider guilda_arqueiros
+    call {
+        do move payon_in02 21 31 &rand(2,4)
+    do talknpc 21 31 r0
+    }
+}
+
+
 #4012#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
 #Relate ao Senhor da Guilda dos Caçadores que passou no exame. #
 ##

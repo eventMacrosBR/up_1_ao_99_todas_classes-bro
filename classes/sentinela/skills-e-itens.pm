@@ -293,13 +293,28 @@ automacro pegarFalcao {
     }
 }
 
+automacro verificarFlechasAposVirarClasse1 {
+    JobLevel < 5
+    JobIDNot 0 #Aprendiz
+    JobIDNot 4001 #Aprendiz T.
+    JobIDNot 4023 #Baby Aprendiz
+    exclusive 1
+    Zeny < 2000
+    InInventory "Flecha" = 0
+    call {
+        do conf buyAuto_1_zeny > 150
+    }
+
+}
+
 automacro verificarFlechas {
     exclusive 1
     JobIDNot 0 #Aprendiz
     JobIDNot 4001 #Aprendiz T.
     JobIDNot 4023 #Baby Aprendiz
     InInventory "Flecha" < 100
-    InInventory "Flecha" > 0
+    InInventory "Flecha" >= 0
+    ConfigKey buyAuto_1_zeny > 2000, buyAuto_1_zeny > 5000, buyAuto_1_zeny > 150
     call {
         [
         log ===================================
@@ -315,11 +330,15 @@ automacro verificarFlechas {
         log = tentando descobrir quantos zenys precisamos
         log ================================
         ]
-        if ( $.zeny >= 100 ) {
-            [
-            log = tenho sim
-            log ===================================
-            ]
+        $zenyNecessario = pegarZenyDoBuyAuto()
+        if ($zenyNecessario = erro) stop
+        
+        [
+        log ====================================
+        log Checando se tenho no minimo $zenyNecessario
+        log ====================================
+        ]
+        if ( $.zeny >= $zenyNecessario ) {
             do autobuy
         } else {
             [
@@ -331,6 +350,19 @@ automacro verificarFlechas {
         }
         do eq &inventory(1750) #Id da flecha
         call voltarAtacar
+    }
+}
+
+
+
+sub pegarZenyDoBuyAuto {
+
+    if ($config{"buyAuto_1_zeny"} =~ /(\d+)/) {
+        return $1;
+    } else {
+        error "Erro encontrado tentando saber quanto zeny preciso ter pra comprar flechas\n".
+        "valor: '" . $config{"buyAuto_1_zeny"} . "' \n";
+        return "erro";
     }
 }
 
