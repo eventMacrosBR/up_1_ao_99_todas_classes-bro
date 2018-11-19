@@ -335,10 +335,13 @@ automacro verificarFlechas {
         
         [
         log ====================================
-        log Checando se tenho no minimo $zenyNecessario
-        log ====================================
+        log Checando se tenho no minimo $zenyNecessario zenys
         ]
         if ( $.zeny >= $zenyNecessario ) {
+            [
+            log = tenho sim
+            log ===================================
+            ]
             do autobuy
         } else {
             [
