@@ -10,6 +10,13 @@ sub inicializarParametrosQuestClasse2 {
             Commands::run("iconf $key 0 1 0")
         }
     }
+    Commands::run("do mconf Planta Verde 0 0 0 0 0 0 0 0 0");
+    Commands::run("do mconf Planta Azul 0 0 0 0 0 0 0 0 0");
+    Commands::run("do mconf Planta Brilhante 0 0 0 0 0 0 0 0 0");
+    Commands::run("do mconf Rabo de Verme 0 0 0 0 0 0 0 0 0");
+    Commands::run("do mconf Golem 0 0 0 0 0 0 0 0 0");
+    Commands::run("do mconf Chon Chon de Aço 0 0 0 0 0 0 0 0 0");
+    Commands::run("do mconf Metaling 0 0 0 0 0 0 0 0 0");
 }
 
 #COMEÇANDO SÓ PELO GUIA DA BROWIKI MAIS PARA BOTAR OS DADOS
