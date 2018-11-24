@@ -1,6 +1,6 @@
 automacro configurarRelâmpago {
     SkillLevel MG_LIGHTNINGBOLT > 0
-    ConfigKeyNot enhancedCasting_0 MG_LIGHTNINGBOLT
+    ConfigKeyNot attackSkillSlot_0 MG_LIGHTNINGBOLT
     priority 0
     exclusive 1
     call {
@@ -10,29 +10,26 @@ automacro configurarRelâmpago {
         log =Configurando pra usar e eletrocutar as zinimigas
         log ==================================================
         ]
-        while (checarSeExisteNoConfig("enhancedCasting_0") = nao ) {
-            adicionaEnhancedCasting()
+        while (checarSeExisteNoConfig("attackSkillSlot_0") = nao ) {
+            adicionaAttackSkillSlot()
             pause 1
             do reload config
         }
         
-        do conf enhancedCasting_0 MG_LIGHTNINGBOLT
-        do conf enhancedCasting_0_lvl 10
-        do conf enhancedCasting_0_sp >= 25
-        do conf enhancedCasting_0_dist 9
-        do conf enhancedCasting_0_whenStatusInactive EFST_POSTDELAY
-        do conf enhancedCasting_0_inLockOnly 1
-        do conf enhancedCasting_0_notInTown 1
-        do conf enhancedCasting_0_disabled 0
-        do conf enhancedCasting_0_Element Water, Neutral
-        do conf enhancedCasting_0_damageFormula mATK * (0.9 * sLVL)
-        do conf enhancedCasting_0_damageType Wind        
+        do conf attackSkillSlot_0 MG_LIGHTNINGBOLT
+        do conf attackSkillSlot_0_lvl 10
+        do conf attackSkillSlot_0_sp >= 25
+        do conf attackSkillSlot_0_dist 9
+        do conf attackSkillSlot_0_whenStatusInactive EFST_POSTDELAY
+        do conf attackSkillSlot_0_inLockOnly 1
+        do conf attackSkillSlot_0_notInTown 1
+        do conf attackSkillSlot_0_disabled 0
     }
 }
 
 automacro configurarLançasDeGelo {
     SkillLevel MG_COLDBOLT > 1
-    ConfigKeyNot enhancedCasting_1 MG_COLDBOLT
+    ConfigKeyNot attackSkillSlot_1 MG_COLDBOLT
     priority 0
     exclusive 1
     call {
@@ -42,30 +39,27 @@ automacro configurarLançasDeGelo {
         log =Configurando pra usar e congelar as zinimigas
         log ===============================================
         ]
-        $blocoExiste = checarSeExisteNoConfig("enhancedCasting_1")
+        $blocoExiste = checarSeExisteNoConfig("attackSkillSlot_1")
         if ($blocoExiste = nao ) {
-            adicionaEnhancedCasting()
+            adicionaAttackSkillSlot()
             pause 1
             do reload config
         }
         
-        do conf enhancedCasting_1 MG_COLDBOLT
-        do conf enhancedCasting_1_lvl 10
-        do conf enhancedCasting_1_sp >= 20
-        do conf enhancedCasting_1_dist 9
-        do conf enhancedCasting_1_whenStatusInactive EFST_POSTDELAY
-        do conf enhancedCasting_1_inLockOnly 1
-        do conf enhancedCasting_1_notInTown 1
-        do conf enhancedCasting_1_disabled 0
-        do conf enhancedCasting_1_Element Fire
-        do conf enhancedCasting_1_damageFormula mATK * (0.9 * sLVL)
-        do conf enhancedCasting_1_damageType Water
+        do conf attackSkillSlot_1 MG_COLDBOLT
+        do conf attackSkillSlot_1_lvl 10
+        do conf attackSkillSlot_1_sp >= 20
+        do conf attackSkillSlot_1_dist 9
+        do conf attackSkillSlot_1_whenStatusInactive EFST_POSTDELAY
+        do conf attackSkillSlot_1_inLockOnly 1
+        do conf attackSkillSlot_1_notInTown 1
+        do conf attackSkillSlot_1_disabled 0
     }
 }
 
 automacro configurarLançasDeFogo {
     SkillLevel MG_FIREBOLT > 0
-    ConfigKeyNot enhancedCasting_2 MG_FIREBOLT
+    ConfigKeyNot attackSkillSlot_2 MG_FIREBOLT
     priority 0
     exclusive 1
     call {
@@ -76,30 +70,27 @@ automacro configurarLançasDeFogo {
         log ==============================================
         ]
         
-        while (checarSeExisteNoConfig("enhancedCasting_2") = nao ) {
-            adicionaEnhancedCasting()
+        while (checarSeExisteNoConfig("attackSkillSlot_2") = nao ) {
+            adicionaAttackSkillSlot()
             pause 1
             do reload config
         }
         
-        do conf enhancedCasting_2 MG_FIREBOLT
-        do conf enhancedCasting_2_lvl 10
-        do conf enhancedCasting_2_sp >= 20
-        do conf enhancedCasting_2_dist 9
-        do conf enhancedCasting_2_whenStatusInactive EFST_POSTDELAY
-        do conf enhancedCasting_2_inLockOnly 1
-        do conf enhancedCasting_2_notInTown 1
-        do conf enhancedCasting_2_disabled 0
-        do conf enhancedCasting_2_Element Earth
-        do conf enhancedCasting_2_damageFormula mATK * (0.9 * sLVL)
-        do conf enhancedCasting_2_damageType Fire
+        do conf attackSkillSlot_2 MG_FIREBOLT
+        do conf attackSkillSlot_2_lvl 10
+        do conf attackSkillSlot_2_sp >= 20
+        do conf attackSkillSlot_2_dist 9
+        do conf attackSkillSlot_2_whenStatusInactive EFST_POSTDELAY
+        do conf attackSkillSlot_2_inLockOnly 1
+        do conf attackSkillSlot_2_notInTown 1
+        do conf attackSkillSlot_2_disabled 0
     }
 }
 
 automacro configurarAtaqueEspiritual {
     SkillLevel MG_NAPALMBEAT > 0
     SkillLevel MG_SOULSTRIKE < 3
-    ConfigKeyNot enhancedCasting_3 MG_NAPALMBEAT
+    ConfigKeyNot attackSkillSlot_3 MG_NAPALMBEAT
     priority 0
     exclusive 1
     call {
@@ -109,28 +100,25 @@ automacro configurarAtaqueEspiritual {
         log =Configurando pra usar e assustar as zinimigas
         log ===============================================
         ]
-        while (checarSeExisteNoConfig("enhancedCasting_3") = nao ) {
-            adicionaEnhancedCasting()
+        while (checarSeExisteNoConfig("attackSkillSlot_3") = nao ) {
+            adicionaAttackSkillSlot()
             pause 1
             do reload config
         }
         
-        do conf enhancedCasting_3 MG_NAPALMBEAT
-        do conf enhancedCasting_3_sp >= 25
-        do conf enhancedCasting_3_dist 9
-        do conf enhancedCasting_3_whenStatusInactive EFST_POSTDELAY
-        do conf enhancedCasting_3_inLockOnly 1
-        do conf enhancedCasting_3_notInTown 1
-        do conf enhancedCasting_3_disabled 0
-        do conf enhancedCasting_3_Element Shadow, Undead
-        do conf enhancedCasting_3_damageFormula mATK * ((sLVL / 10) + 0,6)
-        do conf enhancedCasting_3_damageType Holy
+        do conf attackSkillSlot_3 MG_NAPALMBEAT
+        do conf attackSkillSlot_3_sp >= 25
+        do conf attackSkillSlot_3_dist 9
+        do conf attackSkillSlot_3_whenStatusInactive EFST_POSTDELAY
+        do conf attackSkillSlot_3_inLockOnly 1
+        do conf attackSkillSlot_3_notInTown 1
+        do conf attackSkillSlot_3_disabled 0
     }
 }
 
 automacro configurarEspirítosAnciões {
     SkillLevel MG_SOULSTRIKE >= 3
-    ConfigKeyNot enhancedCasting_3 MG_SOULSTRIKE
+    ConfigKeyNot attackSkillSlot_3 MG_SOULSTRIKE
     priority 0
     exclusive 1
     call {
@@ -140,22 +128,19 @@ automacro configurarEspirítosAnciões {
         log =Configurando pra usar e aterrorizar as zinimigas
         log ==================================================
         ]
-        while (checarSeExisteNoConfig("enhancedCasting_3") = nao ) {
-            adicionaEnhancedCasting()
+        while (checarSeExisteNoConfig("attackSkillSlot_3") = nao ) {
+            adicionaAttackSkillSlot()
             pause 1
             do reload config
         }
 
-        do conf enhancedCasting_3 MG_SOULSTRIKE
-        do conf enhancedCasting_3_lvl 10
-        do conf enhancedCasting_3_sp >= 25
-        do conf enhancedCasting_3_dist 9
-        do conf enhancedCasting_3_whenStatusInactive EFST_POSTDELAY
-        do conf enhancedCasting_3_monsters
-        do conf enhancedCasting_3_disabled 0
-        do conf enhancedCasting_3_Element Shadow, Undead
-        do conf enhancedCasting_3_damageFormula mATK * (1 + 0.05 * sLVL)
-        do conf enhancedCasting_3_damageType Holy
+        do conf attackSkillSlot_3 MG_SOULSTRIKE
+        do conf attackSkillSlot_3_lvl 10
+        do conf attackSkillSlot_3_sp >= 25
+        do conf attackSkillSlot_3_dist 9
+        do conf attackSkillSlot_3_whenStatusInactive EFST_POSTDELAY
+        do conf attackSkillSlot_3_monsters
+        do conf attackSkillSlot_3_disabled 0
     }
 }
 
@@ -362,3 +347,4 @@ automacro reabilitarBuyAuto {
         do conf buyAuto_1_disabled 0
     }
 }
+
