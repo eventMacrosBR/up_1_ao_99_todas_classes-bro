@@ -24,6 +24,7 @@ automacro configurarRelâmpago {
         do conf attackSkillSlot_0_inLockOnly 1
         do conf attackSkillSlot_0_notInTown 1
         do conf attackSkillSlot_0_disabled 0
+        do conf attackSkillSlot_0_monsters Esporo
     }
 }
 
@@ -54,6 +55,7 @@ automacro configurarLançasDeGelo {
         do conf attackSkillSlot_1_inLockOnly 1
         do conf attackSkillSlot_1_notInTown 1
         do conf attackSkillSlot_1_disabled 0
+        do conf attackSkillSlot_1_monsters Frilldora, Grand Peco
     }
 }
 
@@ -84,6 +86,8 @@ automacro configurarLançasDeFogo {
         do conf attackSkillSlot_2_inLockOnly 1
         do conf attackSkillSlot_2_notInTown 1
         do conf attackSkillSlot_2_disabled 0
+        do conf attackSkillSlot_2_monsters Mandrágora, Jibóia, Deniro, Piere, Andre, Lobo, Grove, Flora, Hode, Rochoso, Planta Carnívora, Porcellio
+        
     }
 }
 
@@ -139,8 +143,8 @@ automacro configurarEspirítosAnciões {
         do conf attackSkillSlot_3_sp >= 25
         do conf attackSkillSlot_3_dist 9
         do conf attackSkillSlot_3_whenStatusInactive EFST_POSTDELAY
-        do conf attackSkillSlot_3_monsters
         do conf attackSkillSlot_3_disabled 0
+        do conf attackSkillSlot_3_monsters Argos, Ovo de Andre, Arenoso
     }
 }
 

@@ -30,9 +30,9 @@ sub extrairMapasDeUp {
             [
             {lvlMin => 1 , lvlMax => 18, lockMap => 'gef_fild04',  saveMap => 'geffen'},
             {lvlMin => 19, lvlMax => 25, lockMap => 'pay_fild08',  saveMap => 'payon'},
-            {lvlMin => 26, lvlMax => 40, lockMap => 'pay_fild07',   saveMap => 'payon'},
-            {lvlMin => 41, lvlMax => 45, lockMap => 'moc_fild03',  saveMap => 'payon'},
-            {lvlMin => 46, lvlMax => 60, lockMap => 'cmd_fild01',  saveMap => 'comodo'},
+            {lvlMin => 26, lvlMax => 40, lockMap => 'cmd_fild08',  saveMap => 'morooc'},
+            {lvlMin => 41, lvlMax => 49, lockMap => 'moc_fild03',  saveMap => 'payon'},
+            {lvlMin => 50, lvlMax => 60, lockMap => 'cmd_fild01',  saveMap => 'comodo'},
             {lvlMin => 60, lvlMax => 70, lockMap => 'moc_fild17',  saveMap => 'morocc'},
             {lvlMin => 71, lvlMax => 79, lockMap => 'yuno_fild09', saveMap => 'aldebaran'},
             {lvlMin => 80, lvlMax => 98, lockMap => 'ein_fild09',  saveMap => 'einbroch'}
@@ -43,9 +43,9 @@ sub extrairMapasDeUp {
             [
             {lvlMin => 1 , lvlMax => 18, lockMap => 'gef_fild04',  saveMap => 'geffen'},
             {lvlMin => 19, lvlMax => 25, lockMap => 'pay_fild08',  saveMap => 'payon'},
-            {lvlMin => 26, lvlMax => 40, lockMap => 'pay_dun00',   saveMap => 'payon'},
-            {lvlMin => 41, lvlMax => 45, lockMap => 'moc_fild03',  saveMap => 'payon'},
-            {lvlMin => 46, lvlMax => 60, lockMap => 'cmd_fild01',  saveMap => 'comodo'},
+            {lvlMin => 26, lvlMax => 40, lockMap => 'cmd_fild08',  saveMap => 'morooc'},
+            {lvlMin => 41, lvlMax => 49, lockMap => 'moc_fild03',  saveMap => 'payon'},
+            {lvlMin => 50, lvlMax => 60, lockMap => 'cmd_fild01',  saveMap => 'comodo'},
             {lvlMin => 60, lvlMax => 70, lockMap => 'moc_fild17',  saveMap => 'morocc'},
             {lvlMin => 71, lvlMax => 79, lockMap => 'yuno_fild09', saveMap => 'aldebaran'},
             {lvlMin => 80, lvlMax => 98, lockMap => 'ein_fild09',  saveMap => 'einbroch'}
