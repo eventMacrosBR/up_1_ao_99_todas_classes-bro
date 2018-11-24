@@ -58,17 +58,6 @@ automacro configurarRajadaDeFlechas {
     }
 }
 
-automacro aumentarFlechasLevel30 {
-    ConfigKey buyAuto_1 Flecha
-    ConfigKeyNot buyAuto_1_maxAmount 5000
-    BaseLevel >= 30
-    exclusive 1
-    call {
-        do conf buyAuto_1_maxAmount 5000
-        do conf buyAuto_1_zeny > 5000
-    }
-}
-
 automacro configurarEquiparFlechaAutomaticamente {
     ConfigKeyNot attackEquip_arrow Flecha
     exclusive 1
@@ -88,17 +77,6 @@ automacro desconfigurarAutoEquiparFlechaAprendizT {
     call {
         do conf attackEquip_arrow none
     }
-} 
-
-automacro configurarParaComprarPoucasFlechasArqueiroT {
-    ConfigKey buyAuto_1 Flecha
-    ConfigKey buyAuto_1_maxAmount 5000
-    BaseLevel < 30
-    JobID $parametrosClasses{idC1T}
-    call {
-        do conf buyAuto_1_maxAmount 2000
-        do conf buyAuto_1_zeny > 2000
-    }
 }
 
 automacro configurarUsarAljave {
@@ -112,14 +90,38 @@ automacro configurarUsarAljave {
             do reload config
         }
         do conf useSelf_item_1 Aljave
-        do conf useSelf_item_1_inInventory  Flecha < 50
+        do conf useSelf_item_1_inInventory Flecha < 50
+    }
+}
+
+automacro aumentarFlechasLevel30 {
+    ConfigKey buyAuto_1 Flecha
+    ConfigKeyNot buyAuto_1_maxAmount 2000
+    BaseLevel >= 30
+    Zeny > 2000
+    exclusive 1
+    call {
+        do conf buyAuto_1_maxAmount 2000
+        do conf buyAuto_1_zeny > 2000
+    }
+}
+
+automacro configurarParaComprarPoucasFlechasArqueiroT {
+    ConfigKey buyAuto_1 Flecha
+    ConfigKeyNot buyAuto_1_maxAmount 500
+    BaseLevel < 30
+    JobID $parametrosClasses{idC1T}
+    call {
+        do conf buyAuto_1_maxAmount 500
+        do conf buyAuto_1_zeny > 500
     }
 }
 
 automacro configurarBuyAutoFlecha {
     ConfigKeyNot buyAuto_1 Flecha
-    BaseLevel < 30
-    JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
+    JobIDNot 0 #Aprendiz
+    JobIDNot 4001 #Aprendiz T.
+    JobIDNot 4023 #Aprendiz Baby
     exclusive 1
     call {
         $blocoExiste = checarSeExisteNoConfig("buyAuto_1")
@@ -130,29 +132,23 @@ automacro configurarBuyAutoFlecha {
             do reload config
         }
         do conf buyAuto_1 Flecha
-        do conf buyAuto_1_minAmount 25
+        do conf buyAuto_1_minAmount 100
         do conf buyAuto_1_maxAmount 2000
         do conf buyAuto_1_zeny > 2000
     }
 }
 
-automacro configurarAtaqueADistancia {
-    ConfigKeyNot attackDistanceAuto 1
-    exclusive 1
+automacro verificarFlechasAposVirarClasse1 {
+    JobLevel < 5
     JobIDNot 0 #Aprendiz
-    JobIDNot 4023 #Baby Aprendiz
     JobIDNot 4001 #Aprendiz T.
-    call {
-        do conf attackDistanceAuto 1
-    }
-}
-
-automacro removerConfiguracaoAtaqueADistanciaAprendizT {
-    ConfigKey attackDistanceAuto 1
+    JobIDNot 4023 #Baby Aprendiz
     exclusive 1
-    JobID 4001 #Aprendiz T.
+    Zeny < 500
+    ConfigKeyNot buyAuto_1_zeny > 150
     call {
-        do conf attackDistanceAuto 0
+        do conf buyAuto_1_maxAmount 150
+        do conf buyAuto_1_zeny > 150
     }
 }
 
@@ -161,58 +157,70 @@ automacro verificarFlechas {
     JobIDNot 0 #Aprendiz
     JobIDNot 4001 #Aprendiz T.
     JobIDNot 4023 #Baby Aprendiz
-    InInventory "Flecha" < 100
-    InInventory "Flecha" > 0
-    ConfigKey buyAuto_1_zeny > 2000, buyAuto_1_zeny > 5000
+    ConfigKey o_que_estou_fazendo upando
+    timeout 120
+    ConfigKeyNot buyAuto_1_zeny none
     call {
-        [
-        log ===================================
-        log Quantidade de flechas insuficiente,
-        log Inicializando compras automáticas!!
-        log ===================================
-        ]
-        call pararDeAtacar
-        do autosell
-        # buyAuto_1_zeny contem valores como "> 5000" ou "> 2000" temos que remover o "> "
-        [
-        log ================================
-        log = tentando descobrir quantos zenys precisamos
-        log ================================
-        ]
-        $zenyNecessario = pegarZenyDoBuyAuto()
-        if ($zenyNecessario = erro) stop
-        
-        [
-        log ====================================
-        log Checando se tenho no minimo $zenyNecessario zenys
-        ]
-        if ( $.zeny >= $zenyNecessario ) {
+        $qtdRealFlecha = &invamount (1750) #Flecha
+        if ( $qtdRealFlecha = 0..50 ) {
             [
-            log = tenho sim
-            log ===================================
+            warning ===================================
+            warning Quantidade de flechas insuficiente,
+            warning Inicializando compras automáticas!!
+            warning ===================================
             ]
-            do autobuy
+            call pararDeAtacar
+            do autosell
+
+            [
+            log ====================================
+            log Checando se tenho os zenys pra comprar flecha
+            ]
+            if (&config(buyAuto_1_zeny) =~ /(\d+)/) {
+                [
+                log = tenho sim
+                log ===================================
+                ]
+                do autobuy
+            } else {
+                [
+                error = estou sem flechas, e estou sem zeny pra comprar
+                error ===================================
+                ]
+                do eval Misc::offlineMode()
+            }
+            do eq &inventory(1750) #Id da flecha
+            call voltarAtacar
         } else {
             [
             log ===================================
-            log = estou sem flechas, e estou sem zeny pra comprar
+            log = tenho &invamount(1750) Flechas
+            log = to de boas, continuando a upar
             log ===================================
             ]
-            do eval Misc::offlineMode()
         }
-        do eq &inventory(1750) #Id da flecha
-        call voltarAtacar
     }
 }
 
-sub pegarZenyDoBuyAuto {
-
-    if ($config{"buyAuto_1_zeny"} =~ /(\d+)/) {
-        return $1;
-    } else {
-        error "Erro encontrado tentando saber quanto zeny preciso ter pra comprar flechas\n".
-        "valor: '" . $config{"buyAuto_1_zeny"} . "' \n";
-        return "erro";
+automacro atacarSomenteNoLockMap {
+    BaseLevel != 99
+    ConfigKeyNot quest_eden em_curso
+    ConfigKeyNot quest_eden terminando
+    ConfigKeyNot naSequenciaDeSalvamento true
+    ConfigKeyNot virarClasse2 true
+    ConfigKeyNot virarClasse2T true
+    ConfigKeyNot quest_skill true
+    ConfigKeyNot esperarFazerQuest true
+    ConfigKeyNot attackAuto_inLockOnly 1
+    ConfigKey aeroplano1 none
+    ConfigKey aeroplano2 none
+    ConfigKey questRenascer_estagio none
+    exclusive 1
+    priority 20 #baixa prioridade
+    JobIDNot 0 #Ou o campo de treinamento fica louco
+    JobIDNot 4023 #Baby Aprendiz
+    call {
+        do conf attackAuto_inLockOnly 1
     }
 }
 
@@ -233,3 +241,4 @@ automacro autoEquiparFlechas {
         do eq &inventory(1750) #Id da flecha
     }
 }
+
