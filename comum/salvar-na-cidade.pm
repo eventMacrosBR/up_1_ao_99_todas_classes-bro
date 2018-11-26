@@ -35,7 +35,7 @@ macro salvarNaCidade {
             do conf -f saveMap_desejado comodo
             do conf -f saveMap_posicaoKafra 195 150
             do conf -f saveMap_posicaoNpcVenda cmd_in01 79 182
-            do conf -f saveMap_posicaoNpcPraPocao cmd_in01 79 182
+            do conf -f saveMap_posicaoNpcPraPocao moc_ruins 114 63
         }
         case (=~ /prontera/i ) {
             do conf -f saveMap_desejado prontera
