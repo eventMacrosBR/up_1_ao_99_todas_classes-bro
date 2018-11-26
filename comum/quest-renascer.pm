@@ -24,7 +24,8 @@ automacro questRenascer_chegueilvl99 {
         } else {
             if ($.statushandle =~ /EFST_RIDING/i) do pecopeco release
             if ($.statushandle =~ /EFST_FALCON/i) do falcon release
-            #e outra linha para vaporizar homunculo
+            if (&eval(return $::char->{skills}{'AM_BIOETHICS'} ? 1 : 0) = 1) do ss 244 #colocando homunculo pra descansar
+
             do pm "$parametrosQuestClasseRenascer{amigo}" ajudaRebornar
             log peso atual: $.weight
             log peso percentual: $.weightpercent
