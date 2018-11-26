@@ -23,7 +23,7 @@ automacro questRenascer_chegueilvl99 {
             lock questRenascer_chamarAmigo
         } else {
             if ($.statushandle =~ /EFST_RIDING/i) do pecopeco release
-            #TODO adicionar uma linha pra remover falcão
+            if ($.statushandle =~ /EFST_FALCON/i) do falcon release
             #e outra linha para vaporizar homunculo
             do pm "$parametrosQuestClasseRenascer{amigo}" ajudaRebornar
             log peso atual: $.weight
