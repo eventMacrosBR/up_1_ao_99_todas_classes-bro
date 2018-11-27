@@ -302,7 +302,9 @@ automacro verificarFlechasAposVirarClasse1 {
     Zeny < 2000
     InInventory "Flecha" = 0
     call {
-        do conf buyAuto_1_zeny > 150
+        pause 2
+        $qtdRealFlecha = &invamount (1750)
+        if ( $qtdRealFlecha = 0 ) do conf buyAuto_1_zeny > 150
     }
 
 }
@@ -313,46 +315,49 @@ automacro verificarFlechas {
     JobIDNot 4001 #Aprendiz T.
     JobIDNot 4023 #Baby Aprendiz
     InInventory "Flecha" < 100
-    InInventory "Flecha" >= 0
     ConfigKey buyAuto_1_zeny > 2000, buyAuto_1_zeny > 5000, buyAuto_1_zeny > 150
     call {
-        [
-        log ===================================
-        log Quantidade de flechas insuficiente,
-        log Inicializando compras automáticas!!
-        log ===================================
-        ]
-        call pararDeAtacar
-        do autosell
-        # buyAuto_1_zeny contem valores como "> 5000" ou "> 2000" temos que remover o "> "
-        [
-        log ================================
-        log = tentando descobrir quantos zenys precisamos
-        log ================================
-        ]
-        $zenyNecessario = pegarZenyDoBuyAuto()
-        if ($zenyNecessario = erro) stop
-        
-        [
-        log ====================================
-        log Checando se tenho no minimo $zenyNecessario zenys
-        ]
-        if ( $.zeny >= $zenyNecessario ) {
-            [
-            log = tenho sim
-            log ===================================
-            ]
-            do autobuy
-        } else {
+        pause 2
+        $qtdRealFlecha = &invamount (1750)
+        if ( $qtdRealFlecha < 100 ) {
             [
             log ===================================
-            log = estou sem flechas, e estou sem zeny pra comprar
+            log Quantidade de flechas insuficiente,
+            log Inicializando compras automáticas!!
             log ===================================
             ]
-            do eval Misc::offlineMode()
+            call pararDeAtacar
+            do autosell
+            # buyAuto_1_zeny contem valores como "> 5000" ou "> 2000" temos que remover o "> "
+            [
+            log ================================
+            log = tentando descobrir quantos zenys precisamos
+            log ================================
+            ]
+            $zenyNecessario = pegarZenyDoBuyAuto()
+            if ($zenyNecessario = erro) stop
+
+            [
+            log ====================================
+            log Checando se tenho no minimo $zenyNecessario zenys
+            ]
+            if ( $.zeny >= $zenyNecessario ) {
+                [
+                log = tenho sim
+                log ===================================
+                ]
+                do autobuy
+            } else {
+                [
+                log ===================================
+                log = estou sem flechas, e estou sem zeny pra comprar
+                log ===================================
+                ]
+                do eval Misc::offlineMode()
+            }
+            do eq &inventory(1750) #Id da flecha
+            call voltarAtacar   
         }
-        do eq &inventory(1750) #Id da flecha
-        call voltarAtacar
     }
 }
 
