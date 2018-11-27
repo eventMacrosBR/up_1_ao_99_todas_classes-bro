@@ -381,6 +381,7 @@ automacro atacarSomenteNoLockMap {
 
 automacro autoEquiparFlechas {
     exclusive 1
+    timeout 60
     JobIDNot 0 #Aprendiz
     JobIDNot 4001 #Aprendiz T.
     JobIDNot 4023 #Baby Aprendiz
