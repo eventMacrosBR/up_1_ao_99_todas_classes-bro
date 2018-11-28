@@ -367,6 +367,14 @@ macro rebornarAgora {
     do conf -f questRenascer_estagio 1
 }
 
+automacro mostrarAjuda {
+    timeout 600 #10 minutos
+    BaseLevel > 0
+    exclusive 1
+    priority 9999999 #menor prioridade
+    call ajuda
+}
+
 macro ajuda {
     [
     log ==========================
