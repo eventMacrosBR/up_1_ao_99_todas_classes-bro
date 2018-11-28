@@ -50,7 +50,6 @@ macro voltarAtacar {
 #substitua item pelo item que quer, e o número 5 pela quantidade que precisa
 #   if (&storamount(ITEM) > 0 && &invamount(ITEM) < 5) {
 #       log tenho que ir no armazem pegar
-#       call checarSeArmazenJaFoiAberto
 #       call pegarItemDoArmazenSeTiver "NOME" "5"
 #   }
 
@@ -133,7 +132,7 @@ sub criarListaDeItens {
         }
     }
 
-    if (@lista) {    
+    if (@lista) {
         return \@lista;
     } else {
         warning "não foi encontrado items para vender no items_control.txt";
@@ -235,7 +234,7 @@ sub checarSeEquipEstaEquipado {
         warning "Erro: você não possui esse equipamento.\n";
         return "não existe";
     }
-     my $indiceDoEquip = $item->{binID};
+    my $indiceDoEquip = $item->{binID};
     if (exists $char->{equipment}{$slotDoEquipamento}) {
         my $equipamento = $char->{equipment}{$slotDoEquipamento};
         if ($equipamento->{nameID} == $id) {
@@ -315,9 +314,9 @@ macro rebornarAgora {
         log ===================================
         log = tenho que estar em um dos seguintes mapas:
         log = yuno
-        log = yuno_in_01
-        log = yuno_in_02
-        log = yuno_in_05
+        log = yuno_in01
+        log = yuno_in02
+        log = yuno_in05
         log = mas estou em $.map...
         log = impossível começar a rebornar
         log = parando macro
@@ -365,6 +364,7 @@ macro rebornarAgora {
         log = impossivel rebornar desse jeito
         log ===================================
         ]
+        stop
     }
     log ==========================
         
