@@ -57,6 +57,26 @@ automacro configurarPerfurarEmEspiral {
     }
 }
 
+automacro configurarRapidezComDuasMaos {
+    exclusive 1
+    SkillLevel KN_TWOHANDQUICKEN > 5
+    ConfigKeyNot useSelf_skill_1 KN_TWOHANDQUICKEN
+    call {
+        $blocoExiste = checarSeExisteNoConfig("useSelf_skill_1")
+        if ( $blocoExiste = nao ) {
+            adicionaUseSelfSkill()
+            pause 1
+            do reload config
+        }
+        do conf useSelf_skill_1 KN_TWOHANDQUICKEN
+        do conf useSelf_skill_1_lvl none #deixar aqui vazio faz com que ative no nível máximo que tiver
+        do conf useSelf_skill_1_sp >= 50
+        do conf useSelf_skill_1_whenStatusInactive EFST_POSTDELAY, EFST_TWOHANDQUICKEN
+        do conf useSelf_skill_1_disabled 0
+        do conf useSelf_skill_1_timeout 150
+    }
+}
+
 automacro pegarPeco_irAteNpc {
     SkillLevel KN_CAVALIERMASTERY = 5
     exclusive 1
