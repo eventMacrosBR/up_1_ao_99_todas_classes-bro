@@ -68,6 +68,18 @@ automacro questClasse1T_virandoClasse1T {
         #repetindo o comando de se mover só por desencargo de consciencia
         do move $parametrosQuestClasse1T{mapa} $parametrosQuestClasse1T{npc} &rand(1,5)
         do talknpc $parametrosQuestClasse1T{npc} $parametrosQuestClasse1T{sequenciaConversa}
+        
+        if (pegarID() != $parametrosClasses{idC1T}) {
+            [
+            error ===================================
+            error = Erro Crítico:
+            error = Seu personagem ainda não é classe 1T
+            error = mesmo após ter tentado falar com o npc
+            error = reporte aos criadores da eventMacro
+            error ===================================
+            ]
+            do eval Misc::offlineMode();
+        }
     }
 }
 
