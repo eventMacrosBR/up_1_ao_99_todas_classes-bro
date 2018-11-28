@@ -103,7 +103,8 @@ macro pegarDoStorageEVender {
     pause 2
     if ($.storageopen) {
 
-        criarListaDeItens("sell") #cria a array listaDeItems        
+        @listaDeItems = criarListaDeItens("sell") #cria a array listaDeItems
+        if ($listaDeItems[0] = erro) stop
         $cont = 0
         while ($cont < @listaDeItems  && $.weightpercent < 85) {
             $qtdDoItemAtual = &storamount($listaDeItems[$cont])
@@ -133,10 +134,10 @@ sub criarListaDeItens {
     }
 
     if (@lista) {    
-        my $eventMacro = $eventMacro::Data::eventMacro;
-        $eventMacro->set_full_array('listaDeItems', \@lista);
+        return \@lista;
     } else {
-        warning "não foi encontrado items para vender no items_control.txt"
+        warning "não foi encontrado items para vender no items_control.txt";
+        return "erro";
     }
 }
 
