@@ -44,11 +44,27 @@ automacro questClasse1T_virandoClasse1T {
         # $parametrosQuestClasse1T{equipeIniciante} tem como valor a id da arma que vc recebe quando vira classe 1
         do conf -f virandoClasse1T true
         do conf -f o_que_estou_fazendo virandoClasse1Trans
-        log mapa: "$parametrosQuestClasse1T{mapa}"
-        log npc:  "$parametrosQuestClasse1T{npc}"
-        log sequenciaConversa: "$parametrosQuestClasse1T{sequenciaConversa}"
-        log equip: "$parametrosQuestClasse1T{equipeIniciante}"
-        
+        [
+        log ===================================
+        log = mapa: "$parametrosQuestClasse1T{mapa}"
+        log = npc:  "$parametrosQuestClasse1T{npc}"
+        log = sequenciaConversa: "$parametrosQuestClasse1T{sequenciaConversa}"
+        log = equip: "$parametrosQuestClasse1T{equipeIniciante}"
+        log ===================================
+        ]
+        if (!&exists($parametrosQuestClasse1T{npc})) {
+            [
+            error ===================================
+            error = problema encontrado:
+            error = não há informação sobre qual é o npc
+            error = pra virar classe 1 Trans
+            error = oq foi encontrado: "$parametrosQuestClasse1T{npc}"
+            error = reporte aos criadores dessa eventMacro
+            error ===================================
+            ]
+            pause 30
+            stop
+        }
         #repetindo o comando de se mover só por desencargo de consciencia
         do move $parametrosQuestClasse1T{mapa} $parametrosQuestClasse1T{npc} &rand(1,5)
         do talknpc $parametrosQuestClasse1T{npc} $parametrosQuestClasse1T{sequenciaConversa}
