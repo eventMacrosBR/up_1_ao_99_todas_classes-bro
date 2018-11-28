@@ -827,44 +827,37 @@ automacro equipandoArmaEden {
 }
 
 macro equiparArma {
-    $equipar = 0 #padrão zero
     
     #se tiver alguma arma equipada e ela não for do eden ou iniciante, então não faça nada
-    if (checarSeSlotEquipamentoEstaVazio(rightHand) = "nao" && !pegarNomeDoItemEquipado(rightHand) =~ /Iniciante|Valhalla|Éden/i) {
+    if (checarSlot("rightHand") = "tem equip" && !pegarNomeDoItemEquipado(rightHand) =~ /Iniciante|Valhalla|Éden/i) {
         stop
-        
-    } else {
-        $equipar = 1
     }
     
-    
-    if ($equipar = 1) {
-        if ($.lvl >= 60 && &inventory($parametrosQuestEden{IDarmaEden}) != -1) {
-            do eq &inventory($parametrosQuestEden{IDarmaEden})
-            
-        } elsif ($.lvl >= 40 && &inventory($parametrosQuestEden{IDarmaIntermediario}) != -1) {
-            do eq &inventory($parametrosQuestEden{IDarmaIntermediario})
-            
-        } elsif ($.lvl >= 26 && &inventory($parametrosQuestEden{IDarmaIniciante}) != -1) {
-            do eq &inventory($parametrosQuestEden{IDarmaIniciante})
-            
-        } elsif ($.lvl >= 1 && &inventory($parametrosQuestClasse1{equipeIniciante}) != -1) {
-            do eq &inventory($parametrosQuestClasse1{equipeIniciante})
-            
+    if ($.lvl >= 60 && &inventory($parametrosQuestEden{IDarmaEden}) != -1) {
+        do eq &inventory($parametrosQuestEden{IDarmaEden})
+        
+    } elsif ($.lvl >= 40 && &inventory($parametrosQuestEden{IDarmaIntermediario}) != -1) {
+        do eq &inventory($parametrosQuestEden{IDarmaIntermediario})
+        
+    } elsif ($.lvl >= 26 && &inventory($parametrosQuestEden{IDarmaIniciante}) != -1) {
+        do eq &inventory($parametrosQuestEden{IDarmaIniciante})
+        
+    } elsif ($.lvl >= 1 && &inventory($parametrosQuestClasse1{equipeIniciante}) != -1) {
+        do eq &inventory($parametrosQuestClasse1{equipeIniciante})
+        
+    } else {
+        if (checarSlot("rightHand") = "ta vazio") {
+            [
+            error Erro: não foi encontrado nenhuma arma éden para equipar
+            error Seu bot ta batendo na mao
+            error A eventMacro não pode fazer nada a respeito disso
+            ]
         } else {
-            if (checarSeSlotEquipamentoEstaVazio("rightHand") = "sim") {
-                [
-                error Erro: não foi encontrado nenhuma arma éden para equipar
-                error Seu bot ta batendo na mao
-                error A eventMacro não pode fazer nada a respeito disso
-                ]
-            } else {
-                [
-                error Erro desconhecido ao tentar encontrar uma arma para equipar
-                error Você está com pegarNomeDoItemEquipado(rightHand) equipado, não deveria aparecer esse erro
-                error Caso você esteja lendo isso, contate os criadores da eventMacro
-                ]
-            }
+            [
+            error Erro desconhecido ao tentar encontrar uma arma para equipar
+            error Você está com pegarNomeDoItemEquipado(rightHand) equipado, não deveria aparecer esse erro
+            error Caso você esteja lendo isso, contate os criadores da eventMacro
+            ]
         }
     }
 }
@@ -879,39 +872,34 @@ automacro equipandoArmaduraEden {
 }
 
 macro equiparArmadura {
-    $equipar = 0 #padrão zero
     
     #se tiver alguma armadura equipada e ela não for do eden ou iniciante, então não faça nada
-    if (checarSeSlotEquipamentoEstaVazio(armor) = "nao" && !pegarNomeDoItemEquipado(armor) =~ /Iniciante|Valhalla|Éden/i) {
+    if (checarSlot(armor) = "tem equip" && !pegarNomeDoItemEquipado(armor) =~ /Iniciante|Valhalla|Éden/i) {
         stop
-        
-    } else {
-        $equipar = 1
     }
     
     #15009) #Uniforme Valhalla Iniciante
     #15010) #Uniforme Valhalla Intermediário
     #15011) #Uniforme Valhalla Avançado
     #15031) #Armadura_do_Grupo_Éden#
-    if ($equipar = 1) {
-        if ($.lvl >= 60 && &inventory(15031) != -1) { #Armadura_do_Grupo_Éden#
-            log = Vou equipar armadura do lvl 60+
-            do eq &inventory(15031) #Armadura_do_Grupo_Éden#
-            
-        } elsif ($.lvl >= 40 && &inventory(15011) != -1) { #Uniforme Valhalla Avançado
-            log = Vou equipar armadura do lvl 40+
-            do eq &inventory(15011) #Uniforme Valhalla Avançado
-            
-        } elsif ($.lvl >= 26 && &inventory(15010) != -1) { #Uniforme Valhalla Intermediário
-            log = Vou equipar armadura do lvl 26+
-            do eq &inventory(15010) #Uniforme Valhalla Intermediário
-            
-        } elsif ($.lvl >= 12 && &inventory(15009) != -1) { #Uniforme Valhalla Iniciante
-            log = Vou equipar armadura do lvl 12+ que não é eden mas é bom
-            do eq &inventory(15009) #Uniforme Valhalla Iniciante
-            
-        }
+    if ($.lvl >= 60 && &inventory(15031) != -1) { #Armadura_do_Grupo_Éden#
+        log = Vou equipar armadura do lvl 60+
+        do eq &inventory(15031) #Armadura_do_Grupo_Éden#
+        
+    } elsif ($.lvl >= 40 && &inventory(15011) != -1) { #Uniforme Valhalla Avançado
+        log = Vou equipar armadura do lvl 40+
+        do eq &inventory(15011) #Uniforme Valhalla Avançado
+        
+    } elsif ($.lvl >= 26 && &inventory(15010) != -1) { #Uniforme Valhalla Intermediário
+        log = Vou equipar armadura do lvl 26+
+        do eq &inventory(15010) #Uniforme Valhalla Intermediário
+        
+    } elsif ($.lvl >= 12 && &inventory(15009) != -1) { #Uniforme Valhalla Iniciante
+        log = Vou equipar armadura do lvl 12+ que não é eden mas é bom
+        do eq &inventory(15009) #Uniforme Valhalla Iniciante
+        
     }
+    #sem um else aqui, porque se o slot tiver vazio, e não tiver nenhum do éden, fodas, ninguém liga
 }
 
 automacro equipandoBotaEden {
@@ -924,39 +912,34 @@ automacro equipandoBotaEden {
 }
 
 macro equiparBota {
-    $equipar = 0 #padrão zero
     
     #se tiver alguma bota equipada e ela não for do eden ou iniciante, então não faça nada
-    if (checarSeSlotEquipamentoEstaVazio(rightHand) = "nao" && !pegarNomeDoItemEquipado(rightHand) =~ /Iniciante|Valhalla|Éden/i) {
+    if (checarSlot(rightHand) = "tem equip" && !pegarNomeDoItemEquipado(rightHand) =~ /Iniciante|Valhalla|Éden/i) {
         stop
-        
-    } else {
-        $equipar = 1
     }
     
     # 2456) #Botas Valhalla Iniciante
     # 2457) #Botas Valhalla Intermediárias
     # 2458) #Botas Valhalla Avançadas
     # 2473) ##Botas_IV_do_Grupo_Éden#
-    if ($equipar = 1) {
-        if ($.lvl >= 60 && &inventory(2473) != -1) { ##Botas_IV_do_Grupo_Éden#
-            log = Vou equipar bota do lvl 60+
-            do eq &inventory(2473) ##Botas_IV_do_Grupo_Éden#
-            
-        } elsif ($.lvl >= 40 && &inventory(2458) != -1) { #Botas Valhalla Avançadas
-            log = Vou equipar bota do lvl 40+
-            do eq &inventory(2458) #Botas Valhalla Avançadas
-            
-        } elsif ($.lvl >= 26 && &inventory(2457) != -1) { #Botas Valhalla Intermediárias
-            log = Vou equipar bota do lvl 26+
-            do eq &inventory(2457) #Botas Valhalla Intermediárias
-            
-        } elsif ($.lvl >= 12 && &inventory(2456) != -1) { #Botas Valhalla Iniciante
-            log = Vou equipar bota do lvl 12+ que não é eden mas é bom
-            do eq &inventory(2456) #Botas Valhalla Iniciante
-            
-        }
+    if ($.lvl >= 60 && &inventory(2473) != -1) { ##Botas_IV_do_Grupo_Éden#
+        log = Vou equipar bota do lvl 60+
+        do eq &inventory(2473) ##Botas_IV_do_Grupo_Éden#
+        
+    } elsif ($.lvl >= 40 && &inventory(2458) != -1) { #Botas Valhalla Avançadas
+        log = Vou equipar bota do lvl 40+
+        do eq &inventory(2458) #Botas Valhalla Avançadas
+        
+    } elsif ($.lvl >= 26 && &inventory(2457) != -1) { #Botas Valhalla Intermediárias
+        log = Vou equipar bota do lvl 26+
+        do eq &inventory(2457) #Botas Valhalla Intermediárias
+        
+    } elsif ($.lvl >= 12 && &inventory(2456) != -1) { #Botas Valhalla Iniciante
+        log = Vou equipar bota do lvl 12+ que não é eden mas é bom
+        do eq &inventory(2456) #Botas Valhalla Iniciante
+        
     }
+    #sem um else aqui, porque se o slot tiver vazio, e não tiver nenhum do éden, fodas, ninguém liga
 }
 
 automacro equipandoChapeuEden {
@@ -969,28 +952,22 @@ automacro equipandoChapeuEden {
 }
 
 macro equiparChapeu {
-    $equipar = 0 #padrão zero
     
     #se tiver algum chapeu equipado e ele não for do eden ou iniciante, então não faça nada
-    if (checarSeSlotEquipamentoEstaVazio(topHead) = "nao" && !pegarNomeDoItemEquipado(topHead) =~ /Iniciante|Valhalla|Éden/i) {
+    if (checarSlot(topHead) = "tem equip" && !pegarNomeDoItemEquipado(topHead) =~ /Iniciante|Valhalla|Éden/i) {
         stop
-        
-    } else {
-        $equipar = 1
     }
     
-    if ($equipar = 1) {
-        if ($.lvl >= 60 && &inventory(18514) != -1) { #Chapéu_II_do_Grupo_Éden#
-            log = Vou equipar chapeu do lvl 60+
-            do eq &inventory(18514) #Chapéu_II_do_Grupo_Éden#
-            
-        } elsif ($.lvl >= 12 && &inventory(5583) != -1) { #Chapeu Valhalla
-            log = Vou equipar chapeu do lvl 12+
-            do eq &inventory(5583) #Chapeu Valhalla
-            
-        } 
-        #sem um else aqui, porque se o slot tiver vazio, e não tiver nenhum do éden, fodas, ninguém liga
-    }
+    if ($.lvl >= 60 && &inventory(18514) != -1) { #Chapéu_II_do_Grupo_Éden#
+        log = Vou equipar chapeu do lvl 60+
+        do eq &inventory(18514) #Chapéu_II_do_Grupo_Éden#
+        
+    } elsif ($.lvl >= 12 && &inventory(5583) != -1) { #Chapeu Valhalla
+        log = Vou equipar chapeu do lvl 12+
+        do eq &inventory(5583) #Chapeu Valhalla
+        
+    } 
+    #sem um else aqui, porque se o slot tiver vazio, e não tiver nenhum do éden, fodas, ninguém liga
 }
 
 automacro equipandoCapaEden {
@@ -1003,29 +980,22 @@ automacro equipandoCapaEden {
 }
 
 macro equiparCapa {
-    $equipar = 0 #padrão zero
     
     #se tiver alguma capa equipada e ela não for do eden ou iniciante, então não faça nada
-    if (checarSeSlotEquipamentoEstaVazio(robe) = "nao" && !pegarNomeDoItemEquipado(robe) =~ /Iniciante|Valhalla|Éden/i) {
+    if (checarSlot(robe) = "tem equip" && !pegarNomeDoItemEquipado(robe) =~ /Iniciante|Valhalla|Éden/i) {
         stop
+    }
+    
+    if ($.lvl >= 60 && &inventory(2571)  != -1) { #Capa II do Grupo Eden
+        log = Vou equipar chapeu do lvl 60+
+        do eq &inventory(2571) #Capa II do Grupo Eden
         
-    } else {
-        $equipar = 1
-    }
-    
-    
-    if ($equipar = 1) {
-        if ($.lvl >= 60 && &inventory(2571)  != -1) { #Capa II do Grupo Eden
-            log = Vou equipar chapeu do lvl 60+
-            do eq &inventory(2571) #Capa II do Grupo Eden
-            
-        } elsif ($.lvl >= 12 && &inventory(2560) != -1) { #Capa Valhalla
-            log = Vou equipar chapeu do lvl 12+ 
-            do eq &inventory(2560) #Capa Valhalla
-            
-        } 
-        #sem um else aqui, porque se o slot tiver vazio, e não tiver nenhum do éden, fodas, ninguém liga
-    }
+    } elsif ($.lvl >= 12 && &inventory(2560) != -1) { #Capa Valhalla
+        log = Vou equipar chapeu do lvl 12+ 
+        do eq &inventory(2560) #Capa Valhalla
+        
+    } 
+    #sem um else aqui, porque se o slot tiver vazio, e não tiver nenhum do éden, fodas, ninguém liga
 }
 
 #
