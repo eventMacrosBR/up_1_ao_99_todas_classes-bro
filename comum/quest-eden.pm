@@ -858,6 +858,7 @@ macro equiparArma {
             error Você está com pegarNomeDoItemEquipado(rightHand) equipado, não deveria aparecer esse erro
             error Caso você esteja lendo isso, contate os criadores da eventMacro
             ]
+            call informacoes
         }
     }
 }

@@ -62,6 +62,7 @@ automacro questClasse1T_virandoClasse1T {
             error = reporte aos criadores dessa eventMacro
             error ===================================
             ]
+            call informacoes
             pause 30
             stop
         }
@@ -78,6 +79,7 @@ automacro questClasse1T_virandoClasse1T {
             error = reporte aos criadores da eventMacro
             error ===================================
             ]
+            call informacoes
             do eval Misc::offlineMode();
         }
     }

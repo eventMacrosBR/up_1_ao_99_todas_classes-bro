@@ -140,6 +140,7 @@ macro atualizarBuild_atributos {
         error = \$idClasseAtual : "$idClasseAtual"
         error ===================================
         ]
+        call informacoes
         stop
     }
     
@@ -214,6 +215,7 @@ macro atualizarBuild_skills {
         error Contate os criadores da eventMacro
         error ===================================
         ]
+        call informacoes
         stop
     }
     if (&defined($classeSemBuild) = 1) {
@@ -271,6 +273,7 @@ macro atualizarMapasDeUp {
         error = Id encontrada: '$idClasseAtual'
         error ===================================
         ]
+        call informacoes
         stop
     }
     #futuramente: adicionar uma elsif para caso seja classe 3
@@ -286,6 +289,7 @@ macro atualizarMapasDeUp {
         error = peço encarecidamente que vá se fuder
         error ===================================
         ]
+        call informacoes
         pause 240 #fica travado mesmo, não quero que funcione
         stop
     }

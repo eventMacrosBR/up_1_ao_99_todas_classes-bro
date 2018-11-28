@@ -391,6 +391,7 @@ automacro questRenascer_terceiroEstagio {
                     error Ocorreu um erro ao tentar entrar no mapa de rebornar
                     error Contate os criadores da eventMacro ou post no fórum esse erro
                     ]
+                    call informacoes
                 }
             }
         }

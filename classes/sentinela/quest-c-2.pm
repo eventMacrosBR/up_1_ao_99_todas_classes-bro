@@ -367,6 +367,7 @@ macro decidirLockMapProItem {
         error Mas algo deu errado... reporte aos criadores dessa eventMacro
         error ====================================================
         ]
+        call informacoes
     }
 }
 
