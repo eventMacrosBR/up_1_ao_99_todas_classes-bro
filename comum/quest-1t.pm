@@ -48,15 +48,10 @@ automacro questClasse1T_virandoClasse1T {
         log npc:  "$parametrosQuestClasse1T{npc}"
         log sequenciaConversa: "$parametrosQuestClasse1T{sequenciaConversa}"
         log equip: "$parametrosQuestClasse1T{equipeIniciante}"
+        
         #repetindo o comando de se mover só por desencargo de consciencia
         do move $parametrosQuestClasse1T{mapa} $parametrosQuestClasse1T{npc} &rand(1,5)
-        if (a$parametrosQuestClasse1T{sequenciaConversa} = a) {
-            log iniciando conversa sem sequencia
-            do talknpc $parametrosQuestClasse1T{npc}
-        } else {
-            log conversa tem sequencia, usando ela
-            do talknpc $parametrosQuestClasse1T{npc} $parametrosQuestClasse1T{sequenciaConversa}
-        }
+        do talknpc $parametrosQuestClasse1T{npc} $parametrosQuestClasse1T{sequenciaConversa}
     }
 }
 
