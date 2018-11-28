@@ -214,12 +214,12 @@ sub pegarIndiceDoEquipamentoPeloId {
     }
 }
 
-sub checarSeSlotEquipamentoEstaVazio {
+sub checarSlot {
     my ($slotDoEquipamento) = @_;
     if (exists $char->{equipment}{$slotDoEquipamento}) {
-        return "nao";
+        return "tem equip";
     } else {
-        return "sim";
+        return "ta vazio";
     }
 }
 
@@ -250,7 +250,7 @@ sub pegarNomeDoItemEquipado {
         my $equipamento = $char->{equipment}{$slotDoEquipamento};
         return $equipamento->{name};
     } else {
-        return "-1";
+        return 0;
     }
 }
 
