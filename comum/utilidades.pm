@@ -431,7 +431,7 @@ macro informacoes {
 #        do talknpc 38 183 r2
 #    }
 #
-}
+#}
 
 sub desequipar {
     my $tipo = shift;
