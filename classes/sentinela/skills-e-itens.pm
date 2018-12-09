@@ -238,12 +238,12 @@ automacro pegarFalcao {
             ]
         } else {
             [
-            log ===================================
-            log = PROBLEMA
-            log = falei com o npc falcoeiro mas ainda
-            log = nao tenho o falcão, reporte aos criadores
-            log = da eventMacro
-            log ===================================
+            error ===================================
+            error = PROBLEMA
+            error = falei com o npc falcoeiro mas ainda
+            error = nao tenho o falcão, reporte aos criadores
+            error = da eventMacro
+            error ===================================
             ]
         }
     }

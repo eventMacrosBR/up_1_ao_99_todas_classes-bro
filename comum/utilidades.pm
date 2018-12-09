@@ -410,16 +410,16 @@ macro ajuda {
 macro informacoes {
     $jobID = pegarID()
     [
-        log ===========================================
-        log Informações uteis para reportar um problema
-        log -------------------------------------------
-        log versão: &config(versao_eventmacro_up_todas_as_classes_bro)
-        log Level: $.lvl/$.joblvl
-        log JobID: $jobID
-        log O que estava fazendo: &config(o_que_estou_fazendo)
-        log Mapa: $.map $.pos
-        log Ultima automacro: $.caller
-        log ==========================================
+        warning ===========================================
+        warning Informações uteis para reportar um problema
+        warning -------------------------------------------
+        warning versão: &config(versao_eventmacro_up_todas_as_classes_bro)
+        warning Level: $.lvl/$.joblvl
+        warning JobID: $jobID
+        warning O que estava fazendo: &config(o_que_estou_fazendo)
+        warning Mapa: $.map $.pos
+        warning Ultima automacro: $.caller
+        warning ==========================================
     ]
 }
 

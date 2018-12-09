@@ -436,12 +436,12 @@ automacro questRenascer_ultimoEstagio_bugada {
     timeout 10
     call {
         [
-        log ===================================
-        log = existe um problema na eventMacro de rebornar
-        log = nesse momento ele deveria estar no mapa 'valkyrie'
-        log = que é onde fica a valquíria, mas ele está em $.map
-        log = contate os criadores da eventMacro e mostre o erro
-        log ===================================
+        error ===================================
+        error = existe um problema na eventMacro de rebornar
+        error = nesse momento ele deveria estar no mapa 'valkyrie'
+        error = que é onde fica a valquíria, mas ele está em $.map
+        error = contate os criadores da eventMacro e mostre o erro
+        error ===================================
         ]
     }
 }
