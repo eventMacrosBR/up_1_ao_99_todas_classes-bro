@@ -255,7 +255,16 @@ automacro questEden_avisoIntermitenteNivel12 {
     QuestActive 7128
     BaseLevel 12..15
     timeout 120
-    call avisoIntermitente '15'
+    call {
+        [
+        log ======================================
+        log comecei a quest eden, porém só vou
+        log fazer ela no lvl 15 ou acima!
+        log como não to nesse level ainda, vou upar.
+        log eu estou no lvl $.lvl agora
+        log ======================================
+        ]
+    }
 }
 
 #Lembrete: quest éden lvl 26 não precisa desse aviso interminente
@@ -266,7 +275,16 @@ automacro questEden_avisoIntermitenteNivel40 {
     QuestActive 7147
     BaseLevel 40..49
     timeout 180
-    call avisoIntermitente '50'
+    call {
+        [
+        log ======================================
+        log comecei a quest eden, porém só vou
+        log fazer ela no lvl 50 ou acima!
+        log como não to nesse level ainda, vou upar.
+        log eu estou no lvl $.lvl agora
+        log ======================================
+        ]
+    }
 }
 
 automacro questEden_avisoIntermitenteNivel60 {
@@ -274,18 +292,16 @@ automacro questEden_avisoIntermitenteNivel60 {
     QuestActive 7214
     BaseLevel 60..69
     timeout 240
-    call avisoIntermitente '70'
-}
-
-macro avisoIntermitente {        
-    [
-    log ======================================
-    log comecei a quest eden, porém só vou
-    log fazer ela no lvl $.param[0] ou acima!
-    log se eu nao tiver no lvl , eu vou upar.
-    log eu estou no lvl $.lvl agora
-    log ======================================
-    ]
+    call {
+        [
+        log ======================================
+        log comecei a quest eden, porém só vou
+        log fazer ela no lvl 70 ou acima!
+        log como não to nesse level ainda, vou upar.
+        log eu estou no lvl $.lvl agora
+        log ======================================
+        ]
+    }
 }
 
 
