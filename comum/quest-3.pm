@@ -49,6 +49,11 @@ automacro questClasse3_jaSouClasse3 {
         ]
         do conf virarClasse3 none
         do conf -f o_que_estou_fazendo acabeiDeVirarClasse3
+        release equipandoArmaEden
+        release equipandoArmaduraEden
+        release equipandoBotaEden
+        release equipandoChapeuEden
+        release equipandoCapaEden
         call atualizarBuild
     }
 }
@@ -65,6 +70,11 @@ automacro questClasse3_jaSouClasse3NaoAutomatico {
         ]
         do conf esperarFazerQuest none
         do conf -f o_que_estou_fazendo acabeiDeVirarClasse3
+        release equipandoArmaEden
+        release equipandoArmaduraEden
+        release equipandoBotaEden
+        release equipandoChapeuEden
+        release equipandoCapaEden
         call atualizarBuild
     }
 }

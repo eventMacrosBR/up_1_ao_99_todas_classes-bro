@@ -102,6 +102,11 @@ automacro questClasse2T_jaSouClasse2T {
     call {
         do conf virarClasse2T none
         do conf -f o_que_estou_fazendo acabeiDeVirarClasse2T
+        release equipandoArmaEden
+        release equipandoArmaduraEden
+        release equipandoBotaEden
+        release equipandoChapeuEden
+        release equipandoCapaEden
         call atualizarBuild
     }
 }

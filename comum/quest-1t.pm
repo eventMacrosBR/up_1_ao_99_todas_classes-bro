@@ -99,7 +99,11 @@ automacro questClasse1T_jaSouClasse1T {
         if ($check != -1) do eq $check
         do conf virandoClasse1T none
         
-        do conf -f o_que_estou_fazendo acabeiDeVirarClasse1T
+        release equipandoArmaEden
+        release equipandoArmaduraEden
+        release equipandoBotaEden
+        release equipandoChapeuEden
+        release equipandoCapaEden
     }
 }
 
