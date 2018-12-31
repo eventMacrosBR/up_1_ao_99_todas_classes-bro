@@ -612,12 +612,6 @@ automacro questEden26_FinalizarCacas {
 
 automacro questEden40_FinalizarCacas {
     QuestHuntCompleted 7148 1686, 7149 1023, 7150 1273
-    QuestInactive 2017
-    QuestInactive 2018
-    QuestInactive 2022
-    QuestInactive 2023
-    QuestInactive 2024
-    QuestInactive 2026
     exclusive 1
     call {
         call pararDeAtacar
