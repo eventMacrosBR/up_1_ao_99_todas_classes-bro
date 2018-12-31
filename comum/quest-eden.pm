@@ -33,7 +33,7 @@ automacro seJuntarAoGrupoEden {
 }
 
 automacro entreiNoGrupoEden {
-    InInventoryID 22508 = 1
+    InInventoryID 22508 = 1 #Emblema do Éden#
     ConfigKeyNot membroDoEden sim
     exclusive 1
     call {
@@ -42,7 +42,7 @@ automacro entreiNoGrupoEden {
 }
 
 automacro questEden_trocarEmblemaIndoProNpc {
-    InInventoryID 6219 = 1
+    InInventoryID 6219 = 1 #emblema do grupo valhalla (o antigo)
     NpcNotNear /Lenore|Lime/
     exclusive 1
     priority -2 # um pouco alta
@@ -50,20 +50,20 @@ automacro questEden_trocarEmblemaIndoProNpc {
 }
 
 automacro questEden_trocarEmblema {
-    InInventoryID 6219 = 1
+    InInventoryID 6219 = 1 #emblema do grupo valhalla (o antigo)
     exclusive 1    
     priority -2 # um pouco alta
     NpcNear /Lenore|Lime/
     call {
         do talk $.NpcNearLastBinId
         do talk resp 0
-        do iconf 22508 0 0 0 #Novo Emblema do Grupo Valhalla
+        do iconf 22508 0 0 0 #Emblema do Éden
     }
 }
 
 automacro questEden12_iniciandoMoverPerto {
     NpcNotNear /Boya/
-    InInventoryID 22508 = 1
+    InInventoryID 22508 = 1 #Emblema do Éden#
     ConfigKeyNot fazerQuestEden nao
     BaseLevel 12..18
     exclusive 1
@@ -71,15 +71,15 @@ automacro questEden12_iniciandoMoverPerto {
     ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
-    IsNotEquippedID armor 15009
-    InInventoryID 15009 = 0
+    IsNotEquippedID armor 15009 #Uniforme Valhalla Iniciante
+    InInventoryID 15009 = 0 #Uniforme Valhalla Iniciante
     call moverPertoDosNpcEden
 }
 
 automacro questEden26_iniciandoMoverPerto {
     NpcNotNear /Boya/
     BaseLevel 26..32
-    InInventoryID 22508 = 1 
+    InInventoryID 22508 = 1 #Emblema do Éden#
     ConfigKeyNot fazerQuestEden nao
     exclusive 1
     QuestInactive 7138
@@ -88,8 +88,8 @@ automacro questEden26_iniciandoMoverPerto {
     ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
-    IsNotEquippedID armor 15010
-    InInventoryID 15010 = 0
+    IsNotEquippedID armor 15010 #Uniforme Valhalla Intermediário
+    InInventoryID 15010 = 0 #Uniforme Valhalla Intermediário
     call moverPertoDosNpcEden
 }
 
@@ -108,7 +108,7 @@ automacro questEden40_iniciandoMoverPerto {
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15011
-    InInventoryID 22508 = 1 
+    InInventoryID 22508 = 1 #Emblema do Éden#
     InInventoryID 15011 = 0 #armadura que ganha com essa quest
     call moverPertoDosNpcEden
 }
@@ -117,15 +117,15 @@ automacro questEden60_iniciandoMoverPerto {
     NpcNotNear /Ur/
     BaseLevel 60..69
     exclusive 1
-    InInventoryID 22508 = 1 
+    InInventoryID 22508 = 1 #Emblema do Éden#
     JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}
     QuestInactive 7214
     ConfigKeyNot fazerQuestEden nao
     ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
-    IsNotEquippedID armor 15031
-    InInventoryID 15031 = 0
+    IsNotEquippedID armor 15031 #Armadura do Grupo Éden
+    InInventoryID 15031 = 0 #Armadura do Grupo Éden
     call moverPertoDosNpcEden
 }
 
@@ -146,7 +146,7 @@ macro moverPertoDosNpcEden {
 
 automacro questEden12_iniciando {
     NpcNear /Boya/
-    InInventoryID 22508 = 1 
+    InInventoryID 22508 = 1 #Emblema do Éden# 
     BaseLevel 12..17
     exclusive 1
     QuestInactive 7128
@@ -154,8 +154,8 @@ automacro questEden12_iniciando {
     ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
-    IsNotEquippedID armor 15009
-    InInventoryID 15009 = 0
+    IsNotEquippedID armor 15009 #Uniforme Valhalla Iniciante
+    InInventoryID 15009 = 0 #Uniforme Valhalla Iniciante
     call iniciandoQuestEden '1' '0' '0'
 }
 
@@ -164,7 +164,7 @@ automacro questEden26_iniciando {
     NpcNear /Boya/
     BaseLevel 26..32
     ConfigKeyNot fazerQuestEden nao
-    InInventoryID 22508 = 1 
+    InInventoryID 22508 = 1 #Emblema do Éden# 
     exclusive 1
     QuestInactive 7138
     QuestInactive 7139
@@ -172,23 +172,23 @@ automacro questEden26_iniciando {
     ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
-    IsNotEquippedID armor 15010
-    InInventoryID 15010 = 0
+    IsNotEquippedID armor 15010 #Uniforme Valhalla Intermediário
+    InInventoryID 15010 = 0 #Uniforme Valhalla Intermediário
     call iniciandoQuestEden '1'
 }
 
 automacro questEden40_iniciando {
     NpcNear /Boya/
     BaseLevel 40..49
-    InInventoryID 22508 = 1
+    InInventoryID 22508 = 1 #Emblema do Éden#
     ConfigKeyNot fazerQuestEden nao
     exclusive 1
     QuestInactive 7147
     ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
-    IsNotEquippedID armor 15011
-    InInventoryID 15011 = 0
+    IsNotEquippedID armor 15011 #Uniforme Valhalla Avançado
+    InInventoryID 15011 = 0 #Uniforme Valhalla Avançado
     call iniciandoQuestEden '0'
 }
 
@@ -197,14 +197,14 @@ automacro questEden60_iniciando {
     BaseLevel 60..69
     ConfigKeyNot fazerQuestEden nao
     exclusive 1
-    InInventoryID 22508 = 1
+    InInventoryID 22508 = 1 #Emblema do Éden#
     JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}
     QuestInactive 7214
     ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot quest_eden terminando
-    IsNotEquippedID armor 15031
-    InInventoryID 15031 = 0
+    IsNotEquippedID armor 15031 #Armadura do Grupo Éden
+    InInventoryID 15031 = 0 #Armadura do Grupo Éden
     call iniciandoQuestEden '0' '1'
 }
 
@@ -508,8 +508,8 @@ automacro questEden60__JuntarItens {
 #Romeo te passou uma última missão. Derrote Guerreiros Wootan e Dríades para conseguir alguns itens #
 #Traga 5 Ombreiras, 7 Folhas Afiadas #
 automacro questEden60__JaJunteiOsItens {
-    InInventoryID 7196 >= 5
-    InInventoryID 7100 >= 7
+    InInventoryID 7196 >= 5 #Ombreira
+    InInventoryID 7100 >= 7 #Folha Afiada
     QuestActive 7217
     CurrentHP > 80%
     exclusive 1
