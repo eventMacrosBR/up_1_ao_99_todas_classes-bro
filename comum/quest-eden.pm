@@ -156,7 +156,19 @@ automacro questEden12_iniciando {
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15009 #Uniforme Valhalla Iniciante
     InInventoryID 15009 = 0 #Uniforme Valhalla Iniciante
-    call iniciandoQuestEden '1' '0' '0'
+    call {
+        [
+        log ===================================
+        log =Iniciando a quest eden do lvl 12
+        log ===================================
+        ]
+        do talk $.NpcNearLastBinId
+        do talk resp 1
+        do talk resp 0
+        do talk resp 0
+
+        do conf -f o_que_estou_fazendo iniciando Quest Eden 12
+    }
 }
 
 
@@ -174,7 +186,28 @@ automacro questEden26_iniciando {
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15010 #Uniforme Valhalla Intermediário
     InInventoryID 15010 = 0 #Uniforme Valhalla Intermediário
-    call iniciandoQuestEden '1'
+    call {
+        [
+        log ===================================
+        log =Iniciando a quest eden do lvl 26
+        log ===================================
+        ]
+        do talk $.NpcNearLastBinId
+
+        #se vc não tiver feito a quest éden do lvl 12, a conversa é diferente
+        #de quem fez ela
+        if (&inventory(Uniforme Valhalla Iniciante) != -1) {
+            #se tiver o item da quest éden 12, use essa sequência
+            do talk resp 1
+        } else {
+            #se não tiver, use essa sequência
+            do talk resp 1
+            do talk resp 0
+            do talk resp 0
+        }
+
+        do conf -f o_que_estou_fazendo iniciando Quest Eden 26
+    }
 }
 
 automacro questEden40_iniciando {
@@ -189,7 +222,28 @@ automacro questEden40_iniciando {
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15011 #Uniforme Valhalla Avançado
     InInventoryID 15011 = 0 #Uniforme Valhalla Avançado
-    call iniciandoQuestEden '0'
+    call {
+        [
+        log ==================================
+        log =Iniciando a quest eden do lvl 40
+        log ==================================
+        ]
+        do talk $.NpcNearLastBinId
+
+        #se vc não tiver feito a quest éden do lvl 12, a conversa é diferente
+        #de quem fez ela
+        if (&inventory(Uniforme Valhalla Iniciante) != -1) {
+            #se tiver o item da quest éden 12, use essa sequência
+            do talk resp 0
+        } else {
+            #se não tiver, use essa sequência
+            do talk resp 1
+            do talk resp 0
+            do talk resp 0
+        }
+
+        do conf -f o_que_estou_fazendo iniciando Quest Eden 40
+    }
 }
 
 automacro questEden60_iniciando {
@@ -205,31 +259,20 @@ automacro questEden60_iniciando {
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15031 #Armadura do Grupo Éden
     InInventoryID 15031 = 0 #Armadura do Grupo Éden
-    call iniciandoQuestEden '0' '1'
-}
+    call {
+        #aqui não importa se fizeram as outras quests ou não
+        #como o npc é diferente, fica de boas
+        [
+        log ===================================
+        log =Iniciando a quest eden do lvl 60
+        log ===================================
+        ]
+        do talk $.NpcNearLastBinId
+        do talk resp 0
+        do talk resp 1
 
-macro iniciandoQuestEden {
-    [
-    log ==========================
-    log =Iniciando a quest eden
-    log = parametro 0 : $.param[0]
-    log = parametro 1 : $.param[1]
-    log = parametro 2 : $.param[2]
-    log ===================================
-    ]
-    do talk $.NpcNearLastBinId
-    if ( &defined($.param[0]) ) do talk resp $.param[0]
-    if ( &defined($.param[1]) ) do talk resp $.param[1]
-    if ( &defined($.param[2]) ) do talk resp $.param[2]
-
-    switch ($.lvl) {
-        case (<= 18) $lvlDaQuestEden = 12
-        case (<= 32) $lvlDaQuestEden = 26
-        case (<= 49) $lvlDaQuestEden = 40
-        case (<= 69) $lvlDaQuestEden = 60
+        do conf -f o_que_estou_fazendo iniciando Quest Eden 60
     }
-    do conf -f o_que_estou_fazendo iniciandoQuestEden$lvlDaQuestEden
-
 }
 
 automacro questEden_avisoIntermitenteNivel12 {
