@@ -342,7 +342,7 @@ automacro questEden12_salvarNaKafra {
     call {
         do conf -f quest_eden em_curso
         call salvarNaCidade "morocc"
-        do conf -f o_que_estou_fazendo quest_eden12
+        do conf -f o_que_estou_fazendo quest eden 12
     }
 }
 
@@ -358,7 +358,7 @@ automacro questEden26_SalvarNaKafra {
     call {
         do conf -f quest_eden em_curso
         call salvarNaCidade "payon"
-        do conf -f o_que_estou_fazendo quest_eden26
+        do conf -f o_que_estou_fazendo quest eden 26
     }
 }
 
@@ -374,7 +374,7 @@ automacro questEden40_SalvarNaKafra {
     call {
         do conf -f quest_eden em_curso
         call salvarNaCidade "prontera"
-        do conf -f o_que_estou_fazendo quest_eden40
+        do conf -f o_que_estou_fazendo quest eden 40
     }
 }
 
@@ -390,7 +390,7 @@ automacro questEden60_SalvarNaKafra {
     call {
         do conf -f quest_eden em_curso
         call salvarNaCidade "comodo"
-        do conf -f o_que_estou_fazendo quest_eden60
+        do conf -f o_que_estou_fazendo quest eden 60
     }
 }
 
@@ -523,7 +523,7 @@ automacro questEden60__JuntarItens {
         $qtdOmbreira = &invamount (7196)
         $qtdFolha = &invamount (7100)
         if (&config(quest_eden) != em_curso) do conf -f quest_eden em_curso
-        do conf -f o_que_estou_fazendo quest_eden60_coletandoItens
+        do conf -f o_que_estou_fazendo quest eden 60 coletandoItens
         
         if ( $qtdOmbreira < 5 ) {
             [
@@ -690,7 +690,7 @@ automacro questEden_voltarDoMapaMoverPerto {
         log ===========================================
         ]
         
-        do conf -f o_que_estou_fazendo quest_eden_completada_voltando_para_pegar_equips
+        do conf -f o_que_estou_fazendo quest eden completada voltando para pegar equips
         call moverPertoDosNpcEden
     }
 }
@@ -788,7 +788,7 @@ automacro questEden12e26e40_PegandoEquips {
         log =falando com o Mihael pra ganhar meus equips
         log ===========================================
         ]
-        do conf -f o_que_estou_fazendo quest_eden pegandoMeusEquipsDeDireito
+        do conf -f o_que_estou_fazendo quest eden pegando Meus Equips de Direito
         do talk $.NpcNearLastBinId
         do talk resp 0
         do talk resp 1
@@ -812,7 +812,7 @@ automacro questEden12e26e40_acabeiDePegarEquips {
     SimpleHookEvent item_gathered
     call {
         do conf -f quest_eden none
-        do conf -f o_que_estou_fazendo acabeiDeTerminarQuestEden
+        do conf -f o_que_estou_fazendo acabei de Terminar Quest Eden
         
         release equipandoArmaEden
         release equipandoArmaduraEden
@@ -833,6 +833,7 @@ automacro questEden60_PegandoEquips {
         log =falando com o ferreiro pra ganhar meus equips
         log ===========================================
         ]
+        do conf -f o_que_estou_fazendo quest eden 60 pegando Meus Equips de Direito
         #do talknpc 111 83 c r2 c c r1 #Ferreiro Torhen#2nd10
         do talk $.NpcNearLastBinId
         do talk resp 2
@@ -849,7 +850,7 @@ automacro questEden60_acabeiDePegarEquips {
     SimpleHookEvent item_gathered
     call {
         do conf -f quest_eden none
-        do conf -f o_que_estou_fazendo acabeiDeTerminarQuestEden60
+        do conf -f o_que_estou_fazendo acabei De Terminar Quest Eden 60
         release equipandoArmaEden
         release equipandoArmaduraEden
         release equipandoBotaEden
@@ -896,7 +897,7 @@ macro equiparArma {
         } else {
             [
             error Erro desconhecido ao tentar encontrar uma arma para equipar
-            error Você está com pegarNomeDoItemEquipado(rightHand) equipado, não deveria aparecer esse erro
+            error Você está com " pegarNomeDoItemEquipado(rightHand) " equipado, não deveria aparecer esse erro
             error Caso você esteja lendo isso, contate os criadores da eventMacro
             ]
             call informacoes

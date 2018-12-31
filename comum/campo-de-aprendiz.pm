@@ -683,7 +683,7 @@ automacro campoDeAprendiz_comecarQuestLunaticos {
     InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
     run-once 1
     call {
-        do conf -f o_que_estou_fazendo campoAprendiz_matandoLunatico
+        do conf -f o_que_estou_fazendo matando lunático no campo de aprendiz
         do talk $.NpcNearLastBinId
         do talk resp 2
     }
@@ -771,7 +771,7 @@ automacro campoDeAprendiz_comecarQuestPicky {
     call {
         log Indo pegar quest para  Picks
         pause 1
-        do conf -f o_que_estou_fazendo campoAprendiz_matandoPickyeSalgueiro
+        do conf -f o_que_estou_fazendo matando Picky e Salgueiro no campo de aprendiz
         do talk $.NpcNearLastBinId
         do talk resp 2
         do conf -f quest_atual salgueiros
@@ -808,8 +808,8 @@ automacro campoDeAprendiz_comecarQuestSalgueiro {
     run-once 1
     InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
     call {
-        log Indo pegar quest para  Salgueiro
-        do conf -f o_que_estou_fazendo campoAprendiz_matandoPickyeSalgueiro
+        log Indo pegar quest para Salgueiro
+        do conf -f o_que_estou_fazendo matando Picky e Salgueiro no campo de aprendiz
         do talk $.NpcNearLastBinId
         do talk resp 2
         do conf -f quest_atual none
@@ -958,7 +958,7 @@ automacro campoDeAprendiz_continuarUpandoAte12 {
         do mconf 1002 1 0 0 #poring
         do mconf 1113 1 0 0 #drops
         call voltarAtacar
-        do conf -f o_que_estou_fazendo campoAprendiz_upandoAteLvl12
+        do conf -f o_que_estou_fazendo upando até o lvl 12 no campo de aprendiz
         log =================================
         log upando até o lvl 12
         log =================================
@@ -1072,7 +1072,8 @@ automacro campoDeAprendiz_terminouDeUpar_bugada {
 }
 
 automacro campoDeAprendiz_muitoBugado {
-    InMapRegex /^(?!new_\d-\d|moc_prydb1)$/
+    #esse regex significa: não está no campo de aprendiz nem no mapa de virar classe 1
+    InMapRegex /^(?!new_\d-\d|$parametrosQuestClasse1{mapa})$/ 
     JobID 0, 4023 #Aprendiz e Baby Aprendiz
     exclusive 1
     JobLevel = 10
@@ -1084,7 +1085,7 @@ automacro campoDeAprendiz_muitoBugado {
         log tô todo bugado
         log vamo virar $parametrosQuestClasse1{nomeClasse}, tá na hora
         ]
-        do conf -f o_que_estou_fazendo virandoClasse1
+        do conf -f o_que_estou_fazendo virando Classe 1
         do move $parametrosQuestClasse1{mapa}
     }
 }
@@ -1099,3 +1100,4 @@ automacro campoDeAprendiz_apagarVariaveis {
         do conf current_npc none
     }
 }
+

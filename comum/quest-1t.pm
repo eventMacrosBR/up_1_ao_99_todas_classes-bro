@@ -25,7 +25,7 @@ automacro questClasse1T_irAteNpc {
         do conf lockMap none
         call pararDeAtacar
         do conf -f virandoClasse1T true
-        do conf -f o_que_estou_fazendo virandoClasse1Trans
+        do conf -f o_que_estou_fazendo virando Classe 1 Trans
         log cidade: $parametrosQuestClasse1T
         do move $parametrosQuestClasse1T{mapa} $parametrosQuestClasse1T{npc} &rand(1,5)
     }
@@ -43,7 +43,7 @@ automacro questClasse1T_virandoClasse1T {
         # $parametrosQuestClasse1T{sequenciaConversa} tem como valor a sequencia de conversação correta
         # $parametrosQuestClasse1T{equipeIniciante} tem como valor a id da arma que vc recebe quando vira classe 1
         do conf -f virandoClasse1T true
-        do conf -f o_que_estou_fazendo virandoClasse1Trans
+        do conf -f o_que_estou_fazendo virando Classe 1 Trans
         [
         log ===================================
         log = mapa: "$parametrosQuestClasse1T{mapa}"
@@ -98,6 +98,8 @@ automacro questClasse1T_jaSouClasse1T {
         $check = pegarIndiceDoEquipamentoPeloId("rightHand", "$parametrosQuestClasse1T{equipeIniciante}")
         if ($check != -1) do eq $check
         do conf virandoClasse1T none
+        
+        do conf -f o_que_estou_fazendo acabei de Virar Classe 1 T
         
         release equipandoArmaEden
         release equipandoArmaduraEden
