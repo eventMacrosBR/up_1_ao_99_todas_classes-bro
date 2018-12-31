@@ -4,8 +4,8 @@ sub inicializarParametrosQuestClasse2 {
      );
     Commands::run("conf -f questc2_implementada true");
     foreach $key (keys %items) {
-        if ($manterOuGuardar eq "manter") { 
-            Commands::run("iconf $key $items{$key}") 
+        if ($manterOuGuardar eq "manter") {
+            Commands::run("iconf $key $items{$key}")
         } else {
             Commands::run("iconf $key 0 1 0")
         }
@@ -125,10 +125,10 @@ automacro VirarSacer_FalarComIrmaCecilia {
     QuestActive 8013, 8014
     InMap prt_church
     exclusive 1
-    call { 
+    call {
         do move &rand(25,29) &rand(22,26)
         do talknpc 27 24  r0 r1 r0 r0 r1 r1 r0 r0
-    } 
+    }
 }
 
 #8015#Mudança de Classe: Sacerdote#SG_FEEL#QUE_NOIMAGE#
@@ -140,9 +140,9 @@ automacro VirarSacer_Final {
     QuestActive 8015
     InMap prt_church
     exclusive 1
-    call { 
+    call {
         do move &rand(14,18) &rand(39,43)
         do talknpc 16 41
-    } 
+    }
 }
 

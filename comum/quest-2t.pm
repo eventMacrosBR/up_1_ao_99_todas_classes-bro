@@ -18,7 +18,7 @@ automacro questClasse2T_iniciarQuestClasse2T_bugada {
 
 automacro questClasse2T_irParaJuno {
     exclusive 1
-    JobID $parametrosClasses{idC1T} 
+    JobID $parametrosClasses{idC1T}
     JobLevel = $configsBuild{lvlClasseParaVirarClasse2T}
     FreeSkillPoints = 0
     NotInMap yuno_in02
@@ -34,7 +34,7 @@ automacro questClasse2T_irParaJuno {
 
 automacro questClasse2T_irFalarComLivro {
     exclusive 1
-    JobID $parametrosClasses{idC1T} 
+    JobID $parametrosClasses{idC1T}
     JobLevel = $configsBuild{lvlClasseParaVirarClasse2T}
     FreeSkillPoints = 0
     InMap yuno_in02
@@ -47,7 +47,7 @@ automacro questClasse2T_irFalarComLivro {
 
 automacro questClasse2T_falarComLivro {
     exclusive 1
-    JobID $parametrosClasses{idC1T} 
+    JobID $parametrosClasses{idC1T}
     JobLevel = $configsBuild{lvlClasseParaVirarClasse2T}
     FreeSkillPoints = 0
     InMap yuno_in02
@@ -59,7 +59,7 @@ automacro questClasse2T_falarComLivro {
 
 automacro questClasse2T_falarComNpcDaClasse {
     exclusive 1
-    JobID $parametrosClasses{idC1T} 
+    JobID $parametrosClasses{idC1T}
     JobLevel = $configsBuild{lvlClasseParaVirarClasse2T}
     FreeSkillPoints = 0
     InMap valkyrie
@@ -91,7 +91,6 @@ automacro questClasse2T_jaSouClasse2TSairDaValquiria {
         do talk resp /$mapaQueVou/i
     }
 }
-        
 
 automacro questClasse2T_jaSouClasse2T {
     exclusive 1

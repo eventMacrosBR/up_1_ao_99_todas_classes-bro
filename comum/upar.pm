@@ -19,7 +19,7 @@ automacro UpClasse {
     call upar
 }
 
-automacro UpClasseEspecial {
+automacro UpClasse3rd {
     BaseLevel >= 99
     ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot esperarFazerQuest true
@@ -65,7 +65,7 @@ macro upar {
         [
         log =====================================
         log =Já estou salvo em $mapa{saveMap}
-        log =Configurando lockMap 
+        log =Configurando lockMap
         log =====================================
         ]
         do conf lockMap $mapa{lockMap}
@@ -73,21 +73,9 @@ macro upar {
         do conf -f o_que_estou_fazendo upando
     } else {
         log vou salvar em: $mapa{saveMap}
-        call pararDeAtacar      
+        call pararDeAtacar
         $macroParaChamar = salvarOndeVouUpar("&config(saveMap)", "$mapa{saveMap}")
         call $macroParaChamar
-    }
-}
-
-automacro estouLv99 {
-    BaseLevel = 99
-    ConfigKey questRenascer_estagio none
-    exclusive 1
-    timeout 120
-    JobID $parametrosClasses{idC2}, $parametrosClasses{idC2Alt}, $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}
-    call {
-        log CHEGUEI NO LVL 99 FINALMENTE !!!!!!!
-        log CARA ISSO LEVOU TEMPO PARA CAR**HO
     }
 }
 

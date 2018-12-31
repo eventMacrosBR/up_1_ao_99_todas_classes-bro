@@ -20,7 +20,7 @@ sub extrairMapasDeUp {
     my $variaveisDeUp;
     
     #########################################################################
-    #AQUI É DEFINIDO OS MAPAS QUE CADA CLASSE IRÁ UPAR, DE MODO 
+    #AQUI É DEFINIDO OS MAPAS QUE CADA CLASSE IRÁ UPAR, DE MODO
     #QUE SEJA EXTREMAMENTE FÁCIL DE ALTERAR A SEU GOSTO
     ########################################################################
 

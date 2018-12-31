@@ -18,8 +18,8 @@ sub inicializarParametrosQuestClasse2 {
     );
     Commands::run("conf -f questc2_implementada true");
     foreach $key (keys %items) {
-        if ($manterOuGuardar eq "manter") { 
-            Commands::run("iconf $key $items{$key}") 
+        if ($manterOuGuardar eq "manter") {
+            Commands::run("iconf $key $items{$key}")
         } else {
             Commands::run("iconf $key 0 1 0")
         }
@@ -27,7 +27,7 @@ sub inicializarParametrosQuestClasse2 {
 }
 
 # 1 edit : reiropke
-# Testada e Funcional por Sarampo 
+# Testada e Funcional por Sarampo
 automacro virarCavaleiro_Começo_irAoNpc {
     JobLevel = 50
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
@@ -111,7 +111,7 @@ automacro virarCavaleiro_irAoNpc2 {
         ]
         do move prt_in 71 91 &rand(1,7)
     }
-}        
+}
 
 #9003#Mudança de Classe: Cavaleiro#SG_FEEL#QUE_NOIMAGE#
 #Sir Andrew disse para você visitar Sir Siracuse para continuar com os testes. #
@@ -123,7 +123,7 @@ automacro virarCavaleiro_irAoNpc3 {
     QuestActive 9003 #
     NpcNear /Cavaleiro Honroso/ #ou Sir Siracuse
     call {
-        do move prt_in 71 91 &rand(1,7) 
+        do move prt_in 71 91 &rand(1,7)
         do talk $.NpcNearLastBinId
         do talk resp 0  #esta é a unica resposta certa as outras estao incertas.. porem precisa acertar 8 de 10 pra passar!!!
         do talk resp 3  #flamberge
@@ -140,7 +140,7 @@ automacro virarCavaleiro_irAoNpc3 {
         log ==============================
         ]
     }
-}        
+}
 
 #9004#Mudança de Classe: Cavaleiro#SG_FEEL#QUE_NOIMAGE#
 #James Siracuse disse para você visitar Sir Windsor para continuar com os testes. #
@@ -155,7 +155,7 @@ automacro virarCavaleiro_irAoNpc4 {
     call {
         do move prt_in 79 94 &rand(1,7)
         do talk $.NpcNearLastBinId
-        do talk resp 0  
+        do talk resp 0
         [
         log ==============================
         log Falei com o Cavaleiro das Lutas
@@ -167,7 +167,7 @@ automacro virarCavaleiro_irAoNpc4 {
 #9006#Mudança de Classe: Cavaleiro#SG_FEEL#QUE_NOIMAGE#
 #Sir Windsor não é de falar muito. Ele ordena que você mate todos os monstros na sala de testes. #
 #Mate todos os monstros em 3 minutos #
-automacro virarCavaleiro_irAoNpc4_parte_2_morri { 
+automacro virarCavaleiro_irAoNpc4_parte_2_morri {
     NotInMap job_knt
     JobLevel = 50
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
@@ -191,11 +191,11 @@ automacro virarCavaleiro_irAoNpc4_parte_2_morri_cheguei {
     timeout 20
     ConfigKeyNot passo_questCavaleiro falarComMulher
     QuestActive 9006 #
-    call {        
+    call {
         call pararDeAtacar
         do conf lockMap none
         do talk $.NpcNearLastBinId
-        do talk resp 0 
+        do talk resp 0
     }
 }
 
@@ -213,7 +213,7 @@ automacro virarCavaleiro_jámateiOsMonstros {
 #9006#Mudança de Classe: Cavaleiro#SG_FEEL#QUE_NOIMAGE#
 #Sir Windsor não é de falar muito. Ele ordena que você mate todos os monstros na sala de testes. #
 #Mate todos os monstros em 3 minutos #
-automacro virarCavaleiro_irAoNpc4_parte_2 { 
+automacro virarCavaleiro_irAoNpc4_parte_2 {
     InMap job_knt
     JobLevel = 50
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
@@ -261,7 +261,7 @@ automacro virarCavaleiro_irAoNpcmulher_bugged {
     ConfigKey passo_questCavaleiro falarComMulher
     call {
         do conf lockMap none
-        call pararDeAtacar        
+        call pararDeAtacar
         do talk $.NpcNearLastBinId
         do talk resp 0  #apos falar com ela a quest 9008 é ativada
         do talk resp 2 #abre uma sala e espera 2
@@ -273,10 +273,10 @@ automacro virarCavaleiro_irAoNpcmulher_bugged {
         do talk resp 2 # a sugestoes de onde caçar
         do talk resp 0 # leva a pessoa a saida 0
         do talk resp 0 # pede gentilmente a cura
-        do talk resp 1 #pergunta se é de alguem        
+        do talk resp 1 #pergunta se é de alguem
         [
         log ==============================
-        log Falei com a Cavaleira Educada , teste completo 
+        log Falei com a Cavaleira Educada , teste completo
         log ==============================
         ]
     }
@@ -308,7 +308,7 @@ automacro virarCavaleiro_irAoNpcmulher {
     call {
         do conf -f passo_questCavaleiro none
         do conf lockMap none
-        call pararDeAtacar        
+        call pararDeAtacar
         do talk $.NpcNearLastBinId
         do talk resp 0  #apos falar com ela a quest 9008 é ativada
         do talk resp 2 #abre uma sala e espera 2
@@ -320,10 +320,10 @@ automacro virarCavaleiro_irAoNpcmulher {
         do talk resp 2 # a sugestoes de onde caçar
         do talk resp 0 # leva a pessoa a saida 0
         do talk resp 0 # pede gentilmente a cura
-        do talk resp 1 #pergunta se é de alguem        
+        do talk resp 1 #pergunta se é de alguem
         [
         log ==============================
-        log Falei com a Cavaleira Educada , teste completo 
+        log Falei com a Cavaleira Educada , teste completo
         log ==============================
         ]
     }
@@ -356,10 +356,10 @@ automacro virarCavaleiro_irAoNpcCalmo {
         call pararDeAtacar
         do conf lockMap none
         do talk $.NpcNearLastBinId
-        do talk resp 0 
+        do talk resp 0
         [
         log ==============================
-        log Falei com o Cavaleiro Devotado 
+        log Falei com o Cavaleiro Devotado
         log ==============================
         ]
     }
@@ -387,19 +387,19 @@ automacro virarCavaleiro_irAoNpcpenultimo {
     call {
         do move prt_in 87 92 &rand(1,7)
         do talk $.NpcNearLastBinId
-        do talk resp 0 
-        do talk resp 2 
+        do talk resp 0
+        do talk resp 2
         do talk resp 1
         do talk resp 1
-        do talk resp 0 
+        do talk resp 0
         
         [
         log ==============================
-        log Falei com o Cavaleiro Modesto , teste completo 
+        log Falei com o Cavaleiro Modesto , teste completo
         log ==============================
         ]
     }
-}        
+}
 
 #9012#Mudança de Classe: Cavaleiro#SG_FEEL#QUE_NOIMAGE#
 #Sir Gray disse para você falar com o Capitão para mudar de classe, já que você falou com todos os outros cavaleiros. Finalmente, é hora de se tornar Cavaleiro! #

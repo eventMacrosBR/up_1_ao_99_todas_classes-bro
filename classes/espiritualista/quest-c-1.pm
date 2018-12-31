@@ -29,6 +29,6 @@ sub inicializarParametrosQuestClasse1 {
 #    QuestInactive 6002
 #    call {
 #        do move payon 157 141 &rand(2,7)
-#        do talknpc 157 141 
+#        do talknpc 157 141
 #    }
 #}

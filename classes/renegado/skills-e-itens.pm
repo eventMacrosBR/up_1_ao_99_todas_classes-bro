@@ -33,7 +33,7 @@ automacro desabilitarFurto {
     call {
         [
         log ===================================
-        log = Já tenho Mãos Leves, desabilitando 
+        log = Já tenho Mãos Leves, desabilitando
         log = o furto de gatuno
         log ===================================
         ]
@@ -63,7 +63,7 @@ automacro configurarDesintoxicar {
         do conf useSelf_skill_0 TF_DETOXIFY
         do conf useSelf_skill_0_lvl 1
         do conf useSelf_skill_0_sp >= 10
-        do conf useSelf_skill_0_whenStatusActive HEALTHSTATE_POISON, EFST_HEALTHSTATE_POISON 
+        do conf useSelf_skill_0_whenStatusActive HEALTHSTATE_POISON, EFST_HEALTHSTATE_POISON
         do conf useSelf_skill_0_disabled 0
   }
 }
@@ -145,7 +145,7 @@ automacro desconfigurarAtaqueSurpresa {
         [
         log ===================================
         log = Estou com ataque surpresa configurado
-        log = porém eu não tenho a skill, ou ela 
+        log = porém eu não tenho a skill, ou ela
         log = não está no lvl 5
         log = DESCONFIGURANDO
         log ===================================
@@ -216,7 +216,7 @@ automacro configurarPotLaranja {
             adicionaBuyAuto() #preciso adicionar um bloco novo, porque o bloco
             #de buyauto padrão não tem o "zeny" como chave, apesar que deveria
             pause 1
-            do reload config 
+            do reload config
 
             do conf buyAuto_1 Poção Laranja
             do conf buyAuto_1_minAmount 10

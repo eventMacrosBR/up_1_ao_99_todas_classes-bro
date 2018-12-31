@@ -39,8 +39,8 @@ sub inicializarParametrosQuestClasse2 {
     );
     Commands::run("conf -f questc2_implementada false");
     foreach $key (keys %items) {
-        if ($manterOuGuardar eq "manter") { 
-            Commands::run("iconf $key $items{$key}") 
+        if ($manterOuGuardar eq "manter") {
+            Commands::run("iconf $key $items{$key}")
         } else {
             Commands::run("iconf $key 0 1 0")
         }
@@ -83,13 +83,13 @@ automacro configurarMonge1 {
 
 automacro virarMonge1 {
     InMap prt_monk
-    QuestInactive 3016 
+    QuestInactive 3016
     priority 2
     run-once 1
     call {
         do move prt_monk 57 245
         pause 2
-        do talknpc 59 247 c r1 c r1 c     #Primeira parte Guarding Monk 
+        do talknpc 59 247 c r1 c r1 c     #Primeira parte Guarding Monk
     }
 }
 
@@ -119,7 +119,7 @@ automacro virarMonge3 {
         do pconf 940 1
         $cobWeb = &invamount (1025)
         $porcupineQuill  = &invamount (1027)
-        $gLeg = &invamount (940) 
+        $gLeg = &invamount (940)
         if ( $cobWeb < 20 ) goto Cobweb
         if ( $cobWeb >= 20 && $porcupineQuill < 5 ) goto Porcupine
         if ( $cobWeb >= 20 && $porcupineQuill >= 5 && $gLeg < 10 ) goto GLeg

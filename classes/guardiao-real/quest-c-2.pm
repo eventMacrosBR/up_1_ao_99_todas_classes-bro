@@ -4,12 +4,12 @@ sub inicializarParametrosQuestClasse2 {
     523 => "1 1 0", #Água Benta
     930 => "10 1 0", #Bandagem Estragada
     1041 => "10 1 0", #Lampião
-    2608 => "1 1 0" #Rosário 
+    2608 => "1 1 0" #Rosário
     );
     Commands::run("conf -f questc2_implementada true");
     foreach $key (keys %items) {
-        if ($manterOuGuardar eq "manter") { 
-            Commands::run("iconf $key $items{$key}") 
+        if ($manterOuGuardar eq "manter") {
+            Commands::run("iconf $key $items{$key}")
         } else {
             Commands::run("iconf $key 0 1 0")
         }
@@ -58,7 +58,7 @@ automacro virarTemplario_Começo {
         do talk resp 0
         [
         log ==============================
-        log Falei com o Templario, agora 
+        log Falei com o Templario, agora
         log vou coletar os itens!
         log ==============================
         ]
@@ -100,7 +100,7 @@ automacro virarTemplario_PegarItens {
         } elsif ( $qtdBandagem >= 10 && $qtdLampiao >= 10) {
             #se já tiver todos os itens, tá na hora!
             log ====================================
-            log Já coletei todos os itens, 
+            log Já coletei todos os itens,
             log Indo falar com o NPC
             log ====================================
             do conf -f questTemplario jaColeteiOsItens
@@ -205,7 +205,7 @@ automacro virarTemplario_ComprarHiper_poucoZeny {
     call {
         [
         log ===================================
-        log = Não tenho zeny Suficiente Pra 
+        log = Não tenho zeny Suficiente Pra
         log = Comprar hiper, melhor me dar zeny
         log ===================================
         ]
@@ -433,7 +433,7 @@ automacro virarTemplario_correr_morri_indoTentarDenovo {
         do conf BetterShopper_on 0
         do conf BetterShopper_0_disabled 1
         do conf BetterShopper_1_disabled 1
-        do conf BetterShopper_2_disabled 1        
+        do conf BetterShopper_2_disabled 1
         do conf lockMap none
         call pararDeAtacarApenasCorrer
         $blocoJaExiste = checarSeExisteNoConfig("useSelf_item_1")
@@ -696,7 +696,7 @@ automacro virarTemplario_final {
     JobID $parametrosClasses{idC1}, $parametrosClasses{idBC1}
     NpcNear /Senior Crusader/
     call {
-        do talk $.NpcNearLastBinId    
+        do talk $.NpcNearLastBinId
     }
 }
 
@@ -744,7 +744,7 @@ automacro virarTemplario_final {
 #Crusader prt_church 95 127
 #Bliant Piyord prt_castle 35 151
 
-#lugar pra pegar os 10 Lampião: 
+#lugar pra pegar os 10 Lampião:
 #mjo_dun02 (lento mas morre menos na teoria)
 #mjo_dun03 (rápido mas morre mais teoricamente)
 #

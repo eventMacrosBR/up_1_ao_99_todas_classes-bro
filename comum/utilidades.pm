@@ -141,7 +141,7 @@ macro pegarDoStorageEVender {
         $cont = 0
         while ($cont < @listaDeItems  && $.weightpercent < 85) {
             $qtdDoItemAtual = &storamount($listaDeItems[$cont])
-            do storage get &storage($listaDeItems[$cont]) if ( $qtdDoItemAtual > 0) 
+            do storage get &storage($listaDeItems[$cont]) if ( $qtdDoItemAtual > 0)
             $cont++
         }
         do storage close
@@ -156,7 +156,7 @@ macro pegarDoStorageEVender {
 }
 
 sub criarListaDeItens {
-    my ($option) = @_; 
+    my ($option) = @_;
     my @lista;
     #warning "option is $option\n";
     foreach $key ( keys %items_control ) {

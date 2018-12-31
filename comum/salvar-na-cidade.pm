@@ -4,7 +4,7 @@ macro salvarNaCidade {
     if (&config(master) =~ /Valhalla/ ) {
         do conf -f saveMap_sequenciaPraArmazenar r1 r0
     } else  {
-        do conf -f saveMap_sequenciaPraArmazenar r1 
+        do conf -f saveMap_sequenciaPraArmazenar r1
     }
     switch ($.param[0]) {
         case (=~ /einbroch/i ) {

@@ -17,7 +17,7 @@ automacro questRenascer_chegueilvl99 {
             log ESTOU LVL 99 MAS FUI CONFIGURADO PRA NAO REBORNAR
             log É BOM CASO VC QUEIRA FARMAR ZENY COM CLASSE 2
             log SE QUISER REBORNAR, PROCURE POR :
-            log renascer => nao 
+            log renascer => nao
             log E TROQUE POR sim
             ]
             lock questRenascer_chamarAmigo
@@ -421,7 +421,7 @@ automacro questRenascer_ultimoEstagio {
         do conf -f o_que_estou_fazendo acabeiDeRebornar
         [
         log =========================================
-        log REBORNEEEEEEEEEEEEEEEEEEEEEEEEEEEEEI 
+        log REBORNEEEEEEEEEEEEEEEEEEEEEEEEEEEEEI
         log =========================================
         ]
     }

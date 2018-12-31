@@ -20,7 +20,7 @@ sub extrairMapasDeUp {
     my $variaveisDeUp;
     
     #########################################################################
-    #AQUI É DEFINIDO OS MAPAS QUE CADA CLASSE IRÁ UPAR, DE MODO 
+    #AQUI É DEFINIDO OS MAPAS QUE CADA CLASSE IRÁ UPAR, DE MODO
     #QUE SEJA EXTREMAMENTE FÁCIL DE ALTERAR A SEU GOSTO
     ########################################################################
 
@@ -60,7 +60,7 @@ sub extrairMapasDeUp {
         if ($configs->{lvlMin} <= $lvl && $lvl <= $configs->{lvlMax}) {  #checa em qual "grupo" (de lvlMin e lvlMax) seu nivel se encaixa
             my %hash = (lockMap => $configs->{lockMap}, saveMap => $configs->{saveMap});
             return \%hash;
-        }    
+        }
     }
 }
 

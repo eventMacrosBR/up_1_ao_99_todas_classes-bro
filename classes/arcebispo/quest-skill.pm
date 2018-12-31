@@ -22,7 +22,7 @@ automacro questLuzDivina_inicioNaoTenhoOsItensMasTenhoZenys {
     ConfigKeyNot quest_luz_divina falar_com_npc
     Zeny >= 36000
     exclusive 1
-    call { 
+    call {
         [
         log ===================================
         log = Iniciando a quest da Luz Divina =
@@ -105,7 +105,7 @@ automacro questLuzDivina_pegarItens {
         if (&invamount(Cristal Azul) < 1) {
             [
             log ===================================
-            log = Não tenho Cristal Azul, 
+            log = Não tenho Cristal Azul,
             log = Configurando para comprar
             log ===================================
             ]

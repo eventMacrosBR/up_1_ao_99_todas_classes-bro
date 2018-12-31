@@ -8,8 +8,8 @@ sub inicializarParametrosQuestClasse2 {
     );
     Commands::run("conf -f questc2_implementada true");
     foreach $key (keys %items) {
-        if ($manterOuGuardar eq "manter") { 
-            Commands::run("iconf $key $items{$key}") 
+        if ($manterOuGuardar eq "manter") {
+            Commands::run("iconf $key $items{$key}")
         } else {
             Commands::run("iconf $key 0 1 0")
         }
@@ -141,7 +141,7 @@ automacro virarArruaceiro_etapa3_coletarItens {
             log =================================
             ]
 
-        } elsif ( $qtdErvaAzul >= 6 && $qtdUnha < 10 ) { 
+        } elsif ( $qtdErvaAzul >= 6 && $qtdUnha < 10 ) {
             #se ja tiver Erva Azul, vai coletar: Unha Apodrecida
             [
             do conf lockMap pay_dun00
@@ -157,7 +157,7 @@ automacro virarArruaceiro_etapa3_coletarItens {
             log ================================
             ]
 
-        } elsif ( $qtdErvaAzul >= 6 && $qtdUnha >= 10 && $qtdOsso < 10 ) { 
+        } elsif ( $qtdErvaAzul >= 6 && $qtdUnha >= 10 && $qtdOsso < 10 ) {
             #se ja tiver Erva Azul e Unha Apodrecida, vai coletar: Osso
             [
             do conf lockMap pay_dun01
@@ -218,9 +218,9 @@ automacro virarArruaceiro_etapa3_tenhoOsItensbugged {
         [
         log por algum motivo, o bot não tem nem os 10k de zeny pra fazer a quest
         log tentando resolver isso
-        log Se essa mensagem aparecer repetidas vezes, seu bot nao tem 
+        log Se essa mensagem aparecer repetidas vezes, seu bot nao tem
         log zeny suficiente pra fazer a quest, logue manualmente nele
-        log e passa pelo menos 20k de zeny 
+        log e passa pelo menos 20k de zeny
         ]
         do autosell
     }

@@ -8,8 +8,8 @@ sub inicializarParametrosQuestClasse2 {
     );
     Commands::run("conf -f questc2_implementada true");
     foreach $key (keys %items) {
-        if ($manterOuGuardar eq "manter") { 
-            Commands::run("iconf $key $items{$key}") 
+        if ($manterOuGuardar eq "manter") {
+            Commands::run("iconf $key $items{$key}")
         } else {
             Commands::run("iconf $key 0 1 0")
         }
@@ -144,7 +144,7 @@ macro comprarItem {
     [
     log ===================================
     log = vou em $.param[0] nas coordenadas $.param[1]
-    log = conversar com o npc $.param[2] , pode ser 
+    log = conversar com o npc $.param[2] , pode ser
     log = que o nome do npc seja abreviado
     log = para comprar $.param[4] $.param[3]
     log ===================================
@@ -166,7 +166,7 @@ macro comprarItem {
         log = muita treta vish mano
         log = manda mensagem lá pros criador dessa macro
         log = pq senão vai continuar na treta
-        log = E JÁ MANDA AS ÚLTIMAS 20 LINHAS DO CONFIG.TXT 
+        log = E JÁ MANDA AS ÚLTIMAS 20 LINHAS DO CONFIG.TXT
         log = KKKKKKKKKKKKKKKKKKKKKKK
         log ===================================
         ]
@@ -200,7 +200,7 @@ macro voltarProAlquimistaSenior {
     do conf lockMap none
     pause 3
     #isso vai checar se realmente entregamos o item, ja que está sempre suscetivel a falhas
-    #se não tiver entregado por qualquer motivo que seja, ele simplesmente vai tentar denovo 
+    #se não tiver entregado por qualquer motivo que seja, ele simplesmente vai tentar denovo
     #Se conseguir, ele move pra o proximo passo
     if ($.InInventoryIDLast = 657) { #Poção da Fúria Selvagem
         if (&inventory(657) < 7) do conf -f questAlquimista questionario
@@ -209,7 +209,7 @@ macro voltarProAlquimistaSenior {
     } elsif ($.InInventoryIDLast = 1752) { #Flecha de Fogo
         if (&inventory(1752)  < 500) do conf -f questAlquimista questionario
     }
-}        
+}
 
 #################################################################
 #                                                               #
@@ -389,8 +389,8 @@ automacro virarAlquimista_naoTenhoAFlor_NemZeny {
     call {
         [
         log =====================================================
-        log =Não tenho zeny suficiente para comprar a Flor     
-        log =Então vou conseguir o dinheiro!                 
+        log =Não tenho zeny suficiente para comprar a Flor
+        log =Então vou conseguir o dinheiro!
         log =Começando o processo de vender loot e conseguir mais
         log =====================================================
         ]
@@ -410,7 +410,7 @@ automacro virarAlquimista_naoTenhoAFlor_NemZeny {
         do iconf 2402 0 0 1 #Sandálias [1]
         
         call voltarAtacar
-        call salvarNaCidade "payon" 
+        call salvarNaCidade "payon"
         do conf lockMap pay_fild09
     }
 }
@@ -449,7 +449,7 @@ automacro virarAlquimista_juntandoZeny {
         [
         log ======================================
         log =Estou coletando items pra fazer zeny
-        log =Para Quest de Alquimista         
+        log =Para Quest de Alquimista
         log ======================================
         ]
         if (&config(attackAuto) != 2) call voltarAtacar

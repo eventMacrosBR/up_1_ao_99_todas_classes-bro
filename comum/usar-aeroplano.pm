@@ -1,6 +1,6 @@
-﻿#Digite no console do eventMacro 
+﻿#Digite no console do eventMacro
 #eventMacro aeroplano_junoPara --cidade
-#Pode ser tambem 
+#Pode ser tambem
 #eventMacro aeroplano_einbrochPara --cidade
 #ou
 #eventMacro aeroplano_junoPara --cidade

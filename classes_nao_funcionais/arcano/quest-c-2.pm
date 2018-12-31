@@ -4,8 +4,8 @@ sub inicializarParametrosQuestClasse2 {
      );
     Commands::run("conf -f questc2_implementada false");
     foreach $key (keys %items) {
-        if ($manterOuGuardar eq "manter") { 
-            Commands::run("iconf $key $items{$key}") 
+        if ($manterOuGuardar eq "manter") {
+            Commands::run("iconf $key $items{$key}")
         } else {
             Commands::run("iconf $key 0 1 0")
         }
@@ -61,9 +61,9 @@ automacro QuestionarioBruxo {
         do talk &npc(102 24)
         do talk resp 1
         
-        #TODO Utilizar a lógica de respostas por expressão regular que é mais simples que esse switch doido 
+        #TODO Utilizar a lógica de respostas por expressão regular que é mais simples que esse switch doido
         #switch() {#deixo com vocês tem que ver qual das 3 sequencias o npc vai seguir,da para adaptar a sub da de alquimista,mas como falei não sou bom com sub
-        #    
+        #
         #    case() {
         #        #Qual dos atributos a seguir é o mais importante para um Mago?
         #        do talk resp 0
@@ -92,7 +92,7 @@ automacro QuestionarioBruxo {
         #        #Qual das habilidades a seguir não é necessária para aprender Barreira de Fogo? Não achei a ordem dos dialogos infelizmente
         #    }
         #}
-    }  
+    }
 }
 
 #9017#Mudança de Classe: Bruxo#SG_FEEL#QUE_NOIMAGE#
@@ -103,7 +103,7 @@ automacro TestePraticoBruxoIniciar {
     QuestActive 9017
     exclusive 1
     call {
-        if (&Invamount(503) >= 50) { 
+        if (&Invamount(503) >= 50) {
             do talk &npc(102 24)
             do talk resp 1
             do talk resp 0

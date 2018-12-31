@@ -77,7 +77,7 @@ automacro desconfigurarAutoEquiparFlechaAprendizT {
     call {
         do conf attackEquip_arrow none
     }
-} 
+}
 
 automacro configurarUsarAljave {
     ConfigKeyNot useSelf_item_1 Aljave

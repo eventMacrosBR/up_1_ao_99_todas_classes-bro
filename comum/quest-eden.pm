@@ -51,7 +51,7 @@ automacro questEden_trocarEmblemaIndoProNpc {
 
 automacro questEden_trocarEmblema {
     InInventoryID 6219 = 1 #emblema do grupo valhalla (o antigo)
-    exclusive 1    
+    exclusive 1
     priority -2 # um pouco alta
     NpcNear /Lenore|Lime/
     call {
@@ -138,15 +138,15 @@ macro moverPertoDosNpcEden {
     log ===========================================
     ]
     do move moc_para01 &rand(33,35) &rand(25,27) #posição otima no Eden
-    do reload event 
-    #estranhamente qando ele chega perto do npc do eden, ele nao checa alguma 
+    do reload event
+    #estranhamente qando ele chega perto do npc do eden, ele nao checa alguma
     #das condições (arrisco dizer a de inventory) por isso tive que colocar essa linha
     #que recarrega o eventMacros, aí a proxima automacro trigga de boas
 }
 
 automacro questEden12_iniciando {
     NpcNear /Boya/
-    InInventoryID 22508 = 1 #Emblema do Éden# 
+    InInventoryID 22508 = 1 #Emblema do Éden#
     BaseLevel 12..17
     exclusive 1
     QuestInactive 7128
@@ -176,7 +176,7 @@ automacro questEden26_iniciando {
     NpcNear /Boya/
     BaseLevel 26..32
     ConfigKeyNot fazerQuestEden nao
-    InInventoryID 22508 = 1 #Emblema do Éden# 
+    InInventoryID 22508 = 1 #Emblema do Éden#
     exclusive 1
     QuestInactive 7138
     QuestInactive 7139
@@ -542,7 +542,7 @@ automacro questEden60__JuntarItens {
             log ===========================================
             ]
             do conf lockMap um_fild01
-            call voltarAtacar    
+            call voltarAtacar
         }
     }
 }
@@ -740,7 +740,7 @@ automacro questEden_voltarDoMapa {
                 do talk &npc(/Boya/)
                 do mconf 1023 1 0 0 #Guerreiro Orc
                 do mconf 1686 1 0 0 #Filhote de Orc
-                do mconf 1273 1 0 0 #Senhora Orc 
+                do mconf 1273 1 0 0 #Senhora Orc
             }
 
             case (= 7218) { #eden 60
@@ -1003,7 +1003,7 @@ macro equiparChapeu {
         log = Vou equipar chapeu do lvl 12+
         do eq &inventory(5583) #Chapeu Valhalla
         
-    } 
+    }
     #sem um else aqui, porque se o slot tiver vazio, e não tiver nenhum do éden, fodas, ninguém liga
 }
 
@@ -1028,10 +1028,10 @@ macro equiparCapa {
         do eq &inventory(2571) #Capa II do Grupo Eden
         
     } elsif ($.lvl >= 12 && &inventory(2560) != -1) { #Capa Valhalla
-        log = Vou equipar chapeu do lvl 12+ 
+        log = Vou equipar chapeu do lvl 12+
         do eq &inventory(2560) #Capa Valhalla
         
-    } 
+    }
     #sem um else aqui, porque se o slot tiver vazio, e não tiver nenhum do éden, fodas, ninguém liga
 }
 

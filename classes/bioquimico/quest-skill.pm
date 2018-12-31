@@ -59,7 +59,7 @@ automacro questBioetica_juntandoZenyPraComecar {
         [
         log ======================================
         log =Estou coletando itens pra fazer zeny
-        log =Para Quest de Bioética         
+        log =Para Quest de Bioética
         log ======================================
         ]
         do conf -f quest_skill true
@@ -300,7 +300,7 @@ automacro questBioetica_FirstKellasus {
         do move lhz_in01 &rand(222,224) &rand(139,141)
         [
         log =======================
-        log vou falar 3 vezes ate ele 
+        log vou falar 3 vezes ate ele
         log me dizer oq eu quero
         log =======================
         ]
@@ -511,7 +511,7 @@ automacro questBiotica_Beninne {
 automacro questBioetica_ThirdKellasus {
     JobID 18 #Alquimista
     timeout 40
-    ConfigKeyNot tenhoQueFalarComGuarda sim 
+    ConfigKeyNot tenhoQueFalarComGuarda sim
     SkillLevel AM_BIOETHICS != 1
     ConfigKey passoQuestBioetica falarComKellasusFinal
     macro_delay 2
@@ -548,7 +548,7 @@ automacro jaTenhoASkill_2 {
     JobID 18 #Alquimista
     SkillLevel AM_BIOETHICS = 1
     ConfigKeyNot quest_skill none
-    exclusive 1 
+    exclusive 1
     call {
         do conf -f passoQuestBioetica none
         do conf -f quest_skill none

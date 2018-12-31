@@ -14,12 +14,12 @@ sub inicializarParametrosQuestClasse2 {
     503 => "5 1 0", #Poção Amarela
     909 => "20 1 0", #Jellopy
     1020 => "10 1 0", #Cabelos Morenos
-    2401 => "1 1 0" #    Sandálias [0]    
+    2401 => "1 1 0" #    Sandálias [0]
     );
     Commands::run("conf -f questc2_implementada false");
     foreach $key (keys %items) {
-        if ($manterOuGuardar eq "manter") { 
-            Commands::run("iconf $key $items{$key}") 
+        if ($manterOuGuardar eq "manter") {
+            Commands::run("iconf $key $items{$key}")
         } else {
             Commands::run("iconf $key 0 1 0")
         }

@@ -73,7 +73,7 @@ automacro inicializar {
         # Esse sub gera a hash %parametrosQuestClasseRenascer com a seguinte key:
         # $parametrosQuestClasseRenascer{renascer}
         # $parametrosQuestClasseRenascer{amigo}
-        %parametrosQuestClasseRenascer = inicializarParametrosQuestClasseRenascer()        
+        %parametrosQuestClasseRenascer = inicializarParametrosQuestClasseRenascer()
     }
 }
 

@@ -1073,7 +1073,7 @@ automacro campoDeAprendiz_terminouDeUpar_bugada {
 
 automacro campoDeAprendiz_muitoBugado {
     #esse regex significa: não está no campo de aprendiz nem no mapa de virar classe 1
-    InMapRegex /^(?!new_\d-\d|$parametrosQuestClasse1{mapa})$/ 
+    InMapRegex /^(?!new_\d-\d|$parametrosQuestClasse1{mapa})$/
     JobID 0, 4023 #Aprendiz e Baby Aprendiz
     exclusive 1
     JobLevel = 10

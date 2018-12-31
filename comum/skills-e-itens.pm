@@ -25,7 +25,7 @@ automacro parandoDePegarPotDeAprendiz {
     call {
         [
         log ===================================
-        log = as poções de aprendiz acabaram, 
+        log = as poções de aprendiz acabaram,
         log = removendo o getAuto
         log ===================================
         ]

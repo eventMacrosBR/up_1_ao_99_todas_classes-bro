@@ -1,7 +1,7 @@
 sub inicializarParametrosQuestClasse2 {
     my ($manterOuGuardar) = @_;
     my %items = (
-        #Possibilidade 1    
+        #Possibilidade 1
         920 => "5 1 0", #Garras de Lobo
         1019 => "5 1 0", #Troncos
         509 => "3 1 0", #Ervas Brancas
@@ -31,15 +31,15 @@ sub inicializarParametrosQuestClasse2 {
         938 => "1 1 0", #Mucos Pegajosos
         948 => "1 1 0", #Patas de Urso
     
-        #Possibilidade 7     
+        #Possibilidade 7
         1027 => "2 1 0", #Espinhos de Porco-Espinho
         942 => "1 1 0", #Caudas de Yoyo
         1026 => "1 1 0" #Avelãs
     );
     Commands::run("conf -f questc2_implementada true");
     foreach $key (keys %items) {
-        if ($manterOuGuardar eq "manter") { 
-            Commands::run("iconf $key $items{$key}") 
+        if ($manterOuGuardar eq "manter") {
+            Commands::run("iconf $key $items{$key}")
         } else {
             Commands::run("iconf $key 0 1 0")
         }
@@ -402,7 +402,7 @@ automacro questCacador_entregarItensEmHugel {
     exclusive 1
     call {
         call pararDeAtacar
-    do conf lockMap none 
+    do conf lockMap none
         call aeroplano_junoPara "hugel"
 
     }
@@ -465,7 +465,7 @@ automacro questCacador_irAteOPalacioDePayon {
     call {
     do move payon_in03 158 33
         do move payon_in03 131 7 &rand(2,4)
-    do talknpc 131 7 r3 
+    do talknpc 131 7 r3
     }
 }
 
@@ -653,11 +653,11 @@ automacro questCacador_labirinto {
         log ===================================
         ]
         do move 110 131
-        do south 25 
+        do south 25
         do west 10
         do talk &npc(/switch/i)
         do talk resp 0
-        do east 10 
+        do east 10
         do north 25
         do move 89 131
         do north 10
@@ -703,7 +703,7 @@ automacro questCacador_irAteOPalacioDePayonRelatarSucessoEntrarPalacio {
     InMap payon
     ConfigKey quest_cacador_lider palacio_payon
     call {
-        do move payon 188 233 
+        do move payon 188 233
     }
 }
 
@@ -715,7 +715,7 @@ automacro questCacador_irAteOPalacioDePayonRelatarSucessoNoPalacio {
     call {
         do move payon_in03 158 33
         do move payon_in03 131 7 &rand(2,4)
-    do talknpc 131 7 r0 
+    do talknpc 131 7 r0
     }
 }
 
@@ -731,7 +731,7 @@ automacro questCacador_termineiDesafiosVoltandoHugel {
     exclusive 1
     call {
         call pararDeAtacar
-    do conf lockMap none 
+    do conf lockMap none
         call aeroplano_junoPara "hugel"
 
     }

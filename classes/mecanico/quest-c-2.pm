@@ -4,8 +4,8 @@ sub inicializarParametrosQuestClasse2 {
     #TODO
     );
     foreach $key (keys %items) {
-        if ($manterOuGuardar eq "manter") { 
-            Commands::run("iconf $key $items{$key}") 
+        if ($manterOuGuardar eq "manter") {
+            Commands::run("iconf $key $items{$key}")
         } else {
             Commands::run("iconf $key 0 1 0")
         }
@@ -25,7 +25,7 @@ sub inicializarParametrosQuestClasse2 {
 #        ]
 #        do conf -f virarClasse2 true
 #        do conf -f quest_classe2 IrParaEinbroch
-#    }    
+#    }
 #}
 #
 #automacro virarFerreiro_Inicio_irPraEinbroch {
@@ -67,7 +67,7 @@ sub inicializarParametrosQuestClasse2 {
 #    call {
 #        do move ein_in01 &rand(199,203) &rand(25,29)
 #        do conf quest_classe2 TalkToGetsufenst
-#    }    
+#    }
 #}
 #
 #automacro TalkToGetsufenst {
@@ -145,7 +145,7 @@ sub inicializarParametrosQuestClasse2 {
 #        $qtdCouro = &invamount(919)
 #        $qtdSabre = &invamount(1122)
 #        [
-#        
+#
 #        if ( $qtdFerro < 8) {
 #            do mconf Steel Chonchon 2
 #            do pconf Iron 2
@@ -189,7 +189,7 @@ sub inicializarParametrosQuestClasse2 {
 #            do autobuy
 #            stop
 #        }
-#        
+#
 #        #condição especial pra desativar o buyAuto, só pra ter certeza
 #        if ($qtdSabre >= 1) { #sabre de impacto
 #            do conf buyAuto_0 none
@@ -198,13 +198,13 @@ sub inicializarParametrosQuestClasse2 {
 #            do conf buyAuto_0_maxAmount none
 #            #não vou parar a macro porque tem que continuar
 #        }
-#        
+#
 #        ]
-#        
+#
 #        #se chegar nessa linha, significa que temos todos os itens
-#        
+#
 #        do move alberta_in &rand(176,180) &rand(21,26)
-#        do conf quest_classe2 TalkToGetsufenstAgain  
+#        do conf quest_classe2 TalkToGetsufenstAgain
 #    }
 #}
 #
@@ -227,7 +227,7 @@ sub inicializarParametrosQuestClasse2 {
 ##Entregue o Sabre de Impacto a Bismarc em Hugel. #
 #automacro DeliverToBismark {
 #    QuestActive 2012
-#    NpcNear /Bismark/ 
+#    NpcNear /Bismark/
 #    exclusive 1
 #    call {
 #        do talknpc 158 342 r1 #I assure you that it's new!
