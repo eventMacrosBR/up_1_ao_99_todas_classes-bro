@@ -14,6 +14,40 @@ automacro utilidades_configEstaErrada {
     }
 }
 
+automacro checkSeEstaNaQuestEden {
+    exclusive 1
+    QuestInactive 7128
+    QuestInactive 7129
+    QuestInactive 7130
+    QuestInactive 7131
+    QuestInactive 7138
+    QuestInactive 7139
+    QuestInactive 7140
+    QuestInactive 7132
+    QuestInactive 7141
+    QuestInactive 7147
+    QuestInactive 7148
+    QuestInactive 7149
+    QuestInactive 7150
+    QuestInactive 7151
+    QuestInactive 7214
+    QuestInactive 7215
+    QuestInactive 7216
+    QuestInactive 7217
+    QuestInactive 7218
+    ConfigKey quest_eden em_curso
+    call {
+        [
+        warning ===================================
+        warning = estranho, não tenho nenhuma quest eden
+        warning = ativa, mas a eventMacro acha que tem
+        warning = consertando isso
+        warning ===================================
+        ]
+        do conf quest_eden none
+    }
+}
+
 macro pararDeAtacar {
     [
     do conf route_randomWalk 0
