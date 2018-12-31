@@ -2,15 +2,6 @@
 
 
 automacro seJuntarAoGrupoEden_MoverPerto {
-    InInventoryID 22508 = 0  
-    IsNotEquippedID armor 15009
-    InInventoryID 15009 = 0
-    IsNotEquippedID armor 15010
-    InInventoryID 15010 = 0
-    IsNotEquippedID armor 15011
-    InInventoryID 15011 = 0
-    IsNotEquippedID armor 15031
-    InInventoryID 15031 = 0
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot naSequenciaDeSalvamento true
     InInventoryID 2414 = 0 #sapatos de aprendiz
@@ -24,15 +15,6 @@ automacro seJuntarAoGrupoEden_MoverPerto {
 }
 
 automacro seJuntarAoGrupoEden {
-    InInventoryID 22508 = 0
-    IsNotEquippedID armor 15009
-    InInventoryID 15009 = 0
-    IsNotEquippedID armor 15010
-    InInventoryID 15010 = 0
-    IsNotEquippedID armor 15011
-    InInventoryID 15011 = 0
-    IsNotEquippedID armor 15031
-    InInventoryID 15031 = 0
     ConfigKeyNot membroDoEden sim
     ConfigKeyNot quest_eden em_curso
     ConfigKeyNot naSequenciaDeSalvamento true
