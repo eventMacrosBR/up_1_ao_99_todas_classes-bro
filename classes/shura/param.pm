@@ -1,4 +1,5 @@
 sub inicializarParametrosClasses {
+    #nome do hash: %parametrosClasses
     return {
         idC1 => 4,
         idBC1 => 4027,
