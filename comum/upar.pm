@@ -5,6 +5,7 @@ automacro UpClasse {
     ConfigKeyNot naSequenciaDeSalvamento true
     ConfigKeyNot virarClasse2 true
     ConfigKeyNot virarClasse2T true
+    ConfigKeyNot virarClasse3 true
     ConfigKeyNot quest_skill true
     ConfigKeyNot esperarFazerQuest true
     ConfigKeyNot lockMap $mapa{lockMap}

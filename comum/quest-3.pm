@@ -3,6 +3,7 @@ automacro questClasse3_virarClasse3Inicio_bugada {
     FreeSkillPoints > 0
     timeout 30
     BaseLevel = 99
+    JobLevel = 70
     JobID $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}
     exclusive 1
     call {
@@ -26,6 +27,7 @@ automacro questClasse3_virarClasse3Inicio_bugada {
 
 automacro questClasse3_inicio {
     BaseLevel = 99
+    JobLevel = 70
     FreeSkillPoints = 0
     JobID $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}
     ConfigKeyNot virarClasse3 true
@@ -76,32 +78,6 @@ automacro questClasse3_jaSouClasse3NaoAutomatico {
         release equipandoChapeuEden
         release equipandoCapaEden
         call atualizarBuild
-    }
-}
-
-
-
-automacro questClasse3_avisoNivelDeBase99 {
-    BaseLevel = 99
-    JobID $parametrosClasses{idC2T}, $parametrosClasses{idC2TAlt}, $parametrosClasses{idBC2}, $parametrosClasses{idBC2Alt}
-    exclusive 1
-    timeout 20
-    ConfigKeyNot virarClasse3 true
-    ConfigKeyNot questc3_implementada true
-    call {
-        [
-        log ===================================
-        log SEU CHAR JÁ ESTÁ NO NIVEL 99 DE BASE
-        log FAÇA A QUEST PARA VIRAR CLASSE 3 MANUALMENTE POR FAVOR
-        log DEPOIS ABRA O BOT NOVAMENTE
-        log ASSIM QUE ELE SE TORNAR UM CLASSE 3, A MACRO VOLTA A UPAR NORMALMENTE
-        log ===================================
-        ]
-        do conf lockMap none
-        call pararDeAtacar
-        do conf -f esperarFazerQuest true
-        do conf -f o_que_estou_fazendo esperandoQuestSerFeitaManualmente
-        do move &config(saveMap) if ($.map != &config(saveMap))
     }
 }
 
