@@ -38,11 +38,11 @@ automacro checkSeEstaNaQuestEden {
     ConfigKey quest_eden em_curso
     call {
         [
-        warning ===================================
-        warning = estranho, não tenho nenhuma quest eden
-        warning = ativa, mas a eventMacro acha que tem
-        warning = consertando isso
-        warning ===================================
+        do warning ===================================
+        do warning = estranho, não tenho nenhuma quest eden
+        do warning = ativa, mas a eventMacro acha que tem
+        do warning = consertando isso
+        do warning ===================================
         ]
         do conf quest_eden none
     }
