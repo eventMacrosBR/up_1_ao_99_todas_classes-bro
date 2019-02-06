@@ -33,8 +33,7 @@ automacro questClasse1_virandoClasse1 {
             do move $parametrosQuestClasse1{mapa} $parametrosQuestClasse1{npc} &rand(1,5)
         }
         do talknpc $parametrosQuestClasse1{npc} $parametrosQuestClasse1{sequenciaConversa}
-        $check = pegarIndiceDoEquipamentoPeloId("rightHand", "$parametrosQuestClasse1{equipeIniciante}")
-        if ($check != -1) do eq $check
+        call equiparSePossivel rightHand $parametrosQuestClasse1{equipeIniciante}
 
         #Voltar pegar itens após o campo de treinamento
         do conf itemsTakeAuto 1

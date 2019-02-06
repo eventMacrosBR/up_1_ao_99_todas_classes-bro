@@ -192,7 +192,7 @@ automacro desativarStorageAuto_lvlAbaixodeSeis {
     }
 }
 
-automacro reativarStorageAuto_maisQuelvlSeis {
+automacro reativarStorageAuto_maiorQuelvlSeis {
     exclusive 1
     SkillLevel NV_BASIC >= 6
     ConfigKeyNot storageAuto 1
@@ -227,8 +227,17 @@ sub pegarConfigItemsControl {
     }
 }
 
+macro equiparSePossivel {
+    $slot = $.param[0]
+    $idDoEquip = $.param[1]
+    $indice = pegarIndiceDoEquipamentoPeloId($slot, $idDoEquip)
+    if ($indice != -1) do eq $indice
+    log Sucesso.
+}
+
 sub pegarIndiceDoEquipamentoPeloId {
     my ($slotDoEquipamento, $id) = @_;
+    message "Tentanto equipar '$items_lut{$id}' ($id)... ";
     my $item = $char->inventory->getByNameID($id);
     if ($item eq "" ) {
         if ( exists $items_lut{$id} ) {
@@ -242,7 +251,7 @@ sub pegarIndiceDoEquipamentoPeloId {
     if (exists $char->{equipment}{$slotDoEquipamento}) {
         my $equipamento = $char->{equipment}{$slotDoEquipamento};
         if ($equipamento->{nameID} == $id) {
-            warning "$equipamento->{name} já está equipado.\n";
+            warning "Isso já está equipado.\n";
             return -1;
         } else {
             return $indiceDoEquip;

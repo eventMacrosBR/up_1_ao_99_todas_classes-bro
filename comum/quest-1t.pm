@@ -93,10 +93,8 @@ automacro questClasse1T_jaSouClasse1T {
         call atualizarBuild
         do iconf 2393 0 0 0 #Tunica de Iniciante
         do iconf $parametrosQuestClasse1T{equipeIniciante} 0 0 0
-        $check = pegarIndiceDoEquipamentoPeloId("armor", 2393) #Tunica de Iniciante
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("rightHand", "$parametrosQuestClasse1T{equipeIniciante}")
-        if ($check != -1) do eq $check
+        call equiparSePossivel "armor" 2393 #Tunica de Iniciante
+        call equiparSePossivel rightHand $parametrosQuestClasse1T{equipeIniciante}
         do conf virandoClasse1T none
         
         do conf -f o_que_estou_fazendo acabei de Virar Classe 1 T

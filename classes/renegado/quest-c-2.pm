@@ -519,10 +519,8 @@ automacro jaSouArruaceiro {
         do iconf Mandíbula Horrenda 0 0 1
         do iconf Osso 0 0 1
         do iconf Unha Apodrecida 0 0 1
-        $check = pegarIndiceDoEquipamentoPeloId("robe", 2560) #Capa Valhalla
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("topHead", 5583) #Chapeu valhalla
-        if ($check != -1) do eq $check
+        call equiparSePossivel "robe" 2560 #Capa Valhalla
+        call equiparSePossivel "topHead" 5583 #Chapeu valhalla
         call pararDeAtacar
         do conf questArruaceiro none
     }

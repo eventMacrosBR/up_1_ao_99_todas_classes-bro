@@ -282,24 +282,12 @@ automacro campoDeAprendiz_equiparEsquipesDoBrade {
     QuestActive 7119
     IsNotEquippedID topHead 5055, leftHand 2112, robe 2510, shoes 2414, armor 2352, rightHand 1243
     call {
-        do pconf 5055 0
-        do pconf 2510 0
-        do pconf 2414 0
-        do pconf 2112 0
-        do pconf 1243 0
-        do pconf 2352 0
-        $check = pegarIndiceDoEquipamentoPeloId("topHead", 5055)
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("robe", 2510)
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("shoes",2414)
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("armor",2352)
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("leftHand",2112)
-        if ($check != -1) do eq $check
-        $check = pegarIndiceDoEquipamentoPeloId("rightHand",1243)
-        if ($check != -1) do eq $check
+        call equiparSePossivel "topHead"   5055 # Chapéu de Ovo do Aprendiz
+        call equiparSePossivel "robe"      2510 # Capuz do Aprendiz
+        call equiparSePossivel "shoes"     2414 # Sandálias do Aprendiz
+        call equiparSePossivel "armor"     2352 # Traje do Aprendiz
+        call equiparSePossivel "leftHand"  2112 # Vembrassa do Aprendiz
+        call equiparSePossivel "rightHand" 1243 # Adaga do Aprendiz
     }
 }
 
@@ -447,12 +435,7 @@ automacro campoDeAprendiz_equiparEquipesDaGarota {
     InInventoryID 2393 = 1
     InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
     IsNotEquippedID armor 2393
-    call {
-        $check = pegarIndiceDoEquipamentoPeloId("armor", 2393)
-        if ($check != -1) {
-            do eq $check
-        }
-    }
+    call equiparSePossivel "armor" 2393
 }
 
 automacro campoDeAprendiz_irAteChoco {
@@ -634,10 +617,7 @@ automacro campoDeAprendiz_equiparEquipesParaBradeNosCampos {
     InInventoryID 13040 = 1
     IsNotEquippedID rightHand 13040
     InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
-    call {
-        $check = pegarIndiceDoEquipamentoPeloId("rightHand", 13040)
-        if ($check != -1) do eq $check
-    }
+    call equiparSePossivel "rightHand" 13040
 }
 
 automacro campoDeAprendiz_ultimoBugDoBrade {
