@@ -78,7 +78,7 @@ automacro campoDeAprendiz_entrar {
     QuestActive 7117
     InMap new_1-1, new_2-1, new_3-1, new_4-1, new_5-1
     priority 1
-    call GotoInside
+    call entrarNoCastelo
 }
 
 automacro moveInsideBugged1 {
@@ -87,7 +87,7 @@ automacro moveInsideBugged1 {
     BaseLevel = 2
     InMap new_1-1, new_2-1, new_3-1, new_4-1, new_5-1
     priority 1
-    call GotoInside
+    call entrarNoCastelo
 }
 
 #7118#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
@@ -99,10 +99,10 @@ automacro campoDeAprendiz_entrar_bugado {
     BaseLevel = 2
     InMap new_1-1, new_2-1, new_3-1, new_4-1, new_5-1
     priority 1
-    call GotoInside
+    call entrarNoCastelo
 }
 
-macro GotoInside {
+macro entrarNoCastelo {
     $proximoMapa = proximoMapa("$.map")
     do move $proximoMapa 101 29
 }
@@ -117,7 +117,7 @@ automacro campoDeAprendiz_irAteSprakki {
     BaseLevel = 1
     InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
     priority 1
-    call GotoSpraki
+    call irAteSprakki
 }
 
 automacro campoDeAprendiz_irAteSprakki_bugado1 {
@@ -127,7 +127,7 @@ automacro campoDeAprendiz_irAteSprakki_bugado1 {
     NpcNotNear /Sprakki/
     InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
     priority 1
-    call GotoSpraki
+    call irAteSprakki
 }
 
 #7118#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
@@ -140,10 +140,10 @@ automacro campoDeAprendiz_irAteSprakki_bugado2 {
     NpcNotNear /Sprakki/
     InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
     priority 1
-    call GotoSpraki
+    call irAteSprakki
 }
 
-macro GotoSpraki {
+macro irAteSprakki {
     do move 101 29
 }
 
@@ -154,10 +154,7 @@ automacro campoDeAprendiz_falarComSprakki_bugado1 {
     NpcNear /Sprakki/
     InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
     priority 0
-    call {
-      do talk $.NpcNearLastBinId
-      do talk resp 0
-    }
+    call falarComSprakki
 }
 
 #7118#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
@@ -170,10 +167,7 @@ automacro campoDeAprendiz_falarComSprakki_bugado2 {
     NpcNear /Sprakki/
     InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
     priority 0
-    call {
-      do talk $.NpcNearLastBinId
-      do talk resp 0
-    }
+    call falarComSprakki
 }
 
 #7117#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
@@ -186,10 +180,12 @@ automacro campoDeAprendiz_falarComSprakki {
     NpcNear /Sprakki/
     InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
     priority 0
-    call {
-        do talk $.NpcNearLastBinId
-        do talk resp 0
-    }
+    call falarComSprakki
+}
+
+macro falarComSprakki {
+    do talk $.NpcNearLastBinId
+    do talk resp 0
 }
 
 #7118#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
@@ -201,7 +197,7 @@ automacro campoDeAprendiz_irAteBrade1 {
     NpcNotNear /Brade/
     InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
     priority 2
-    call MoveToBrade
+    call moverAteBrade
 }
 
 #7119#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
@@ -213,10 +209,22 @@ automacro campoDeAprendiz_irAteBrade2 {
     NpcNotNear /Brade/
     InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
     priority 2
-    call MoveToBrade
+    call moverAteBrade
 }
 
-macro MoveToBrade {
+automacro campoDeAprendiz_irAteBrade_bugado {
+    exclusive 1
+    QuestInactive 7118
+    QuestInactive 7119
+    BaseLevel = 3
+    InInventoryID 5055 = 0  # Chapéu de Ovo do Aprendiz
+    NpcNotNear /Brade/
+    InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
+    priority 1
+    call moverAteBrade
+}
+
+macro moverAteBrade {
     do move 103 105
 }
 
@@ -239,19 +247,6 @@ automacro campoDeAprendiz_falarComBrade {
         do pconf 2352 0 # Traje do Aprendiz
         do talk $.NpcNearLastBinId
     }
-}
-
-
-automacro campoDeAprendiz_irAteBrade_bugado {
-    exclusive 1
-    QuestInactive 7118
-    QuestInactive 7119
-    BaseLevel = 3
-    InInventoryID 5055 = 0
-    NpcNotNear /Brade/
-    InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
-    priority 1
-    call MoveToBrade
 }
 
 automacro campoDeAprendiz_falarComBrade_bugado {
@@ -330,7 +325,7 @@ automacro campoDeAprendiz_bugouNoBradeNaQuest7120IrAteJinha {
     IsEquippedID shoes 2414 # Sandálias do Aprendiz
     SkillLevel NV_FIRSTAID = 0
     NpcNotNear /Jinha/
-    call MoveJinha
+    call moveAteJinha
 }
 
 #7120#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
@@ -342,10 +337,10 @@ automacro campoDeAprendiz_irAteJinha {
     NpcNotNear /Jinha/
     SkillLevel NV_FIRSTAID = 0
     priority 0
-    call MoveJinha
+    call moveAteJinha
 }
 
-macro MoveJinha {
+macro moveAteJinha {
     do move 107 108
 }
 
@@ -398,7 +393,7 @@ automacro campoDeAprendiz_bugouNoBradeNaQuest7120IrAteBrade {
     IsEquippedID shoes 2414 # Sandálias do Aprendiz
     SkillLevel NV_FIRSTAID = 1
     NpcNotNear /Brade/
-    call MoveToBrade
+    call moverAteBrade
 }
 
 automacro campoDeAprendiz_bugouNoBradeNaQuest7120FalarComBrade {
@@ -416,7 +411,7 @@ automacro campoDeAprendiz_bugouNoBradeNaQuest7120FalarComBrade {
     IsEquippedID shoes 2414 # Sandálias do Aprendiz
     SkillLevel NV_FIRSTAID = 1
     NpcNear /Brade/
-    call TalkBradeGetTunic
+    call falarComBrade_pegarTunica
 }
 
 #7120#Campo de Treinamento#SG_FEEL#QUE_NOIMAGE#
@@ -428,10 +423,10 @@ automacro campoDeAprendiz_falarComBradeTerceiraVez {
     SkillLevel NV_FIRSTAID = 1
     NpcNear /Brade/
     priority 0
-    call TalkBradeGetTunic
+    call falarComBrade_pegarTunica
 }
 
-macro TalkBradeGetTunic {
+macro falarComBrade_pegarTunica {
     do talk $.NpcNearLastBinId
 }
 
@@ -561,7 +556,7 @@ automacro campoDeAprendiz_irParaOsCamposDoBrade {
     InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
     NpcNotNear /Brade/
     priority 1
-    call moveBradeGrounds
+    call moverAteBrade_campoDeBatalha
 }
 
 automacro campoDeAprendiz_falarComBradeNosCamposParaPegarQuests {
@@ -595,10 +590,10 @@ automacro campoDeAprendiz_irAteBradeQuestCompleta {
     InMap new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
     NpcNotNear /Brade/
     priority 1
-    call moveBradeGrounds
+    call moverAteBrade_campoDeBatalha
 }
 
-macro moveBradeGrounds {
+macro moverAteBrade_campoDeBatalha {
     do mconf 1063 0 0 0 #lunatico
     do mconf 1002 0 0 0 #poring
     do mconf 1113 0 0 0 #drops
@@ -632,7 +627,7 @@ automacro campoDeAprendiz_ultimoBugDoBrade {
     call {
         log Acabou de ocorrer um bug na sequencia do campo de treinamento
         log Resolvendo isso
-        call moveBradeGrounds
+        call moverAteBrade_campoDeBatalha
         do talk &npc(/Brade/)
         do conf -f quest_atual lunaticos
     }
@@ -645,7 +640,7 @@ automacro campoDeAprendiz_questLunaticos_bugada {
     call {
         log Acabou de ocorrer um bug na sequencia do campo de treinamento
         log Resolvendo isso
-        call moveBradeGrounds
+        call moverAteBrade_campoDeBatalha
         do talk &npc(/Brade/)
     }
 }
