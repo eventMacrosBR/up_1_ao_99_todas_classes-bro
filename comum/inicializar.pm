@@ -240,7 +240,7 @@ macro atualizarBuild_skills {
 
 
 automacro atualizarMapasDeUp_hook {
-    SimpleHookEvent base_level_changed, job_level_changed
+    SimpleHookEvent base_level_changed
     exclusive 1
     call atualizarMapasDeUp
 }
