@@ -55,12 +55,12 @@ automacro campoDeAprendiz_falarComSprakkiLadoDeFora {
         do iconf 7059 50 0 0
         do iconf 7060 50 0 0
         do iconf 13040 0 0 0
-        do iconf 1243 0 0 0
-        do iconf 2112 0 0 0
-        do iconf 5055 0 0 0
-        do iconf 2414 0 0 0
-        do iconf 2510 0 0 0
-        do iconf 2352 0 0 0
+        do iconf 1243 0 0 0 # Adaga do Aprendiz
+        do iconf 2112 0 0 0 # Vembrassa do Aprendiz
+        do iconf 5055 0 0 0 # Chapéu de Ovo do Aprendiz
+        do iconf 2414 0 0 0 # Sandálias do Aprendiz
+        do iconf 2510 0 0 0 # Capuz do Aprendiz
+        do iconf 2352 0 0 0 # Traje do Aprendiz
         do iconf 1201 0 0 0
         do iconf 13041 0 0 0
         do iconf 2393 0 0 0
@@ -231,12 +231,12 @@ automacro campoDeAprendiz_falarComBrade {
     InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
     priority 0
     call {
-        do pconf 5055 0
-        do pconf 2510 0
-        do pconf 2414 0
-        do pconf 2112 0
-        do pconf 1243 0
-        do pconf 2352 0
+        do pconf 5055 0 # Chapéu de Ovo do Aprendiz
+        do pconf 2510 0 # Capuz do Aprendiz
+        do pconf 2414 0 # Sandálias do Aprendiz
+        do pconf 2112 0 # Vembrassa do Aprendiz
+        do pconf 1243 0 # Adaga do Aprendiz
+        do pconf 2352 0 # Traje do Aprendiz
         do talk $.NpcNearLastBinId
     }
 }
@@ -259,17 +259,17 @@ automacro campoDeAprendiz_falarComBrade_bugado {
     QuestInactive 7118
     QuestInactive 7119
     BaseLevel = 3
-    InInventoryID 5055 = 0
+    InInventoryID 5055 = 0  # Chapéu de Ovo do Aprendiz
     NpcNear /Brade/
     InMap new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
     priority 0
     call {
-        do pconf 5055 0
-        do pconf 2510 0
-        do pconf 2414 0
-        do pconf 2112 0
-        do pconf 1243 0
-        do pconf 2352 0
+        do pconf 5055 0 # Chapéu de Ovo do Aprendiz
+        do pconf 2510 0 # Capuz do Aprendiz
+        do pconf 2414 0 # Sandálias do Aprendiz
+        do pconf 2112 0 # Vembrassa do Aprendiz
+        do pconf 1243 0 # Adaga do Aprendiz
+        do pconf 2352 0 # Traje do Aprendiz
         do talk $.NpcNearLastBinId
     }
 }
@@ -282,6 +282,12 @@ automacro campoDeAprendiz_equiparEsquipesDoBrade {
     QuestActive 7119
     IsNotEquippedID topHead 5055, leftHand 2112, robe 2510, shoes 2414, armor 2352, rightHand 1243
     call {
+        do pconf 5055 0 # Chapéu de Ovo do Aprendiz
+        do pconf 2510 0 # Capuz do Aprendiz
+        do pconf 2414 0 # Sandálias do Aprendiz
+        do pconf 2112 0 # Vembrassa do Aprendiz
+        do pconf 1243 0 # Adaga do Aprendiz
+        do pconf 2352 0 # Traje do Aprendiz
         call equiparSePossivel "topHead"   5055 # Chapéu de Ovo do Aprendiz
         call equiparSePossivel "robe"      2510 # Capuz do Aprendiz
         call equiparSePossivel "shoes"     2414 # Sandálias do Aprendiz
@@ -298,12 +304,12 @@ automacro campoDeAprendiz_falarComBradeSegundaVez {
     exclusive 1
     QuestActive 7119
     BaseLevel = 3
-    IsEquippedID topHead 5055
-    IsEquippedID leftHand 2112
-    IsEquippedID rightHand 1243
-    IsEquippedID robe 2510
-    IsEquippedID armor 2352
-    IsEquippedID shoes 2414
+    IsEquippedID topHead 5055  # Chapéu de Ovo do Aprendiz
+    IsEquippedID leftHand 2112 # Vembrassa do Aprendiz
+    IsEquippedID rightHand 1243 # Adaga do Aprendiz
+    IsEquippedID robe 2510 # Capuz do Aprendiz
+    IsEquippedID armor 2352 # Traje do Aprendiz
+    IsEquippedID shoes 2414 # Sandálias do Aprendiz
     NpcNear /Brade/
     call {
         do talk $.NpcNearLastBinId
@@ -316,12 +322,12 @@ automacro campoDeAprendiz_bugouNoBradeNaQuest7120IrAteJinha {
     QuestInactive 7120
     BaseLevel = 4
     InInventoryID 12324 > 0
-    IsEquippedID topHead 5055
-    IsEquippedID leftHand 2112
-    IsEquippedID rightHand 1243
-    IsEquippedID robe 2510
-    IsEquippedID armor 2352
-    IsEquippedID shoes 2414
+    IsEquippedID topHead 5055  # Chapéu de Ovo do Aprendiz
+    IsEquippedID leftHand 2112 # Vembrassa do Aprendiz
+    IsEquippedID rightHand 1243 # Adaga do Aprendiz
+    IsEquippedID robe 2510 # Capuz do Aprendiz
+    IsEquippedID armor 2352 # Traje do Aprendiz
+    IsEquippedID shoes 2414 # Sandálias do Aprendiz
     SkillLevel NV_FIRSTAID = 0
     NpcNotNear /Jinha/
     call MoveJinha
@@ -349,12 +355,12 @@ automacro campoDeAprendiz_bugouNoBradeNaQuest7120FalarComJinha {
     QuestInactive 7120
     BaseLevel = 4
     InInventoryID 12324 > 0
-    IsEquippedID topHead 5055
-    IsEquippedID leftHand 2112
-    IsEquippedID rightHand 1243
-    IsEquippedID robe 2510
-    IsEquippedID armor 2352
-    IsEquippedID shoes 2414
+    IsEquippedID topHead 5055  # Chapéu de Ovo do Aprendiz
+    IsEquippedID leftHand 2112 # Vembrassa do Aprendiz
+    IsEquippedID rightHand 1243 # Adaga do Aprendiz
+    IsEquippedID robe 2510 # Capuz do Aprendiz
+    IsEquippedID armor 2352 # Traje do Aprendiz
+    IsEquippedID shoes 2414 # Sandálias do Aprendiz
     SkillLevel NV_FIRSTAID = 0
     NpcNear /Jinha/
     call TalkJinha
@@ -384,12 +390,12 @@ automacro campoDeAprendiz_bugouNoBradeNaQuest7120IrAteBrade {
     BaseLevel = 4
     InInventoryID 12324 > 0
     InInventoryID 2393 = 0
-    IsEquippedID topHead 5055
-    IsEquippedID leftHand 2112
-    IsEquippedID rightHand 1243
-    IsEquippedID robe 2510
-    IsEquippedID armor 2352
-    IsEquippedID shoes 2414
+    IsEquippedID topHead 5055  # Chapéu de Ovo do Aprendiz
+    IsEquippedID leftHand 2112 # Vembrassa do Aprendiz
+    IsEquippedID rightHand 1243 # Adaga do Aprendiz
+    IsEquippedID robe 2510 # Capuz do Aprendiz
+    IsEquippedID armor 2352 # Traje do Aprendiz
+    IsEquippedID shoes 2414 # Sandálias do Aprendiz
     SkillLevel NV_FIRSTAID = 1
     NpcNotNear /Brade/
     call MoveToBrade
@@ -402,12 +408,12 @@ automacro campoDeAprendiz_bugouNoBradeNaQuest7120FalarComBrade {
     BaseLevel = 4
     InInventoryID 12324 > 0
     InInventoryID 2393 = 0
-    IsEquippedID topHead 5055
-    IsEquippedID leftHand 2112
-    IsEquippedID rightHand 1243
-    IsEquippedID robe 2510
-    IsEquippedID armor 2352
-    IsEquippedID shoes 2414
+    IsEquippedID topHead 5055  # Chapéu de Ovo do Aprendiz
+    IsEquippedID leftHand 2112 # Vembrassa do Aprendiz
+    IsEquippedID rightHand 1243 # Adaga do Aprendiz
+    IsEquippedID robe 2510 # Capuz do Aprendiz
+    IsEquippedID armor 2352 # Traje do Aprendiz
+    IsEquippedID shoes 2414 # Sandálias do Aprendiz
     SkillLevel NV_FIRSTAID = 1
     NpcNear /Brade/
     call TalkBradeGetTunic
