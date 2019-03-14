@@ -1,4 +1,5 @@
 sub inicializarParametrosQuestClasse1 {
+    #nome do hash: %parametrosQuestClasse1
     return {
         nomeClasse => 'arqueiro',
         npc => '64 71',
