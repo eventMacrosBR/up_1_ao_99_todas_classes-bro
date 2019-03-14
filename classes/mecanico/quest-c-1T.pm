@@ -1,5 +1,6 @@
 sub inicializarParametrosQuestClasse1T {
-        return {
+    #nome do hash: %parametrosQuestClasse1T
+    return {
         npc => '53 43',
         mapa => 'alberta_in',
         sequenciaConversa => '', #não sabemos ainda
