@@ -2,7 +2,6 @@ automacro utilidades_configEstaErrada {
     exclusive 1
     overrideAI 1
     priority -5
-    ConfigKey questRenascer_estagio none
     ConfigKeyNot autoTalkCont 1
     call {
         log Tem uma config que está errada
@@ -58,6 +57,18 @@ macro pararDeAtacar {
 automacro reloadPortals {
     exclusive 1
     timeout 300
+    BaseLevel != 99
+    ConfigKeyNot quest_eden em_curso
+    ConfigKeyNot quest_eden terminando
+    ConfigKeyNot naSequenciaDeSalvamento true
+    ConfigKeyNot virarClasse2 true
+    ConfigKeyNot virarClasse2T true
+    ConfigKeyNot virarClasse3 true
+    ConfigKeyNot quest_skill true
+    ConfigKeyNot esperarFazerQuest true
+    ConfigKeyNot lockMap $mapa{lockMap}
+    ConfigKey aeroplano1 none
+    ConfigKey aeroplano2 none
     ConfigKey questRenascer_estagio none
     JobIDNot 0 #Aprendiz
     JobIDNot 4023 #Baby Aprendiz
@@ -416,6 +427,17 @@ macro rebornarAgora {
 }
 
 automacro mostrarAjuda {
+    ConfigKeyNot quest_eden em_curso
+    ConfigKeyNot quest_eden terminando
+    ConfigKeyNot naSequenciaDeSalvamento true
+    ConfigKeyNot virarClasse2 true
+    ConfigKeyNot virarClasse2T true
+    ConfigKeyNot virarClasse3 true
+    ConfigKeyNot quest_skill true
+    ConfigKeyNot esperarFazerQuest true
+    ConfigKey aeroplano1 none
+    ConfigKey aeroplano2 none
+    ConfigKey questRenascer_estagio none
     timeout 600 #10 minutos
     BaseLevel > 0
     exclusive 1
