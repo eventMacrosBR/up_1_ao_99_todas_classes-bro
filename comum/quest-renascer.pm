@@ -146,7 +146,7 @@ automacro questRenascer_chamarAmigo {
         do conf storageAuto_npc yuno 152 187
         do conf sellAuto_npc yuno_in01 25 34
         #esvazia tudo pra ficar com 0 de peso
-        do autosell #se bem me lembro, ele ta autostorage logo depois, o que é bom
+        do autosell #se bem me lembro, ele da autostorage logo depois, o que é bom
         do autostorage
     }
 }
@@ -161,7 +161,7 @@ automacro questRenascer_irNoLocalPraNegociar {
     Zeny != 1285000 #vamos ficar com o zeny certo
     Zeny != 0
     exclusive 1
-    timeout 50
+    IsNotInMapAndCoordinate $parametrosQuestClasseRenascer{pontoDeEncontroX} $parametrosQuestClasseRenascer{pontoDeEncontroY}
     QuestInactive 1000
     call {
         do conf storageAuto_npc yuno 152 187
@@ -169,13 +169,13 @@ automacro questRenascer_irNoLocalPraNegociar {
         $vezesQuePediPraVir++
         if ($vezesQuePediPraVir > 2) {
             do pm "$parametrosQuestClasseRenascer{amigo}" vou ficar spammando isso ate vc chegar perto de mim
-            do pm "$parametrosQuestClasseRenascer{amigo}" vem em juno $parametrosQuestClasseRenascer{pontoDeEncontro}
+            do pm "$parametrosQuestClasseRenascer{amigo}" vem em juno $parametrosQuestClasseRenascer{pontoDeEncontroX} $parametrosQuestClasseRenascer{pontoDeEncontroY}
         }
         
-        do pm "$parametrosQuestClasseRenascer{amigo}" vem aqui em juno $parametrosQuestClasseRenascer{pontoDeEncontro}
+        do pm "$parametrosQuestClasseRenascer{amigo}" vem aqui em juno $parametrosQuestClasseRenascer{pontoDeEncontroX} $parametrosQuestClasseRenascer{pontoDeEncontroY}
         do pm "$parametrosQuestClasseRenascer{amigo}" quando chegar, negocia comigo
         #movendo pra local especifico
-        do move yuno $parametrosQuestClasseRenascer{pontoDeEncontro} &rand(1,2)
+        do move yuno $parametrosQuestClasseRenascer{pontoDeEncontroX} $parametrosQuestClasseRenascer{pontoDeEncontroY} &rand(1,2)
     }
 }
 
@@ -185,6 +185,7 @@ automacro questRenascer__amigoPertoMasNaoTaoPerto {
     priority -5
     ConfigKey questRenascer_estagio preparando
     InMap yuno
+    IsInMapAndCoordinate $parametrosQuestClasseRenascer{pontoDeEncontroX} $parametrosQuestClasseRenascer{pontoDeEncontroY}
     PlayerNearDist /\Q$parametrosQuestClasseRenascer{amigo}\E/ >= 3
     timeout 20
     QuestInactive 1000
@@ -192,8 +193,8 @@ automacro questRenascer__amigoPertoMasNaoTaoPerto {
         undef @frasesRandom
         
         &push(@frasesRandom, ow chega mais manin)
-        &push(@frasesRandom, aqui, nao consigo negociar a essa distancia nao uai)
-        &push(@frasesRandom, então... se vc nao chegar mais perto, não vai rolar)
+        &push(@frasesRandom, aqui nao consigo negociar a essa distancia nao uai)
+        &push(@frasesRandom, então... se vc nao chegar mais perto não vai rolar)
         &push(@frasesRandom, cola aqui ze chega mais)
         &push(@frasesRandom, vem ca)
         &push(@frasesRandom, ow vai ficar longe assim mesmo? cole ze)
@@ -209,6 +210,7 @@ automacro questRenascer_amigoPertoPedindoTrade {
     priority -5
     ConfigKey questRenascer_estagio preparando
     InMap yuno
+    IsInMapAndCoordinate $parametrosQuestClasseRenascer{pontoDeEncontroX} $parametrosQuestClasseRenascer{pontoDeEncontroY}
     PlayerNearDist /\Q$parametrosQuestClasseRenascer{amigo}\E/ < 3
     timeout 20
     QuestInactive 1000
