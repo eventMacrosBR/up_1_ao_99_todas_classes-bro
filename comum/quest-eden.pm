@@ -783,14 +783,14 @@ automacro questEden12e26e40_PegandoEquips {
         log ===========================================
         ]
         do conf -f o_que_estou_fazendo quest eden pegando Meus Equips de Direito
-        do talk $.NpcNearLastBinId
+        do talk &npc(/hael/i)
         do talk resp 0
         do talk resp 1
         do talk resp /$parametrosQuestEden{armaLevel26e40}/i
 
         if ( $.lvl >= 40 ) {
             #pegar encantamento do chapeu valhalla
-            do talk $.NpcNearLastBinId
+            do talk &npc(/hael/i)
             do talk resp 2
             do talk resp 4
             do talk resp 0
