@@ -1,4 +1,5 @@
 sub inicializarParametrosQuestEden {
+    #nome do hash: %parametrosQuestEden
     return {
         armaLevel26e40 => 'arco',
         armaLevel60 => 'chicote',
