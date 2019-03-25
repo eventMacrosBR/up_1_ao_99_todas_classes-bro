@@ -55,7 +55,7 @@ function gerarEEmpacotarMacros {
         classe=$(basename $classe)
         echo $classe
         pwsh -File gerador-eventmacros.ps1 -job "$classe"
-        arquivoZip="$classe ($(estaFuncionando $classe)).zip"
+        arquivoZip="$classe \($(estaFuncionando $classe)\).zip"
         zip $arquivoZip eventMacros.txt
         if [ "$(temPluginsParaEmpacotar $classe)" == "temPlugins" ]; then
             adicionarPlugins "$arquivoZip" "$classe"
