@@ -123,7 +123,7 @@ automacro questRenascer_chamarAmigo {
         $vezesQueTentouZerarPeso++
         if ($.statushandle =~ /EFST_RIDING/i) do pecopeco release
         #TODO adicionar uma linha pra remover falcão
-        #e outra linha para vaporizar homunculo
+        #TODO adicionar outra linha para vaporizar homunculo
         if ( $vezesQueTentouZerarPeso > 2 ) {
             [
             log já tentei ficar com peso zero,
@@ -169,7 +169,6 @@ automacro questRenascer_irNoLocalPraNegociar {
         $vezesQuePediPraVir++
         if ($vezesQuePediPraVir > 2) {
             do pm "$parametrosQuestClasseRenascer{amigo}" vou ficar spammando isso ate vc chegar perto de mim
-            do pm "$parametrosQuestClasseRenascer{amigo}" vem em juno $parametrosQuestClasseRenascer{pontoDeEncontroX} $parametrosQuestClasseRenascer{pontoDeEncontroY}
         }
         
         do pm "$parametrosQuestClasseRenascer{amigo}" vem aqui em juno $parametrosQuestClasseRenascer{pontoDeEncontroX} $parametrosQuestClasseRenascer{pontoDeEncontroY}
