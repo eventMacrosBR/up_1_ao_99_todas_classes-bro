@@ -73,7 +73,7 @@ sub inicializarParametrosQuestClasseRenascer {
         #só poderá ser as coordenadas, não coloque nome de cidade aqui, senão é treta
         #a cidade sempre será obrigatoriamente em juno, já que o reborn se passa por lá
         #altere a coordenada a seu prazer, fique a vontade
-        pontoDeEncontroX => '145..147'
+        pontoDeEncontroX => '145..147',
         pontoDeEncontroY => '115..117'
     );
     return \%parametrosQuestClasseRenascer;
