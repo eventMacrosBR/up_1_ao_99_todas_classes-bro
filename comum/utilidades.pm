@@ -131,7 +131,7 @@ macro pegarItemDoArmazenSeTiver {
     } else {
         [
         log ===================================
-        log = Não tenho o item :/
+        log = Não tenho $item no armazen
         log ===================================
         ]
     }

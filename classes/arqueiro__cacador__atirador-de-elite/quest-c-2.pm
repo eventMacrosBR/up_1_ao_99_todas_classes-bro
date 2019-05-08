@@ -165,9 +165,7 @@ automacro questCacador_voltandoPraPronteraEArredores {
     ConfigKey aeroplano1 none
     ConfigKey aeroplano2 none
     ConfigKey passo_quest_cacador coletar itens
-    call {
     call aeroplano_hugelPara "izlude"
-    }
 }
 
 #4002#Mudança de Classe: Caçador#SG_FEEL#QUE_NOIMAGE#
@@ -205,10 +203,10 @@ automacro questCacador_coletarItens_possibilidade2 {
         $item1{lockMap} = moc_fild01
         
         $item2{ID}      = 932 #Osso
-        $item1{lockMap} = pay_dun01
+        $item2{lockMap} = pay_dun01
         
         $item3{ID}      = 511 #Erva Verde
-        $item1{lockMap} = prt_fild08
+        $item3{lockMap} = prt_fild08
         
         call decidirLockMapProItem
     }
@@ -228,10 +226,10 @@ automacro questCacador_coletarItens_possibilidade3 {
         $item1{lockMap} = pay_fild08
         
         $item2{ID}      = 507 #Erva Vermelha
-        $item1{lockMap} = mjolnir_09
+        $item2{lockMap} = mjolnir_09
         
         $item3{ID}      = 919 #Couro de Animal
-        $item1{lockMap} = pay_fild08 # TODO: esse mapa ta errado com certeza
+        $item3{lockMap} = pay_fild08 # TODO: esse mapa ta errado com certeza
         
         call decidirLockMapProItem
     }
@@ -250,10 +248,10 @@ automacro questCacador_coletarItens_possibilidade4 {
         $item1{lockMap} = pay_dun04 # TODO: será que o bot consegue chegar nesse mapa? *pensativo*
         
         $item2{ID}      = 7032 #Pedaço de Casca de Ovo
-        $item1{lockMap} = pay_dun01
+        $item2{lockMap} = pay_dun01
         
         $item3{ID}      = 914 #Felpa
-        $item1{lockMap} = prt_fild08
+        $item3{lockMap} = prt_fild08
         
         call decidirLockMapProItem
     }
@@ -272,10 +270,10 @@ automacro questCacador_coletarItens_possibilidade5 {
         $item1{lockMap} = gef_fild00
         
         $item2{ID}      = 955 #Pele de Verme
-        $item1{lockMap} = anthell02
+        $item2{lockMap} = anthell02
         
         $item3{ID}      = 508 #Erva Amarela
-        $item1{lockMap} = prt_fild03
+        $item3{lockMap} = prt_fild03
         
         call decidirLockMapProItem
     }
@@ -294,10 +292,10 @@ automacro questCacador_coletarItens_possibilidade6 {
         $item1{lockMap} = anthell01
         
         $item2{ID}      = 938 #Muco Pegajoso
-        $item1{lockMap} = pay_dun00
+        $item2{lockMap} = pay_dun00
         
         $item3{ID}      = 948 #Pata de Urso
-        $item1{lockMap} = pay_fild07
+        $item3{lockMap} = pay_fild07
         
         call decidirLockMapProItem
     }
@@ -316,10 +314,10 @@ automacro questCacador_coletarItens_possibilidade7 {
         $item1{lockMap} = mjolnir_01
         
         $item2{ID}      = 1026 #Avelã
-        $item1{lockMap} = pay_fild09
+        $item2{lockMap} = pay_fild09
         
         $item3{ID}      = 942 #Cauda de Yoyo
-        $item1{lockMap} = prt_fild03
+        $item3{lockMap} = prt_fild03
         
         call decidirLockMapProItem
     }
@@ -402,7 +400,7 @@ automacro questCacador_entregarItensEmHugel {
     exclusive 1
     call {
         call pararDeAtacar
-    do conf lockMap none
+        do conf lockMap none
         call aeroplano_junoPara "hugel"
 
     }
