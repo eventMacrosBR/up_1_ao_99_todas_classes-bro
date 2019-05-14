@@ -243,14 +243,18 @@ macro equiparSePossivel {
     $idDoEquip = $.param[1]
     $indice = pegarIndiceDoEquipamentoPeloId($slot, $idDoEquip)
     if ($indice != -1) do eq $indice
-    log Sucesso.
 }
 
 sub pegarIndiceDoEquipamentoPeloId {
     my ($slotDoEquipamento, $id) = @_;
     message "Tentanto equipar '$items_lut{$id}' ($id)... ";
+
+    #associar o item no inventário a uma variável
     my $item = $char->inventory->getByNameID($id);
+
+    #checar se o item não existe no inventário
     if ($item eq "" ) {
+        #checando se a id passada é uma id válida
         if ( exists $items_lut{$id} ) {
             warning "Voce nao possui esse equipamento\n";
         } else {
@@ -258,20 +262,38 @@ sub pegarIndiceDoEquipamentoPeloId {
         }
         return -1;
     }
+    #atribuindo o indice do item a uma variavel
     my $indiceDoEquip = $item->{binID};
+
+    #checa se tem algo equipado no slot
     if (exists $char->{equipment}{$slotDoEquipamento}) {
         my $equipamento = $char->{equipment}{$slotDoEquipamento};
+
+        #checa se o que está equipado é igual ao que estamos tentando equipar
+        #o único problema desse código é que se vc tiver uma arma normal, e outra com carta
+        #ele vai achar que são iguais e não vai equipar
+        #mas não vai afetar essa eventMacro porque por enquanto só ta sendo usada em equips eden
         if ($equipamento->{nameID} == $id) {
             warning "Isso já está equipado.\n";
             return -1;
+        
+        #se o que tiver equipado for diferente do equip, então vamos equipar o que queremos
         } else {
             return $indiceDoEquip;
         }
+
+    #Se não tiver nada equipado, significa que pode equipar
     } else {
         return $indiceDoEquip;
     }
 }
 
+#sub checarSlot(String $slotDoEquipamento)
+#
+#   checa se no slot especificado já tem algum item equipado ou não
+#
+#se tiver algo equipado, retorna "tem equip"
+#senão, retorna "ta vazio"
 sub checarSlot {
     my ($slotDoEquipamento) = @_;
     if (exists $char->{equipment}{$slotDoEquipamento}) {
@@ -281,9 +303,18 @@ sub checarSlot {
     }
 }
 
+#sub checarSeEquipEstaEquipado(String $slotDoEquipamento, int $id)
+#
+#   checa se o item da id especificada está equipado no slot especificado
+#
+#se o item não existir no seu inventário, retorna "não existe"
+#se o item existir e ele já estiver equipado, retorna "sim"
+#se o item existir, mas não estiver equipado, ou não tiver nenhum equip no slot especificado, retorna "não equipado"
 sub checarSeEquipEstaEquipado {
     my ($slotDoEquipamento, $id) = @_;
     my $item = $char->inventory->getByNameID($id);
+
+    #se o item não existir no seu inventário, retorna "não existe"
     if ($item eq "" ) {
         warning "Erro: você não possui esse equipamento.\n";
         return "não existe";
@@ -291,32 +322,66 @@ sub checarSeEquipEstaEquipado {
     my $indiceDoEquip = $item->{binID};
     if (exists $char->{equipment}{$slotDoEquipamento}) {
         my $equipamento = $char->{equipment}{$slotDoEquipamento};
+
+        #se o item existir e ele já estiver equipado, retorna "sim"
         if ($equipamento->{nameID} == $id) {
             return "sim";
+        
+        #se o item existir, mas não estiver equipado, retorna "não equipado"
         } else {
             return "não equipado";
         }
+
+    #se o item existir, mas não tiver nenhum equip no slot especificado, retorna "não equipado"
     } else {
         return "não equipado";
     }
 }
 
+#sub pegarNomeDoItemEquipado(String $slotDoEquipamento)
+#
+#   serve simplesmente para pegar o nome do equipamento equipado no slot especificado
+#
+#se tiver algo equipado no slot especificado, retorna o nome do item
+#senão, retorna 0 (talvez fosse melhor retornar undef? sei lá)
 sub pegarNomeDoItemEquipado {
     my ($slotDoEquipamento) = @_;
     use strict;
     if (exists $char->{equipment}{$slotDoEquipamento}) {
-        my $equipamento = $char->{equipment}{$slotDoEquipamento};
-        return $equipamento->{name};
+        return $char->{equipment}{$slotDoEquipamento}{name};
     } else {
         return 0;
     }
 }
 
+#sub pegarNomePeloIdDoItem
+#
+#   consegue o nome do item com a id especificada
+#Se a ID existir no items.txt, retorna o nome do item
+#Senão, retorna a ID de volta pra pelo menos ter algo pra mostrar
 sub pegarNomePeloIdDoItem {
-    my $name = $items_lut{$_[0]};
-    return $name;
+    my ($id) = @_;
+    my $name = $items_lut{$id};
+    
+    if ($name) {
+        return $name
+    } else {
+        return $id;
+    }
 }
 
+#sub proximoMapa 
+#
+#   usado para descobrir qual é o próximo mapa a se teleportar no campo de aprendiz
+#   existe 5 cópias do campo de aprendiz, e cada um tem seu próprio código
+#   exemplo, existe o new_1-1, e o new_2-1, que são mapas exatamente iguais
+#   essa é a forma mais fácil de ir para o próximo mapa
+#   se o mapa for new_5-1, aí vai para o mapa new_5-2
+#   poise, é meio confuso mesmo, demorei pra entender
+#
+#se o mapa especificado bater com a regex, então retorna o novo mapa correto pra se teleportar
+#senão, retorna 0
+#note que a única forma de retornar 0 é por inadimplência do programador, então tomem cuidado
 sub proximoMapa {
     my $map = $_[0];
     if ($map =~ /^new_(\d)-(\d)$/) {
