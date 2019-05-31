@@ -38,7 +38,8 @@ sub extrairMapasDeUp {
             {lvlMin => 54, lvlMax => 59, lockMap => 'iz_dun02',   saveMap => 'izlude'},
             {lvlMin => 60, lvlMax => 70, lockMap => 'moc_fild17', saveMap => 'morocc'},
             {lvlMin => 71, lvlMax => 79, lockMap => 'mjolnir_11', saveMap => 'prontera'},
-            {lvlMin => 80, lvlMax => 98, lockMap => 'gef_fild06', saveMap => 'geffen'}
+            {lvlMin => 80, lvlMax => 89, lockMap => 'mjolnir_03', saveMap => 'geffen'},
+            {lvlMin => 90, lvlMax => 98, lockMap => 'ra_fild08',  saveMap => 'rachel'}
         ];
     } else {
         $variaveisDeUp =
@@ -52,7 +53,8 @@ sub extrairMapasDeUp {
             {lvlMin => 54, lvlMax => 59, lockMap => 'iz_dun02',   saveMap => 'izlude'},
             {lvlMin => 60, lvlMax => 70, lockMap => 'moc_fild17', saveMap => 'morocc'},
             {lvlMin => 71, lvlMax => 79, lockMap => 'mjolnir_11', saveMap => 'prontera'},
-            {lvlMin => 80, lvlMax => 98, lockMap => 'gef_fild06', saveMap => 'geffen'}
+            {lvlMin => 80, lvlMax => 89, lockMap => 'mjolnir_03', saveMap => 'geffen'},
+            {lvlMin => 90, lvlMax => 98, lockMap => 'ra_fild08',  saveMap => 'rachel'}
         ];
     }
     
@@ -75,7 +77,7 @@ sub inicializarParametrosQuestClasseRenascer {
         #só poderá ser as coordenadas, não coloque nome de cidade aqui, senão é treta
         #a cidade sempre será obrigatoriamente em juno, já que o reborn se passa por lá
         #altere a coordenada a seu prazer, fique a vontade
-        pontoDeEncontroX => '145..147'
+        pontoDeEncontroX => '145..147',
         pontoDeEncontroY => '115..117'
     );
     return \%parametrosQuestClasseRenascer;

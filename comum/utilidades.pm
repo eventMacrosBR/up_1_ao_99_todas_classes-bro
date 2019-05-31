@@ -118,20 +118,15 @@ macro pegarItemDoArmazenSeTiver {
 
     #checando duas vezes se tem o item mesmo no storage
     if (&storamount($item) > 0) {
-        $localDaKafra = &config(storageAuto_npc)
-        do move $localDaKafra &rand(3,8)
-        do talknpc &arg("$localDaKafra", 2) &arg("$localDaKafra", 3) r1
-        if ($.storageopen) {
-            do storage get &storage($item) $quantidade
-            do storage close
-        } else {
-            log o storage deveria estar aberto agora, mas não está
-            muita treta vixi
-        }
+        call irNaKafraEAbrirStorage
+        if (!$.storageopen) stop
+        do storage get &storage($item) $quantidade
+        do storage close
+        
     } else {
         [
         log ===================================
-        log = Não tenho o item :/
+        log = Não tenho pegarNomePeloIdDoItem($item) no armazen
         log ===================================
         ]
     }
@@ -139,31 +134,87 @@ macro pegarItemDoArmazenSeTiver {
 
 macro pegarDoStorageEVender {
     set exclusive 1
-    do ai manual
-    if (&config(itemsCheckWeight) != 1) do conf -f itemsCheckWeight 1
-    $localKafra = &config(storageAuto_npc)
-    do move $localKafra &rand(4,7)
-    do talknpc &arg("$localKafra", 2) &arg("$localKafra", 3) r1
-    pause 2
-    if ($.storageopen) {
-
+    $continuarLoop = 1
+    while ($continuarLoop) {
+        do ai manual
         @listaDeItems = criarListaDeItens("sell") #cria a array listaDeItems
+        if (&config(itemsCheckWeight) != 1) do conf -f itemsCheckWeight 1
+        call irNaKafraEAbrirStorage
+        if (!$.storageopen) stop
+        pause 2
+        $temItem = 0
         if ($listaDeItems[0] = erro) stop
-        $cont = 0
-        while ($cont < @listaDeItems  && $.weightpercent < 85) {
-            $qtdDoItemAtual = &storamount($listaDeItems[$cont])
-            do storage get &storage($listaDeItems[$cont]) if ( $qtdDoItemAtual > 0)
-            $cont++
+
+        $index = 0
+        set macro_delay 0.3
+        while ($index < @listaDeItems && $.weightpercent < 85) {
+            $temItem = 1
+            $qtdDoItemAtual = &storamount($listaDeItems[$index])
+            do storage get &storage($listaDeItems[$index]) if ( $qtdDoItemAtual > 0)
+            $index++
         }
         do storage close
         pause 1
-        ai on
+        set macro_delay 1
+        do ai on
         do autosell
-    } else {
-        log o strorage deveria estar aberto agora, mas não está
-        log muita treta vish
+        if (! $temItem) {
+            [
+            log ===================================
+            log = Acredito que vendi todos os itens
+            log = que estavam no storage mas estavam marcados
+            log = pra ser vendido no npc
+            log ===================================
+            ]
+            $continuarLoop = 0
+        }
     }
     log FIM
+}
+
+# essa macro serve para tentar abrir o storage
+# na kafra que está salva na config storageAuto_npc
+# em caso de erro, vai tentar abrir mais duas vezes
+# na terceira vez mostra um erro e para oq tava fazendo
+macro irNaKafraEAbrirStorage {
+    $tentativa = 0
+    while ($continuarLoop || $tentativa >= 3) {
+        
+        $localKafra = &config(storageAuto_npc)
+        do move $localKafra &rand(4,7)
+        
+        if (&config(master) =~ /Valhalla/ ) {
+            do talknpc &arg("$localKafra", 2) &arg("$localKafra", 3) r1 r0
+        } else  {
+            do talknpc &arg("$localKafra", 2) &arg("$localKafra", 3) r1
+        }
+        
+        if (!$.storageopen) {
+            $tentativa++
+            
+            if ($tentativa >= 3) {
+                [
+                error ===================================
+                error = acabei de executar os comandos para
+                error = abrir o storage, porém o mesmo não está aberto
+                error = vou parar tudo que estou fazendo
+                error ===================================
+                ]
+                stop
+            } else {
+                [
+                warning ===================================
+                warning = tentativa $tentativa de 3 de abrir o storage
+                warning = tentando denovo
+                warning ===================================
+                ]
+            }
+        } else {
+            #objetivo cumprido: abrir storage
+            #podemos parar o loop
+            $continuarLoop = 0
+        }
+    }
 }
 
 sub criarListaDeItens {
@@ -361,10 +412,8 @@ sub pegarNomeDoItemEquipado {
 #Senão, retorna a ID de volta pra pelo menos ter algo pra mostrar
 sub pegarNomePeloIdDoItem {
     my ($id) = @_;
-    my $name = $items_lut{$id};
-    
-    if ($name) {
-        return $name
+    if (exists $items_lut{$id}) {
+        return $items_lut{$id};
     } else {
         return $id;
     }
