@@ -73,6 +73,9 @@ automacro questEden12_iniciandoMoverPerto {
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15009 #Uniforme Valhalla Iniciante
     InInventoryID 15009 = 0 #Uniforme Valhalla Iniciante
+    JobIDNot $parametrosClasses{idC1T}
+    JobIDNot $parametrosClasses{idC2T}
+    JobIDNot $parametrosClasses{idC2TAlt}
     call moverPertoDosNpcEden
 }
 
@@ -90,6 +93,9 @@ automacro questEden26_iniciandoMoverPerto {
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15010 #Uniforme Valhalla Intermediário
     InInventoryID 15010 = 0 #Uniforme Valhalla Intermediário
+    JobIDNot $parametrosClasses{idC1T}
+    JobIDNot $parametrosClasses{idC2T}
+    JobIDNot $parametrosClasses{idC2TAlt}
     call moverPertoDosNpcEden
 }
 
@@ -110,6 +116,9 @@ automacro questEden40_iniciandoMoverPerto {
     IsNotEquippedID armor 15011
     InInventoryID 22508 = 1 #Emblema do Éden#
     InInventoryID 15011 = 0 #armadura que ganha com essa quest
+    JobIDNot $parametrosClasses{idC1T}
+    JobIDNot $parametrosClasses{idC2T}
+    JobIDNot $parametrosClasses{idC2TAlt}
     call moverPertoDosNpcEden
 }
 
@@ -126,6 +135,9 @@ automacro questEden60_iniciandoMoverPerto {
     ConfigKeyNot quest_eden terminando
     IsNotEquippedID armor 15031 #Armadura do Grupo Éden
     InInventoryID 15031 = 0 #Armadura do Grupo Éden
+    JobIDNot $parametrosClasses{idC1T}
+    JobIDNot $parametrosClasses{idC2T}
+    JobIDNot $parametrosClasses{idC2TAlt}
     call moverPertoDosNpcEden
 }
 
