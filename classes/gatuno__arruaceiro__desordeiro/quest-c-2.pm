@@ -123,7 +123,19 @@ automacro virarArruaceiro_etapa3_coletarItens {
         $qtdUnha           = &invamount (957)
         $qtdOsso           = &invamount (932)
         $qtdMandibula      = &invamount (958)
-
+        
+        log = Checando se tenho Erva Azul no armazém
+        pegarItemDoArmazenSeTiver "Erva Azul" 7
+        
+        log = Checando se tenho Unha Apodrecida no armazém
+        pegarItemDoArmazenSeTiver "Unha Apodrecida" 10
+        
+        log = Checando se tenho Osso no armazém
+        pegarItemDoArmazenSeTiver "Osso" 10
+        
+        log = Checando se tenho Mandíbula Horrenda no armazém
+        pegarItemDoArmazenSeTiver "Mandíbula Horrenda" 10
+        
         if ( $qtdErvaAzul < 6 ) { #primeiro a coletar: Erva Azul
             [
             do conf lockMap cmd_fild02
