@@ -869,6 +869,7 @@ automacro equipandoArmaEden {
     BaseLevel 1..98 #não quero checar por armas no lvl 99, pode dar treta
     JobIDNot 0 #aprendiz
     JobIDNot 4023 # baby aprendiz
+    overrideAI 1
     run-once 1
     exclusive 1
     call equiparArma
@@ -915,6 +916,7 @@ automacro equipandoArmaduraEden {
     BaseLevel 12..98 #não quero checar por armaduras no lvl 99, pode dar treta
     JobIDNot 0 #aprendiz
     JobIDNot 4023 # baby aprendiz
+    overrideAI 1
     run-once 1
     exclusive 1
     call equiparArmadura
@@ -955,6 +957,7 @@ automacro equipandoBotaEden {
     BaseLevel 12..98 #não quero checar por armas no lvl 99, pode dar treta
     JobIDNot 0 #aprendiz
     JobIDNot 4023 # baby aprendiz
+    overrideAI 1
     run-once 1
     exclusive 1
     call equiparBota
@@ -995,6 +998,7 @@ automacro equipandoChapeuEden {
     BaseLevel 12..98 #não quero checar por armas no lvl 99, pode dar treta
     JobIDNot 0 #aprendiz
     JobIDNot 4023 # baby aprendiz
+    overrideAI 1
     run-once 1
     exclusive 1
     call equiparChapeu
@@ -1023,6 +1027,7 @@ automacro equipandoCapaEden {
     BaseLevel 12..98 #não quero checar por armas no lvl 99, pode dar treta
     JobIDNot 0 #aprendiz
     JobIDNot 4023 # baby aprendiz
+    overrideAI 1
     run-once 1
     exclusive 1
     call equiparCapa
