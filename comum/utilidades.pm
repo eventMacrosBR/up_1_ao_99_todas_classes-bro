@@ -309,7 +309,9 @@ sub pegarIndiceDoEquipamentoPeloId {
         if ( exists $items_lut{$id} ) {
             warning "Voce nao possui esse equipamento\n";
         } else {
-            warning "A ID do item esta incorreta\n";
+            error "A ID do item esta incorreta\n";
+            error "ID apresentada: '$id'\n";
+            error "Entre em contato com os desenvolvedores da eventMacro\n"
         }
         return -1;
     }
