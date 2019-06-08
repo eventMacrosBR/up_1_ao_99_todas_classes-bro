@@ -467,12 +467,12 @@ macro rebornarAgora {
         log = peso zero, correto
     } else {
         [
-        log ===================================
-        log = ainda não está com zero de peso
-        log = impossível começar a rebornar
-        log = peso: $.weight
-        log = parando macro
-        log ===================================
+        error ===================================
+        error = ainda não está com zero de peso
+        error = impossível começar a rebornar
+        error = peso: $.weight
+        error = parando macro
+        error ===================================
         ]
         stop
     }
@@ -481,16 +481,16 @@ macro rebornarAgora {
         log = mapa $.map, correto
     } else {
         [
-        log ===================================
-        log = tenho que estar em um dos seguintes mapas:
-        log = yuno
-        log = yuno_in01
-        log = yuno_in02
-        log = yuno_in05
-        log = mas estou em $.map...
-        log = impossível começar a rebornar
-        log = parando macro
-        log ===================================
+        error ===================================
+        error = tenho que estar em um dos seguintes mapas:
+        error = yuno
+        error = yuno_in01
+        error = yuno_in02
+        error = yuno_in05
+        error = mas estou em $.map...
+        error = impossível começar a rebornar
+        error = parando macro
+        error ===================================
         ]
         stop
     }
@@ -499,12 +499,12 @@ macro rebornarAgora {
         log = lvl de base 99, correto
     } else {
         [
-        log ===================================
-        log = ainda nao estou no lvl 99 de base
-        log = impossível começar a rebornar
-        log = lvl de base que estou: $.lvl
-        log = parando macro
-        log ===================================
+        error ===================================
+        error = ainda nao estou no lvl 99 de base
+        error = impossível começar a rebornar
+        error = lvl de base que estou: $.lvl
+        error = parando macro
+        error ===================================
         ]
         stop
     }
@@ -513,12 +513,12 @@ macro rebornarAgora {
         log = lvl de classe 50, correto
     } else {
         [
-        log ===================================
-        log = ainda não estou no lvl 50 de classe
-        log = impossível começar a rebornar
-        log = lvl de classe que estou: $.joblvl
-        log = parando a macro
-        log ===================================
+        error ===================================
+        error = ainda não estou no lvl 50 de classe
+        error = impossível começar a rebornar
+        error = lvl de classe que estou: $.joblvl
+        error = parando a macro
+        error ===================================
         ]
         stop
     }
@@ -529,13 +529,15 @@ macro rebornarAgora {
         log = já paguei a taxa pro livro
     } else {
         [
-        log ===================================
-        log = não estou com a quantidade certa de zenys
-        log = impossivel rebornar desse jeito
-        log ===================================
+        error ===================================
+        error = não estou com a quantidade certa de zenys
+        error = impossivel rebornar desse jeito
+        error = quanto que tenho: $.zeny zenys
+        error ===================================
         ]
         stop
     }
+    log = Tudo certo :-D
     log ==========================
         
     #se chegou até aqui é porque está tudo certinho
