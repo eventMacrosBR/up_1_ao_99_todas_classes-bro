@@ -179,7 +179,7 @@ automacro questLuzDivina_jaTenhosOsItens {
     call {
         if (&config(BetterShopper_0)) do conf BetterShopper_0 none #desabilitar
         if (&config(BetterShopper_0_disabled) != 1) do conf BetterShopper_0_disabled 1
-        if (config(BetterShopper_1)) do conf BetterShopper_1 none #desabilitar
+        if (&config(BetterShopper_1)) do conf BetterShopper_1 none #desabilitar
         if (&config(BetterShopper_1_disabled) != 1) do conf BetterShopper_1_disabled 1
         do conf -f quest_luz_divina falar_com_npc
         do conf -f BetterShopper_on 0
