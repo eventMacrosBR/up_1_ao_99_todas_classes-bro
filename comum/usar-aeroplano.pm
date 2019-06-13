@@ -486,7 +486,7 @@ automacro chegueiEmJuno {
         log destino para aeroplano1 é: &config(aeroplano1)
         log destino para aeroplano2 é: &config(aeroplano2)
         
-        if (&config(aeroplano1) =~ /rachel|izlude/i  ) {
+        if (&config(aeroplano1) =~ /rachel|izlude/i ) {
             do move airplane_01
         } elsif ( &config(aeroplano2) =~ /hugel|einbroch|lighthalzen/i ) {
             do move airplane
