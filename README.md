@@ -7,6 +7,7 @@
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/eventMacrosBR/up_1_ao_99_todas_classes-bro)
 
 ---
+Atualização 30/06/2026: Arquivando repositório por inatividade e por não existir mais bot pra rag brasileiro e de fácil acesso.
 
 # Como essa eventMacro só funciona no bRO, gostaríamos de avisar que até que consigam resolver o problema do EAC, essa eventMacro não tem propósito.
 
